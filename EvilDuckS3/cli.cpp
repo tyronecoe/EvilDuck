@@ -8,6 +8,8 @@
 #include "sd_card.h"
 #include "attackmode.h"
 #include "script_log.h"
+#include "execution_guard.h"
+#include "script_parser.h"
 
 namespace {
 String lineBuffer;
@@ -19,12 +21,8 @@ String trimLine(const String &in) {
   return s;
 }
 
-bool startsWithNoCase(const String &s, const char *pfx) {
-  String a = s;
-  String b = String(pfx);
-  a.toLowerCase();
-  b.toLowerCase();
-  return a.startsWith(b);
+bool startsWithNoCase(const String &s, const char *keyword) {
+  return script_parser::hasKeyword(s, keyword);
 }
 
 bool equalsNoCase(const String &aIn, const char *bIn) {
@@ -195,15 +193,15 @@ void executeCommand(const String &raw) {
     else out("> started \"" + name + "\"");
     return;
   }
-  if (startsWithNoCase(cmd, "stop")) {
+  if (equalsNoCase(cmd, "stop")) {
     duckscript::stop();
     out("Stopped");
     return;
   }
   if (startsWithNoCase(cmd, "send ")) {
     String line = cmd.substring(5);
-    if (!com::executeNow(line)) out("Send failed");
-    else out("OK");
+    if (!com::executeNow(line)) out(com::submissionError());
+    else out("Accepted");
     return;
   }
   if (startsWithNoCase(cmd, "autorun ")) {
@@ -316,9 +314,11 @@ void begin() {
 }
 
 void parse(const char *input, PrintFunction printfunc, bool echo) {
+  execution::Guard guard;
   activePrint = printfunc;
   if (echo) out(String("# ") + input);
   executeCommand(String(input));
+  activePrint = nullptr;
 }
 
 void update() {

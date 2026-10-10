@@ -96,6 +96,13 @@ LED: Anode → Pin 9, Cathode → GND
 ---
  
 ## 🦆 EvilDuck S3
+
+**Build/migration notice:** S3 builds now use a repository-owned 16 MiB partition
+table with two 7.25 MiB OTA slots. Use the pinned core 3.3.0 build wrapper and
+[flash verification/migration guide](docs/s3-flash-migration.md). Do not upload
+until your individual device's flash capacity is verified and its data migration
+is separately approved. Existing 4 MiB installations require SPIFFS restoration;
+adding this table does not migrate a device.
  
 The second generation. Built around the **ESP32-S3**, which handles both USB HID and WiFi natively on a single chip — no second microcontroller needed. The result is a more compact, more capable, fully self-contained device.
  

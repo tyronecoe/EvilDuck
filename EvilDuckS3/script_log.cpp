@@ -1,4 +1,5 @@
 #include "script_log.h"
+#include "execution_guard.h"
 
 static const size_t MAX_LINES = 48;
 static String lines[MAX_LINES];
@@ -10,6 +11,7 @@ static String currentScript;
 namespace script_log {
 
 static void push(const String &level, const String &msg) {
+  execution::Guard guard;
   String row = "[" + level + "] ";
   if (currentScript.length()) row += currentScript + ":" + String(currentLine) + " ";
   row += msg;
@@ -19,6 +21,7 @@ static void push(const String &level, const String &msg) {
 }
 
 void clear() {
+  execution::Guard guard;
   head = count = 0;
   currentLine = 0;
   currentScript = "";
@@ -30,11 +33,13 @@ void warn(const String &msg) { push("WARN", msg); }
 void error(const String &msg) { push("ERR", msg); }
 
 void setLine(uint32_t line, const String &scriptName) {
+  execution::Guard guard;
   currentLine = line;
   if (scriptName.length()) currentScript = scriptName;
 }
 
 String getText() {
+  execution::Guard guard;
   String out;
   if (!count) return out;
   size_t start = (head + MAX_LINES - count) % MAX_LINES;
@@ -45,6 +50,7 @@ String getText() {
 }
 
 String getJson() {
+  execution::Guard guard;
   String j = "{\"script\":\"" + currentScript + "\",\"line\":" + String(currentLine) + ",\"log\":[";
   if (!count) {
     j += "]}";

@@ -26,6 +26,41 @@ bool tokenToHid(const String &token, uint8_t &hidCode) {
   return hid_backend::keyNameToHid(token, hidCode);
 }
 
+Item next(const String &line, Cursor &cursor, uint8_t &modifiers,
+          uint8_t (&keys)[6], uint8_t &count, String &text) {
+  // Bound work even for very long modifier-only lines. Unknown words retain
+  // the original fallback (type the word, without inserting spaces).
+  for (uint8_t budget = 0; budget < 16; ++budget) {
+    while (cursor.offset < line.length() && line[cursor.offset] == ' ') ++cursor.offset;
+    size_t start = cursor.offset, end = start;
+    while (end < line.length() && line[end] != ' ') ++end;
+    String token = line.substring(start, end);
+    uint8_t value = 0;
+    if (token.length() && isModifierName(token, value)) {
+      cursor.modifiers |= value;
+      cursor.offset = end;
+      continue;
+    }
+    if (token.length() && tokenToHid(token, value)) {
+      if (cursor.count < 6) cursor.keys[cursor.count++] = value;
+      cursor.offset = end;
+      continue;
+    }
+    if (cursor.modifiers || cursor.count) {
+      modifiers = cursor.modifiers;
+      count = cursor.count;
+      memcpy(keys, cursor.keys, sizeof(keys));
+      cursor.modifiers = cursor.count = 0;
+      return Item::Report; // Leave an unknown word for the next call.
+    }
+    if (!token.length()) return Item::Done;
+    text = token;
+    cursor.offset = end;
+    return Item::Text;
+  }
+  return Item::Yield;
+}
+
 void pressLineTokens(const String &line) {
   uint8_t modifiers = 0;
   uint8_t keys[6] = {};

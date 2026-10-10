@@ -3,6 +3,7 @@
 #include "duckscript.h"
 #include "settings.h"
 #include "com.h"
+#include "execution_guard.h"
 #include "cli.h"
 #include "config.h"
 #include "webfiles.h"
@@ -158,6 +159,7 @@ static void handleDeleteScript(AsyncWebServerRequest *req) {
 }
 
 static void handleRunScript(AsyncWebServerRequest *req) {
+  execution::Guard guard;
   if (!checkAuth(req)) { sendAuthRequired(req); return; }
   if (req->hasParam("cmd")) {
     String cmd = req->getParam("cmd")->value();
@@ -166,10 +168,11 @@ static void handleRunScript(AsyncWebServerRequest *req) {
       return;
     }
     if (!com::executeNow(cmd)) {
-      req->send(400, "text/plain", "Command parse failed");
+      req->send(com::submissionError().startsWith("Busy:") ? 409 : 400,
+                "text/plain", com::submissionError());
       return;
     }
-    req->send(200, "text/plain", "Run: " + cmd);
+    req->send(200, "text/plain", "Accepted");
     return;
   }
 
@@ -379,6 +382,7 @@ static void onFirmwareUpload(AsyncWebServerRequest *request, String filename, si
 }
 
 static void handleStatus(AsyncWebServerRequest *req) {
+  execution::Guard guard;
   if (!checkAuth(req)) { sendAuthRequired(req); return; }
   String json = "{";
   json += "\"running\":";
@@ -523,6 +527,7 @@ static void handleSaveScript(AsyncWebServerRequest *req) {
 }
 
 static void handleSendLine(AsyncWebServerRequest *req) {
+  execution::Guard guard;
   if (!checkAuth(req)) { sendAuthRequired(req); return; }
   if (!req->hasParam("line", true)) {
     req->send(400, "text/plain", "Missing line");
@@ -534,10 +539,11 @@ static void handleSendLine(AsyncWebServerRequest *req) {
     return;
   }
   if (!com::executeNow(line)) {
-    req->send(400, "text/plain", "Command parse failed");
+    req->send(com::submissionError().startsWith("Busy:") ? 409 : 400,
+                "text/plain", com::submissionError());
     return;
   }
-  req->send(200, "text/plain", "OK");
+  req->send(200, "text/plain", "Accepted");
 }
 
 static void wsOut(const char *s) {
@@ -553,6 +559,7 @@ static void onWsEvent(AsyncWebSocket *serverPtr, AsyncWebSocketClient *client,
   String cmd;
   cmd.reserve(len + 1);
   for (size_t i = 0; i < len; ++i) cmd += static_cast<char>(data[i]);
+  execution::Guard guard;
   activeWsClient = client;
   cli::parse(cmd.c_str(), wsOut, true);
   activeWsClient = nullptr;

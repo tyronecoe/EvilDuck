@@ -6,6 +6,7 @@
 
 static USBHID HID;
 static USBHIDKeyboard Keyboard;
+static bool releasePending = false;
 
 namespace {
 constexpr uint8_t HID_A = 0x04;
@@ -148,6 +149,8 @@ bool keyNameToHid(const String &input, uint8_t &outCode) {
   if (key == "NUM_9") { outCode = HID_NUM_9; return true; }
 
   if (key.startsWith("F")) {
+    if (key.length() < 2 || key.length() > 3) return false;
+    for (size_t i = 1; i < key.length(); ++i) if (key[i] < '0' || key[i] > '9') return false;
     int n = key.substring(1).toInt();
     if (n >= 1 && n <= 24) {
       outCode = static_cast<uint8_t>(0x3A + (n - 1));
@@ -165,7 +168,47 @@ void pressKeyHeld(uint8_t hidKeycode) {
   Keyboard.pressRaw(hidKeycode);
 }
 
+static bool queueReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+  if (!HID.ready()) return false;
+  hid_keyboard_report_t report = {};
+  report.modifier = modifiers;
+  uint8_t count = 0;
+  for (uint8_t i = 0; i < keyCount && i < 6; ++i) {
+    uint8_t key = keys[i];
+    // Match the existing pressRaw behavior, including modifier usages supplied
+    // through KEYCODE, ignored invalid usages, and duplicate suppression.
+    if (key >= 0xE0 && key <= 0xE7) { report.modifier |= 1 << (key - 0xE0); continue; }
+    if (!key || key >= 0xA5) continue;
+    bool duplicate = false;
+    for (uint8_t j = 0; j < count; ++j) duplicate |= report.keycode[j] == key;
+    if (!duplicate) report.keycode[count++] = key;
+  }
+  // The existing HID instance is constructed with HID_ITF_PROTOCOL_NONE, so
+  // its descriptor uses report IDs (including the keyboard report ID).
+  // TinyUSB copies this report into its endpoint buffer without waiting for
+  // completion. USBHIDKeyboard::pressRaw/SendReport would wait up to 100ms.
+  return tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
+}
+
+bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+  if (releasePending) return false;
+  return queueReport(modifiers, keys, keyCount);
+}
+
+bool releaseReport() { return queueReport(0, nullptr, 0); }
+
+void update() {
+  if (releasePending && releaseReport()) releasePending = false;
+}
+
+void cancelReport() {
+  releasePending = true;
+  update();
+}
+
 void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+  // Preserve the legacy synchronous helper API for callers outside the
+  // scheduler. Runtime execution uses only the nonblocking methods above.
   applyModifiers(modifiers);
   for (uint8_t i = 0; i < keyCount && i < 6; ++i) {
     if (keys[i]) Keyboard.pressRaw(keys[i]);

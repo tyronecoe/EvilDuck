@@ -1,26 +1,46 @@
 #include "com.h"
-#include "debug.h"
 #include "hid_backend.h"
 #include "keyboard_locale.h"
 #include "duck_keys.h"
 #include "led.h"
 #include "storage.h"
 #include "duck_vars.h"
+#include "duckscript.h"
 #include "attackmode.h"
 #include "script_log.h"
 #include "settings.h"
+#include "execution_guard.h"
+#include "script_parser.h"
+#include "duck_constants.h"
 #include <cstdlib>
 
-static com::cb_t cbDone = nullptr;
-static com::cb_t cbRepeat = nullptr;
-static com::cb_t cbError = nullptr;
-
-static bool pending = false;
-static String pendingLine;
-static String lastExecutableLine;
-static uint32_t defaultDelayMs = 0;
-
 namespace {
+enum class Phase { Idle, Start, Wait, Text, Keys, Press, Release, Finish };
+struct Session {
+  bool scriptOwned = false;
+  bool ownsKeys = false;
+  bool remember = false;
+  bool repeating = false;
+  bool enter = false;
+  bool preprocessed = false;
+  Phase phase = Phase::Idle;
+  Phase afterWait = Phase::Finish;
+  Phase afterRelease = Phase::Finish;
+  Phase afterText = Phase::Finish;
+  uint32_t defaultDelay = 0;
+  uint32_t waitStarted = 0;
+  uint32_t waitRemaining = 0;
+  uint32_t repeatsRemaining = 0;
+  String line, history, text, error;
+  size_t offset = 0;
+  keyboard_locale::Stroke strokes[2] = {};
+  uint8_t strokeCount = 0, strokeIndex = 0;
+  uint8_t reportModifiers = 0, reportKeys[6] = {}, reportCount = 0;
+  duck_keys::Cursor cursor;
+};
+Session session;
+String rejected;
+com::cb_t cbDone = nullptr, cbRepeat = nullptr, cbError = nullptr;
 
 String trimLine(const String &s) {
   int start = 0;
@@ -31,24 +51,14 @@ String trimLine(const String &s) {
   return s.substring(start, end + 1);
 }
 
-bool startsWithNoCase(const String &s, const char *pfx) {
-  String a = s; a.toLowerCase();
-  String b = String(pfx); b.toLowerCase();
-  return a.startsWith(b);
+bool startsWithNoCase(const String &s, const char *keyword) {
+  return script_parser::hasKeyword(s, keyword);
 }
 
 bool equalsNoCase(const String &aIn, const char *bIn) {
   String a = aIn; String b = String(bIn);
   a.toLowerCase(); b.toLowerCase();
   return a == b;
-}
-
-bool pressNamedKey(const String &line);
-
-uint32_t parseDelayMs(const String &s) {
-  int sp = s.indexOf(' ');
-  if (sp < 0) return 0;
-  return (uint32_t)s.substring(sp + 1).toInt();
 }
 
 uint8_t parseNumberToken(const String &token) {
@@ -59,13 +69,10 @@ uint8_t parseNumberToken(const String &token) {
 }
 
 bool parseFilePayload(const String &line, const char *cmd, String &fileRef, String &payload) {
-  String rest = trimLine(line.substring(strlen(cmd)));
-  int sp = rest.indexOf(" STRING ");
-  if (sp < 0) sp = rest.indexOf(" string ");
-  if (sp < 0) return false;
-  fileRef = trimLine(rest.substring(0, sp));
-  payload = rest.substring(sp + 8);
-  payload = duck_vars::expand(payload);
+  if (!script_parser::filePayload(line.substring(strlen(cmd)), fileRef, payload)) return false;
+  String expanded;
+  if (!duck_vars::expand(payload, expanded, session.error)) return false;
+  payload = expanded;
   if (payload.startsWith("\"") && payload.endsWith("\"") && payload.length() >= 2) {
     payload = payload.substring(1, payload.length() - 1);
   }
@@ -80,55 +87,81 @@ bool fileIoWrite(const String &fileRef, const String &payload, bool append) {
   return ok;
 }
 
-bool execKeycodeLine(const String &rest) {
-  String r = trimLine(rest);
-  uint8_t modifiers = 0;
-  uint8_t keys[6] = {};
-  uint8_t keyCount = 0;
-  bool gotMod = false;
-
-  while (r.length()) {
-    int sp = r.indexOf(' ');
-    String tok = (sp < 0) ? trimLine(r) : trimLine(r.substring(0, sp));
-    if (sp < 0) r = "";
-    else r = r.substring(sp + 1);
-    if (!tok.length()) continue;
-
-    uint8_t val = parseNumberToken(tok);
-    if (!gotMod) {
-      modifiers = val;
-      gotMod = true;
-    } else if (keyCount < 6) {
-      keys[keyCount++] = val;
-    }
-  }
-
-  if (!gotMod && !keyCount) return false;
-  if (!attackmode::hidEnabled()) return true;
-  hid_backend::pressReport(modifiers, keys, keyCount);
-  hid_backend::releaseAll();
-  return true;
+void waitFor(uint32_t ms, Phase next) {
+  session.waitStarted = millis();
+  session.waitRemaining = ms;
+  session.afterWait = next;
+  session.phase = ms ? Phase::Wait : next;
 }
 
-bool execLine(const String &raw, bool rememberLine = true) {
-  String line = trimLine(raw);
-  if (!line.length()) return true;
-  if (startsWithNoCase(line, "REM") || line.startsWith("//")) return true;
+void releaseOwnedKeys() {
+  if (session.ownsKeys) hid_backend::cancelReport();
+  session.ownsKeys = false;
+}
 
+void report(uint8_t modifiers, const uint8_t *keys, uint8_t count, Phase next) {
+  session.reportModifiers = modifiers;
+  session.reportCount = count > 6 ? 6 : count;
+  memset(session.reportKeys, 0, sizeof(session.reportKeys));
+  if (session.reportCount) memcpy(session.reportKeys, keys, session.reportCount);
+  session.afterRelease = next;
+  session.phase = Phase::Press;
+}
+
+void startText(const String &text, bool enter, Phase next) {
+  session.text = text;
+  session.offset = 0;
+  session.strokeCount = session.strokeIndex = 0;
+  session.enter = enter;
+  session.afterText = next;
+  session.phase = Phase::Text;
+}
+
+// Non-output commands keep their existing syntax and storage/LED behavior.
+// Timers and keyboard operations only schedule work here; update() advances it.
+bool startLine() {
+  if (!session.preprocessed) {
+    script_parser::Lexer lexer;
+    script_parser::Statement prepared;
+    if (!lexer.scan(session.line, 0, prepared, session.error)) return false;
+    session.line = prepared.line;
+    session.preprocessed = true;
+  }
+  script_parser::Statement stmt;
+  if (!script_parser::parse(session.line, stmt, session.error)) return false;
+  if (stmt.kind != script_parser::Kind::Command && stmt.kind != script_parser::Kind::Keys &&
+      stmt.kind != script_parser::Kind::Comment && stmt.kind != script_parser::Kind::Empty &&
+      stmt.kind != script_parser::Kind::Assignment && stmt.kind != script_parser::Kind::Define) {
+    session.error = "Block/control syntax requires a script; text blocks await Stage 7";
+    return false;
+  }
+  session.line = stmt.line;
+  const String &line = session.line;
+  session.remember = false;
+  session.phase = Phase::Finish;
+  if (!line.length() || startsWithNoCase(line, "REM") || line.startsWith("//")) return true;
+  if (stmt.kind == script_parser::Kind::Define) return duck_constants::define(line, 0, session.error);
+  if (equalsNoCase(line, "STOP")) {
+    duckscript::stop();
+    return true;
+  }
   if (startsWithNoCase(line, "DELAY ") || startsWithNoCase(line, "WAIT ")) {
-    delay(parseDelayMs(line));
+    uint32_t value;
+    if (!script_parser::numericArgument(stmt.args, value, session.error)) return false;
+    waitFor(value, Phase::Finish);
     return true;
   }
   if (startsWithNoCase(line, "DEFAULT_DELAY ") || startsWithNoCase(line, "DEFAULTDELAY ")) {
-    defaultDelayMs = parseDelayMs(line);
+    if (!script_parser::numericArgument(stmt.args, session.defaultDelay, session.error)) return false;
     return true;
   }
   if (startsWithNoCase(line, "REPEAT ") || startsWithNoCase(line, "REPLAY ")) {
-    uint32_t n = parseDelayMs(line);
-    if (!lastExecutableLine.length()) return false;
-    for (uint32_t i = 0; i < n; ++i) {
-      if (!execLine(lastExecutableLine, false)) return false;
-      if (defaultDelayMs > 0) delay(defaultDelayMs);
+    if (!session.history.length()) return false;
+    if (!script_parser::numericArgument(stmt.args, session.repeatsRemaining, session.error)) return false;
+    if (session.repeatsRemaining) {
+      session.repeating = true;
+      session.line = session.history;
+      session.phase = Phase::Start;
     }
     return true;
   }
@@ -150,17 +183,16 @@ bool execLine(const String &raw, bool rememberLine = true) {
     led::setColor(r, g, b);
     return true;
   }
-  if (startsWithNoCase(line, "VAR ") || startsWithNoCase(line, "DEFINE ")) {
-    int cmdLen = startsWithNoCase(line, "VAR ") ? 4 : 7;
-    String rest = trimLine(line.substring(cmdLen));
-    int eq = rest.indexOf('=');
-    if (eq < 0) return false;
-    String name = trimLine(rest.substring(0, eq));
-    String val = duck_vars::expand(trimLine(rest.substring(eq + 1)));
-    if (val.startsWith("\"") && val.endsWith("\"") && val.length() >= 2) {
-      val = val.substring(1, val.length() - 1);
+  if (stmt.kind == script_parser::Kind::Assignment || startsWithNoCase(line, "VAR ") || startsWithNoCase(line, "DEFINE ")) {
+    String name, value; bool text;
+    if (!script_parser::assignment(stmt.args, name, value, text, session.error)) return false;
+    bool declaration = stmt.kind != script_parser::Kind::Assignment;
+    if (text) {
+      String expanded;
+      if (!duck_vars::expand(value.substring(1, value.length() - 1), expanded, session.error)) return false;
+      return duck_vars::setText(name, expanded, declaration, session.error);
     }
-    return duck_vars::set(name, val);
+    return duck_vars::assign(name, value, declaration, session.error);
   }
   if (startsWithNoCase(line, "READ ")) {
     String rest = trimLine(line.substring(5));
@@ -171,7 +203,7 @@ bool execLine(const String &raw, bool rememberLine = true) {
     storage::Ref ref;
     if (!storage::parseRef(fileRef, ref)) return false;
     String data = storage::readFile(ref);
-    return duck_vars::set(varName, data);
+    return duck_vars::setText(varName, data, true, session.error);
   }
   if (startsWithNoCase(line, "SAVE ")) {
     String fileRef, payload;
@@ -187,73 +219,197 @@ bool execLine(const String &raw, bool rememberLine = true) {
     return attackmode::applyFromString(trimLine(line.substring(11)));
   }
   if (startsWithNoCase(line, "KEYCODE ")) {
-    if (!execKeycodeLine(line.substring(8))) return false;
-    if (rememberLine) lastExecutableLine = line;
-    if (defaultDelayMs > 0) delay(defaultDelayMs);
+    String rest = trimLine(line.substring(8));
+    if (!rest.length()) return false;
+    // Translate numeric reports to the same incremental report path as keys.
+    session.cursor = duck_keys::Cursor();
+    int space = rest.indexOf(' ');
+    uint8_t modifiers = parseNumberToken(space < 0 ? rest : rest.substring(0, space));
+    uint8_t keys[6] = {}, count = 0;
+    rest = space < 0 ? String() : trimLine(rest.substring(space + 1));
+    while (rest.length()) {
+      space = rest.indexOf(' ');
+      String token = space < 0 ? rest : rest.substring(0, space);
+      if (token.length() && count < 6) keys[count++] = parseNumberToken(token);
+      rest = space < 0 ? String() : trimLine(rest.substring(space + 1));
+    }
+    session.remember = true;
+    // Defer physical output until update(), including live submissions.
+    session.cursor.modifiers = modifiers;
+    session.cursor.count = count;
+    memcpy(session.cursor.keys, keys, sizeof(keys));
+    session.phase = Phase::Keys;
     return true;
   }
-  if (startsWithNoCase(line, "STRINGLN ")) {
-    if (!attackmode::hidEnabled()) return true;
-    keyboard_locale::write(duck_vars::expand(line.substring(9)));
-    hid_backend::pressEnter();
-    if (rememberLine) lastExecutableLine = line;
-    if (defaultDelayMs > 0) delay(defaultDelayMs);
-    return true;
-  }
-  if (startsWithNoCase(line, "STRING ")) {
-    if (!attackmode::hidEnabled()) return true;
-    keyboard_locale::write(duck_vars::expand(line.substring(7)));
-    if (rememberLine) lastExecutableLine = line;
-    if (defaultDelayMs > 0) delay(defaultDelayMs);
-    return true;
-  }
-
   if (!attackmode::hidEnabled()) return true;
-
-  if (pressNamedKey(line)) {
-    if (rememberLine) lastExecutableLine = line;
-    if (defaultDelayMs > 0) delay(defaultDelayMs);
+  session.remember = true;
+  if (startsWithNoCase(line, "STRINGLN ") || startsWithNoCase(line, "STRING ")) {
+    bool enter = startsWithNoCase(line, "STRINGLN ");
+    String expanded;
+    if (!duck_vars::expand(line.substring(enter ? 9 : 7), expanded, session.error)) return false;
+    startText(expanded, enter, Phase::Finish);
     return true;
   }
-
-  duck_keys::pressLineTokens(line);
-  if (rememberLine) lastExecutableLine = line;
-  if (defaultDelayMs > 0) delay(defaultDelayMs);
+  uint8_t key = 0;
+  if (hid_backend::keyNameToHid(line, key)) {
+    report(0, &key, 1, Phase::Finish);
+    return true;
+  }
+  session.cursor = duck_keys::Cursor();
+  session.phase = Phase::Keys;
   return true;
 }
 
-bool pressNamedKey(const String &line) {
-  uint8_t code = 0;
-  if (!hid_backend::keyNameToHid(line, code)) return false;
-  hid_backend::pressKeycode(code, 0);
-  return true;
+void fail() {
+  releaseOwnedKeys();
+  session.error = "Command failed: " + session.line + (session.error.length() ? ": " + session.error : String());
+  session.phase = Phase::Idle;
+  session.repeating = false;
+  session.repeatsRemaining = 0;
+  script_log::error(session.error);
+  if (session.scriptOwned && cbError) cbError();
 }
 
+void submit(const String &line, bool preprocessed = false) {
+  session.line = trimLine(line);
+  session.preprocessed = preprocessed;
+  session.error = "";
+  session.phase = Phase::Start;
+}
 }
 
 namespace com {
+void onDone(cb_t cb) { execution::Guard guard; cbDone = cb; }
+void onRepeat(cb_t cb) { execution::Guard guard; cbRepeat = cb; }
+void onError(cb_t cb) { execution::Guard guard; cbError = cb; }
 
-void onDone(cb_t cb) { cbDone = cb; }
-void onRepeat(cb_t cb) { cbRepeat = cb; }
-void onError(cb_t cb) { cbError = cb; }
+void beginScript() {
+  execution::Guard guard;
+  releaseOwnedKeys();
+  session = Session();
+  session.scriptOwned = true;
+  rejected = "";
+  duck_vars::clear();
+  duck_constants::clear();
+}
+
+void endScript() {
+  execution::Guard guard;
+  releaseOwnedKeys();
+  session = Session(); // Cancels waits, text, repeat work, and queued commands.
+  duck_vars::clear();
+  duck_constants::clear();
+}
+
+bool busy() { execution::Guard guard; return session.phase != Phase::Idle; }
+String lastError() { execution::Guard guard; return session.error; }
+String submissionError() { execution::Guard guard; return rejected; }
 
 void send(const String &line) {
-  pendingLine = line;
-  pending = true;
+  execution::Guard guard;
+  if (session.scriptOwned && session.phase == Phase::Idle) submit(line, true);
 }
 
 bool executeNow(const String &line) {
-  return execLine(line);
+  execution::Guard guard;
+  if (session.scriptOwned || session.phase != Phase::Idle) {
+    rejected = session.scriptOwned ? "Busy: script running" : "Busy: command in progress";
+    return false;
+  }
+  rejected = "";
+  if (line.length() > DUCKSCRIPT_MAX_LINE_LEN) {
+    rejected = "Script line length limit exceeded";
+    return false;
+  }
+  submit(line);
+  if (!startLine()) {
+    fail();
+    rejected = session.error;
+    return false;
+  }
+  return true; // Accepted; timed/output work completes through update().
 }
 
 void update() {
-  if (!pending) return;
-  pending = false;
-  if (!execLine(pendingLine)) {
-    if (cbError) cbError();
-    return;
+  execution::Guard guard;
+  hid_backend::update(); // Cancellation releases are serviced even when idle.
+  switch (session.phase) {
+    case Phase::Idle: return;
+    case Phase::Start:
+      if (!startLine()) fail();
+      return;
+    case Phase::Wait: {
+      uint32_t now = millis();
+      uint32_t elapsed = now - session.waitStarted; // Safe across millis() wrap.
+      if (elapsed >= session.waitRemaining) session.phase = session.afterWait;
+      else {
+        session.waitRemaining -= elapsed;
+        session.waitStarted = now;
+      }
+      return;
+    }
+    case Phase::Press:
+      if (!hid_backend::beginReport(session.reportModifiers, session.reportKeys, session.reportCount)) return;
+      session.ownsKeys = true;
+      waitFor(5, Phase::Release);
+      return;
+    case Phase::Release:
+      if (!hid_backend::releaseReport()) return;
+      session.ownsKeys = false;
+      session.phase = session.afterRelease;
+      return;
+    case Phase::Text:
+      if (!attackmode::hidEnabled()) { session.phase = session.afterText; return; }
+      if (session.strokeIndex < session.strokeCount) {
+        auto stroke = session.strokes[session.strokeIndex++];
+        report(stroke.modifiers, &stroke.key, 1, Phase::Text);
+        return;
+      }
+      if (session.offset < session.text.length()) {
+        session.offset += keyboard_locale::translate(session.text.c_str() + session.offset,
+          session.text.length() - session.offset, session.strokes, session.strokeCount);
+        session.strokeIndex = 0;
+        return;
+      }
+      if (session.enter) {
+        session.enter = false;
+        const uint8_t enter = 0x28;
+        report(0, &enter, 1, Phase::Text);
+        return;
+      }
+      session.phase = session.afterText;
+      return;
+    case Phase::Keys: {
+      uint8_t modifiers = 0, keys[6] = {}, count = 0;
+      String text;
+      if (!attackmode::hidEnabled()) { session.phase = Phase::Finish; return; }
+      if (startsWithNoCase(session.line, "KEYCODE ")) {
+        report(session.cursor.modifiers, session.cursor.keys, session.cursor.count, Phase::Finish);
+        return;
+      }
+      auto item = duck_keys::next(session.line, session.cursor, modifiers, keys, count, text);
+      if (item == duck_keys::Item::Report) report(modifiers, keys, count, Phase::Keys);
+      else if (item == duck_keys::Item::Text) startText(text, false, Phase::Keys);
+      else if (item == duck_keys::Item::Done) session.phase = Phase::Finish;
+      return;
+    }
+    case Phase::Finish:
+      if (session.remember) {
+        if (!session.repeating) session.history = session.line;
+        session.remember = false;
+        waitFor(session.defaultDelay, Phase::Finish);
+        return;
+      }
+      if (session.repeating && --session.repeatsRemaining) {
+        session.line = session.history;
+        session.phase = Phase::Start;
+        if (session.scriptOwned && cbRepeat) cbRepeat();
+        return;
+      }
+      session.repeating = false;
+      session.phase = Phase::Idle;
+      if (session.scriptOwned && cbDone) cbDone();
+      return;
   }
-  if (cbDone) cbDone();
 }
-
 }

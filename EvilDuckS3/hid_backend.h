@@ -13,6 +13,11 @@ namespace hid_backend {
   void pressKeyHeld(uint8_t hidKeycode);
   void pressKeycode(uint8_t hidKeycode, uint8_t modifiers = 0);
   void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount);
+  // Runtime-only nonblocking transport. False means retry on another update.
+  bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount);
+  bool releaseReport();
+  void cancelReport();
+  void update(); // Retry a cancellation release before any subsequent press.
   bool pressNamedCombo(const String &keyName, uint8_t modifiers = 0);
   void releaseAll();
 
