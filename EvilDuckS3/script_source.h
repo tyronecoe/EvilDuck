@@ -12,6 +12,7 @@ enum class Result { Yield, Line, End, Error };
 class Reader {
   File *file = nullptr;
   uint32_t expectedSize = 0, offset = 0, nextRead = 0, number = 0;
+  uint32_t lineStart = 0, completedLineStart = 0;
   char buffer[DUCKSCRIPT_MAX_LINE_LEN + 1] = {};
   uint8_t chunk[64] = {};
   uint16_t length = 0;
@@ -26,6 +27,7 @@ public:
   Result next(String &line, uint16_t &budget);
   uint32_t position() const { return offset; }
   uint32_t lineNumber() const { return number; }
+  uint32_t lineStartPosition() const { return completedLineStart; }
   uint32_t errorLine() const { return number + 1; }
   String error() const { return errorText; }
 };

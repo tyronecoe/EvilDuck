@@ -52,7 +52,7 @@ TESTS = [
     'stage4_cooperative_large_inactive_region_and_preflight',
     'stage4_legacy_compatibility_aliases',
     'stage4_keyword_boundaries_whitespace_and_case',
-    'stage4_mixed_while_nesting_stays_deferred',
+    'stage4_mixed_while_nesting',
 ]
 
 def main():

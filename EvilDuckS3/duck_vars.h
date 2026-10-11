@@ -16,6 +16,7 @@ namespace duck_vars {
     static duck_expr::Lookup resolve(const char *, size_t, uint16_t &, void *);
   };
   void clear();
+  uint32_t revision(); // Changes only when a runtime symbol is created or its value changes.
   bool assign(const String &name, const String &expression, bool declaration, String &error);
   bool setText(const String &name, const String &value, bool declaration, String &error);
   duck_expr::Lookup resolve(const char *, size_t, uint16_t &, void *);

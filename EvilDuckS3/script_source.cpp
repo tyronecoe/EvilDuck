@@ -6,7 +6,7 @@ Result Reader::fail(const char *message) { errorText = message; return Result::E
 
 bool Reader::begin(File &source) {
   file = &source;
-  number = offset = nextRead = 0;
+  number = offset = nextRead = lineStart = completedLineStart = 0;
   length = chunkLength = chunkIndex = 0;
   cr = false;
   errorText = "";
@@ -22,7 +22,7 @@ bool Reader::seek(uint32_t position, uint32_t previousLine) {
   if (position > expectedSize || !file->seek(position) || file->position() != position) {
     fail("Storage seek error"); return false;
   }
-  offset = nextRead = position;
+  offset = nextRead = lineStart = completedLineStart = position;
   number = previousLine;
   length = chunkLength = chunkIndex = 0;
   cr = false;
@@ -34,6 +34,8 @@ Result Reader::finish(String &line) {
   if (number >= DUCKSCRIPT_MAX_SOURCE_LINES) return fail("Script source line limit exceeded");
   buffer[length] = '\0';
   line = buffer;
+  completedLineStart = lineStart;
+  lineStart = offset;
   length = 0;
   ++number;
   return Result::Line;

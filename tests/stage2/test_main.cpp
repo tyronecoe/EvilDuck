@@ -100,11 +100,11 @@ static void test(const String &name) {
     visible(std::string(DUCKSCRIPT_MAX_SOURCE_LINES,'\n'),"");
     invalid(std::string(DUCKSCRIPT_MAX_SOURCE_LINES+1,'\n'), "source line limit",DUCKSCRIPT_MAX_SOURCE_LINES+1);
   } else if(name=="stage2_mismatched_control_blocks_zero_hid") {
-    invalid("STRINGLN hidden\nIF 1\nWHILE $flag\nEND_IF\nEND_WHILE\n", "Mismatched IF/WHILE",4);
+    invalid("STRINGLN hidden\nIF 1\nWHILE FALSE\nEND_IF\nEND_WHILE\n", "Mismatched IF/WHILE",4);
     invalid("IF 1\nENDWHILE\n", "Mismatched IF/WHILE",2);
   } else if(name=="stage2_unterminated_control_blocks_zero_hid") {
     invalid("STRINGLN hidden\nIF 1\nSTRING hidden\n", "Unterminated IF/WHILE",2);
-    invalid("WHILE $flag\n", "Unterminated IF/WHILE",1);
+    invalid("WHILE FALSE\n", "Unterminated IF/WHILE",1);
     invalid("ENDIF\n", "Unmatched control-flow",1);
     invalid("END_WHILE\n", "Unmatched control-flow",1);
   } else if(name=="stage2_duplicate_else_zero_hid") {
@@ -182,7 +182,7 @@ static void test(const String &name) {
     require(mock::presses.empty(), "preflight rewind failure must emit no HID"); clean();
     mock::reset(); mock::file("fault.txt","VAR $flag = 1\nWHILE $flag\nSTRING x\nENDWHILE\nSTRING hidden\n");
     require(duckscript::run("fault.txt"), "loop seek fault fixture must start");
-    mock::failSeekAt=std::string("VAR $flag = 1\nWHILE $flag\n").size(); mock::drain();
+    mock::failSeekAt=std::string("VAR $flag = 1\n").size(); mock::drain();
     require(duckscript::lastError().indexOf("seek error")>=0, "runtime loop seek failure must be reported");
     require(mock::text=="x", "runtime seek error must stop safely before later output"); clean();
     mock::reset(); mock::file("fault.txt","STRINGLN hidden\n");

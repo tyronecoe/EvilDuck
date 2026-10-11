@@ -4,6 +4,7 @@
 namespace duck_vars {
 namespace {
 Symbols symbols;
+uint32_t changes = 0;
 uint16_t numbers[DUCKSCRIPT_MAX_VARIABLES] = {};
 String texts[DUCKSCRIPT_MAX_VARIABLES];
 bool fail(String &error, const char *message) { error = message; return false; }
@@ -40,8 +41,10 @@ duck_expr::Lookup Symbols::resolve(const char *name, size_t length, uint16_t &, 
     kind == Type::Text ? duck_expr::Lookup::Text : duck_expr::Lookup::Undefined;
 }
 
+uint32_t revision() { return changes; }
 void clear() {
   symbols.clear();
+  changes = 0;
   for (size_t i = 0; i < DUCKSCRIPT_MAX_VARIABLES; ++i) { texts[i] = String(); numbers[i] = 0; }
 }
 duck_expr::Lookup resolve(const char *name, size_t length, uint16_t &value, void *) {
@@ -61,14 +64,18 @@ bool assign(const String &name, const String &expression, bool declaration, Stri
     error = "Expression column " + String(diagnostic.column) + ": " + diagnostic.message;
     return false;
   }
+  bool created = symbols.type(name.c_str(), name.length()) == Type::Missing;
   int at = symbols.declare(name, Type::Numeric, !declaration, error);
   if (at < 0) return false;
+  if (created || numbers[at] != value) ++changes;
   numbers[at] = value;
   return true;
 }
 bool setText(const String &name, const String &value, bool declaration, String &error) {
+  bool created = symbols.type(name.c_str(), name.length()) == Type::Missing;
   int at = symbols.declare(name, Type::Text, !declaration, error);
   if (at < 0) return false;
+  if (created || texts[at] != value) ++changes;
   texts[at] = value;
   return true;
 }

@@ -122,7 +122,7 @@ bool condition(const String &input, bool legacy, uint16_t &value, String &diagno
       if (atom[0] == '$') {
         uint16_t number = 0;
         duck_expr::Lookup type = resolver ? resolver(atom.c_str(), atom.length(), number, context) : duck_expr::Lookup::Number;
-        if (type == duck_expr::Lookup::Undefined) return error(diagnostic, "Undefined variable in legacy IF condition");
+        if (type == duck_expr::Lookup::Undefined) return error(diagnostic, "Undefined variable in legacy condition");
         textual |= type == duck_expr::Lookup::Text;
         if (mode == duck_expr::Mode::Evaluate) {
           if (!duck_vars::expand(atom, atoms[i], diagnostic)) return false;
@@ -275,9 +275,10 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return conditionalArgs(out, true, diagnostic);
   }
   if (keyword == "WHILE") {
-    if (!variable(out.args)) return error(diagnostic, "WHILE expressions are not supported yet; expected $variable");
     out.kind = Kind::While;
-    return true;
+    // Only the old bare-variable form permits the explicit text truthiness extension.
+    out.legacyCondition = variable(out.args);
+    return expression(out.args, diagnostic);
   }
   out.kind = Kind::Command;
   if (keyword == "STOP") return out.args.length() ? error(diagnostic, "STOP takes no arguments") : true;
@@ -374,9 +375,11 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
   bool delimiter = hasKeyword(text, "REM_BLOCK") || hasKeyword(text, "END_REM") ||
     hasKeyword(text, "END_STRING") || hasKeyword(text, "END_STRINGLN") || upper == "STRING" || upper == "STRINGLN";
   bool rawIf = hasKeyword(text, "IF"), rawElse = hasKeyword(text, "ELSE");
+  bool rawWhile = hasKeyword(text, "WHILE");
   String endArgs = words(text.substring(3)); endArgs.toUpperCase();
   bool rawEnd = hasKeyword(text, "END_IF") || hasKeyword(text, "ENDIF") ||
-    (hasKeyword(text, "END") && endArgs == "IF");
+    (hasKeyword(text, "END") && (endArgs == "IF" || endArgs == "WHILE")) ||
+    hasKeyword(text, "END_WHILE") || hasKeyword(text, "ENDWHILE");
   if (rawIf || rawElse) {
     size_t offset = rawIf ? 2 : 4;
     while (offset < text.length() && space(text[offset])) ++offset;
@@ -398,12 +401,19 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
     }
     expanded = text.substring(0, offset) + args + (then ? text.substring(suffix) : String());
     if (expanded.length() > DUCKSCRIPT_MAX_EXPANDED_LINE) return error(diagnostic, "DEFINE expansion length limit exceeded");
+  } else if (rawWhile) {
+    String args;
+    if (!duck_constants::expand(text.substring(5), args, diagnostic)) return false;
+    expanded = text.substring(0, 5) + args;
+    if (expanded.length() > DUCKSCRIPT_MAX_EXPANDED_LINE) return error(diagnostic, "DEFINE expansion length limit exceeded");
   } else if (delimiter || rawEnd) expanded = text;
   else if (!duck_constants::expand(text, expanded, diagnostic)) return false;
   if (!parse(hasKeyword(text, "DEFINE") ? line : expanded, out, diagnostic)) return false;
   if (!rawIf && !rawElse && !rawEnd &&
       (out.kind == Kind::If || out.kind == Kind::ElseIf || out.kind == Kind::Else || out.kind == Kind::EndIf))
     return error(diagnostic, "DEFINE expansion cannot create conditional block delimiters");
+  if (!rawWhile && !rawEnd && (out.kind == Kind::While || out.kind == Kind::EndWhile))
+    return error(diagnostic, "DEFINE expansion cannot create WHILE block delimiters");
   if (expanded != text && (hasKeyword(expanded, "DEFINE") || out.kind == Kind::RemBlock || out.kind == Kind::EndRem ||
       out.kind == Kind::StringBlock || out.kind == Kind::StringLnBlock || out.kind == Kind::EndString || out.kind == Kind::EndStringLn))
     return error(diagnostic, "DEFINE expansion cannot create DEFINE or comment/text block delimiters");
@@ -442,7 +452,7 @@ bool Validator::accept(const String &line, uint32_t number, String &diagnostic) 
     uint32_t value;
     if (!numericArgument(stmt.args, value, diagnostic, duck_expr::Mode::Syntax, duck_vars::Symbols::resolve, &symbols)) return false;
   }
-  if (stmt.kind == Kind::If || stmt.kind == Kind::ElseIf) {
+  if (stmt.kind == Kind::If || stmt.kind == Kind::ElseIf || stmt.kind == Kind::While) {
     uint16_t value;
     if (!condition(stmt.args, stmt.legacyCondition, value, diagnostic, duck_expr::Mode::Syntax,
                    duck_vars::Symbols::resolve, &symbols)) return false;
@@ -453,9 +463,6 @@ bool Validator::accept(const String &line, uint32_t number, String &diagnostic) 
   }
   if (stmt.kind == Kind::If || stmt.kind == Kind::While) {
     if (depth >= DUCKSCRIPT_MAX_BLOCK_DEPTH) return error(diagnostic, "Block nesting limit exceeded");
-    bool mixed = stmt.kind == Kind::While && depth;
-    for (uint8_t i = 0; i < depth; ++i) mixed |= stack[i].kind == Kind::While;
-    if (mixed && !deferredLine) { deferredLine = number; deferredMessage = "Nested WHILE or mixed IF/WHILE execution is deferred to Stage 5"; }
     stack[depth++] = {stmt.kind, number, false};
   } else if (stmt.kind == Kind::Else || stmt.kind == Kind::ElseIf) {
     if (!depth || stack[depth - 1].kind != Kind::If || stack[depth - 1].sawElse) return error(diagnostic, "Unmatched or duplicate ELSE");

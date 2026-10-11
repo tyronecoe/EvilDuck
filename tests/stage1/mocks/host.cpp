@@ -65,7 +65,7 @@ void drain(unsigned limit) {
 void reset() {
   duckscript::stop();
   failReadAt=failSeekAt=std::numeric_limits<size_t>::max();
-  bytesRead=readCalls=0;
+  bytesRead=readCalls=seekCalls=sourceSizeIncrease=0;
   usbReady=true; com::update();
   now=0; blockingDelays=0; release(); presses.clear(); text=""; output="";
   files.clear(); colors.clear(); keyboard_locale::begin(); settings::reset();

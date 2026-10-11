@@ -185,9 +185,9 @@ static void test(const String &name) {
   } else if(name=="stage4_keyword_boundaries_whitespace_and_case") {
     visible(" \tVAR $x=1\n\tif\t($x==1)\tthen\nSTRINGLN yes\n\telse\tif FALSE then\nSTRINGLN no\nelse\nSTRINGLN no\nend\tif\n","yes\n");
     for(const char *line:{"IFF TRUE THEN","ELSEIF TRUE THEN","END_IFfy","IF TRUE THENfoo"})invalid("STRINGLN hidden\n"+std::string(line)+"\n","",2);
-  } else if(name=="stage4_mixed_while_nesting_stays_deferred") {
-    invalid("VAR $flag=1\nIF TRUE THEN\nWHILE $flag\nENDWHILE\nEND_IF\n","deferred to Stage 5",3);
-    invalid("VAR $flag=1\nWHILE $flag\nIF TRUE THEN\nEND_IF\nENDWHILE\n","deferred to Stage 5",3);
+  } else if(name=="stage4_mixed_while_nesting") {
+    visible("VAR $flag=1\nIF TRUE THEN\nWHILE $flag\n$flag=0\nENDWHILE\nSTRINGLN mixed\nEND_IF\n","mixed\n");
+    visible("VAR $flag=1\nWHILE $flag\nIF TRUE THEN\n$flag=0\nSTRINGLN mixed\nEND_IF\nENDWHILE\n","mixed\n");
   } else throw std::runtime_error("unknown test name");
 }
 int main(int argc,char **argv) {
