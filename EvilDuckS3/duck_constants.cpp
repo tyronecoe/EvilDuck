@@ -59,6 +59,15 @@ bool define(const String &line, uint32_t number, String &error) {
   used += value.length() + 1;
   return true;
 }
+bool boolean(const String &label, bool &value, String &error) {
+  value = false;
+  for (uint8_t i = 0; i < count; ++i) if (label == constants[i].name) {
+    String literal = values + constants[i].offset; literal.trim();
+    if (literal == "TRUE" || literal == "FALSE") { value = literal == "TRUE"; return true; }
+    return fail(error, "Preprocessing flag must be a literal TRUE or FALSE");
+  }
+  return true; // Undefined labels are false, as specified by IF_DEFINED_TRUE.
+}
 bool expand(const String &line, String &output, String &error) {
   if (script_parser::hasKeyword(line, "DEFINE")) { output = line; return true; }
   char buffer[DUCKSCRIPT_MAX_EXPANDED_LINE + 1];
@@ -84,18 +93,8 @@ bool expand(const String &line, String &output, String &error) {
   return true;
 }
 bool Collector::accept(const String &line, uint32_t number, String &error) {
-  String trimmed = line; trimmed.trim();
-  if (mode == Mode::Rem) {
-    if (script_parser::hasKeyword(trimmed, "END_REM")) mode = Mode::Normal;
-    return true;
-  }
-  if (mode == Mode::Text) {
-    if (script_parser::hasKeyword(trimmed, "END_STRING") || script_parser::hasKeyword(trimmed, "END_STRINGLN")) mode = Mode::Normal;
-    return true;
-  }
-  if (script_parser::hasKeyword(trimmed, "REM_BLOCK")) { mode = Mode::Rem; return true; }
-  String upper = trimmed; upper.toUpperCase();
-  if (upper == "STRING" || upper == "STRINGLN") { mode = Mode::Text; return true; }
-  return !declaration(line) || define(line, number, error);
+  bool ordinary;
+  if (!blocks.scan(line, number, ordinary, error)) return false;
+  return !ordinary || !declaration(line) || define(line, number, error);
 }
 }

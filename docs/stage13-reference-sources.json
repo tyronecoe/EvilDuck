@@ -1,0 +1,45 @@
+{
+  "official_snapshots": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/rem.md",
+      "snapshot": "ducky-script-basics__rem.md",
+      "bytes": 5774,
+      "sha256": "24201856dc7dec9ff3d00223a43d49082bc4d1963ae539ade705439d5f775558",
+      "retrieved_utc": "2026-10-11T18:01:07.404478+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+      "snapshot": "button__led.md",
+      "bytes": 5481,
+      "sha256": "cb18140aa774b1a2176c12f5a7016cd733b302b521564dd8b27ef77394ccb787",
+      "retrieved_utc": "2026-10-11T18:01:06.844453+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+      "snapshot": "advanced-features__extensions.md",
+      "bytes": 8220,
+      "sha256": "5ebbfe8daaf5c06b1875a122a265e40402c015a1f33803185ca609a53385022b",
+      "retrieved_utc": "2026-10-11T18:01:08.744033+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+      "snapshot": "advanced-features__conditional-compilation.md",
+      "bytes": 6842,
+      "sha256": "605a280290fd2530cf9a364da570f66b0dbe9d5a6de1571c78e0fdc34a6ebac2",
+      "retrieved_utc": "2026-10-11T18:01:09.290284+00:00"
+    }
+  ],
+  "fresh_retrieval": "conditional-compilation Markdown and alias example image HTTP403; no independently available Hak5 compiler",
+  "supporting_repository": {
+    "url": "https://github.com/hak5/usbrubberducky-payloads",
+    "commit": "4fa639fd06972cd7efd9c48cc73136443f9cffb1",
+    "evidence": "STRING_BASH/STRING_POWERSHELL use END_STRING; STRINGLN_BASH/STRINGLN_POWERSHELL use END_STRINGLN; applies shared delimiter rules to seven documented suffixes"
+  }
+}

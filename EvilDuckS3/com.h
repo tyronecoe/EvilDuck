@@ -17,6 +17,7 @@ namespace com {
   // executeNow accepts an idle live command; timed/output work completes in
   // update(). A script owns the executor until endScript(), including gaps
   // between commands. Rejected submissions never alter the active operation.
+  bool statusLedOverridden();
   void beginScript();
   void endScript();
   bool busy();

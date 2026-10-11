@@ -21,6 +21,9 @@
 #ifndef DUCKSCRIPT_MAX_BLOCK_DEPTH
 #define DUCKSCRIPT_MAX_BLOCK_DEPTH 8
 #endif
+#define DUCKSCRIPT_MAX_PREPROCESS_DEPTH 8
+#define DUCKSCRIPT_MAX_EXTENSIONS 16
+
 // EvilDuck safety policy, not a canonical DuckyScript infinite-loop limit.
 #ifndef DUCKSCRIPT_MAX_LOOP_ITERATIONS
 #define DUCKSCRIPT_MAX_LOOP_ITERATIONS 100000UL // Active WHILE body entries, shared by a script run

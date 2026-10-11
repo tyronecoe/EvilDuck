@@ -1,0 +1,5185 @@
+{
+  "baseline": "f3841747fee7ff79c381723d1e578e5d65410011",
+  "branch": "stage13-duckyscript-preprocessing",
+  "totals": {
+    "PASS": 706,
+    "FAIL": 0,
+    "XPASS": 5,
+    "XFAIL": 0,
+    "assertions": 471670,
+    "diagnostic_sanity_assertions": 12,
+    "observations_matched": 79,
+    "observation_assertions": 574
+  },
+  "stages": {
+    "1": [
+      {
+        "name": "supported_commands_and_mock_interfaces",
+        "status": "PASS",
+        "assertions": 29
+      },
+      {
+        "name": "script_run_state_isolation",
+        "status": "PASS",
+        "assertions": 22
+      },
+      {
+        "name": "cooperative_delay_and_text_cancellation",
+        "status": "PASS",
+        "assertions": 33
+      },
+      {
+        "name": "repeat_timing_and_control_loop_yield",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "live_commands_cannot_mutate_running_script",
+        "status": "PASS",
+        "assertions": 19
+      }
+    ],
+    "2": [
+      {
+        "name": "stage2_rem_comments",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage2_required_rem_block_fixture",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage2_comment_block_literal_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage2_unterminated_rem_block_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage2_unmatched_end_rem_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage2_lf_source",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage2_crlf_source",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage2_utf8_bom",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage2_missing_final_newline",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage2_blank_lines",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage2_spaces_tabs_and_payload_preservation",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage2_maximum_line_length",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage2_overlong_line_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_source_byte_limits",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "name": "stage2_source_line_limits",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage2_mismatched_control_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_unterminated_control_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "name": "stage2_duplicate_else_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_block_depth_limit_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage2_text_blocks_literal_mode_and_deferred_runtime",
+        "status": "PASS",
+        "assertions": 30
+      },
+      {
+        "name": "stage2_unterminated_text_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_unmatched_text_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_mismatched_text_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "name": "stage2_unknown_commands_zero_hid",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "name": "stage2_keyword_prefixes_are_not_commands",
+        "status": "PASS",
+        "assertions": 128
+      },
+      {
+        "name": "stage2_malformed_statements_zero_hid",
+        "status": "PASS",
+        "assertions": 210
+      },
+      {
+        "name": "stage2_supported_extensions_and_bare_keys",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage2_storage_read_seek_faults",
+        "status": "PASS",
+        "assertions": 25
+      },
+      {
+        "name": "stage2_preflight_cooperative_stop_and_live_ownership",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage2_live_validation_and_limits",
+        "status": "PASS",
+        "assertions": 34
+      }
+    ],
+    "3": [
+      {
+        "name": "stage3_addition",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_subtraction",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_multiplication",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_division",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_modulo",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_exponentiation",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_equality",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_inequality",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_less_than",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_greater_than",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_less_or_equal",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_greater_or_equal",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_logical_and",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_logical_or",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_bitwise_and",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_bitwise_or",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_left_shift",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_right_shift",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_precedence_and_grouping",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "name": "stage3_literals_booleans_and_whitespace",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "name": "stage3_arithmetic_boundaries",
+        "status": "PASS",
+        "assertions": 57
+      },
+      {
+        "name": "stage3_invalid_literals_and_unsupported_operators",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "name": "stage3_malformed_expressions_and_limits",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "name": "stage3_numeric_declarations_assignment_and_no_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage3_required_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage3_variable_references_types_and_atomic_failure",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "stage3_text_compatibility_alias_and_read",
+        "status": "PASS",
+        "assertions": 41
+      },
+      {
+        "name": "stage3_identifier_validation_and_table_exhaustion",
+        "status": "PASS",
+        "assertions": 91
+      },
+      {
+        "name": "stage3_preflight_zero_hid_and_runtime_errors",
+        "status": "PASS",
+        "assertions": 46
+      },
+      {
+        "name": "stage3_define_global_forward_and_word_matching",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "stage3_define_single_pass_and_declaration_exemption",
+        "status": "PASS",
+        "assertions": 32
+      },
+      {
+        "name": "stage3_define_comment_and_text_modes",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "stage3_define_duplicates_invalid_and_table_limits",
+        "status": "PASS",
+        "assertions": 76
+      },
+      {
+        "name": "stage3_define_expansion_and_pool_boundaries",
+        "status": "PASS",
+        "assertions": 32
+      },
+      {
+        "name": "stage3_expression_timing_counts_and_cancellation",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "name": "stage3_collection_preflight_stop_and_state_isolation",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "name": "stage3_interpolation_overflow_runtime_safe_stop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage3_syntax_mode_does_not_evaluate_runtime_values",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage3_bounded_expression_fuzz",
+        "status": "PASS",
+        "assertions": 3001
+      },
+      {
+        "name": "stage3_expression_hot_path_no_heap",
+        "status": "PASS",
+        "assertions": 10022
+      }
+    ],
+    "4": [
+      {
+        "name": "stage4_simple_true_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_simple_false_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_if_else_true_path",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_if_else_false_path",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_nested_true_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_nested_true_false",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_outer_false_nested_inactive",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_multiple_nesting_levels",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_exact_nesting_limit",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage4_nesting_limit_plus_one",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage4_else_if_first_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_else_if_middle_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_else_if_final_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_else_if_multiple_entries",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_nested_else_if_chains",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_no_branch_true_without_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_selected_assignments_and_later_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_inactive_side_effects",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage4_required_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage4_define_conditions_and_protected_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_macro_manufactured_structures_rejected",
+        "status": "PASS",
+        "assertions": 56
+      },
+      {
+        "name": "stage4_compound_hex_boolean_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_malformed_expressions_zero_hid",
+        "status": "PASS",
+        "assertions": 77
+      },
+      {
+        "name": "stage4_undefined_and_text_variables",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage4_missing_end_if",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage4_unexpected_end_if",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage4_duplicate_else",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage4_else_outside_if",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage4_malformed_then_and_else_if",
+        "status": "PASS",
+        "assertions": 84
+      },
+      {
+        "name": "stage4_invalid_branch_ordering",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage4_rem_block_conditional_text",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage4_text_blocks_preserve_literal_modes",
+        "status": "PASS",
+        "assertions": 26
+      },
+      {
+        "name": "stage4_stop_active_and_inactive_branches",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage4_external_cancel_delay_text_and_keys",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage4_repeat_active_inactive_and_structural_history",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage4_clean_state_between_runs_and_live_ownership",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage4_runtime_errors_only_in_eligible_conditions",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage4_cooperative_large_inactive_region_and_preflight",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "stage4_legacy_compatibility_aliases",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage4_keyword_boundaries_whitespace_and_case",
+        "status": "PASS",
+        "assertions": 34
+      },
+      {
+        "name": "stage4_mixed_while_nesting",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage4_conditional_stack_no_heap",
+        "status": "PASS",
+        "assertions": 60012
+      }
+    ],
+    "5": [
+      {
+        "name": "stage5_false_while_following_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_zero_iteration_expressions",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "name": "stage5_single_iteration",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_multiple_iterations",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_decrementing_numeric_no_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage5_shared_expression_operators",
+        "status": "PASS",
+        "assertions": 84
+      },
+      {
+        "name": "stage5_condition_reevaluated_at_header",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage5_nested_two_loops",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage5_nested_three_loops",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_sequential_loops",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_if_inside_while_else_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_while_inside_if_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_mixed_nested_structures",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_false_outer_suppresses_nested_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_inactive_side_effects_and_assignments",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "stage5_nested_updates_outer_variable",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage5_global_declarations_reused",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_exact_loop_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_mixed_exact_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_depth_plus_one_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage5_malformed_conditions_zero_hid",
+        "status": "PASS",
+        "assertions": 98
+      },
+      {
+        "name": "stage5_undefined_and_text_expression_rejection",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage5_missing_unmatched_and_crossed_terminators",
+        "status": "PASS",
+        "assertions": 42
+      },
+      {
+        "name": "stage5_keyword_boundaries_and_aliases",
+        "status": "PASS",
+        "assertions": 52
+      },
+      {
+        "name": "stage5_legacy_bare_text_truthiness",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_define_conditions_and_protected_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_macro_manufactured_loop_delimiters_rejected",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage5_define_collection_inside_inactive_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_rem_block_loop_text_ignored",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_text_blocks_keep_literal_modes",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_bom_crlf_no_final_newline_backedges",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_header_across_read_budgets",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_reader_marker_and_seek_boundaries",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_runtime_seek_error",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_runtime_read_error_after_backedge",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_runtime_source_size_changed",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_runtime_condition_error_and_inactive_skip",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_runtime_undefined_path_dependent_variable",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_repeat_structural_and_inactive_history",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_repeat_expression_in_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_keyboard_combinations_in_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_expression_delays_in_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_stop_in_active_and_inactive_loops",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage5_cancel_delay_inside_mixed_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_cancel_text_inside_nested_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_cancel_held_keys_and_usb_pressure",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage5_control_only_loop_cooperative_and_live_ownership",
+        "status": "PASS",
+        "assertions": 47
+      },
+      {
+        "name": "stage5_stalled_empty_loop_boundary",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_stalled_same_assignment_and_inactive_actions",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage5_nested_stall_not_masked_by_outer_progress",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage5_variable_progress_beyond_stall_threshold",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage5_total_iteration_limit_and_clean_restart",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage5_exact_total_iteration_boundary",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage5_variable_revision_atomic_and_reset",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "stage5_cancellation_then_new_source",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage5_large_inactive_region_cooperative",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage5_small_nested_loop_reference_cases",
+        "status": "PASS",
+        "assertions": 175
+      },
+      {
+        "name": "stage5_mixed_control_stack_no_heap",
+        "status": "PASS",
+        "assertions": 91039
+      }
+    ],
+    "6": [
+      {
+        "name": "stage6_declarations_skipped",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_statement_invocation",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_multiple_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_forward_invocation_and_globals",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_explicit_void_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_implicit_void_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_integer_return_assignment",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_boolean_return_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_statement_discards_return_value",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_void_value_rejected",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_top_level_and_live_return_compatibility",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage6_enter_and_modifier_return_inside_function",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_return_unwinds_nested_control",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_caller_control_restored",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_nested_statement_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_nested_return_expressions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_multiple_calls_in_expression",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_earlier_variable_operand_preserved",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_eager_logical_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_inactive_conditions_do_not_call",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_while_condition_calls_reevaluate",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_while_condition_changes_count_as_progress",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_else_if_function_condition",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_numeric_commands_with_calls",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_function_globals_text_and_file_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_define_function_operands_and_names",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_macro_structural_creation_rejected",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage6_rem_and_text_modes",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_literal_text_does_not_invoke",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_names_case_sensitive",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage6_malformed_names_parameters_and_collisions",
+        "status": "PASS",
+        "assertions": 91
+      },
+      {
+        "name": "stage6_unknown_calls_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage6_invalid_call_arguments_and_whitespace",
+        "status": "PASS",
+        "assertions": 35
+      },
+      {
+        "name": "stage6_duplicate_and_nested_declarations",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage6_unterminated_and_unmatched_functions",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage6_return_syntax_and_context_errors",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage6_unused_body_preflight_errors_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage6_function_table_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage6_function_identifier_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage6_nested_call_depth_boundary",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_recursive_depth_exhaustion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_recursive_expression_and_global_visibility",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_shared_control_depth_exhaustion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_runtime_undefined_initialization",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_runtime_arithmetic_after_calls",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_repeat_history_around_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_stop_active_and_inactive_function_branches",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_cancel_pending_function_delay",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_cancel_nested_function_text",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_cancel_held_keys_in_call",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_cancel_call_under_usb_backpressure",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage6_cancel_expression_then_clean_run",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage6_live_ownership_and_stop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_seek_error_entering_function",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "stage6_seek_error_returning_to_caller",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_read_error_and_source_change_in_function",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_runtime_body_read_failure",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage6_bom_crlf_header_and_final_newline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_empty_function_loop_stalls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_total_call_budget",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage6_postfix_arithmetic_matches_existing_evaluator",
+        "status": "PASS",
+        "assertions": 39
+      },
+      {
+        "name": "stage6_expression_bounds_and_postfix_errors",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage6_long_declaration_skip_is_cooperative",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage6_postfix_call_state_no_heap",
+        "status": "PASS",
+        "assertions": 60012
+      }
+    ],
+    "7": [
+      {
+        "name": "stage7_empty_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_single_line_string",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_single_line_stringln",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_string_multiline_no_separators",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_stringln_multiline_enters",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_string_blank_lines",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_stringln_blank_lines",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_string_leading_and_trailing_whitespace",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_stringln_removes_one_leading_tab",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_internal_tabs_preserved",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_literal_command_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_terminator_prefixes_are_literal",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_case_and_indented_delimiters",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_inline_compatibility_unchanged",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_lf_and_crlf_equivalent",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage7_bom_only_at_source_start",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_no_final_newline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_quoted_text_no_unescaping",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_numeric_boolean_and_text_interpolation",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_unknown_host_variables_are_literal",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_variable_replacement_is_single_pass",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_define_hash_and_word_replacement",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_define_body_not_collected_or_expanded",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_define_single_pass_and_variable_order",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_expansion_cannot_close_or_execute",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_value_whitespace_after_source_dedent",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_maximum_body_line",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage7_overlong_body_zero_hid",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_define_expansion_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage7_interpolation_boundary_and_overflow",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage7_inactive_interpolation_has_no_runtime_effect",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_unterminated_after_output_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage7_mismatched_or_argument_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "name": "stage7_unmatched_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage7_literal_openers_inside_body",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage7_if_else_active_inactive_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_zero_iteration_loop_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_nested_loops_interpolate_current_values",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_function_repeat_calls_and_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_nested_functions_with_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_recursive_calls_with_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_repeat_literal_text_and_whitespace",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_repeat_blank_stringln",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_empty_string_does_not_replace_history",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_repeat_interpolates_again",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_default_delays_per_body_line",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_cancel_default_delay",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_cancel_halfway_through_typing",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_cancel_held_shift_and_usb_release_retry",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_usb_backpressure_lossless_and_no_readahead",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage7_stop_command_after_block",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_live_ownership_and_clean_run",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage7_live_block_opener_rejected",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "stage7_preflight_source_errors_zero_hid",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_rewind_seek_error_zero_hid",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_runtime_body_read_error_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage7_runtime_source_change",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_loop_backedge_seek_error",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_function_return_seek_error",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_large_block_streamed_and_cooperative",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_cancel_large_block_preflight",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_source_limits_zero_hid",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage7_hid_disabled_block_has_no_output",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_malformed_later_control_zero_hid",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage7_control_nesting_boundaries",
+        "status": "PASS",
+        "assertions": 26
+      },
+      {
+        "name": "stage7_text_blocks_do_not_execute_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage7_bounded_line_allocation_probe",
+        "status": "PASS",
+        "assertions": 40005
+      }
+    ],
+    "8": [
+      {
+        "name": "stage8_f1_f24_reference",
+        "status": "PASS",
+        "assertions": 346
+      },
+      {
+        "name": "stage8_invalid_f_names",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage8_navigation_editing_aliases",
+        "status": "PASS",
+        "assertions": 330
+      },
+      {
+        "name": "stage8_named_punctuation_keys",
+        "status": "PASS",
+        "assertions": 176
+      },
+      {
+        "name": "stage8_keypad_reference",
+        "status": "PASS",
+        "assertions": 144
+      },
+      {
+        "name": "stage8_all_modifier_masks",
+        "status": "PASS",
+        "assertions": 3072
+      },
+      {
+        "name": "stage8_modifier_aliases",
+        "status": "PASS",
+        "assertions": 110
+      },
+      {
+        "name": "stage8_hyphen_combinations",
+        "status": "PASS",
+        "assertions": 34
+      },
+      {
+        "name": "stage8_malformed_hyphens_zero_hid",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "stage8_case_tabs_and_order",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage8_modifier_only_release",
+        "status": "PASS",
+        "assertions": 23
+      },
+      {
+        "name": "stage8_six_key_limit_and_duplicates",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage8_literal_punctuation_chord_us",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage8_literal_punctuation_chord_de",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "name": "stage8_all_literal_punctuation_chords",
+        "status": "PASS",
+        "assertions": 797
+      },
+      {
+        "name": "stage8_report_filter_and_raw_modifiers",
+        "status": "PASS",
+        "assertions": 99
+      },
+      {
+        "name": "stage8_keycode_bounds_zero_hid",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage8_us_ascii_table",
+        "status": "PASS",
+        "assertions": 129
+      },
+      {
+        "name": "stage8_de_ascii_table",
+        "status": "PASS",
+        "assertions": 129
+      },
+      {
+        "name": "stage8_us_ascii_translation",
+        "status": "PASS",
+        "assertions": 358
+      },
+      {
+        "name": "stage8_de_ascii_translation",
+        "status": "PASS",
+        "assertions": 360
+      },
+      {
+        "name": "stage8_printable_ascii_runtime_all_locales",
+        "status": "PASS",
+        "assertions": 1934
+      },
+      {
+        "name": "stage8_de_utf8_reference",
+        "status": "PASS",
+        "assertions": 89
+      },
+      {
+        "name": "stage8_de_dead_keys",
+        "status": "PASS",
+        "assertions": 70
+      },
+      {
+        "name": "stage8_locale_registration_and_switching",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "stage8_named_keys_are_physical_not_locale_text",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "name": "stage8_unsupported_unicode_skip_warning",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage8_utf8_bounds_and_invalid_sequences",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "name": "stage8_no_warn_supported_controls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage8_repeat_define_and_stringln_reports",
+        "status": "PASS",
+        "assertions": 63
+      },
+      {
+        "name": "stage8_multiline_control_function_keyboard",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "name": "stage8_queue_refusal_press_and_release",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "name": "stage8_disconnect_mid_chord_recovery",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage8_cancel_held_modifier_all_masks",
+        "status": "PASS",
+        "assertions": 3060
+      },
+      {
+        "name": "stage8_cancel_release_priority_new_live_command",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "stage8_stop_and_runtime_error_release",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage8_cancel_between_dead_key_strokes",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "stage8_storage_fault_after_chord_release",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "stage8_hid_disabled_and_live_ownership",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage8_new_run_no_modifier_leak",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage8_translation_report_allocation_probe",
+        "status": "PASS",
+        "assertions": 32001
+      }
+    ],
+    "10": [
+      {
+        "name": "startup_success_truthful",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "startup_missing_card",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "startup_missing_image_no_create",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "startup_wrong_size_no_truncate",
+        "status": "PASS",
+        "assertions": 22
+      },
+      {
+        "name": "startup_open_failure",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "startup_probe_seek_failure",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "startup_probe_short_read",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "startup_sdk_failure_cleanup",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "retry_failed_startup",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "repeated_begin_idempotent",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "retry_ejected_media",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stale_host_load_after_off",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "stale_host_load_after_cancel",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "writable_reset_after_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "read_nonzero_offset",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "write_nonzero_offset",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "cross_sector_unaligned",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "last_byte_and_exact_end",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "invalid_range_and_overflow",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "zero_length_null",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "null_nonzero",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "transfer_limit",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "read_seek_failure_no_wrong_read",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "write_seek_failure_no_wrong_write",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "short_read_quarantines",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "short_write_prefix_and_quarantine",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "card_removal_callback",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "card_removal_main_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "backing_size_changed",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "fault_cleanup_and_explicit_recovery",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "eject_load_and_power_stop",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "cancel_before_open",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "cancel_after_open",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "timeout_wrap_safe",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "media_absent_until_validated",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "script_waits_for_storage",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "script_startup_failure_stops_tail",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stop_pending_startup",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stop_preserves_active_media",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "live_cli_ownership_while_preparing",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "script_and_host_activity",
+        "status": "PASS",
+        "assertions": 206
+      },
+      {
+        "name": "function_condition_storage_startup",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "live_cli_failure_status_and_retry",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "callback_lock_contention_busy",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "callback_error_storm_no_io",
+        "status": "PASS",
+        "assertions": 1004
+      },
+      {
+        "name": "concurrent_callback_mode_stop",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "sd_adapter_interleaving",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "sd_adapter_removal_and_remount",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "off_cancels_pending",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "repeated_failure_recovery",
+        "status": "PASS",
+        "assertions": 81
+      },
+      {
+        "name": "no_callback_heap_allocation",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "build_without_msc_reports_unavailable",
+        "status": "PASS",
+        "assertions": 4
+      }
+    ],
+    "11": [
+      {
+        "name": "hold_release_key",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "all_eight_persistent_modifiers",
+        "status": "PASS",
+        "assertions": 104
+      },
+      {
+        "name": "selective_modifier_release",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "selective_key_release_order",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "idempotent_hold_release",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "six_persistent_keys",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "seventh_hold_fails_no_drop",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "transient_chord_merges_persistent",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "all_modifier_masks_merge",
+        "status": "PASS",
+        "assertions": 2308
+      },
+      {
+        "name": "string_shift_punctuation_enter",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "de_altgr_and_dead_key_merge",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "held_shift_with_german_spacing",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "persistent_duplicate_transient_no_edge",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "merged_seventh_transient_fails",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "saturated_duplicate_and_modifier_allowed",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "raw_modifier_keycode_merges",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "inject_mod_inline",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "inject_mod_restores_owned",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "inject_mod_prefix_reference",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "reset_continues_variables",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stop_payload_tail_and_release",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "stop_inside_function_loop",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "inactive_ownership_commands",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "functions_loops_share_ownership",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "define_repeat_ownership_and_text",
+        "status": "PASS",
+        "assertions": 19
+      },
+      {
+        "name": "default_delay_ownership",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "eof_releases_owned",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "cancel_during_delay",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "cancel_during_string",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "cancel_dead_key_second_stroke",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "runtime_error_releases_owned",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "function_depth_error_releases",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "loop_budget_error_releases",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "storage_read_error_releases",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "hold_queue_refusal_no_commit",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "release_refusal_clears_logical_owner",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stop_release_refusal_priority",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "name": "reset_refusal_waits_before_tail",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "disconnect_poll_cancels_owned",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "disconnect_event_reconnect_between_ticks",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "backpressure_is_not_disconnect",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "live_disconnect_clears_idle_hold",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "new_script_clears_live_hold",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "web_cli_cannot_release_script_hold",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "live_holds_survive_commands_until_reset",
+        "status": "PASS",
+        "assertions": 20
+      },
+      {
+        "name": "new_script_after_cancel_no_leak",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "hid_mode_off_releases_owner",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "multiline_owned_reports_spiffs_sd",
+        "status": "PASS",
+        "assertions": 42
+      },
+      {
+        "name": "malformed_hold_zero_hid",
+        "status": "PASS",
+        "assertions": 35
+      },
+      {
+        "name": "malformed_release_zero_hid",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "malformed_inject_mod_zero_hid",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "reset_stop_args_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "ownership_command_prefixes_rejected",
+        "status": "PASS",
+        "assertions": 35
+      },
+      {
+        "name": "new_command_function_collisions",
+        "status": "PASS",
+        "assertions": 35
+      },
+      {
+        "name": "comment_text_literals_not_ownership",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "case_tabs_and_modifier_aliases",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "direct_report_overflow_null_validation",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "repeated_ownership_stress",
+        "status": "PASS",
+        "assertions": 8005
+      },
+      {
+        "name": "transient_release_refusal_restores_owned",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "eof_release_refusal_clears_logical_owner",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "cancel_pending_hold_before_acceptance",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "disconnect_during_text_cancels_tail",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "while_condition_runtime_error_releases",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "function_return_seek_error_releases",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "source_changed_while_owned_releases",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "next_script_after_disconnect_recovery",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "atomic_event_callback_no_execution_lock",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "implicit_function_return_owner_lifetime",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "unsupported_inactive_hold_preflight",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "live_stop_payload_releases_idle_hold",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "latched_disconnect_blocks_enqueue_before_update",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "ownership_allocation_probe",
+        "status": "PASS",
+        "assertions": 9002
+      }
+    ],
+    "12": [
+      {
+        "name": "initial_unknown_not_false",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "all_led_masks_and_padding",
+        "status": "PASS",
+        "assertions": 288
+      },
+      {
+        "name": "invalid_ids_lengths_null_padding",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "actual_keyboard_output_virtual_hook",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "actual_keyboard_control_set_report_hook",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "duplicates_do_not_count_changes",
+        "status": "PASS",
+        "assertions": 1003
+      },
+      {
+        "name": "per_key_transition_counters",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "first_report_auto_saves_attach_state",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "explicit_save_updates_saved_state",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "save_unknown_fails_truthfully",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "saved_unknown_expression",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "readonly_assignment_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "fake_internal_declaration_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "fake_internal_define_alias_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "read_cannot_shadow_internal",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "unsupported_read_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "unsupported_write_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "all_native_registry_names_reserved",
+        "status": "PASS",
+        "assertions": 75
+      },
+      {
+        "name": "os_extension_and_user_variables_preserved",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "timeout_extension_assignment_and_limits",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "timeout_assignment_expression_shared_evaluator",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "constant_invalid_timeout_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "live_wait_stop_cancellable",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "timeout_resets_between_scripts",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "no_internal_symbol_table_consumption",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "canonical_on_off_waits_all_keys",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "name": "wait_already_desired_is_immediate",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "unknown_off_does_not_succeed",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "wait_unknown_becomes_observed_off",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "change_unknown_first_report_is_baseline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "change_duplicate_reports_do_not_finish",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "rapid_changes_between_ticks_not_lost",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "change_all_three_independent",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "timeout_wrap_safe",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "malformed_lock_command_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "malformed_save_restore_preflight",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "lock_commands_function_collision",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "inactive_branch_no_wait_or_save",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "lock_variables_if_define_function_return",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "lock_variables_while_updates",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "wait_inside_nested_control_and_function",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "numeric_interpolation_observed_state",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "unknown_interpolation_runtime_error",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "unsupported_interpolation_runtime_error",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_noop_no_keyboard_output",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_unknown_current_saved_rejected",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_requires_hid_enabled",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_rejects_held_modifier",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_rejects_held_key",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_three_keys_ack_exact_reports",
+        "status": "PASS",
+        "assertions": 51
+      },
+      {
+        "name": "restore_no_ack_times_out_no_retoggle",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_wrong_feedback_not_ack",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_rechecks_pending_toggle_after_backpressure",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "restore_default_delay_after_success",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "restore_backpressure_timeout",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stop_cancels_wait_and_releases_hold",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "stop_payload_inside_function_preserves_feedback",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "reset_preserves_observed_and_saved_state",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "runtime_timeout_releases_held_keys",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "cancel_restore_during_press",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "disconnect_immediate_unknown_and_stale_token",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "unmounted_reports_rejected",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "disconnect_cancels_wait_and_reconnect_clean",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "feedback_survives_separate_script_runs",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "name": "live_cli_excluded_during_script_wait",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "live_save_restore_state",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "wait_command_backpressure_independent",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "feedback_during_input_preserves_reports",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "callback_does_not_wait_on_executor_lock",
+        "status": "PASS",
+        "assertions": 2
+      },
+      {
+        "name": "concurrent_feedback_and_snapshot_reads",
+        "status": "PASS",
+        "assertions": 10001
+      },
+      {
+        "name": "concurrent_disconnect_never_revives_old_session",
+        "status": "PASS",
+        "assertions": 100
+      },
+      {
+        "name": "transition_counter_crosses_16bit_boundary",
+        "status": "PASS",
+        "assertions": 65538
+      },
+      {
+        "name": "storage_requested_failed_registry_truthful",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "storage_preparing_active_ejected_registry",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "storage_retry_and_off_registry",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "attackmode_does_not_fabricate_lock_state",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "storage_read_error_after_wait_releases_keys",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "sd_spiffs_lock_fixture",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "saved_state_invalidated_on_backend_begin",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "feedback_registry_allocation_probe",
+        "status": "PASS",
+        "assertions": 50002
+      }
+    ],
+    "13": [
+      {
+        "name": "alias_POWERSHELL",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_BATCH",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_BASH",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_JAVASCRIPT",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_PYTHON",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_RUBY",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_HTML",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_POWERSHELL",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_BATCH",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_BASH",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_JAVASCRIPT",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_PYTHON",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_RUBY",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_ln_HTML",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "new_keyword_prefixes_rejected",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "name": "documentation_heading",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "ordinary_comment_forms",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "invalid_comment_heading",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "unterminated_documentation",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_cross_terminator",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_suffixed_terminator",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_suffixed_end_is_literal_data",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_inline_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_unknown_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_unterminated",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "alias_define_interpolation_order",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_literal_preprocessing",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_empty_block",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_bom_crlf_no_newline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_lowercase_tabs",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "extension_functions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "extension_sequential_body",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "extension_version_optional",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "extension_duplicate",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_nested",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_invalid_name",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_missing_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_unmatched_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_end_arguments",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_version_duplicate",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_version_misplaced",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_version_outside",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_version_malformed",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_control_boundary",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_function_boundary",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_not_top_level",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "extension_exact_limit",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "extension_limit_plus_one",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "preprocess_true_false_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_not_true_undefined",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_bare_label",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_order_forward_definition",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_excluded_define_inert",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_included_define_global_expansion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_text_flag_ambiguous_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_recursive_flag_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_invalid_label",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_extra_condition_tokens",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_missing_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_unmatched_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_unmatched_else",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_duplicate_else",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_marker_arguments",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_nested_parent_exclusion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_exact_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_depth_plus_one",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_excluded_runtime_not_validated",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_excluded_function_not_inventoried",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "preprocess_excluded_variable_not_inventoried",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "preprocess_excluded_storage_hid_inert",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "preprocess_comment_directives_literal",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_excluded_text_structural_error",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_excluded_comment_missing_end",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_wrapper_crossing",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "preprocess_wrapper_end_crossing",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "macro_cannot_create_wrapper",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "macro_cannot_create_preprocessor",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "macro_cannot_create_alias",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "checked_in_source_fixture",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "checked_in_exclusion_fixture",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "integration_spiffs",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "integration_sd",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "frozen_flags_after_function_seek",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "frozen_flags_after_loop_seek",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "selected_structure_validated_before_hid",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "preprocess_repeat_history",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "maximum_line_inside_exclusion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "overlong_line_inside_exclusion",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "source_limit_inside_exclusion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "exact_line_bitmap_boundary",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "bitmap_boundary_plus_one",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "excluded_read_fault",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocessing_rewind_fault",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "cancellation_during_preprocessing",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "cancellation_during_alias_typing",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "alias_usb_backpressure",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "large_streamed_alias",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "canonical_led_colors_and_override",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "canonical_led_arguments_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "canonical_led_inactive_branch",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "canonical_led_error_priority",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "canonical_led_new_script_defaults",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "name": "canonical_led_open_error_priority",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "new_command_function_names_reserved",
+        "status": "PASS",
+        "assertions": 42
+      },
+      {
+        "name": "live_metadata_rejected",
+        "status": "PASS",
+        "assertions": 2
+      },
+      {
+        "name": "excluded_duplicate_constants_ignored",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "included_duplicate_constants_rejected",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "excluded_extension_names_do_not_exhaust",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "macro_cannot_create_version",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "macro_cannot_create_wrapper_direct",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "constant_text_cannot_escape_alias",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "comment_define_not_collected_in_alias",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "combined_preprocess_runtime_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_no_expansion_of_flag_name",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preprocess_define_whitespace_literal_boolean",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "canonical_led_disabled_setting",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "canonical_led_stop_retains_override",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "legacy_rgb_behavior_retained",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "name": "function_seek_fault_after_preprocessing",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "preflight_cancellation_live_isolation",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "run_state_inclusion_isolation",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "name": "preprocessing_bitmap_allocation_probe",
+        "status": "PASS",
+        "assertions": 8195
+      }
+    ],
+    "2.5": [
+      {
+        "name": "stage25_reviewed_partition_layout",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "name": "stage25_overlapping_partitions_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_unaligned_application_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_reviewed_offsets_sizes_flags_enforced",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "stage25_core_version_pin_enforced",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_application_size_boundary",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage25_image_header_configuration_enforced",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage25_build_configuration_and_app_address_enforced",
+        "status": "PASS",
+        "assertions": 22
+      },
+      {
+        "name": "stage25_generated_16m_build_artifacts",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "stage25_corrupt_partition_binary_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_merged_image_wrong_address_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_stale_4m_partition_artifact_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_saved_physical_flash_capacity_guard",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage25_offline_source_archives_require_file_migration",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "stage25_offline_preparation_rejects_invalid_backups",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "stage25_offline_preparation_never_overwrites",
+        "status": "PASS",
+        "assertions": 2
+      },
+      {
+        "name": "stage25_build_wrapper_requires_clean_output",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage25_verified_device_map_differs_from_core_default",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage25_raw_spiffs_size_mismatch_refused",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "name": "stage25_recorded_backup_hash_guards",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "stage25_file_level_extract_repack_roundtrip",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "name": "stage25_file_level_empty_filesystem",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "name": "stage25_file_level_capacity_and_overwrite_guards",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage25_corrupt_or_wrong_geometry_extraction_refused",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "stage25_alternative_layout_maximum_equal_slots",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "name": "stage25_review_only_plan_preserves_nvs_and_initializes_both_apps",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "name": "stage25_write_and_erase_region_guards",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "stage25_ota_initializer_selects_app0_deterministically",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "name": "stage25_plan_refuses_unverified_files_and_backup_provenance",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "name": "stage25_mac_old_core_rejected_before_compile",
+        "status": "PASS",
+        "assertions": 1
+      }
+    ]
+  },
+  "historical_xpass": [
+    "known_nested_if",
+    "known_canonical_if",
+    "known_false_while",
+    "known_f13_mapping",
+    "known_german_ascii_table"
+  ],
+  "stage9_observations": {
+    "observations": 79,
+    "mismatches": 0,
+    "assertions": 574,
+    "results": [
+      {
+        "fixture": "basic_text",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "basic_text",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "comment_block",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "comment_block",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "documented_comment_heading",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "documented_comment_heading",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "numeric_boolean",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "numeric_boolean",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "reference_self_assignment",
+        "source": "stage9.txt",
+        "canonical_status": "EXTENSION",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "reference_self_assignment",
+        "source": "sd:stage9.txt",
+        "canonical_status": "EXTENSION",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_words",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_words",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_nonrecursive",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_nonrecursive",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_command",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_command",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_structural",
+        "source": "stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: DEFINE expansion cannot create conditional block delimiters [#OPEN]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "define_structural",
+        "source": "sd:stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: DEFINE expansion cannot create conditional block delimiters [#OPEN]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "selected_assignment",
+        "source": "stage9.txt",
+        "canonical_status": "EXTENSION",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "selected_assignment",
+        "source": "sd:stage9.txt",
+        "canonical_status": "EXTENSION",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "loop_function",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "loop_function",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "multiline_literal",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "multiline_literal",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inline_trailing",
+        "source": "stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inline_trailing",
+        "source": "sd:stage9.txt",
+        "canonical_status": "SUPPORTED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "eager_side_effect",
+        "source": "stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "eager_side_effect",
+        "source": "sd:stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "wrap_underflow",
+        "source": "stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "wrap_underflow",
+        "source": "sd:stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "implicit_value",
+        "source": "stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Function returned without a value in an expression [in empty(), called at line 3]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "implicit_value",
+        "source": "sd:stage9.txt",
+        "canonical_status": "UNRESOLVED",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Function returned without a value in an expression [in empty(), called at line 3]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inactive_unknown",
+        "source": "stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: NONEXISTENT_COMMAND; use STRING for literal text [NONEXISTENT_COMMAND]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inactive_unknown",
+        "source": "sd:stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: NONEXISTENT_COMMAND; use STRING for literal text [NONEXISTENT_COMMAND]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "hold",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "hold",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "release",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "release",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inject_mod",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inject_mod",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "stop_payload",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "stop_payload",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "restart_payload",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RESTART_PAYLOAD; use STRING for literal text [RESTART_PAYLOAD]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "restart_payload",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RESTART_PAYLOAD; use STRING for literal text [RESTART_PAYLOAD]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "reset",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "reset",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE11",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "led_green",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "led_green",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "button_wait",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_BUTTON_PRESS; use STRING for literal text [WAIT_FOR_BUTTON_PRESS]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "button_wait",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_BUTTON_PRESS; use STRING for literal text [WAIT_FOR_BUTTON_PRESS]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "lock_wait",
+        "source": "stage9.txt",
+        "canonical_status": "STAGE12_BOUNDED_WAIT_WITHOUT_FEEDBACK",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Command failed: WAIT_FOR_CAPS_ON: Host lock feedback timeout; no acknowledged success\nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "lock_wait",
+        "source": "sd:stage9.txt",
+        "canonical_status": "STAGE12_BOUNDED_WAIT_WITHOUT_FEEDBACK",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Command failed: WAIT_FOR_CAPS_ON: Host lock feedback timeout; no acknowledged success\nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "save_lock",
+        "source": "stage9.txt",
+        "canonical_status": "STAGE12_SAVE_REQUIRES_EVIDENCE",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Command failed: SAVE_HOST_KEYBOARD_LOCK_STATE: Cannot save unknown host lock state\nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "save_lock",
+        "source": "sd:stage9.txt",
+        "canonical_status": "STAGE12_SAVE_REQUIRES_EVIDENCE",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Command failed: SAVE_HOST_KEYBOARD_LOCK_STATE: Cannot save unknown host lock state\nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "save_mode",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: SAVE_ATTACKMODE; use STRING for literal text [SAVE_ATTACKMODE]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "save_mode",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: SAVE_ATTACKMODE; use STRING for literal text [SAVE_ATTACKMODE]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "random_character",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RANDOM_CHARACTER; use STRING for literal text [RANDOM_CHARACTER]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "random_character",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RANDOM_CHARACTER; use STRING for literal text [RANDOM_CHARACTER]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inject_variable",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: INJECT_VAR; use STRING for literal text [INJECT_VAR $n]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inject_variable",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: INJECT_VAR; use STRING for literal text [INJECT_VAR $n]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "storage_wait",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_STORAGE_ACTIVITY; use STRING for literal text [WAIT_FOR_STORAGE_ACTIVITY]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "storage_wait",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_STORAGE_ACTIVITY; use STRING for literal text [WAIT_FOR_STORAGE_ACTIVITY]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "hide_payload",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: HIDE_PAYLOAD; use STRING for literal text [HIDE_PAYLOAD]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "hide_payload",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: HIDE_PAYLOAD; use STRING for literal text [HIDE_PAYLOAD]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "extension_wrapper",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "extension_wrapper",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "conditional_compile",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "conditional_compile",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "language_string",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "language_string",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE13",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "usb_identity",
+        "source": "stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 1: Unsupported ATTACKMODE token [ATTACKMODE HID VID_05AC PID_021E]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "usb_identity",
+        "source": "sd:stage9.txt",
+        "canonical_status": "GAP",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 1: Unsupported ATTACKMODE token [ATTACKMODE HID VID_05AC PID_021E]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "undefined_builtin",
+        "source": "stage9.txt",
+        "canonical_status": "STAGE12_UNKNOWN_WITHOUT_FEEDBACK",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 1: Command failed: VAR $n=$_CAPSLOCK_ON: Expression column 1: Internal variable state unknown in this USB session\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "undefined_builtin",
+        "source": "sd:stage9.txt",
+        "canonical_status": "STAGE12_UNKNOWN_WITHOUT_FEEDBACK",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 1: Command failed: VAR $n=$_CAPSLOCK_ON: Expression column 1: Internal variable state unknown in this USB session\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inert_builtin_declaration",
+        "source": "stage9.txt",
+        "canonical_status": "RESOLVED_STAGE12_NAMESPACE_SAFETY",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC stage9.txt: Error at line 1: Reserved internal variable is read-only or unsupported [VAR $_JITTER_ENABLED=TRUE]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "inert_builtin_declaration",
+        "source": "sd:stage9.txt",
+        "canonical_status": "RESOLVED_STAGE12_NAMESPACE_SAFETY",
+        "observation_matched": true,
+        "assertions": 8,
+        "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 1: Reserved internal variable is read-only or unsupported [VAR $_JITTER_ENABLED=TRUE]\nOBSERVED 8 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "delay_below_reference_minimum",
+        "source": "stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "delay_below_reference_minimum",
+        "source": "sd:stage9.txt",
+        "canonical_status": "DIVERGENT",
+        "observation_matched": true,
+        "assertions": 7,
+        "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+        "stderr": ""
+      },
+      {
+        "fixture": "production_attackmode_failure",
+        "canonical_status": "RESOLVED_STAGE10",
+        "observation_matched": true,
+        "assertions": 2,
+        "stdout": "MSC failure: accepted=0, reported storage=0, actual active=0, warnings=1\nOBSERVED 2 assertions; Stage10 RESOLVED (failure propagated, retry attempted; personality remains partial)\n",
+        "stderr": ""
+      }
+    ],
+    "sanitizers": "ASan/UBSan",
+    "hardware_access": false
+  },
+  "stage13": {
+    "pass_count": 122,
+    "fail_count": 0,
+    "assertions": 9081,
+    "results": [
+      {
+        "name": "alias_POWERSHELL",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_POWERSHELL (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_BATCH",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_BATCH (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_BASH",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_BASH (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_JAVASCRIPT",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_JAVASCRIPT (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_PYTHON",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_PYTHON (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_RUBY",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_RUBY (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_HTML",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_HTML (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_POWERSHELL",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_POWERSHELL (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_BATCH",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_BATCH (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_BASH",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_BASH (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_JAVASCRIPT",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_JAVASCRIPT (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_PYTHON",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_PYTHON (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_RUBY",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_RUBY (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_ln_HTML",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_ln_HTML (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "new_keyword_prefixes_rejected",
+        "status": "PASS",
+        "assertions": 28,
+        "stdout": "PASS new_keyword_prefixes_rejected (28 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "documentation_heading",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS documentation_heading (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "ordinary_comment_forms",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS ordinary_comment_forms (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "invalid_comment_heading",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS invalid_comment_heading (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "unterminated_documentation",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS unterminated_documentation (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_cross_terminator",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS alias_cross_terminator (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_suffixed_terminator",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS alias_suffixed_terminator (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_suffixed_end_is_literal_data",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_suffixed_end_is_literal_data (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_inline_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS alias_inline_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_unknown_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS alias_unknown_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_unterminated",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS alias_unterminated (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_define_interpolation_order",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_define_interpolation_order (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_literal_preprocessing",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_literal_preprocessing (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_empty_block",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_empty_block (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_bom_crlf_no_newline",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_bom_crlf_no_newline (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_lowercase_tabs",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_lowercase_tabs (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_functions",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS extension_functions (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_sequential_body",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS extension_sequential_body (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_version_optional",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS extension_version_optional (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_duplicate",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_duplicate (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_nested",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_nested (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_invalid_name",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_invalid_name (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_missing_end",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_missing_end (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_unmatched_end",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_unmatched_end (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_end_arguments",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_end_arguments (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_version_duplicate",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_version_duplicate (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_version_misplaced",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_version_misplaced (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_version_outside",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_version_outside (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_version_malformed",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_version_malformed (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_control_boundary",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_control_boundary (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_function_boundary",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_function_boundary (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_not_top_level",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS extension_not_top_level (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_exact_limit",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS extension_exact_limit (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "extension_limit_plus_one",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS extension_limit_plus_one (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_true_false_else",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_true_false_else (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_not_true_undefined",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_not_true_undefined (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_bare_label",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_bare_label (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_order_forward_definition",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_order_forward_definition (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_define_inert",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_excluded_define_inert (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_included_define_global_expansion",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_included_define_global_expansion (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_text_flag_ambiguous_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_text_flag_ambiguous_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_recursive_flag_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_recursive_flag_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_invalid_label",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_invalid_label (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_extra_condition_tokens",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_extra_condition_tokens (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_missing_end",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_missing_end (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_unmatched_end",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_unmatched_end (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_unmatched_else",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_unmatched_else (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_duplicate_else",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_duplicate_else (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_marker_arguments",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_marker_arguments (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_nested_parent_exclusion",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_nested_parent_exclusion (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_exact_depth",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_exact_depth (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_depth_plus_one",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_depth_plus_one (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_runtime_not_validated",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_excluded_runtime_not_validated (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_function_not_inventoried",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS preprocess_excluded_function_not_inventoried (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_variable_not_inventoried",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS preprocess_excluded_variable_not_inventoried (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_storage_hid_inert",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS preprocess_excluded_storage_hid_inert (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_comment_directives_literal",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_comment_directives_literal (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_text_structural_error",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_excluded_text_structural_error (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_excluded_comment_missing_end",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_excluded_comment_missing_end (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_wrapper_crossing",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_wrapper_crossing (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_wrapper_end_crossing",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS preprocess_wrapper_end_crossing (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "macro_cannot_create_wrapper",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS macro_cannot_create_wrapper (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "macro_cannot_create_preprocessor",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS macro_cannot_create_preprocessor (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "macro_cannot_create_alias",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS macro_cannot_create_alias (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "checked_in_source_fixture",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS checked_in_source_fixture (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "checked_in_exclusion_fixture",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS checked_in_exclusion_fixture (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "integration_spiffs",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS integration_spiffs (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "integration_sd",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS integration_sd (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "frozen_flags_after_function_seek",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS frozen_flags_after_function_seek (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "frozen_flags_after_loop_seek",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS frozen_flags_after_loop_seek (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "selected_structure_validated_before_hid",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS selected_structure_validated_before_hid (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_repeat_history",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_repeat_history (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "maximum_line_inside_exclusion",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS maximum_line_inside_exclusion (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "overlong_line_inside_exclusion",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS overlong_line_inside_exclusion (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "source_limit_inside_exclusion",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS source_limit_inside_exclusion (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "exact_line_bitmap_boundary",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS exact_line_bitmap_boundary (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "bitmap_boundary_plus_one",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS bitmap_boundary_plus_one (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "excluded_read_fault",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS excluded_read_fault (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocessing_rewind_fault",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocessing_rewind_fault (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "cancellation_during_preprocessing",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS cancellation_during_preprocessing (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "cancellation_during_alias_typing",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS cancellation_during_alias_typing (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "alias_usb_backpressure",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS alias_usb_backpressure (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "large_streamed_alias",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS large_streamed_alias (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_colors_and_override",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS canonical_led_colors_and_override (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_arguments_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS canonical_led_arguments_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_inactive_branch",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS canonical_led_inactive_branch (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_error_priority",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS canonical_led_error_priority (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_new_script_defaults",
+        "status": "PASS",
+        "assertions": 14,
+        "stdout": "PASS canonical_led_new_script_defaults (14 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_open_error_priority",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS canonical_led_open_error_priority (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "new_command_function_names_reserved",
+        "status": "PASS",
+        "assertions": 42,
+        "stdout": "PASS new_command_function_names_reserved (42 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "live_metadata_rejected",
+        "status": "PASS",
+        "assertions": 2,
+        "stdout": "PASS live_metadata_rejected (2 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "excluded_duplicate_constants_ignored",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS excluded_duplicate_constants_ignored (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "included_duplicate_constants_rejected",
+        "status": "PASS",
+        "assertions": 8,
+        "stdout": "PASS included_duplicate_constants_rejected (8 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "excluded_extension_names_do_not_exhaust",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS excluded_extension_names_do_not_exhaust (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "macro_cannot_create_version",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS macro_cannot_create_version (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "macro_cannot_create_wrapper_direct",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS macro_cannot_create_wrapper_direct (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "constant_text_cannot_escape_alias",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS constant_text_cannot_escape_alias (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "comment_define_not_collected_in_alias",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS comment_define_not_collected_in_alias (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "combined_preprocess_runtime_depth",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS combined_preprocess_runtime_depth (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_no_expansion_of_flag_name",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_no_expansion_of_flag_name (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocess_define_whitespace_literal_boolean",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS preprocess_define_whitespace_literal_boolean (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_disabled_setting",
+        "status": "PASS",
+        "assertions": 5,
+        "stdout": "PASS canonical_led_disabled_setting (5 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "canonical_led_stop_retains_override",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS canonical_led_stop_retains_override (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "legacy_rgb_behavior_retained",
+        "status": "PASS",
+        "assertions": 5,
+        "stdout": "PASS legacy_rgb_behavior_retained (5 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "function_seek_fault_after_preprocessing",
+        "status": "PASS",
+        "assertions": 6,
+        "stdout": "PASS function_seek_fault_after_preprocessing (6 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preflight_cancellation_live_isolation",
+        "status": "PASS",
+        "assertions": 7,
+        "stdout": "PASS preflight_cancellation_live_isolation (7 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "run_state_inclusion_isolation",
+        "status": "PASS",
+        "assertions": 12,
+        "stdout": "PASS run_state_inclusion_isolation (12 assertions)\n",
+        "stderr": ""
+      },
+      {
+        "name": "preprocessing_bitmap_allocation_probe",
+        "status": "PASS",
+        "assertions": 8195,
+        "stdout": "Filter fixed storage: 1636 bytes; bitmap membership C++ allocations: 0. String parsing is not allocation-free.\nPASS preprocessing_bitmap_allocation_probe (8195 assertions)\n",
+        "stderr": ""
+      }
+    ],
+    "sanitizers": "ASan/UBSan",
+    "hardware_access": false
+  },
+  "build": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1326784,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6275392,
+    "free_percent_per_slot": 82.54731276939656,
+    "application_sha256": "a9bf3d7cc0b6cfdce6aba2ad80c1044a25986bf6cacc29021abf56578338d015",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1326643,
+    "static_ram_bytes": 82224,
+    "compiler_ram_maximum_bytes": 327680,
+    "merged_image_for_migration": false
+  },
+  "resource_growth": {
+    "program": 5388,
+    "application": 5376,
+    "static_ram": 1720
+  },
+  "sanitizers": "ASan/UBSan clean; not physical conformance or ThreadSanitizer",
+  "hardware_access": false,
+  "stage14_started": false
+}

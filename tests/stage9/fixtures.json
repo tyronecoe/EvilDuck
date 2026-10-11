@@ -20,11 +20,11 @@
   {
     "name": "documented_comment_heading",
     "file": "fixtures/documented_comment_heading.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Block marker takes no arguments",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE13",
     "reference": "rem",
-    "note": "Official example accepts introductory text; current preflight rejects."
+    "note": "Former source gap resolved in Stage13; exact mocked output observed, physical LED not verified."
   },
   {
     "name": "numeric_boolean",
@@ -209,11 +209,11 @@
   {
     "name": "led_green",
     "file": "fixtures/led_green.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE13",
     "reference": "led",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Former source gap resolved in Stage13; exact mocked output observed, physical LED not verified."
   },
   {
     "name": "button_wait",
@@ -290,29 +290,29 @@
   {
     "name": "extension_wrapper",
     "file": "fixtures/extension_wrapper.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE13",
     "reference": "extensions",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage13 production implementation resolves this former parser gap; observation checks actual output, not independent Hak5 compiler equivalence."
   },
   {
     "name": "conditional_compile",
     "file": "fixtures/conditional_compile.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE13",
     "reference": "conditional-compilation",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage13 production implementation resolves this former parser gap; observation checks actual output, not independent Hak5 compiler equivalence."
   },
   {
     "name": "language_string",
     "file": "fixtures/language_string.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\nready\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE13",
     "reference": "keystroke-injection",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage13 production implementation resolves this former parser gap; observation checks actual output, not independent Hak5 compiler equivalence."
   },
   {
     "name": "usb_identity",

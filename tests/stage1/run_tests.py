@@ -21,7 +21,7 @@ def compile_target(main, build, name):
     build.mkdir(parents=True, exist_ok=True)
     sources = [main, ROOT / "mocks/host.cpp"] + [FW / f"{module}.cpp" for module in
         ("com", "duckscript", "duck_vars", "duck_keys", "keyboard_locale", "locales", "hid_backend",
-         "script_log", "cli", "script_source", "script_parser", "duck_expr", "duck_constants", "script_functions")]
+         "script_log", "cli", "script_source", "script_parser", "duck_expr", "duck_constants", "script_functions", "script_preprocessor")]
     exe = build / name
     subprocess.run(["g++", "-std=gnu++17", "-g", "-O1", "-Wall", "-Wextra",
         "-pthread", "-DEVILDUCK_HOST_TEST", "-fsanitize=address,undefined", "-fno-omit-frame-pointer",

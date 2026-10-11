@@ -226,6 +226,58 @@ bool filePayload(const String &args, String &ref, String &payload) {
   return false;
 }
 
+bool textOpener(const String &keyword, Kind &kind) {
+  String upper = keyword; upper.toUpperCase();
+  const bool ln = upper.startsWith("STRINGLN_");
+  const bool str = upper.startsWith("STRING_");
+  if (upper == "STRING" || upper == "STRINGLN") {
+    kind = upper == "STRING" ? Kind::StringBlock : Kind::StringLnBlock; return true;
+  }
+  if (!ln && !str) return false;
+  String suffix = upper.substring(ln ? 9 : 7);
+  static const char *languages[] = {"POWERSHELL", "BATCH", "BASH", "JAVASCRIPT", "PYTHON", "RUBY", "HTML"};
+  for (const char *name : languages) if (suffix == name) {
+    kind = ln ? Kind::StringLnBlock : Kind::StringBlock; return true;
+  }
+  return false;
+}
+
+bool RawBlocks::scan(const String &line, uint32_t number, bool &ordinary, String &diagnostic, bool deferUnmatched) {
+  ordinary = false;
+  String text = trimmed(line);
+  if (mode != Kind::Empty) {
+    if (mode == Kind::RemBlock && !hasKeyword(text, "END_REM")) return true;
+    if (mode != Kind::RemBlock && !hasKeyword(text, "END_STRING") &&
+        !hasKeyword(text, "END_STRINGLN")) return true;
+    Statement stmt;
+    if (!parse(text, stmt, diagnostic)) return false;
+    const Kind expected = mode == Kind::RemBlock ? Kind::EndRem :
+      mode == Kind::StringBlock ? Kind::EndString : Kind::EndStringLn;
+    if (stmt.kind != expected) return error(diagnostic, mode == Kind::RemBlock ? "Mismatched comment/text block terminator" : "Mismatched STRING/STRINGLN block terminator");
+    mode = Kind::Empty; return true;
+  }
+  if (hasKeyword(text, "REM") || text.startsWith("//")) return true;
+  Kind opener;
+  size_t offset = 0; String keyword; word(text, offset, keyword);
+  if (hasKeyword(text, "REM_BLOCK") || (textOpener(keyword, opener) && offset == text.length()) ||
+      hasKeyword(text, "END_REM") || hasKeyword(text, "END_STRING") || hasKeyword(text, "END_STRINGLN")) {
+    Statement stmt;
+    if (!parse(text, stmt, diagnostic)) return false;
+    if (stmt.kind == Kind::EndRem || stmt.kind == Kind::EndString || stmt.kind == Kind::EndStringLn) {
+      if (deferUnmatched) { ordinary = true; return true; }
+      return error(diagnostic, "Unmatched comment/text block terminator");
+    }
+    mode = stmt.kind; openingLine = number; return true;
+  }
+  ordinary = true; return true;
+}
+bool RawBlocks::finish(String &diagnostic, uint32_t &number) const {
+  if (mode == Kind::Empty) return true;
+  number = openingLine;
+  return error(diagnostic, mode == Kind::RemBlock ? "Unterminated REM_BLOCK" :
+    mode == Kind::StringBlock ? "Unterminated STRING block" : "Unterminated STRINGLN block");
+}
+
 bool parse(const String &input, Statement &out, String &diagnostic) {
   out = Statement();
   diagnostic = "";
@@ -250,6 +302,26 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
   String rawArgs = offset < line.length() ? line.substring(offset + 1) : String();
   out.args = trimmed(rawArgs);
   out.line = keyword + (out.args.length() ? " " + out.args : String());
+  if (keyword == "EXTENSION") {
+    if (!duck_expr::identifier(out.args.c_str(), out.args.length(), 0)) return error(diagnostic, "Invalid EXTENSION name");
+    out.kind = Kind::Extension; return true;
+  }
+  if (keyword == "END_EXTENSION") {
+    if (out.args.length()) return error(diagnostic, "END_EXTENSION takes no arguments");
+    out.kind = Kind::EndExtension; return true;
+  }
+  if (keyword == "VERSION") {
+    bool digit = false, dot = false;
+    for (size_t i = 0; i < out.args.length(); ++i) {
+      char c = out.args[i];
+      if (c >= '0' && c <= '9') digit = true;
+      else if (c == '.' && digit) { dot = true; digit = false; }
+      else return error(diagnostic, "VERSION requires dotted decimal metadata");
+    }
+    if (!digit || !dot || out.args.length() > DUCKSCRIPT_MAX_IDENTIFIER_LEN)
+      return error(diagnostic, "VERSION requires bounded dotted decimal metadata");
+    out.kind = Kind::Version; return true;
+  }
   if (keyword == "FUNCTION") {
     String identifier;
     if (!script_functions::name(out.args, identifier, diagnostic)) return false;
@@ -260,6 +332,16 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return !out.args.length() || expression(out.args, diagnostic);
   }
   if (keyword == "REM") { out.kind = Kind::Comment; return true; }
+  Kind alias;
+  if (keyword != "STRING" && keyword != "STRINGLN" && textOpener(keyword, alias)) {
+    if (out.args.length()) return error(diagnostic, "Embedded-language aliases are block-only");
+    out.kind = alias; return true;
+  }
+  if (keyword == "REM_BLOCK" && out.args.length()) {
+    String heading = out.args; heading.toUpperCase();
+    if (heading != "DOCUMENTATION") return error(diagnostic, "REM_BLOCK accepts only DOCUMENTATION heading");
+    out.kind = Kind::RemBlock; return true;
+  }
   if (keyword == "STRING" || keyword == "STRINGLN") {
     out.kind = out.args.length() ? Kind::Command : keyword == "STRING" ? Kind::StringBlock : Kind::StringLnBlock;
     if (out.args.length()) { out.args = rawArgs; out.line = keyword + " " + rawArgs; }
@@ -300,6 +382,8 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return expression(out.args, diagnostic);
   }
   out.kind = Kind::Command;
+  if (keyword == "LED_R" || keyword == "LED_G" || keyword == "LED_OFF")
+    return out.args.length() ? error(diagnostic, "Canonical LED commands take no arguments") : true;
   if (internal_vars::lockCommand(keyword) >= 0)
     return out.args.length() ? error(diagnostic, "Lock feedback commands take no arguments") : true;
   if (keyword == "STOP" || keyword == "STOP_PAYLOAD" || keyword == "RESET")
@@ -441,10 +525,12 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
   String expanded;
   if (hasKeyword(text, "REM") || text.startsWith("//")) return parse(text, out, diagnostic);
   String upper = text; upper.toUpperCase();
-  bool delimiter = hasKeyword(text, "REM_BLOCK") || hasKeyword(text, "END_REM") ||
+  Kind rawTextKind;
+  bool delimiter = textOpener(upper, rawTextKind) || hasKeyword(text, "REM_BLOCK") || hasKeyword(text, "END_REM") ||
     hasKeyword(text, "END_STRING") || hasKeyword(text, "END_STRINGLN") || upper == "STRING" || upper == "STRINGLN";
   bool rawIf = hasKeyword(text, "IF"), rawElse = hasKeyword(text, "ELSE");
   bool rawWhile = hasKeyword(text, "WHILE");
+  bool rawMetadata = hasKeyword(text, "EXTENSION") || hasKeyword(text, "END_EXTENSION") || hasKeyword(text, "VERSION");
   bool rawFunction = hasKeyword(text, "FUNCTION") || hasKeyword(text,"END_FUNCTION") || hasKeyword(text,"RETURN");
   String callName, callError;
   bool rawCall = text.endsWith("()") && script_functions::name(text,callName,callError);
@@ -481,9 +567,11 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
   } else if (hasKeyword(text,"RETURN") && text.length()>6) {
     String args; if(!duck_constants::expand(text.substring(6),args,diagnostic))return false;
     expanded=text.substring(0,6)+args;
-  } else if (delimiter || rawEnd || rawFunction || rawCall) expanded = text;
+  } else if (delimiter || rawEnd || rawFunction || rawCall || rawMetadata) expanded = text;
   else if (!duck_constants::expand(text, expanded, diagnostic)) return false;
   if (!parse(hasKeyword(text, "DEFINE") ? line : expanded, out, diagnostic)) return false;
+  if (!rawMetadata && (out.kind == Kind::Extension || out.kind == Kind::EndExtension || out.kind == Kind::Version))
+    return error(diagnostic, "DEFINE expansion cannot create extension metadata");
   if (!rawIf && !rawElse && !rawEnd &&
       (out.kind == Kind::If || out.kind == Kind::ElseIf || out.kind == Kind::Else || out.kind == Kind::EndIf))
     return error(diagnostic, "DEFINE expansion cannot create conditional block delimiters");
@@ -513,6 +601,18 @@ bool Lexer::finish(String &diagnostic, uint32_t &number) const {
 bool Validator::accept(const String &line, uint32_t number, String &diagnostic) {
   Statement stmt;
   if (!lexer.scan(line, number, stmt, diagnostic)) return false;
+  if (stmt.kind == Kind::Extension) {
+    if (inExtension || inFunction || depth) return error(diagnostic, "EXTENSION wrappers must be top level");
+    inExtension = true; extensionLine = number; return true;
+  }
+  if (stmt.kind == Kind::EndExtension) {
+    if (!inExtension || inFunction || depth) return error(diagnostic, "Mismatched extension/function/control-flow boundary");
+    inExtension = false; return true;
+  }
+  if (stmt.kind == Kind::Version) {
+    if (!inExtension || inFunction || depth) return error(diagnostic, "VERSION requires an extension header");
+    return true;
+  }
   if(stmt.kind==Kind::Function) {
     if(inFunction || depth)return error(diagnostic,"FUNCTION declarations must be top level, not nested");
     inFunction=true;functionLine=number;return true;
@@ -573,6 +673,7 @@ bool Validator::accept(const String &line, uint32_t number, String &diagnostic) 
 
 bool Validator::finish(String &diagnostic, uint32_t &number) const {
   if (!lexer.finish(diagnostic, number)) return false;
+  if(inExtension) {number=extensionLine;return error(diagnostic,"Unterminated EXTENSION");}
   if(inFunction) {number=functionLine;return error(diagnostic,"Unterminated FUNCTION");}
   if (depth) { number = stack[depth - 1].line; return error(diagnostic, "Unterminated IF/WHILE block"); }
   return true;

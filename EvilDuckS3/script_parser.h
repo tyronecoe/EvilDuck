@@ -8,7 +8,7 @@ static_assert(DUCKSCRIPT_MAX_BLOCK_DEPTH > 0 && DUCKSCRIPT_MAX_BLOCK_DEPTH < 256
 enum class Kind : uint8_t {
   Empty, Comment, Keys, Command, Assignment, Define, If, ElseIf, Else, EndIf, While, EndWhile,
   Function, EndFunction, Call, Return, RemBlock, EndRem, StringBlock, StringLnBlock, EndString, EndStringLn,
-  TextBody, TextLnBody
+  TextBody, TextLnBody, Extension, EndExtension, Version
 };
 struct Statement { Kind kind = Kind::Empty; String line, args; bool legacyCondition = false; };
 bool hasKeyword(const String &line, const char *keyword);
@@ -22,6 +22,16 @@ bool expression(const String &input, String &error, duck_expr::Resolver resolver
 bool numericArgument(const String &args, uint32_t &value, String &error,
                      duck_expr::Mode mode = duck_expr::Mode::Evaluate,
                      duck_expr::Resolver resolver = duck_vars::resolve, void *context = nullptr);
+
+// Shared raw lexical boundaries: no substitution, expression evaluation or HID.
+bool textOpener(const String &keyword, Kind &kind);
+class RawBlocks {
+  Kind mode = Kind::Empty;
+  uint32_t openingLine = 0;
+public:
+  bool scan(const String &line, uint32_t number, bool &ordinary, String &error, bool deferUnmatched = false);
+  bool finish(String &error, uint32_t &number) const;
+};
 
 class Lexer {
   Kind mode = Kind::Empty;
@@ -38,7 +48,8 @@ class Validator {
   Lexer lexer;
   duck_vars::Symbols symbols;
   duck_vars::Symbols *globals = nullptr;
-  bool inFunction = false;
+  bool inFunction = false, inExtension = false;
+  uint32_t extensionLine = 0;
   uint32_t functionLine = 0;
 public:
   void functionSymbols(duck_vars::Symbols *table) { globals = table; }

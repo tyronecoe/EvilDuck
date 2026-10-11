@@ -1,0 +1,24 @@
+Pinned ESP32 core 3.3.0: /workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0
+FQBN: esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default
+Build output: /workspace/tooling/arduino/build/stage13-release-16m
+Compilation only. Hardware capacity remains UNVERIFIED.
+Sketch uses 1326643 bytes (17%) of program storage space. Maximum is 7602176 bytes.
+Global variables use 82224 bytes (25%) of dynamic memory, leaving 245456 bytes for local variables. Maximum is 327680 bytes.
+{
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_address": 65536,
+  "flash_bytes": 16777216,
+  "application_bytes": 1326784,
+  "ota_slot_bytes": 7602176,
+  "free_bytes_per_slot": 6275392,
+  "free_percent_per_slot": 82.54731276939656,
+  "application_sha256": "a9bf3d7cc0b6cfdce6aba2ad80c1044a25986bf6cacc29021abf56578338d015",
+  "hardware_verified": false,
+  "compiler_program_bytes": 1326643,
+  "static_ram_bytes": 82224,
+  "compiler_ram_maximum_bytes": 327680,
+  "merged_image_for_migration": false
+}
+PASS: clean 16 MiB build. Application-only .bin is for OTA AFTER authorized migration.
+Do not upload to an unverified or unmigrated device. Never use the padded merged image for migration.

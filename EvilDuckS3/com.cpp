@@ -19,6 +19,7 @@ namespace {
 enum class Phase { Idle, Start, Wait, Storage, Ownership, Reset, LockWait, LockRestore, LockAck, Text, Keys, Press, Release, Finish };
 struct Session {
   bool scriptOwned = false;
+  bool manualLed = false;
   int8_t lockCommand = -1;
   uint8_t lockTarget = 0, lockBit = 0, lockToggles = 0;
   bool lockBaselineKnown = false;
@@ -245,6 +246,12 @@ bool startLine() {
   if (startsWithNoCase(line, "LOCALE ")) {
     return keyboard_locale::setLocaleByName(trimLine(line.substring(7)));
   }
+  if (line == "LED_R" || line == "LED_G" || line == "LED_OFF") {
+    session.manualLed = true;
+    if (!settings::getDisableLed())
+      led::setColor(line == "LED_R" ? 255 : 0, line == "LED_G" ? 255 : 0, 0);
+    return true;
+  }
   if (startsWithNoCase(line, "LED ")) {
     if (settings::getDisableLed()) return true;
     String rest = trimLine(line.substring(4));
@@ -367,11 +374,14 @@ void onDone(cb_t cb) { execution::Guard guard; cbDone = cb; }
 void onRepeat(cb_t cb) { execution::Guard guard; cbRepeat = cb; }
 void onError(cb_t cb) { execution::Guard guard; cbError = cb; }
 
+bool statusLedOverridden() { execution::Guard guard; return session.manualLed; }
+
 void beginScript() {
   execution::Guard guard;
   releaseOwnedKeys();
   session = Session();
   session.scriptOwned = true;
+  session.manualLed = false;
   rejected = "";
   duck_vars::clear();
   duck_constants::clear();
@@ -381,7 +391,9 @@ void endScript() {
   execution::Guard guard;
   attackmode::cancelPendingStorage();
   releaseOwnedKeys();
+  const bool manualLed = session.manualLed;
   session = Session(); // Cancels waits, text, repeat work, and queued commands.
+  session.manualLed = manualLed; // Canonical LED overrides survive normal EOF/STOP.
   duck_vars::clear();
   duck_constants::clear();
 }

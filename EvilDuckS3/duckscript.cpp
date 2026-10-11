@@ -11,6 +11,7 @@
 #include "script_source.h"
 #include "script_parser.h"
 #include "duck_constants.h"
+#include "script_preprocessor.h"
 #include "control_flow.h"
 #include "script_functions.h"
 #include <new>
@@ -23,7 +24,7 @@ struct RunState {
   script_source::Reader source;
   script_parser::Validator validator;
   script_parser::Lexer lexer;
-  duck_constants::Collector collector;
+  script_preprocessor::Filter preprocessing;
   bool collecting = true;
   bool inventory = true, inventoryFunction = false;
   script_parser::Lexer inventoryLexer;
@@ -51,10 +52,11 @@ static void comError();
 namespace {
 
 void setStatusColor(int r, int g, int b) {
-  if (!settings::getDisableLed()) led::setColor(r, g, b);
+  if (!settings::getDisableLed() && !com::statusLedOverridden()) led::setColor(r, g, b);
 }
 
 void setIdleColor() {
+  if (com::statusLedOverridden()) return;
   if (settings::getDisableLed()) {
     led::setColor(0, 0, 0);
     return;
@@ -75,7 +77,7 @@ void fail(const String &message, uint32_t line) {
   script_log::setLine(line, state.scriptRef.display);
   script_log::error(state.lastErr);
   duckscript::stop();
-  setStatusColor(50, 0, 0);
+  if (!settings::getDisableLed()) led::setColor(50, 0, 0);
 }
 
 bool isControlLine(const script_parser::Statement &);
@@ -200,7 +202,8 @@ bool isControlLine(const script_parser::Statement &stmt) {
     }
   }
   // Qualified parser kinds below keep runtime and lexical frame types separate.
-  if (stmt.kind == script_parser::Kind::Empty || stmt.kind == script_parser::Kind::Comment ||
+  if (stmt.kind == script_parser::Kind::Extension || stmt.kind == script_parser::Kind::EndExtension ||
+      stmt.kind == script_parser::Kind::Version || stmt.kind == script_parser::Kind::Empty || stmt.kind == script_parser::Kind::Comment ||
       stmt.kind == script_parser::Kind::RemBlock || stmt.kind == script_parser::Kind::Define ||
       stmt.kind == script_parser::Kind::StringBlock || stmt.kind == script_parser::Kind::StringLnBlock) return true;
   if (stmt.kind == script_parser::Kind::EndIf) {
@@ -281,7 +284,7 @@ bool run(const String &filename) {
     state.lastErr = "Cannot open script: " + filename;
     debug::error(state.lastErr);
     script_log::error(state.lastErr);
-    setStatusColor(50, 0, 0);
+    if (!settings::getDisableLed()) led::setColor(50, 0, 0);
     return false;
   }
 
@@ -289,7 +292,7 @@ bool run(const String &filename) {
   if (!state.scriptFile) {
     state.lastErr = "Open failed: " + state.scriptRef.display;
     script_log::error(state.lastErr);
-    setStatusColor(50, 0, 0);
+    if (!settings::getDisableLed()) led::setColor(50, 0, 0);
     return false;
   }
 
@@ -352,6 +355,8 @@ static void loadNextLine() {
     if (result == script_source::Result::Error) { fail(state.source.error(), state.source.errorLine()); return; }
     if (result == script_source::Result::End) {
       if (state.collecting) {
+        String diagnostic; uint32_t number = state.lineNumber;
+        if (!state.preprocessing.finish(diagnostic, number)) { fail(diagnostic, number); return; }
         if (!state.source.seek(0, 0)) { fail(state.source.error(), 1); return; }
         state.collecting = false;
         state.lineNumber = 0;
@@ -383,7 +388,9 @@ static void loadNextLine() {
     script_log::setLine(state.lineNumber, state.scriptRef.display);
     String diagnostic;
     if (state.collecting) {
-      if (!state.collector.accept(line, state.lineNumber, diagnostic)) { fail(diagnostic, state.lineNumber); return; }
+      if (!state.preprocessing.accept(line, state.lineNumber, diagnostic)) { fail(diagnostic, state.lineNumber); return; }
+    } else if (!state.preprocessing.contains(state.lineNumber)) {
+      continue; // Frozen compile-time exclusion, independent of reader seeks.
     } else if(state.inventory) {
       if(!inventoryLine(line,diagnostic)) {fail(diagnostic+" ["+line+"]",state.lineNumber);return;}
     } else if (state.preflight) {

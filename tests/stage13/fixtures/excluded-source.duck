@@ -1,0 +1,5 @@
+IF_DEFINED_TRUE #UNDEFINED_FLAG
+VAR $not_created = (malformed expression)
+UNSUPPORTED_EXCLUDED_STATEMENT
+END_IF_DEFINED
+STRINGLN included-only
