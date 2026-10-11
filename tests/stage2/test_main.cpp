@@ -139,8 +139,8 @@ static void test(const String &name) {
     invalid("REM_BLOCK\nREM_BLOCK\nEND_REM\nEND_REM\n", "Unmatched comment/text",4);
   } else if(name=="stage2_unknown_commands_zero_hid") {
     invalid("STRINGLN hidden\nUNKNOWN_COMMAND\n", "Unsupported command",2);
-    invalid("STRINGLN hidden\nFUNCTION fake()\n", "Unsupported command",2);
-    invalid("RETURN 1\n", "Unsupported RETURN arguments",1);
+    invalid("STRINGLN hidden\nFUNCTION fake()\n", "Unterminated FUNCTION",2);
+    invalid("RETURN 1\n", "RETURN value requires a function",1);
   } else if(name=="stage2_keyword_prefixes_are_not_commands") {
     for(const auto *prefix:{"REMARK","REMINDER","REM_BLOCKED","END_REMINDER","DELAYED","WAITING","STRINGLNfoo",
                             "STRINGfoo","STOPPER","ENDIFfoo","DEFAULTDELAYED","KEYCODEfoo","LEDGER","F1garbage"})

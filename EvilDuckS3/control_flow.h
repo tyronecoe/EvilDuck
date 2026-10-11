@@ -19,11 +19,15 @@ struct Frame {
 };
 class Stack {
   Frame frames[DUCKSCRIPT_MAX_BLOCK_DEPTH] = {};
-  uint8_t depth = 0;
+  uint8_t depth = 0, boundary = 0;
 public:
-  void clear() { depth = 0; }
-  bool active() const { return !depth || frames[depth - 1].active; }
-  const Frame *top() const { return depth ? &frames[depth - 1] : nullptr; }
+  void clear() { depth = boundary = 0; }
+  uint8_t base() const { return boundary; }
+  bool isolate(uint8_t base) { if(base > depth)return false;boundary=base;return true; }
+  uint8_t size() const { return depth; }
+  bool restore(uint8_t base) { if (base > depth || base < boundary) return false; depth = base; return true; }
+  bool active() const { return depth == boundary || frames[depth - 1].active; }
+  const Frame *top() const { return depth > boundary ? &frames[depth - 1] : nullptr; }
   bool enterIf(bool condition) {
     if (depth >= DUCKSCRIPT_MAX_BLOCK_DEPTH) return false;
     bool parent = active();
@@ -37,14 +41,14 @@ public:
     return frame && frame->kind == Kind::If && frame->parent && !frame->taken && !frame->sawElse;
   }
   bool alternative(bool condition, bool finalElse) {
-    if (!depth || frames[depth - 1].kind != Kind::If || frames[depth - 1].sawElse) return false;
+    if (depth <= boundary || frames[depth - 1].kind != Kind::If || frames[depth - 1].sawElse) return false;
     Frame &frame = frames[depth - 1];
     frame.active = eligible() && condition;
     frame.taken |= frame.active; frame.sawElse = finalElse;
     return true;
   }
   bool leave(Kind kind) {
-    if (!depth || frames[depth - 1].kind != kind) return false;
+    if (depth <= boundary || frames[depth - 1].kind != kind) return false;
     --depth; return true;
   }
   bool enterWhile(bool condition, uint32_t offset, uint32_t line, uint32_t variables, uint32_t actions) {
@@ -56,14 +60,18 @@ public:
     return true;
   }
   bool reevaluateWhile(bool condition, uint32_t variables, uint32_t actions) {
-    if (!depth || frames[depth - 1].kind != Kind::While) return false;
+    if (depth <= boundary || frames[depth - 1].kind != Kind::While) return false;
     Frame &frame = frames[depth - 1];
     frame.active = frame.parent && condition;
     frame.variables = variables; frame.actions = actions;
     return true;
   }
+  bool conditionProgress(uint32_t variables, uint32_t actions) {
+    if(depth <= boundary || frames[depth-1].kind != Kind::While)return false;
+    frames[depth-1].variables=variables;frames[depth-1].actions=actions;return true;
+  }
   bool completedIteration(uint32_t variables, uint32_t actions) {
-    if (!depth || frames[depth - 1].kind != Kind::While || !frames[depth - 1].active) return false;
+    if (depth <= boundary || frames[depth - 1].kind != Kind::While || !frames[depth - 1].active) return false;
     Frame &frame = frames[depth - 1];
     if (frame.variables != variables || frame.actions != actions) frame.stalled = 0;
     else if (++frame.stalled >= DUCKSCRIPT_MAX_STALLED_ITERATIONS) return false;

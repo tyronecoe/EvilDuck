@@ -7,7 +7,7 @@ namespace script_parser {
 static_assert(DUCKSCRIPT_MAX_BLOCK_DEPTH > 0 && DUCKSCRIPT_MAX_BLOCK_DEPTH < 256, "Invalid block depth limit");
 enum class Kind : uint8_t {
   Empty, Comment, Keys, Command, Assignment, Define, If, ElseIf, Else, EndIf, While, EndWhile,
-  RemBlock, EndRem, StringBlock, StringLnBlock, EndString, EndStringLn
+  Function, EndFunction, Call, Return, RemBlock, EndRem, StringBlock, StringLnBlock, EndString, EndStringLn
 };
 struct Statement { Kind kind = Kind::Empty; String line, args; bool legacyCondition = false; };
 bool hasKeyword(const String &line, const char *keyword);
@@ -38,7 +38,11 @@ class Validator {
   uint32_t deferredLine = 0;
   const char *deferredMessage = nullptr;
   duck_vars::Symbols symbols;
+  duck_vars::Symbols *globals = nullptr;
+  bool inFunction = false;
+  uint32_t functionLine = 0;
 public:
+  void functionSymbols(duck_vars::Symbols *table) { globals = table; }
   bool accept(const String &line, uint32_t number, String &error);
   bool finish(String &error, uint32_t &number) const;
 };

@@ -28,6 +28,16 @@
 #ifndef DUCKSCRIPT_MAX_STALLED_ITERATIONS
 #define DUCKSCRIPT_MAX_STALLED_ITERATIONS 1024  // Consecutive iterations with no variable change or action
 #endif
+#ifndef DUCKSCRIPT_MAX_FUNCTIONS
+#define DUCKSCRIPT_MAX_FUNCTIONS 16
+#endif
+#ifndef DUCKSCRIPT_MAX_CALL_DEPTH
+#define DUCKSCRIPT_MAX_CALL_DEPTH 8
+#endif
+#ifndef DUCKSCRIPT_MAX_FUNCTION_CALLS
+#define DUCKSCRIPT_MAX_FUNCTION_CALLS 100000UL
+#endif
+#define DUCKSCRIPT_EXPR_BUDGET 16 // Postfix instructions per update
 #define DUCKSCRIPT_READ_BUDGET 256 // Consumed bytes per main-loop update
 #define DUCKSCRIPT_LINE_BUDGET 8   // Parsed lines per main-loop update
 #define DUCKSCRIPT_MAX_EXPR_BYTES 256

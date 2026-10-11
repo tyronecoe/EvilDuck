@@ -4,6 +4,7 @@
 #include "storage.h"
 #include "keyboard_locale.h"
 #include "duck_constants.h"
+#include "script_functions.h"
 #include <cstdlib>
 
 namespace script_parser {
@@ -239,6 +240,15 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
   String rawArgs = offset < line.length() ? line.substring(offset + 1) : String();
   out.args = trimmed(rawArgs);
   out.line = keyword + (out.args.length() ? " " + out.args : String());
+  if (keyword == "FUNCTION") {
+    String identifier;
+    if (!script_functions::name(out.args, identifier, diagnostic)) return false;
+    out.kind = Kind::Function; out.args = identifier; return true;
+  }
+  if (keyword == "RETURN") {
+    out.kind = Kind::Return;
+    return !out.args.length() || expression(out.args, diagnostic);
+  }
   if (keyword == "REM") { out.kind = Kind::Comment; return true; }
   if (keyword == "STRING" || keyword == "STRINGLN") {
     out.kind = out.args.length() ? Kind::Command : keyword == "STRING" ? Kind::StringBlock : Kind::StringLnBlock;
@@ -247,7 +257,7 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
   }
   struct Marker { const char *name; Kind kind; };
   static const Marker markers[] = {
-    {"REM_BLOCK",Kind::RemBlock},{"END_REM",Kind::EndRem},{"END_STRING",Kind::EndString},
+    {"END_FUNCTION",Kind::EndFunction},{"REM_BLOCK",Kind::RemBlock},{"END_REM",Kind::EndRem},{"END_STRING",Kind::EndString},
     {"END_STRINGLN",Kind::EndStringLn},{"ENDIF",Kind::EndIf},{"END_IF",Kind::EndIf},
     {"ENDWHILE",Kind::EndWhile},{"END_WHILE",Kind::EndWhile}
   };
@@ -309,7 +319,6 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return true;
   }
   String args = words(out.args);
-  if (keyword == "RETURN" && args.length()) return error(diagnostic, "Unsupported RETURN arguments; bare RETURN is the Enter key");
   if (keyword == "DELAY" || keyword == "WAIT" || keyword == "DEFAULT_DELAY" || keyword == "DEFAULTDELAY" ||
       keyword == "REPEAT" || keyword == "REPLAY") {
     uint32_t value;
@@ -336,6 +345,11 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     }
     if (!count || (off && count != 1)) return error(diagnostic, "ATTACKMODE expects OFF or HID/STORAGE modes");
   } else {
+    if (line.indexOf('(') >= 0 || line.endsWith("()")) {
+      String identifier;
+      if (!script_functions::name(line, identifier, diagnostic)) return false;
+      out.kind = Kind::Call; out.args = identifier; out.line = line; return true;
+    }
     out.kind = Kind::Keys;
     size_t at = 0; String token; uint8_t value = 0;
     while (word(line, at, token)) {
@@ -376,6 +390,9 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
     hasKeyword(text, "END_STRING") || hasKeyword(text, "END_STRINGLN") || upper == "STRING" || upper == "STRINGLN";
   bool rawIf = hasKeyword(text, "IF"), rawElse = hasKeyword(text, "ELSE");
   bool rawWhile = hasKeyword(text, "WHILE");
+  bool rawFunction = hasKeyword(text, "FUNCTION") || hasKeyword(text,"END_FUNCTION") || hasKeyword(text,"RETURN");
+  String callName, callError;
+  bool rawCall = text.endsWith("()") && script_functions::name(text,callName,callError);
   String endArgs = words(text.substring(3)); endArgs.toUpperCase();
   bool rawEnd = hasKeyword(text, "END_IF") || hasKeyword(text, "ENDIF") ||
     (hasKeyword(text, "END") && (endArgs == "IF" || endArgs == "WHILE")) ||
@@ -406,12 +423,18 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
     if (!duck_constants::expand(text.substring(5), args, diagnostic)) return false;
     expanded = text.substring(0, 5) + args;
     if (expanded.length() > DUCKSCRIPT_MAX_EXPANDED_LINE) return error(diagnostic, "DEFINE expansion length limit exceeded");
-  } else if (delimiter || rawEnd) expanded = text;
+  } else if (hasKeyword(text,"RETURN") && text.length()>6) {
+    String args; if(!duck_constants::expand(text.substring(6),args,diagnostic))return false;
+    expanded=text.substring(0,6)+args;
+  } else if (delimiter || rawEnd || rawFunction || rawCall) expanded = text;
   else if (!duck_constants::expand(text, expanded, diagnostic)) return false;
   if (!parse(hasKeyword(text, "DEFINE") ? line : expanded, out, diagnostic)) return false;
   if (!rawIf && !rawElse && !rawEnd &&
       (out.kind == Kind::If || out.kind == Kind::ElseIf || out.kind == Kind::Else || out.kind == Kind::EndIf))
     return error(diagnostic, "DEFINE expansion cannot create conditional block delimiters");
+  if (!rawFunction && (out.kind==Kind::Function || out.kind==Kind::EndFunction || out.kind==Kind::Return))
+    return error(diagnostic,"DEFINE expansion cannot create function/RETURN delimiters");
+  if (!rawCall && out.kind==Kind::Call) return error(diagnostic,"DEFINE expansion cannot create function invocation");
   if (!rawWhile && !rawEnd && (out.kind == Kind::While || out.kind == Kind::EndWhile))
     return error(diagnostic, "DEFINE expansion cannot create WHILE block delimiters");
   if (expanded != text && (hasKeyword(expanded, "DEFINE") || out.kind == Kind::RemBlock || out.kind == Kind::EndRem ||
@@ -435,27 +458,46 @@ bool Lexer::finish(String &diagnostic, uint32_t &number) const {
 bool Validator::accept(const String &line, uint32_t number, String &diagnostic) {
   Statement stmt;
   if (!lexer.scan(line, number, stmt, diagnostic)) return false;
+  if(stmt.kind==Kind::Function) {
+    if(inFunction || depth)return error(diagnostic,"FUNCTION declarations must be top level, not nested");
+    inFunction=true;functionLine=number;return true;
+  }
+  if(stmt.kind==Kind::EndFunction) {
+    if(!inFunction)return error(diagnostic,"Unmatched END_FUNCTION");
+    if(depth)return error(diagnostic,"Mismatched function/control-flow terminator");
+    inFunction=false;return true;
+  }
+  duck_vars::Symbols &activeSymbols=inFunction && globals ? *globals : symbols;
+  if(stmt.kind==Kind::Call) {
+    return expression(stmt.args+"()",diagnostic);
+  }
+  if(stmt.kind==Kind::Return) {
+    if(!inFunction && stmt.args.length())return error(diagnostic,"RETURN value requires a function; bare top-level RETURN remains Enter");
+    return !stmt.args.length() || expression(stmt.args,diagnostic,duck_vars::Symbols::resolve,&activeSymbols);
+  }
   if (stmt.kind == Kind::Assignment || (stmt.kind == Kind::Command &&
       (hasKeyword(stmt.line, "VAR") || hasKeyword(stmt.line, "DEFINE")))) {
     String name, value; bool text;
     if (!assignment(stmt.args, name, value, text, diagnostic)) return false;
-    if (!text && !expression(value, diagnostic, duck_vars::Symbols::resolve, &symbols)) return false;
-    if (symbols.declare(name, text ? duck_vars::Type::Text : duck_vars::Type::Numeric,
+    if (!text && !expression(value, diagnostic, duck_vars::Symbols::resolve, &activeSymbols)) return false;
+    if (activeSymbols.declare(name, text ? duck_vars::Type::Text : duck_vars::Type::Numeric,
                         stmt.kind == Kind::Assignment, diagnostic) < 0) return false;
+    if(inFunction && stmt.kind!=Kind::Assignment && symbols.declare(name,text ? duck_vars::Type::Text : duck_vars::Type::Numeric,false,diagnostic)<0)return false;
   } else if (stmt.kind == Kind::Command && hasKeyword(stmt.line, "READ")) {
     String args = stmt.args; args.replace("\t", " ");
     String name = trimmed(args.substring(args.lastIndexOf(' ') + 1));
-    if (symbols.declare(name, duck_vars::Type::Text, false, diagnostic) < 0) return false;
+    if (activeSymbols.declare(name, duck_vars::Type::Text, false, diagnostic) < 0) return false;
+    if(inFunction && symbols.declare(name,duck_vars::Type::Text,false,diagnostic)<0)return false;
   } else if (stmt.kind == Kind::Command && (hasKeyword(stmt.line, "DELAY") || hasKeyword(stmt.line, "WAIT") ||
       hasKeyword(stmt.line, "DEFAULT_DELAY") || hasKeyword(stmt.line, "DEFAULTDELAY") ||
       hasKeyword(stmt.line, "REPEAT") || hasKeyword(stmt.line, "REPLAY"))) {
     uint32_t value;
-    if (!numericArgument(stmt.args, value, diagnostic, duck_expr::Mode::Syntax, duck_vars::Symbols::resolve, &symbols)) return false;
+    if (!numericArgument(stmt.args, value, diagnostic, duck_expr::Mode::Syntax, duck_vars::Symbols::resolve, &activeSymbols)) return false;
   }
   if (stmt.kind == Kind::If || stmt.kind == Kind::ElseIf || stmt.kind == Kind::While) {
     uint16_t value;
     if (!condition(stmt.args, stmt.legacyCondition, value, diagnostic, duck_expr::Mode::Syntax,
-                   duck_vars::Symbols::resolve, &symbols)) return false;
+                   duck_vars::Symbols::resolve, &activeSymbols)) return false;
   }
   if (stmt.kind == Kind::StringBlock || stmt.kind == Kind::StringLnBlock) {
     if (depth >= DUCKSCRIPT_MAX_BLOCK_DEPTH) return error(diagnostic, "Block nesting limit exceeded");
@@ -478,6 +520,7 @@ bool Validator::accept(const String &line, uint32_t number, String &diagnostic) 
 
 bool Validator::finish(String &diagnostic, uint32_t &number) const {
   if (!lexer.finish(diagnostic, number)) return false;
+  if(inFunction) {number=functionLine;return error(diagnostic,"Unterminated FUNCTION");}
   if (depth) { number = stack[depth - 1].line; return error(diagnostic, "Unterminated IF/WHILE block"); }
   if (deferredLine) { number = deferredLine; return error(diagnostic, deferredMessage); }
   return true;

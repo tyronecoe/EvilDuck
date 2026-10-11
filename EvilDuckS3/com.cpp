@@ -129,6 +129,9 @@ bool startLine() {
   }
   script_parser::Statement stmt;
   if (!script_parser::parse(session.line, stmt, session.error)) return false;
+  if (stmt.kind == script_parser::Kind::Return && !stmt.args.length()) {
+    stmt.kind = script_parser::Kind::Keys; stmt.line = "ENTER";
+  }
   if (stmt.kind != script_parser::Kind::Command && stmt.kind != script_parser::Kind::Keys &&
       stmt.kind != script_parser::Kind::Comment && stmt.kind != script_parser::Kind::Empty &&
       stmt.kind != script_parser::Kind::Assignment && stmt.kind != script_parser::Kind::Define) {

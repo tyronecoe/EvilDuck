@@ -6,7 +6,9 @@ namespace {
 bool word(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
   (c >= '0' && c <= '9') || c == '_'; }
 bool space(char c) { return c == ' ' || c == '\t'; }
-enum class Op : uint8_t { None, Or, And, BitOr, BitAnd, Eq, Ne, Lt, Le, Gt, Ge,
+Resolver functionResolver = nullptr;
+void *functionContext = nullptr;
+enum class Op : uint8_t { Literal, Variable, Function, None, Or, And, BitOr, BitAnd, Eq, Ne, Lt, Le, Gt, Ge,
   Left, Right, Add, Sub, Mul, Div, Mod, Pow };
 struct Operator { Op op = Op::None; uint8_t precedence = 0, bytes = 0; };
 struct Value { uint16_t number = 0; bool known = true; };
@@ -19,6 +21,10 @@ class Parser {
   Resolver resolver;
   void *context;
   Mode mode;
+  Program *program;
+  bool emit(Op op, uint16_t value = 0, uint8_t length = 0) {
+    return !program || program->emit(static_cast<uint8_t>(op), value, length) || fail("Expression instruction limit exceeded", position);
+  }
   bool fail(const char *message, size_t at) {
     if (!error.message) { error.message = message; error.column = at + 1; }
     return false;
@@ -74,7 +80,7 @@ class Parser {
         if (found == Lookup::Text) return fail("Text variable cannot be used in a numeric expression", start);
       }
       out = {number, mode == Mode::Evaluate};
-      return true;
+      return emit(Op::Variable, start, count);
     }
     if (c >= '0' && c <= '9') {
       unsigned base = 10;
@@ -94,18 +100,32 @@ class Parser {
       }
       if (position == digits) return fail("Missing hexadecimal digits", start);
       out = {static_cast<uint16_t>(number), true};
-      return true;
+      return emit(Op::Literal, number);
     }
     if (word(c)) {
       while (position < length && word(source[position])) ++position;
       size_t count = position - start;
-      if (count == 4 && memcmp(source + start, "TRUE", 4) == 0) { out = {1,true}; return true; }
-      if (count == 5 && memcmp(source + start, "FALSE", 5) == 0) { out = {0,true}; return true; }
+      if (position < length && source[position] == '(') {
+        if ((source[start] >= '0' && source[start] <= '9') || !identifier(source + start, count, 0))
+          return fail("Invalid function identifier", start);
+        if (position + 1 >= length || source[position + 1] != ')')
+          return fail("Function arguments are unsupported; use global variables and ()", position);
+        position += 2;
+        if (!token() || !token()) return false;
+        uint16_t index = 0;
+        Lookup found = functionResolver ? functionResolver(source + start, count, index, functionContext) : Lookup::Number;
+        if (found != Lookup::Number) return fail("Undefined function", start);
+        if (mode == Mode::Evaluate) return fail("Function calls require cooperative script execution", start);
+        out = {0, false}; return emit(Op::Function, index);
+      }
+      if (count == 4 && memcmp(source + start, "TRUE", 4) == 0) { out = {1,true}; return emit(Op::Literal, 1); }
+      if (count == 5 && memcmp(source + start, "FALSE", 5) == 0) { out = {0,true}; return emit(Op::Literal, 0); }
       return fail("Expected number, TRUE/FALSE or $variable", start);
     }
     return fail(c == '#' ? "Undefined or unexpanded constant in expression" :
                 "Unsupported operator or missing operand", start);
   }
+public:
   bool apply(Op op, Value &left, const Value &right, size_t at) {
     if ((op == Op::Div || op == Op::Mod) && right.known && !right.number)
       return fail("Division/modulo by zero", at);
@@ -150,12 +170,12 @@ class Parser {
       if (!token()) return false;
       Value right;
       if (!expression(op.precedence + (op.op == Op::Pow ? 0 : 1), depth + 1, right) ||
-          !apply(op.op, out, right, at)) return false;
+          !apply(op.op, out, right, at) || !emit(op.op, at)) return false;
     }
   }
 public:
-  Parser(const char *s, size_t n, Error &e, Resolver r, void *ctx, Mode m) :
-    source(s), length(n), error(e), resolver(r), context(ctx), mode(m) {}
+  Parser(const char *s, size_t n, Error &e, Resolver r, void *ctx, Mode m, Program *p = nullptr) :
+    source(s), length(n), error(e), resolver(r), context(ctx), mode(m), program(p) {}
   bool run(uint16_t &value) {
     Value result;
     if (!expression(1, 0, result)) return false;
@@ -165,6 +185,61 @@ public:
     return true;
   }
 };
+}
+
+void functions(Resolver resolver, void *context) { functionResolver = resolver; functionContext = context; }
+bool containsCalls(const char *s, size_t length) {
+  for (size_t i = 0; i < length;) {
+    if (s[i] == '$') { ++i; while (i < length && word(s[i])) ++i; continue; }
+    if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || s[i] == '_') {
+      while (i < length && word(s[i])) ++i;
+      if (i < length && s[i] == '(') return true;
+    } else ++i;
+  }
+  return false;
+}
+bool Program::emit(uint8_t op, uint16_t value, uint8_t length) {
+  if (count >= DUCKSCRIPT_MAX_EXPR_TOKENS) return false;
+  code[count++] = {value, op, length}; return true;
+}
+bool Program::compile(const char *text, size_t length, Error &error, Resolver resolver, void *context) {
+  count = pc = depth = 0; error = Error();
+  if (length > DUCKSCRIPT_MAX_EXPR_BYTES) { error = {"Expression byte limit exceeded",1}; return false; }
+  memcpy(source, text, length); source[length] = 0;
+  uint16_t ignored;
+  bool ok=Parser(source, length, error, resolver, context, Mode::Syntax, this).run(ignored);
+  if(!ok)count=pc=depth=0;
+  return ok;
+}
+bool Program::returned(uint16_t value) {
+  if (pc >= count || static_cast<Op>(code[pc].op) != Op::Function || depth >= sizeof(values)/sizeof(values[0])) return false;
+  values[depth++] = value; ++pc; return true;
+}
+Step Program::step(uint16_t &value, Error &error, Resolver resolver, void *context, uint16_t budget) {
+  error = Error();
+  while (pc < count && budget--) {
+    const auto instruction = code[pc]; Op op = static_cast<Op>(instruction.op);
+    if (op == Op::Function) { value = instruction.value; return Step::Call; }
+    if (op == Op::Literal || op == Op::Variable) {
+      uint16_t number = instruction.value;
+      if (op == Op::Variable) {
+        Lookup found = resolver ? resolver(source + instruction.value, instruction.length, number, context) : Lookup::Undefined;
+        if (found != Lookup::Number) { error = {found == Lookup::Text ? "Text variable cannot be used in numeric expression" : "Undefined numeric variable", uint16_t(instruction.value+1)}; return Step::Error; }
+      }
+      if (depth >= sizeof(values)/sizeof(values[0])) { error = {"Expression operand stack exhausted",1}; return Step::Error; }
+      values[depth++] = number;
+    } else {
+      if (depth < 2) { error = {"Invalid expression operand stack",1}; return Step::Error; }
+      Value left = {values[depth-2],true}, right = {values[depth-1],true};
+      Parser arithmetic(source, strlen(source), error, nullptr, nullptr, Mode::Evaluate);
+      if (!arithmetic.apply(op, left, right, instruction.value)) return Step::Error;
+      --depth; values[depth-1] = left.number;
+    }
+    ++pc;
+  }
+  if (pc < count) return Step::Yield;
+  if (depth != 1) { error = {"Invalid expression result stack",1}; return Step::Error; }
+  value = values[0]; return Step::Done;
 }
 
 bool identifier(const char *name, size_t length, char sigil) {
