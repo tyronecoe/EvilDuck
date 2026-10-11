@@ -10,6 +10,10 @@ extern uint32_t now;
 extern unsigned blockingDelays;
 extern uint8_t heldModifiers;
 extern bool usbReady;
+// Raw accepted endpoint payloads; rejection is distinct from readiness.
+struct Report { uint32_t time; uint8_t instance, id; std::array<uint8_t,8> bytes; };
+extern bool usbAccept;
+extern std::vector<Report> reports;
 extern std::vector<uint8_t> heldKeys;
 extern std::vector<Press> presses;
 extern String text, output;

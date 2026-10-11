@@ -263,10 +263,9 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
   };
   if (keyword == "END") {
     String arg = words(out.args); arg.toUpperCase();
-    if (arg == "IF") out.kind = Kind::EndIf;
-    else if (arg == "WHILE") out.kind = Kind::EndWhile;
-    else return error(diagnostic, "Unsupported END marker");
-    return true;
+    if (arg == "IF") { out.kind = Kind::EndIf; return true; }
+    if (arg == "WHILE") { out.kind = Kind::EndWhile; return true; }
+    // END is also a navigation key. Other forms go through exact key validation.
   }
   for (const auto &marker : markers) if (keyword == marker.name) {
     if (out.args.length()) return error(diagnostic, "Block marker takes no arguments");
@@ -345,20 +344,44 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     }
     if (!count || (off && count != 1)) return error(diagnostic, "ATTACKMODE expects OFF or HID/STORAGE modes");
   } else {
-    if (line.indexOf('(') >= 0 || line.endsWith("()")) {
+    const int open = line.indexOf('(');
+    const String candidate = open >= 0 ? line.substring(0, open) : String();
+    const bool invocation = open >= 0 && duck_expr::identifier(candidate.c_str(), candidate.length(), 0) &&
+                            !(candidate[0] >= '0' && candidate[0] <= '9');
+    if (invocation || line.endsWith("()")) {
       String identifier;
       if (!script_functions::name(line, identifier, diagnostic)) return false;
       out.kind = Kind::Call; out.args = identifier; out.line = line; return true;
     }
     out.kind = Kind::Keys;
-    size_t at = 0; String token; uint8_t value = 0;
+    size_t at = 0; String token, keyLine; uint8_t value = 0;
     while (word(line, at, token)) {
-      if (!duck_keys::isModifierName(token, value) && !hid_backend::keyNameToHid(token, value) && !character(token)) {
+      if (token != "-" && token.indexOf('-') >= 0) {
+        if (token.startsWith("-") || token.endsWith("-") || token.indexOf("--") >= 0)
+          return error(diagnostic, "Empty key in hyphen combination");
+        token.replace("-", " ");
+      }
+      if (keyLine.length()) keyLine += " ";
+      keyLine += token;
+    }
+    at = 0; uint8_t keys[6] = {}, keyCount = 0;
+    while (word(keyLine, at, token)) {
+      if (duck_keys::isModifierName(token, value)) continue;
+      if (hid_backend::keyNameToHid(token, value)) {
+        bool duplicate = false;
+        for (uint8_t i = 0; i < keyCount; ++i) duplicate |= keys[i] == value;
+        if (!duplicate) {
+          if (keyCount == 6) return error(diagnostic, "Keyboard combination exceeds six distinct keys");
+          keys[keyCount++] = value;
+        }
+      } else if (character(token)) {
+        keyCount = 0; // Literal locale strokes follow a separately released group.
+      } else {
         diagnostic = "Unsupported command or key: " + token + "; use STRING for literal text";
         return false;
       }
     }
-    out.line = words(line); // Preserve case of bare literal characters.
+    out.line = keyLine; // Preserve case of bare literal characters.
     return true;
   }
   out.line = keyword + " " + args;

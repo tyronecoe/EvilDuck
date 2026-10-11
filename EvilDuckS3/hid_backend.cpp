@@ -153,7 +153,8 @@ bool keyNameToHid(const String &input, uint8_t &outCode) {
     for (size_t i = 1; i < key.length(); ++i) if (key[i] < '0' || key[i] > '9') return false;
     int n = key.substring(1).toInt();
     if (n >= 1 && n <= 24) {
-      outCode = static_cast<uint8_t>(0x3A + (n - 1));
+      // Usage page 0x07: navigation/keypad keys separate F12 from F13.
+      outCode = static_cast<uint8_t>(n <= 12 ? 0x3A + n - 1 : 0x68 + n - 13);
       return true;
     }
   }

@@ -98,7 +98,18 @@ size_t translate(const char *text, size_t remaining, Stroke (&strokes)[2], uint8
       return res;
     }
   }
-  return 1;
+  // Skip one valid UTF-8 scalar, bounded to four bytes. Invalid encodings
+  // consume a byte; they never become raw HID usages or locale ASCII offsets.
+  size_t width = b[0] >= 0xF0 && b[0] <= 0xF4 ? 4 :
+                 b[0] >= 0xE0 && b[0] <= 0xEF ? 3 :
+                 b[0] >= 0xC2 && b[0] <= 0xDF ? 2 : 1;
+  if (width > remaining) return 1;
+  for (size_t i = 1; i < width; ++i) if ((b[i] & 0xC0) != 0x80) return 1;
+  if (width >= 3 && ((b[0] == 0xE0 && b[1] < 0xA0) ||
+                    (b[0] == 0xED && b[1] >= 0xA0))) return 1;
+  if (width == 4 && ((b[0] == 0xF0 && b[1] < 0x90) ||
+                    (b[0] == 0xF4 && b[1] >= 0x90))) return 1;
+  return width;
 }
 
 void write(const char *str, size_t len) {

@@ -10,7 +10,7 @@ bool isModifierName(const String &token, uint8_t &modMask) {
   up.toUpperCase();
   if (up == "CTRL" || up == "CONTROL") { modMask = KEY_MOD_LCTRL; return true; }
   if (up == "SHIFT") { modMask = KEY_MOD_LSHIFT; return true; }
-  if (up == "ALT") { modMask = KEY_MOD_LALT; return true; }
+  if (up == "ALT" || up == "OPTION") { modMask = KEY_MOD_LALT; return true; }
   if (up == "GUI" || up == "WINDOWS" || up == "WIN" || up == "CMD" || up == "COMMAND") {
     modMask = KEY_MOD_LMETA;
     return true;
@@ -42,11 +42,13 @@ Item next(const String &line, Cursor &cursor, uint8_t &modifiers,
       continue;
     }
     if (token.length() && tokenToHid(token, value)) {
-      if (cursor.count < 6) cursor.keys[cursor.count++] = value;
+      bool duplicate = false;
+      for (uint8_t i = 0; i < cursor.count; ++i) duplicate |= cursor.keys[i] == value;
+      if (!duplicate && cursor.count < 6) cursor.keys[cursor.count++] = value;
       cursor.offset = end;
       continue;
     }
-    if (cursor.modifiers || cursor.count) {
+    if (cursor.count || (!token.length() && cursor.modifiers)) {
       modifiers = cursor.modifiers;
       count = cursor.count;
       memcpy(keys, cursor.keys, sizeof(keys));
@@ -54,6 +56,8 @@ Item next(const String &line, Cursor &cursor, uint8_t &modifiers,
       return Item::Report; // Leave an unknown word for the next call.
     }
     if (!token.length()) return Item::Done;
+    modifiers = cursor.modifiers; // Keep chord modifiers through literal locale strokes.
+    cursor.modifiers = 0;
     text = token;
     cursor.offset = end;
     return Item::Text;

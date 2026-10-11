@@ -75,8 +75,8 @@ static void supported_commands_and_mock_interfaces() {
   require(keyboard_locale::translate(truncated,1,strokes,count)==1 && count==0,
           "truncated UTF-8 must not read beyond the text buffer");
   const char outside[] = {char(127)};
-  require(keyboard_locale::translate(outside,1,strokes,count)==1 && count==0,
-          "short German ASCII table must not be read out of bounds");
+  require(keyboard_locale::translate(outside,1,strokes,count)==1 && count==1 && strokes[0].key==0x4C,
+          "complete German ASCII table must map DEL safely to Delete");
   require(!com::executeNow("LOCALE missing"), "invalid locale must be rejected");
   require(com::submissionError().indexOf("Command failed")>=0, "live parse failure must be reported");
   require(com::executeNow("LOCALE US"), "US locale must be accepted after an error"); mock::drain();
@@ -274,7 +274,7 @@ static void documented_language_gaps() {
   std::cout << (key==0x68 ? "XPASS " : "XFAIL ") << "known_f13_mapping: expected usage 104, actual " << unsigned(key) << "\n";
   auto records=sizeof(ascii_de)/2;
   std::cout << (records==128 ? "XPASS " : "XFAIL ") << "known_german_ascii_table: expected 128 records, actual " << records
-            << "; table content/alignment needs a later-stage fix\n";
+            << "; exact content/alignment independently checked by Stage 8 when table is corrected\n";
 }
 
 int main(int argc,char **argv) {

@@ -18,7 +18,8 @@ namespace mock {
 uint32_t now=0;
 unsigned blockingDelays=0;
 uint8_t heldModifiers=0;
-bool usbReady=true;
+bool usbReady=true, usbAccept=true;
+std::vector<Report> reports;
 std::vector<uint8_t> heldKeys;
 std::vector<Press> presses;
 String text, output;
@@ -47,8 +48,11 @@ void press(uint8_t code) {
   }
 }
 void release() { heldModifiers=0; heldKeys.clear(); }
-bool report(const hid_keyboard_report_t &report) {
-  if (!usbReady) return false;
+bool report(const hid_keyboard_report_t &report, uint8_t instance, uint8_t id, size_t length) {
+  if (length != 8) throw std::runtime_error("incorrect HID report length");
+  if (!usbReady || !usbAccept) return false;
+  Report raw = {now, instance, id, {}};
+  memcpy(raw.bytes.data(), &report, 8); reports.push_back(raw);
   release(); heldModifiers=report.modifier;
   for(auto code:report.keycode) if(code) press(code);
   return true;
@@ -66,8 +70,8 @@ void reset() {
   duckscript::stop();
   failReadAt=failSeekAt=std::numeric_limits<size_t>::max();
   bytesRead=readCalls=seekCalls=sourceSizeIncrease=0;
-  usbReady=true; com::update();
-  now=0; blockingDelays=0; release(); presses.clear(); text=""; output="";
+  usbReady=usbAccept=true; com::update();
+  now=0; blockingDelays=0; release(); presses.clear(); reports.clear(); text=""; output="";
   files.clear(); colors.clear(); keyboard_locale::begin(); settings::reset();
   attackmode::begin(); script_log::clear();
 }

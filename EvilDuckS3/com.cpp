@@ -25,6 +25,8 @@ struct Session {
   bool preprocessed = false;
   bool textLine = false, textEnter = false;
   bool historyText = false, historyEnter = false;
+  bool warnedUnsupported = false;
+  uint8_t textModifiers = 0;
   Phase phase = Phase::Idle;
   Phase afterWait = Phase::Finish;
   Phase afterRelease = Phase::Finish;
@@ -110,7 +112,9 @@ void report(uint8_t modifiers, const uint8_t *keys, uint8_t count, Phase next) {
   session.phase = Phase::Press;
 }
 
-void startText(const String &text, bool enter, Phase next) {
+void startText(const String &text, bool enter, Phase next, uint8_t modifiers = 0) {
+  session.textModifiers = modifiers;
+  session.warnedUnsupported = false;
   session.text = text;
   session.offset = 0;
   session.strokeCount = session.strokeIndex = 0;
@@ -391,13 +395,18 @@ void update() {
       if (!attackmode::hidEnabled()) { session.phase = session.afterText; return; }
       if (session.strokeIndex < session.strokeCount) {
         auto stroke = session.strokes[session.strokeIndex++];
-        report(stroke.modifiers, &stroke.key, 1, Phase::Text);
+        report(stroke.modifiers | session.textModifiers, &stroke.key, 1, Phase::Text);
         return;
       }
       if (session.offset < session.text.length()) {
+        const bool nonAscii = uint8_t(session.text[session.offset]) >= 128;
         session.offset += keyboard_locale::translate(session.text.c_str() + session.offset,
           session.text.length() - session.offset, session.strokes, session.strokeCount);
         session.strokeIndex = 0;
+        if (nonAscii && !session.strokeCount && !session.warnedUnsupported) {
+          script_log::warn("Unsupported text character skipped by selected locale");
+          session.warnedUnsupported = true;
+        }
         return;
       }
       if (session.enter) {
@@ -418,7 +427,7 @@ void update() {
       }
       auto item = duck_keys::next(session.line, session.cursor, modifiers, keys, count, text);
       if (item == duck_keys::Item::Report) report(modifiers, keys, count, Phase::Keys);
-      else if (item == duck_keys::Item::Text) startText(text, false, Phase::Keys);
+      else if (item == duck_keys::Item::Text) startText(text, false, Phase::Keys, modifiers);
       else if (item == duck_keys::Item::Done) session.phase = Phase::Finish;
       return;
     }

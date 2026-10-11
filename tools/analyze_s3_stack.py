@@ -12,7 +12,8 @@ import subprocess
 import tempfile
 
 MODULES = {'com.cpp', 'duckscript.cpp', 'script_parser.cpp', 'duck_constants.cpp',
-           'duck_vars.cpp', 'duck_expr.cpp', 'script_functions.cpp'}
+           'duck_vars.cpp', 'duck_expr.cpp', 'script_functions.cpp',
+           'keyboard_locale.cpp', 'duck_keys.cpp', 'hid_backend.cpp'}
 
 
 def main():

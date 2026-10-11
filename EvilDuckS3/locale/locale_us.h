@@ -135,6 +135,8 @@ const uint8_t ascii_us[] PROGMEM = {
   KEY_NONE, KEY_DELETE
 };
 
+static_assert(sizeof(ascii_us) == 128 * 2, "US ASCII table must have 128 pairs");
+
 const uint8_t utf8_us[] PROGMEM = {};
 const uint8_t combinations_us[] PROGMEM = {};
 
