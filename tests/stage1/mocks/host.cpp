@@ -18,7 +18,7 @@ namespace mock {
 uint32_t now=0;
 unsigned blockingDelays=0;
 uint8_t heldModifiers=0;
-bool usbReady=true, usbAccept=true;
+bool usbReady=true, usbAccept=true, usbMounted=true;
 std::vector<Report> reports;
 std::vector<uint8_t> heldKeys;
 std::vector<Press> presses;
@@ -70,7 +70,7 @@ void reset() {
   duckscript::stop();
   failReadAt=failSeekAt=std::numeric_limits<size_t>::max();
   bytesRead=readCalls=seekCalls=sourceSizeIncrease=0;
-  usbReady=usbAccept=true; com::update();
+  usbReady=usbAccept=usbMounted=true; com::update();
   now=0; blockingDelays=0; release(); presses.clear(); reports.clear(); text=""; output="";
   files.clear(); colors.clear(); keyboard_locale::begin(); settings::reset();
   attackmode::begin(); script_log::clear();

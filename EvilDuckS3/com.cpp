@@ -15,9 +15,11 @@
 #include <cstdlib>
 
 namespace {
-enum class Phase { Idle, Start, Wait, Storage, Text, Keys, Press, Release, Finish };
+enum class Phase { Idle, Start, Wait, Storage, Ownership, Reset, Text, Keys, Press, Release, Finish };
 struct Session {
   bool scriptOwned = false;
+  bool holding = false;
+  uint8_t ownedModifier = 0, ownedKey = 0;
   bool ownsKeys = false;
   bool remember = false;
   bool repeating = false;
@@ -99,7 +101,7 @@ void waitFor(uint32_t ms, Phase next) {
 }
 
 void releaseOwnedKeys() {
-  if (session.ownsKeys) hid_backend::cancelReport();
+  if (session.ownsKeys || hid_backend::hasPersistent()) hid_backend::cancelReport();
   session.ownsKeys = false;
 }
 
@@ -160,8 +162,33 @@ bool startLine() {
   session.phase = Phase::Finish;
   if (!line.length() || startsWithNoCase(line, "REM") || line.startsWith("//")) return true;
   if (stmt.kind == script_parser::Kind::Define) return duck_constants::define(line, 0, session.error);
-  if (equalsNoCase(line, "STOP")) {
+  if (equalsNoCase(line, "STOP") || equalsNoCase(line, "STOP_PAYLOAD")) {
     duckscript::stop();
+    return true;
+  }
+  if (equalsNoCase(line, "RESET")) {
+    hid_backend::cancelReport();
+    session.ownsKeys = false;
+    session.phase = Phase::Reset;
+    return true;
+  }
+  if (startsWithNoCase(line, "HOLD") || startsWithNoCase(line, "RELEASE")) {
+    session.ownedModifier = session.ownedKey = 0;
+    if (!duck_keys::isModifierName(stmt.args, session.ownedModifier))
+      hid_backend::keyNameToHid(stmt.args, session.ownedKey);
+    session.holding = startsWithNoCase(line, "HOLD");
+    // Release remains allowed when injection is gated, so held states can clear.
+    if (session.holding && !attackmode::hidEnabled()) return true;
+    session.remember = true;
+    session.phase = Phase::Ownership;
+    return true;
+  }
+  if (startsWithNoCase(line, "INJECT_MOD")) {
+    if (!stmt.args.length() || !attackmode::hidEnabled()) return true;
+    uint8_t modifier = 0;
+    duck_keys::isModifierName(stmt.args, modifier);
+    session.remember = true;
+    report(modifier, nullptr, 0, Phase::Finish);
     return true;
   }
   if (startsWithNoCase(line, "DELAY ") || startsWithNoCase(line, "WAIT ")) {
@@ -241,6 +268,7 @@ bool startLine() {
       session.error = attackmode::storageError();
       return false;
     }
+    if (!attackmode::hidEnabled()) releaseOwnedKeys();
     if (attackmode::storagePreparing()) session.phase = Phase::Storage;
     return true;
   }
@@ -373,6 +401,13 @@ void update() {
   execution::Guard guard;
   attackmode::update();
   hid_backend::update(); // Cancellation releases are serviced even when idle.
+  if (hid_backend::takeTransportLoss()) {
+    if (session.scriptOwned || session.phase != Phase::Idle) {
+      session.error = "USB transport disconnected; keyboard ownership cleared";
+      fail();
+      return;
+    }
+  }
   switch (session.phase) {
     case Phase::Idle: return;
     case Phase::Start:
@@ -386,6 +421,20 @@ void update() {
         fail();
       } else session.phase = Phase::Finish;
       return;
+    case Phase::Ownership: {
+      const bool accepted = session.holding ?
+        hid_backend::hold(session.ownedModifier, session.ownedKey) :
+        hid_backend::release(session.ownedModifier, session.ownedKey);
+      if (!accepted) {
+        if (*hid_backend::reportError()) { session.error = hid_backend::reportError(); fail(); }
+        return;
+      }
+      session.phase = Phase::Finish;
+      return;
+    }
+    case Phase::Reset:
+      if (!hid_backend::clearing()) session.phase = Phase::Finish;
+      return;
     case Phase::Wait: {
       uint32_t now = millis();
       uint32_t elapsed = now - session.waitStarted; // Safe across millis() wrap.
@@ -397,7 +446,10 @@ void update() {
       return;
     }
     case Phase::Press:
-      if (!hid_backend::beginReport(session.reportModifiers, session.reportKeys, session.reportCount)) return;
+      if (!hid_backend::beginReport(session.reportModifiers, session.reportKeys, session.reportCount)) {
+        if (*hid_backend::reportError()) { session.error = hid_backend::reportError(); fail(); }
+        return;
+      }
       session.ownsKeys = true;
       waitFor(5, Phase::Release);
       return;

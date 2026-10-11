@@ -3,10 +3,23 @@
 #include "USB.h"
 #include "USBHID.h"
 #include "USBHIDKeyboard.h"
+#include "execution_guard.h"
+#include <atomic>
 
 static USBHID HID;
 static USBHIDKeyboard Keyboard;
 static bool releasePending = false;
+namespace {
+struct Owned { uint8_t modifiers = 0, keys[6] = {}; };
+Owned owned;
+bool ownershipDirty = false;
+const char *failure = "";
+std::atomic<bool> disconnectEvent{false};
+bool wasMounted = false, transportLoss = false;
+void usbEvent(void *, esp_event_base_t, int32_t event, void *) {
+  if (event == ARDUINO_USB_STOPPED_EVENT) disconnectEvent.store(true);
+}
+}
 
 namespace {
 constexpr uint8_t HID_A = 0x04;
@@ -75,6 +88,7 @@ void applyModifiers(uint8_t modifiers) {
 namespace hid_backend {
 
 void begin() {
+  USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbEvent);
   HID.begin();
   Keyboard.begin();
   USB.begin();
@@ -169,42 +183,104 @@ void pressKeyHeld(uint8_t hidKeycode) {
   Keyboard.pressRaw(hidKeycode);
 }
 
-static bool queueReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
-  if (!HID.ready()) return false;
+static bool queueRaw(const Owned &state) {
+  // A loss can arrive after update() but before this enqueue attempt.
+  if (disconnectEvent.load() || !static_cast<bool>(USB) || !HID.ready()) return false;
   hid_keyboard_report_t report = {};
-  report.modifier = modifiers;
-  uint8_t count = 0;
-  for (uint8_t i = 0; i < keyCount && i < 6; ++i) {
-    uint8_t key = keys[i];
-    // Match the existing pressRaw behavior, including modifier usages supplied
-    // through KEYCODE, ignored invalid usages, and duplicate suppression.
-    if (key >= 0xE0 && key <= 0xE7) { report.modifier |= 1 << (key - 0xE0); continue; }
-    if (!key || key >= 0xA5) continue;
-    bool duplicate = false;
-    for (uint8_t j = 0; j < count; ++j) duplicate |= report.keycode[j] == key;
-    if (!duplicate) report.keycode[count++] = key;
-  }
-  // The existing HID instance is constructed with HID_ITF_PROTOCOL_NONE, so
-  // its descriptor uses report IDs (including the keyboard report ID).
-  // TinyUSB copies this report into its endpoint buffer without waiting for
-  // completion. USBHIDKeyboard::pressRaw/SendReport would wait up to 100ms.
+  report.modifier = state.modifiers;
+  memcpy(report.keycode, state.keys, sizeof(state.keys));
+  // Fixed eight-byte report, report ID 1; endpoint acceptance is not host ACK.
   return tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
 }
-
+static bool append(Owned &state, uint8_t key) {
+  if (key >= 0xE0 && key <= 0xE7) { state.modifiers |= 1 << (key - 0xE0); return true; }
+  // Preserve legacy KEYCODE filtering; parser validates named ownership inputs.
+  if (!key || key >= 0xA5) return true;
+  for (uint8_t held : state.keys) if (held == key) return true;
+  for (uint8_t &held : state.keys) if (!held) { held = key; return true; }
+  failure = "Keyboard report exceeds six distinct keys";
+  return false;
+}
 bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+  execution::Guard guard;
+  failure = "";
+  if (keyCount > 6 || (keyCount && !keys)) { failure = "Invalid keyboard report"; return false; }
+  Owned merged = owned;
+  merged.modifiers |= modifiers;
+  for (uint8_t i = 0; i < keyCount; ++i) if (!append(merged, keys[i])) return false;
+  if (releasePending || ownershipDirty) return false;
+  return queueRaw(merged);
+}
+bool releaseReport() {
+  execution::Guard guard;
+  failure = "";
+  if (releasePending || ownershipDirty) return false;
+  return queueRaw(owned);
+}
+bool hold(uint8_t modifier, uint8_t key) {
+  execution::Guard guard;
+  failure = "";
+  Owned proposed = owned;
+  proposed.modifiers |= modifier;
+  if (!append(proposed, key)) return false;
+  if (releasePending || ownershipDirty) return false;
+  if (proposed.modifiers == owned.modifiers && !memcmp(proposed.keys, owned.keys, 6)) return true;
+  if (!queueRaw(proposed)) return false;
+  owned = proposed;
+  return true;
+}
+bool release(uint8_t modifier, uint8_t key) {
+  execution::Guard guard;
+  failure = "";
+  Owned proposed = owned;
+  proposed.modifiers &= ~modifier;
+  uint8_t count = 0;
+  for (uint8_t held : owned.keys) if (held && held != key) proposed.keys[count++] = held;
+  while (count < 6) proposed.keys[count++] = 0;
+  // Release intent clears logical ownership immediately, even on refusal.
+  // One fixed target is retried before any later press; never re-own the key.
+  if (proposed.modifiers != owned.modifiers || memcmp(proposed.keys, owned.keys, 6)) {
+    owned = proposed;
+    ownershipDirty = true;
+  }
   if (releasePending) return false;
-  return queueReport(modifiers, keys, keyCount);
+  if (!ownershipDirty) return true;
+  if (!queueRaw(owned)) return false;
+  ownershipDirty = false;
+  return true;
 }
-
-bool releaseReport() { return queueReport(0, nullptr, 0); }
-
+bool hasPersistent() {
+  execution::Guard guard;
+  if (owned.modifiers) return true;
+  for (uint8_t key : owned.keys) if (key) return true;
+  return false;
+}
+bool clearing() { execution::Guard guard; return releasePending; }
+const char *reportError() { execution::Guard guard; return failure; }
+bool takeTransportLoss() {
+  execution::Guard guard;
+  bool lost = transportLoss; transportLoss = false; return lost;
+}
 void update() {
-  if (releasePending && releaseReport()) releasePending = false;
+  execution::Guard guard;
+  const bool mounted = static_cast<bool>(USB); // ESPUSB: started && device mounted.
+  if (disconnectEvent.exchange(false) || (wasMounted && !mounted)) {
+    owned = Owned();
+    ownershipDirty = false;
+    releasePending = true;
+    transportLoss = true;
+  }
+  wasMounted = mounted;
+  if (releasePending) { if (queueRaw(Owned())) releasePending = false; }
+  else if (ownershipDirty && queueRaw(owned)) ownershipDirty = false;
 }
-
 void cancelReport() {
+  execution::Guard guard;
+  owned = Owned();
+  ownershipDirty = false;
   releasePending = true;
-  update();
+  // Service the zero report without consuming transport-loss observations.
+  if (queueRaw(Owned())) releasePending = false;
 }
 
 void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {

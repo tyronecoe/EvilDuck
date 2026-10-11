@@ -17,7 +17,15 @@ namespace hid_backend {
   bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount);
   bool releaseReport();
   void cancelReport();
-  void update(); // Retry a cancellation release before any subsequent press.
+  void update(); // Observe USB loss and retry priority clearing reports.
+  // Holds commit on endpoint acceptance; release intent clears immediately. False can
+  // mean backpressure; reportError() distinguishes invalid/rollover requests.
+  bool hold(uint8_t modifier, uint8_t key);
+  bool release(uint8_t modifier, uint8_t key);
+  bool hasPersistent();
+  bool clearing();
+  const char *reportError();
+  bool takeTransportLoss();
   bool pressNamedCombo(const String &keyName, uint8_t modifiers = 0);
   void releaseAll();
 

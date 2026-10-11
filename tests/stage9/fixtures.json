@@ -155,38 +155,38 @@
   {
     "name": "hold",
     "file": "fixtures/hold.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE11",
     "reference": "holding-keys",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage11 implements this command. The formerly rejected fixture now prints its harmless first line; exact ownership/report behavior has separate production-module tests. Historical Stage9 expectations remain in the Stage9 branch/report."
   },
   {
     "name": "release",
     "file": "fixtures/release.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE11",
     "reference": "holding-keys",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage11 implements this command. The formerly rejected fixture now prints its harmless first line; exact ownership/report behavior has separate production-module tests. Historical Stage9 expectations remain in the Stage9 branch/report."
   },
   {
     "name": "inject_mod",
     "file": "fixtures/inject_mod.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE11",
     "reference": "holding-keys",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage11 implements this command. The formerly rejected fixture now prints its harmless first line; exact ownership/report behavior has separate production-module tests. Historical Stage9 expectations remain in the Stage9 branch/report."
   },
   {
     "name": "stop_payload",
     "file": "fixtures/stop_payload.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE11",
     "reference": "payload-control",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage11 implements this command. The formerly rejected fixture now prints its harmless first line; exact ownership/report behavior has separate production-module tests. Historical Stage9 expectations remain in the Stage9 branch/report."
   },
   {
     "name": "restart_payload",
@@ -200,11 +200,11 @@
   {
     "name": "reset",
     "file": "fixtures/reset.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "",
+    "canonical_status": "RESOLVED_STAGE11",
     "reference": "payload-control",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Stage11 implements this command. The formerly rejected fixture now prints its harmless first line; exact ownership/report behavior has separate production-module tests. Historical Stage9 expectations remain in the Stage9 branch/report."
   },
   {
     "name": "led_green",

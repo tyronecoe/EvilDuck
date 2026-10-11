@@ -10,7 +10,7 @@ bool name(const String &invocation,String &identifier,String &error) {
      (identifier[0]>='0' && identifier[0]<='9')) {error="Invalid function identifier; parameters/arguments are unsupported";return false;}
   String upper=identifier;upper.toUpperCase();
   static const char *reserved[]={"FUNCTION","END_FUNCTION","RETURN","IF","ELSE","THEN","WHILE","END_IF","ENDIF","ENDWHILE","END_WHILE","END",
-    "DEFINE","VAR","TRUE","FALSE","STRING","STRINGLN","END_STRING","END_STRINGLN","REM","REM_BLOCK","END_REM","DELAY","WAIT","DEFAULT_DELAY","DEFAULTDELAY","REPEAT","REPLAY","STOP","SAVE","READ","APPEND","LOCALE","LED","ATTACKMODE","KEYCODE"};
+    "DEFINE","VAR","TRUE","FALSE","STRING","STRINGLN","END_STRING","END_STRINGLN","REM","REM_BLOCK","END_REM","DELAY","WAIT","DEFAULT_DELAY","DEFAULTDELAY","REPEAT","REPLAY","STOP","STOP_PAYLOAD","RESET","HOLD","RELEASE","INJECT_MOD","SAVE","READ","APPEND","LOCALE","LED","ATTACKMODE","KEYCODE"};
   for(auto keyword:reserved)if(upper==keyword){error="Function name collides with a command";return false;}
   uint8_t key;
   if(hid_backend::keyNameToHid(identifier,key) || duck_keys::isModifierName(identifier,key)) {error="Function name collides with a key/modifier";return false;}

@@ -290,7 +290,18 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return expression(out.args, diagnostic);
   }
   out.kind = Kind::Command;
-  if (keyword == "STOP") return out.args.length() ? error(diagnostic, "STOP takes no arguments") : true;
+  if (keyword == "STOP" || keyword == "STOP_PAYLOAD" || keyword == "RESET")
+    return out.args.length() ? error(diagnostic, "STOP/STOP_PAYLOAD/RESET take no arguments") : true;
+  if (keyword == "HOLD" || keyword == "RELEASE" || keyword == "INJECT_MOD") {
+    uint8_t code;
+    if (keyword == "INJECT_MOD" && !out.args.length()) return true;
+    if (!out.args.length() || out.args.indexOf(' ') >= 0 || out.args.indexOf('\t') >= 0)
+      return error(diagnostic, "HOLD/RELEASE/INJECT_MOD require one key or modifier");
+    const bool modifier = duck_keys::isModifierName(out.args, code);
+    if (!modifier && (keyword == "INJECT_MOD" || !hid_backend::keyNameToHid(out.args, code)))
+      return error(diagnostic, "Invalid HOLD/RELEASE key or INJECT_MOD modifier");
+    return true;
+  }
   if (keyword == "VAR" || keyword == "DEFINE") {
     String name, value; bool text;
     if (keyword == "DEFINE" && duck_constants::declaration(input)) {
