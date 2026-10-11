@@ -23,6 +23,8 @@ struct Session {
   bool repeating = false;
   bool enter = false;
   bool preprocessed = false;
+  bool textLine = false, textEnter = false;
+  bool historyText = false, historyEnter = false;
   Phase phase = Phase::Idle;
   Phase afterWait = Phase::Finish;
   Phase afterRelease = Phase::Finish;
@@ -120,6 +122,16 @@ void startText(const String &text, bool enter, Phase next) {
 // Non-output commands keep their existing syntax and storage/LED behavior.
 // Timers and keyboard operations only schedule work here; update() advances it.
 bool startLine() {
+  if (session.textLine) {
+    session.remember = false;
+    session.phase = Phase::Finish;
+    if (!attackmode::hidEnabled()) return true;
+    String expanded;
+    if (!duck_vars::expand(session.line, expanded, session.error)) return false;
+    session.remember = true;
+    startText(expanded, session.textEnter, Phase::Finish);
+    return true;
+  }
   if (!session.preprocessed) {
     script_parser::Lexer lexer;
     script_parser::Statement prepared;
@@ -135,7 +147,7 @@ bool startLine() {
   if (stmt.kind != script_parser::Kind::Command && stmt.kind != script_parser::Kind::Keys &&
       stmt.kind != script_parser::Kind::Comment && stmt.kind != script_parser::Kind::Empty &&
       stmt.kind != script_parser::Kind::Assignment && stmt.kind != script_parser::Kind::Define) {
-    session.error = "Block/control syntax requires a script; text blocks await Stage 7";
+    session.error = "Block/control syntax requires a script";
     return false;
   }
   session.line = stmt.line;
@@ -159,11 +171,13 @@ bool startLine() {
     return true;
   }
   if (startsWithNoCase(line, "REPEAT ") || startsWithNoCase(line, "REPLAY ")) {
-    if (!session.history.length()) return false;
+    if (!session.history.length() && !session.historyText) return false;
     if (!script_parser::numericArgument(stmt.args, session.repeatsRemaining, session.error)) return false;
     if (session.repeatsRemaining) {
       session.repeating = true;
       session.line = session.history;
+      session.textLine = session.historyText;
+      session.textEnter = session.historyEnter;
       session.phase = Phase::Start;
     }
     return true;
@@ -276,6 +290,7 @@ void fail() {
 void submit(const String &line, bool preprocessed = false) {
   session.line = trimLine(line);
   session.preprocessed = preprocessed;
+  session.textLine = false;
   session.error = "";
   session.phase = Phase::Start;
 }
@@ -311,6 +326,17 @@ String submissionError() { execution::Guard guard; return rejected; }
 void send(const String &line) {
   execution::Guard guard;
   if (session.scriptOwned && session.phase == Phase::Idle) submit(line, true);
+}
+
+void sendText(const String &text, bool enter) {
+  execution::Guard guard;
+  if (!session.scriptOwned || session.phase != Phase::Idle) return;
+  session.line = text;
+  session.textLine = true;
+  session.textEnter = enter;
+  session.preprocessed = true;
+  session.error = "";
+  session.phase = Phase::Start;
 }
 
 bool executeNow(const String &line) {
@@ -398,13 +424,19 @@ void update() {
     }
     case Phase::Finish:
       if (session.remember) {
-        if (!session.repeating) session.history = session.line;
+        if (!session.repeating) {
+          session.history = session.line;
+          session.historyText = session.textLine;
+          session.historyEnter = session.textEnter;
+        }
         session.remember = false;
         waitFor(session.defaultDelay, Phase::Finish);
         return;
       }
       if (session.repeating && --session.repeatsRemaining) {
         session.line = session.history;
+        session.textLine = session.historyText;
+        session.textEnter = session.historyEnter;
         session.phase = Phase::Start;
         if (session.scriptOwned && cbRepeat) cbRepeat();
         return;

@@ -182,7 +182,7 @@ static void test(const String &name) {
     invalid("DEFINE #C DEFINE #X 1\n#C\n","cannot create");
   } else if (name == "stage3_define_comment_and_text_modes") {
     visible("REM DEFINE #X bad\nREM_BLOCK\nDEFINE #X bad\nIF fake\nEND_REM\nDEFINE #X good\nSTRINGLN #X\n","good\n");
-    invalid("STRINGLN hidden\nStRiNg\nDEFINE #X bad\nEND_STRING\nDEFINE #X good\n","deferred to Stage 7");
+    visible("STRINGLN hidden\nStRiNg\nDEFINE #X bad\nEND_STRING\nDEFINE #X good\nSTRINGLN #X\n","hidden\nDEFINE #X badgood\n");
     visible("DEFINE REM_BLOCK STRINGLN\nREM_BLOCK\nSTRINGLN hidden\nEND_REM\nSTRINGLN good\n","good\n");
     mock::reset(); live("DEFINE REM STRINGLN"); live("REM hidden");
     require(mock::presses.empty(),"live comments cannot be rewritten into executable statements"); clean();

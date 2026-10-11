@@ -124,7 +124,7 @@ static void test(const String &name) {
   } else if(name=="stage4_rem_block_conditional_text") visible("IF TRUE THEN\nREM_BLOCK\nIF fake THEN\nELSE IF fake THEN\nELSE\nEND_IF\nEND_REM\nSTRINGLN literal-safe\nEND_IF\n","literal-safe\n");
   else if(name=="stage4_text_blocks_preserve_literal_modes") {
     for(const char *kind:{"STRING","STRINGLN"}) {
-      invalid("STRINGLN hidden\nIF TRUE THEN\n"+std::string(kind)+"\nIF fake THEN\nELSE IF fake THEN\nEND_IF\nEND_"+kind+"\nEND_IF\n","deferred to Stage 7",3);
+      visible("STRINGLN hidden\nIF TRUE THEN\n"+std::string(kind)+"\nIF fake THEN\nELSE IF fake THEN\nEND_IF\nEND_"+kind+"\nEND_IF\n",kind==std::string("STRING") ? "hidden\nIF fake THENELSE IF fake THENEND_IF" : "hidden\nIF fake THEN\nELSE IF fake THEN\nEND_IF\n");
       invalid("IF TRUE THEN\n"+std::string(kind)+"\nEND_IF\n","Unterminated STRING",2);
     }
   } else if(name=="stage4_stop_active_and_inactive_branches") {

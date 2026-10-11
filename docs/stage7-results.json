@@ -1,0 +1,3847 @@
+{
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_address": 65536,
+  "flash_bytes": 16777216,
+  "application_bytes": 1308016,
+  "ota_slot_bytes": 7602176,
+  "free_bytes_per_slot": 6294160,
+  "free_percent_per_slot": 82.794189453125,
+  "application_sha256": "8e791c641bb31d3f712a9d8be417124a7fbf7e14e35cbe81badde601117ebf9c",
+  "hardware_verified": false,
+  "compiler_program_bytes": 1307871,
+  "static_ram_bytes": 80408,
+  "compiler_ram_maximum_bytes": 327680,
+  "merged_image_for_migration": false,
+  "baseline": {
+    "revision": "b636495a786554afdf3512bee788c6faaa26b229",
+    "compiler_program_bytes": 1307503,
+    "application_bytes": 1307648,
+    "static_ram_bytes": 80408
+  },
+  "growth_bytes": {
+    "compiler_program_bytes": 368,
+    "application_bytes": 368,
+    "static_ram_bytes": 0
+  },
+  "tests": {
+    "pass_count": 339,
+    "fail_count": 0,
+    "xpass_count": 3,
+    "xfail_count": 2,
+    "assertions": 268825,
+    "diagnostic_sanity_assertions": 12,
+    "records": [
+      {
+        "stage": "stage_1",
+        "name": "supported_commands_and_mock_interfaces",
+        "status": "PASS",
+        "assertions": 29
+      },
+      {
+        "stage": "stage_1",
+        "name": "script_run_state_isolation",
+        "status": "PASS",
+        "assertions": 22
+      },
+      {
+        "stage": "stage_1",
+        "name": "cooperative_delay_and_text_cancellation",
+        "status": "PASS",
+        "assertions": 33
+      },
+      {
+        "stage": "stage_1",
+        "name": "repeat_timing_and_control_loop_yield",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "stage": "stage_1",
+        "name": "live_commands_cannot_mutate_running_script",
+        "status": "PASS",
+        "assertions": 19
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_rem_comments",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_required_rem_block_fixture",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_comment_block_literal_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unterminated_rem_block_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unmatched_end_rem_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_lf_source",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_crlf_source",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_utf8_bom",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_missing_final_newline",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_blank_lines",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_spaces_tabs_and_payload_preservation",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_maximum_line_length",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_overlong_line_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_source_byte_limits",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_source_line_limits",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_mismatched_control_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unterminated_control_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_duplicate_else_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_block_depth_limit_zero_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_text_blocks_literal_mode_and_deferred_runtime",
+        "status": "PASS",
+        "assertions": 30
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unterminated_text_blocks_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unmatched_text_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_mismatched_text_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_unknown_commands_zero_hid",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_keyword_prefixes_are_not_commands",
+        "status": "PASS",
+        "assertions": 128
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_malformed_statements_zero_hid",
+        "status": "PASS",
+        "assertions": 210
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_supported_extensions_and_bare_keys",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_storage_read_seek_faults",
+        "status": "PASS",
+        "assertions": 25
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_preflight_cooperative_stop_and_live_ownership",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_2",
+        "name": "stage2_live_validation_and_limits",
+        "status": "PASS",
+        "assertions": 34
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_reviewed_partition_layout",
+        "status": "PASS",
+        "assertions": 15
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_overlapping_partitions_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_unaligned_application_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_reviewed_offsets_sizes_flags_enforced",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_core_version_pin_enforced",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_application_size_boundary",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_image_header_configuration_enforced",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_build_configuration_and_app_address_enforced",
+        "status": "PASS",
+        "assertions": 22
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_generated_16m_build_artifacts",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_corrupt_partition_binary_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_merged_image_wrong_address_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_stale_4m_partition_artifact_rejected",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_saved_physical_flash_capacity_guard",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_offline_source_archives_require_file_migration",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_offline_preparation_rejects_invalid_backups",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_offline_preparation_never_overwrites",
+        "status": "PASS",
+        "assertions": 2
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_build_wrapper_requires_clean_output",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_verified_device_map_differs_from_core_default",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_raw_spiffs_size_mismatch_refused",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_recorded_backup_hash_guards",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_file_level_extract_repack_roundtrip",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_file_level_empty_filesystem",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_file_level_capacity_and_overwrite_guards",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_corrupt_or_wrong_geometry_extraction_refused",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_alternative_layout_maximum_equal_slots",
+        "status": "PASS",
+        "assertions": 4
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_review_only_plan_preserves_nvs_and_initializes_both_apps",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_write_and_erase_region_guards",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_ota_initializer_selects_app0_deterministically",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_plan_refuses_unverified_files_and_backup_provenance",
+        "status": "PASS",
+        "assertions": 16
+      },
+      {
+        "stage": "stage_2_5",
+        "name": "stage25_mac_old_core_rejected_before_compile",
+        "status": "PASS",
+        "assertions": 1
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_addition",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_subtraction",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_multiplication",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_division",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_modulo",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_exponentiation",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_equality",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_inequality",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_less_than",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_greater_than",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_less_or_equal",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_greater_or_equal",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_logical_and",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_logical_or",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_bitwise_and",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_bitwise_or",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_left_shift",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_right_shift",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_precedence_and_grouping",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_literals_booleans_and_whitespace",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_arithmetic_boundaries",
+        "status": "PASS",
+        "assertions": 57
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_invalid_literals_and_unsupported_operators",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_malformed_expressions_and_limits",
+        "status": "PASS",
+        "assertions": 54
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_numeric_declarations_assignment_and_no_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_required_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_variable_references_types_and_atomic_failure",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_text_compatibility_alias_and_read",
+        "status": "PASS",
+        "assertions": 41
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_identifier_validation_and_table_exhaustion",
+        "status": "PASS",
+        "assertions": 91
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_preflight_zero_hid_and_runtime_errors",
+        "status": "PASS",
+        "assertions": 46
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_define_global_forward_and_word_matching",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_define_single_pass_and_declaration_exemption",
+        "status": "PASS",
+        "assertions": 32
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_define_comment_and_text_modes",
+        "status": "PASS",
+        "assertions": 24
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_define_duplicates_invalid_and_table_limits",
+        "status": "PASS",
+        "assertions": 76
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_define_expansion_and_pool_boundaries",
+        "status": "PASS",
+        "assertions": 32
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_expression_timing_counts_and_cancellation",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_collection_preflight_stop_and_state_isolation",
+        "status": "PASS",
+        "assertions": 27
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_interpolation_overflow_runtime_safe_stop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_syntax_mode_does_not_evaluate_runtime_values",
+        "status": "PASS",
+        "assertions": 3
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_bounded_expression_fuzz",
+        "status": "PASS",
+        "assertions": 3001
+      },
+      {
+        "stage": "stage_3",
+        "name": "stage3_expression_hot_path_no_heap",
+        "status": "PASS",
+        "assertions": 10022
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_simple_true_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_simple_false_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_if_else_true_path",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_if_else_false_path",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_nested_true_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_nested_true_false",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_outer_false_nested_inactive",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_multiple_nesting_levels",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_exact_nesting_limit",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_nesting_limit_plus_one",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_else_if_first_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_else_if_middle_true",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_else_if_final_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_else_if_multiple_entries",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_nested_else_if_chains",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_no_branch_true_without_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_selected_assignments_and_later_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_inactive_side_effects",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_required_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_define_conditions_and_protected_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_macro_manufactured_structures_rejected",
+        "status": "PASS",
+        "assertions": 56
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_compound_hex_boolean_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_malformed_expressions_zero_hid",
+        "status": "PASS",
+        "assertions": 77
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_undefined_and_text_variables",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_missing_end_if",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_unexpected_end_if",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_duplicate_else",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_else_outside_if",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_malformed_then_and_else_if",
+        "status": "PASS",
+        "assertions": 84
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_invalid_branch_ordering",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_rem_block_conditional_text",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_text_blocks_preserve_literal_modes",
+        "status": "PASS",
+        "assertions": 26
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_stop_active_and_inactive_branches",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_external_cancel_delay_text_and_keys",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_repeat_active_inactive_and_structural_history",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_clean_state_between_runs_and_live_ownership",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_runtime_errors_only_in_eligible_conditions",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_cooperative_large_inactive_region_and_preflight",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_legacy_compatibility_aliases",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_keyword_boundaries_whitespace_and_case",
+        "status": "PASS",
+        "assertions": 34
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_mixed_while_nesting",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_4",
+        "name": "stage4_conditional_stack_no_heap",
+        "status": "PASS",
+        "assertions": 60012
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_false_while_following_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_zero_iteration_expressions",
+        "status": "PASS",
+        "assertions": 36
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_single_iteration",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_multiple_iterations",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_decrementing_numeric_no_hid",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_shared_expression_operators",
+        "status": "PASS",
+        "assertions": 84
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_condition_reevaluated_at_header",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_nested_two_loops",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_nested_three_loops",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_sequential_loops",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_if_inside_while_else_if",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_while_inside_if_else",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_mixed_nested_structures",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_false_outer_suppresses_nested_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_inactive_side_effects_and_assignments",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_nested_updates_outer_variable",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_global_declarations_reused",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_exact_loop_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_mixed_exact_depth",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_depth_plus_one_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_malformed_conditions_zero_hid",
+        "status": "PASS",
+        "assertions": 98
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_undefined_and_text_expression_rejection",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_missing_unmatched_and_crossed_terminators",
+        "status": "PASS",
+        "assertions": 42
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_keyword_boundaries_and_aliases",
+        "status": "PASS",
+        "assertions": 52
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_legacy_bare_text_truthiness",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_define_conditions_and_protected_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_macro_manufactured_loop_delimiters_rejected",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_define_collection_inside_inactive_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_rem_block_loop_text_ignored",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_text_blocks_keep_literal_modes",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_bom_crlf_no_final_newline_backedges",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_header_across_read_budgets",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_reader_marker_and_seek_boundaries",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_runtime_seek_error",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_runtime_read_error_after_backedge",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_runtime_source_size_changed",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_runtime_condition_error_and_inactive_skip",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_runtime_undefined_path_dependent_variable",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_repeat_structural_and_inactive_history",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_repeat_expression_in_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_keyboard_combinations_in_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_expression_delays_in_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_stop_in_active_and_inactive_loops",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_cancel_delay_inside_mixed_loop",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_cancel_text_inside_nested_loop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_cancel_held_keys_and_usb_pressure",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_control_only_loop_cooperative_and_live_ownership",
+        "status": "PASS",
+        "assertions": 47
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_stalled_empty_loop_boundary",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_stalled_same_assignment_and_inactive_actions",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_nested_stall_not_masked_by_outer_progress",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_variable_progress_beyond_stall_threshold",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_total_iteration_limit_and_clean_restart",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_exact_total_iteration_boundary",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_variable_revision_atomic_and_reset",
+        "status": "PASS",
+        "assertions": 9
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_cancellation_then_new_source",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_large_inactive_region_cooperative",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_small_nested_loop_reference_cases",
+        "status": "PASS",
+        "assertions": 175
+      },
+      {
+        "stage": "stage_5",
+        "name": "stage5_mixed_control_stack_no_heap",
+        "status": "PASS",
+        "assertions": 91039
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_declarations_skipped",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_statement_invocation",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_multiple_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_forward_invocation_and_globals",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_explicit_void_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_implicit_void_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_integer_return_assignment",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_boolean_return_conditions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_statement_discards_return_value",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_void_value_rejected",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_top_level_and_live_return_compatibility",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_enter_and_modifier_return_inside_function",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_return_unwinds_nested_control",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_caller_control_restored",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_nested_statement_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_nested_return_expressions",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_multiple_calls_in_expression",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_earlier_variable_operand_preserved",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_eager_logical_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_inactive_conditions_do_not_call",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_while_condition_calls_reevaluate",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_while_condition_changes_count_as_progress",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_else_if_function_condition",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_numeric_commands_with_calls",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_function_globals_text_and_file_commands",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_define_function_operands_and_names",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_macro_structural_creation_rejected",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_rem_and_text_modes",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_literal_text_does_not_invoke",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_names_case_sensitive",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_malformed_names_parameters_and_collisions",
+        "status": "PASS",
+        "assertions": 91
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_unknown_calls_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_invalid_call_arguments_and_whitespace",
+        "status": "PASS",
+        "assertions": 35
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_duplicate_and_nested_declarations",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_unterminated_and_unmatched_functions",
+        "status": "PASS",
+        "assertions": 28
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_return_syntax_and_context_errors",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_unused_body_preflight_errors_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_function_table_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_function_identifier_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_nested_call_depth_boundary",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_recursive_depth_exhaustion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_recursive_expression_and_global_visibility",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_shared_control_depth_exhaustion",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_runtime_undefined_initialization",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_runtime_arithmetic_after_calls",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_repeat_history_around_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_stop_active_and_inactive_function_branches",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_cancel_pending_function_delay",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_cancel_nested_function_text",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_cancel_held_keys_in_call",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_cancel_call_under_usb_backpressure",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_cancel_expression_then_clean_run",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_live_ownership_and_stop",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_seek_error_entering_function",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_seek_error_returning_to_caller",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_read_error_and_source_change_in_function",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_runtime_body_read_failure",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_bom_crlf_header_and_final_newline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_empty_function_loop_stalls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_total_call_budget",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_postfix_arithmetic_matches_existing_evaluator",
+        "status": "PASS",
+        "assertions": 39
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_expression_bounds_and_postfix_errors",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_long_declaration_skip_is_cooperative",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "stage": "stage_6",
+        "name": "stage6_postfix_call_state_no_heap",
+        "status": "PASS",
+        "assertions": 60012
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_empty_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_single_line_string",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_single_line_stringln",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_string_multiline_no_separators",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_stringln_multiline_enters",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_string_blank_lines",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_stringln_blank_lines",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_string_leading_and_trailing_whitespace",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_stringln_removes_one_leading_tab",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_internal_tabs_preserved",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_literal_command_keywords",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_terminator_prefixes_are_literal",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_case_and_indented_delimiters",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_inline_compatibility_unchanged",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_lf_and_crlf_equivalent",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_bom_only_at_source_start",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_no_final_newline",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_quoted_text_no_unescaping",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_numeric_boolean_and_text_interpolation",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_unknown_host_variables_are_literal",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_variable_replacement_is_single_pass",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_define_hash_and_word_replacement",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_define_body_not_collected_or_expanded",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_define_single_pass_and_variable_order",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_expansion_cannot_close_or_execute",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_value_whitespace_after_source_dedent",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_maximum_body_line",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_overlong_body_zero_hid",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_define_expansion_boundary",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_interpolation_boundary_and_overflow",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_inactive_interpolation_has_no_runtime_effect",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_unterminated_after_output_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_mismatched_or_argument_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 21
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_unmatched_terminators_zero_hid",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_literal_openers_inside_body",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_fixture_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_if_else_active_inactive_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_zero_iteration_loop_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_nested_loops_interpolate_current_values",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_function_repeat_calls_and_return",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_nested_functions_with_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_recursive_calls_with_blocks",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_repeat_literal_text_and_whitespace",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_repeat_blank_stringln",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_empty_string_does_not_replace_history",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_repeat_interpolates_again",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_default_delays_per_body_line",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_cancel_default_delay",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_cancel_halfway_through_typing",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_cancel_held_shift_and_usb_release_retry",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_usb_backpressure_lossless_and_no_readahead",
+        "status": "PASS",
+        "assertions": 8
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_stop_command_after_block",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_live_ownership_and_clean_run",
+        "status": "PASS",
+        "assertions": 14
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_live_block_opener_rejected",
+        "status": "PASS",
+        "assertions": 5
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_preflight_source_errors_zero_hid",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_rewind_seek_error_zero_hid",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_runtime_body_read_error_spiffs_and_sd",
+        "status": "PASS",
+        "assertions": 12
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_runtime_source_change",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_loop_backedge_seek_error",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_function_return_seek_error",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_large_block_streamed_and_cooperative",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_cancel_large_block_preflight",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_source_limits_zero_hid",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_hid_disabled_block_has_no_output",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_malformed_later_control_zero_hid",
+        "status": "PASS",
+        "assertions": 7
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_control_nesting_boundaries",
+        "status": "PASS",
+        "assertions": 26
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_text_blocks_do_not_execute_calls",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "stage": "stage_7",
+        "name": "stage7_bounded_line_allocation_probe",
+        "status": "PASS",
+        "assertions": 40005
+      }
+    ],
+    "diagnostics": [
+      {
+        "name": "known_nested_if",
+        "status": "XPASS",
+        "detail": "expected 'good', actual 'good'"
+      },
+      {
+        "name": "known_canonical_if",
+        "status": "XPASS",
+        "detail": "expected 'good', actual 'good'"
+      },
+      {
+        "name": "known_false_while",
+        "status": "XPASS",
+        "detail": "expected 'good', actual 'good'"
+      },
+      {
+        "name": "known_f13_mapping",
+        "status": "XFAIL",
+        "detail": "expected usage 104, actual 70"
+      },
+      {
+        "name": "known_german_ascii_table",
+        "status": "XFAIL",
+        "detail": "expected 128 records, actual 115; table content/alignment needs a later-stage fix"
+      }
+    ]
+  },
+  "sanitizers": {
+    "cpp": "ASan/UBSan executed and clean in all Stage 1\u20137 C++ suites and probes",
+    "python": "Stage 2.5 offline partition/build/migration suite executed; Python not sanitizer-instrumented"
+  },
+  "warnings": [
+    "Pre-existing -Wmisleading-indentation in tests/stage6/test_main.cpp:128; unchanged, not a sanitizer finding. No firmware build warnings/errors."
+  ],
+  "text_limits": {
+    "source_line_bytes": 512,
+    "expanded_line_bytes": 512,
+    "source_bytes": 262144,
+    "source_lines": 8192,
+    "read_bytes_per_update": 256,
+    "lines_per_update": 8,
+    "whole_block_buffer_bytes": 0,
+    "additional_function_frames": 0,
+    "call_frame_bytes_host": 976,
+    "fixed_call_stack_bytes_host": 7812
+  },
+  "allocation_probe": {
+    "iterations": 10000,
+    "requests": 50006,
+    "largest_request_bytes": 961,
+    "scope": "Host std::string-backed line lexing/DEFINE/variable expansion only; not embedded live-heap measurement"
+  },
+  "stack_analysis": {
+    "kind": "per-function compiler estimates, not runtime high-water",
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_sha256": "8e791c641bb31d3f712a9d8be417124a7fbf7e14e35cbe81badde601117ebf9c",
+    "records": [
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:99:6:void {anonymous}::releaseOwnedKeys()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:19:8:{anonymous}::Session::~Session()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:19:8:{anonymous}::Session::Session()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:113:6:void {anonymous}::startText(const String&, bool, Phase)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:92:6:void {anonymous}::waitFor(uint32_t, Phase)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:60:6:bool {anonymous}::equalsNoCase(const String&, const char*)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:104:6:void {anonymous}::report(uint8_t, const uint8_t*, uint8_t, Phase)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:47:8:String {anonymous}::trimLine(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:290:6:void {anonymous}::submit(const String&, bool)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:280:6:void {anonymous}::fail()",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:66:9:uint8_t {anonymous}::parseNumberToken(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:73:6:bool {anonymous}::parseFilePayload(const String&, const char*, String&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:23:26:QueueDefinition* execution::mutex()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:3:execution::Guard::~Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:30:3:execution::Guard::Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:84:6:bool {anonymous}::fileIoWrite(const String&, const String&, bool)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:124:6:bool {anonymous}::startLine()",
+        "bytes": 208,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:300:6:void com::onDone(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:301:6:void com::onRepeat(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:302:6:void com::onError(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:304:6:void com::beginScript()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:314:6:void com::endScript()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:322:6:bool com::busy()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:323:8:String com::lastError()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:324:8:String com::submissionError()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:326:6:void com::send(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:331:6:void com::sendText(const String&, bool)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:342:6:bool com::executeNow(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:362:6:void com::update()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:450:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:16:8:size_t duck_constants::{anonymous}::start(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:18:6:void duck_constants::clear()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:19:6:bool duck_constants::declaration(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:26:6:bool duck_constants::definition(const String&, String&, String&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:44:6:bool duck_constants::define(const String&, uint32_t, String&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:62:6:bool duck_constants::expand(const String&, String&, String&)",
+        "bytes": 592,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:86:6:bool duck_constants::Collector::accept(const String&, uint32_t, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:6:6:bool duck_expr::{anonymous}::word(char)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:32:8:void duck_expr::{anonymous}::Parser::spaces()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:28:8:bool duck_expr::{anonymous}::Parser::fail(const char*, size_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:129:8:bool duck_expr::{anonymous}::Parser::apply(duck_expr::{anonymous}::Op, duck_expr::{anonymous}::Value&, const duck_expr::{anonymous}::Value&, size_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:33:8:bool duck_expr::{anonymous}::Parser::token()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:190:6:void duck_expr::functions(Resolver, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:191:6:bool duck_expr::containsCalls(const char*, size_t)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:201:6:bool duck_expr::Program::emit(uint8_t, uint16_t, uint8_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:25:8:bool duck_expr::{anonymous}::Parser::emit(duck_expr::{anonymous}::Op, uint16_t, uint8_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:214:6:bool duck_expr::Program::returned(uint16_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:218:6:duck_expr::Step duck_expr::Program::step(uint16_t&, duck_expr::Error&, duck_expr::Resolver, void*, uint16_t)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:245:6:bool duck_expr::identifier(const char*, size_t, char)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:162:8:bool duck_expr::{anonymous}::Parser::expression(uint8_t, uint8_t, duck_expr::{anonymous}::Value&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:179:8:constprop(uint16_t&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:205:6:bool duck_expr::Program::compile(const char*, size_t, duck_expr::Error&, duck_expr::Resolver, void*)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:252:6:bool duck_expr::evaluate(const char*, size_t, uint16_t&, Error&, Resolver, void*, Mode)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:9:8:void __tcf_0(void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:13:5:int duck_vars::Symbols::index(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:18:6:duck_vars::Type duck_vars::Symbols::type(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:50:19:duck_expr::Lookup duck_vars::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:22:5:int duck_vars::Symbols::declare(const String&, duck_vars::Type, bool, String&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:38:19:static duck_expr::Lookup duck_vars::Symbols::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:44:10:uint32_t duck_vars::revision()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:45:6:void duck_vars::clear()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:57:6:bool duck_vars::getNumeric(const String&, uint16_t&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:60:6:bool duck_vars::assign(const String&, const String&, bool, String&)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:74:6:bool duck_vars::setText(const String&, const String&, bool, String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:82:6:bool duck_vars::set(const String&, const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:86:6:bool duck_vars::get(const String&, String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:92:6:bool duck_vars::expand(const String&, String&, String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:115:8:String duck_vars::expand(const String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:120:6:bool duck_vars::truthy(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:128:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:436:13:void comDone()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:53:6:void {anonymous}::setStatusColor(int, int, int)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:438:13:void comRepeat()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:23:26:QueueDefinition* execution::mutex()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:3:execution::Guard::~Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:30:3:execution::Guard::Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:29:8:bool control_flow::Stack::active() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:39:8:bool control_flow::Stack::eligible() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:314:6:void duckscript::stop()",
+        "bytes": 672,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:66:6:void {anonymous}::fail(const String&, uint32_t)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:440:13:void comError()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:110:6:void {anonymous}::returnFunction(bool, uint16_t)",
+        "bytes": 1056,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:97:6:bool {anonymous}::enterFunction(uint16_t, bool)",
+        "bytes": 1056,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:83:6:bool {anonymous}::beginEvaluation(const String&, script_functions::Consumer, const char*, bool, uint8_t)",
+        "bytes": 1040,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:168:6:bool {anonymous}::isControlLine(const script_parser::Statement&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:345:13:void loadNextLine()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:330:6:void duckscript::update()",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:338:6:bool duckscript::running()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:339:8:String duckscript::runningScript()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:340:10:uint32_t duckscript::currentLine()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:341:8:String duckscript::lastError()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:21:8:RunState::RunState()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:21:8:RunState::~RunState()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:273:6:bool duckscript::run(const String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:442:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:6:6:bool script_functions::name(const String&, String&, String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:19:5:int script_functions::Table::find(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:23:6:bool script_functions::Table::add(const String&, uint32_t, uint32_t, String&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:28:6:bool script_functions::Table::close(uint32_t, uint32_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:29:19:static duck_expr::Lookup script_functions::Table::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:28:6:bool script_parser::{anonymous}::variable(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:75:6:bool script_parser::{anonymous}::number(const String&, uint32_t, bool)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:15:6:bool script_parser::{anonymous}::makeWord(const String&, size_t&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:22:8:String script_parser::{anonymous}::words(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:220:8:bool String::operator!=(const char*) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:238:8:bool String::endsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:31:6:bool script_parser::{anonymous}::operand(const String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:40:6:bool script_parser::{anonymous}::legacySyntax(const String&, String&, int*)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:293:8:void String::replace(const char*, const char*)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:104:6:bool script_parser::expression(const String&, String&, duck_expr::Resolver, void*)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:112:6:bool script_parser::condition(const String&, bool, uint16_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:60:6:bool script_parser::{anonymous}::conditionalArgs(script_parser::Statement&, bool, String&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:155:6:bool script_parser::assignment(const String&, String&, String&, bool&, String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:176:6:bool script_parser::numericArgument(const String&, uint32_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:194:6:bool script_parser::hasKeyword(const String&, const char*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:203:6:bool script_parser::filePayload(const String&, String&, String&)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:219:6:bool script_parser::parse(const String&, Statement&, String&)",
+        "bytes": 240,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:368:6:bool script_parser::Lexer::scan(const String&, uint32_t, script_parser::Statement&, String&)",
+        "bytes": 288,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:460:6:bool script_parser::Lexer::finish(String&, uint32_t&) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:467:6:bool script_parser::Validator::accept(const String&, uint32_t, String&)",
+        "bytes": 160,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:528:6:bool script_parser::Validator::finish(String&, uint32_t&) const",
+        "bytes": 32,
+        "qualifier": "static"
+      }
+    ],
+    "arduino_loop_task_config_bytes": 8192,
+    "esp_main_task_config_bytes": 4096
+  },
+  "hardware_accessed": false,
+  "real_hid_output": false,
+  "destructive_hardware_commands_executed": false,
+  "stage8_started": false,
+  "log_hashes": {
+    "stages_1_2": "53135dad57f0b7c259e01d5dfd0c12f93c9af3e823828f42e909744051ef76c3",
+    "stage_2_5": "c97f464979f335f0d586bd699b5db1869a345c270cc873a1db973d5a9104894c",
+    "stage_3": "818f09566aa6f30e8e75e0004a4ce492cc762cfc21a14f8674fca4134e0a3107",
+    "stage_4": "22a96e0f15bf0a83499102e3ef3ad307ce748cd0e93766b22f9ab32ae2021673",
+    "stage_5": "efd9bbeaed729e5dc236bdf95ec4c1888d45ce9b203df56bc098695705173700",
+    "stage_6": "c525120c2f4c1aec448a3c3f89b433f4631ec0b8402f63d49d336e102b37f10b",
+    "stage_7": "918a6a10ddf111064d81435638d2a143425fc4d15c63265819200ae05bc51192"
+  },
+  "hardware_verified_note": "Offline build does not interrogate hardware; prior user-supplied verification remains valid. No physical migration performed or assumed.",
+  "baseline_stack_analysis": {
+    "kind": "per-function compiler estimates, not runtime high-water",
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_sha256": "858b0d4dfbe6c305934aa56ce9e436134116a772be53b86d08f58246037462ab",
+    "records": [
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:97:6:void {anonymous}::releaseOwnedKeys()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:19:8:{anonymous}::Session::~Session()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:19:8:{anonymous}::Session::Session()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:90:6:void {anonymous}::waitFor(uint32_t, Phase)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:58:6:bool {anonymous}::equalsNoCase(const String&, const char*)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:102:6:void {anonymous}::report(uint8_t, const uint8_t*, uint8_t, Phase)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:45:8:String {anonymous}::trimLine(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:276:6:void {anonymous}::submit(const String&, bool)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:266:6:void {anonymous}::fail()",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:64:9:uint8_t {anonymous}::parseNumberToken(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:71:6:bool {anonymous}::parseFilePayload(const String&, const char*, String&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:23:26:QueueDefinition* execution::mutex()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:3:execution::Guard::~Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:30:3:execution::Guard::Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:82:6:bool {anonymous}::fileIoWrite(const String&, const String&, bool)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:122:6:bool {anonymous}::startLine()",
+        "bytes": 208,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:285:6:void com::onDone(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:286:6:void com::onRepeat(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:287:6:void com::onError(cb_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:289:6:void com::beginScript()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:299:6:void com::endScript()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:307:6:bool com::busy()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:308:8:String com::lastError()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:309:8:String com::submissionError()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:311:6:void com::send(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:316:6:bool com::executeNow(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:336:6:void com::update()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "com.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:418:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:16:8:size_t duck_constants::{anonymous}::start(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:18:6:void duck_constants::clear()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:19:6:bool duck_constants::declaration(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:26:6:bool duck_constants::definition(const String&, String&, String&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:44:6:bool duck_constants::define(const String&, uint32_t, String&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:62:6:bool duck_constants::expand(const String&, String&, String&)",
+        "bytes": 592,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_constants.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:86:6:bool duck_constants::Collector::accept(const String&, uint32_t, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:6:6:bool duck_expr::{anonymous}::word(char)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:32:8:void duck_expr::{anonymous}::Parser::spaces()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:28:8:bool duck_expr::{anonymous}::Parser::fail(const char*, size_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:129:8:bool duck_expr::{anonymous}::Parser::apply(duck_expr::{anonymous}::Op, duck_expr::{anonymous}::Value&, const duck_expr::{anonymous}::Value&, size_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:33:8:bool duck_expr::{anonymous}::Parser::token()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:190:6:void duck_expr::functions(Resolver, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:191:6:bool duck_expr::containsCalls(const char*, size_t)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:201:6:bool duck_expr::Program::emit(uint8_t, uint16_t, uint8_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:25:8:bool duck_expr::{anonymous}::Parser::emit(duck_expr::{anonymous}::Op, uint16_t, uint8_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:214:6:bool duck_expr::Program::returned(uint16_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:218:6:duck_expr::Step duck_expr::Program::step(uint16_t&, duck_expr::Error&, duck_expr::Resolver, void*, uint16_t)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:245:6:bool duck_expr::identifier(const char*, size_t, char)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:162:8:bool duck_expr::{anonymous}::Parser::expression(uint8_t, uint8_t, duck_expr::{anonymous}::Value&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:179:8:constprop(uint16_t&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:205:6:bool duck_expr::Program::compile(const char*, size_t, duck_expr::Error&, duck_expr::Resolver, void*)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_expr.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:252:6:bool duck_expr::evaluate(const char*, size_t, uint16_t&, Error&, Resolver, void*, Mode)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:9:8:void __tcf_0(void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:13:5:int duck_vars::Symbols::index(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:18:6:duck_vars::Type duck_vars::Symbols::type(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:50:19:duck_expr::Lookup duck_vars::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:22:5:int duck_vars::Symbols::declare(const String&, duck_vars::Type, bool, String&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:38:19:static duck_expr::Lookup duck_vars::Symbols::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:44:10:uint32_t duck_vars::revision()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:45:6:void duck_vars::clear()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:57:6:bool duck_vars::getNumeric(const String&, uint16_t&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:60:6:bool duck_vars::assign(const String&, const String&, bool, String&)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:74:6:bool duck_vars::setText(const String&, const String&, bool, String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:82:6:bool duck_vars::set(const String&, const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:86:6:bool duck_vars::get(const String&, String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:92:6:bool duck_vars::expand(const String&, String&, String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:115:8:String duck_vars::expand(const String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:120:6:bool duck_vars::truthy(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duck_vars.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:128:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:428:13:void comDone()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:53:6:void {anonymous}::setStatusColor(int, int, int)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:430:13:void comRepeat()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:23:26:QueueDefinition* execution::mutex()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:3:execution::Guard::~Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:30:3:execution::Guard::Guard()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:29:8:bool control_flow::Stack::active() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:39:8:bool control_flow::Stack::eligible() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:313:6:void duckscript::stop()",
+        "bytes": 672,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:66:6:void {anonymous}::fail(const String&, uint32_t)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:432:13:void comError()",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:110:6:void {anonymous}::returnFunction(bool, uint16_t)",
+        "bytes": 1056,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:97:6:bool {anonymous}::enterFunction(uint16_t, bool)",
+        "bytes": 1056,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:83:6:bool {anonymous}::beginEvaluation(const String&, script_functions::Consumer, const char*, bool, uint8_t)",
+        "bytes": 1040,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:168:6:bool {anonymous}::isControlLine(const script_parser::Statement&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:344:13:void loadNextLine()",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:329:6:void duckscript::update()",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:337:6:bool duckscript::running()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:338:8:String duckscript::runningScript()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:339:10:uint32_t duckscript::currentLine()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:340:8:String duckscript::lastError()",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:21:8:RunState::RunState()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:21:8:RunState::~RunState()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:272:6:bool duckscript::run(const String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "duckscript.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:434:1:cpp)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:6:6:bool script_functions::name(const String&, String&, String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:19:5:int script_functions::Table::find(const char*, size_t) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:23:6:bool script_functions::Table::add(const String&, uint32_t, uint32_t, String&)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:28:6:bool script_functions::Table::close(uint32_t, uint32_t)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_functions.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:29:19:static duck_expr::Lookup script_functions::Table::resolve(const char*, size_t, uint16_t&, void*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:28:6:bool script_parser::{anonymous}::variable(const String&)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:75:6:bool script_parser::{anonymous}::number(const String&, uint32_t, bool)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:15:6:bool script_parser::{anonymous}::makeWord(const String&, size_t&, String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:22:8:String script_parser::{anonymous}::words(const String&)",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:220:8:bool String::operator!=(const char*) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:238:8:bool String::endsWith(const char*) const",
+        "bytes": 64,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:31:6:bool script_parser::{anonymous}::operand(const String&)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:40:6:bool script_parser::{anonymous}::legacySyntax(const String&, String&, int*)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:293:8:void String::replace(const char*, const char*)",
+        "bytes": 80,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:104:6:bool script_parser::expression(const String&, String&, duck_expr::Resolver, void*)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:112:6:bool script_parser::condition(const String&, bool, uint16_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+        "bytes": 176,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:60:6:bool script_parser::{anonymous}::conditionalArgs(script_parser::Statement&, bool, String&)",
+        "bytes": 128,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:155:6:bool script_parser::assignment(const String&, String&, String&, bool&, String&)",
+        "bytes": 96,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:176:6:bool script_parser::numericArgument(const String&, uint32_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:194:6:bool script_parser::hasKeyword(const String&, const char*)",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:203:6:bool script_parser::filePayload(const String&, String&, String&)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:12:8:script_parser::Statement::~Statement()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:219:6:bool script_parser::parse(const String&, Statement&, String&)",
+        "bytes": 240,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:368:6:bool script_parser::Lexer::scan(const String&, uint32_t, script_parser::Statement&, String&)",
+        "bytes": 288,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:451:6:bool script_parser::Lexer::finish(String&, uint32_t&) const",
+        "bytes": 32,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:458:6:bool script_parser::Validator::accept(const String&, uint32_t, String&)",
+        "bytes": 160,
+        "qualifier": "static"
+      },
+      {
+        "module": "script_parser.cpp",
+        "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:521:6:bool script_parser::Validator::finish(String&, uint32_t&) const",
+        "bytes": 32,
+        "qualifier": "static"
+      }
+    ]
+  }
+}

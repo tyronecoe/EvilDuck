@@ -117,11 +117,11 @@ static void test(const String &name) {
   } else if(name=="stage2_text_blocks_literal_mode_and_deferred_runtime") {
     for(const auto *keyword:{"STRING","STRINGLN"}) {
       std::string script="STRINGLN hidden\n"+std::string(keyword)+"\nIF (not executable) THEN\nWHILE bad + 1\nREM_BLOCK\nUNKNOWN_COMMAND\nEND_IF\nEND_REM\nEND_"+keyword+"\n";
-      invalid(script,"runtime support is deferred to Stage 7",2);
+      visible(script,keyword==std::string("STRING") ? "hidden\nIF (not executable) THENWHILE bad + 1REM_BLOCKUNKNOWN_COMMANDEND_IFEND_REM" : "hidden\nIF (not executable) THEN\nWHILE bad + 1\nREM_BLOCK\nUNKNOWN_COMMAND\nEND_IF\nEND_REM\n");
       script_parser::Lexer lexer; script_parser::Statement stmt; String diagnostic;
       require(lexer.scan(keyword,1,stmt,diagnostic), "text opener must be lexically recognized");
       for(const auto *body:{"IF (x) THEN","WHILE x","END_IF","REM_BLOCK","END_REM","UNKNOWN_COMMAND"}) {
-        require(lexer.scan(body,2,stmt,diagnostic) && stmt.kind==script_parser::Kind::Empty,
+        require(lexer.scan(body,2,stmt,diagnostic) && (stmt.kind==script_parser::Kind::TextBody || stmt.kind==script_parser::Kind::TextLnBody),
                 "control-looking text must remain literal inside a text block");
       }
       require(lexer.scan(("END_"+std::string(keyword)).c_str(),3,stmt,diagnostic), "matching text terminator must close mode");

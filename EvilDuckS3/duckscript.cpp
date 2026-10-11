@@ -201,7 +201,8 @@ bool isControlLine(const script_parser::Statement &stmt) {
   }
   // Qualified parser kinds below keep runtime and lexical frame types separate.
   if (stmt.kind == script_parser::Kind::Empty || stmt.kind == script_parser::Kind::Comment ||
-      stmt.kind == script_parser::Kind::RemBlock || stmt.kind == script_parser::Kind::Define) return true;
+      stmt.kind == script_parser::Kind::RemBlock || stmt.kind == script_parser::Kind::Define ||
+      stmt.kind == script_parser::Kind::StringBlock || stmt.kind == script_parser::Kind::StringLnBlock) return true;
   if (stmt.kind == script_parser::Kind::EndIf) {
     if (!state.flow.leave(control_flow::Kind::If)) fail("Unmatched or mismatched END_IF at runtime", state.lineNumber);
     return true;
@@ -401,6 +402,13 @@ static void loadNextLine() {
         continue;
       }
       // Only numeric consumers evaluate calls; text/file payloads stay literal.
+      if (stmt.kind == script_parser::Kind::TextBody || stmt.kind == script_parser::Kind::TextLnBody) {
+        bool enter = stmt.kind == script_parser::Kind::TextLnBody;
+        if (!stmt.args.length() && !enter) continue;
+        ++state.actions;
+        com::sendText(stmt.args, enter);
+        return;
+      }
       if(stmt.kind==script_parser::Kind::Assignment || script_parser::hasKeyword(stmt.line,"VAR") ||
          script_parser::hasKeyword(stmt.line,"DEFINE")) {
         String name,value;bool text;

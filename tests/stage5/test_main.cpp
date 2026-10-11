@@ -132,7 +132,7 @@ static void test(const String &name) {
   else if(name=="stage5_macro_manufactured_loop_delimiters_rejected") {for(const char *line:{"WHILE TRUE","END_WHILE","ENDWHILE","END WHILE"})invalid("DEFINE #CONTROL "+std::string(line)+"\nSTRINGLN hidden\n#CONTROL\n","cannot create WHILE",3);}
   else if(name=="stage5_define_collection_inside_inactive_loop") visible("VAR $n=0\nWHILE $n<#LIMIT\n$n=$n+1\nEND_WHILE\nWHILE FALSE\nDEFINE #LIMIT 2\nEND_WHILE\nSTRINGLN $n\n","2\n");
   else if(name=="stage5_rem_block_loop_text_ignored") visible("VAR $n=0\nWHILE $n<1\nREM_BLOCK\nWHILE garbage\nEND_IF\nELSE\nEND_WHILE\nEND_REM\n$n=1\nEND_WHILE\nSTRINGLN ok\n","ok\n");
-  else if(name=="stage5_text_blocks_keep_literal_modes") {for(const char *k:{"STRING","STRINGLN"})invalid("STRINGLN hidden\n"+std::string(k)+"\nWHILE invalid\nIF fake\nEND_WHILE\nEND_IF\nEND_"+k+"\n","deferred to Stage 7",2);}
+  else if(name=="stage5_text_blocks_keep_literal_modes") {for(const char *k:{"STRING","STRINGLN"})visible("STRINGLN hidden\n"+std::string(k)+"\nWHILE invalid\nIF fake\nEND_WHILE\nEND_IF\nEND_"+k+"\n",k==std::string("STRING") ? "hidden\nWHILE invalidIF fakeEND_WHILEEND_IF" : "hidden\nWHILE invalid\nIF fake\nEND_WHILE\nEND_IF\n");}
   else if(name=="stage5_bom_crlf_no_final_newline_backedges") visible("\xEF\xBB\xBFVAR $n=0\r\nWHILE $n<2\r\nSTRINGLN $n\r\n$n=$n+1\r\nEND_WHILE\r\nSTRINGLN done","0\n1\ndone\n","sd:crlf.txt");
   else if(name=="stage5_header_across_read_budgets") {
     std::string condition="WHILE "+std::string(280,' ') +"$n<2";

@@ -376,7 +376,16 @@ bool Lexer::scan(const String &line, uint32_t number, Statement &out, String &di
   }
   if (mode == Kind::StringBlock || mode == Kind::StringLnBlock) {
     bool endString = hasKeyword(text, "END_STRING"), endStringLn = hasKeyword(text, "END_STRINGLN");
-    if (!endString && !endStringLn) return true; // Body is literal, including IF/REM/etc.
+    if (!endString && !endStringLn) {
+      // Source formatting is removed before substitution. Expanded text is data,
+      // even if it resembles a command or a terminator; never parse it again.
+      size_t start = 0;
+      if (mode == Kind::StringBlock) {
+        while (start < line.length() && space(line[start])) ++start;
+      } else if (line[0] == '\t') start = 1;
+      out.kind = mode == Kind::StringBlock ? Kind::TextBody : Kind::TextLnBody;
+      return duck_constants::expand(line.substring(start), out.args, diagnostic);
+    }
     if (!parse(text, out, diagnostic)) return false;
     if ((mode == Kind::StringBlock && !endString) || (mode == Kind::StringLnBlock && !endStringLn))
       return error(diagnostic, "Mismatched STRING/STRINGLN block terminator");
@@ -499,10 +508,8 @@ bool Validator::accept(const String &line, uint32_t number, String &diagnostic) 
     if (!condition(stmt.args, stmt.legacyCondition, value, diagnostic, duck_expr::Mode::Syntax,
                    duck_vars::Symbols::resolve, &activeSymbols)) return false;
   }
-  if (stmt.kind == Kind::StringBlock || stmt.kind == Kind::StringLnBlock) {
-    if (depth >= DUCKSCRIPT_MAX_BLOCK_DEPTH) return error(diagnostic, "Block nesting limit exceeded");
-    if (!deferredLine) { deferredLine = number; deferredMessage = "Text blocks are structurally recognized; runtime support is deferred to Stage 7"; }
-  }
+  // Text uses the lexer's single literal mode, not a control-stack frame.
+  // Opening it at the exact IF/WHILE depth limit therefore needs no extra slot.
   if (stmt.kind == Kind::If || stmt.kind == Kind::While) {
     if (depth >= DUCKSCRIPT_MAX_BLOCK_DEPTH) return error(diagnostic, "Block nesting limit exceeded");
     stack[depth++] = {stmt.kind, number, false};
@@ -522,7 +529,6 @@ bool Validator::finish(String &diagnostic, uint32_t &number) const {
   if (!lexer.finish(diagnostic, number)) return false;
   if(inFunction) {number=functionLine;return error(diagnostic,"Unterminated FUNCTION");}
   if (depth) { number = stack[depth - 1].line; return error(diagnostic, "Unterminated IF/WHILE block"); }
-  if (deferredLine) { number = deferredLine; return error(diagnostic, deferredMessage); }
   return true;
 }
 }
