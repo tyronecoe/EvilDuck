@@ -1,4 +1,5 @@
 #include "duck_expr.h"
+#include "internal_vars.h"
 #include <string.h>
 
 namespace duck_expr {
@@ -74,8 +75,11 @@ class Parser {
       size_t count = position - start;
       if (!identifier(source + start, count)) return fail("Invalid variable identifier", start);
       uint16_t number = 0;
-      Lookup found = resolver ? resolver(source + start, count, number, context) : Lookup::Undefined;
+      Lookup found = mode==Mode::Syntax && internal_vars::reserved(source+start,count) ?
+        internal_vars::resolve(source+start,count,number,true) :
+        resolver ? resolver(source + start, count, number, context) : Lookup::Undefined;
       if (resolver || mode == Mode::Evaluate) {
+        if (found == Lookup::RandomError) return fail("Random generation failed: reversed range or source rejection limit", start);
         if (found == Lookup::Unsupported) return fail("Unsupported internal variable", start);
         if (found == Lookup::Unavailable) return fail("Internal variable state unknown in this USB session", start);
         if (found == Lookup::Undefined) return fail("Undefined numeric variable", start);
@@ -226,7 +230,7 @@ Step Program::step(uint16_t &value, Error &error, Resolver resolver, void *conte
       uint16_t number = instruction.value;
       if (op == Op::Variable) {
         Lookup found = resolver ? resolver(source + instruction.value, instruction.length, number, context) : Lookup::Undefined;
-        if (found != Lookup::Number) { error = {found == Lookup::Unsupported ? "Unsupported internal variable" : found == Lookup::Unavailable ? "Internal variable state unknown in this USB session" : found == Lookup::Text ? "Text variable cannot be used in numeric expression" : "Undefined numeric variable", uint16_t(instruction.value+1)}; return Step::Error; }
+        if (found != Lookup::Number) { error = {found == Lookup::RandomError ? "Random generation failed: reversed range or source rejection limit" : found == Lookup::Unsupported ? "Unsupported internal variable" : found == Lookup::Unavailable ? "Internal variable state unknown in this USB session" : found == Lookup::Text ? "Text variable cannot be used in numeric expression" : "Undefined numeric variable", uint16_t(instruction.value+1)}; return Step::Error; }
       }
       if (depth >= sizeof(values)/sizeof(values[0])) { error = {"Expression operand stack exhausted",1}; return Step::Error; }
       values[depth++] = number;

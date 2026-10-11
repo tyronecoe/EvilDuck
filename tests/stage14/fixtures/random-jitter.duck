@@ -1,0 +1,8 @@
+REM Harmless visible output; hardware execution requires separate review.
+$_RANDOM_MIN = 7
+$_RANDOM_MAX = 7
+STRINGLN number=$_RANDOM_INT
+$_JITTER_ENABLED = TRUE
+$_JITTER_MAX = 20
+RANDOM_NUMBER
+ENTER

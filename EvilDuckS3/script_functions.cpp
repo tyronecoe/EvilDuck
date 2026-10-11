@@ -1,6 +1,7 @@
 #include "script_functions.h"
 #include "internal_vars.h"
 #include "script_parser.h"
+#include "duck_random.h"
 #include "hid_backend.h"
 #include "duck_keys.h"
 #include <cstring>
@@ -16,6 +17,7 @@ bool name(const String &invocation,String &identifier,String &error) {
   for(auto keyword:reserved)if(upper==keyword){error="Function name collides with a command";return false;}
   script_parser::Kind alias;
   if (script_parser::textOpener(upper, alias)) { error="Function name collides with a text alias"; return false; }
+  if (duck_random::command(upper.c_str())>=0) {error="Function name collides with a random command";return false;}
   if (internal_vars::lockCommand(upper) >= 0) { error = "Function name collides with a lock command"; return false; }
   uint8_t key;
   if(hid_backend::keyNameToHid(identifier,key) || duck_keys::isModifierName(identifier,key)) {error="Function name collides with a key/modifier";return false;}

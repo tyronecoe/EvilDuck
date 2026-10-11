@@ -1,0 +1,41 @@
+{
+  "official_snapshots": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+      "snapshot": "duckyscript-tm-quick-reference.md",
+      "bytes": 40486,
+      "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+      "retrieved_utc": "2026-10-11T18:01:06.298030+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+      "snapshot": "attack-modes-constants-and-variables__variables.md",
+      "bytes": 4358,
+      "sha256": "46a9c7de2faba3776a129081f7cd21995b30853466beb8567948dad523332b02",
+      "retrieved_utc": "2026-10-11T18:01:07.244496+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+      "snapshot": "advanced-features__randomization.md",
+      "bytes": 19618,
+      "sha256": "10251e7948a68d13e9caff69e53e90249e1065cd69bb195aed13ba2437cfd29e",
+      "retrieved_utc": "2026-10-11T18:01:07.752595+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+      "snapshot": "advanced-features__payload-control.md",
+      "bytes": 3409,
+      "sha256": "3f2e1c1431d294a8cb2812a7d6f0a297542690319552feff6e1198079522085a",
+      "retrieved_utc": "2026-10-11T18:01:08.696077+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/jitter.md",
+      "snapshot": "advanced-features__jitter.md",
+      "bytes": 3206,
+      "sha256": "ca209797953ce40dec9b7a9f8c52936a7d00ee658f0469ac80d27e981a64579a",
+      "retrieved_utc": "2026-10-11T18:01:08.359151+00:00"
+    }
+  ],
+  "fresh_retrieval": "randomization/jitter HTTP403; saved verified references used",
+  "independent_reference_runtime": false
+}

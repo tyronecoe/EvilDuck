@@ -10,7 +10,7 @@ from run_tests import compile_target as prior_compile
 def compile_target(main, build, name):
     build.mkdir(parents=True, exist_ok=True)
     fw=ROOT/'EvilDuckS3'
-    modules=['com','duckscript','duck_vars','duck_keys','keyboard_locale','locales','hid_backend','script_log','cli','script_source','script_parser','duck_expr','duck_constants','script_functions','script_preprocessor','attackmode','usb_msc','sd_card']
+    modules=['com','duckscript','duck_vars','duck_keys','keyboard_locale','locales','hid_backend','script_log','cli','script_source','script_parser','duck_expr','duck_constants','script_functions','script_preprocessor','duck_random','attackmode','usb_msc','sd_card']
     exe=build/name
     subprocess.run(['g++','-std=gnu++17','-g','-O1','-Wall','-Wextra','-pthread','-DEVILDUCK_HOST_TEST','-DEVILDUCK_PRODUCTION_STORAGE','-DCONFIG_TINYUSB_MSC_ENABLED=1','-DCONFIG_TINYUSB_MSC_BUFSIZE=4096','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage10/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(fw),str(main),str(ROOT/'tests/stage1/mocks/host.cpp'),*[str(fw/(m+'.cpp')) for m in modules],'-o',str(exe)], check=True)
     return exe

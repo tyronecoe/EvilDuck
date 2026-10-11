@@ -13,6 +13,7 @@
 #include "script_parser.h"
 #include "duck_constants.h"
 #include "internal_vars.h"
+#include "duck_random.h"
 #include <cstdlib>
 
 namespace {
@@ -113,13 +114,19 @@ void releaseOwnedKeys() {
   session.ownsKeys = false;
 }
 
+bool jitterWait(Phase next) {
+  uint16_t milliseconds;
+  if(!duck_random::jitter(milliseconds)) { session.error="Random generation failed: jitter source rejection limit";return false; }
+  waitFor(milliseconds,next); return true;
+}
+
 void report(uint8_t modifiers, const uint8_t *keys, uint8_t count, Phase next) {
   session.reportModifiers = modifiers;
   session.reportCount = count > 6 ? 6 : count;
   memset(session.reportKeys, 0, sizeof(session.reportKeys));
   if (session.reportCount) memcpy(session.reportKeys, keys, session.reportCount);
   session.afterRelease = next;
-  session.phase = Phase::Press;
+  if(!jitterWait(Phase::Press)) session.phase=Phase::Press; // Error checked before any transport send.
 }
 
 void startText(const String &text, bool enter, Phase next, uint8_t modifiers = 0) {
@@ -211,7 +218,7 @@ bool startLine() {
     if (session.holding && !attackmode::hidEnabled()) return true;
     session.remember = true;
     session.phase = Phase::Ownership;
-    return true;
+    return !session.holding || jitterWait(Phase::Ownership);
   }
   if (startsWithNoCase(line, "INJECT_MOD")) {
     if (!stmt.args.length() || !attackmode::hidEnabled()) return true;
@@ -332,6 +339,12 @@ bool startLine() {
     return true;
   }
   if (!attackmode::hidEnabled()) return true;
+  const int randomCommand=duck_random::command(line.c_str());
+  if(randomCommand>=0) {
+    char value;
+    if(!duck_random::character(randomCommand,value)) {session.error="Random generation failed: character source rejection limit";return false;}
+    session.remember=true; startText(String(value),false,Phase::Finish);return true;
+  }
   session.remember = true;
   if (startsWithNoCase(line, "STRINGLN ") || startsWithNoCase(line, "STRING ")) {
     bool enter = startsWithNoCase(line, "STRINGLN ");
@@ -521,6 +534,7 @@ void update() {
       return;
     }
     case Phase::Press:
+      if(session.error.length()) { fail();return; }
       if (session.lockCommand == 10) {
         const auto state = hid_backend::lockState();
         if (!state.known || state.session != session.lockSession) {

@@ -20,7 +20,7 @@ TESTS=[
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--build-dir',type=Path);p.add_argument('--results',type=Path);a=p.parse_args()
  b=a.build_dir or Path(tempfile.mkdtemp(prefix='evilduck-stage10-'));b.mkdir(parents=True,exist_ok=True)
- modules=['com','duckscript','duck_vars','duck_keys','keyboard_locale','locales','hid_backend','script_log','cli','script_source','script_parser','duck_expr','duck_constants','script_functions','script_preprocessor','attackmode','usb_msc','sd_card']
+ modules=['com','duckscript','duck_vars','duck_keys','keyboard_locale','locales','hid_backend','script_log','cli','script_source','script_parser','duck_expr','duck_constants','script_functions','script_preprocessor','duck_random','attackmode','usb_msc','sd_card']
  sources=[ROOT/'tests/stage10/test_main.cpp',ROOT/'tests/stage1/mocks/host.cpp']+[ROOT/'EvilDuckS3'/f'{m}.cpp' for m in modules]
  exe=b/'stage10_tests';subprocess.run(['g++','-std=gnu++17','-g','-O1','-Wall','-Wextra','-pthread','-DEVILDUCK_HOST_TEST','-DEVILDUCK_PRODUCTION_STORAGE','-DCONFIG_TINYUSB_MSC_ENABLED=1','-DCONFIG_TINYUSB_MSC_BUFSIZE=4096','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage10/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(ROOT/'EvilDuckS3'),*map(str,sources),'-o',str(exe)],check=True)
  results=[]

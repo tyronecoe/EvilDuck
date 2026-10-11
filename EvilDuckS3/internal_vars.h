@@ -7,6 +7,7 @@ namespace internal_vars {
 bool reserved(const char *, size_t);
 bool writable(const char *, size_t);
 duck_expr::Lookup resolve(const char *, size_t, uint16_t &, bool syntax = false);
+bool validate(const String &, uint16_t, String &);
 bool write(const String &, uint16_t, String &);
 void resetRun();
 uint16_t lockTimeout();

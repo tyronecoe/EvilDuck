@@ -1,5 +1,6 @@
 #include "script_parser.h"
 #include "internal_vars.h"
+#include "duck_random.h"
 #include "hid_backend.h"
 #include "duck_keys.h"
 #include "storage.h"
@@ -117,18 +118,20 @@ bool condition(const String &input, bool legacy, uint16_t &value, String &diagno
   if (legacy) {
     int equality = -1;
     if (!legacySyntax(input, diagnostic, &equality)) return false;
-    String atoms[2]; bool textual = false;
+    String atoms[2]; bool numericReference[2]={false,false}; bool textual = false;
     unsigned count = equality < 0 ? 1 : 2;
     for (unsigned i = 0; i < count; ++i) {
       String atom = trimmed(equality < 0 ? input : i ? input.substring(equality + 2) : input.substring(0, equality));
       if (atom[0] == '$') {
         uint16_t number = 0;
-        duck_expr::Lookup type = resolver ? resolver(atom.c_str(), atom.length(), number, context) : duck_expr::Lookup::Number;
+        duck_expr::Lookup type = internal_vars::reserved(atom.c_str(),atom.length()) ?
+          internal_vars::resolve(atom.c_str(),atom.length(),number,true) :
+          resolver ? resolver(atom.c_str(), atom.length(), number, context) : duck_expr::Lookup::Number;
         if (type == duck_expr::Lookup::Undefined) return error(diagnostic, "Undefined variable in legacy condition");
         textual |= type == duck_expr::Lookup::Text;
-        if (mode == duck_expr::Mode::Evaluate) {
+        if (mode == duck_expr::Mode::Evaluate && type==duck_expr::Lookup::Text) {
           if (!duck_vars::expand(atom, atoms[i], diagnostic)) return false;
-        } else atoms[i] = "1";
+        } else { atoms[i] = atom; numericReference[i]=true; }
       } else {
         atoms[i] = atom;
         bool numeric = atom[0] >= '0' && atom[0] <= '9';
@@ -137,6 +140,9 @@ bool condition(const String &input, bool legacy, uint16_t &value, String &diagno
       }
     }
     if (textual) {
+      if(mode==duck_expr::Mode::Evaluate) for(unsigned i=0;i<count;++i) if(numericReference[i]) {
+        String value; if(!duck_vars::expand(atoms[i],value,diagnostic))return false; atoms[i]=value;
+      }
       // Identity interning is confined to the old text extension. Equality and
       // truth evaluation still run through the sole Stage 3 expression engine.
       if (count == 2) adapted = atoms[0] == atoms[1] ? "1 == 1" : "1 == 2";
@@ -165,8 +171,7 @@ bool assignment(const String &args, String &name, String &value, bool &text, Str
     uint16_t numeric; duck_expr::Error failure;
     // Only constant arithmetic can be established here: no variable reads or
     // function execution during parse/preflight.
-    if (duck_expr::evaluate(value.c_str(), value.length(), numeric, failure) && !numeric)
-      return error(diagnostic, "Lock timeout must be 1..65535 milliseconds");
+    if (duck_expr::evaluate(value.c_str(), value.length(), numeric, failure) && !internal_vars::validate(name,numeric,diagnostic)) return false;
   }
   text = value.startsWith("\"");
   if (text) {
@@ -384,6 +389,8 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
   out.kind = Kind::Command;
   if (keyword == "LED_R" || keyword == "LED_G" || keyword == "LED_OFF")
     return out.args.length() ? error(diagnostic, "Canonical LED commands take no arguments") : true;
+  if (duck_random::command(keyword.c_str())>=0)
+    return out.args.length() ? error(diagnostic,"Random character commands take no arguments") : true;
   if (internal_vars::lockCommand(keyword) >= 0)
     return out.args.length() ? error(diagnostic, "Lock feedback commands take no arguments") : true;
   if (keyword == "STOP" || keyword == "STOP_PAYLOAD" || keyword == "RESET")

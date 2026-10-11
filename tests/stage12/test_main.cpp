@@ -106,7 +106,7 @@ static void test(const std::string &n) {
   } else if (n == "read_cannot_shadow_internal") {
     reject("READ file.txt $_NUMLOCK_ON\n","Reserved internal");
   } else if (n == "unsupported_read_preflight") {
-    reject("VAR $x=$_JITTER_ENABLED\n","Unsupported internal variable");
+    reject("VAR $x=$_EXFIL_MODE_ENABLED\n","Unsupported internal variable"); // Stage14 implements jitter; retain unsupported-property coverage.
   } else if (n == "unsupported_write_preflight") {
     reject("$_CURRENT_ATTACKMODE=3\n","Reserved internal");
   } else if (n == "all_native_registry_names_reserved") {
@@ -185,7 +185,7 @@ static void test(const std::string &n) {
   } else if (n == "unknown_interpolation_runtime_error") {
     start("STRINGLN $_CAPSLOCK_ON\n");error("unknown");check(mock::reports.empty(),"unknown internal never typed literally or as zero");
   } else if (n == "unsupported_interpolation_runtime_error") {
-    start("STRINGLN $_JITTER_ENABLED\n");error("unsupported");check(mock::reports.empty(),"unsupported internal not inert text");
+    start("STRINGLN $_EXFIL_MODE_ENABLED\n");error("unsupported");check(mock::reports.empty(),"unsupported internal not inert text");
   } else if (n == "restore_noop_no_keyboard_output") {
     feedback(3);start("RESTORE_HOST_KEYBOARD_LOCK_STATE\n");finish();check(mock::reports.empty(),"already same acknowledged no output");
   } else if (n == "restore_unknown_current_saved_rejected") {
