@@ -15,6 +15,14 @@ class Guard {
 public:
   Guard() : lock(mutex()) {}
 };
+// USB callbacks must not wait behind script/web filesystem work.
+class TryGuard {
+  std::unique_lock<std::recursive_mutex> lock;
+public:
+  TryGuard() : lock(mutex(), std::try_to_lock) {}
+  explicit operator bool() const { return lock.owns_lock(); }
+};
+
 }
 #else
 #include <freertos/FreeRTOS.h>
@@ -32,5 +40,15 @@ public:
   Guard(const Guard &) = delete;
   Guard &operator=(const Guard &) = delete;
 };
+class TryGuard {
+  bool locked;
+public:
+  TryGuard() : locked(xSemaphoreTakeRecursive(mutex(), 0) == pdTRUE) {}
+  ~TryGuard() { if (locked) xSemaphoreGiveRecursive(mutex()); }
+  explicit operator bool() const { return locked; }
+  TryGuard(const TryGuard &) = delete;
+  TryGuard &operator=(const TryGuard &) = delete;
+};
+
 }
 #endif

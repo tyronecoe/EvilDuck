@@ -311,6 +311,7 @@ static void handleGetSettings(AsyncWebServerRequest *req) {
 
 static void onUpload(AsyncWebServerRequest *request, String filename, size_t index,
                      uint8_t *data, size_t len, bool final) {
+  execution::Guard guard;
   if (!index) {
     if (!checkAuth(request)) {
       uploadRejected = true;
@@ -407,6 +408,14 @@ static void handleStatus(AsyncWebServerRequest *req) {
   json += attackmode::hidEnabled() ? "true" : "false";
   json += ",\"storage\":";
   json += attackmode::storageEnabled() ? "true" : "false";
+  json += ",\"storageRequested\":";
+  json += attackmode::storageRequested() ? "true" : "false";
+  json += ",\"storageFilesystemVerified\":false";
+  json += ",\"storageState\":\"";
+  json += attackmode::storageState();
+  json += "\",\"storageError\":\"";
+  json += attackmode::storageError(); // Immutable fixed literals contain no JSON quote/escape bytes.
+  json += "\"";
   json += "}";
   req->send(200, "application/json", json);
 }

@@ -1,0 +1,263 @@
+{
+  "source_revision": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2",
+  "kind": "per-function compiler estimates; source extracted from baseline git archive, same pinned Stage9 compilation flags",
+  "modules": [
+    "attackmode.cpp",
+    "sd_card.cpp",
+    "usb_msc.cpp"
+  ],
+  "records": [
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:89:6:void usb_msc::end()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:96:6:bool usb_msc::active()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src/FS.h:46:7:fs::File::~File()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src/FS.h:46:7:virtual fs::File::~File()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:18:13:bool ensureDiskImage()",
+      "bytes": 576,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:65:6:bool usb_msc::begin()",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:30:13:void openDiskFile()",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:52:13:bool onStartStop(uint8_t, bool, bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:43:16:int32_t onWrite(uint32_t, uint32_t, uint8_t*, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:34:16:int32_t onRead(uint32_t, uint32_t, void*, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:98:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:12:8:String {anonymous}::normalizePath(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:238:8:bool String::endsWith(const char*) const",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:26:6:bool sd_card::begin()",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:41:6:bool sd_card::ready()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:43:8:size_t sd_card::totalBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:48:8:size_t sd_card::usedBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:53:8:size_t sd_card::freeBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:58:6:bool sd_card::exists(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:63:6:bool sd_card::mkdir(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:68:6:bool sd_card::remove(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:73:6:bool sd_card::rename(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:78:6:fs::File sd_card::openRead(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:92:6:bool sd_card::writeFile(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:101:6:bool sd_card::appendFile(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:83:8:String sd_card::readFile(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:110:8:String sd_card::listDir(const String&)",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:133:15:sd_card::listScriptsJson()::<lambda(const char*)>",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:126:8:String sd_card::listScriptsJson()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:11:6:void attackmode::begin()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:16:6:bool attackmode::hidEnabled()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:17:6:bool attackmode::storageEnabled()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:19:6:void attackmode::setHid(bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:21:6:void attackmode::setStorage(bool)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:33:6:void attackmode::setOff()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:38:6:void attackmode::setHidOnly()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:43:6:void attackmode::setStorageOnly()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:48:6:void attackmode::setHidStorage()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:53:6:bool attackmode::applyFromString(const String&)",
+      "bytes": 112,
+      "qualifier": "static"
+    }
+  ]
+}

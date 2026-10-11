@@ -108,8 +108,15 @@ String listSpiffsScriptsJson() { return "[]"; } String listAllScriptsJson() { re
 bool copyToSpiffs(const Ref &r,const String &s) { Ref to; return parseRef(s,to) && writeFile(to,readFile(r)); }
 bool copyToSd(const String &s,const Ref &r) { Ref from; return parseRef(s,from) && writeFile(r,readFile(from)); }
 }
+#ifndef EVILDUCK_PRODUCTION_STORAGE
 namespace attackmode {
 bool hid=true, disk=false;
+bool storageRequested() { return disk; }
+bool storagePreparing() { return false; }
+const char *storageState() { return disk ? "active" : "off"; }
+const char *storageError() { return ""; }
+void update() {}
+void cancelPendingStorage() {}
 void begin() { hid=true; disk=false; }
 bool hidEnabled() { return hid; } bool storageEnabled() { return disk; }
 void setHid(bool on) { hid=on; } void setStorage(bool on) { disk=on; }
@@ -123,6 +130,7 @@ bool applyFromString(const String &input) {
   return true;
 }
 }
+#endif
 namespace settings {
 bool disable=false, stealth=false, hidden=false;
 String ssid="mock", password, autorun, webPassword;
@@ -157,4 +165,6 @@ bool streamOpen(const String &) { return false; } void streamClose() {}
 bool streaming() { return false; } bool streamAvailable() { return false; }
 size_t streamWrite(const char *,size_t) { return 0; } size_t streamRead(char *,size_t) { return 0; }
 }
+#ifndef EVILDUCK_PRODUCTION_STORAGE
 namespace sd_card { String listDir(const String &) { return "mock SD"; } }
+#endif

@@ -5,17 +5,29 @@
 #include "debug.h"
 #include <iostream>
 static unsigned warnings=0,starts=0;
-namespace usb_msc { bool begin(){++starts;return false;}void end(){}bool active(){return false;} }
+static usb_msc::State probeState=usb_msc::State::Off;
+namespace usb_msc {
+ bool begin(){++starts;probeState=State::Failed;return false;}
+ void end(){probeState=State::Off;}
+ void update(){}
+ bool active(){return false;}
+ bool preparing(){return false;}
+ const char *lastError(){return "MSC: simulated startup failure";}
+ const char *stateName(){return probeState==State::Off?"off":"failed";}
+}
 namespace script_log {void info(const String&){}void warn(const String&){++warnings;} }
 namespace debug {void info(const String&){}void error(const String&){} }
 int main(){
  attackmode::begin();bool accepted=attackmode::applyFromString("STORAGE");
- bool observed=accepted&&attackmode::storageEnabled()&&!usb_msc::active()&&warnings==1&&starts==1;
+ // Stage10 directly resolved the source defect. Preserve its history and assert
+ // corrected failure propagation and retry, not the former buggy observation.
+ bool observed=!accepted&&!attackmode::storageEnabled()&&!usb_msc::active()&&
+               attackmode::storageRequested()&&warnings==1&&starts==1;
  std::cout<<"MSC failure: accepted="<<accepted<<", reported storage="<<attackmode::storageEnabled()
           <<", actual active="<<usb_msc::active()<<", warnings="<<warnings<<'\n';
- // Assertions confirm the finding, not compliance. This is an acknowledged defect.
+ // This proves failure reporting/retry, not USB personality conformance.
  if(!observed)return 1;
  attackmode::applyFromString("STORAGE");
- if(starts!=1)return 1; // Logical flag also prevents a retry after failed start.
- std::cout<<"OBSERVED 2 assertions; canonical behavior GAP (false success, retry suppressed)\n";
+ if(starts!=2||warnings!=2||attackmode::storageEnabled())return 1;
+ std::cout<<"OBSERVED 2 assertions; Stage10 RESOLVED (failure propagated, retry attempted; personality remains partial)\n";
 }

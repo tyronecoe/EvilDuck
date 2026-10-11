@@ -143,7 +143,10 @@ void executeCommand(const String &raw) {
         ", autorun=" + (settings::autorunEnabled() ? settings::getAutorun() : String("off")) +
         ", sd=" + (storage::sdReady() ? "1" : "0") +
         ", hid=" + (attackmode::hidEnabled() ? "1" : "0") +
-        ", storage_usb=" + (attackmode::storageEnabled() ? "1" : "0"));
+        ", storage_usb=" + (attackmode::storageEnabled() ? "1" : "0") +
+        ", storage_requested=" + (attackmode::storageRequested() ? "1" : "0") +
+        ", storage_state=" + attackmode::storageState() + ", storage_filesystem=unchecked_raw_image");
+    if (attackmode::storageError()[0]) out(String("storage_error=") + attackmode::storageError());
     if (duckscript::lastError().length()) out("last_error=" + duckscript::lastError());
     return;
   }

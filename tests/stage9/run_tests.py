@@ -25,9 +25,9 @@ def main():
    print(('OBSERVED' if matched else 'MISMATCH'),fixture['name'],source,fixture['canonical_status'],flush=True)
    if not matched:print(r.stdout,r.stderr,flush=True)
  probe=build/'stage9_attackmode'
- subprocess.run(['g++','-std=gnu++17','-g','-O1','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(ROOT/'EvilDuckS3'),str(ROOT/'tests/stage9/attackmode_probe.cpp'),str(ROOT/'EvilDuckS3/attackmode.cpp'),'-o',str(probe)],check=True)
+ subprocess.run(['g++','-DEVILDUCK_HOST_TEST','-std=gnu++17','-g','-O1','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(ROOT/'EvilDuckS3'),str(ROOT/'tests/stage9/attackmode_probe.cpp'),str(ROOT/'EvilDuckS3/attackmode.cpp'),'-o',str(probe)],check=True)
  r=subprocess.run([str(probe)],capture_output=True,text=True,timeout=25)
- results.append(dict(fixture='production_attackmode_failure',canonical_status='GAP',observation_matched=r.returncode==0,assertions=2 if r.returncode==0 else 0,stdout=r.stdout,stderr=r.stderr))
+ results.append(dict(fixture='production_attackmode_failure',canonical_status='RESOLVED_STAGE10',observation_matched=r.returncode==0,assertions=2 if r.returncode==0 else 0,stdout=r.stdout,stderr=r.stderr))
  assertions+=2 if r.returncode==0 else 0
  print(r.stdout,r.stderr)
  mismatches=sum(not x['observation_matched'] for x in results)

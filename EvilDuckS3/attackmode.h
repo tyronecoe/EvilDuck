@@ -5,7 +5,13 @@
 namespace attackmode {
   void begin();
   bool hidEnabled();
-  bool storageEnabled();
+  bool storageEnabled(); // Verified raw media active, not requested mode.
+  bool storageRequested();
+  bool storagePreparing();
+  const char *storageState();
+  const char *storageError();
+  void update();
+  void cancelPendingStorage();
   void setHid(bool on);
   void setStorage(bool on);
   void setOff();

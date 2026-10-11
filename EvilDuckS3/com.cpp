@@ -15,7 +15,7 @@
 #include <cstdlib>
 
 namespace {
-enum class Phase { Idle, Start, Wait, Text, Keys, Press, Release, Finish };
+enum class Phase { Idle, Start, Wait, Storage, Text, Keys, Press, Release, Finish };
 struct Session {
   bool scriptOwned = false;
   bool ownsKeys = false;
@@ -237,7 +237,12 @@ bool startLine() {
     return fileIoWrite(fileRef, payload, true);
   }
   if (startsWithNoCase(line, "ATTACKMODE ")) {
-    return attackmode::applyFromString(trimLine(line.substring(11)));
+    if (!attackmode::applyFromString(trimLine(line.substring(11)))) {
+      session.error = attackmode::storageError();
+      return false;
+    }
+    if (attackmode::storagePreparing()) session.phase = Phase::Storage;
+    return true;
   }
   if (startsWithNoCase(line, "KEYCODE ")) {
     String rest = trimLine(line.substring(8));
@@ -317,6 +322,7 @@ void beginScript() {
 
 void endScript() {
   execution::Guard guard;
+  attackmode::cancelPendingStorage();
   releaseOwnedKeys();
   session = Session(); // Cancels waits, text, repeat work, and queued commands.
   duck_vars::clear();
@@ -365,11 +371,20 @@ bool executeNow(const String &line) {
 
 void update() {
   execution::Guard guard;
+  attackmode::update();
   hid_backend::update(); // Cancellation releases are serviced even when idle.
   switch (session.phase) {
     case Phase::Idle: return;
     case Phase::Start:
       if (!startLine()) fail();
+      return;
+    case Phase::Storage:
+      if (attackmode::storagePreparing()) return;
+      if (!attackmode::storageEnabled()) {
+        session.error = attackmode::storageError();
+        if (!session.error.length()) session.error = "MSC: preparation cancelled or media unavailable";
+        fail();
+      } else session.phase = Phase::Finish;
       return;
     case Phase::Wait: {
       uint32_t now = millis();

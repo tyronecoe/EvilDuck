@@ -13,7 +13,8 @@ import tempfile
 
 MODULES = {'com.cpp', 'duckscript.cpp', 'script_parser.cpp', 'duck_constants.cpp',
            'duck_vars.cpp', 'duck_expr.cpp', 'script_functions.cpp',
-           'keyboard_locale.cpp', 'duck_keys.cpp', 'hid_backend.cpp'}
+           'keyboard_locale.cpp', 'duck_keys.cpp', 'hid_backend.cpp',
+           'usb_msc.cpp', 'attackmode.cpp', 'sd_card.cpp'}
 
 
 def main():
