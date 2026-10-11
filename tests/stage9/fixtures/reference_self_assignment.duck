@@ -1,0 +1,3 @@
+VAR $n=1336
+VAR $n=($n+1)
+STRINGLN $n

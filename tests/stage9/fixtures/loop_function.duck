@@ -1,0 +1,9 @@
+FUNCTION value()
+RETURN 2
+END_FUNCTION
+VAR $n=value()
+WHILE $n>0
+STRING x
+$n=$n-1
+END_WHILE
+STRINGLN done

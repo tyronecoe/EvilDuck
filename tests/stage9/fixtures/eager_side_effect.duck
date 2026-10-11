@@ -1,0 +1,9 @@
+FUNCTION next()
+$n=$n+1
+RETURN TRUE
+END_FUNCTION
+VAR $n=0
+IF FALSE && next() THEN
+STRING hidden
+END_IF
+STRINGLN $n

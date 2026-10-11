@@ -1,0 +1,7 @@
+VAR $n=1
+IF $n==1 THEN
+$n=$n+4
+ELSE
+$n=99
+END_IF
+STRINGLN $n

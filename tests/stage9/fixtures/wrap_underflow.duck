@@ -1,0 +1,2 @@
+VAR $n=0-1
+STRINGLN $n

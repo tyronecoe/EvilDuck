@@ -1,0 +1,719 @@
+{
+  "observations": 79,
+  "mismatches": 0,
+  "assertions": 596,
+  "results": [
+    {
+      "fixture": "basic_text",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "basic_text",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "comment_block",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "comment_block",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "documented_comment_heading",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Block marker takes no arguments [REM_BLOCK DOCUMENTATION]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "documented_comment_heading",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Block marker takes no arguments [REM_BLOCK DOCUMENTATION]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "numeric_boolean",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "numeric_boolean",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "reference_self_assignment",
+      "source": "stage9.txt",
+      "canonical_status": "EXTENSION",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "reference_self_assignment",
+      "source": "sd:stage9.txt",
+      "canonical_status": "EXTENSION",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_words",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_words",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_nonrecursive",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_nonrecursive",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_command",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_command",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_structural",
+      "source": "stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: DEFINE expansion cannot create conditional block delimiters [#OPEN]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "define_structural",
+      "source": "sd:stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: DEFINE expansion cannot create conditional block delimiters [#OPEN]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "selected_assignment",
+      "source": "stage9.txt",
+      "canonical_status": "EXTENSION",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "selected_assignment",
+      "source": "sd:stage9.txt",
+      "canonical_status": "EXTENSION",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "loop_function",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "loop_function",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "multiline_literal",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "multiline_literal",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inline_trailing",
+      "source": "stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inline_trailing",
+      "source": "sd:stage9.txt",
+      "canonical_status": "SUPPORTED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "eager_side_effect",
+      "source": "stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "eager_side_effect",
+      "source": "sd:stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "wrap_underflow",
+      "source": "stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "wrap_underflow",
+      "source": "sd:stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "implicit_value",
+      "source": "stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Function returned without a value in an expression [in empty(), called at line 3]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "implicit_value",
+      "source": "sd:stage9.txt",
+      "canonical_status": "UNRESOLVED",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Function returned without a value in an expression [in empty(), called at line 3]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inactive_unknown",
+      "source": "stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: NONEXISTENT_COMMAND; use STRING for literal text [NONEXISTENT_COMMAND]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inactive_unknown",
+      "source": "sd:stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: NONEXISTENT_COMMAND; use STRING for literal text [NONEXISTENT_COMMAND]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "hold",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: HOLD; use STRING for literal text [HOLD CONTROL]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "hold",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: HOLD; use STRING for literal text [HOLD CONTROL]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "release",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RELEASE; use STRING for literal text [RELEASE CONTROL]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "release",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RELEASE; use STRING for literal text [RELEASE CONTROL]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inject_mod",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: INJECT_MOD; use STRING for literal text [INJECT_MOD WINDOWS]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inject_mod",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: INJECT_MOD; use STRING for literal text [INJECT_MOD WINDOWS]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "stop_payload",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: STOP_PAYLOAD; use STRING for literal text [STOP_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "stop_payload",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: STOP_PAYLOAD; use STRING for literal text [STOP_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "restart_payload",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RESTART_PAYLOAD; use STRING for literal text [RESTART_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "restart_payload",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RESTART_PAYLOAD; use STRING for literal text [RESTART_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "reset",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RESET; use STRING for literal text [RESET]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "reset",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RESET; use STRING for literal text [RESET]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "led_green",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: LED_G; use STRING for literal text [LED_G]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "led_green",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: LED_G; use STRING for literal text [LED_G]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "button_wait",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_BUTTON_PRESS; use STRING for literal text [WAIT_FOR_BUTTON_PRESS]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "button_wait",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_BUTTON_PRESS; use STRING for literal text [WAIT_FOR_BUTTON_PRESS]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "lock_wait",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_CAPS_ON; use STRING for literal text [WAIT_FOR_CAPS_ON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "lock_wait",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_CAPS_ON; use STRING for literal text [WAIT_FOR_CAPS_ON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "save_lock",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: SAVE_HOST_KEYBOARD_LOCK_STATE; use STRING for literal text [SAVE_HOST_KEYBOARD_LOCK_STATE]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "save_lock",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: SAVE_HOST_KEYBOARD_LOCK_STATE; use STRING for literal text [SAVE_HOST_KEYBOARD_LOCK_STATE]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "save_mode",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: SAVE_ATTACKMODE; use STRING for literal text [SAVE_ATTACKMODE]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "save_mode",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: SAVE_ATTACKMODE; use STRING for literal text [SAVE_ATTACKMODE]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "random_character",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: RANDOM_CHARACTER; use STRING for literal text [RANDOM_CHARACTER]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "random_character",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: RANDOM_CHARACTER; use STRING for literal text [RANDOM_CHARACTER]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inject_variable",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: INJECT_VAR; use STRING for literal text [INJECT_VAR $n]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inject_variable",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: INJECT_VAR; use STRING for literal text [INJECT_VAR $n]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "storage_wait",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_STORAGE_ACTIVITY; use STRING for literal text [WAIT_FOR_STORAGE_ACTIVITY]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "storage_wait",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: WAIT_FOR_STORAGE_ACTIVITY; use STRING for literal text [WAIT_FOR_STORAGE_ACTIVITY]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "hide_payload",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: HIDE_PAYLOAD; use STRING for literal text [HIDE_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "hide_payload",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: HIDE_PAYLOAD; use STRING for literal text [HIDE_PAYLOAD]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "extension_wrapper",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: EXTENSION; use STRING for literal text [EXTENSION audit]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "extension_wrapper",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: EXTENSION; use STRING for literal text [EXTENSION audit]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "conditional_compile",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: IF_DEFINED_TRUE; use STRING for literal text [IF_DEFINED_TRUE #FLAG]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "conditional_compile",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: IF_DEFINED_TRUE; use STRING for literal text [IF_DEFINED_TRUE #FLAG]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "language_string",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 2: Unsupported command or key: STRINGLN_PYTHON; use STRING for literal text [STRINGLN_PYTHON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "language_string",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 2: Unsupported command or key: STRINGLN_PYTHON; use STRING for literal text [STRINGLN_PYTHON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "usb_identity",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 1: Unsupported ATTACKMODE token [ATTACKMODE HID VID_05AC PID_021E]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "usb_identity",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 1: Unsupported ATTACKMODE token [ATTACKMODE HID VID_05AC PID_021E]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "undefined_builtin",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC stage9.txt: Error at line 1: Expression column 1: Undefined numeric variable [VAR $n=$_CAPSLOCK_ON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "undefined_builtin",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 8,
+      "stdout": "DIAGNOSTIC sd:stage9.txt: Error at line 1: Expression column 1: Undefined numeric variable [VAR $n=$_CAPSLOCK_ON]\nOBSERVED 8 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inert_builtin_declaration",
+      "source": "stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "inert_builtin_declaration",
+      "source": "sd:stage9.txt",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "delay_below_reference_minimum",
+      "source": "stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "delay_below_reference_minimum",
+      "source": "sd:stage9.txt",
+      "canonical_status": "DIVERGENT",
+      "observation_matched": true,
+      "assertions": 7,
+      "stdout": "DIAGNOSTIC \nOBSERVED 7 assertions\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "production_attackmode_failure",
+      "canonical_status": "GAP",
+      "observation_matched": true,
+      "assertions": 2,
+      "stdout": "MSC failure: accepted=1, reported storage=1, actual active=0, warnings=1\nOBSERVED 2 assertions; canonical behavior GAP (false success, retry suppressed)\n",
+      "stderr": ""
+    }
+  ],
+  "sanitizers": "ASan/UBSan",
+  "hardware_access": false
+}

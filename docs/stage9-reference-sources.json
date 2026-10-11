@@ -1,0 +1,205 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/master.md",
+    "snapshot": "master.md",
+    "bytes": 6970,
+    "sha256": "ba96d15c7366009d2336435c729449c113a947dd16d5674e148406150dbf8068",
+    "retrieved_utc": "2026-10-11T18:01:06.499724+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/unboxing-quack-start-guide.md",
+    "snapshot": "unboxing-quack-start-guide.md",
+    "bytes": 14195,
+    "sha256": "ff1ac721c1f29bc565904bc56a5c6b91bd47372a0b32b96da02c814f294e9b4b",
+    "retrieved_utc": "2026-10-11T18:01:06.055449+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "snapshot": "duckyscript-tm-quick-reference.md",
+    "bytes": 40486,
+    "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+    "retrieved_utc": "2026-10-11T18:01:06.298030+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/hello-world.md",
+    "snapshot": "ducky-script-basics__hello-world.md",
+    "bytes": 9435,
+    "sha256": "3270467351ea888800fe2fe900d40b5785c80d1baf1d2ef0af777aa89c68026e",
+    "retrieved_utc": "2026-10-11T18:01:06.210714+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "snapshot": "ducky-script-basics__keystroke-injection.md",
+    "bytes": 23001,
+    "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+    "retrieved_utc": "2026-10-11T18:01:06.380681+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/rem.md",
+    "snapshot": "ducky-script-basics__rem.md",
+    "bytes": 5774,
+    "sha256": "24201856dc7dec9ff3d00223a43d49082bc4d1963ae539ade705439d5f775558",
+    "retrieved_utc": "2026-10-11T18:01:07.404478+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/delay.md",
+    "snapshot": "ducky-script-basics__delay.md",
+    "bytes": 3656,
+    "sha256": "f2b9f78f1d7161ac31f4b09bbbf1caf2be78858f676cc8fdd91408913f970435",
+    "retrieved_utc": "2026-10-11T18:01:06.627816+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/wait_for_button_press.md",
+    "snapshot": "button__wait_for_button_press.md",
+    "bytes": 9675,
+    "sha256": "c799c12fa198773550b7eddcb6631e6c2ca45b425a539d7b66466619ab2d1fed",
+    "retrieved_utc": "2026-10-11T18:01:06.678251+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+    "snapshot": "button__led.md",
+    "bytes": 5481,
+    "sha256": "cb18140aa774b1a2176c12f5a7016cd733b302b521564dd8b27ef77394ccb787",
+    "retrieved_utc": "2026-10-11T18:01:06.844453+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "snapshot": "attack-modes-constants-and-variables__attack-modes.md",
+    "bytes": 14212,
+    "sha256": "f006505d35102db9f132262868633b798f34319d09f6dfe0cbdd90f0d12dff34",
+    "retrieved_utc": "2026-10-11T18:01:06.980508+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/constants.md",
+    "snapshot": "attack-modes-constants-and-variables__constants.md",
+    "bytes": 11150,
+    "sha256": "26362406a2a196e91ca82af494c50c9d45315cfe021925a8a8c9654adfa35869",
+    "retrieved_utc": "2026-10-11T18:01:06.992448+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+    "snapshot": "attack-modes-constants-and-variables__variables.md",
+    "bytes": 4358,
+    "sha256": "46a9c7de2faba3776a129081f7cd21995b30853466beb8567948dad523332b02",
+    "retrieved_utc": "2026-10-11T18:01:07.244496+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "snapshot": "operators-conditions-loops-and-functions__operators.md",
+    "bytes": 8108,
+    "sha256": "9bda28fc9c3e546503f7140e88c45440e8655872a47dbce0aa81b24d16ec8e0b",
+    "retrieved_utc": "2026-10-11T18:01:07.371157+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/conditional-statements.md",
+    "snapshot": "operators-conditions-loops-and-functions__conditional-statements.md",
+    "bytes": 6793,
+    "sha256": "ff8534cb66e8fd0a987e7b65932a9c5ac32a4ee1e0ba95fd6b3a6bbdd38f09f9",
+    "retrieved_utc": "2026-10-11T18:01:07.410742+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/loops.md",
+    "snapshot": "operators-conditions-loops-and-functions__loops.md",
+    "bytes": 5771,
+    "sha256": "57a344a03b83d9077d7d18726f90feb6addde2ffae3b06eb34f3041ebfc98f7d",
+    "retrieved_utc": "2026-10-11T18:01:07.612475+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+    "snapshot": "operators-conditions-loops-and-functions__functions.md",
+    "bytes": 6106,
+    "sha256": "8ec237904c974397ac9e631c1f17668638638ef4025e48106debb1173a38e965",
+    "retrieved_utc": "2026-10-11T18:01:07.775064+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "snapshot": "advanced-features__randomization.md",
+    "bytes": 19618,
+    "sha256": "10251e7948a68d13e9caff69e53e90249e1065cd69bb195aed13ba2437cfd29e",
+    "retrieved_utc": "2026-10-11T18:01:07.752595+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "snapshot": "advanced-features__holding-keys.md",
+    "bytes": 7034,
+    "sha256": "c57852d2f4dad7b64b104c98da910c2a61d229875b9e02b121a1c259920372a3",
+    "retrieved_utc": "2026-10-11T18:01:07.767125+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+    "snapshot": "advanced-features__payload-control.md",
+    "bytes": 3409,
+    "sha256": "3f2e1c1431d294a8cb2812a7d6f0a297542690319552feff6e1198079522085a",
+    "retrieved_utc": "2026-10-11T18:01:08.696077+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/jitter.md",
+    "snapshot": "advanced-features__jitter.md",
+    "bytes": 3206,
+    "sha256": "ca209797953ce40dec9b7a9f8c52936a7d00ee658f0469ac80d27e981a64579a",
+    "retrieved_utc": "2026-10-11T18:01:08.359151+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-hiding.md",
+    "snapshot": "advanced-features__payload-hiding.md",
+    "bytes": 3406,
+    "sha256": "090073dccb7f74424854dc9b88552d620f6d7621b6d5c66d79346e326850920d",
+    "retrieved_utc": "2026-10-11T18:01:08.399791+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/storage-activity.md",
+    "snapshot": "advanced-features__storage-activity.md",
+    "bytes": 3718,
+    "sha256": "b9d6fc8c5ab6ba515f689d536a62b16a82bebc1e23af91da9e73407c0a51a1bd",
+    "retrieved_utc": "2026-10-11T18:01:08.339479+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "snapshot": "advanced-features__lock-keys.md",
+    "bytes": 11076,
+    "sha256": "c73e539ca6650430d7189e514ce085cda87ba2c644fcc9467bea4119cc5eaf23",
+    "retrieved_utc": "2026-10-11T18:01:08.667029+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/exfiltration.md",
+    "snapshot": "advanced-features__exfiltration.md",
+    "bytes": 15789,
+    "sha256": "0194a80b338d578536e9e603da15d0ab34e721f04aadacb4d8ecd40229467a30",
+    "retrieved_utc": "2026-10-11T18:01:08.780650+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "snapshot": "advanced-features__extensions.md",
+    "bytes": 8220,
+    "sha256": "5ebbfe8daaf5c06b1875a122a265e40402c015a1f33803185ca609a53385022b",
+    "retrieved_utc": "2026-10-11T18:01:08.744033+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "snapshot": "advanced-features__conditional-compilation.md",
+    "bytes": 6842,
+    "sha256": "605a280290fd2530cf9a364da570f66b0dbe9d5a6de1571c78e0fdc34a6ebac2",
+    "retrieved_utc": "2026-10-11T18:01:09.290284+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/tips-and-troubleshooting/common-issues.md",
+    "snapshot": "tips-and-troubleshooting__common-issues.md",
+    "bytes": 8538,
+    "sha256": "20d7045f4e6832f1355acd778eb6ddd58fdd0732ff8163e825e617bdbb271de6",
+    "retrieved_utc": "2026-10-11T18:01:09.262917+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/tips-and-troubleshooting/tips.md",
+    "snapshot": "tips-and-troubleshooting__tips.md",
+    "bytes": 7394,
+    "sha256": "d6874101682b2ffd40dd6ed07ecdd7a5026aa9ed6cb182912eac89889842c304",
+    "retrieved_utc": "2026-10-11T18:01:09.057592+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/index.md",
+    "snapshot": "index.md",
+    "bytes": 2370,
+    "sha256": "620ebf6715c7368fb412b5f734a448cc8b47aeca0f5f4c7ff8c9181418091ffe",
+    "retrieved_utc": "2026-10-11T18:01:10.370359+00:00"
+  }
+]

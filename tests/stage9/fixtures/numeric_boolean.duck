@@ -1,0 +1,4 @@
+VAR $n=TRUE+0x10
+IF $n==17 THEN
+STRINGLN ok
+END_IF

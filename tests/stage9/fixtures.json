@@ -1,0 +1,353 @@
+[
+  {
+    "name": "basic_text",
+    "file": "fixtures/basic_text.duck",
+    "observed_output": "audit-ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "keystroke-injection",
+    "note": ""
+  },
+  {
+    "name": "comment_block",
+    "file": "fixtures/comment_block.duck",
+    "observed_output": "ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "rem",
+    "note": ""
+  },
+  {
+    "name": "documented_comment_heading",
+    "file": "fixtures/documented_comment_heading.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Block marker takes no arguments",
+    "canonical_status": "GAP",
+    "reference": "rem",
+    "note": "Official example accepts introductory text; current preflight rejects."
+  },
+  {
+    "name": "numeric_boolean",
+    "file": "fixtures/numeric_boolean.duck",
+    "observed_output": "ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "variables/operators",
+    "note": ""
+  },
+  {
+    "name": "reference_self_assignment",
+    "file": "fixtures/reference_self_assignment.duck",
+    "observed_output": "1337\n",
+    "diagnostic_contains": "",
+    "canonical_status": "EXTENSION",
+    "reference": "quick-reference: Augmented Assignment",
+    "note": "Documented VAR redeclaration is supported. Decimal STRING interpolation is EvilDuck-specific; += is not established by this reference."
+  },
+  {
+    "name": "define_words",
+    "file": "fixtures/define_words.duck",
+    "observed_output": "ready good xWORD\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "constants",
+    "note": ""
+  },
+  {
+    "name": "define_nonrecursive",
+    "file": "fixtures/define_nonrecursive.duck",
+    "observed_output": "#A\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "constants",
+    "note": ""
+  },
+  {
+    "name": "define_command",
+    "file": "fixtures/define_command.duck",
+    "observed_output": "ready\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "constants",
+    "note": ""
+  },
+  {
+    "name": "define_structural",
+    "file": "fixtures/define_structural.duck",
+    "observed_output": "",
+    "diagnostic_contains": "DEFINE expansion cannot create conditional block delimiters",
+    "canonical_status": "DIVERGENT",
+    "reference": "constants",
+    "note": "Documented arbitrary syntax substitution is intentionally restricted for structural markers."
+  },
+  {
+    "name": "selected_assignment",
+    "file": "fixtures/selected_assignment.duck",
+    "observed_output": "5\n",
+    "diagnostic_contains": "",
+    "canonical_status": "EXTENSION",
+    "reference": "conditional-statements",
+    "note": "Numeric interpolation extension; branch assignment itself canonical."
+  },
+  {
+    "name": "loop_function",
+    "file": "fixtures/loop_function.duck",
+    "observed_output": "xxdone\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "loops/functions",
+    "note": ""
+  },
+  {
+    "name": "multiline_literal",
+    "file": "fixtures/multiline_literal.duck",
+    "observed_output": "IF TRUE THEN\nWHILE FALSE\nRETURN 3\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "keystroke-injection",
+    "note": ""
+  },
+  {
+    "name": "inline_trailing",
+    "file": "fixtures/inline_trailing.duck",
+    "observed_output": "ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "SUPPORTED",
+    "reference": "keystroke-injection",
+    "note": ""
+  },
+  {
+    "name": "eager_side_effect",
+    "file": "fixtures/eager_side_effect.duck",
+    "observed_output": "1\n",
+    "diagnostic_contains": "",
+    "canonical_status": "UNRESOLVED",
+    "reference": "operators",
+    "note": "Reference does not establish short-circuit evaluation; current eager function call changes global."
+  },
+  {
+    "name": "wrap_underflow",
+    "file": "fixtures/wrap_underflow.duck",
+    "observed_output": "65535\n",
+    "diagnostic_contains": "",
+    "canonical_status": "UNRESOLVED",
+    "reference": "variables/operators",
+    "note": "Unsigned model documented; precise overflow evaluation stages not established."
+  },
+  {
+    "name": "implicit_value",
+    "file": "fixtures/implicit_value.duck",
+    "observed_output": "",
+    "diagnostic_contains": "without a value",
+    "canonical_status": "UNRESOLVED",
+    "reference": "functions",
+    "note": "Current value-consuming void call fails at runtime; exact reference default unspecified."
+  },
+  {
+    "name": "inactive_unknown",
+    "file": "fixtures/inactive_unknown.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "DIVERGENT",
+    "reference": "conditional-compilation",
+    "note": "Whole-script semantic preflight validates inactive runtime branches; compile-time exclusion missing."
+  },
+  {
+    "name": "hold",
+    "file": "fixtures/hold.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "holding-keys",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "release",
+    "file": "fixtures/release.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "holding-keys",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "inject_mod",
+    "file": "fixtures/inject_mod.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "holding-keys",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "stop_payload",
+    "file": "fixtures/stop_payload.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "payload-control",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "restart_payload",
+    "file": "fixtures/restart_payload.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "payload-control",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "reset",
+    "file": "fixtures/reset.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "payload-control",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "led_green",
+    "file": "fixtures/led_green.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "led",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "button_wait",
+    "file": "fixtures/button_wait.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "wait_for_button_press",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "lock_wait",
+    "file": "fixtures/lock_wait.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "lock-keys",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "save_lock",
+    "file": "fixtures/save_lock.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "lock-keys",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "save_mode",
+    "file": "fixtures/save_mode.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "attack-modes",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "random_character",
+    "file": "fixtures/random_character.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "randomization",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "inject_variable",
+    "file": "fixtures/inject_variable.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "randomization",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "storage_wait",
+    "file": "fixtures/storage_wait.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "storage-activity",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "hide_payload",
+    "file": "fixtures/hide_payload.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "payload-hiding",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "extension_wrapper",
+    "file": "fixtures/extension_wrapper.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "extensions",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "conditional_compile",
+    "file": "fixtures/conditional_compile.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "conditional-compilation",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "language_string",
+    "file": "fixtures/language_string.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported command or key",
+    "canonical_status": "GAP",
+    "reference": "keystroke-injection",
+    "note": "Preflight rejection before any HID; fixture never executes host commands."
+  },
+  {
+    "name": "usb_identity",
+    "file": "fixtures/usb_identity.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Unsupported ATTACKMODE token",
+    "canonical_status": "GAP",
+    "reference": "attack-modes",
+    "note": ""
+  },
+  {
+    "name": "undefined_builtin",
+    "file": "fixtures/undefined_builtin.duck",
+    "observed_output": "",
+    "diagnostic_contains": "Undefined numeric variable",
+    "canonical_status": "GAP",
+    "reference": "lock-keys",
+    "note": ""
+  },
+  {
+    "name": "inert_builtin_declaration",
+    "file": "fixtures/inert_builtin_declaration.duck",
+    "observed_output": "ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "GAP",
+    "reference": "jitter",
+    "note": "These are ordinary user symbols, not device-bound settings. Acceptance is not jitter support."
+  },
+  {
+    "name": "delay_below_reference_minimum",
+    "file": "fixtures/delay_below_reference_minimum.duck",
+    "observed_output": "ok\n",
+    "diagnostic_contains": "",
+    "canonical_status": "DIVERGENT",
+    "reference": "delay",
+    "note": "Official page states20ms minimum; EvilDuck preserves0/sub20ms compatibility. Acceptance measured, no hardware timing claim."
+  }
+]
