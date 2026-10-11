@@ -1,0 +1,68 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "snapshot": "advanced-features__lock-keys.md",
+    "sha256": "c73e539ca6650430d7189e514ce085cda87ba2c644fcc9467bea4119cc5eaf23",
+    "bytes": 11076,
+    "fresh_request": "HTTP Error 403: Forbidden",
+    "original_retrieved_utc": "2026-10-11T18:01:08.667029+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+    "snapshot": "attack-modes-constants-and-variables__variables.md",
+    "sha256": "46a9c7de2faba3776a129081f7cd21995b30853466beb8567948dad523332b02",
+    "bytes": 4358,
+    "fresh_request": "HTTP Error 403: Forbidden",
+    "original_retrieved_utc": "2026-10-11T18:01:07.244496+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "snapshot": "duckyscript-tm-quick-reference.md",
+    "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+    "bytes": 40486,
+    "fresh_request": "HTTP Error 403: Forbidden",
+    "original_retrieved_utc": "2026-10-11T18:01:06.298030+00:00"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "libraries/USB/src/USBHIDKeyboard.cpp",
+    "sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+    "bytes": 7645,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/libraries/USB/src/USBHIDKeyboard.cpp"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "libraries/USB/src/USBHIDKeyboard.h",
+    "sha256": "8739ca6da849985c28d48743cfd3549fc4ee57a7d661fb4cdb046941d819d596",
+    "bytes": 5398,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/libraries/USB/src/USBHIDKeyboard.h"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "libraries/USB/src/USBHID.cpp",
+    "sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "bytes": 14967,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/libraries/USB/src/USBHID.cpp"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "libraries/USB/src/USBHID.h",
+    "sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+    "bytes": 2453,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/libraries/USB/src/USBHID.h"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "cores/esp32/USB.cpp",
+    "sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+    "bytes": 10092,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/cores/esp32/USB.cpp"
+  },
+  {
+    "core_version": "3.3.0",
+    "path": "cores/esp32/USB.h",
+    "sha256": "f4aec2b5ea130792357d628d29906e5c3fce5ed08330b08bd98f24dfff022f2d",
+    "bytes": 2960,
+    "url": "https://github.com/espressif/arduino-esp32/blob/3.3.0/cores/esp32/USB.h"
+  }
+]

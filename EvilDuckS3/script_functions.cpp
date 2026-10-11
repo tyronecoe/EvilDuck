@@ -1,4 +1,5 @@
 #include "script_functions.h"
+#include "internal_vars.h"
 #include "hid_backend.h"
 #include "duck_keys.h"
 #include <cstring>
@@ -12,6 +13,7 @@ bool name(const String &invocation,String &identifier,String &error) {
   static const char *reserved[]={"FUNCTION","END_FUNCTION","RETURN","IF","ELSE","THEN","WHILE","END_IF","ENDIF","ENDWHILE","END_WHILE","END",
     "DEFINE","VAR","TRUE","FALSE","STRING","STRINGLN","END_STRING","END_STRINGLN","REM","REM_BLOCK","END_REM","DELAY","WAIT","DEFAULT_DELAY","DEFAULTDELAY","REPEAT","REPLAY","STOP","STOP_PAYLOAD","RESET","HOLD","RELEASE","INJECT_MOD","SAVE","READ","APPEND","LOCALE","LED","ATTACKMODE","KEYCODE"};
   for(auto keyword:reserved)if(upper==keyword){error="Function name collides with a command";return false;}
+  if (internal_vars::lockCommand(upper) >= 0) { error = "Function name collides with a lock command"; return false; }
   uint8_t key;
   if(hid_backend::keyNameToHid(identifier,key) || duck_keys::isModifierName(identifier,key)) {error="Function name collides with a key/modifier";return false;}
   return true;

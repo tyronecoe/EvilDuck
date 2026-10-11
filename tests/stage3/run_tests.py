@@ -37,13 +37,10 @@ def main():
     build = args.build_dir or Path(tempfile.mkdtemp(prefix='evilduck-stage3-'))
     exe = compile_target(ROOT / 'test_main.cpp', build, 'stage3_tests')
     failed = run_suite(exe, TESTS)
-    firmware = ROOT.parents[1] / 'EvilDuckS3'
-    probe = build / 'stage3_no_alloc'
-    subprocess.run(['g++', '-std=gnu++17', '-g', '-O1', '-Wall', '-Wextra',
-                    '-fsanitize=address,undefined', '-fno-omit-frame-pointer', '-fno-pie', '-no-pie',
-                    '-I' + str(ROOT.parent / 'stage1/mocks'), '-I' + str(firmware),
-                    str(ROOT / 'no_alloc.cpp'), str(firmware / 'duck_expr.cpp'),
-                    str(firmware / 'duck_vars.cpp'), '-o', str(probe)], check=True)
+    # Registry reads now depend on the real device adapters; link the same
+    # production modules/RAM mocks as the regression target. Measurement scope
+    # and assertions in the allocation probe remain unchanged.
+    probe = compile_target(ROOT / 'no_alloc.cpp', build, 'stage3_no_alloc')
     failed += subprocess.run([str(probe)], timeout=20).returncode != 0
     return bool(failed)
 

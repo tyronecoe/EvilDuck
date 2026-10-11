@@ -7,7 +7,17 @@
 #include <atomic>
 
 static USBHID HID;
-static USBHIDKeyboard Keyboard;
+class FeedbackKeyboard : public USBHIDKeyboard {
+  void observe(uint8_t id, const uint8_t *data, uint16_t size) {
+    const auto session = hid_backend::lockSession();
+    hid_backend::receiveLockReport(id, data, size, session);
+  }
+public:
+  void _onOutput(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
+  // Pinned Arduino3.3.0 routes nonzero-ID control SET_REPORT through this hook.
+  void _onSetFeature(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
+};
+static FeedbackKeyboard Keyboard;
 static bool releasePending = false;
 namespace {
 struct Owned { uint8_t modifiers = 0, keys[6] = {}; };
@@ -16,8 +26,29 @@ bool ownershipDirty = false;
 const char *failure = "";
 std::atomic<bool> disconnectEvent{false};
 bool wasMounted = false, transportLoss = false;
+// Dedicated short feedback critical section; never shares the executor lock.
+// Native toolchain does not guarantee lock-free32-bit C++ atomics. This guard
+// contains only fixed copies/bit operations and cannot call storage/USB/logging.
+#ifdef EVILDUCK_HOST_TEST
+std::mutex feedbackMutex;
+class FeedbackGuard {
+  std::lock_guard<std::mutex> guard;
+public: FeedbackGuard() : guard(feedbackMutex) {}
+};
+#else
+portMUX_TYPE feedbackMutex = portMUX_INITIALIZER_UNLOCKED;
+class FeedbackGuard {
+public:
+  FeedbackGuard() { portENTER_CRITICAL(&feedbackMutex); }
+  ~FeedbackGuard() { portEXIT_CRITICAL(&feedbackMutex); }
+};
+#endif
+hid_backend::LockState feedback;
 void usbEvent(void *, esp_event_base_t, int32_t event, void *) {
-  if (event == ARDUINO_USB_STOPPED_EVENT) disconnectEvent.store(true);
+  if (event == ARDUINO_USB_STOPPED_EVENT) {
+    disconnectEvent.store(true);
+    hid_backend::invalidateLockState();
+  }
 }
 }
 
@@ -88,11 +119,46 @@ void applyModifiers(uint8_t modifiers) {
 namespace hid_backend {
 
 void begin() {
+  invalidateLockState();
   USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbEvent);
   HID.begin();
   Keyboard.begin();
   USB.begin();
   debug::info("USB HID started");
+}
+
+uint32_t lockSession() { FeedbackGuard guard; return feedback.session; }
+void invalidateLockState() {
+  FeedbackGuard guard;
+  const uint32_t session = feedback.session + 1;
+  feedback = LockState(); feedback.session = session;
+}
+bool receiveLockReport(uint8_t id, const uint8_t *data, uint16_t size, uint32_t session) {
+  if (id != HID_REPORT_ID_KEYBOARD || !data || size != 1 || (data[0] & 0xE0) ||
+      !static_cast<bool>(USB)) return false;
+  FeedbackGuard guard;
+  if (disconnectEvent.load() || session != feedback.session) return false;
+  const uint8_t leds = data[0] & 7;
+  if (feedback.known) for (unsigned i = 0; i < 3; ++i)
+    if ((feedback.leds ^ leds) & (1u << i)) ++feedback.changes[i];
+  feedback.leds = leds; feedback.known = true;
+  if (!feedback.savedKnown) { feedback.saved = leds; feedback.savedKnown = true; }
+  return true;
+}
+LockState lockState() {
+  LockState state;
+  { FeedbackGuard guard; state = feedback; }
+  if (disconnectEvent.load() || !static_cast<bool>(USB)) state.known = state.savedKnown = false;
+  // Reject a concurrent disconnect while copying; no earlier-session evidence.
+  { FeedbackGuard guard; if (feedback.session != state.session) state.known = state.savedKnown = false; }
+  return state;
+}
+bool saveLockState() {
+  if (disconnectEvent.load() || !static_cast<bool>(USB)) return false;
+  FeedbackGuard guard;
+  if (!feedback.known || disconnectEvent.load()) return false;
+  feedback.saved = feedback.leds; feedback.savedKnown = true;
+  return true;
 }
 
 bool keyNameToHid(const String &input, uint8_t &outCode) {
@@ -264,7 +330,9 @@ bool takeTransportLoss() {
 void update() {
   execution::Guard guard;
   const bool mounted = static_cast<bool>(USB); // ESPUSB: started && device mounted.
-  if (disconnectEvent.exchange(false) || (wasMounted && !mounted)) {
+  const bool notified = disconnectEvent.exchange(false);
+  if (notified || (wasMounted && !mounted)) {
+    if (!notified) invalidateLockState();
     owned = Owned();
     ownershipDirty = false;
     releasePending = true;

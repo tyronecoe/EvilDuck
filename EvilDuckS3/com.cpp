@@ -12,12 +12,19 @@
 #include "execution_guard.h"
 #include "script_parser.h"
 #include "duck_constants.h"
+#include "internal_vars.h"
 #include <cstdlib>
 
 namespace {
-enum class Phase { Idle, Start, Wait, Storage, Ownership, Reset, Text, Keys, Press, Release, Finish };
+enum class Phase { Idle, Start, Wait, Storage, Ownership, Reset, LockWait, LockRestore, LockAck, Text, Keys, Press, Release, Finish };
 struct Session {
   bool scriptOwned = false;
+  int8_t lockCommand = -1;
+  uint8_t lockTarget = 0, lockBit = 0, lockToggles = 0;
+  bool lockBaselineKnown = false;
+  uint32_t lockSession = 0, lockChanges = 0;
+  uint16_t lockDeadline = 0;
+  uint32_t lockStarted = 0;
   bool holding = false;
   uint8_t ownedModifier = 0, ownedKey = 0;
   bool ownsKeys = false;
@@ -164,6 +171,28 @@ bool startLine() {
   if (stmt.kind == script_parser::Kind::Define) return duck_constants::define(line, 0, session.error);
   if (equalsNoCase(line, "STOP") || equalsNoCase(line, "STOP_PAYLOAD")) {
     duckscript::stop();
+    return true;
+  }
+  session.lockCommand = internal_vars::lockCommand(line);
+  if (session.lockCommand >= 0) {
+    const auto state = hid_backend::lockState();
+    if (session.lockCommand == 9) {
+      if (!hid_backend::saveLockState()) { session.error = "Cannot save unknown host lock state"; return false; }
+      return true;
+    }
+    session.lockSession = state.session;
+    session.lockStarted = millis(); session.lockDeadline = internal_vars::lockTimeout();
+    if (session.lockCommand == 10) {
+      if (!state.known || !state.savedKnown) { session.error = "Cannot restore unknown current/saved host lock state"; return false; }
+      if (!attackmode::hidEnabled()) { session.error = "Lock restore requires HID enabled"; return false; }
+      if (hid_backend::hasPersistent()) { session.error = "Release persistent keys/modifiers before lock restore"; return false; }
+      session.lockTarget = state.saved; session.lockToggles = 0; session.phase = Phase::LockRestore;
+    } else {
+      session.lockBit = session.lockCommand / 3;
+      session.lockBaselineKnown = state.known;
+      session.lockChanges = state.changes[session.lockBit];
+      session.phase = Phase::LockWait;
+    }
     return true;
   }
   if (equalsNoCase(line, "RESET")) {
@@ -408,6 +437,10 @@ void update() {
       return;
     }
   }
+  if (session.lockCommand == 10 && session.phase != Phase::Idle && session.phase != Phase::Start &&
+      session.phase != Phase::Finish && millis() - session.lockStarted >= session.lockDeadline) {
+    session.error = "Host lock feedback timeout during transport work"; fail(); return;
+  }
   switch (session.phase) {
     case Phase::Idle: return;
     case Phase::Start:
@@ -432,6 +465,36 @@ void update() {
       session.phase = Phase::Finish;
       return;
     }
+    case Phase::LockWait:
+    case Phase::LockRestore:
+    case Phase::LockAck: {
+      const auto state = hid_backend::lockState();
+      if (state.session != session.lockSession) { session.error = "USB session changed during lock operation"; fail(); return; }
+      if (millis() - session.lockStarted >= session.lockDeadline) { session.error = "Host lock feedback timeout; no acknowledged success"; fail(); return; }
+      if (session.phase == Phase::LockWait) {
+        if (!state.known) return;
+        const auto action = session.lockCommand % 3;
+        if (action == 2) {
+          if (!session.lockBaselineKnown) { session.lockBaselineKnown = true; session.lockChanges = state.changes[session.lockBit]; return; }
+          if (state.changes[session.lockBit] == session.lockChanges) return;
+        } else if (((state.leds >> session.lockBit) & 1) != action) return;
+        session.phase = Phase::Finish; return;
+      }
+      if (!state.known) { session.error = "Host lock state became unknown during restore"; fail(); return; }
+      if (session.phase == Phase::LockAck) {
+        const uint8_t mask = 1u << session.lockBit;
+        if (state.changes[session.lockBit] == session.lockChanges || ((state.leds ^ session.lockTarget) & mask)) return;
+        session.phase = Phase::LockRestore; return;
+      }
+      if (state.leds == session.lockTarget) { session.lockCommand = -1; session.phase = Phase::Finish; return; }
+      if (hid_backend::hasPersistent() || !attackmode::hidEnabled()) { session.error = "Keyboard ownership/HID changed during restore"; fail(); return; }
+      if (session.lockToggles++ >= 6) { session.error = "Host lock state changed repeatedly during restore"; fail(); return; }
+      for (uint8_t bit = 0; bit < 3; ++bit) if ((state.leds ^ session.lockTarget) & (1u << bit)) { session.lockBit = bit; break; }
+      session.lockChanges = state.changes[session.lockBit];
+      const uint8_t keys[] = {0x53, 0x39, 0x47};
+      report(0, &keys[session.lockBit], 1, Phase::LockAck);
+      return;
+    }
     case Phase::Reset:
       if (!hid_backend::clearing()) session.phase = Phase::Finish;
       return;
@@ -446,6 +509,18 @@ void update() {
       return;
     }
     case Phase::Press:
+      if (session.lockCommand == 10) {
+        const auto state = hid_backend::lockState();
+        if (!state.known || state.session != session.lockSession) {
+          session.error = "USB lock state became unknown before restore injection"; fail(); return;
+        }
+        // Host may change state while endpoint backpressure delays the press.
+        // Do not send a stale toggle that would undo an already restored bit.
+        if (!((state.leds ^ session.lockTarget) & (1u << session.lockBit))) {
+          session.phase = Phase::LockRestore; return;
+        }
+        session.lockChanges = state.changes[session.lockBit];
+      }
       if (!hid_backend::beginReport(session.reportModifiers, session.reportKeys, session.reportCount)) {
         if (*hid_backend::reportError()) { session.error = hid_backend::reportError(); fail(); }
         return;

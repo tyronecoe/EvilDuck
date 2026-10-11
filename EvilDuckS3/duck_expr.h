@@ -4,7 +4,7 @@
 #include "config.h"
 
 namespace duck_expr {
-enum class Lookup : uint8_t { Number, Undefined, Text };
+enum class Lookup : uint8_t { Number, Undefined, Text, Unsupported, Unavailable };
 enum class Mode : uint8_t { Evaluate, Syntax };
 using Resolver = Lookup (*)(const char *, size_t, uint16_t &, void *);
 struct Error { const char *message = nullptr; uint16_t column = 0; };

@@ -76,6 +76,8 @@ class Parser {
       uint16_t number = 0;
       Lookup found = resolver ? resolver(source + start, count, number, context) : Lookup::Undefined;
       if (resolver || mode == Mode::Evaluate) {
+        if (found == Lookup::Unsupported) return fail("Unsupported internal variable", start);
+        if (found == Lookup::Unavailable) return fail("Internal variable state unknown in this USB session", start);
         if (found == Lookup::Undefined) return fail("Undefined numeric variable", start);
         if (found == Lookup::Text) return fail("Text variable cannot be used in a numeric expression", start);
       }
@@ -224,7 +226,7 @@ Step Program::step(uint16_t &value, Error &error, Resolver resolver, void *conte
       uint16_t number = instruction.value;
       if (op == Op::Variable) {
         Lookup found = resolver ? resolver(source + instruction.value, instruction.length, number, context) : Lookup::Undefined;
-        if (found != Lookup::Number) { error = {found == Lookup::Text ? "Text variable cannot be used in numeric expression" : "Undefined numeric variable", uint16_t(instruction.value+1)}; return Step::Error; }
+        if (found != Lookup::Number) { error = {found == Lookup::Unsupported ? "Unsupported internal variable" : found == Lookup::Unavailable ? "Internal variable state unknown in this USB session" : found == Lookup::Text ? "Text variable cannot be used in numeric expression" : "Undefined numeric variable", uint16_t(instruction.value+1)}; return Step::Error; }
       }
       if (depth >= sizeof(values)/sizeof(values[0])) { error = {"Expression operand stack exhausted",1}; return Step::Error; }
       values[depth++] = number;

@@ -227,20 +227,20 @@
   {
     "name": "lock_wait",
     "file": "fixtures/lock_wait.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "timeout",
+    "canonical_status": "STAGE12_BOUNDED_WAIT_WITHOUT_FEEDBACK",
     "reference": "lock-keys",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Now structurally valid. The earlier harmless text executes, then no-feedback wait fails with explicit timeout. This observation supplies no host feedback and proves no host compatibility."
   },
   {
     "name": "save_lock",
     "file": "fixtures/save_lock.duck",
-    "observed_output": "",
-    "diagnostic_contains": "Unsupported command or key",
-    "canonical_status": "GAP",
+    "observed_output": "MUST-NOT-APPEAR\n",
+    "diagnostic_contains": "unknown",
+    "canonical_status": "STAGE12_SAVE_REQUIRES_EVIDENCE",
     "reference": "lock-keys",
-    "note": "Preflight rejection before any HID; fixture never executes host commands."
+    "note": "Now structurally valid; save refuses unknown state after earlier harmless text. Separate Stage12 reports test observed state save/restore."
   },
   {
     "name": "save_mode",
@@ -327,19 +327,19 @@
     "name": "undefined_builtin",
     "file": "fixtures/undefined_builtin.duck",
     "observed_output": "",
-    "diagnostic_contains": "Undefined numeric variable",
-    "canonical_status": "GAP",
+    "diagnostic_contains": "unknown",
+    "canonical_status": "STAGE12_UNKNOWN_WITHOUT_FEEDBACK",
     "reference": "lock-keys",
-    "note": ""
+    "note": "Device-backed read now exists, but the observation supplies no OUT evidence; runtime correctly rejects unknown state. Not counted as a compatibility pass."
   },
   {
     "name": "inert_builtin_declaration",
     "file": "fixtures/inert_builtin_declaration.duck",
-    "observed_output": "ok\n",
-    "diagnostic_contains": "",
-    "canonical_status": "GAP",
+    "observed_output": "",
+    "diagnostic_contains": "Reserved internal",
+    "canonical_status": "RESOLVED_STAGE12_NAMESPACE_SAFETY",
     "reference": "jitter",
-    "note": "These are ordinary user symbols, not device-bound settings. Acceptance is not jitter support."
+    "note": "No longer creates an inert native setting; whole-script preflight rejects the reserved declaration."
   },
   {
     "name": "delay_below_reference_minimum",

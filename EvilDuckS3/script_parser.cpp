@@ -1,4 +1,5 @@
 #include "script_parser.h"
+#include "internal_vars.h"
 #include "hid_backend.h"
 #include "duck_keys.h"
 #include "storage.h"
@@ -157,7 +158,16 @@ bool assignment(const String &args, String &name, String &value, bool &text, Str
   if (eq < 0 || !variable(trimmed(args.substring(0, eq))))
     return error(diagnostic, "Malformed assignment: invalid variable identifier or missing '='; expected $name = expression or quoted text");
   name = trimmed(args.substring(0, eq));
+  if (internal_vars::reserved(name.c_str(), name.length()) && !internal_vars::writable(name.c_str(), name.length()))
+    return error(diagnostic, "Reserved internal variable is read-only or unsupported");
   value = trimmed(args.substring(eq + 1));
+  if (internal_vars::writable(name.c_str(), name.length())) {
+    uint16_t numeric; duck_expr::Error failure;
+    // Only constant arithmetic can be established here: no variable reads or
+    // function execution during parse/preflight.
+    if (duck_expr::evaluate(value.c_str(), value.length(), numeric, failure) && !numeric)
+      return error(diagnostic, "Lock timeout must be 1..65535 milliseconds");
+  }
   text = value.startsWith("\"");
   if (text) {
     if (value.length() < 2 || !value.endsWith("\"")) return error(diagnostic, "Unterminated quoted variable value");
@@ -290,6 +300,8 @@ bool parse(const String &input, Statement &out, String &diagnostic) {
     return expression(out.args, diagnostic);
   }
   out.kind = Kind::Command;
+  if (internal_vars::lockCommand(keyword) >= 0)
+    return out.args.length() ? error(diagnostic, "Lock feedback commands take no arguments") : true;
   if (keyword == "STOP" || keyword == "STOP_PAYLOAD" || keyword == "RESET")
     return out.args.length() ? error(diagnostic, "STOP/STOP_PAYLOAD/RESET take no arguments") : true;
   if (keyword == "HOLD" || keyword == "RELEASE" || keyword == "INJECT_MOD") {

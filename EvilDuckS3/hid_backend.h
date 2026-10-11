@@ -3,6 +3,18 @@
 
 namespace hid_backend {
   void begin();
+  struct LockState {
+    uint32_t session = 0;
+    bool known = false, savedKnown = false;
+    uint8_t leds = 0, saved = 0;
+    uint32_t changes[3] = {}; // Num/Caps/Scroll transitions, modulo2^32.
+  };
+  LockState lockState();
+  // USB callback adapter; token captured on callback entry, not a wire-level epoch.
+  uint32_t lockSession();
+  bool receiveLockReport(uint8_t id, const uint8_t *data, uint16_t length, uint32_t session);
+  void invalidateLockState();
+  bool saveLockState();
 
   bool keyNameToHid(const String &input, uint8_t &outCode);
 
