@@ -39,3 +39,23 @@ USB feedback behavior is unchanged and prior concurrency/allocation suites rerun
 All Stage1–19 regression runners remain required. Stage9 observations and historical
 language XPASS/original USB XFAIL/NVS risks remain separately classified. New readonly
 source passes do not mean protection is deployed. See stage20-results.json/report.
+
+## Owner evidence / cross-page blob follow-up
+
+The two additional runners use synthetic fixtures only. They never initialize NVS on
+hardware or load owner files. Use fresh external result/build paths:
+
+```sh
+python3 tests/stage20/blob_tests.py --sdk-source "$ED_SDK_SOURCE" \
+ --generator-dir "$ED_GENERATOR" --results /absolute/path/new-blob-format-results.json
+python3 tests/stage20/blob_sdk_tests.py --sdk-source "$ED_SDK_SOURCE" \
+ --build-dir /absolute/path/new-blob-sdk-build \
+ --results /absolute/path/new-blob-sdk-results.json
+```
+
+Use the hash-verified source/generator prepared by Stage 19 reproduction. The first
+runner constructs independent format vectors and invokes the pinned official generator.
+The second compiles actual pinned Storage/Page components with synthetic flash adapters
+under ASan/UBSan, then runs the offline inspector on those fixtures. It does not execute
+the complete SDK initializer or linked Xtensa archive. Owner-local inspection uses
+`docs/stage20-owner-inspection.md`, not synthetic test files.

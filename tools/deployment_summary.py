@@ -4,10 +4,13 @@ import argparse,json,sys
 from pathlib import Path
 sys.dont_write_bytecode=True
 from deployment_preflight import OWNER,EXPECTED_FILES
+from nvs_blob import ISSUE_CODES as BLOB_CODES
 from s3_validation import LEGACY_LAYOUT,LAYOUT,require
 CATEGORIES=['invalid','unsupported-format','recovery-potentially-required','insufficient-evidence']
 CLASSIFICATIONS=set(CATEGORIES+['compatible-within-verified-checks'])
 CODES=set('wrong_region_size dirty_uninitialized_page invalid_page_state page_header_crc page_version header_reserved_bytes duplicate_page_sequence freeing_page bitmap_reserved_bits illegal_entry_state incomplete_entry_write written_after_empty_entry invalid_key_encoding entry_header_crc entry_span_boundary numeric_or_index_span blob_index_chunk blob_index_relationships_unverified variable_span_length incomplete_variable_span variable_data_crc invalid_string_encoding blob_data_chunk blob_data_relationships_unverified entry_type namespace_entry invalid_namespace_index namespace_reference_unresolved duplicate_live_record multiple_active_pages no_erased_free_page'.split())
+CODES.update(BLOB_CODES)
+
 def summary(report):
     require(report.get('evidence')=='owner-recorded','Not a completed owner-recorded local preflight report')
     require(report.get('owner_files_verified') is True and report.get('hardware_access') is False and report.get('migration_authorized') is False,'Inconsistent preflight evidence flags')

@@ -1,15 +1,29 @@
 # Stage 20 private owner inspection and shareable summary
 
-Owner confirms local sizes/SHA256 for the three files match Stage19 recorded values;
-Codex has not received or inspected those bytes. Keep backups private and unchanged,
+Owner confirms local sizes/SHA256 for the three files match Stage19 recorded values.
+The owner also reports successfully completing the full Stage19 deployment preflight
+on those actual files on macOS High Sierra10.13.6: owner_files_verified=true and
+spiffs_roundtrip_verified=true. Its NVS result was insufficient-evidence, with ten
+findings: five blob_data_relationships_unverified and five
+blob_index_relationships_unverified, all on pages0/1. The owner reported no invalid
+or recovery-potentially-required findings and migration_authorized=false.
+
+This is owner-reported local evidence, recorded in
+stage20-owner-preflight-evidence.json. Codex has not received the binary files or
+private report and has not independently inspected those bytes. The historical
+Stage19 hash/size evidence remains unchanged. No run of the extended blob-relationship
+inspector against the owner's files has been reported; their structural compatibility
+has not been established. Keep backups private and unchanged,
 in at least two independent locations. Do not upload NVS/images/private reports to GitHub.
 Hash equality is not full structural compatibility or a migration approval.
 
-First run the complete file-only procedure in stage19-owner-preflight.md using this
-Stage20 checkout, Python3.8.10 and pinned installed Arduino3.3.0 partition tool. Same
+Repeat the complete file-only procedure in stage19-owner-preflight.md using the updated
+Stage20 checkout so the new blob-relationship checks actually inspect the local backup.
+Use new output paths, Python3.8.10 and pinned installed Arduino3.3.0 partition tool. Same
 mkspiffs0.2.3 checked geometry4096/256, name32/meta4/magic settings. No firmware compiler,
-serial port or esptool operation is required. High Sierra actual native-tool execution
-must succeed locally; Linux tests do not prove macOS compatibility.
+serial port or esptool operation is required. The prior native preflight/SPIFFS tool
+execution succeeded on High Sierra according to the owner; this updated run still
+must succeed locally. Linux tests do not prove macOS compiler or USB compatibility.
 
 ```sh
 ED_BACKUPS='/absolute/path/to/the-three-private-backups'
@@ -38,13 +52,18 @@ or synthetic JSON as owner evidence. Actual backup verification occurs in full p
 
 Interpret nvs_classification:
 
-- compatible-within-verified-checks: only the documented plaintext format subset passed;
-  not proof of SDK immutability, healthy settings or blob graph correctness.
+- compatible-within-verified-checks: only the documented plaintext format subset and
+  supported blob-relationship checks passed; not proof of SDK immutability, healthy
+  settings, arbitrary unsupported formats or physical startup safety. Do not assign
+  this result to the owner's backup until the extended checks actually run on it.
 - recovery-potentially-required: e.g. FREEING, interrupted writes, duplicates or missing
   free page. STOP; no repeated boot, automatic repair or erase.
 - invalid: malformed state/CRC/bounds/entry encoding. STOP; retain backups.
 - unsupported-format: unverified versions/types/reserved bytes. STOP; no guessed conversion.
-- insufficient-evidence: e.g. complex blob relationships/namespace resolution. Review is
+- insufficient-evidence: e.g. relationships outside the verified subset or namespace
+  resolution. The prior owner's ten blob relationship findings belong to the older
+  inspector; the extended inspector must evaluate the actual bytes before those
+  findings can be resolved or replaced. Review is
   required, not a compatible pass. No private values need to be shared to discuss codes.
 
 Full preflight exits success when report generation/checks complete; NVS may still have

@@ -4,6 +4,15 @@ Baseline524d643a12af05e4efd9da509eae274ec43959a6; branchstage20-nvs-preservation
 The commit containing this report identifies final source. Production source fingerprint
 is in deployment/stage20/artifact-inventory.json. Stage21 has not begun.
 
+An owner-evidence/blob-inspection follow-up now records the reported complete local
+Stage19 preflight and SPIFFS roundtrip, implements bounded cross-page blob checks and
+reruns all existing suites. Latest aggregate: **1170 PASS,0 unexpected FAIL,636958
+assertions**, with historical classifications separate. The owner's ten insufficient
+NVS findings remain unresolved pending an updated local run; migration stays NO-GO.
+See [the follow-up report](stage20-blob-followup.md) for exact source rules, tests,
+evidence boundaries and unchanged firmware measurements. The initial Stage20 report
+and test inventory below are retained as historical evidence from commit1896d625.
+
 ## Selected strategy and implementation gate
 
 Current strategy: preserve independently retained original backups, privately inspect

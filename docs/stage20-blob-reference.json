@@ -1,0 +1,40 @@
+{
+  "source_commit": "b66b5448e0dfac6be135e6f0ac21010aba231180",
+  "files": [
+    {
+      "path": "components/nvs_flash/src/nvs_item_hash_list.cpp",
+      "sha256": "12e56f57671fb1b205cb27f07bf8b4c3cb4609c387c1bc7b60894925084d3d54",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_item_hash_list.cpp"
+    },
+    {
+      "path": "components/nvs_flash/src/nvs_item_hash_list.hpp",
+      "sha256": "cf0cee7c9cbbf1c3a9663586e57d48bf3621bd365c2c0027ba764f2c660538f0",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_item_hash_list.hpp"
+    },
+    {
+      "path": "components/nvs_flash/src/nvs_page.cpp",
+      "sha256": "81d9ba04f081acd8b3fa05879c9a5e80953ab4ca7947ef9a3a26b0187f1ed32c",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_page.cpp"
+    },
+    {
+      "path": "components/nvs_flash/src/nvs_storage.cpp",
+      "sha256": "dca1f03cc99e25b31b7b425c1fbc2fd27711b1d500b613a1a8c87fdd10162242",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_storage.cpp"
+    },
+    {
+      "path": "components/nvs_flash/src/nvs_types.cpp",
+      "sha256": "517a18b2799c8bee8f33be5207097c43679025d78de31623f2ab4129f5734b43",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_types.cpp"
+    },
+    {
+      "path": "components/nvs_flash/src/nvs_types.hpp",
+      "sha256": "3f6b4407aba55ccffb343d9c1b62177c774e1dd85119cc8d797dc3714286c489",
+      "url": "https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/nvs_flash/src/nvs_types.hpp"
+    }
+  ],
+  "complete_source_pin": "stage19-sdk-source-pin.json",
+  "generator_pin": "stage19-generator-pin.json",
+  "linked_sdk_archive_evidence": "stage20-sdk-nvs-evidence.json",
+  "source_binary_equivalence_proven": false,
+  "physical_behavior_verified": false
+}

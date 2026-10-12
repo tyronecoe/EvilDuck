@@ -55,7 +55,7 @@ def main():
  case('nvs_bad_namespace',lambda:run_mutate(lambda d:item(d,2,2,1,b'unknown-key',b'\x01'),'insufficient-evidence','namespace_reference_unresolved'))
  case('nvs_unknown_type',lambda:run_mutate(lambda d:item(d,2,1,0x77,b'private-key2',b'\x01'),'unsupported-format','entry_type'))
  case('nvs_numeric_span',lambda:run_mutate(lambda d:item(d,2,1,1,b'private-key2',b'\x01',span=2),'invalid','numeric_or_index_span'))
- case('nvs_blob_index_unproved',lambda:run_mutate(lambda d:item(d,2,1,0x48,b'private-key2',b'\x01'),'insufficient-evidence','blob_index_relationships_unverified'))
+ case('nvs_blob_index_invalid_size',lambda:run_mutate(lambda d:item(d,2,1,0x48,b'private-key2',b'\x01'),'invalid','blob_index_size_limit'))
  case('nvs_dirty_erased_page',lambda:run_mutate(lambda d:d.__setitem__(4096+64,0),'recovery-potentially-required','dirty_uninitialized_page'))
  def string_fixture():
   d=healthy();item(d,2,1,0x21,b'private-secret',b'synthetic-password\0',span=2);return d

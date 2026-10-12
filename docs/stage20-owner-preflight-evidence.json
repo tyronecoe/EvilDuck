@@ -1,0 +1,38 @@
+{
+  "evidence_class": "owner-reported-local-full-preflight-summary",
+  "reported_by": "owner in additional Stage 20 verification instruction",
+  "reported_platform": "macOS High Sierra 10.13.6",
+  "reported_tool": "complete Stage 19 tools/deployment_preflight.py",
+  "codex_files_supplied": false,
+  "codex_independently_inspected": false,
+  "raw_private_report_supplied": false,
+  "owner_reported_full_preflight_completed": true,
+  "reported_results": {
+    "owner_files_verified": true,
+    "spiffs_roundtrip_verified": true,
+    "nvs_classification": "insufficient-evidence",
+    "nvs_issue_count": 10,
+    "issue_counts": {
+      "blob_data_relationships_unverified": 5,
+      "blob_index_relationships_unverified": 5
+    },
+    "issue_categories": ["insufficient-evidence"],
+    "issue_pages": [0, 1],
+    "per_page_issue_counts_supplied": false,
+    "invalid_findings_reported": false,
+    "recovery_potentially_required_findings_reported": false,
+    "migration_authorized": false
+  },
+  "prior_hash_and_size_evidence": "stage19-owner-evidence.json",
+  "historical_stage19_evidence_rewritten": false,
+  "extended_blob_relationship_rerun_reported": false,
+  "owner_nvs_structural_compatibility_established": false,
+  "sdk_immutability_established": false,
+  "migration_status": "NO-GO",
+  "limitations": [
+    "Summary is owner-reported local evidence, not independent Codex validation of backup bytes.",
+    "Individual entry locations and per-page issue counts were not supplied.",
+    "The extended blob inspector has not been reported as executed on the owner's backup.",
+    "Absence of reported invalid or recovery findings does not resolve the ten unverified relationships or SDK mutation risks."
+  ]
+}
