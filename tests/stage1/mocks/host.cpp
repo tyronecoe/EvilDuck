@@ -19,6 +19,7 @@ uint32_t now=0;
 unsigned blockingDelays=0;
 uint8_t heldModifiers=0;
 bool usbReady=true, usbAccept=true, usbMounted=true;
+bool settingsSaveOk=true;
 std::vector<Report> reports;
 std::vector<uint8_t> heldKeys;
 std::vector<Press> presses;
@@ -135,8 +136,9 @@ namespace settings {
 bool disable=false, stealth=false, hidden=false;
 String ssid="mock", password, autorun, webPassword;
 uint8_t channel=1; uint32_t color=0; uint16_t delayMin=0,delayMax=0;
-void load() {} void save() {}
+void load() {} void save() {} bool saveChecked() { save(); return mock::settingsSaveOk; } int32_t saveError() { return 0; }
 void reset() { disable=stealth=hidden=false; color=0; autorun=""; }
+bool resetChecked() { reset(); return mock::settingsSaveOk; }
 bool autorunEnabled() { return autorun.length(); }
 String getAutorun() { return autorun; } void setAutorun(const String &s) { autorun=s; }
 String getSSID() { return ssid; } void setSSID(const String &s) { ssid=s; }

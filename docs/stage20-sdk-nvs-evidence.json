@@ -1,0 +1,283 @@
+{
+  "archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "expected_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "objdump_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "functions": [
+    {
+      "function": "nvs_flash_init",
+      "sections": [
+        {
+          "section": ".text.nvs_flash_init",
+          "references": [
+            "nvs_flash_init_partition"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "2c5bbce745439655d3b0f512f1884e7c777ef6dd39d442cb8e3da8b573b6a183"
+        }
+      ]
+    },
+    {
+      "function": "nvs_flash_init_partition",
+      "sections": [
+        {
+          "section": ".text.nvs_flash_init_partition",
+          "references": [
+            "_Unwind_Resume",
+            "__assert_func",
+            "esp_partition_get_main_flash_sector_size",
+            "nvs::Lock::Lock()",
+            "nvs::Lock::init()",
+            "nvs::Lock::~Lock()",
+            "nvs::NVSPartitionManager::get_instance()",
+            "nvs::NVSPartitionManager::init_partition(char const*)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "94002aa81f5f3ce10dfb2a1daac0140bdcb22e67d092477ad84f642cc49dd2a5"
+        }
+      ]
+    },
+    {
+      "function": "nvs::NVSPartitionManager::init_custom",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs19NVSPartitionManager11init_customEPNS_9PartitionEmm",
+          "references": [
+            "free",
+            "intrusive_list<nvs::NVSPartition>::erase(intrusive_list<nvs::NVSPartition>::iterator)",
+            "malloc",
+            "nvs::NVSPartitionManager::lookup_storage_from_name(char const*)",
+            "nvs::Storage::init(unsigned long, unsigned long)",
+            "nvs::Storage::~Storage()"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "46fe04d9e248151ed761bf1d80ab3543cad5a9fe85dba24316fd0727c2c060fd"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Storage::init",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs7Storage4initEmm",
+          "references": [
+            "CompressedEnumTable<bool, 1u, 256u>::set(unsigned int, bool)",
+            "__stack_chk_fail",
+            "free",
+            "intrusive_list<nvs::Storage::NamespaceEntry>::clearAndFreeNodes()",
+            "intrusive_list<nvs::Storage::NamespaceEntry>::push_back(nvs::Storage::NamespaceEntry*)",
+            "malloc",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "nvs::PageManager::load(nvs::Partition*, unsigned long, unsigned long)",
+            "nvs::Storage::eraseMismatchedBlobIndexes(intrusive_list<nvs::Storage::BlobIndexNode>&)",
+            "nvs::Storage::eraseOrphanDataBlobs(intrusive_list<nvs::Storage::BlobIndexNode>&)",
+            "nvs::Storage::populateBlobIndices(intrusive_list<nvs::Storage::BlobIndexNode>&)",
+            "strncpy"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "24b8b08f459d88015daf3ee0b9db4fd6b399c6eee5b1b79564b8c2880b14d215"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Storage::eraseMismatchedBlobIndexes",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs7Storage26eraseMismatchedBlobIndexesER14intrusive_listINS0_13BlobIndexNodeEE",
+          "references": [
+            "__stack_chk_fail",
+            "free",
+            "memcpy",
+            "nvs::Page::eraseItem(unsigned char, nvs::ItemType, char const*, unsigned char, nvs::VerOffset)",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "strncmp"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "1e35cfa97ec375cd32bd243da101824b73e4d552c3704756ee6c7dd80c666aab"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Storage::eraseOrphanDataBlobs",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs7Storage20eraseOrphanDataBlobsER14intrusive_listINS0_13BlobIndexNodeEE",
+          "references": [
+            "__stack_chk_fail",
+            "memcpy",
+            "nvs::Page::eraseItem(unsigned char, nvs::ItemType, char const*, unsigned char, nvs::VerOffset)",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "strncmp"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "e4168d9c14483f35c947c8128d85fe4683fecd3c318c1580c218db8436ffb9d0"
+        }
+      ]
+    },
+    {
+      "function": "nvs::PageManager::load",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm",
+          "references": [
+            "_Unwind_Resume",
+            "__cxa_throw_bad_array_new_length",
+            "__stack_chk_fail",
+            "free",
+            "intrusive_list<nvs::Page>::clear()",
+            "intrusive_list<nvs::Page>::erase(intrusive_list<nvs::Page>::iterator)",
+            "intrusive_list<nvs::Page>::push_back(nvs::Page*)",
+            "malloc",
+            "nvs::HashList::~HashList()",
+            "nvs::Page::Page()",
+            "nvs::Page::copyItems(nvs::Page&)",
+            "nvs::Page::erase()",
+            "nvs::Page::eraseItem(unsigned char, nvs::ItemType, char const*, unsigned char, nvs::VerOffset)",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "nvs::Page::getSeqNumber(unsigned long&) const",
+            "nvs::Page::load(nvs::Partition*, unsigned long)",
+            "nvs::PageManager::activatePage()"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "ff742fcbd00b84e41d2afb1217fe3e858d6afae912a56687fd3c049a5fe90c9f"
+        }
+      ]
+    },
+    {
+      "function": "nvs::PageManager::activatePage",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs11PageManager12activatePageEv",
+          "references": [
+            "intrusive_list<nvs::Page>::erase(intrusive_list<nvs::Page>::iterator)",
+            "intrusive_list<nvs::Page>::push_back(nvs::Page*)",
+            "nvs::Page::erase()",
+            "nvs::Page::setSeqNumber(unsigned long)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "d069f271ea6d54c34eeaac9ef8c9702823b377415bb0e4686b129c60f3e1b16a"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Page::load",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs4Page4loadEPNS_9PartitionEm",
+          "references": [
+            "__stack_chk_fail",
+            "nvs::Page::Header::calculateCrc32()",
+            "nvs::Page::mLoadEntryTable()",
+            "operator delete[](void*)",
+            "operator new[](unsigned int, std::nothrow_t const&)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "b9f09ff219e87b609b436288e32f4e1e968adfb93111f30e0a1d998259fbd8e6"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Page::mLoadEntryTable",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs4Page15mLoadEntryTableEv",
+          "references": [
+            "CompressedEnumTable<nvs::Page::EntryState, 2u, 126u>::get(unsigned int, nvs::Page::EntryState*) const",
+            "__stack_chk_fail",
+            "nvs::HashList::find(unsigned int, nvs::Item const&)",
+            "nvs::HashList::insert(nvs::Item const&, unsigned int)",
+            "nvs::Item::checkHeaderConsistency(unsigned char) const",
+            "nvs::Page::alterEntryState(unsigned int, nvs::Page::EntryState)",
+            "nvs::Page::eraseEntryAndSpan(unsigned int)",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "nvs::Page::readEntry(unsigned int, nvs::Item&) const",
+            "nvs::isVariableLengthType(nvs::ItemType)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "e9667628babd3b004768378a529b42c133fe43c9e37d6e0cb5050777d08fc25f"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Page::eraseEntryAndSpan",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs4Page17eraseEntryAndSpanEj",
+          "references": [
+            "CompressedEnumTable<nvs::Page::EntryState, 2u, 126u>::get(unsigned int, nvs::Page::EntryState*) const",
+            "__stack_chk_fail",
+            "nvs::HashList::erase(unsigned int)",
+            "nvs::Item::checkHeaderConsistency(unsigned char) const",
+            "nvs::Page::alterEntryRangeState(unsigned int, unsigned int, nvs::Page::EntryState)",
+            "nvs::Page::alterEntryState(unsigned int, nvs::Page::EntryState)",
+            "nvs::Page::getSeqNumber(unsigned long&) const",
+            "nvs::Page::readEntry(unsigned int, nvs::Item&) const",
+            "nvs::Page::updateFirstUsedEntry(unsigned int, unsigned int)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "5f599ac21f4253ba087956e31ffe20aa188bdea916cc1147f487f76218ccc0fd"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Page::readItem",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs4Page8readItemEhNS_8ItemTypeEPKcPvjhNS_9VerOffsetE",
+          "references": [
+            "__stack_chk_fail",
+            "memcpy",
+            "nvs::Item::calculateCrc32(unsigned char const*, unsigned int)",
+            "nvs::Page::eraseEntryAndSpan(unsigned int)",
+            "nvs::Page::findItem(unsigned char, nvs::ItemType, char const*, unsigned int&, nvs::Item&, unsigned char, nvs::VerOffset)",
+            "nvs::Page::readEntry(unsigned int, nvs::Item&) const",
+            "nvs::isVariableLengthType(nvs::ItemType)"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "820b3a3804eefc05911c456057c33860269a6bb2be7a3a7919f9bbff97eb1d40"
+        }
+      ]
+    },
+    {
+      "function": "nvs::Page::erase",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs4Page5eraseEv",
+          "references": [
+            "nvs::HashList::clear()"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "bc92b5a21d05cc036120798e009a4969fbeb0e8b5f17f5461a85a08cef8a64c8"
+        }
+      ]
+    },
+    {
+      "function": "nvs::NVSPartition::erase_range",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs12NVSPartition11erase_rangeEjj",
+          "references": [
+            "esp_partition_erase_range"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "30277dd9e4fa6072eae97040007860f01beb3790b138e62510be9e19fc4984ba"
+        }
+      ]
+    },
+    {
+      "function": "nvs::NVSPartition::write",
+      "sections": [
+        {
+          "section": ".text._ZN3nvs12NVSPartition5writeEjPKvj",
+          "references": [
+            "esp_partition_write"
+          ],
+          "has_indirect_call": true,
+          "disassembly_sha256": "91aa44f908062577de9124de66b28f0c5285b70e64dfbe32ae8a0350be63c808"
+        }
+      ]
+    }
+  ],
+  "sdk_binary_executed": false,
+  "hardware_access": false,
+  "source_binary_equivalence_certified": false
+}

@@ -6,7 +6,10 @@ namespace settings {
   bool ready();
   int32_t loadError();
   void save();
+  bool saveChecked();
+  int32_t saveError();
   void reset();
+  bool resetChecked();
 
   bool autorunEnabled();
   String getAutorun();

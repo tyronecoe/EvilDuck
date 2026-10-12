@@ -22,13 +22,18 @@ void *operator new[](std::size_t n,const std::nothrow_t&) noexcept {
 }
 void check(bool x,const char*s){++assertions;if(!x)throw std::runtime_error(s);}
 uint32_t esp_random(){return 0;}
-extern "C" esp_err_t nvs_open(const char*,nvs_open_mode_t mode,nvs_handle_t*h){++opens;check(mode==NVS_READONLY,"read-only namespace");if(open_error)return open_error;*h=1;return ESP_OK;}
+extern "C" esp_err_t nvs_open(const char*,nvs_open_mode_t mode,nvs_handle_t*h){++opens;if(mode==NVS_READWRITE)return save_open_ok?ESP_OK:ESP_FAIL;check(mode==NVS_READONLY,"read-only namespace");if(open_error)return open_error;*h=1;return ESP_OK;}
 extern "C" void nvs_close(nvs_handle_t){++closes;}
 static esp_err_t get(const char*k,int type,void*out,size_t size){++read_calls;if(k==error_key)return read_error;auto it=values.find(k);if(it==values.end())return ESP_ERR_NVS_NOT_FOUND;if(it->second.type!=type)return ESP_ERR_NVS_TYPE_MISMATCH;if(it->second.data.size()!=size)return ESP_ERR_NVS_INVALID_LENGTH;std::memcpy(out,it->second.data.data(),size);return ESP_OK;}
 extern "C" esp_err_t nvs_get_u8(nvs_handle_t,const char*k,uint8_t*v){return get(k,NVS_TYPE_U8,v,1);}
 extern "C" esp_err_t nvs_get_u16(nvs_handle_t,const char*k,uint16_t*v){return get(k,NVS_TYPE_U16,v,2);}
 extern "C" esp_err_t nvs_get_u32(nvs_handle_t,const char*k,uint32_t*v){return get(k,NVS_TYPE_U32,v,4);}
 extern "C" esp_err_t nvs_get_str(nvs_handle_t,const char*k,char*out,size_t*n){++read_calls;if(k==error_key)return read_error;auto it=values.find(k);if(it==values.end())return ESP_ERR_NVS_NOT_FOUND;if(it->second.type!=NVS_TYPE_STR)return ESP_ERR_NVS_TYPE_MISMATCH;if(!out){*n=it->second.data.size();return ESP_OK;}if(*n<it->second.data.size())return ESP_ERR_NVS_INVALID_LENGTH;std::memcpy(out,it->second.data.data(),it->second.data.size());*n=it->second.data.size();return ESP_OK;}
+extern "C" esp_err_t nvs_set_u8(nvs_handle_t,const char*,uint8_t){++mocked_writes;return ESP_OK;}
+extern "C" esp_err_t nvs_set_u16(nvs_handle_t,const char*,uint16_t){++mocked_writes;return ESP_OK;}
+extern "C" esp_err_t nvs_set_u32(nvs_handle_t,const char*,uint32_t){++mocked_writes;return ESP_OK;}
+extern "C" esp_err_t nvs_set_str(nvs_handle_t,const char*,const char*){++mocked_writes;return ESP_OK;}
+extern "C" esp_err_t nvs_commit(nvs_handle_t){return ESP_OK;}
 #include "../../EvilDuckS3/settings.cpp"
 #include "../../EvilDuckS3/EvilDuckS3.ino"
 extern "C" int32_t evilduck_nvs_startup_error(void){return 0;}

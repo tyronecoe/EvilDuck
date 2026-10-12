@@ -75,6 +75,13 @@ def verify(core,build):
    require('startupSettingsFailed' in symbols,'Settings failure latch absent')
    require('_ZN8settings5readyEv' in setup_disasm and '_ZN8settings9loadErrorEv' in setup_disasm,'Actual setup settings readiness/error checks absent')
    require(setup_disasm.index('_ZN8settings5readyEv')<setup_disasm.index('_ZN11hid_backend5beginEv'),'Settings validation must precede HID activation')
+  if 'bool saveChecked();' in settings_header.read_text():
+   for module in ['cli.cpp','webserver.cpp']:
+    found=[e for e in entries if Path(e['file']).name==module]
+    original=ROOT/'EvilDuckS3'/module
+    require(len(found)==1 and Path(found[0]['file']).read_bytes()==('#line 1 '+json.dumps(str(original))+'\n').encode()+original.read_bytes(),'Compiled checked-persistence caller differs from source')
+   if not safe_flag:
+    require('settings::saveChecked()' in symbols and 'settings::resetChecked()' in symbols,'Checked persistence API absent from final normal ELF')
   (build/'stage19-linked-startup.txt').write_text(setup_disasm)
  (build/'stage18-linked-startup.txt').write_text(setup_disasm)
  nvs_disasm=subprocess.run([objdump,'-d','--disassemble=initArduino',str(elf)],capture_output=True,text=True,check=True).stdout
@@ -87,7 +94,7 @@ def verify(core,build):
  disasm=subprocess.run([objdump,'-d','--disassemble=tud_hid_set_report_cb',str(elf)],capture_output=True,text=True,check=True).stdout
  require('<tud_hid_set_report_cb>:' in disasm,'Linked callback disassembly missing')
  (build/'stage16-linked-routing.txt').write_text(disasm)
- report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),settings_failure_quiescent=True,settings_source_sha256=sha(ROOT/'EvilDuckS3/settings.cpp'),sdk_nvs_immutable=False,nvs_preservation_policy=True,nvs_source_sha256=sha(core/pin['nvs_source']),hardware_access=False)
+ report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),checked_settings_persistence=True,settings_failure_quiescent=True,settings_source_sha256=sha(ROOT/'EvilDuckS3/settings.cpp'),sdk_nvs_immutable=False,nvs_preservation_policy=True,nvs_source_sha256=sha(core/pin['nvs_source']),hardware_access=False)
  (build/'stage16-link-provenance.json').write_text(json.dumps(report,indent=2)+'\n');return report
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--build-dir',type=Path,required=True);a=p.parse_args();print(json.dumps(verify(a.core_dir,a.build_dir),indent=2))

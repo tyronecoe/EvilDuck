@@ -1,14 +1,14 @@
 #include "settings.h"
 #include "debug.h"
 #include "config.h"
-#include <Preferences.h>
+#include "execution_guard.h"
+#include <atomic>
 #include <nvs.h>
 #include <memory>
 #include <new>
 #include <cstring>
 #include <utility>
 
-static Preferences prefs;
 static bool autorun_enabled = false;
 static String autorun_script_name = "";
 static String ap_ssid = WIFI_SSID;
@@ -108,25 +108,63 @@ void load() {
   load_ready = true;
 }
 
-void save() {
-  if (!load_ready) { debug::info("Settings save refused: load not validated"); return; }
-  if (!prefs.begin("duck", false)) { debug::info("Settings save refused: namespace unavailable"); return; }
-  prefs.putBool("autorun_enabled", autorun_enabled);
-  prefs.putString("autorun_script", autorun_script_name);
-  prefs.putString("ap_ssid", ap_ssid);
-  prefs.putString("ap_password", ap_password);
-  prefs.putUChar("ap_channel", ap_channel);
-  prefs.putBool("stealth", stealth_mode);
-  prefs.putBool("hidden_ap", hidden_ap);
-  prefs.putBool("disable_led", disable_led);
-  prefs.putUInt("led_color", led_color);
-  prefs.putString("web_pw", web_password);
-  prefs.putUShort("ar_dly_min", autorun_delay_min);
-  prefs.putUShort("ar_dly_max", autorun_delay_max);
-  prefs.end();
+static std::atomic<esp_err_t> save_error{ESP_ERR_INVALID_STATE};
+int32_t saveError() { return save_error.load(); }
+
+bool saveChecked() {
+  execution::TryGuard guard;
+  if (!guard) { save_error.store(ESP_ERR_INVALID_STATE); return false; }
+  if (!load_ready) {
+    save_error = load_error == ESP_OK ? ESP_ERR_INVALID_STATE : load_error;
+    return false;
+  }
+  if (ap_ssid.length() == 0 || ap_ssid.length() > 32 ||
+      ap_password.length() < 8 || ap_password.length() > 63 || ap_channel < 1 || ap_channel > 13 ||
+      led_color > 0xffffff || autorun_delay_min > autorun_delay_max ||
+      autorun_script_name.length() >= 4000 || web_password.length() >= 4000 ||
+      std::strlen(ap_ssid.c_str()) != ap_ssid.length() ||
+      std::strlen(ap_password.c_str()) != ap_password.length() ||
+      std::strlen(autorun_script_name.c_str()) != autorun_script_name.length() ||
+      std::strlen(web_password.c_str()) != web_password.length() ||
+      (autorun_enabled && autorun_script_name.length() == 0)) {
+    save_error = ESP_ERR_INVALID_ARG;
+    return false;
+  }
+  nvs_handle_t handle = 0;
+  esp_err_t error = nvs_open("duck", NVS_READWRITE, &handle);
+  if (error != ESP_OK) { save_error.store(error); return false; }
+  // NVS setters may write immediately. First-error stopping is not rollback/atomicity.
+#define ED_WRITE(operation) do { if (error == ESP_OK) error = operation; } while (0)
+  ED_WRITE(nvs_set_u8(handle, "autorun_enabled", autorun_enabled));
+  ED_WRITE(nvs_set_str(handle, "autorun_script", autorun_script_name.c_str()));
+  ED_WRITE(nvs_set_str(handle, "ap_ssid", ap_ssid.c_str()));
+  ED_WRITE(nvs_set_str(handle, "ap_password", ap_password.c_str()));
+  ED_WRITE(nvs_set_u8(handle, "ap_channel", ap_channel));
+  ED_WRITE(nvs_set_u8(handle, "stealth", stealth_mode));
+  ED_WRITE(nvs_set_u8(handle, "hidden_ap", hidden_ap));
+  ED_WRITE(nvs_set_u8(handle, "disable_led", disable_led));
+  ED_WRITE(nvs_set_u32(handle, "led_color", led_color));
+  ED_WRITE(nvs_set_str(handle, "web_pw", web_password.c_str()));
+  ED_WRITE(nvs_set_u16(handle, "ar_dly_min", autorun_delay_min));
+  ED_WRITE(nvs_set_u16(handle, "ar_dly_max", autorun_delay_max));
+#undef ED_WRITE
+  if (error == ESP_OK) error = nvs_commit(handle);
+  nvs_close(handle);
+  save_error.store(error);
+  return error == ESP_OK;
 }
 
-void reset() {
+void save() {
+  if (!saveChecked()) debug::info("Settings save failed; partial persistence possible");
+}
+
+bool resetChecked() {
+  execution::TryGuard guard;
+  if (!guard) { save_error.store(ESP_ERR_INVALID_STATE); return false; }
+  if (!load_ready) {
+    save_error = load_error == ESP_OK ? ESP_ERR_INVALID_STATE : load_error;
+    return false;
+  }
   autorun_enabled = false;
   autorun_script_name = "";
   ap_ssid = WIFI_SSID;
@@ -139,7 +177,11 @@ void reset() {
   web_password = "";
   autorun_delay_min = 0;
   autorun_delay_max = 0;
-  save();
+  return saveChecked();
+}
+
+void reset() {
+  if (!resetChecked()) debug::info("Settings reset failed; partial persistence possible");
 }
 
 bool autorunEnabled() { return autorun_enabled; }

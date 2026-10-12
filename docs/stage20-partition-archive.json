@@ -1,0 +1,26 @@
+{
+  "archive_sha256": "dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d",
+  "objdump_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "functions": [
+    {
+      "symbol": "esp_partition_write",
+      "disassembly_sha256": "c84532a5eec6005f7c13ab540e7a4aba7bc74db6acf54bf92f5f475e15159f00",
+      "source_readonly_guard_verified": true,
+      "binary_executed": false
+    },
+    {
+      "symbol": "esp_partition_write_raw",
+      "disassembly_sha256": "699d290ca08d89b981be3a8a97c396b1f8d5e47b9987510ce39b4fea84522970",
+      "source_readonly_guard_verified": true,
+      "binary_executed": false
+    },
+    {
+      "symbol": "esp_partition_erase_range",
+      "disassembly_sha256": "128343e3c8e4c19275027f0f512fe6b9932a65063795cfa6dc077bad7a441a1a",
+      "source_readonly_guard_verified": true,
+      "binary_executed": false
+    }
+  ],
+  "source_binary_equivalence_proven": false,
+  "sdk_binary_executed": false
+}

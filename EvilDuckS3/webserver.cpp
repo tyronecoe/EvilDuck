@@ -214,6 +214,8 @@ static void handleRunScript(AsyncWebServerRequest *req) {
 
 static void handleSaveSettings(AsyncWebServerRequest *req) {
   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+  execution::TryGuard settingsGuard;
+  if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
   if (req->hasParam("ssid", true)) {
     String ssid = req->getParam("ssid", true)->value();
     if (!ssid.length() || ssid.length() > 32) {
@@ -281,7 +283,10 @@ static void handleSaveSettings(AsyncWebServerRequest *req) {
         static_cast<uint16_t>(req->getParam("autorun_delay_max", true)->value().toInt()));
   }
 
-  settings::save();
+  if (!settings::saveChecked()) {
+    req->send(503, "text/plain", "Settings save failed; partial persistence possible");
+    return;
+  }
   if (settings::getDisableLed()) {
     led::setColor(0, 0, 0);
   } else if (!duckscript::running()) {
@@ -422,6 +427,8 @@ static void handleStatus(AsyncWebServerRequest *req) {
 
 static void handleSetLed(AsyncWebServerRequest *req) {
   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+  execution::TryGuard settingsGuard;
+  if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
   if (!req->hasParam("color", true)) {
     req->send(400, "text/plain", "Missing color");
     return;
@@ -430,7 +437,10 @@ static void handleSetLed(AsyncWebServerRequest *req) {
     req->send(400, "text/plain", "Invalid LED color");
     return;
   }
-  settings::save();
+  if (!settings::saveChecked()) {
+    req->send(503, "text/plain", "Settings save failed; partial persistence possible");
+    return;
+  }
   if (settings::getDisableLed()) {
     led::setColor(0, 0, 0);
     req->send(200, "text/plain", "Saved (LED disabled)");

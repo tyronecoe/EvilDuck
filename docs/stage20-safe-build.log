@@ -1,0 +1,29 @@
+patching file libraries/USB/src/USBHID.cpp
+patching file cores/esp32/esp32-hal-misc.c
+Pinned ESP32 core 3.3.0: /workspace/tooling/stage20-final-safe-core/data/packages/esp32/hardware/esp32/3.3.0
+FQBN: esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default
+Build output: /workspace/tooling/arduino/build/stage20-final-safe
+Compilation only. Hardware capacity remains UNVERIFIED.
+Sketch uses 1065987 bytes (14%) of program storage space. Maximum is 7602176 bytes.
+Global variables use 78280 bytes (23%) of dynamic memory, leaving 249400 bytes for local variables. Maximum is 327680 bytes.
+{
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_address": 65536,
+  "flash_bytes": 16777216,
+  "application_bytes": 1066128,
+  "ota_slot_bytes": 7602176,
+  "free_bytes_per_slot": 6536048,
+  "free_percent_per_slot": 85.97601528825432,
+  "application_sha256": "155c27a40539497592372e404f7c2fda0eb8a8291e79786f2cbb3e03b1a23744",
+  "hardware_verified": false,
+  "compiler_program_bytes": 1065987,
+  "static_ram_bytes": 78280,
+  "compiler_ram_maximum_bytes": 327680,
+  "merged_image_for_migration": false,
+  "deployment_safe_start": true,
+  "verified_cpp_extra_flags": "-DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_DEPLOYMENT_SAFE_START=1"
+}
+PASS: clean 16 MiB build. Application-only .bin is for OTA AFTER authorized migration.
+Do not upload to an unverified or unmigrated device. Never use the padded merged image for migration.
+PASS: isolated patched build; installed core unchanged

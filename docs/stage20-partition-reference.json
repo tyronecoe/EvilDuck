@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_partition/include/esp_partition.h",
+    "sha256": "726218797fec407bb9ad7f4235b44b70af7eec7c5283d35add36854734565f1e",
+    "role": "immutable official supporting source; not certified binary equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_partition/partition.c",
+    "sha256": "6b6ef93d601c0b845cf58e699d64643bfa313fd85ded00a79c699cddd8fd514c",
+    "role": "immutable official supporting source; not certified binary equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_partition/partition_target.c",
+    "sha256": "5917caadeb7a4a405c72eecbee939fdd153f50c32d9340699623da172f0f58d6",
+    "role": "immutable official supporting target source; not certified binary equivalence"
+  }
+]

@@ -127,12 +127,12 @@ void executeCommand(const String &raw) {
       out("Unknown setting");
       return;
     }
-    settings::save();
+    if (!settings::saveChecked()) { out("Settings save failed; partial persistence possible"); return; }
     out("> set \"" + name + "\" to \"" + value + "\"");
     return;
   }
   if (startsWithNoCase(cmd, "reset")) {
-    settings::reset();
+    if (!settings::resetChecked()) { out("Settings reset failed; partial persistence possible"); return; }
     out("Settings reset");
     return;
   }
@@ -211,7 +211,7 @@ void executeCommand(const String &raw) {
     String value = trimLine(cmd.substring(8));
     if (startsWithNoCase(value, "off")) settings::setAutorun("");
     else settings::setAutorun(value);
-    settings::save();
+    if (!settings::saveChecked()) { out("Settings save failed; partial persistence possible"); return; }
     out("Autorun saved");
     return;
   }
