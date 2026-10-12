@@ -13,7 +13,7 @@ from deployment_plan import prepare as prepare_checked_plan
 from deployment_inventory import prepare as prepare_inventory
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--normal-build',type=Path,required=True);p.add_argument('--safe-build',type=Path,required=True);p.add_argument('--normal-core',type=Path,required=True);p.add_argument('--results',type=Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--normal-build',type=Path,required=True);p.add_argument('--safe-build',type=Path,required=True);p.add_argument('--normal-core',type=Path,required=True);p.add_argument('--upstream-core',type=Path,required=True);p.add_argument('--results',type=Path,required=True);a=p.parse_args()
  mk=a.core_dir.parents[2]/'tools/mkspiffs/0.2.3/mkspiffs';results=[];assertions=0
  def check(ok,why):
   nonlocal assertions
@@ -138,10 +138,10 @@ def main():
   case('stage17_provisional_artifact_inventory_not_authorization',lambda:check(prepare_inventory(a.normal_core,a.normal_build,a.core_dir,a.safe_build,provisional)['owner_files_verified'] is False,'inventory cannot substitute for real backups'))
   case('stage17_artifact_inventory_no_overwrite',lambda:rejects(lambda:prepare_inventory(a.normal_core,a.normal_build,a.core_dir,a.safe_build,provisional)))
   case('stage17_no_full_chip_erase_plan',lambda:check(all(r['bytes']<0x1000000 for r in valid['writes']) and not valid['hardware_execution_supported'],'no writer/full erase'))
-  case('stage17_pre_setup_nvs_erase_risk_recorded',lambda:check('esp_partition_erase_range(partition, 0, partition->size)' in (a.core_dir/'cores/esp32/esp32-hal-misc.c').read_text(),'upstream risk exists; not fixed by application profile'))
+  case('stage17_pre_setup_nvs_erase_risk_recorded',lambda:check('esp_partition_erase_range(partition, 0, partition->size)' in (a.upstream_core/'cores/esp32/esp32-hal-misc.c').read_text(),'upstream risk exists; not fixed by application profile'))
   case('stage17_normal_spiffs_format_risk_preserved',lambda:check('SPIFFS.begin(true)' in (ROOT/'EvilDuckS3/spiffs.cpp').read_text(),'normal semantics explicitly unchanged'))
   for safe in (False,True):
-   exe=t/('startup-safe' if safe else 'startup-normal');args=['g++','-std=gnu++17','-O1','-g','-fsanitize=address,undefined','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage17/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),str(ROOT/'tests/stage17/startup.cpp'),'-o',str(exe)]
+   exe=t/('startup-safe' if safe else 'startup-normal');args=['g++','-DEVILDUCK_HOST_TEST','-std=gnu++17','-O1','-g','-fsanitize=address,undefined','-fno-pie','-no-pie','-I'+str(ROOT/'tests/stage17/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),str(ROOT/'tests/stage17/startup.cpp'),'-o',str(exe)]
    if safe:args.insert(1,'-DEVILDUCK_DEPLOYMENT_SAFE_START=1')
    subprocess.run(args,check=True)
    r=subprocess.run([str(exe)],capture_output=True,text=True);import re

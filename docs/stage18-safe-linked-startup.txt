@@ -1,0 +1,134 @@
+
+/workspace/tooling/arduino/build/stage18-final-safe/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42002da0 <_Z5setupv>:
+42002da0:	00a136        	entry	a1, 80
+42002da3:	f49f71        	l32r	a7, 42000020 <_stext> (3fca008c <__stack_chk_guard>)
+42002da6:	f49f21        	l32r	a2, 42000024 <_stext+0x4> (3fc9b838 <_ZL15startupNvsError>)
+42002da9:	0020c0        	memw
+42002dac:	0788      	l32i.n	a8, a7, 0
+42002dae:	2cc162        	addi	a6, a1, 44
+42002db1:	0020c0        	memw
+42002db4:	0689      	s32i.n	a8, a6, 0
+42002db6:	002282        	l32i	a8, a2, 0
+42002db9:	023816        	beqz	a8, 42002de0 <_Z5setupv+0x40>
+42002dbc:	201110        	or	a1, a1, a1
+42002dbf:	0028a5        	call8	42003048 <_ZN5debug5beginEv>
+42002dc2:	f499b1        	l32r	a11, 42000028 <_stext+0x8> (3c0c0120 <_flash_rodata_start>)
+42002dc5:	1cc1a2        	addi	a10, a1, 28
+42002dc8:	201110        	or	a1, a1, a1
+42002dcb:	0f3ee5        	call8	420121b8 <_ZN6StringC1EPKc>
+42002dce:	02b8      	l32i.n	a11, a2, 0
+42002dd0:	0aa0c2        	movi	a12, 10
+42002dd3:	0cc1a2        	addi	a10, a1, 12
+42002dd6:	201110        	or	a1, a1, a1
+42002dd9:	0f5ca5        	call8	420123a4 <_ZN6StringC1Elh>
+42002ddc:	000a46        	j	42002e09 <_Z5setupv+0x69>
+42002ddf:	111000        	slli	a1, a0, 16
+42002de2:	f4e520        	extui	a14, a2, 5, 16
+42002de5:	5602a90f 	ee.vmulas.u16.qacc.ld.ip.qup	q4, a0, 0x190, q6, q4, q0, q2
+42002de9:	fd0a      	add.n	a15, a13, a0
+42002deb:	201110        	or	a1, a1, a1
+42002dee:	0025a5        	call8	42003048 <_ZN5debug5beginEv>
+42002df1:	f48eb1        	l32r	a11, 4200002c <_stext+0xc> (3c0c015c <_flash_rodata_start+0x3c>)
+42002df4:	1cc1a2        	addi	a10, a1, 28
+42002df7:	201110        	or	a1, a1, a1
+42002dfa:	0f3be5        	call8	420121b8 <_ZN6StringC1EPKc>
+42002dfd:	1cc1a2        	addi	a10, a1, 28
+42002e00:	201110        	or	a1, a1, a1
+42002e03:	0025e5        	call8	42003060 <_ZN5debug4infoERK6String>
+42002e06:	000c46        	j	42002e3b <_Z5setupv+0x9b>
+42002e09:	b1cb      	addi.n	a11, a1, 12
+42002e0b:	1cc1a2        	addi	a10, a1, 28
+42002e0e:	201110        	or	a1, a1, a1
+42002e11:	0f75a5        	call8	4201256c <_ZplRK15StringSumHelperRK6String>
+42002e14:	201110        	or	a1, a1, a1
+42002e17:	0024a5        	call8	42003060 <_ZN5debug4infoERK6String>
+42002e1a:	a1cb      	addi.n	a10, a1, 12
+42002e1c:	201110        	or	a1, a1, a1
+42002e1f:	0f1fa5        	call8	42012018 <_ZN6StringD1Ev>
+42002e22:	1cc1a2        	addi	a10, a1, 28
+42002e25:	201110        	or	a1, a1, a1
+42002e28:	0f1ee5        	call8	42012018 <_ZN6StringD1Ev>
+42002e2b:	0020c0        	memw
+42002e2e:	0698      	l32i.n	a9, a6, 0
+42002e30:	0020c0        	memw
+42002e33:	0788      	l32i.n	a8, a7, 0
+42002e35:	2f9987        	bne	a9, a8, 42002e68 <_Z5setupv+0xc8>
+42002e38:	f01d      	retw.n
+42002e3a:	c1a200        	mul16u	a10, a2, a0
+42002e3d:	101c      	movi.n	a0, 17
+42002e3f:	652011        	l32r	a1, 41fdc2c0 <_coredump_iram_end+0x1c55ec0>
+42002e42:	0f1d      	mov.n	a1, a15
+42002e44:	fff8c6        	j	42002e2b <_Z5setupv+0x8b>
+42002e47:	a1cb00        	sll	a12, a11
+42002e4a:	201110        	or	a1, a1, a1
+42002e4d:	0f1ca5        	call8	42012018 <_ZN6StringD1Ev>
+42002e50:	1cc1a2        	addi	a10, a1, 28
+42002e53:	201110        	or	a1, a1, a1
+42002e56:	0f1c25        	call8	42012018 <_ZN6StringD1Ev>
+42002e59:	0020c0        	memw
+42002e5c:	002692        	l32i	a9, a6, 0
+42002e5f:	0020c0        	memw
+42002e62:	002782        	l32i	a8, a7, 0
+42002e65:	171987        	beq	a9, a8, 42002e80 <_Z5setupv+0xe0>
+42002e68:	f47281        	l32r	a8, 42000030 <_stext+0x10> (40375b8c <__stack_chk_fail>)
+42002e6b:	0008e0        	callx8	a8
+42002e6e:	fff786        	j	42002e50 <_Z5setupv+0xb0>
+42002e71:	a20000        	muluh	a0, a0, a0
+42002e74:	101cc1        	l32r	a12, 41fc6ee4 <_coredump_iram_end+0x1c40ae4>
+42002e77:	e52011        	l32r	a1, 41ffc2f8 <_coredump_iram_end+0x1c75ef8>
+42002e7a:	0f19      	s32i.n	a1, a15, 0
+42002e7c:	fff646        	j	42002e59 <_Z5setupv+0xb9>
+42002e7f:	02ad00        	andb	b10, b13, b0
+42002e82:	f46c81        	l32r	a8, 42000034 <_stext+0x14> (42090010 <_Unwind_Resume>)
+42002e85:	0008e0        	callx8	a8
+
+/workspace/tooling/arduino/build/stage18-final-safe/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .flash.text:
+
+42002de0 <_Z5setupv+0x40>:
+42002de0:	201110        	or	a1, a1, a1
+42002de3:	0ff4e5        	call8	42012d30 <evilduck_nvs_startup_error>
+42002de6:	02a9      	s32i.n	a10, a2, 0
+42002de8:	fd0a56        	bnez	a10, 42002dbc <_Z5setupv+0x1c>
+42002deb:	201110        	or	a1, a1, a1
+42002dee:	0025a5        	call8	42003048 <_ZN5debug5beginEv>
+42002df1:	f48eb1        	l32r	a11, 4200002c <_stext+0xc> (3c0c015c <_flash_rodata_start+0x3c>)
+42002df4:	1cc1a2        	addi	a10, a1, 28
+42002df7:	201110        	or	a1, a1, a1
+42002dfa:	0f3be5        	call8	420121b8 <_ZN6StringC1EPKc>
+42002dfd:	1cc1a2        	addi	a10, a1, 28
+42002e00:	201110        	or	a1, a1, a1
+42002e03:	0025e5        	call8	42003060 <_ZN5debug4infoERK6String>
+42002e06:	000c46        	j	42002e3b <_Z5setupv+0x9b>
+42002e09:	b1cb      	addi.n	a11, a1, 12
+42002e0b:	1cc1a2        	addi	a10, a1, 28
+42002e0e:	201110        	or	a1, a1, a1
+42002e11:	0f75a5        	call8	4201256c <_ZplRK15StringSumHelperRK6String>
+42002e14:	201110        	or	a1, a1, a1
+42002e17:	0024a5        	call8	42003060 <_ZN5debug4infoERK6String>
+42002e1a:	a1cb      	addi.n	a10, a1, 12
+42002e1c:	201110        	or	a1, a1, a1
+42002e1f:	0f1fa5        	call8	42012018 <_ZN6StringD1Ev>
+42002e22:	1cc1a2        	addi	a10, a1, 28
+42002e25:	201110        	or	a1, a1, a1
+42002e28:	0f1ee5        	call8	42012018 <_ZN6StringD1Ev>
+42002e2b:	0020c0        	memw
+42002e2e:	0698      	l32i.n	a9, a6, 0
+42002e30:	0020c0        	memw
+42002e33:	0788      	l32i.n	a8, a7, 0
+42002e35:	2f9987        	bne	a9, a8, 42002e68 <_Z5setupv+0xc8>
+42002e38:	f01d      	retw.n
+42002e3a:	c1a200        	mul16u	a10, a2, a0
+42002e3d:	101c      	movi.n	a0, 17
+42002e3f:	11          	.byte	0x11

@@ -3,6 +3,10 @@
 
 #include "config.h"
 #include "deployment_boot.h"
+#include "nvs_startup.h"
+
+// Latch failure for the boot lifetime; a later core retry cannot arm an uninitialized app.
+static int32_t startupNvsError = 0;
 #include "debug.h"
 #include "storage.h"
 #include "settings.h"
@@ -26,6 +30,12 @@ static void applyIdleLedColor() {
 }
 
 void setup() {
+  if (startupNvsError == 0) startupNvsError = evilduck_nvs_startup_error();
+  if (startupNvsError != 0) {
+    debug::begin();
+    debug::info("NVS startup failure; application disabled, original error: " + String(startupNvsError));
+    return;
+  }
   if (deployment::safeStart()) {
     debug::begin();
     debug::info("DEPLOYMENT SAFE START: application services and payload execution disabled");
@@ -65,7 +75,7 @@ void setup() {
 }
 
 void loop() {
-  if (deployment::safeStart()) {
+  if (deployment::safeStart() || startupNvsError != 0) {
     delay(1);
     return; // Intentionally no web/CLI arming path or execution scheduler in this profile.
   }

@@ -121,7 +121,7 @@ def verify_plan(core, build, plan_dir, backup_report, require_safe_start=True):
  require((plan_dir/roles['coredump']['file']).read_bytes()==b'\xff'*0x10000,'Coredump must be newly erased; no old partition exists')
  require(roles['spiffs']['sha256']==backup_report['files']['new-spiffs-0x160000.bin']['sha256'],'SPIFFS is not the independently checked destination image')
  require(plan.get('file_inventory')==backup_report['spiffs_files'],'Plan file inventory differs from verified files')
- return dict(review_only=True,migration_authorized=False,hardware_access=False,verified_writes=rows,nvs_preserved=True,nvs_preservation_scope='planned writes/erases only',nvs_runtime_guaranteed=False,pre_setup_nvs_erase_risk_unresolved=True,deployment_safe_start=report.get('deployment_safe_start',False),application_sha256=provenance['application_sha256'])
+ return dict(review_only=True,migration_authorized=False,hardware_access=False,verified_writes=rows,nvs_preserved=True,nvs_preservation_scope='planned writes/erases only',nvs_runtime_guaranteed=False,pre_setup_nvs_erase_risk_unresolved=True,arduino_nvs_auto_erase_disabled=True,sdk_nvs_mutation_risk_unresolved=True,deployment_safe_start=report.get('deployment_safe_start',False),application_sha256=provenance['application_sha256'])
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--backup-dir',type=Path,required=True);p.add_argument('--mkspiffs',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--plan-dir',type=Path);p.add_argument('--build-dir',type=Path);a=p.parse_args()

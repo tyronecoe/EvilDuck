@@ -21,7 +21,7 @@ def prepare(core,build,backups,mkspiffs,output,expected=OWNER,evidence_class="ow
  'spiffs':('new-spiffs-0x160000.bin',(backups/'new-spiffs-0x160000.bin').read_bytes()),
  'coredump':('coredump-empty.bin',b'\xff'*0x10000)}
  entries=[dict(role=r,file=n,offset=REGIONS[r][0],bytes=len(d),sha256=hashlib.sha256(d).hexdigest()) for r,(n,d) in payloads.items()];validate_regions(entries)
- result=dict(review_only=True,migration_authorized=False,hardware_execution_supported=False,protected_regions=[dict(name='nvs',offset=0x9000,bytes=0x5000)],original_backup_sha256=evidence['files']['evilduck-16m-backup.bin']['sha256'],original_partition_sector_sha256=evidence['files']['partition-table-backup.bin']['sha256'],file_inventory=evidence['spiffs_files'],writes=entries,deployment_safe_start=True,pre_setup_nvs_erase_risk_unresolved=True,owner_evidence=evidence,build_provenance=provenance)
+ result=dict(review_only=True,migration_authorized=False,hardware_execution_supported=False,protected_regions=[dict(name='nvs',offset=0x9000,bytes=0x5000)],original_backup_sha256=evidence['files']['evilduck-16m-backup.bin']['sha256'],original_partition_sector_sha256=evidence['files']['partition-table-backup.bin']['sha256'],file_inventory=evidence['spiffs_files'],writes=entries,deployment_safe_start=True,pre_setup_nvs_erase_risk_unresolved=True,arduino_nvs_auto_erase_disabled=True,sdk_nvs_mutation_risk_unresolved=True,owner_evidence=evidence,build_provenance=provenance)
  with tempfile.TemporaryDirectory(prefix='evilduck-reviewed-plan-') as d:
   temp=Path(d)
   for role,(name,data) in payloads.items():(temp/name).write_bytes(data)

@@ -1,0 +1,36 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/nvs_flash/src/nvs_pagemanager.cpp",
+    "path": "/workspace/tooling/stage18-reference/nvs_pagemanager.cpp",
+    "sha256": "8a9e43a3cce72809d11d53fdff5c5ae8fc2ccbd4e567a95afccfc1361737f50f",
+    "role": "Supporting v5.5 source, not certified SDK binary source"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/nvs_flash/src/nvs_page.cpp",
+    "path": "/workspace/tooling/stage18-reference/nvs_page.cpp",
+    "sha256": "81d9ba04f081acd8b3fa05879c9a5e80953ab4ca7947ef9a3a26b0187f1ed32c",
+    "role": "Supporting v5.5 source, not certified SDK binary source"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/esp_system/startup.c",
+    "path": "/workspace/tooling/stage18-reference/startup.c",
+    "sha256": "ad8dc85b52828fcf4d0cb910f1ea79c70b7e8f8113ff84260c5bb6a435c61b96",
+    "role": "Supporting v5.5 source, not certified SDK binary source"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/nvs_flash/src/nvs_api.cpp",
+    "path": "/workspace/tooling/stage18-reference/nvs_api.cpp",
+    "sha256": "9e2c748145c2a1d9a0798062316382ee24c2eeb18e17c9c43676a3c8bc323e4f",
+    "role": "Supporting v5.5 source, not certified SDK binary source"
+  },
+  {
+    "path": "/workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnvs_flash.a",
+    "sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "role": "Exact installed linked NVS archive; erase calls inspected with objdump"
+  },
+  {
+    "path": "/workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include/sdkconfig.h",
+    "sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+    "role": "Exact pinned S3 SDK configuration; NVS encryption not enabled"
+  }
+]

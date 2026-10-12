@@ -8,7 +8,8 @@ import subprocess
 from s3_validation import ROOT, require, partition_tool
 
 PATCH = ROOT / 'proposals/arduino-esp32-3.3.0-hid-routing.patch'
-PIN = ROOT / 'docs/stage16-dependency-pin.json'
+PIN = ROOT / 'docs/stage18-dependency-pin.json'
+NVS_PATCH = ROOT / 'proposals/arduino-esp32-3.3.0-nvs-preservation.patch'
 ROUTING = 'libraries/USB/src/USBHID.cpp'
 
 def sha(path):
@@ -22,10 +23,15 @@ def check_sources(core, patched=False):
     core = Path(core).resolve()
     partition_tool(core)  # exact platform version and partition tooling
     pin = json.loads(PIN.read_text())
+    require(sha(NVS_PATCH) == pin['nvs_patch_sha256'], 'NVS patch provenance mismatch')
+    require(sha(core/pin['nvs_source']) == pin['patched_nvs_source_sha256' if patched else 'original_nvs_source_sha256'], 'NVS source mismatch')
     require(sha(PATCH) == pin['patch_sha256'], 'Routing patch provenance mismatch')
     require(sha(ROOT/'proposals/evilduck-hid-feature-companion.patch') == pin['companion_patch_sha256'], 'Companion patch provenance mismatch')
     require(sha(ROOT/'EvilDuckS3/hid_backend.cpp') == pin['integrated_backend_sha256'], 'Paired production backend mismatch')
     require(tree_hash(core) == pin['patched_tree_sha256' if patched else 'original_tree_sha256'], 'Core tree mismatch')
+    sdk = core.parents[2]/'tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3'
+    require(sha(sdk/'lib/libnvs_flash.a') == pin['sdk_nvs_archive_sha256'], 'NVS SDK archive mismatch')
+    require(sha(sdk/'qio_qspi/include/sdkconfig.h') == pin['sdk_config_sha256'], 'SDK configuration mismatch')
     for record in json.loads((ROOT/'docs/stage15-upstream-sources.json').read_text())['sources']:
         path = record['path']
         if '/hardware/esp32/3.3.0/' in path:
@@ -59,9 +65,10 @@ def prepare(core, destination, user):
             target.symlink_to(package / 'tools', target_is_directory=True)
     for index in original_data.glob('*index.json*'):
         shutil.copyfile(index, data / index.name)
-    # Only routing is patched. Tool executables and libraries are read-only inputs;
+    # Only reviewed HID routing and early NVS policy are patched. Tool executables and libraries are read-only inputs;
     # their build products go to the external build/cache, never their source trees.
-    subprocess.run(['patch', '--batch', '--forward', '--fuzz=0', '-p1', '-i', str(PATCH)], cwd=copied, check=True)
+    for patch in (PATCH, NVS_PATCH):
+        subprocess.run(['patch', '--batch', '--forward', '--fuzz=0', '-p1', '-i', str(patch)], cwd=copied, check=True)
     check_sources(copied, True)
     check_sources(core)
     config = destination / 'arduino-cli.json'

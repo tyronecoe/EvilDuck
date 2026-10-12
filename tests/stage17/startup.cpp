@@ -5,6 +5,7 @@
 #include <string>
 #include "../../EvilDuckS3/EvilDuckS3.ino"
 static std::vector<std::string> calls;
+extern "C" int32_t evilduck_nvs_startup_error(void) { return 0; }
 static bool autorun=true;
 static unsigned assertions=0;
 void check(bool ok,const char *why){++assertions;if(!ok)throw std::runtime_error(why);}

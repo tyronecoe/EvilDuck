@@ -44,7 +44,7 @@ def main():
     from patched_core import check_sources
     require(core == args.patched_core_dir.resolve(), "CLI selected a different core; refusing unpatched fallback")
     check_sources(core, True)
-    extra_flags = "-DEVILDUCK_VERIFIED_HID_ROUTING=1"
+    extra_flags = "-DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1"
     if args.deployment_safe_start:
         extra_flags += " -DEVILDUCK_DEPLOYMENT_SAFE_START=1"
     compile_args += ["--build-property", "compiler.cpp.extra_flags=" + extra_flags]

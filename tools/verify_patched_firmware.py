@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Offline final-link provenance checks; compilation is not physical USB validation."""
-import argparse,json,subprocess,tempfile,sys
+import argparse,json,subprocess,tempfile,sys,re
 sys.dont_write_bytecode = True
 from pathlib import Path
 from patched_core import check_sources,sha
@@ -22,6 +22,9 @@ def verify(core,build):
  build_report=json.loads((build/'s3-build-report.json').read_text())
  sketch_entries=[e for e in entries if Path(e['file']).name=='EvilDuckS3.ino.cpp']
  require(len(sketch_entries)==1,'Expected one actual startup translation unit')
+ require('-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1' in sketch_entries[0]['arguments'],'NVS dependency guard not enabled')
+ misc=[e for e in entries if Path(e['file']).name=='esp32-hal-misc.c']
+ require(len(misc)==1 and Path(misc[0]['file']).resolve()==core/pin['nvs_source'],'Early startup is not from the verified isolated core')
  safe_flag='-DEVILDUCK_DEPLOYMENT_SAFE_START=1' in sketch_entries[0]['arguments']
  require(safe_flag is build_report.get('deployment_safe_start',False),'Startup profile metadata differs from actual compiler flags')
  if (ROOT/'EvilDuckS3/deployment_boot.h').exists():
@@ -46,13 +49,33 @@ def verify(core,build):
  callback=[l for l in symbols.splitlines() if l.endswith(' T tud_hid_set_report_cb')];require(len(callback)==1,'Final ELF must contain exactly one strong SET_REPORT callback')
  require('FeedbackKeyboard::_onOutput(' in symbols,'Production OUTPUT override missing from linked ELF')
  require('FeedbackKeyboard::_onSetFeature(' not in symbols,'Legacy FEATURE-as-LED workaround still linked')
+ require(sum(l.endswith(' T evilduck_nvs_startup_error') for l in symbols.splitlines())==1,'Protected NVS status hook missing/duplicated')
+ require('startupNvsError' in symbols,'Application failure latch absent')
+ nvs_header=ROOT/'EvilDuckS3/nvs_startup.h'
+ require((build/'sketch/nvs_startup.h').read_bytes()==('#line 1 '+json.dumps(str(nvs_header))+'\n').encode()+nvs_header.read_bytes(),'Compiled NVS contract header differs from source')
+ setup_disasm=subprocess.run([objdump,'-d','--disassemble=_Z5setupv',str(elf)],capture_output=True,text=True,check=True).stdout
+ # Xtensa sequential disassembly can lose alignment at unreachable linker padding.
+ # Re-decode bounded explicit branch targets to verify the final linked call.
+ if 'evilduck_nvs_startup_error' not in setup_disasm:
+  targets=list(dict.fromkeys(re.findall(r'([0-9a-f]+) <_Z5setupv\+0x[0-9a-f]+>',setup_disasm)))[:16]
+  for target in targets:
+   address=int(target,16)
+   block=subprocess.run([objdump,'-d','--start-address='+hex(address),'--stop-address='+hex(address+96),str(elf)],capture_output=True,text=True,check=True).stdout
+   setup_disasm += block
+   if 'evilduck_nvs_startup_error' in block:break
+ require('evilduck_nvs_startup_error' in setup_disasm,'Actual setup does not read protected core status')
+ (build/'stage18-linked-startup.txt').write_text(setup_disasm)
+ nvs_disasm=subprocess.run([objdump,'-d','--disassemble=initArduino',str(elf)],capture_output=True,text=True,check=True).stdout
+ require('<initArduino>:' in nvs_disasm and 'nvs_flash_init' in nvs_disasm,'Real NVS startup call missing')
+ require('esp_partition_erase_range' not in nvs_disasm and 'nvs_flash_erase' not in nvs_disasm,'Automatic erase still linked in Arduino initialization')
+ (build/'stage18-linked-nvs.txt').write_text(nvs_disasm)
  for symbol in ['tud_hid_get_report_cb','tud_cdc_rx_cb','tud_msc_read10_cb','tud_msc_write10_cb']:
   require(symbol in symbols,'Expected HID/CDC/MSC integration symbol absent: '+symbol)
  maptext=(build/'EvilDuckS3.ino.map').read_text();require(str(obj) in maptext,'Link map lacks verified routing object')
  disasm=subprocess.run([objdump,'-d','--disassemble=tud_hid_set_report_cb',str(elf)],capture_output=True,text=True,check=True).stdout
  require('<tud_hid_set_report_cb>:' in disasm,'Linked callback disassembly missing')
  (build/'stage16-linked-routing.txt').write_text(disasm)
- report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),hardware_access=False)
+ report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),nvs_preservation_policy=True,nvs_source_sha256=sha(core/pin['nvs_source']),hardware_access=False)
  (build/'stage16-link-provenance.json').write_text(json.dumps(report,indent=2)+'\n');return report
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--build-dir',type=Path,required=True);a=p.parse_args();print(json.dumps(verify(a.core_dir,a.build_dir),indent=2))

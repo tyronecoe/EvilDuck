@@ -31,7 +31,7 @@ def prepare(normal_core,normal_build,safe_core,safe_build,output):
  validate_regions(entries)
  result=dict(provisional_inventory=True,review_only=True,migration_authorized=False,hardware_execution_supported=False,owner_files_verified=False,owner_evidence_missing=list(OWNER),protected_regions=[dict(name='nvs',offset=0x9000,bytes=0x5000)],writes=entries,
  artifacts={n:dict(bytes=len(d),sha256=hashlib.sha256(d).hexdigest()) for n,d in payloads.items()},normal_build_provenance=normal,safe_build_provenance=safe,
- normal_application_initial_write=False,normal_application_purpose='Separate reviewed transition out of safe-start; never automatic',first_boot='Quiescent application; Arduino pre-setup NVS erase risk remains',readiness='NO-GO migration pending actual owner backup/plan preflight and individual authorization')
+ normal_application_initial_write=False,normal_application_purpose='Separate reviewed transition out of safe-start; never automatic',arduino_nvs_auto_erase_disabled=True,sdk_nvs_mutation_risk_unresolved=True,first_boot='Quiescent application; known Arduino erase path disabled, SDK page-recovery mutations remain possible',readiness='NO-GO migration pending actual owner backup/plan preflight and individual authorization')
  output.mkdir(parents=True)
  for name,data in payloads.items():(output/name).write_bytes(data)
  (output/'artifact-inventory.json').write_text(json.dumps(result,indent=2)+'\n');return result
