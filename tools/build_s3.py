@@ -20,6 +20,7 @@ def main():
     parser.add_argument("--config-file", type=Path)
     parser.add_argument("--build-dir", type=Path, help="Must be empty; defaults to a temporary directory")
     parser.add_argument("--patched-core-dir", type=Path, required=True, help="Verified disposable Stage16 core; use build_s3_patched.py")
+    parser.add_argument("--deployment-safe-start", action="store_true", help="Explicit quiescent first-boot profile; normal behavior otherwise")
     parser.add_argument("--jobs", type=int, default=2)
     args = parser.parse_args()
     require(args.jobs > 0, "--jobs must be positive")
@@ -43,7 +44,10 @@ def main():
     from patched_core import check_sources
     require(core == args.patched_core_dir.resolve(), "CLI selected a different core; refusing unpatched fallback")
     check_sources(core, True)
-    compile_args += ["--build-property", "compiler.cpp.extra_flags=-DEVILDUCK_VERIFIED_HID_ROUTING=1"]
+    extra_flags = "-DEVILDUCK_VERIFIED_HID_ROUTING=1"
+    if args.deployment_safe_start:
+        extra_flags += " -DEVILDUCK_DEPLOYMENT_SAFE_START=1"
+    compile_args += ["--build-property", "compiler.cpp.extra_flags=" + extra_flags]
     validate_csv(core)  # Also rejects any active core other than 3.3.0.
     validate_properties(properties)
     print("Pinned ESP32 core {}: {}".format(CORE_VERSION, core), flush=True)
@@ -71,7 +75,8 @@ def main():
     require(program and ram, "Compiler flash/RAM measurements missing from build output")
     require(int(program[2]) == APP_BYTES, "Compiler maximum differs from the OTA slot size")
     report.update(compiler_program_bytes=int(program[1]), static_ram_bytes=int(ram[1]),
-                  compiler_ram_maximum_bytes=int(ram[2]), merged_image_for_migration=False)
+                  compiler_ram_maximum_bytes=int(ram[2]), merged_image_for_migration=False,
+                  deployment_safe_start=args.deployment_safe_start, verified_cpp_extra_flags=extra_flags)
     (build / "s3-build-report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
     print("PASS: clean 16 MiB build. Application-only .bin is for OTA AFTER authorized migration.")

@@ -1,0 +1,4 @@
+{
+  "normal": "/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:28:6:void setup()\t96\tstatic\n/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:67:6:void loop()\t32\tstatic\n",
+  "safe-final": "/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:28:6:void setup()\t64\tstatic\n/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:67:6:void loop()\t32\tstatic\n"
+}

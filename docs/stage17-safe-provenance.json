@@ -1,0 +1,33 @@
+{
+  "patched_core_pin": {
+    "core_version": "3.3.0",
+    "baseline": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831"
+  },
+  "core": "/workspace/tooling/stage17-safe-final-core/data/packages/esp32/hardware/esp32/3.3.0",
+  "compiled_routing": "/workspace/tooling/stage17-safe-final-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHID.cpp",
+  "routing_object_sha256": "29b00d8cdac53dd06413ff84527aae6565c71e110a69556d3ff49a7174de6935",
+  "elf_sha256": "89f7dada99fe13b6ef030713c8d450724a1bbdda9ee371ae4eaa8af7c8666401",
+  "application_sha256": "b56d9a6253a85a703fd51acc06d66c22d4bfa38cc9562f3c0ca7ae256d7238f0",
+  "backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "compiler_version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "cli_settings": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "single_strong_callback": true,
+  "feature_workaround_absent": true,
+  "hid_cdc_msc_linked": true,
+  "deployment_safe_start": true,
+  "elf_to_image_verified": true,
+  "esptool_sha256": "0e11f846b22e67fccf366977f8916cd35db611e44b6496a719039c208b7df345",
+  "hardware_access": false
+}

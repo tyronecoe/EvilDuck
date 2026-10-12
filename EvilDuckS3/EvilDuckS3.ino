@@ -2,6 +2,7 @@
 #include <WiFi.h>
 
 #include "config.h"
+#include "deployment_boot.h"
 #include "debug.h"
 #include "storage.h"
 #include "settings.h"
@@ -25,6 +26,11 @@ static void applyIdleLedColor() {
 }
 
 void setup() {
+  if (deployment::safeStart()) {
+    debug::begin();
+    debug::info("DEPLOYMENT SAFE START: application services and payload execution disabled");
+    return; // No filesystem mount/format, NVS settings load, script, HID or MSC startup.
+  }
   debug::begin();
   debug::info("Booting EvilDuck...");
 
@@ -59,6 +65,10 @@ void setup() {
 }
 
 void loop() {
+  if (deployment::safeStart()) {
+    delay(1);
+    return; // Intentionally no web/CLI arming path or execution scheduler in this profile.
+  }
   duckscript::update();
   com::update();
   cli::update();

@@ -34,7 +34,7 @@ def validate_regions(entries):
     for entry in entries:
         start, end = REGIONS[entry["role"]]
         size = entry["bytes"]
-        require(isinstance(size, int) and 0 < size <= end - start, "Image exceeds its exact reviewed region")
+        require(type(size) is int and 0 < size <= end - start, "Image exceeds its exact reviewed region")
         require(entry["offset"] == start, "Image offset differs from the reviewed region")
         erase_start = start // SECTOR_BYTES * SECTOR_BYTES
         erase_end = (start + size + SECTOR_BYTES - 1) // SECTOR_BYTES * SECTOR_BYTES
@@ -102,8 +102,8 @@ def make_plan(core_dir, build_dir, archive_dir, repack_dir, output,
         "bootloader": ("bootloader.bin", (build_dir / "EvilDuckS3.ino.bootloader.bin").read_bytes()),
         "partitions": ("partitions-sector.bin", (build_dir / "EvilDuckS3.ino.partitions.bin").read_bytes().ljust(0x1000, b"\xFF")),
         "otadata": ("otadata-app0.bin", ota),
-        "app0": ("stage4-app.bin", (build_dir / "EvilDuckS3.ino.bin").read_bytes()),
-        "app1": ("stage4-app.bin", (build_dir / "EvilDuckS3.ino.bin").read_bytes()),
+        "app0": ("evilduck-app.bin", (build_dir / "EvilDuckS3.ino.bin").read_bytes()),
+        "app1": ("evilduck-app.bin", (build_dir / "EvilDuckS3.ino.bin").read_bytes()),
         "spiffs": (spiffs.name, spiffs.read_bytes()),
         "coredump": ("coredump-empty.bin", b"\xFF" * 0x10000),
     }
@@ -120,10 +120,10 @@ def make_plan(core_dir, build_dir, archive_dir, repack_dir, output,
               "original_partition_sector_sha256": archive["partition_sector_sha256"],
               "protected_regions": [{"name": "nvs", "offset": NVS_START, "bytes": NVS_END-NVS_START}],
               "ota_strategy": "Rewrite both sectors with pinned boot_app0 initializer; start app0",
-              "applications": "Install same compiled/tested Stage 4 image in both slots; physical validation pending",
+              "applications": "Install same validated build image in both slots; Stage17 preflight and physical validation pending",
               "coredump_strategy": "New partition initialized to erased 0xFF; no old coredump",
               "file_inventory": repack["files"], "on_device_verification_required": True,
-              "writes": entries}
+              "writes": entries, "stage17_preflight_required": True}
     output.mkdir(parents=True)
     for entry in entries:
         data = payloads[entry["role"]][1]
