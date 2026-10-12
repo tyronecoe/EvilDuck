@@ -1,0 +1,28 @@
+--- a/libraries/USB/src/USBHID.cpp
++++ b/libraries/USB/src/USBHID.cpp
+@@ -264,10 +264,15 @@
+-  if (!report_id && (!report_type || report_type == HID_REPORT_TYPE_OUTPUT)) {
+-    if (!tinyusb_on_set_output(0, buffer, bufsize) && !tinyusb_on_set_output(buffer[0], buffer + 1, bufsize - 1)) {
+-      log_d(
+-        "instance: %u, report_id: %u, report_type: %s, bufsize: %u", instance, buffer[0], tinyusb_hid_device_report_types[HID_REPORT_TYPE_OUTPUT], bufsize - 1
+-      );
+-    }
+-  } else {
+-    if (!tinyusb_on_set_feature(report_id, buffer, bufsize)) {
+-      log_d("instance: %u, report_id: %u, report_type: %s, bufsize: %u", instance, report_id, tinyusb_hid_device_report_types[report_type], bufsize);
+-    }
++  // Proposal only: bounds/type guard before report-ID extraction or logging.
++  if (instance >= CFG_TUD_HID || (bufsize && !buffer)) {
++    return;
++  }
++  if ((!report_id && !report_type) || report_type == HID_REPORT_TYPE_OUTPUT) {
++    if (!buffer || !bufsize) {
++      return;
++    }
++    if (report_id) {
++      tinyusb_on_set_output(report_id, buffer, bufsize);
++    } else if (!tinyusb_on_set_output(0, buffer, bufsize) && bufsize >= 2) {
++      tinyusb_on_set_output(buffer[0], buffer + 1, bufsize - 1);
++    }
++  } else if (report_type == HID_REPORT_TYPE_FEATURE) {
++    tinyusb_on_set_feature(report_id, buffer, bufsize);

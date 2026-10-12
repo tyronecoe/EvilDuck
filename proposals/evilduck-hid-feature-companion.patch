@@ -1,0 +1,12 @@
+--- a/EvilDuckS3/hid_backend.cpp
++++ b/EvilDuckS3/hid_backend.cpp
+@@ -14,8 +14,7 @@
+   }
+ public:
+   void _onOutput(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
+-  // Pinned Arduino3.3.0 routes nonzero-ID control SET_REPORT through this hook.
+-  void _onSetFeature(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
++  // Companion proposal: typed core routes OUTPUT to _onOutput; no LED FEATURE report.
+ };
+ static FeedbackKeyboard Keyboard;
+ static bool releasePending = false;

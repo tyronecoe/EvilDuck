@@ -1,0 +1,53 @@
+{
+  "core_version": "3.3.0",
+  "sdk": "idf-release_v5.5-b66b5448-v1",
+  "header_tinyusb_version": "0.18.0",
+  "sources": [
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHID.cpp",
+      "sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "bytes": 14967
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHID.h",
+      "sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+      "bytes": 2453
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHIDKeyboard.cpp",
+      "sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+      "bytes": 7645
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHIDKeyboard.h",
+      "sha256": "8739ca6da849985c28d48743cfd3549fc4ee57a7d661fb4cdb046941d819d596",
+      "bytes": 5398
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/USB.cpp",
+      "sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+      "bytes": 10092
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/esp32-hal-tinyusb.c",
+      "sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+      "bytes": 30412
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/arduino_tinyusb/tinyusb/src/tusb_option.h",
+      "sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "bytes": 24023
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/arduino_tinyusb/tinyusb/src/class/hid/hid_device.h",
+      "sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "bytes": 39331
+    },
+    {
+      "path": "/workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libarduino_tinyusb.a",
+      "sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18",
+      "bytes": 1109204
+    }
+  ],
+  "installed_files_modified": false
+}

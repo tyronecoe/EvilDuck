@@ -1,0 +1,1838 @@
+{
+  "kind": "per-function compiler estimates, not runtime high-water",
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_sha256": "19e174639a94ff31c7e76c1d5a97f1062ae63cbfa6029fa5a5abf8eee1a28898",
+  "records": [
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:10:6:void attackmode::begin()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:11:6:bool attackmode::hidEnabled()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:12:6:bool attackmode::storageEnabled()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:13:6:bool attackmode::storageRequested()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:14:6:bool attackmode::storagePreparing()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:15:13:const char* attackmode::storageState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:16:13:const char* attackmode::storageError()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:17:6:void attackmode::update()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:18:6:void attackmode::cancelPendingStorage()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:22:6:void attackmode::setHid(bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:23:6:void attackmode::setStorage(bool)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:29:6:void attackmode::setOff()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:30:6:void attackmode::setHidOnly()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:31:6:void attackmode::setStorageOnly()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:32:6:void attackmode::setHidStorage()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "attackmode.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/attackmode.cpp:33:6:bool attackmode::applyFromString(const String&)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:112:6:void {anonymous}::releaseOwnedKeys()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:21:8:{anonymous}::Session::~Session()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:21:8:{anonymous}::Session::Session()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:132:6:void {anonymous}::startText(const String&, bool, Phase, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:105:6:void {anonymous}::waitFor(uint32_t, Phase)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:73:6:bool {anonymous}::equalsNoCase(const String&, const char*)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:117:6:bool {anonymous}::jitterWait(Phase)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:123:6:void {anonymous}::report(uint8_t, const uint8_t*, uint8_t, Phase)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:60:8:String {anonymous}::trimLine(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:376:6:void {anonymous}::submit(const String&, bool)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:366:6:void {anonymous}::fail()",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:79:9:uint8_t {anonymous}::parseNumberToken(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:86:6:bool {anonymous}::parseFilePayload(const String&, const char*, String&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:97:6:bool {anonymous}::fileIoWrite(const String&, const String&, bool)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:145:6:bool {anonymous}::startLine()",
+      "bytes": 224,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:386:6:void com::onDone(cb_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:387:6:void com::onRepeat(cb_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:388:6:void com::onError(cb_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:390:6:bool com::statusLedOverridden()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:392:6:void com::beginScript()",
+      "bytes": 208,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:403:6:void com::endScript()",
+      "bytes": 208,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:414:6:bool com::busy()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:415:8:String com::lastError()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:416:8:String com::submissionError()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:418:6:void com::send(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:423:6:void com::sendText(const String&, bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:434:6:bool com::executeNow(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:454:6:void com::update()",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "com.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/com.cpp:627:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:16:8:size_t duck_constants::{anonymous}::start(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:18:6:void duck_constants::clear()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:19:6:bool duck_constants::declaration(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:26:6:bool duck_constants::definition(const String&, String&, String&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:44:6:bool duck_constants::define(const String&, uint32_t, String&)",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:62:6:bool duck_constants::boolean(const String&, bool&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:71:6:bool duck_constants::expand(const String&, String&, String&)",
+      "bytes": 592,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_constants.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp:95:6:bool duck_constants::Collector::accept(const String&, uint32_t, String&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:7:6:bool duck_expr::{anonymous}::makeWord(char)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:33:8:void duck_expr::{anonymous}::Parser::spaces()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:29:8:bool duck_expr::{anonymous}::Parser::fail(const char*, size_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:135:8:bool duck_expr::{anonymous}::Parser::apply(duck_expr::{anonymous}::Op, duck_expr::{anonymous}::Value&, const duck_expr::{anonymous}::Value&, size_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:34:8:bool duck_expr::{anonymous}::Parser::token()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:196:6:void duck_expr::functions(Resolver, void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:197:6:bool duck_expr::containsCalls(const char*, size_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:207:6:bool duck_expr::Program::emit(uint8_t, uint16_t, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:26:8:bool duck_expr::{anonymous}::Parser::emit(duck_expr::{anonymous}::Op, uint16_t, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:220:6:bool duck_expr::Program::returned(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:224:6:duck_expr::Step duck_expr::Program::step(uint16_t&, duck_expr::Error&, duck_expr::Resolver, void*, uint16_t)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:251:6:bool duck_expr::identifier(const char*, size_t, char)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:168:8:bool duck_expr::{anonymous}::Parser::expression(uint8_t, uint8_t, duck_expr::{anonymous}::Value&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:185:8:constprop(uint16_t&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:211:6:bool duck_expr::Program::compile(const char*, size_t, duck_expr::Error&, duck_expr::Resolver, void*)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_expr.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp:258:6:bool duck_expr::evaluate(const char*, size_t, uint16_t&, Error&, Resolver, void*, Mode)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_keys.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_keys.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp:8:6:bool duck_keys::isModifierName(const String&, uint8_t&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_keys.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp:25:6:bool duck_keys::tokenToHid(const String&, uint8_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_keys.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp:29:6:duck_keys::Item duck_keys::next(const String&, Cursor&, uint8_t&, uint8_t (&)[6], uint8_t&, String&)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_keys.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp:68:6:void duck_keys::pressLineTokens(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:28:6:void duck_random::resetRun()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:29:10:uint16_t duck_random::minimum()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:30:10:uint16_t duck_random::maximum()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:31:10:uint16_t duck_random::jitterMaximum()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:32:6:bool duck_random::jitterEnabled()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:33:6:void duck_random::setMinimum(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:34:6:void duck_random::setMaximum(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:35:6:void duck_random::setJitterMaximum(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:36:6:void duck_random::setJitterEnabled(bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:37:6:bool duck_random::range(uint16_t, uint16_t, uint16_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:50:6:bool duck_random::integer(uint16_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:51:6:bool duck_random::jitter(uint16_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:54:5:int duck_random::command(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:59:13:const char* duck_random::characters(uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_random.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp:62:6:bool duck_random::character(uint8_t, char&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:164:6:bool internal_vars::{anonymous}::equal(const char*, size_t, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:13:8:void __tcf_0(void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:17:5:int duck_vars::Symbols::index(const char*, size_t) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:22:6:duck_vars::Type duck_vars::Symbols::type(const char*, size_t) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:53:10:uint32_t duck_vars::revision()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:168:6:bool internal_vars::reserved(const char*, size_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:173:6:bool internal_vars::writable(const char*, size_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:26:5:int duck_vars::Symbols::declare(const String&, duck_vars::Type, bool, String&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:93:6:bool duck_vars::setText(const String&, const String&, bool, String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:101:6:bool duck_vars::set(const String&, const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:177:5:int internal_vars::lockCommand(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:186:10:uint16_t internal_vars::lockTimeout()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:187:6:void internal_vars::resetRun()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:54:6:void duck_vars::clear()",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:188:6:bool internal_vars::validate(const String&, uint16_t, String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:194:6:bool internal_vars::write(const String&, uint16_t, String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:203:19:duck_expr::Lookup internal_vars::resolve(const char*, size_t, uint16_t&, bool)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:46:19:static duck_expr::Lookup duck_vars::Symbols::resolve(const char*, size_t, uint16_t&, void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:60:19:duck_expr::Lookup duck_vars::resolve(const char*, size_t, uint16_t&, void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:68:6:bool duck_vars::getNumeric(const String&, uint16_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:71:6:bool duck_vars::assign(const String&, const String&, bool, String&)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:105:6:bool duck_vars::get(const String&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:116:6:bool duck_vars::expand(const String&, String&, String&)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:142:8:String duck_vars::expand(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:147:6:bool duck_vars::truthy(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duck_vars.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp:235:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:443:13:void comDone()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:445:13:void comRepeat()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:29:8:bool control_flow::Stack::active() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/control_flow.h:39:8:bool control_flow::Stack::eligible() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:317:6:void duckscript::stop()",
+      "bytes": 672,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:68:6:void {anonymous}::fail(const String&, uint32_t)",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:447:13:void comError()",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:112:6:void {anonymous}::returnFunction(bool, uint16_t)",
+      "bytes": 1072,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:99:6:bool {anonymous}::enterFunction(uint16_t, bool)",
+      "bytes": 1040,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:85:6:bool {anonymous}::beginEvaluation(const String&, script_functions::Consumer, const char*, bool, uint8_t)",
+      "bytes": 1040,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:170:6:bool {anonymous}::isControlLine(const script_parser::Statement&)",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:348:13:void loadNextLine()",
+      "bytes": 192,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:333:6:void duckscript::update()",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:341:6:bool duckscript::running()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:342:8:String duckscript::runningScript()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:343:10:uint32_t duckscript::currentLine()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:344:8:String duckscript::lastError()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:22:8:RunState::RunState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:22:8:RunState::~RunState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:276:6:bool duckscript::run(const String&)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "duckscript.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp:449:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/Print.h:77:15:virtual int Print::availableForWrite()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/Print.h:115:16:virtual void Print::flush()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHID.h:66:20:virtual uint16_t USBHIDDevice::_onGetFeature(uint8_t, uint8_t*, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:261:13:bool hid_backend::append({anonymous}::Owned&, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:10:7:FeedbackKeyboard::~FeedbackKeyboard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:10:7:virtual void FeedbackKeyboard::_ZThn4_N16FeedbackKeyboardD1Ev()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:107:6:void {anonymous}::applyModifiers(uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:10:7:virtual FeedbackKeyboard::~FeedbackKeyboard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:10:7:virtual void FeedbackKeyboard::_ZThn4_N16FeedbackKeyboardD0Ev()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:252:13:bool hid_backend::queueRaw(const {anonymous}::Owned&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:130:10:uint32_t hid_backend::lockSession()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:131:6:void hid_backend::invalidateLockState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:121:6:void hid_backend::begin()",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:47:6:void {anonymous}::usbEvent(void*, esp_event_base_t, int32_t, void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:136:6:bool hid_backend::receiveLockReport(uint8_t, const uint8_t*, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:18:8:virtual void FeedbackKeyboard::_onSetFeature(uint8_t, const uint8_t*, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:16:8:virtual void FeedbackKeyboard::_onOutput(uint8_t, const uint8_t*, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:148:11:hid_backend::LockState hid_backend::lockState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:156:6:bool hid_backend::saveLockState()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:164:6:bool hid_backend::keyNameToHid(const String&, uint8_t&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:244:6:void hid_backend::pressModifier(uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:248:6:void hid_backend::pressKeyHeld(uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:270:6:bool hid_backend::beginReport(uint8_t, const uint8_t*, uint8_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:280:6:bool hid_backend::releaseReport()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:286:6:bool hid_backend::hold(uint8_t, uint8_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:298:6:bool hid_backend::release(uint8_t, uint8_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:318:6:bool hid_backend::hasPersistent()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:324:6:bool hid_backend::clearing()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:325:13:const char* hid_backend::reportError()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:326:6:bool hid_backend::takeTransportLoss()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:330:6:void hid_backend::update()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:345:6:void hid_backend::cancelReport()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:354:6:void hid_backend::pressReport(uint8_t, const uint8_t*, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:376:6:void hid_backend::releaseAll()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:364:6:void hid_backend::pressKeycode(uint8_t, uint8_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:369:6:bool hid_backend::pressNamedCombo(const String&, uint8_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:380:6:void hid_backend::sendText(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:389:6:void hid_backend::pressEnter()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:384:6:void hid_backend::sendTextLn(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:390:6:void hid_backend::pressTab()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:391:6:void hid_backend::pressEscape()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:392:6:void hid_backend::pressSpace()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:393:6:void hid_backend::pressBackspace()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:394:6:void hid_backend::pressDelete()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:395:6:void hid_backend::pressArrowUp()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:396:6:void hid_backend::pressArrowDown()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:397:6:void hid_backend::pressArrowLeft()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:398:6:void hid_backend::pressArrowRight()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "hid_backend.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/hid_backend.cpp:400:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:22:13:bool keyboard_locale::nameEq(const String&, const char*)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:28:22:hid_locale_t* keyboard_locale::findLocale(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:10:6:void keyboard_locale::begin()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:14:6:void keyboard_locale::setLocale(hid_locale_t*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:18:15:hid_locale_t* keyboard_locale::getLocale()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:46:6:bool keyboard_locale::supportsLocale(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:47:6:bool keyboard_locale::setLocaleByName(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:54:8:size_t keyboard_locale::translate(const char*, size_t, Stroke (&)[2], uint8_t&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:115:6:void keyboard_locale::write(const char*, size_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "keyboard_locale.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp:126:6:void keyboard_locale::write(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:9:6:bool script_functions::name(const String&, String&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:26:5:int script_functions::Table::find(const char*, size_t) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:30:6:bool script_functions::Table::add(const String&, uint32_t, uint32_t, String&)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:35:6:bool script_functions::Table::close(uint32_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_functions.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp:36:19:static duck_expr::Lookup script_functions::Table::resolve(const char*, size_t, uint16_t&, void*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:30:6:bool script_parser::{anonymous}::variable(const String&)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:77:6:bool script_parser::{anonymous}::number(const String&, uint32_t, bool)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:17:6:bool script_parser::{anonymous}::makeWord(const String&, size_t&, String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:24:8:String script_parser::{anonymous}::words(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:220:8:bool String::operator!=(const char*) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:230:8:bool String::startsWith(const char*) const",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:238:8:bool String::endsWith(const char*) const",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:33:6:bool script_parser::{anonymous}::operand(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:279:10:String String::substring(unsigned int) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:42:6:bool script_parser::{anonymous}::legacySyntax(const String&, String&, int*)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:293:8:void String::replace(const char*, const char*)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:106:6:bool script_parser::expression(const String&, String&, duck_expr::Resolver, void*)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:114:6:bool script_parser::condition(const String&, bool, uint16_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+      "bytes": 176,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:62:6:bool script_parser::{anonymous}::conditionalArgs(script_parser::Statement&, bool, String&)",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:162:6:bool script_parser::assignment(const String&, String&, String&, bool&, String&)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:191:6:bool script_parser::numericArgument(const String&, uint32_t&, String&, duck_expr::Mode, duck_expr::Resolver, void*)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:209:6:bool script_parser::hasKeyword(const String&, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:218:6:bool script_parser::filePayload(const String&, String&, String&)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:234:6:bool script_parser::textOpener(const String&, Kind&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h:13:8:script_parser::Statement::~Statement()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:279:6:bool script_parser::RawBlocks::finish(String&, uint32_t&) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::Ref()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/storage.h:10:8:storage::Ref::~Ref()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:286:6:bool script_parser::parse(const String&, Statement&, String&)",
+      "bytes": 240,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:250:6:bool script_parser::RawBlocks::scan(const String&, uint32_t, bool&, String&, bool)",
+      "bytes": 144,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:505:6:bool script_parser::Lexer::scan(const String&, uint32_t, script_parser::Statement&, String&)",
+      "bytes": 288,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:601:6:bool script_parser::Lexer::finish(String&, uint32_t&) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:608:6:bool script_parser::Validator::accept(const String&, uint32_t, String&)",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_parser.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp:681:6:bool script_parser::Validator::finish(String&, uint32_t&) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_preprocessor.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_preprocessor.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp:10:6:bool script_preprocessor::Filter::accept(const String&, uint32_t, String&)",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "script_preprocessor.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp:73:6:bool script_preprocessor::Filter::finish(String&, uint32_t&) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:85:23:unsigned int String::length() const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h:238:8:bool String::endsWith(const char*) const",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:13:8:String {anonymous}::normalizePath(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:29:6:bool sd_card::begin()",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:45:6:bool sd_card::ready()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:50:8:size_t sd_card::totalBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:56:8:size_t sd_card::usedBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:62:8:size_t sd_card::freeBytes()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:68:6:bool sd_card::exists(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:74:6:bool sd_card::mkdir(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:80:6:bool sd_card::remove(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:86:6:bool sd_card::rename(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:92:6:fs::File sd_card::openRead(const String&)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:108:6:bool sd_card::writeFile(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:118:6:bool sd_card::appendFile(const String&, const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:98:8:String sd_card::readFile(const String&)",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:128:8:String sd_card::listDir(const String&)",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:153:15:sd_card::listScriptsJson()::<lambda(const char*)>",
+      "bytes": 160,
+      "qualifier": "static"
+    },
+    {
+      "module": "sd_card.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/sd_card.cpp:145:8:String sd_card::listScriptsJson()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:27:6:void {anonymous}::fail(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:35:6:bool {anonymous}::available()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:31:26:QueueDefinition* execution::mutex()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:39:3:execution::Guard::~Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:38:3:execution::Guard::Guard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:46:3:execution::TryGuard::TryGuard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h:47:3:execution::TryGuard::~TryGuard()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:61:9:int32_t {anonymous}::onWrite(uint32_t, uint32_t, uint8_t*, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:49:9:int32_t {anonymous}::onRead(uint32_t, uint32_t, void*, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:142:6:void usb_msc::end()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:88:6:bool usb_msc::begin()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:74:6:bool {anonymous}::onStartStop(uint8_t, bool, bool)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:151:6:bool usb_msc::active()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:152:6:bool usb_msc::preparing()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:153:7:usb_msc::State usb_msc::state()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:154:13:const char* usb_msc::lastError()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:170:13:const char* usb_msc::stateName()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/tools/esp-x32/2411/xtensa-esp-elf/include/c++/14.2.0/bits/shared_ptr_base.h:1066:7:std::__shared_count<_Lp>::~__shared_count() [with __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src/FS.h:46:7:fs::File::~File()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src/FS.h:46:7:virtual fs::File::~File()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:100:6:void usb_msc::update()",
+      "bytes": 592,
+      "qualifier": "static"
+    },
+    {
+      "module": "usb_msc.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/usb_msc.cpp:180:1:cpp)",
+      "bytes": 32,
+      "qualifier": "static"
+    }
+  ]
+}

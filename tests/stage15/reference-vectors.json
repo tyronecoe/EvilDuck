@@ -1,0 +1,16 @@
+{
+  "status": "UNRESOLVED_DS3_NUMERIC_ENCODING",
+  "reference_compiler": null,
+  "numeric_format_known": false,
+  "vectors": [
+    {"name":"lowercase_a","locale":"US","text":"a","packed_value":null,"known_hid_strokes":[[0,4]],"repeat_visible":"aa"},
+    {"name":"uppercase_Z","locale":"US","text":"Z","packed_value":null,"known_hid_strokes":[[2,29]],"repeat_visible":"ZZ"},
+    {"name":"digit_zero","locale":"US","text":"0","packed_value":null,"known_hid_strokes":[[0,39]],"repeat_visible":"00"},
+    {"name":"hash_shift","locale":"US","text":"#","packed_value":null,"known_hid_strokes":[[2,32]],"repeat_visible":"##"},
+    {"name":"german_altgr_at","locale":"DE","text":"@","packed_value":null,"known_hid_strokes":[[64,20]],"repeat_visible":"@@"},
+    {"name":"german_dead_circumflex","locale":"DE","text":"^","packed_value":null,"known_hid_strokes":[[0,53],[0,44]],"repeat_visible":"^^"},
+    {"name":"german_uppercase_Z","locale":"DE","text":"Z","packed_value":null,"known_hid_strokes":[[2,28]],"repeat_visible":"ZZ"}
+  ],
+  "proposed_numeric_validity_cases": [0,65535,"unknown_usage","modifier_only","seventh_held_key","locale_change_after_capture"],
+  "numeric_case_expected_results": "Unresolved; require independent encoder/runtime reference. No guessed validity/packing."
+}
