@@ -1,0 +1,88 @@
+Archive: qio_qspi/libesp_system.a
+Archive SHA256: 75df2579ef4f907c0af3fe8629f35c35c8e92165664f3e08aea373bc623386d7
+Full captured output SHA256: b7479c492f0127b22cf9d4673f8e6ebc48543abacb526d5cc76258c0339097a1
+Selected instruction excerpt only; no execution.
+
+<start_cpu0>:
+
+   0:	006136        	entry	a1, 48
+   3:	00a0a2        	movi	a10, 0
+   6:	000081        	l32r	a8, fffc0008 <start_cpu0+0xfffc0008>
+			6: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x18
+			6: R_XTENSA_ASM_EXPAND	.text.do_system_init_fn
+   9:	0008e0        	callx8	a8
+   c:	0000b1        	l32r	a11, fffc000c <start_cpu0+0xfffc000c>
+			c: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default
+   f:	0000a1        	l32r	a10, fffc0010 <start_cpu0+0xfffc0010>
+			f: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x4
+  12:	000081        	l32r	a8, fffc0014 <start_cpu0+0xfffc0014>
+			12: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x1c
+			12: R_XTENSA_ASM_EXPAND	__register_frame_info
+  15:	0008e0        	callx8	a8
+  18:	000071        	l32r	a7, fffc0018 <start_cpu0+0xfffc0018>
+			18: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x8
+  1b:	000081        	l32r	a8, fffc001c <start_cpu0+0xfffc001c>
+			1b: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0xc
+  1e:	fcc772        	addi	a7, a7, -4
+  21:	37b787        	bgeu	a7, a8, 5c <start_cpu0+0x5c>
+			21: R_XTENSA_SLOT0_OP	.text.start_cpu0_default+0x5c
+  24:	000081        	l32r	a8, fffc0024 <start_cpu0+0xfffc0024>
+			24: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x20
+			24: R_XTENSA_ASM_EXPAND	startup_resume_other_cores
+  27:	0008e0        	callx8	a8
+  2a:	1a0c      	movi.n	a10, 1
+  2c:	000081        	l32r	a8, fffc002c <start_cpu0+0xfffc002c>
+			2c: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x24
+			2c: R_XTENSA_ASM_EXPAND	.text.do_system_init_fn
+  2f:	0008e0        	callx8	a8
+  32:	080c      	movi.n	a8, 0
+  34:	000071        	l32r	a7, fffc0034 <start_cpu0+0xfffc0034>
+			34: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x10
+  37:	0020c0        	memw
+  3a:	004182        	s8i	a8, a1, 0
+  3d:	0020c0        	memw
+  40:	000182        	l8ui	a8, a1, 0
+  43:	748080        	extui	a8, a8, 0, 8
+  46:	a89c      	beqz.n	a8, 64 <start_cpu0+0x64>
+			46: R_XTENSA_SLOT0_OP	.text.start_cpu0_default+0x64
+  48:	000081        	l32r	a8, fffc0048 <start_cpu0+0xfffc0048>
+			48: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x14
+  4b:	190c      	movi.n	a9, 1
+  4d:	0020c0        	memw
+  50:	004892        	s8i	a9, a8, 0
+  53:	000081        	l32r	a8, fffc0054 <start_cpu0+0xfffc0054>
+			53: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x28
+			53: R_XTENSA_ASM_EXPAND	esp_startup_start_app
+  56:	0008e0        	callx8	a8
+  59:	ffff06        	j	59 <start_cpu0+0x59>
+			59: R_XTENSA_SLOT0_OP	.text.start_cpu0_default+0x59
+  5c:	0788      	l32i.n	a8, a7, 0
+  5e:	0008e0        	callx8	a8
+  61:	ffed86        	j	1b <start_cpu0+0x1b>
+			61: R_XTENSA_SLOT0_OP	.text.start_cpu0_default+0x1b
+  64:	180c      	movi.n	a8, 1
+  66:	0020c0        	memw
+  69:	004182        	s8i	a8, a1, 0
+  6c:	0020c0        	memw
+  6f:	000792        	l8ui	a9, a7, 0
+  72:	0020c0        	memw
+  75:	000182        	l8ui	a8, a1, 0
+  78:	64a0a2        	movi	a10, 100
+  7b:	748080        	extui	a8, a8, 0, 8
+  7e:	108890        	and	a8, a8, a9
+  81:	0020c0        	memw
+  84:	004182        	s8i	a8, a1, 0
+  87:	0020c0        	memw
+  8a:	010792        	l8ui	a9, a7, 1
+  8d:	0020c0        	memw
+  90:	000182        	l8ui	a8, a1, 0
+  93:	748080        	extui	a8, a8, 0, 8
+  96:	108890        	and	a8, a8, a9
+  99:	0020c0        	memw
+  9c:	004182        	s8i	a8, a1, 0
+  9f:	000081        	l32r	a8, fffc00a0 <start_cpu0+0xfffc00a0>
+			9f: R_XTENSA_SLOT0_OP	.literal.start_cpu0_default+0x2c
+			9f: R_XTENSA_ASM_EXPAND	esp_rom_delay_us
+  a2:	0008e0        	callx8	a8
+  a5:	ffe506        	j	3d <start_cpu0+0x3d>
+			a5: R_XTENSA_SLOT0_OP	.text.start_cpu0_default+0x3d

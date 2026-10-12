@@ -1,0 +1,15 @@
+Archive: lib/libapp_update.a
+Archive SHA256: b7d86a11aa415067680846c0a2befa4e5d0cc144f653c4fb852cff1dc3fc6957
+Full captured output SHA256: d18bb4254cc53ab7435c0a028d222a9f9d72d7a8318cabeabb5afa2c20b5c0cf
+Selected instruction excerpt only; no execution.
+
+<esp_ota_mark_app_valid_cancel_rollback>:
+
+   0:	004136        	entry	a1, 32
+   3:	01a0a2        	movi	a10, 1
+   6:	000081        	l32r	a8, fffc0008 <.LC22+0xfffbffe1>
+			6: R_XTENSA_SLOT0_OP	.literal.esp_ota_mark_app_valid_cancel_rollback
+			6: R_XTENSA_ASM_EXPAND	.text.esp_ota_current_ota_is_workable
+   9:	0008e0        	callx8	a8
+   c:	0a2d      	mov.n	a2, a10
+   e:	f01d      	retw.n

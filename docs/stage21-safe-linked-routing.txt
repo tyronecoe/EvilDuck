@@ -1,0 +1,65 @@
+
+/workspace/tooling/arduino/build/stage21-safe/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+420072a8 <tud_hid_set_report_cb>:
+420072a8:	004136        	entry	a1, 32
+420072ab:	742020        	extui	a2, a2, 0, 8
+420072ae:	743030        	extui	a3, a3, 0, 8
+420072b1:	f46060        	extui	a6, a6, 0, 16
+420072b4:	058256        	bnez	a2, 42007310 <tud_hid_set_report_cb+0x68>
+420072b7:	180c      	movi.n	a8, 1
+420072b9:	02bd      	mov.n	a11, a2
+420072bb:	83b850        	moveqz	a11, a8, a5
+420072be:	838260        	moveqz	a8, a2, a6
+420072c1:	188c      	beqz.n	a8, 420072c6 <tud_hid_set_report_cb+0x1e>
+420072c3:	049b56        	bnez	a11, 42007310 <tud_hid_set_report_cb+0x68>
+420072c6:	0a0c      	movi.n	a10, 0
+420072c8:	180c      	movi.n	a8, 1
+420072ca:	209aa0        	or	a9, a10, a10
+420072cd:	839830        	moveqz	a9, a8, a3
+420072d0:	83a840        	moveqz	a10, a8, a4
+420072d3:	1099a0        	and	a9, a9, a10
+420072d6:	69cc      	bnez.n	a9, 420072e0 <tud_hid_set_report_cb+0x38>
+420072d8:	fec4a2        	addi	a10, a4, -2
+420072db:	9389a0        	movnez	a8, a9, a10
+420072de:	38bc      	beqz.n	a8, 42007315 <tud_hid_set_report_cb+0x6d>
+420072e0:	c6ac      	beqz.n	a6, 42007310 <tud_hid_set_report_cb+0x68>
+420072e2:	abec      	bnez.n	a11, 42007310 <tud_hid_set_report_cb+0x68>
+420072e4:	06cd      	mov.n	a12, a6
+420072e6:	05bd      	mov.n	a11, a5
+420072e8:	03ad      	mov.n	a10, a3
+420072ea:	f3dc      	bnez.n	a3, 4200730d <tud_hid_set_report_cb+0x65>
+420072ec:	00a0a2        	movi	a10, 0
+420072ef:	ffe265        	call8	42007114 <_ZL21tinyusb_on_set_outputhPKht>
+420072f2:	c60b      	addi.n	a12, a6, -1
+420072f4:	180c      	movi.n	a8, 1
+420072f6:	8383c0        	moveqz	a8, a3, a12
+420072f9:	389c      	beqz.n	a8, 42007310 <tud_hid_set_report_cb+0x68>
+420072fb:	180c      	movi.n	a8, 1
+420072fd:	30aa80        	xor	a10, a10, a8
+42007300:	74a0a0        	extui	a10, a10, 0, 8
+42007303:	9a8c      	beqz.n	a10, 42007310 <tud_hid_set_report_cb+0x68>
+42007305:	0005a2        	l8ui	a10, a5, 0
+42007308:	f4c0c0        	extui	a12, a12, 0, 16
+4200730b:	b51b      	addi.n	a11, a5, 1
+4200730d:	ffe065        	call8	42007114 <_ZL21tinyusb_on_set_outputhPKht>
+42007310:	f01d      	retw.n
+42007312:	000000        	ill
+42007315:	f73466        	bnei	a4, 3, 42007310 <tud_hid_set_report_cb+0x68>
+42007318:	20a330        	or	a10, a3, a3
+4200731b:	ffdba5        	call8	420070d4 <_Z31tinyusb_get_device_by_report_idh>
+4200731e:	feea16        	beqz	a10, 42007310 <tud_hid_set_report_cb+0x68>
+42007321:	002a82        	l32i	a8, a10, 0
+42007324:	20d660        	or	a13, a6, a6
+42007327:	2888      	l32i.n	a8, a8, 8
+42007329:	05cd      	mov.n	a12, a5
+4200732b:	03bd      	mov.n	a11, a3
+4200732d:	0008e0        	callx8	a8
+42007330:	fff706        	j	42007310 <tud_hid_set_report_cb+0x68>

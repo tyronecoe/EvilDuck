@@ -1,0 +1,27 @@
+Archive: qio_qspi/libspi_flash.a
+Archive SHA256: 7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270
+Full captured output SHA256: 032eedde16190b66938a9c04060936607216e966b13c728cf7bab0747ea7e6bb
+Selected instruction excerpt only; no execution.
+
+<esp_flash_app_enable_os_functions>:
+
+   0:	004136        	entry	a1, 32
+   3:	000071        	l32r	a7, fffc0004 <.LC3+0xfffbfff3>
+			3: R_XTENSA_SLOT0_OP	.literal.esp_flash_app_enable_os_functions+0x4
+   6:	000081        	l32r	a8, fffc0008 <.LC3+0xfffbfff7>
+			6: R_XTENSA_SLOT0_OP	.literal.esp_flash_app_enable_os_functions
+   9:	cc0c      	movi.n	a12, 12
+   b:	0b0c      	movi.n	a11, 0
+   d:	a74b      	addi.n	a10, a7, 4
+   f:	002862        	l32i	a6, a8, 0
+  12:	000081        	l32r	a8, fffc0014 <.LC3+0xfffc0003>
+			12: R_XTENSA_SLOT0_OP	.literal.esp_flash_app_enable_os_functions+0xc
+			12: R_XTENSA_ASM_EXPAND	memset
+  15:	0008e0        	callx8	a8
+  18:	000081        	l32r	a8, fffc0018 <.LC3+0xfffc0007>
+			18: R_XTENSA_SLOT0_OP	.literal.esp_flash_app_enable_os_functions+0x8
+  1b:	3279      	s32i.n	a7, a2, 12
+  1d:	2289      	s32i.n	a8, a2, 8
+  1f:	0769      	s32i.n	a6, a7, 0
+  21:	020c      	movi.n	a2, 0
+  23:	f01d      	retw.n

@@ -1,0 +1,25 @@
+Archive: qio_qspi/libspi_flash.a
+Archive SHA256: 7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270
+Full captured output SHA256: f7eb90e1c440e3db7453090107f32fca26680959a5edfb230a6bb581dcb3be69
+Selected instruction excerpt only; no execution.
+
+<esp_flash_set_dangerous_write_protection>:
+
+   0:	004136        	entry	a1, 32
+   3:	028d      	mov.n	a8, a2
+   5:	743030        	extui	a3, a3, 0, 8
+   8:	02a122        	movi	a2, 0x102
+   b:	588c      	beqz.n	a8, 14 <esp_flash_set_dangerous_write_protection+0x14>
+			b: R_XTENSA_SLOT0_OP	.text.esp_flash_set_dangerous_write_protection+0x14
+   d:	3888      	l32i.n	a8, a8, 12
+   f:	38cc      	bnez.n	a8, 16 <esp_flash_set_dangerous_write_protection+0x16>
+			f: R_XTENSA_SLOT0_OP	.text.esp_flash_set_dangerous_write_protection+0x16
+  11:	00a022        	movi	a2, 0
+  14:	f01d      	retw.n
+  16:	190c      	movi.n	a9, 1
+  18:	303390        	xor	a3, a3, a9
+  1b:	044832        	s8i	a3, a8, 4
+  1e:	fffbc6        	j	11 <esp_flash_set_dangerous_write_protection+0x11>
+			1e: R_XTENSA_SLOT0_OP	.text.esp_flash_set_dangerous_write_protection+0x11
+
+spi_flash_os_func_noos.c.obj:     file format elf32-xtensa-le

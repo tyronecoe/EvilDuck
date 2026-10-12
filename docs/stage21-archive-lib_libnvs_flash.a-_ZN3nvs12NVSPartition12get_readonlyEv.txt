@@ -1,0 +1,11 @@
+Archive: lib/libnvs_flash.a
+Archive SHA256: a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e
+Full captured output SHA256: 4315914a95fea150e13fe73f7d5cfb02f28f0885f56c936dc22e0f0979f5165d
+Selected instruction excerpt only; no execution.
+
+<_ZN3nvs12NVSPartition12get_readonlyEv>:
+
+   0:	004136        	entry	a1, 32
+   3:	3288      	l32i.n	a8, a2, 12
+   5:	2a0822        	l8ui	a2, a8, 42
+   8:	f01d      	retw.n

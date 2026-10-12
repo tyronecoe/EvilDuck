@@ -1,0 +1,47 @@
+
+/workspace/tooling/arduino/build/stage21-safe/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42012cf0 <initArduino>:
+42012cf0:	006136        	entry	a1, 48
+42012cf3:	b74981        	l32r	a8, 42000a18 <_stext+0x9f8> (420a54a4 <verifyRollbackLater>)
+42012cf6:	0008e0        	callx8	a8
+42012cf9:	aadc      	bnez.n	a10, 42012d17 <initArduino+0x27>
+42012cfb:	03ce25        	call8	420169dc <esp_ota_get_running_partition>
+42012cfe:	71cb      	addi.n	a7, a1, 12
+42012d00:	07bd      	mov.n	a11, a7
+42012d02:	03f025        	call8	42016c04 <esp_ota_get_state_partition>
+42012d05:	eacc      	bnez.n	a10, 42012d17 <initArduino+0x27>
+42012d07:	3188      	l32i.n	a8, a1, 12
+42012d09:	0a1866        	bnei	a8, 1, 42012d17 <initArduino+0x27>
+42012d0c:	b74481        	l32r	a8, 42000a1c <_stext+0x9fc> (420a549c <verifyOta>)
+42012d0f:	0008e0        	callx8	a8
+42012d12:	6abc      	beqz.n	a10, 42012d4c <initArduino+0x5c>
+42012d14:	03ec65        	call8	42016bdc <esp_ota_mark_app_valid_cancel_rollback>
+42012d17:	b73fa1        	l32r	a10, 42000a14 <_stext+0x9f4> (3c0cf803 <_flash_rodata_start+0xf6e3>)
+42012d1a:	01a0b2        	movi	a11, 1
+42012d1d:	b74081        	l32r	a8, 42000a20 <_stext+0xa00> (420b3cb0 <esp_log_level_set>)
+42012d20:	0008e0        	callx8	a8
+42012d23:	0b38e5        	call8	4201e0b0 <nvs_flash_init>
+42012d26:	b73a81        	l32r	a8, 42000a10 <_stext+0x9f0> (3fc9641c <evilduck_nvs_error>)
+42012d29:	0068a2        	s32i	a10, a8, 0
+42012d2c:	018a56        	bnez	a10, 42012d48 <initArduino+0x58>
+42012d2f:	b73d81        	l32r	a8, 42000a24 <_stext+0xa04> (420a574c <btInUse>)
+42012d32:	0008e0        	callx8	a8
+42012d35:	3acc      	bnez.n	a10, 42012d3c <initArduino+0x4c>
+42012d37:	3a0c      	movi.n	a10, 3
+42012d39:	381965        	call8	4204aed0 <esp_bt_controller_mem_release>
+42012d3c:	b73b81        	l32r	a8, 42000a28 <_stext+0xa08> (420a5494 <init>)
+42012d3f:	0008e0        	callx8	a8
+42012d42:	b73a81        	l32r	a8, 42000a2c <_stext+0xa0c> (420a548c <initVariant>)
+42012d45:	0008e0        	callx8	a8
+42012d48:	f01d      	retw.n
+42012d4a:	650000        	extui	a0, a0, 16, 7
+42012d4d:	03ea      	add.n	a0, a3, a14
+42012d4f:	fff106        	j	42012d17 <initArduino+0x27>

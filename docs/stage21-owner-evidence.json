@@ -1,0 +1,23 @@
+{
+  "evidence_class": "owner-reported-local-stage20-private-preflight",
+  "reported_platform": "macOS High Sierra 10.13.6",
+  "prior_record": "stage20-owner-extended-preflight-evidence.json",
+  "prior_record_commit": "7c4559132251340b03bcb68a3d66d04d1659e503",
+  "reported_results": {
+    "full_backup_preflight": "PASS",
+    "privacy_safe_summary": "PASS",
+    "three_expected_hashes_and_sizes_matched": true,
+    "original_firmware_and_partition_checks": "PASS",
+    "spiffs_roundtrip": "PASS",
+    "nvs_classification": "compatible-within-verified-checks",
+    "nvs_findings": 0,
+    "migration_authorized": false
+  },
+  "original_binaries_supplied_to_codex": false,
+  "independent_codex_backup_inspection": false,
+  "private_report_supplied": false,
+  "live_device_freshness_verified": false,
+  "sdk_runtime_immutability_verified": false,
+  "historical_reports_overwritten": false,
+  "physical_migration_status": "NO-GO"
+}

@@ -1,0 +1,32 @@
+Archive: qio_qspi/libspi_flash.a
+Archive SHA256: 7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270
+Full captured output SHA256: 8a842ba64941b19ebee677030deca32b9e8819530c611dc8de4cebd6ae84f4aa
+Selected instruction excerpt only; no execution.
+
+<main_flash_region_protected>:
+
+   0:	004136        	entry	a1, 32
+   3:	04bd      	mov.n	a11, a4
+   5:	20a330        	or	a10, a3, a3
+   8:	000081        	l32r	a8, fffc0008 <.LC3+0xfffbfff7>
+			8: R_XTENSA_SLOT0_OP	.literal.main_flash_region_protected
+			8: R_XTENSA_ASM_EXPAND	esp_partition_is_flash_region_writable
+   b:	0008e0        	callx8	a8
+   e:	027d      	mov.n	a7, a2
+  10:	0da122        	movi	a2, 0x10d
+  13:	5a9c      	beqz.n	a10, 2c <main_flash_region_protected+0x2c>
+			13: R_XTENSA_SLOT0_OP	.text.main_flash_region_protected+0x2c
+  15:	040782        	l8ui	a8, a7, 4
+  18:	e8cc      	bnez.n	a8, 2a <main_flash_region_protected+0x2a>
+			18: R_XTENSA_SLOT0_OP	.text.main_flash_region_protected+0x2a
+  1a:	04bd      	mov.n	a11, a4
+  1c:	20a330        	or	a10, a3, a3
+  1f:	000081        	l32r	a8, fffc0020 <.LC3+0xfffc000f>
+			1f: R_XTENSA_SLOT0_OP	.literal.main_flash_region_protected+0x4
+			1f: R_XTENSA_ASM_EXPAND	esp_partition_main_flash_region_safe
+  22:	0008e0        	callx8	a8
+  25:	06a122        	movi	a2, 0x106
+  28:	0a8c      	beqz.n	a10, 2c <main_flash_region_protected+0x2c>
+			28: R_XTENSA_SLOT0_OP	.text.main_flash_region_protected+0x2c
+  2a:	020c      	movi.n	a2, 0
+  2c:	f01d      	retw.n

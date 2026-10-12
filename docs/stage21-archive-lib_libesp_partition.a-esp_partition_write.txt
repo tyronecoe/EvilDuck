@@ -1,0 +1,63 @@
+Archive: lib/libesp_partition.a
+Archive SHA256: dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d
+Full captured output SHA256: c84532a5eec6005f7c13ab540e7a4aba7bc74db6acf54bf92f5f475e15159f00
+Selected instruction excerpt only; no execution.
+
+<esp_partition_write>:
+
+   0:	004136        	entry	a1, 32
+   3:	028d      	mov.n	a8, a2
+   5:	04bd      	mov.n	a11, a4
+   7:	05dd      	mov.n	a13, a5
+   9:	f2cc      	bnez.n	a2, 1c <esp_partition_write+0x1c>
+			9: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x1c
+   b:	0000d1        	l32r	a13, fffc000c <.LC3+0xfffbfffa>
+			b: R_XTENSA_SLOT0_OP	.literal.esp_partition_write
+   e:	0000c1        	l32r	a12, fffc0010 <.LC3+0xfffbfffe>
+			e: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0x4
+  11:	0000a1        	l32r	a10, fffc0014 <.LC3+0xfffc0002>
+			11: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0x8
+  14:	2b4c      	movi.n	a11, 66
+  16:	000081        	l32r	a8, fffc0018 <.LC3+0xfffc0006>
+			16: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0x10
+			16: R_XTENSA_ASM_EXPAND	__assert_func
+  19:	0008e0        	callx8	a8
+  1c:	2a0292        	l8ui	a9, a2, 42
+  1f:	0da122        	movi	a2, 0x10d
+  22:	49ec      	bnez.n	a9, 4a <esp_partition_write+0x4a>
+			22: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x4a
+  24:	4898      	l32i.n	a9, a8, 16
+  26:	02a122        	movi	a2, 0x102
+  29:	1d3937        	bltu	a9, a3, 4a <esp_partition_write+0x4a>
+			29: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x4a
+  2c:	c09930        	sub	a9, a9, a3
+  2f:	04a122        	movi	a2, 0x104
+  32:	143957        	bltu	a9, a5, 4a <esp_partition_write+0x4a>
+			32: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x4a
+  35:	3898      	l32i.n	a9, a8, 12
+  37:	08a8      	l32i.n	a10, a8, 0
+  39:	290882        	l8ui	a8, a8, 41
+  3c:	339a      	add.n	a3, a3, a9
+  3e:	a8cc      	bnez.n	a8, 4c <esp_partition_write+0x4c>
+			3e: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x4c
+  40:	03cd      	mov.n	a12, a3
+  42:	000081        	l32r	a8, fffc0044 <.LC3+0xfffc0032>
+			42: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0x14
+			42: R_XTENSA_ASM_EXPAND	esp_flash_write
+  45:	0008e0        	callx8	a8
+  48:	0a2d      	mov.n	a2, a10
+  4a:	f01d      	retw.n
+  4c:	000081        	l32r	a8, fffc004c <.LC3+0xfffc003a>
+			4c: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0xc
+  4f:	06a122        	movi	a2, 0x106
+  52:	0888      	l32i.n	a8, a8, 0
+  54:	f29a87        	bne	a10, a8, 4a <esp_partition_write+0x4a>
+			54: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x4a
+  57:	04cd      	mov.n	a12, a4
+  59:	03bd      	mov.n	a11, a3
+  5b:	000081        	l32r	a8, fffc005c <.LC3+0xfffc004a>
+			5b: R_XTENSA_SLOT0_OP	.literal.esp_partition_write+0x18
+			5b: R_XTENSA_ASM_EXPAND	esp_flash_write_encrypted
+  5e:	0008e0        	callx8	a8
+  61:	fff8c6        	j	48 <esp_partition_write+0x48>
+			61: R_XTENSA_SLOT0_OP	.text.esp_partition_write+0x48

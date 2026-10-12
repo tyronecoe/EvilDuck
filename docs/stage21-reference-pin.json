@@ -1,0 +1,68 @@
+{
+  "commit": "b66b5448e0dfac6be135e6f0ac21010aba231180",
+  "files": [
+    {
+      "path": "components/esp_system/startup.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_system/startup.c",
+      "sha256": "ad8dc85b52828fcf4d0cb910f1ea79c70b7e8f8113ff84260c5bb6a435c61b96",
+      "bytes": 7207,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/esp_system/port/cpu_start.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_system/port/cpu_start.c",
+      "sha256": "cbfaaadcc7eac04b1d0e49524f6442508c718a7fc272708acfaeacd412894ade",
+      "bytes": 29743,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/bootloader/subproject/main/bootloader_start.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader/subproject/main/bootloader_start.c",
+      "sha256": "d7dfb59a5fc4f207798a567db502cdccafe405f8263cac49a166d615e8d323de",
+      "bytes": 4996,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/bootloader_support/src/bootloader_utility.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/src/bootloader_utility.c",
+      "sha256": "16e528d91d18a5d4cd0a7e7884e79c5f74e7b0bc9311263c15df49eb5d4984f4",
+      "bytes": 51537,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/app_update/esp_ota_ops.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/app_update/esp_ota_ops.c",
+      "sha256": "600bc528a175642dfb98ed0bbbc79ffa36a8928a31354f872955c5e06f04275d",
+      "bytes": 44183,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/espcoredump/src/core_dump_init.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/espcoredump/src/core_dump_init.c",
+      "sha256": "29c48afa8e091cbd722a6d85a560eafa14e050ec2849c6799156c35aec189de3",
+      "bytes": 489,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/bootloader_support/include/esp_flash_partitions.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/include/esp_flash_partitions.h",
+      "sha256": "fb6c020402ae7793f1c3aeb14997ffed92bc5841a2fc930630008e6f83783a63",
+      "bytes": 5327,
+      "evidence": "immutable official source reference, not source/binary equivalence"
+    },
+    {
+      "path": "components/spi_flash/esp_flash_api.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/spi_flash/esp_flash_api.c",
+      "sha256": "8685faaf8e647b9a65a7c44ef119af45555eeacf5871ee98f5750c5ed9fffc43",
+      "bytes": 49885,
+      "evidence": "immutable official source, not certified target equivalence"
+    },
+    {
+      "path": "components/spi_flash/spi_flash_os_func_app.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/spi_flash/spi_flash_os_func_app.c",
+      "sha256": "ca6c6d8eee7993418b71481cbe2cf1a2eb419790a88209a671d9d5a4f8b0ab55",
+      "bytes": 14386,
+      "evidence": "immutable official source, not certified target equivalence"
+    }
+  ]
+}

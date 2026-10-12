@@ -1,0 +1,448 @@
+Archive: lib/libnvs_flash.a
+Archive SHA256: a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e
+Full captured output SHA256: 20861a2129b8dbdbc14fa7edb9ea343fa858b41b99a0982f36a81196538afe4a
+Selected instruction excerpt only; no execution.
+
+<_ZN3nvs11PageManager4loadEPNS_9PartitionEmm>:
+
+   0:	00e136        	entry	a1, 112
+   3:	000081        	l32r	a8, fffc0004 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0004>
+			3: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm
+   6:	027d      	mov.n	a7, a2
+   8:	0020c0        	memw
+   b:	0888      	l32i.n	a8, a8, 0
+   d:	0020c0        	memw
+  10:	136182        	s32i	a8, a1, 76
+  13:	2d1316        	beqz	a3, 2e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2e8>
+			13: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2e8
+  16:	02ad      	mov.n	a10, a2
+  18:	076242        	s32i	a4, a2, 28
+  1b:	086252        	s32i	a5, a2, 32
+  1e:	000081        	l32r	a8, fffc0020 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0020>
+			1e: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x8
+			1e: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE5clearEv
+  21:	0008e0        	callx8	a8
+  24:	82cb      	addi.n	a8, a2, 12
+  26:	08ad      	mov.n	a10, a8
+  28:	066182        	s32i	a8, a1, 24
+  2b:	000081        	l32r	a8, fffc002c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc002c>
+			2b: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xc
+			2b: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE5clearEv
+  2e:	0008e0        	callx8	a8
+  31:	000081        	l32r	a8, fffc0034 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0034>
+			31: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x4
+  34:	413857        	bltu	a8, a5, 79 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x79>
+			34: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x79
+  37:	90a550        	addx2	a10, a5, a5
+  3a:	f0aaa0        	subx8	a10, a10, a10
+  3d:	11aae0        	slli	a10, a10, 2
+  40:	04caa2        	addi	a10, a10, 4
+  43:	000081        	l32r	a8, fffc0044 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0044>
+			43: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x10
+			43: R_XTENSA_ASM_EXPAND	malloc
+  46:	0008e0        	callx8	a8
+  49:	0a6d      	mov.n	a6, a10
+  4b:	047a56        	bnez	a10, 96 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x96>
+			4b: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x96
+  4e:	6728      	l32i.n	a2, a7, 24
+  50:	6769      	s32i.n	a6, a7, 24
+  52:	06b216        	beqz	a2, c1 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xc1>
+			52: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xc1
+  55:	fcc282        	addi	a8, a2, -4
+  58:	0868      	l32i.n	a6, a8, 0
+  5a:	906660        	addx2	a6, a6, a6
+  5d:	f06660        	subx8	a6, a6, a6
+  60:	a06620        	addx4	a6, a6, a2
+  63:	521267        	beq	a2, a6, b9 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xb9>
+			63: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xb9
+  66:	acc662        	addi	a6, a6, -84
+  69:	44c6a2        	addi	a10, a6, 68
+  6c:	5189      	s32i.n	a8, a1, 20
+  6e:	000081        	l32r	a8, fffc0070 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0070>
+			6e: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x14
+			6e: R_XTENSA_ASM_EXPAND	_ZN3nvs8HashListD1Ev
+  71:	0008e0        	callx8	a8
+  74:	5188      	l32i.n	a8, a1, 20
+  76:	fffa46        	j	63 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x63>
+			76: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x63
+  79:	000081        	l32r	a8, fffc007c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc007c>
+			79: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm
+  7c:	0020c0        	memw
+  7f:	132192        	l32i	a9, a1, 76
+  82:	0020c0        	memw
+  85:	0888      	l32i.n	a8, a8, 0
+  87:	051987        	beq	a9, a8, 90 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x90>
+			87: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x90
+  8a:	000081        	l32r	a8, fffc008c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc008c>
+			8a: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x18
+			8a: R_XTENSA_ASM_EXPAND	__stack_chk_fail
+  8d:	0008e0        	callx8	a8
+  90:	000081        	l32r	a8, fffc0090 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0090>
+			90: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1c
+			90: R_XTENSA_ASM_EXPAND	__cxa_throw_bad_array_new_length
+  93:	0008e0        	callx8	a8
+  96:	6a4b      	addi.n	a6, a10, 4
+  98:	850b      	addi.n	a8, a5, -1
+  9a:	0a59      	s32i.n	a5, a10, 0
+  9c:	5189      	s32i.n	a8, a1, 20
+  9e:	062d      	mov.n	a2, a6
+  a0:	5188      	l32i.n	a8, a1, 20
+  a2:	a80826        	beqi	a8, -1, 4e <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x4e>
+			a2: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x4e
+  a5:	02ad      	mov.n	a10, a2
+  a7:	000081        	l32r	a8, fffc00a8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc00a8>
+			a7: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x20
+			a7: R_XTENSA_ASM_EXPAND	_ZN3nvs4PageC1Ev
+  aa:	0008e0        	callx8	a8
+  ad:	5188      	l32i.n	a8, a1, 20
+  af:	54c222        	addi	a2, a2, 84
+  b2:	880b      	addi.n	a8, a8, -1
+  b4:	5189      	s32i.n	a8, a1, 20
+  b6:	fff986        	j	a0 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xa0>
+			b6: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xa0
+  b9:	08ad      	mov.n	a10, a8
+  bb:	000081        	l32r	a8, fffc00bc <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc00bc>
+			bb: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x24
+			bb: R_XTENSA_ASM_EXPAND	free
+  be:	0008e0        	callx8	a8
+  c1:	6788      	l32i.n	a8, a7, 24
+  c3:	01a122        	movi	a2, 0x101
+  c6:	e89c      	beqz.n	a8, e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			c6: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+  c8:	845a      	add.n	a8, a4, a5
+  ca:	5189      	s32i.n	a8, a1, 20
+  cc:	060c      	movi.n	a6, 0
+  ce:	24c152        	addi	a5, a1, 36
+  d1:	5188      	l32i.n	a8, a1, 20
+  d3:	259847        	bne	a8, a4, fc <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfc>
+			d3: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfc
+  d6:	2788      	l32i.n	a8, a7, 8
+  d8:	0b6856        	bnez	a8, 192 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x192>
+			d8: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x192
+  db:	9789      	s32i.n	a8, a7, 36
+  dd:	20a770        	or	a10, a7, a7
+  e0:	000081        	l32r	a8, fffc00e0 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc00e0>
+			e0: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x28
+			e0: R_XTENSA_ASM_EXPAND	_ZN3nvs11PageManager12activatePageEv
+  e3:	0008e0        	callx8	a8
+  e6:	0a2d      	mov.n	a2, a10
+  e8:	000081        	l32r	a8, fffc00e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc00e8>
+			e8: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm
+  eb:	0020c0        	memw
+  ee:	132192        	l32i	a9, a1, 76
+  f1:	0020c0        	memw
+  f4:	0888      	l32i.n	a8, a8, 0
+  f6:	909987        	bne	a9, a8, 8a <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x8a>
+			f6: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x8a
+  f9:	f01d      	retw.n
+  fb:	00          	.byte	00
+  fc:	67a8      	l32i.n	a10, a7, 24
+  fe:	04cd      	mov.n	a12, a4
+ 100:	03bd      	mov.n	a11, a3
+ 102:	aa6a      	add.n	a10, a10, a6
+ 104:	000081        	l32r	a8, fffc0104 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0104>
+			104: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2c
+			104: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page4loadEPNS_9PartitionEm
+ 107:	0008e0        	callx8	a8
+ 10a:	0a2d      	mov.n	a2, a10
+ 10c:	fd8a56        	bnez	a10, e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			10c: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+ 10f:	67a8      	l32i.n	a10, a7, 24
+ 111:	20b550        	or	a11, a5, a5
+ 114:	aa6a      	add.n	a10, a10, a6
+ 116:	000081        	l32r	a8, fffc0118 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0118>
+			116: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x30
+			116: R_XTENSA_ASM_EXPAND	_ZNK3nvs4Page12getSeqNumberERm
+ 119:	0008e0        	callx8	a8
+ 11c:	6a9c      	beqz.n	a10, 136 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x136>
+			11c: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x136
+ 11e:	67b8      	l32i.n	a11, a7, 24
+ 120:	0621a2        	l32i	a10, a1, 24
+ 123:	80bb60        	add	a11, a11, a6
+ 126:	000081        	l32r	a8, fffc0128 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0128>
+			126: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x34
+			126: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE9push_backEPS1_
+ 129:	0008e0        	callx8	a8
+ 12c:	54c662        	addi	a6, a6, 84
+ 12f:	441b      	addi.n	a4, a4, 1
+ 131:	ffe706        	j	d1 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xd1>
+			131: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xd1
+ 134:	00          	.byte	00
+ 135:	00          	.byte	00
+ 136:	0728      	l32i.n	a2, a7, 0
+ 138:	0588      	l32i.n	a8, a5, 0
+ 13a:	28c1b2        	addi	a11, a1, 40
+ 13d:	7189      	s32i.n	a8, a1, 28
+ 13f:	b2bc      	beqz.n	a2, 17e <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x17e>
+			13f: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x17e
+ 141:	20a220        	or	a10, a2, a2
+ 144:	000081        	l32r	a8, fffc0144 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0144>
+			144: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x38
+			144: R_XTENSA_ASM_EXPAND	_ZNK3nvs4Page12getSeqNumberERm
+ 147:	0008e0        	callx8	a8
+ 14a:	7188      	l32i.n	a8, a1, 28
+ 14c:	28c1b2        	addi	a11, a1, 40
+ 14f:	6aec      	bnez.n	a10, 179 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x179>
+			14f: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x179
+ 151:	0b98      	l32i.n	a9, a11, 0
+ 153:	22b897        	bgeu	a8, a9, 179 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x179>
+			153: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x179
+ 156:	6788      	l32i.n	a8, a7, 24
+ 158:	2798      	l32i.n	a9, a7, 8
+ 15a:	02a8      	l32i.n	a10, a2, 0
+ 15c:	886a      	add.n	a8, a8, a6
+ 15e:	991b      	addi.n	a9, a9, 1
+ 160:	3aec      	bnez.n	a10, 187 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x187>
+			160: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x187
+ 162:	08a9      	s32i.n	a10, a8, 0
+ 164:	07a8      	l32i.n	a10, a7, 0
+ 166:	18a9      	s32i.n	a10, a8, 4
+ 168:	0a8c      	beqz.n	a10, 16c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x16c>
+			168: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x16c
+ 16a:	0a89      	s32i.n	a8, a10, 0
+ 16c:	17a8      	l32i.n	a10, a7, 4
+ 16e:	0789      	s32i.n	a8, a7, 0
+ 170:	0acc      	bnez.n	a10, 174 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x174>
+			170: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x174
+ 172:	1789      	s32i.n	a8, a7, 4
+ 174:	2799      	s32i.n	a9, a7, 8
+ 176:	ffec86        	j	12c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x12c>
+			176: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x12c
+ 179:	1228      	l32i.n	a2, a2, 4
+ 17b:	ffef86        	j	13d <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x13d>
+			17b: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x13d
+ 17e:	67b8      	l32i.n	a11, a7, 24
+ 180:	07ad      	mov.n	a10, a7
+ 182:	bb6a      	add.n	a11, a11, a6
+ 184:	ffe786        	j	126 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x126>
+			184: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x126
+ 187:	1a89      	s32i.n	a8, a10, 4
+ 189:	0289      	s32i.n	a8, a2, 0
+ 18b:	1829      	s32i.n	a2, a8, 4
+ 18d:	08a9      	s32i.n	a10, a8, 0
+ 18f:	fff846        	j	174 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x174>
+			18f: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x174
+ 192:	17a8      	l32i.n	a10, a7, 4
+ 194:	28c162        	addi	a6, a1, 40
+ 197:	20b660        	or	a11, a6, a6
+ 19a:	000081        	l32r	a8, fffc019c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc019c>
+			19a: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x3c
+			19a: R_XTENSA_ASM_EXPAND	_ZNK3nvs4Page12getSeqNumberERm
+ 19d:	0008e0        	callx8	a8
+ 1a0:	0a2d      	mov.n	a2, a10
+ 1a2:	f42a56        	bnez	a10, e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			1a2: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+ 1a5:	a188      	l32i.n	a8, a1, 40
+ 1a7:	03ad      	mov.n	a10, a3
+ 1a9:	881b      	addi.n	a8, a8, 1
+ 1ab:	9789      	s32i.n	a8, a7, 36
+ 1ad:	0388      	l32i.n	a8, a3, 0
+ 1af:	a888      	l32i.n	a8, a8, 40
+ 1b1:	0008e0        	callx8	a8
+ 1b4:	f30a56        	bnez	a10, e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			1b4: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+ 1b7:	1758      	l32i.n	a5, a7, 4
+ 1b9:	080c      	movi.n	a8, 0
+ 1bb:	f47c      	movi.n	a4, -1
+ 1bd:	ffa032        	movi	a3, 255
+ 1c0:	a189      	s32i.n	a8, a1, 40
+ 1c2:	2cc162        	addi	a6, a1, 44
+ 1c5:	28c1e2        	addi	a14, a1, 40
+ 1c8:	1139      	s32i.n	a3, a1, 4
+ 1ca:	0139      	s32i.n	a3, a1, 0
+ 1cc:	06fd      	mov.n	a15, a6
+ 1ce:	00a0d2        	movi	a13, 0
+ 1d1:	ffa0c2        	movi	a12, 255
+ 1d4:	ffa0b2        	movi	a11, 255
+ 1d7:	20a550        	or	a10, a5, a5
+ 1da:	000081        	l32r	a8, fffc01dc <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc01dc>
+			1da: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x40
+			1da: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page8findItemEhNS_8ItemTypeEPKcRjRNS_4ItemEhNS_9VerOffsetE
+ 1dd:	0008e0        	callx8	a8
+ 1e0:	28c1e2        	addi	a14, a1, 40
+ 1e3:	2aac      	beqz.n	a10, 209 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x209>
+			1e3: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x209
+ 1e5:	530426        	beqi	a4, -1, 23c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c>
+			1e5: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c
+ 1e8:	0748      	l32i.n	a4, a7, 0
+ 1ea:	279547        	bne	a5, a4, 215 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x215>
+			1ea: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x215
+ 1ed:	010692        	l8ui	a9, a6, 1
+ 1f0:	884c      	movi.n	a8, 72
+ 1f2:	469987        	bne	a9, a8, 23c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c>
+			1f2: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c
+ 1f5:	0758      	l32i.n	a5, a7, 0
+ 1f7:	411457        	beq	a4, a5, 23c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c>
+			1f7: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c
+ 1fa:	3598      	l32i.n	a9, a5, 12
+ 1fc:	887c      	movi.n	a8, -8
+ 1fe:	021987        	beq	a9, a8, 204 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x204>
+			1fe: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x204
+ 201:	002fc6        	j	2c4 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2c4>
+			201: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2c4
+ 204:	1558      	l32i.n	a5, a5, 4
+ 206:	fffb46        	j	1f7 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1f7>
+			206: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1f7
+ 209:	0e88      	l32i.n	a8, a14, 0
+ 20b:	020642        	l8ui	a4, a6, 2
+ 20e:	448a      	add.n	a4, a4, a8
+ 210:	048d      	mov.n	a8, a4
+ 212:	ffea86        	j	1c0 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1c0>
+			212: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1c0
+ 215:	3498      	l32i.n	a9, a4, 12
+ 217:	887c      	movi.n	a8, -8
+ 219:	049987        	bne	a9, a8, 221 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x221>
+			219: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x221
+ 21c:	1448      	l32i.n	a4, a4, 4
+ 21e:	fff206        	j	1ea <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1ea>
+			21e: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x1ea
+ 221:	0306e2        	l8ui	a14, a6, 3
+ 224:	0106c2        	l8ui	a12, a6, 1
+ 227:	0006b2        	l8ui	a11, a6, 0
+ 22a:	ffa0f2        	movi	a15, 255
+ 22d:	34c1d2        	addi	a13, a1, 52
+ 230:	20a440        	or	a10, a4, a4
+ 233:	000081        	l32r	a8, fffc0234 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0234>
+			233: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x44
+			233: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page9eraseItemEhNS_8ItemTypeEPKchNS_9VerOffsetE
+ 236:	0008e0        	callx8	a8
+ 239:	fdfa56        	bnez	a10, 21c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x21c>
+			239: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x21c
+ 23c:	0768      	l32i.n	a6, a7, 0
+ 23e:	887c      	movi.n	a8, -8
+ 240:	072616        	beqz	a6, 2b6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2b6>
+			240: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2b6
+ 243:	3698      	l32i.n	a9, a6, 12
+ 245:	021987        	beq	a9, a8, 24b <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x24b>
+			245: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x24b
+ 248:	002586        	j	2e2 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2e2>
+			248: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x2e2
+ 24b:	1758      	l32i.n	a5, a7, 4
+ 24d:	e87c      	movi.n	a8, -2
+ 24f:	3598      	l32i.n	a9, a5, 12
+ 251:	1f9987        	bne	a9, a8, 274 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x274>
+			251: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x274
+ 254:	20a550        	or	a10, a5, a5
+ 257:	000081        	l32r	a8, fffc0258 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0258>
+			257: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x48
+			257: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page5eraseEv
+ 25a:	0008e0        	callx8	a8
+ 25d:	e85a56        	bnez	a10, e6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6>
+			25d: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6
+ 260:	05bd      	mov.n	a11, a5
+ 262:	07ad      	mov.n	a10, a7
+ 264:	000081        	l32r	a8, fffc0264 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0264>
+			264: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x4c
+			264: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE5eraseENS2_8iteratorE
+ 267:	0008e0        	callx8	a8
+ 26a:	61a8      	l32i.n	a10, a1, 24
+ 26c:	05bd      	mov.n	a11, a5
+ 26e:	000081        	l32r	a8, fffc0270 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0270>
+			26e: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x50
+			26e: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE9push_backEPS1_
+ 271:	0008e0        	callx8	a8
+ 274:	07ad      	mov.n	a10, a7
+ 276:	000081        	l32r	a8, fffc0278 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0278>
+			276: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x54
+			276: R_XTENSA_ASM_EXPAND	_ZN3nvs11PageManager12activatePageEv
+ 279:	0008e0        	callx8	a8
+ 27c:	e66a56        	bnez	a10, e6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6>
+			27c: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6
+ 27f:	17b8      	l32i.n	a11, a7, 4
+ 281:	06ad      	mov.n	a10, a6
+ 283:	000081        	l32r	a8, fffc0284 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0284>
+			283: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x58
+			283: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page9copyItemsERS0_
+ 286:	0008e0        	callx8	a8
+ 289:	9a8c      	beqz.n	a10, 296 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x296>
+			289: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x296
+ 28b:	280c      	movi.n	a8, 2
+ 28d:	11d882        	addmi	a8, a8, 0x1100
+ 290:	021a87        	beq	a10, a8, 296 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x296>
+			290: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x296
+ 293:	ff93c6        	j	e6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6>
+			293: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6
+ 296:	06ad      	mov.n	a10, a6
+ 298:	000081        	l32r	a8, fffc0298 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0298>
+			298: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x5c
+			298: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page5eraseEv
+ 29b:	0008e0        	callx8	a8
+ 29e:	e44a56        	bnez	a10, e6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6>
+			29e: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6
+ 2a1:	20b660        	or	a11, a6, a6
+ 2a4:	07ad      	mov.n	a10, a7
+ 2a6:	000081        	l32r	a8, fffc02a8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc02a8>
+			2a6: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x60
+			2a6: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE5eraseENS2_8iteratorE
+ 2a9:	0008e0        	callx8	a8
+ 2ac:	61a8      	l32i.n	a10, a1, 24
+ 2ae:	06bd      	mov.n	a11, a6
+ 2b0:	000081        	l32r	a8, fffc02b0 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc02b0>
+			2b0: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x64
+			2b0: R_XTENSA_ASM_EXPAND	_ZN14intrusive_listIN3nvs4PageEE9push_backEPS1_
+ 2b3:	0008e0        	callx8	a8
+ 2b6:	5788      	l32i.n	a8, a7, 20
+ 2b8:	e2c856        	bnez	a8, e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			2b8: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+ 2bb:	da0c      	movi.n	a10, 13
+ 2bd:	11daa2        	addmi	a10, a10, 0x1100
+ 2c0:	ff8886        	j	e6 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6>
+			2c0: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe6
+ 2c3:	00          	.byte	00
+ 2c4:	0306e2        	l8ui	a14, a6, 3
+ 2c7:	0006b2        	l8ui	a11, a6, 0
+ 2ca:	ffa0f2        	movi	a15, 255
+ 2cd:	34c1d2        	addi	a13, a1, 52
+ 2d0:	41a0c2        	movi	a12, 65
+ 2d3:	20a550        	or	a10, a5, a5
+ 2d6:	000081        	l32r	a8, fffc02d8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc02d8>
+			2d6: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x68
+			2d6: R_XTENSA_ASM_EXPAND	_ZN3nvs4Page9eraseItemEhNS_8ItemTypeEPKchNS_9VerOffsetE
+ 2d9:	0008e0        	callx8	a8
+ 2dc:	f24a56        	bnez	a10, 204 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x204>
+			2dc: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x204
+ 2df:	ffd646        	j	23c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c>
+			2df: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x23c
+ 2e2:	1668      	l32i.n	a6, a6, 4
+ 2e4:	ffd606        	j	240 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x240>
+			2e4: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x240
+ 2e7:	00          	.byte	00
+ 2e8:	02a122        	movi	a2, 0x102
+ 2eb:	ff7e46        	j	e8 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8>
+			2eb: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xe8
+ 2ee:	00          	.byte	00
+ 2ef:	00          	.byte	00
+ 2f0:	5188      	l32i.n	a8, a1, 20
+ 2f2:	c05580        	sub	a5, a5, a8
+ 2f5:	905550        	addx2	a5, a5, a5
+ 2f8:	f05550        	subx8	a5, a5, a5
+ 2fb:	a07560        	addx4	a7, a5, a6
+ 2fe:	acc772        	addi	a7, a7, -84
+ 301:	0f1767        	beq	a7, a6, 314 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x314>
+			301: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x314
+ 304:	acc772        	addi	a7, a7, -84
+ 307:	44c7a2        	addi	a10, a7, 68
+ 30a:	000081        	l32r	a8, fffc030c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc030c>
+			30a: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x6c
+			30a: R_XTENSA_ASM_EXPAND	_ZN3nvs8HashListD1Ev
+ 30d:	0008e0        	callx8	a8
+ 310:	fffb46        	j	301 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x301>
+			310: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x301
+ 313:	00          	.byte	00
+ 314:	000081        	l32r	a8, fffc0314 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc0314>
+			314: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm
+ 317:	0020c0        	memw
+ 31a:	132192        	l32i	a9, a1, 76
+ 31d:	0020c0        	memw
+ 320:	0888      	l32i.n	a8, a8, 0
+ 322:	021987        	beq	a9, a8, 328 <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x328>
+			322: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x328
+ 325:	ff5846        	j	8a <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x8a>
+			325: R_XTENSA_SLOT0_OP	.text._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x8a
+ 328:	02ad      	mov.n	a10, a2
+ 32a:	000081        	l32r	a8, fffc032c <_ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0xfffc032c>
+			32a: R_XTENSA_SLOT0_OP	.literal._ZN3nvs11PageManager4loadEPNS_9PartitionEmm+0x70
+			32a: R_XTENSA_ASM_EXPAND	_Unwind_Resume
+ 32d:	0008e0        	callx8	a8
+
+nvs_storage.cpp.obj:     file format elf32-xtensa-le

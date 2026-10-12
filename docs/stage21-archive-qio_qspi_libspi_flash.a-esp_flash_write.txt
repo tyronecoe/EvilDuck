@@ -1,0 +1,219 @@
+Archive: qio_qspi/libspi_flash.a
+Archive SHA256: 7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270
+Full captured output SHA256: ef95919481257607c1c2db7013ba33b2dfdc252181c9d7c3ea8bce909fa73522
+Selected instruction excerpt only; no execution.
+
+<esp_flash_write>:
+
+   0:	00a136        	entry	a1, 80
+   3:	000081        	l32r	a8, fffc0004 <.LC39+0xfffbfff3>
+			3: R_XTENSA_SLOT0_OP	.literal.esp_flash_write
+   6:	61cb      	addi.n	a6, a1, 12
+   8:	0888      	l32i.n	a8, a8, 0
+   a:	06ad      	mov.n	a10, a6
+   c:	2888      	l32i.n	a8, a8, 8
+   e:	006622        	s32i	a2, a6, 0
+  11:	0008e0        	callx8	a8
+  14:	0a8d      	mov.n	a8, a10
+  16:	122a56        	bnez	a10, 13c <esp_flash_write+0x13c>
+			16: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+  19:	0698      	l32i.n	a9, a6, 0
+  1b:	19a8      	l32i.n	a10, a9, 4
+  1d:	112aa2        	l32i	a10, a10, 68
+  20:	14ea16        	beqz	a10, 172 <esp_flash_write+0x172>
+			20: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x172
+  23:	29a8      	l32i.n	a10, a9, 8
+  25:	2ad8      	l32i.n	a13, a10, 8
+  27:	dd9c      	beqz.n	a13, 48 <esp_flash_write+0x48>
+			27: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x48
+  29:	39a8      	l32i.n	a10, a9, 12
+  2b:	05cd      	mov.n	a12, a5
+  2d:	04bd      	mov.n	a11, a4
+  2f:	006182        	s32i	a8, a1, 0
+  32:	000de0        	callx8	a13
+  35:	0da192        	movi	a9, 0x10d
+  38:	029a97        	bne	a10, a9, 3e <esp_flash_write+0x3e>
+			38: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x3e
+  3b:	004f46        	j	17c <esp_flash_write+0x17c>
+			3b: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x17c
+  3e:	0188      	l32i.n	a8, a1, 0
+  40:	4a8c      	beqz.n	a10, 48 <esp_flash_write+0x48>
+			40: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x48
+  42:	000081        	l32r	a8, fffc0044 <.LC39+0xfffc0033>
+			42: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x24
+			42: R_XTENSA_ASM_EXPAND	abort
+  45:	0008e0        	callx8	a8
+  48:	138316        	beqz	a3, 184 <esp_flash_write+0x184>
+			48: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x184
+  4b:	0698      	l32i.n	a9, a6, 0
+  4d:	59a8      	l32i.n	a10, a9, 20
+  4f:	02ba47        	bgeu	a10, a4, 55 <esp_flash_write+0x55>
+			4f: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x55
+  52:	004b86        	j	184 <esp_flash_write+0x184>
+			52: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x184
+  55:	b45a      	add.n	a11, a4, a5
+  57:	02bab7        	bgeu	a10, a11, 5d <esp_flash_write+0x5d>
+			57: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x5d
+  5a:	004986        	j	184 <esp_flash_write+0x184>
+			5a: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x184
+  5d:	0db516        	beqz	a5, 13c <esp_flash_write+0x13c>
+			5d: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+  60:	09a8      	l32i.n	a10, a9, 0
+  62:	03bd      	mov.n	a11, a3
+  64:	0a88      	l32i.n	a8, a10, 0
+  66:	052d      	mov.n	a2, a5
+  68:	9888      	l32i.n	a8, a8, 36
+  6a:	0008e0        	callx8	a8
+  6d:	000091        	l32r	a9, fffc0070 <.LC39+0xfffc005f>
+			6d: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x4
+  70:	000081        	l32r	a8, fffc0070 <.LC39+0xfffc005f>
+			70: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x8
+  73:	939a      	add.n	a9, a3, a9
+  75:	628890        	saltu	a8, a8, a9
+  78:	880b      	addi.n	a8, a8, -1
+  7a:	608080        	neg	a8, a8
+  7d:	20aa80        	or	a10, a10, a8
+  80:	7480a0        	extui	a8, a10, 0, 8
+  83:	2189      	s32i.n	a8, a1, 8
+  85:	0149      	s32i.n	a4, a1, 0
+  87:	2188      	l32i.n	a8, a1, 8
+  89:	059816        	beqz	a8, e6 <esp_flash_write+0xe6>
+			89: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0xe6
+  8c:	170c      	movi.n	a7, 1
+  8e:	117740        	slli	a7, a7, 12
+  91:	637270        	minu	a7, a2, a7
+  94:	1139      	s32i.n	a3, a1, 4
+  96:	31a8      	l32i.n	a10, a1, 12
+  98:	1a88      	l32i.n	a8, a10, 4
+  9a:	1a2882        	l32i	a8, a8, 104
+  9d:	888c      	beqz.n	a8, a9 <esp_flash_write+0xa9>
+			9d: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0xa9
+  9f:	0b0c      	movi.n	a11, 0
+  a1:	0008e0        	callx8	a8
+  a4:	0a8d      	mov.n	a8, a10
+  a6:	092a56        	bnez	a10, 13c <esp_flash_write+0x13c>
+			a6: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+  a9:	000081        	l32r	a8, fffc00ac <.LC39+0xfffc009b>
+			a9: R_XTENSA_SLOT0_OP	.literal.esp_flash_write
+  ac:	06a8      	l32i.n	a10, a6, 0
+  ae:	0888      	l32i.n	a8, a8, 0
+  b0:	0888      	l32i.n	a8, a8, 0
+  b2:	0008e0        	callx8	a8
+  b5:	0a8d      	mov.n	a8, a10
+  b7:	06a8      	l32i.n	a10, a6, 0
+  b9:	065856        	bnez	a8, 122 <esp_flash_write+0x122>
+			b9: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x122
+  bc:	1a88      	l32i.n	a8, a10, 4
+  be:	01c8      	l32i.n	a12, a1, 0
+  c0:	112882        	l32i	a8, a8, 68
+  c3:	0121b2        	l32i	a11, a1, 4
+  c6:	20d770        	or	a13, a7, a7
+  c9:	0008e0        	callx8	a8
+  cc:	c02270        	sub	a2, a2, a7
+  cf:	0a8d      	mov.n	a8, a10
+  d1:	2b3257        	bltu	a2, a5, 100 <esp_flash_write+0x100>
+			d1: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x100
+  d4:	0000d1        	l32r	a13, fffc00d4 <.LC39+0xfffc00c3>
+			d4: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0xc
+  d7:	0000c1        	l32r	a12, fffc00d8 <.LC39+0xfffc00c7>
+			d7: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x10
+  da:	0000a1        	l32r	a10, fffc00dc <.LC39+0xfffc00cb>
+			da: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x14
+  dd:	38a4b2        	movi	a11, 0x438
+  e0:	000081        	l32r	a8, fffc00e0 <.LC39+0xfffc00cf>
+			e0: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x28
+			e0: R_XTENSA_ASM_EXPAND	__assert_func
+  e3:	0008e0        	callx8	a8
+  e6:	072c      	movi.n	a7, 32
+  e8:	637270        	minu	a7, a2, a7
+  eb:	07cd      	mov.n	a12, a7
+  ed:	03bd      	mov.n	a11, a3
+  ef:	10c1a2        	addi	a10, a1, 16
+  f2:	000081        	l32r	a8, fffc00f4 <.LC39+0xfffc00e3>
+			f2: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x2c
+			f2: R_XTENSA_ASM_EXPAND	memcpy
+  f5:	0008e0        	callx8	a8
+  f8:	10c182        	addi	a8, a1, 16
+  fb:	1189      	s32i.n	a8, a1, 4
+  fd:	ffe546        	j	96 <esp_flash_write+0x96>
+			fd: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x96
+ 100:	000091        	l32r	a9, fffc0100 <.LC39+0xfffc00ef>
+			100: R_XTENSA_SLOT0_OP	.literal.esp_flash_write
+ 103:	06a8      	l32i.n	a10, a6, 0
+ 105:	0998      	l32i.n	a9, a9, 0
+ 107:	58fc      	bnez.n	a8, 140 <esp_flash_write+0x140>
+			107: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x140
+ 109:	82bc      	beqz.n	a2, 145 <esp_flash_write+0x145>
+			109: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x145
+ 10b:	1988      	l32i.n	a8, a9, 4
+ 10d:	0b0c      	movi.n	a11, 0
+ 10f:	0008e0        	callx8	a8
+ 112:	0a8d      	mov.n	a8, a10
+ 114:	8aec      	bnez.n	a10, 140 <esp_flash_write+0x140>
+			114: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x140
+ 116:	0188      	l32i.n	a8, a1, 0
+ 118:	337a      	add.n	a3, a3, a7
+ 11a:	887a      	add.n	a8, a8, a7
+ 11c:	0189      	s32i.n	a8, a1, 0
+ 11e:	ffd946        	j	87 <esp_flash_write+0x87>
+			11e: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x87
+ 121:	00          	.byte	00
+ 122:	0c0c      	movi.n	a12, 0
+ 124:	000091        	l32r	a9, fffc0124 <.LC39+0xfffc0113>
+			124: R_XTENSA_SLOT0_OP	.literal.esp_flash_write
+ 127:	06a8      	l32i.n	a10, a6, 0
+ 129:	0998      	l32i.n	a9, a9, 0
+ 12b:	08bd      	mov.n	a11, a8
+ 12d:	3998      	l32i.n	a9, a9, 12
+ 12f:	05ed      	mov.n	a14, a5
+ 131:	04dd      	mov.n	a13, a4
+ 133:	0189      	s32i.n	a8, a1, 0
+ 135:	0009e0        	callx8	a9
+ 138:	0188      	l32i.n	a8, a1, 0
+ 13a:	9adc      	bnez.n	a10, 157 <esp_flash_write+0x157>
+			13a: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x157
+ 13c:	082d      	mov.n	a2, a8
+ 13e:	f01d      	retw.n
+ 140:	1c0c      	movi.n	a12, 1
+ 142:	fff786        	j	124 <esp_flash_write+0x124>
+			142: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x124
+ 145:	3988      	l32i.n	a8, a9, 12
+ 147:	05ed      	mov.n	a14, a5
+ 149:	04dd      	mov.n	a13, a4
+ 14b:	1c0c      	movi.n	a12, 1
+ 14d:	0b0c      	movi.n	a11, 0
+ 14f:	0008e0        	callx8	a8
+ 152:	0a8d      	mov.n	a8, a10
+ 154:	fff906        	j	13c <esp_flash_write+0x13c>
+			154: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+ 157:	000091        	l32r	a9, fffc0158 <.LC39+0xfffc0147>
+			157: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x18
+ 15a:	0998      	l32i.n	a9, a9, 0
+ 15c:	fdc916        	beqz	a9, 13c <esp_flash_write+0x13c>
+			15c: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+ 15f:	0000b1        	l32r	a11, fffc0160 <.LC39+0xfffc014f>
+			15f: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x1c
+ 162:	0000a1        	l32r	a10, fffc0164 <.LC39+0xfffc0153>
+			162: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x20
+ 165:	0189      	s32i.n	a8, a1, 0
+ 167:	000081        	l32r	a8, fffc0168 <.LC39+0xfffc0157>
+			167: R_XTENSA_SLOT0_OP	.literal.esp_flash_write+0x30
+			167: R_XTENSA_ASM_EXPAND	esp_rom_printf
+ 16a:	0008e0        	callx8	a8
+ 16d:	0188      	l32i.n	a8, a1, 0
+ 16f:	fff246        	j	13c <esp_flash_write+0x13c>
+			16f: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+ 172:	580c      	movi.n	a8, 5
+ 174:	60d882        	addmi	a8, a8, 0x6000
+ 177:	fff046        	j	13c <esp_flash_write+0x13c>
+			177: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+ 17a:	00          	.byte	00
+ 17b:	00          	.byte	00
+ 17c:	0da182        	movi	a8, 0x10d
+ 17f:	ffee46        	j	13c <esp_flash_write+0x13c>
+			17f: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c
+ 182:	00          	.byte	00
+ 183:	00          	.byte	00
+ 184:	02a182        	movi	a8, 0x102
+ 187:	ffec46        	j	13c <esp_flash_write+0x13c>
+			187: R_XTENSA_SLOT0_OP	.text.esp_flash_write+0x13c

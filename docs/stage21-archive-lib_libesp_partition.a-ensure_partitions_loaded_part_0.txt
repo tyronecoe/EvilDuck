@@ -1,0 +1,260 @@
+Archive: lib/libesp_partition.a
+Archive SHA256: dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d
+Full captured output SHA256: 938121020da8653f29854bbe2853a5a7795b261e2201b3eca66443298ba57d6f
+Selected instruction excerpt only; no execution.
+
+<ensure_partitions_loaded$part$0>:
+
+   0:	018136        	entry	a1, 192
+   3:	000081        	l32r	a8, fffc0004 <.LC24+0xfffbffe5>
+			3: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0
+   6:	0000a1        	l32r	a10, fffc0008 <.LC24+0xfffbffe9>
+			6: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x4
+   9:	0020c0        	memw
+   c:	0888      	l32i.n	a8, a8, 0
+   e:	0020c0        	memw
+  11:	276182        	s32i	a8, a1, 156
+  14:	000081        	l32r	a8, fffc0014 <.LC24+0xfffbfff5>
+			14: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x28
+			14: R_XTENSA_ASM_EXPAND	_lock_acquire
+  17:	0008e0        	callx8	a8
+  1a:	000081        	l32r	a8, fffc001c <.LC24+0xfffbfffd>
+			1a: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x8
+  1d:	0888      	l32i.n	a8, a8, 0
+  1f:	025816        	beqz	a8, 48 <ensure_partitions_loaded$part$0+0x48>
+			1f: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x48
+  22:	020c      	movi.n	a2, 0
+  24:	0000a1        	l32r	a10, fffc0024 <.LC24+0xfffc0005>
+			24: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x4
+  27:	000081        	l32r	a8, fffc0028 <.LC24+0xfffc0009>
+			27: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x2c
+			27: R_XTENSA_ASM_EXPAND	_lock_release
+  2a:	0008e0        	callx8	a8
+  2d:	000081        	l32r	a8, fffc0030 <.LC24+0xfffc0011>
+			2d: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0
+  30:	0020c0        	memw
+  33:	272192        	l32i	a9, a1, 156
+  36:	0020c0        	memw
+  39:	002882        	l32i	a8, a8, 0
+  3c:	029987        	bne	a9, a8, 42 <ensure_partitions_loaded$part$0+0x42>
+			3c: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x42
+  3f:	006146        	j	1c8 <ensure_partitions_loaded$part$0+0x1c8>
+			3f: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x1c8
+  42:	000081        	l32r	a8, fffc0044 <.LC24+0xfffc0025>
+			42: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x30
+			42: R_XTENSA_ASM_EXPAND	__stack_chk_fail
+  45:	0008e0        	callx8	a8
+  48:	44c1a2        	addi	a10, a1, 68
+  4b:	000081        	l32r	a8, fffc004c <.LC24+0xfffc002d>
+			4b: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x34
+			4b: R_XTENSA_ASM_EXPAND	esp_rom_md5_init
+  4e:	0008e0        	callx8	a8
+  51:	0000b1        	l32r	a11, fffc0054 <.LC24+0xfffc0035>
+			51: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0xc
+  54:	20c1e2        	addi	a14, a1, 32
+  57:	1cc1d2        	addi	a13, a1, 28
+  5a:	0c0c      	movi.n	a12, 0
+  5c:	00a0a2        	movi	a10, 0
+  5f:	000081        	l32r	a8, fffc0060 <.LC24+0xfffc0041>
+			5f: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x38
+			5f: R_XTENSA_ASM_EXPAND	spi_flash_mmap
+  62:	0008e0        	callx8	a8
+  65:	0a2d      	mov.n	a2, a10
+  67:	13da56        	bnez	a10, 1a8 <ensure_partitions_loaded$part$0+0x1a8>
+			67: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x1a8
+  6a:	7188      	l32i.n	a8, a1, 28
+  6c:	170c      	movi.n	a7, 1
+  6e:	990c      	movi.n	a9, 9
+  70:	117710        	slli	a7, a7, 15
+  73:	119940        	slli	a9, a9, 12
+  76:	787a      	add.n	a7, a8, a7
+  78:	889a      	add.n	a8, a8, a9
+  7a:	7179      	s32i.n	a7, a1, 28
+  7c:	3189      	s32i.n	a8, a1, 12
+  7e:	060c      	movi.n	a6, 0
+  80:	030c      	movi.n	a3, 0
+  82:	24c142        	addi	a4, a1, 36
+  85:	3188      	l32i.n	a8, a1, 12
+  87:	029877        	bne	a8, a7, 8d <ensure_partitions_loaded$part$0+0x8d>
+			87: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x8d
+  8a:	002786        	j	12c <ensure_partitions_loaded$part$0+0x12c>
+			8a: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x12c
+  8d:	0c2c      	movi.n	a12, 32
+  8f:	07bd      	mov.n	a11, a7
+  91:	04ad      	mov.n	a10, a4
+  93:	000081        	l32r	a8, fffc0094 <.LC24+0xfffc0075>
+			93: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x3c
+			93: R_XTENSA_ASM_EXPAND	memcpy
+  96:	0008e0        	callx8	a8
+  99:	001482        	l16ui	a8, a4, 0
+  9c:	000091        	l32r	a9, fffc009c <.LC24+0xfffc007d>
+			9c: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x24
+  9f:	029897        	bne	a8, a9, a5 <ensure_partitions_loaded$part$0+0xa5>
+			9f: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0xa5
+  a2:	002106        	j	12a <ensure_partitions_loaded$part$0+0x12a>
+			a2: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x12a
+  a5:	aaa092        	movi	a9, 170
+  a8:	50d992        	addmi	a9, a9, 0x5000
+  ab:	7d9897        	bne	a8, a9, 12c <ensure_partitions_loaded$part$0+0x12c>
+			ab: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x12c
+  ae:	20a0c2        	movi	a12, 32
+  b1:	04bd      	mov.n	a11, a4
+  b3:	44c1a2        	addi	a10, a1, 68
+  b6:	000081        	l32r	a8, fffc00b8 <.LC24+0xfffc0099>
+			b6: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x40
+			b6: R_XTENSA_ASM_EXPAND	esp_rom_md5_update
+  b9:	0008e0        	callx8	a8
+  bc:	4b3c      	movi.n	a11, 52
+  be:	1a0c      	movi.n	a10, 1
+  c0:	000081        	l32r	a8, fffc00c0 <.LC24+0xfffc00a1>
+			c0: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x44
+			c0: R_XTENSA_ASM_EXPAND	calloc
+  c3:	0008e0        	callx8	a8
+  c6:	0a5d      	mov.n	a5, a10
+  c8:	060a16        	beqz	a10, 12c <ensure_partitions_loaded$part$0+0x12c>
+			c8: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x12c
+  cb:	0000a1        	l32r	a10, fffc00cc <.LC24+0xfffc00ad>
+			cb: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x10
+  ce:	0204b2        	l8ui	a11, a4, 2
+  d1:	0aa8      	l32i.n	a10, a10, 0
+  d3:	0304c2        	l8ui	a12, a4, 3
+  d6:	05a9      	s32i.n	a10, a5, 0
+  d8:	14a8      	l32i.n	a10, a4, 4
+  da:	15b9      	s32i.n	a11, a5, 4
+  dc:	35a9      	s32i.n	a10, a5, 12
+  de:	24a8      	l32i.n	a10, a4, 8
+  e0:	25c9      	s32i.n	a12, a5, 8
+  e2:	45a9      	s32i.n	a10, a5, 16
+  e4:	0000a1        	l32r	a10, fffc00e4 <.LC24+0xfffc00c5>
+			e4: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0xc
+  e7:	55a9      	s32i.n	a10, a5, 20
+  e9:	74a8      	l32i.n	a10, a4, 28
+  eb:	04a0a0        	extui	a10, a10, 0, 1
+  ee:	000081        	l32r	a8, fffc00f0 <.LC24+0xfffc00d1>
+			ee: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x48
+			ee: R_XTENSA_ASM_EXPAND	.text.is_partition_encrypted
+  f1:	0008e0        	callx8	a8
+  f4:	2945a2        	s8i	a10, a5, 41
+  f7:	74a8      	l32i.n	a10, a4, 28
+  f9:	0c1c      	movi.n	a12, 16
+  fb:	04a1a0        	extui	a10, a10, 1, 1
+  fe:	2a45a2        	s8i	a10, a5, 42
+ 101:	0a0c      	movi.n	a10, 0
+ 103:	2c45a2        	s8i	a10, a5, 44
+ 106:	30c1b2        	addi	a11, a1, 48
+ 109:	18c5a2        	addi	a10, a5, 24
+ 10c:	000081        	l32r	a8, fffc010c <.LC24+0xfffc00ed>
+			10c: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x4c
+			10c: R_XTENSA_ASM_EXPAND	strncpy
+ 10f:	0008e0        	callx8	a8
+ 112:	a3cc      	bnez.n	a3, 120 <ensure_partitions_loaded$part$0+0x120>
+			112: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x120
+ 114:	c569      	s32i.n	a6, a5, 48
+ 116:	056d      	mov.n	a6, a5
+ 118:	20c772        	addi	a7, a7, 32
+ 11b:	053d      	mov.n	a3, a5
+ 11d:	ffd906        	j	85 <ensure_partitions_loaded$part$0+0x85>
+			11d: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x85
+ 120:	c3a8      	l32i.n	a10, a3, 48
+ 122:	c5a9      	s32i.n	a10, a5, 48
+ 124:	c359      	s32i.n	a5, a3, 48
+ 126:	fffb86        	j	118 <ensure_partitions_loaded$part$0+0x118>
+			126: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x118
+ 129:	00          	.byte	00
+ 12a:	f7ec      	bnez.n	a7, 15d <ensure_partitions_loaded$part$0+0x15d>
+			12a: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x15d
+ 12c:	000081        	l32r	a8, fffc012c <.LC24+0xfffc010d>
+			12c: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x50
+			12c: R_XTENSA_ASM_EXPAND	esp_log_timestamp
+ 12f:	0008e0        	callx8	a8
+ 132:	0000b1        	l32r	a11, fffc0134 <.LC24+0xfffc0115>
+			132: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x14
+ 135:	0000c1        	l32r	a12, fffc0138 <.LC24+0xfffc0119>
+			135: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x18
+ 138:	0add      	mov.n	a13, a10
+ 13a:	0bed      	mov.n	a14, a11
+ 13c:	01a0a2        	movi	a10, 1
+ 13f:	000081        	l32r	a8, fffc0140 <.LC24+0xfffc0121>
+			13f: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x54
+			13f: R_XTENSA_ASM_EXPAND	esp_log
+ 142:	0008e0        	callx8	a8
+ 145:	05a122        	movi	a2, 0x105
+ 148:	051616        	beqz	a6, 19d <ensure_partitions_loaded$part$0+0x19d>
+			148: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x19d
+ 14b:	c678      	l32i.n	a7, a6, 48
+ 14d:	06ad      	mov.n	a10, a6
+ 14f:	000081        	l32r	a8, fffc0150 <.LC24+0xfffc0131>
+			14f: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x58
+			14f: R_XTENSA_ASM_EXPAND	free
+ 152:	0008e0        	callx8	a8
+ 155:	076d      	mov.n	a6, a7
+ 157:	fffb46        	j	148 <ensure_partitions_loaded$part$0+0x148>
+			157: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x148
+ 15a:	00          	.byte	00
+ 15b:	00          	.byte	00
+ 15c:	00          	.byte	00
+ 15d:	44c1b2        	addi	a11, a1, 68
+ 160:	04ad      	mov.n	a10, a4
+ 162:	000081        	l32r	a8, fffc0164 <.LC24+0xfffc0145>
+			162: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x5c
+			162: R_XTENSA_ASM_EXPAND	esp_rom_md5_final
+ 165:	0008e0        	callx8	a8
+ 168:	0c1c      	movi.n	a12, 16
+ 16a:	10c7b2        	addi	a11, a7, 16
+ 16d:	04ad      	mov.n	a10, a4
+ 16f:	000081        	l32r	a8, fffc0170 <.LC24+0xfffc0151>
+			16f: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x60
+			16f: R_XTENSA_ASM_EXPAND	memcmp
+ 172:	0008e0        	callx8	a8
+ 175:	fa9c      	beqz.n	a10, 198 <ensure_partitions_loaded$part$0+0x198>
+			175: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x198
+ 177:	000081        	l32r	a8, fffc0178 <.LC24+0xfffc0159>
+			177: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x64
+			177: R_XTENSA_ASM_EXPAND	esp_log_timestamp
+ 17a:	0008e0        	callx8	a8
+ 17d:	0000b1        	l32r	a11, fffc0180 <.LC24+0xfffc0161>
+			17d: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x14
+ 180:	0000c1        	l32r	a12, fffc0180 <.LC24+0xfffc0161>
+			180: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x1c
+ 183:	0add      	mov.n	a13, a10
+ 185:	0bed      	mov.n	a14, a11
+ 187:	01a0a2        	movi	a10, 1
+ 18a:	000081        	l32r	a8, fffc018c <.LC24+0xfffc016d>
+			18a: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x68
+			18a: R_XTENSA_ASM_EXPAND	esp_log
+ 18d:	0008e0        	callx8	a8
+ 190:	03a122        	movi	a2, 0x103
+ 193:	ffec46        	j	148 <ensure_partitions_loaded$part$0+0x148>
+			193: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x148
+ 196:	00          	.byte	00
+ 197:	00          	.byte	00
+ 198:	000081        	l32r	a8, fffc0198 <.LC24+0xfffc0179>
+			198: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x8
+ 19b:	0869      	s32i.n	a6, a8, 0
+ 19d:	81a8      	l32i.n	a10, a1, 32
+ 19f:	000081        	l32r	a8, fffc01a0 <.LC24+0xfffc0181>
+			19f: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x6c
+			19f: R_XTENSA_ASM_EXPAND	spi_flash_munmap
+ 1a2:	0008e0        	callx8	a8
+ 1a5:	e79216        	beqz	a2, 22 <ensure_partitions_loaded$part$0+0x22>
+			1a5: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x22
+ 1a8:	000081        	l32r	a8, fffc01a8 <.LC24+0xfffc0189>
+			1a8: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x70
+			1a8: R_XTENSA_ASM_EXPAND	esp_log_timestamp
+ 1ab:	0008e0        	callx8	a8
+ 1ae:	0000b1        	l32r	a11, fffc01b0 <.LC24+0xfffc0191>
+			1ae: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x14
+ 1b1:	0000c1        	l32r	a12, fffc01b4 <.LC24+0xfffc0195>
+			1b1: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x20
+ 1b4:	0add      	mov.n	a13, a10
+ 1b6:	02fd      	mov.n	a15, a2
+ 1b8:	20ebb0        	or	a14, a11, a11
+ 1bb:	01a0a2        	movi	a10, 1
+ 1be:	000081        	l32r	a8, fffc01c0 <.LC24+0xfffc01a1>
+			1be: R_XTENSA_SLOT0_OP	.literal.ensure_partitions_loaded$part$0+0x74
+			1be: R_XTENSA_ASM_EXPAND	esp_log
+ 1c1:	0008e0        	callx8	a8
+ 1c4:	ff9706        	j	24 <ensure_partitions_loaded$part$0+0x24>
+			1c4: R_XTENSA_SLOT0_OP	.text.ensure_partitions_loaded$part$0+0x24
+ 1c7:	00          	.byte	00
+ 1c8:	f01d      	retw.n

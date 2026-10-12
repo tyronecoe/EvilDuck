@@ -1,0 +1,292 @@
+
+/workspace/tooling/arduino/build/stage21-normal/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+420031fc <_Z5setupv>:
+420031fc:	00c136        	entry	a1, 96
+420031ff:	f38861        	l32r	a6, 42000020 <_stext> (3fca10c8 <__stack_chk_guard>)
+42003202:	f38871        	l32r	a7, 42000024 <_stext+0x4> (3fc9bafc <_ZL15startupNvsError>)
+42003205:	0020c0        	memw
+42003208:	0688      	l32i.n	a8, a6, 0
+4200320a:	3cc152        	addi	a5, a1, 60
+4200320d:	0020c0        	memw
+42003210:	0589      	s32i.n	a8, a5, 0
+42003212:	002782        	l32i	a8, a7, 0
+42003215:	023816        	beqz	a8, 4200323c <_Z5setupv+0x40>
+42003218:	201110        	or	a1, a1, a1
+4200321b:	0474a5        	call8	42007964 <_ZN5debug5beginEv>
+4200321e:	f382b1        	l32r	a11, 42000028 <_stext+0x8> (3c0e0120 <_flash_rodata_start>)
+42003221:	2cc1a2        	addi	a10, a1, 44
+42003224:	201110        	or	a1, a1, a1
+42003227:	294be5        	call8	4202c6e4 <_ZN6StringC1EPKc>
+4200322a:	07b8      	l32i.n	a11, a7, 0
+4200322c:	0aa0c2        	movi	a12, 10
+4200322f:	1cc1a2        	addi	a10, a1, 28
+42003232:	201110        	or	a1, a1, a1
+42003235:	297465        	call8	4202c97c <_ZN6StringC1Elh>
+42003238:	000a46        	j	42003265 <_Z5setupv+0x69>
+4200323b:	111000        	slli	a1, a0, 16
+4200323e:	4aa520        	madd.s	f10, f5, f2
+42003241:	a92a      	add.n	a10, a9, a2
+42003243:	0a5607        	bbc	a6, a0, 42003251 <_Z5setupv+0x55>
+42003246:	fd          	.byte	0xfd
+42003247:	201110        	or	a1, a1, a1
+4200324a:	0471a5        	call8	42007964 <_ZN5debug5beginEv>
+4200324d:	f377b1        	l32r	a11, 4200002c <_stext+0xc> (3c0e015c <_flash_rodata_start+0x3c>)
+42003250:	2cc1a2        	addi	a10, a1, 44
+42003253:	201110        	or	a1, a1, a1
+42003256:	2948e5        	call8	4202c6e4 <_ZN6StringC1EPKc>
+42003259:	2cc1a2        	addi	a10, a1, 44
+4200325c:	201110        	or	a1, a1, a1
+4200325f:	0471e5        	call8	4200797c <_ZN5debug4infoERK6String>
+42003262:	000586        	j	4200327c <_Z5setupv+0x80>
+42003265:	1cc1b2        	addi	a11, a1, 28
+42003268:	2cc1a2        	addi	a10, a1, 44
+4200326b:	201110        	or	a1, a1, a1
+4200326e:	299165        	call8	4202cb84 <_ZplRK15StringSumHelperRK6String>
+42003271:	201110        	or	a1, a1, a1
+42003274:	047065        	call8	4200797c <_ZN5debug4infoERK6String>
+42003277:	001606        	j	420032d3 <_Z5setupv+0xd7>
+4200327a:	a20000        	muluh	a0, a0, a0
+4200327d:	102cc1        	l32r	a12, 41fc7330 <_coredump_iram_end+0x1c40e30>
+42003280:	252011        	l32r	a1, 41fcc700 <_coredump_iram_end+0x1c46200>
+42003283:	292c      	movi.n	a9, 34
+42003285:	f36a71        	l32r	a7, 42000030 <_stext+0x10> (3fc9baf8 <_ZL21startupSettingsFailed>)
+42003288:	000782        	l8ui	a8, a7, 0
+4200328b:	056856        	bnez	a8, 420032e5 <_Z5setupv+0xe9>
+4200328e:	201110        	or	a1, a1, a1
+42003291:	103925        	call8	42013624 <_ZN8settings4loadEv>
+42003294:	201110        	or	a1, a1, a1
+42003297:	103765        	call8	4201360c <_ZN8settings5readyEv>
+4200329a:	05aa56        	bnez	a10, 420032f8 <_Z5setupv+0xfc>
+4200329d:	180c      	movi.n	a8, 1
+4200329f:	f365b1        	l32r	a11, 42000034 <_stext+0x14> (3c0e0170 <_flash_rodata_start+0x50>)
+420032a2:	004782        	s8i	a8, a7, 0
+420032a5:	2cc1a2        	addi	a10, a1, 44
+420032a8:	201110        	or	a1, a1, a1
+420032ab:	2943a5        	call8	4202c6e4 <_ZN6StringC1EPKc>
+420032ae:	201110        	or	a1, a1, a1
+420032b1:	103665        	call8	42013618 <_ZN8settings9loadErrorEv>
+420032b4:	0abd      	mov.n	a11, a10
+420032b6:	ac0c      	movi.n	a12, 10
+420032b8:	1cc1a2        	addi	a10, a1, 28
+420032bb:	201110        	or	a1, a1, a1
+420032be:	296be5        	call8	4202c97c <_ZN6StringC1Elh>
+420032c1:	1cc1b2        	addi	a11, a1, 28
+420032c4:	2cc1a2        	addi	a10, a1, 44
+420032c7:	201110        	or	a1, a1, a1
+420032ca:	298ba5        	call8	4202cb84 <_ZplRK15StringSumHelperRK6String>
+420032cd:	201110        	or	a1, a1, a1
+420032d0:	046aa5        	call8	4200797c <_ZN5debug4infoERK6String>
+420032d3:	1cc1a2        	addi	a10, a1, 28
+420032d6:	201110        	or	a1, a1, a1
+420032d9:	2926a5        	call8	4202c544 <_ZN6StringD1Ev>
+420032dc:	2cc1a2        	addi	a10, a1, 44
+420032df:	201110        	or	a1, a1, a1
+420032e2:	292625        	call8	4202c544 <_ZN6StringD1Ev>
+420032e5:	0020c0        	memw
+420032e8:	0598      	l32i.n	a9, a5, 0
+420032ea:	0020c0        	memw
+420032ed:	0688      	l32i.n	a8, a6, 0
+420032ef:	021987        	beq	a9, a8, 420032f5 <_Z5setupv+0xf9>
+420032f2:	005d86        	j	4200346c <_Z5setupv+0x270>
+420032f5:	f01d      	retw.n
+420032f7:	111000        	slli	a1, a0, 16
+420032fa:	20          	.byte	0x20
+420032fb:	09ebe5        	call8	4200d1b8 <_ZN3led5beginEv>
+420032fe:	00a0c2        	movi	a12, 0
+42003301:	0b0c      	movi.n	a11, 0
+42003303:	28a0a2        	movi	a10, 40
+42003306:	201110        	or	a1, a1, a1
+42003309:	09ece5        	call8	4200d1d8 <_ZN3led8setColorEiii>
+4200330c:	78a0a2        	movi	a10, 120
+4200330f:	201110        	or	a1, a1, a1
+42003312:	2a3c65        	call8	4202d6d8 <delay>
+42003315:	0c0c      	movi.n	a12, 0
+42003317:	8b2c      	movi.n	a11, 40
+42003319:	0a0c      	movi.n	a10, 0
+4200331b:	201110        	or	a1, a1, a1
+4200331e:	09eba5        	call8	4200d1d8 <_ZN3led8setColorEiii>
+42003321:	78a0a2        	movi	a10, 120
+42003324:	201110        	or	a1, a1, a1
+42003327:	2a3b25        	call8	4202d6d8 <delay>
+4200332a:	8c2c      	movi.n	a12, 40
+4200332c:	00a0b2        	movi	a11, 0
+4200332f:	00a0a2        	movi	a10, 0
+42003332:	201110        	or	a1, a1, a1
+42003335:	09ea25        	call8	4200d1d8 <_ZN3led8setColorEiii>
+42003338:	201110        	or	a1, a1, a1
+4200333b:	08f4e5        	call8	4200c288 <_ZN11hid_backend5beginEv>
+4200333e:	201110        	or	a1, a1, a1
+42003341:	09c7a5        	call8	4200cfbc <_ZN15keyboard_locale5beginEv>
+42003344:	201110        	or	a1, a1, a1
+42003347:	001fe5        	call8	42003544 <_ZN10attackmode5beginEv>
+4200334a:	201110        	or	a1, a1, a1
+4200334d:	11c1a5        	call8	42014f68 <_ZN7storage5beginEv>
+42003350:	201110        	or	a1, a1, a1
+42003353:	0a5825        	call8	4200d8d4 <_ZN14script_library15installIfNeededEv>
+42003356:	201110        	or	a1, a1, a1
+42003359:	10b265        	call8	42013e80 <_ZN8settings13getDisableLedEv>
+4200335c:	041a16        	beqz	a10, 420033a1 <_Z5setupv+0x1a5>
+4200335f:	0c0c      	movi.n	a12, 0
+42003361:	00a0b2        	movi	a11, 0
+42003364:	00a0a2        	movi	a10, 0
+42003367:	201110        	or	a1, a1, a1
+4200336a:	09e6e5        	call8	4200d1d8 <_ZN3led8setColorEiii>
+4200336d:	201110        	or	a1, a1, a1
+42003370:	0239a5        	call8	4200570c <_ZN3cli5beginEv>
+42003373:	201110        	or	a1, a1, a1
+42003376:	16cfe5        	call8	4201a074 <_ZN9webserver5beginEv>
+42003379:	201110        	or	a1, a1, a1
+4200337c:	10a125        	call8	42013d90 <_ZN8settings14autorunEnabledEv>
+4200337f:	f62a16        	beqz	a10, 420032e5 <_Z5setupv+0xe9>
+42003382:	71cb      	addi.n	a7, a1, 12
+42003384:	07ad      	mov.n	a10, a7
+42003386:	201110        	or	a1, a1, a1
+42003389:	10a125        	call8	42013d9c <_ZN8settings10getAutorunEv>
+4200338c:	0f0782        	l8ui	a8, a7, 15
+4200338f:	23e877        	bbsi	a8, 7, 420033b6 <_Z5setupv+0x1ba>
+42003392:	0788      	l32i.n	a8, a7, 0
+42003394:	08fc      	bnez.n	a8, 420033c8 <_Z5setupv+0x1cc>
+42003396:	07ad      	mov.n	a10, a7
+42003398:	201110        	or	a1, a1, a1
+4200339b:	291aa5        	call8	4202c544 <_ZN6StringD1Ev>
+4200339e:	ffd0c6        	j	420032e5 <_Z5setupv+0xe9>
+420033a1:	201110        	or	a1, a1, a1
+420033a4:	10af25        	call8	42013e98 <_ZN8settings11getLedColorEv>
+420033a7:	74c0a0        	extui	a12, a10, 0, 8
+420033aa:	74b8a0        	extui	a11, a10, 8, 8
+420033ad:	75a0a0        	extui	a10, a10, 16, 8
+420033b0:	ffecc6        	j	42003367 <_Z5setupv+0x16b>
+420033b3:	000000        	ill
+420033b6:	3788      	l32i.n	a8, a7, 12
+420033b8:	658880        	extui	a8, a8, 24, 7
+420033bb:	fd7816        	beqz	a8, 42003396 <_Z5setupv+0x19a>
+420033be:	201110        	or	a1, a1, a1
+420033c1:	10caa5        	call8	4201406c <_ZN8settings18pickAutorunDelayMsEv>
+420033c4:	000186        	j	420033ce <_Z5setupv+0x1d2>
+420033c7:	278800        	ee.stf.64.xp	f8, f2, a0, a8
+420033ca:	fffb46        	j	420033bb <_Z5setupv+0x1bf>
+420033cd:	0a2d00        	add.s	f2, f13, f0
+420033d0:	1adc      	bnez.n	a10, 420033e5 <_Z5setupv+0x1e9>
+420033d2:	201110        	or	a1, a1, a1
+420033d5:	10a7a5        	call8	42013e50 <_ZN8settings14getStealthModeEv>
+420033d8:	b8a022        	movi	a2, 184
+420033db:	0bd222        	addmi	a2, a2, 0xb00
+420033de:	3a8c      	beqz.n	a10, 420033e5 <_Z5setupv+0x1e9>
+420033e0:	024c      	movi.n	a2, 64
+420033e2:	1fd222        	addmi	a2, a2, 0x1f00
+420033e5:	f314b1        	l32r	a11, 42000038 <_stext+0x18> (3c0e01a4 <_flash_rodata_start+0x84>)
+420033e8:	2cc1a2        	addi	a10, a1, 44
+420033eb:	201110        	or	a1, a1, a1
+420033ee:	292f65        	call8	4202c6e4 <_ZN6StringC1EPKc>
+420033f1:	0aa0c2        	movi	a12, 10
+420033f4:	20b220        	or	a11, a2, a2
+420033f7:	1cc1a2        	addi	a10, a1, 28
+420033fa:	201110        	or	a1, a1, a1
+420033fd:	295be5        	call8	4202c9bc <_ZN6StringC1Emh>
+42003400:	1cc1b2        	addi	a11, a1, 28
+42003403:	2cc1a2        	addi	a10, a1, 44
+42003406:	201110        	or	a1, a1, a1
+42003409:	2977a5        	call8	4202cb84 <_ZplRK15StringSumHelperRK6String>
+4200340c:	f30cb1        	l32r	a11, 4200003c <_stext+0x1c> (3c0e01b0 <_flash_rodata_start+0x90>)
+4200340f:	201110        	or	a1, a1, a1
+42003412:	2979a5        	call8	4202cbac <_ZplRK15StringSumHelperPKc>
+42003415:	07bd      	mov.n	a11, a7
+42003417:	201110        	or	a1, a1, a1
+4200341a:	2976a5        	call8	4202cb84 <_ZplRK15StringSumHelperRK6String>
+4200341d:	201110        	or	a1, a1, a1
+42003420:	0455a5        	call8	4200797c <_ZN5debug4infoERK6String>
+42003423:	1cc1a2        	addi	a10, a1, 28
+42003426:	201110        	or	a1, a1, a1
+42003429:	2911a5        	call8	4202c544 <_ZN6StringD1Ev>
+4200342c:	2cc1a2        	addi	a10, a1, 44
+4200342f:	201110        	or	a1, a1, a1
+42003432:	291125        	call8	4202c544 <_ZN6StringD1Ev>
+42003435:	02ad      	mov.n	a10, a2
+42003437:	201110        	or	a1, a1, a1
+4200343a:	2a29e5        	call8	4202d6d8 <delay>
+4200343d:	07ad      	mov.n	a10, a7
+4200343f:	201110        	or	a1, a1, a1
+42003442:	08a8e5        	call8	4200bed0 <_ZN10duckscript3runERK6String>
+42003445:	ffd346        	j	42003396 <_Z5setupv+0x19a>
+42003448:	1cc1a2        	addi	a10, a1, 28
+4200344b:	201110        	or	a1, a1, a1
+4200344e:	290f65        	call8	4202c544 <_ZN6StringD1Ev>
+42003451:	ffffc6        	j	42003454 <_Z5setupv+0x258>
+42003454:	2cc1a2        	addi	a10, a1, 44
+42003457:	201110        	or	a1, a1, a1
+4200345a:	290ea5        	call8	4202c544 <_ZN6StringD1Ev>
+4200345d:	0020c0        	memw
+42003460:	002592        	l32i	a9, a5, 0
+42003463:	0020c0        	memw
+42003466:	002682        	l32i	a8, a6, 0
+42003469:	341987        	beq	a9, a8, 420034a1 <_Z5setupv+0x2a5>
+4200346c:	f2f581        	l32r	a8, 42000040 <_stext+0x20> (40375b8c <__stack_chk_fail>)
+4200346f:	0008e0        	callx8	a8
+42003472:	2cc1a2        	addi	a10, a1, 44
+42003475:	201110        	or	a1, a1, a1
+42003478:	290ca5        	call8	4202c544 <_ZN6StringD1Ev>
+4200347b:	fff786        	j	4200345d <_Z5setupv+0x261>
+4200347e:	fff186        	j	42003448 <_Z5setupv+0x24c>
+42003481:	fff3c6        	j	42003454 <_Z5setupv+0x258>
+42003484:	1cc1a2        	addi	a10, a1, 28
+42003487:	201110        	or	a1, a1, a1
+4200348a:	290ba5        	call8	4202c544 <_ZN6StringD1Ev>
+4200348d:	2cc1a2        	addi	a10, a1, 44
+42003490:	201110        	or	a1, a1, a1
+42003493:	290b25        	call8	4202c544 <_ZN6StringD1Ev>
+42003496:	07ad      	mov.n	a10, a7
+42003498:	fff646        	j	42003475 <_Z5setupv+0x279>
+4200349b:	fffb86        	j	4200348d <_Z5setupv+0x291>
+4200349e:	fffd06        	j	42003496 <_Z5setupv+0x29a>
+420034a1:	02ad      	mov.n	a10, a2
+420034a3:	f2e881        	l32r	a8, 42000044 <_stext+0x24> (420b4d10 <_Unwind_Resume>)
+420034a6:	0008e0        	callx8	a8
+
+/workspace/tooling/arduino/build/stage21-normal/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .flash.text:
+
+4200323c <_Z5setupv+0x40>:
+4200323c:	201110        	or	a1, a1, a1
+4200323f:	2a4aa5        	call8	4202d6e8 <evilduck_nvs_startup_error>
+42003242:	07a9      	s32i.n	a10, a7, 0
+42003244:	fd0a56        	bnez	a10, 42003218 <_Z5setupv+0x1c>
+42003247:	201110        	or	a1, a1, a1
+4200324a:	0471a5        	call8	42007964 <_ZN5debug5beginEv>
+4200324d:	f377b1        	l32r	a11, 4200002c <_stext+0xc> (3c0e015c <_flash_rodata_start+0x3c>)
+42003250:	2cc1a2        	addi	a10, a1, 44
+42003253:	201110        	or	a1, a1, a1
+42003256:	2948e5        	call8	4202c6e4 <_ZN6StringC1EPKc>
+42003259:	2cc1a2        	addi	a10, a1, 44
+4200325c:	201110        	or	a1, a1, a1
+4200325f:	0471e5        	call8	4200797c <_ZN5debug4infoERK6String>
+42003262:	000586        	j	4200327c <_Z5setupv+0x80>
+42003265:	1cc1b2        	addi	a11, a1, 28
+42003268:	2cc1a2        	addi	a10, a1, 44
+4200326b:	201110        	or	a1, a1, a1
+4200326e:	299165        	call8	4202cb84 <_ZplRK15StringSumHelperRK6String>
+42003271:	201110        	or	a1, a1, a1
+42003274:	047065        	call8	4200797c <_ZN5debug4infoERK6String>
+42003277:	001606        	j	420032d3 <_Z5setupv+0xd7>
+4200327a:	a20000        	muluh	a0, a0, a0
+4200327d:	102cc1        	l32r	a12, 41fc7330 <_coredump_iram_end+0x1c40e30>
+42003280:	252011        	l32r	a1, 41fcc700 <_coredump_iram_end+0x1c46200>
+42003283:	292c      	movi.n	a9, 34
+42003285:	f36a71        	l32r	a7, 42000030 <_stext+0x10> (3fc9baf8 <_ZL21startupSettingsFailed>)
+42003288:	000782        	l8ui	a8, a7, 0
+4200328b:	056856        	bnez	a8, 420032e5 <_Z5setupv+0xe9>
+4200328e:	201110        	or	a1, a1, a1
+42003291:	103925        	call8	42013624 <_ZN8settings4loadEv>
+42003294:	201110        	or	a1, a1, a1
+42003297:	103765        	call8	4201360c <_ZN8settings5readyEv>
+4200329a:	56          	.byte	0x56
+4200329b:	aa          	.byte	0xaa

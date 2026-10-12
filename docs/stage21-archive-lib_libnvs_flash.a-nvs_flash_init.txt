@@ -1,0 +1,16 @@
+Archive: lib/libnvs_flash.a
+Archive SHA256: a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e
+Full captured output SHA256: 97517f24718c168ae756677f4d1f518225cd7f638cea8170ad929be31c82227e
+Selected instruction excerpt only; no execution.
+
+<nvs_flash_init>:
+
+   0:	004136        	entry	a1, 32
+   3:	0000a1        	l32r	a10, fffc0004 <.LC9+0xfffbff92>
+			3: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init
+   6:	000081        	l32r	a8, fffc0008 <.LC9+0xfffbff96>
+			6: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init+0x4
+			6: R_XTENSA_ASM_EXPAND	nvs_flash_init_partition
+   9:	0008e0        	callx8	a8
+   c:	0a2d      	mov.n	a2, a10
+   e:	f01d      	retw.n

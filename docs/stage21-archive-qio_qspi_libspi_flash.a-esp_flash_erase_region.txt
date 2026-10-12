@@ -1,0 +1,277 @@
+Archive: qio_qspi/libspi_flash.a
+Archive SHA256: 7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270
+Full captured output SHA256: d85343fae3cec8569217996e422b6cf1267b6011d4e76760629a295317a33b45
+Selected instruction excerpt only; no execution.
+
+<esp_flash_erase_region>:
+
+   0:	00a136        	entry	a1, 80
+   3:	000061        	l32r	a6, fffc0004 <.LC39+0xfffbfff3>
+			3: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0xc
+   6:	1cc172        	addi	a7, a1, 28
+   9:	0688      	l32i.n	a8, a6, 0
+   b:	0729      	s32i.n	a2, a7, 0
+   d:	2888      	l32i.n	a8, a8, 8
+   f:	07ad      	mov.n	a10, a7
+  11:	1139      	s32i.n	a3, a1, 4
+  13:	0008e0        	callx8	a8
+  16:	0a2d      	mov.n	a2, a10
+  18:	0f5a56        	bnez	a10, 111 <esp_flash_erase_region+0x111>
+			18: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+  1b:	0788      	l32i.n	a8, a7, 0
+  1d:	1898      	l32i.n	a9, a8, 4
+  1f:	69a8      	l32i.n	a10, a9, 24
+  21:	1b3a16        	beqz	a10, 1d8 <esp_flash_erase_region+0x1d8>
+			21: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1d8
+  24:	7998      	l32i.n	a9, a9, 28
+  26:	1ae916        	beqz	a9, 1d8 <esp_flash_erase_region+0x1d8>
+			26: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1d8
+  29:	2898      	l32i.n	a9, a8, 8
+  2b:	2998      	l32i.n	a9, a9, 8
+  2d:	999c      	beqz.n	a9, 4a <esp_flash_erase_region+0x4a>
+			2d: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x4a
+  2f:	38a8      	l32i.n	a10, a8, 12
+  31:	11b8      	l32i.n	a11, a1, 4
+  33:	20c440        	or	a12, a4, a4
+  36:	0009e0        	callx8	a9
+  39:	0da182        	movi	a8, 0x10d
+  3c:	029a87        	bne	a10, a8, 42 <esp_flash_erase_region+0x42>
+			3c: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x42
+  3f:	006746        	j	1e0 <esp_flash_erase_region+0x1e0>
+			3f: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1e0
+  42:	4a8c      	beqz.n	a10, 4a <esp_flash_erase_region+0x4a>
+			42: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x4a
+  44:	000081        	l32r	a8, fffc0044 <.LC39+0xfffc0033>
+			44: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x1c
+			44: R_XTENSA_ASM_EXPAND	abort
+  47:	0008e0        	callx8	a8
+  4a:	07a8      	l32i.n	a10, a7, 0
+  4c:	050c      	movi.n	a5, 0
+  4e:	1a88      	l32i.n	a8, a10, 4
+  50:	7898      	l32i.n	a9, a8, 28
+  52:	098c      	beqz.n	a9, 56 <esp_flash_erase_region+0x56>
+			52: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x56
+  54:	9858      	l32i.n	a5, a8, 36
+  56:	8898      	l32i.n	a9, a8, 32
+  58:	2199      	s32i.n	a9, a1, 8
+  5a:	18a916        	beqz	a9, 1e8 <esp_flash_erase_region+0x1e8>
+			5a: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1e8
+  5d:	e29590        	remu	a9, a5, a9
+  60:	184956        	bnez	a9, 1e8 <esp_flash_erase_region+0x1e8>
+			60: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1e8
+  63:	5a98      	l32i.n	a9, a10, 20
+  65:	11b8      	l32i.n	a11, a1, 4
+  67:	02b9b7        	bgeu	a9, a11, 6d <esp_flash_erase_region+0x6d>
+			67: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x6d
+  6a:	006006        	j	1ee <esp_flash_erase_region+0x1ee>
+			6a: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1ee
+  6d:	3b4a      	add.n	a3, a11, a4
+  6f:	02b937        	bgeu	a9, a3, 75 <esp_flash_erase_region+0x75>
+			6f: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x75
+  72:	005e06        	j	1ee <esp_flash_erase_region+0x1ee>
+			72: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1ee
+  75:	0b9d      	mov.n	a9, a11
+  77:	0221b2        	l32i	a11, a1, 8
+  7a:	e299b0        	remu	a9, a9, a11
+  7d:	16d956        	bnez	a9, 1ee <esp_flash_erase_region+0x1ee>
+			7d: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1ee
+  80:	e294b0        	remu	a9, a4, a11
+  83:	167956        	bnez	a9, 1ee <esp_flash_erase_region+0x1ee>
+			83: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1ee
+  86:	087416        	beqz	a4, 111 <esp_flash_erase_region+0x111>
+			86: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+  89:	e898      	l32i.n	a9, a8, 56
+  8b:	a9ec      	bnez.n	a9, b9 <esp_flash_erase_region+0xb9>
+			8b: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0xb9
+  8d:	1178      	l32i.n	a7, a1, 4
+  8f:	046d      	mov.n	a6, a4
+  91:	1cc132        	addi	a3, a1, 28
+  94:	03a8      	l32i.n	a10, a3, 0
+  96:	1a88      	l32i.n	a8, a10, 4
+  98:	1a2882        	l32i	a8, a8, 104
+  9b:	0b2856        	bnez	a8, 151 <esp_flash_erase_region+0x151>
+			9b: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x151
+  9e:	000021        	l32r	a2, fffc00a0 <.LC39+0xfffc008f>
+			9e: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0xc
+  a1:	03a8      	l32i.n	a10, a3, 0
+  a3:	0288      	l32i.n	a8, a2, 0
+  a5:	0888      	l32i.n	a8, a8, 0
+  a7:	0008e0        	callx8	a8
+  aa:	0abd      	mov.n	a11, a10
+  ac:	03a8      	l32i.n	a10, a3, 0
+  ae:	0acb16        	beqz	a11, 15e <esp_flash_erase_region+0x15e>
+			ae: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x15e
+  b1:	0c0c      	movi.n	a12, 0
+  b3:	004346        	j	1c4 <esp_flash_erase_region+0x1c4>
+			b3: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1c4
+  b6:	00          	.byte	00
+  b7:	00          	.byte	00
+  b8:	00          	.byte	00
+  b9:	300882        	l8ui	a8, a8, 48
+  bc:	fcd816        	beqz	a8, 8d <esp_flash_erase_region+0x8d>
+			bc: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x8d
+  bf:	0688      	l32i.n	a8, a6, 0
+  c1:	0888      	l32i.n	a8, a8, 0
+  c3:	0008e0        	callx8	a8
+  c6:	0a2d      	mov.n	a2, a10
+  c8:	045a56        	bnez	a10, 111 <esp_flash_erase_region+0x111>
+			c8: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+  cb:	07a8      	l32i.n	a10, a7, 0
+  cd:	080c      	movi.n	a8, 0
+  cf:	a189      	s32i.n	a8, a1, 40
+  d1:	b189      	s32i.n	a8, a1, 44
+  d3:	1a88      	l32i.n	a8, a10, 4
+  d5:	28c1b2        	addi	a11, a1, 40
+  d8:	0e2882        	l32i	a8, a8, 56
+  db:	0008e0        	callx8	a8
+  de:	0a6d      	mov.n	a6, a10
+  e0:	0778      	l32i.n	a7, a7, 0
+  e2:	7adc      	bnez.n	a10, fd <esp_flash_erase_region+0xfd>
+			e2: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0xfd
+  e4:	a188      	l32i.n	a8, a1, 40
+  e6:	b198      	l32i.n	a9, a1, 44
+  e8:	20a890        	or	a10, a8, a9
+  eb:	ea8c      	beqz.n	a10, fd <esp_flash_erase_region+0xfd>
+			eb: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0xfd
+  ed:	1728      	l32i.n	a2, a7, 4
+  ef:	0c0c      	movi.n	a12, 0
+  f1:	3002e2        	l8ui	a14, a2, 48
+  f4:	05ace7        	bge	a12, a14, fd <esp_flash_erase_region+0xfd>
+			f4: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0xfd
+  f7:	019616        	beqz	a6, 114 <esp_flash_erase_region+0x114>
+			f7: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x114
+  fa:	000061        	l32r	a6, fffc00fc <.LC39+0xfffc00eb>
+			fa: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region
+  fd:	000081        	l32r	a8, fffc0100 <.LC39+0xfffc00ef>
+			fd: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0xc
+ 100:	06bd      	mov.n	a11, a6
+ 102:	0888      	l32i.n	a8, a8, 0
+ 104:	07ad      	mov.n	a10, a7
+ 106:	012882        	l32i	a8, a8, 4
+ 109:	0008e0        	callx8	a8
+ 10c:	0a2d      	mov.n	a2, a10
+ 10e:	f7ba16        	beqz	a10, 8d <esp_flash_erase_region+0x8d>
+			10e: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x8d
+ 111:	f01d      	retw.n
+ 113:	00          	.byte	00
+ 114:	61e9      	s32i.n	a14, a1, 24
+ 116:	51c9      	s32i.n	a12, a1, 20
+ 118:	08ad      	mov.n	a10, a8
+ 11a:	4189      	s32i.n	a8, a1, 16
+ 11c:	09bd      	mov.n	a11, a9
+ 11e:	3199      	s32i.n	a9, a1, 12
+ 120:	000081        	l32r	a8, fffc0120 <.LC39+0xfffc010f>
+			120: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x20
+			120: R_XTENSA_ASM_EXPAND	__lshrdi3
+ 123:	0008e0        	callx8	a8
+ 126:	3198      	l32i.n	a9, a1, 12
+ 128:	4188      	l32i.n	a8, a1, 16
+ 12a:	51c8      	l32i.n	a12, a1, 20
+ 12c:	61e8      	l32i.n	a14, a1, 24
+ 12e:	0000d1        	l32r	a13, fffc0130 <.LC39+0xfffc011f>
+			12e: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region
+ 131:	176a07        	bbci	a10, 0, 14c <esp_flash_erase_region+0x14c>
+			131: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x14c
+ 134:	d2b8      	l32i.n	a11, a2, 52
+ 136:	f4a0c0        	extui	a10, a12, 0, 16
+ 139:	b0aab0        	addx8	a10, a10, a11
+ 13c:	0ab8      	l32i.n	a11, a10, 0
+ 13e:	1aa8      	l32i.n	a10, a10, 4
+ 140:	11f8      	l32i.n	a15, a1, 4
+ 142:	abaa      	add.n	a10, a11, a10
+ 144:	04bfa7        	bgeu	a15, a10, 14c <esp_flash_erase_region+0x14c>
+			144: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x14c
+ 147:	01bb37        	bgeu	a11, a3, 14c <esp_flash_erase_region+0x14c>
+			147: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x14c
+ 14a:	0d6d      	mov.n	a6, a13
+ 14c:	cc1b      	addi.n	a12, a12, 1
+ 14e:	ffe886        	j	f4 <esp_flash_erase_region+0xf4>
+			14e: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0xf4
+ 151:	0b0c      	movi.n	a11, 0
+ 153:	0008e0        	callx8	a8
+ 156:	0a2d      	mov.n	a2, a10
+ 158:	f42a16        	beqz	a10, 9e <esp_flash_erase_region+0x9e>
+			158: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x9e
+ 15b:	ffec86        	j	111 <esp_flash_erase_region+0x111>
+			15b: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+ 15e:	950b      	addi.n	a9, a5, -1
+ 160:	1a88      	l32i.n	a8, a10, 4
+ 162:	27b967        	bgeu	a9, a6, 18d <esp_flash_erase_region+0x18d>
+			162: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x18d
+ 165:	e29750        	remu	a9, a7, a5
+ 168:	19ec      	bnez.n	a9, 18d <esp_flash_erase_region+0x18d>
+			168: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x18d
+ 16a:	7888      	l32i.n	a8, a8, 28
+ 16c:	07bd      	mov.n	a11, a7
+ 16e:	0008e0        	callx8	a8
+ 171:	0abd      	mov.n	a11, a10
+ 173:	775a      	add.n	a7, a7, a5
+ 175:	c06650        	sub	a6, a6, a5
+ 178:	243647        	bltu	a6, a4, 1a0 <esp_flash_erase_region+0x1a0>
+			178: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1a0
+ 17b:	0000d1        	l32r	a13, fffc017c <.LC39+0xfffc016b>
+			17b: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x10
+ 17e:	0000c1        	l32r	a12, fffc0180 <.LC39+0xfffc016f>
+			17e: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x14
+ 181:	0000a1        	l32r	a10, fffc0184 <.LC39+0xfffc0173>
+			181: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x18
+ 184:	aba2b2        	movi	a11, 0x2ab
+ 187:	000081        	l32r	a8, fffc0188 <.LC39+0xfffc0177>
+			187: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x24
+			187: R_XTENSA_ASM_EXPAND	__assert_func
+ 18a:	0008e0        	callx8	a8
+ 18d:	6888      	l32i.n	a8, a8, 24
+ 18f:	07bd      	mov.n	a11, a7
+ 191:	0008e0        	callx8	a8
+ 194:	2188      	l32i.n	a8, a1, 8
+ 196:	0abd      	mov.n	a11, a10
+ 198:	778a      	add.n	a7, a7, a8
+ 19a:	c06680        	sub	a6, a6, a8
+ 19d:	fff5c6        	j	178 <esp_flash_erase_region+0x178>
+			19d: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x178
+ 1a0:	080c      	movi.n	a8, 0
+ 1a2:	1c0c      	movi.n	a12, 1
+ 1a4:	190c      	movi.n	a9, 1
+ 1a6:	83c8b0        	moveqz	a12, a8, a11
+ 1a9:	838960        	moveqz	a8, a9, a6
+ 1ac:	20cc80        	or	a12, a12, a8
+ 1af:	03a8      	l32i.n	a10, a3, 0
+ 1b1:	0288      	l32i.n	a8, a2, 0
+ 1b3:	dccc      	bnez.n	a12, 1c4 <esp_flash_erase_region+0x1c4>
+			1b3: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x1c4
+ 1b5:	1888      	l32i.n	a8, a8, 4
+ 1b7:	00a0b2        	movi	a11, 0
+ 1ba:	0008e0        	callx8	a8
+ 1bd:	0abd      	mov.n	a11, a10
+ 1bf:	ed1a16        	beqz	a10, 94 <esp_flash_erase_region+0x94>
+			1bf: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x94
+ 1c2:	1c0c      	movi.n	a12, 1
+ 1c4:	0288      	l32i.n	a8, a2, 0
+ 1c6:	11d8      	l32i.n	a13, a1, 4
+ 1c8:	3888      	l32i.n	a8, a8, 12
+ 1ca:	03a8      	l32i.n	a10, a3, 0
+ 1cc:	04ed      	mov.n	a14, a4
+ 1ce:	0008e0        	callx8	a8
+ 1d1:	0a2d      	mov.n	a2, a10
+ 1d3:	ffce86        	j	111 <esp_flash_erase_region+0x111>
+			1d3: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+ 1d6:	00          	.byte	00
+ 1d7:	00          	.byte	00
+ 1d8:	000021        	l32r	a2, fffc01d8 <.LC39+0xfffc01c7>
+			1d8: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x8
+ 1db:	ffcc86        	j	111 <esp_flash_erase_region+0x111>
+			1db: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+ 1de:	00          	.byte	00
+ 1df:	00          	.byte	00
+ 1e0:	0da122        	movi	a2, 0x10d
+ 1e3:	ffca86        	j	111 <esp_flash_erase_region+0x111>
+			1e3: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+ 1e6:	00          	.byte	00
+ 1e7:	00          	.byte	00
+ 1e8:	000021        	l32r	a2, fffc01e8 <.LC39+0xfffc01d7>
+			1e8: R_XTENSA_SLOT0_OP	.literal.esp_flash_erase_region+0x4
+ 1eb:	ffc886        	j	111 <esp_flash_erase_region+0x111>
+			1eb: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111
+ 1ee:	02a122        	movi	a2, 0x102
+ 1f1:	ffc706        	j	111 <esp_flash_erase_region+0x111>
+			1f1: R_XTENSA_SLOT0_OP	.text.esp_flash_erase_region+0x111

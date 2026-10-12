@@ -1,0 +1,67 @@
+Archive: lib/libnvs_flash.a
+Archive SHA256: a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e
+Full captured output SHA256: 15be923ac0e12e8ec48900449428191a37cebd0d223cc9cabe9d069c9ead8f46
+Selected instruction excerpt only; no execution.
+
+<nvs_flash_init_partition>:
+
+   0:	006136        	entry	a1, 48
+   3:	000081        	l32r	a8, fffc0004 <.LC9+0xfffbff92>
+			3: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x10
+			3: R_XTENSA_ASM_EXPAND	_ZN3nvs4Lock4initEv
+   6:	0008e0        	callx8	a8
+   9:	027d      	mov.n	a7, a2
+   b:	0a2d      	mov.n	a2, a10
+   d:	04fa56        	bnez	a10, 60 <nvs_flash_init_partition+0x60>
+			d: R_XTENSA_SLOT0_OP	.text.nvs_flash_init_partition+0x60
+  10:	a1fb      	addi.n	a10, a1, 15
+  12:	000081        	l32r	a8, fffc0014 <.LC9+0xfffbffa2>
+			12: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x14
+			12: R_XTENSA_ASM_EXPAND	_ZN3nvs4LockC1Ev
+  15:	0008e0        	callx8	a8
+  18:	000081        	l32r	a8, fffc0018 <.LC9+0xfffbffa6>
+			18: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x18
+			18: R_XTENSA_ASM_EXPAND	esp_partition_get_main_flash_sector_size
+  1b:	0008e0        	callx8	a8
+  1e:	000081        	l32r	a8, fffc0020 <.LC9+0xfffbffae>
+			1e: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition
+  21:	0888      	l32i.n	a8, a8, 0
+  23:	2118a7        	beq	a8, a10, 48 <nvs_flash_init_partition+0x48>
+			23: R_XTENSA_SLOT0_OP	.text.nvs_flash_init_partition+0x48
+  26:	0000d1        	l32r	a13, fffc0028 <.LC9+0xfffbffb6>
+			26: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x4
+  29:	0000c1        	l32r	a12, fffc002c <.LC9+0xfffbffba>
+			29: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x8
+  2c:	0000a1        	l32r	a10, fffc002c <.LC9+0xfffbffba>
+			2c: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0xc
+  2f:	84a0b2        	movi	a11, 132
+  32:	000081        	l32r	a8, fffc0034 <.LC9+0xfffbffc2>
+			32: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x1c
+			32: R_XTENSA_ASM_EXPAND	__assert_func
+  35:	0008e0        	callx8	a8
+  38:	a1fb      	addi.n	a10, a1, 15
+  3a:	000081        	l32r	a8, fffc003c <.LC9+0xfffbffca>
+			3a: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x20
+			3a: R_XTENSA_ASM_EXPAND	_ZN3nvs4LockD1Ev
+  3d:	0008e0        	callx8	a8
+  40:	02ad      	mov.n	a10, a2
+  42:	000081        	l32r	a8, fffc0044 <.LC9+0xfffbffd2>
+			42: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x24
+			42: R_XTENSA_ASM_EXPAND	_Unwind_Resume
+  45:	0008e0        	callx8	a8
+  48:	000081        	l32r	a8, fffc0048 <.LC9+0xfffbffd6>
+			48: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x28
+			48: R_XTENSA_ASM_EXPAND	_ZN3nvs19NVSPartitionManager12get_instanceEv
+  4b:	0008e0        	callx8	a8
+  4e:	07bd      	mov.n	a11, a7
+  50:	000081        	l32r	a8, fffc0050 <.LC9+0xfffbffde>
+			50: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x2c
+			50: R_XTENSA_ASM_EXPAND	_ZN3nvs19NVSPartitionManager14init_partitionEPKc
+  53:	0008e0        	callx8	a8
+  56:	0a2d      	mov.n	a2, a10
+  58:	a1fb      	addi.n	a10, a1, 15
+  5a:	000081        	l32r	a8, fffc005c <.LC9+0xfffbffea>
+			5a: R_XTENSA_SLOT0_OP	.literal.nvs_flash_init_partition+0x30
+			5a: R_XTENSA_ASM_EXPAND	_ZN3nvs4LockD1Ev
+  5d:	0008e0        	callx8	a8
+  60:	f01d      	retw.n
