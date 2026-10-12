@@ -17,7 +17,7 @@ namespace keyboard_locale{void begin(){calls.push_back("locale");}}
 namespace attackmode{void begin(){calls.push_back("attackmode");}}
 namespace storage{bool begin(){calls.push_back("storage-mount-format-risk");return false;}}
 namespace script_library{void installIfNeeded(){calls.push_back("install");}}
-namespace settings{void load(){calls.push_back("settings");}bool autorunEnabled(){return autorun;}String getAutorun(){return "stored-not-executed.txt";}uint32_t pickAutorunDelayMs(){return 0;}bool getStealthMode(){return false;}bool getDisableLed(){return false;}uint32_t getLedColor(){return 0;}}
+namespace settings{bool ready(){return true;}int32_t loadError(){return 0;}void load(){calls.push_back("settings");}bool autorunEnabled(){return autorun;}String getAutorun(){return "stored-not-executed.txt";}uint32_t pickAutorunDelayMs(){return 0;}bool getStealthMode(){return false;}bool getDisableLed(){return false;}uint32_t getLedColor(){return 0;}}
 namespace cli{void begin(){calls.push_back("cli");}void update(){calls.push_back("cli-update");}}
 namespace webserver{void begin(){calls.push_back("web");}}
 namespace duckscript{bool run(const String&){calls.push_back("run-request-only");return true;}void update(){calls.push_back("script-update");}}

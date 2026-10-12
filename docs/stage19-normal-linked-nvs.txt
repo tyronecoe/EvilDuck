@@ -1,0 +1,48 @@
+
+/workspace/tooling/arduino/build/stage19-final-normal/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+4202d5bc <initArduino>:
+4202d5bc:	006136        	entry	a1, 48
+4202d5bf:	519381        	l32r	a8, 42001c0c <_stext+0x1bec> (420ce790 <verifyRollbackLater>)
+4202d5c2:	0008e0        	callx8	a8
+4202d5c5:	aadc      	bnez.n	a10, 4202d5e3 <initArduino+0x27>
+4202d5c7:	047825        	call8	42031d48 <esp_ota_get_running_partition>
+4202d5ca:	71cb      	addi.n	a7, a1, 12
+4202d5cc:	07bd      	mov.n	a11, a7
+4202d5ce:	04a965        	call8	42032064 <esp_ota_get_state_partition>
+4202d5d1:	eacc      	bnez.n	a10, 4202d5e3 <initArduino+0x27>
+4202d5d3:	3188      	l32i.n	a8, a1, 12
+4202d5d5:	0a1866        	bnei	a8, 1, 4202d5e3 <initArduino+0x27>
+4202d5d8:	518e81        	l32r	a8, 42001c10 <_stext+0x1bf0> (420ce788 <verifyOta>)
+4202d5db:	0008e0        	callx8	a8
+4202d5de:	6abc      	beqz.n	a10, 4202d618 <initArduino+0x5c>
+4202d5e0:	04a5a5        	call8	4203203c <esp_ota_mark_app_valid_cancel_rollback>
+4202d5e3:	5189a1        	l32r	a10, 42001c08 <_stext+0x1be8> (3c0f3ada <_flash_rodata_start+0x139ba>)
+4202d5e6:	01a0b2        	movi	a11, 1
+4202d5e9:	518a81        	l32r	a8, 42001c14 <_stext+0x1bf4> (420dd73c <esp_log_level_set>)
+4202d5ec:	0008e0        	callx8	a8
+4202d5ef:	0c1e25        	call8	420397d0 <nvs_flash_init>
+4202d5f2:	518481        	l32r	a8, 42001c04 <_stext+0x1be4> (3fc96660 <evilduck_nvs_error>)
+4202d5f5:	0068a2        	s32i	a10, a8, 0
+4202d5f8:	018a56        	bnez	a10, 4202d614 <initArduino+0x58>
+4202d5fb:	518781        	l32r	a8, 42001c18 <_stext+0x1bf8> (420cebe4 <btInUse>)
+4202d5fe:	0008e0        	callx8	a8
+4202d601:	3acc      	bnez.n	a10, 4202d608 <initArduino+0x4c>
+4202d603:	3a0c      	movi.n	a10, 3
+4202d605:	3a2da5        	call8	420678e0 <esp_bt_controller_mem_release>
+4202d608:	518581        	l32r	a8, 42001c1c <_stext+0x1bfc> (420ce780 <init>)
+4202d60b:	0008e0        	callx8	a8
+4202d60e:	518481        	l32r	a8, 42001c20 <_stext+0x1c00> (420ce778 <initVariant>)
+4202d611:	0008e0        	callx8	a8
+4202d614:	f01d      	retw.n
+4202d616:	a50000        	extui	a0, a0, 16, 11
+4202d619:	0604a3        	lsi	f10, a4, 24
+4202d61c:	f1          	.byte	0xf1
+4202d61d:	ff          	.byte	0xff

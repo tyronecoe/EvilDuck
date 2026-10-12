@@ -1,0 +1,39 @@
+{
+  "version": "0.1.9",
+  "url": "https://files.pythonhosted.org/packages/71/29/6d0c93dd2eca11491be5da86b9a50ff77c9deb09d9f521aab4c7d7ea79e6/esp_idf_nvs_partition_gen-0.1.9-py3-none-any.whl",
+  "wheel_sha256": "9655b81dcfac034372bc00ac301f26830619abdd622949efb70cb7f78c80ba12",
+  "files": [
+    {
+      "path": "esp_idf_nvs_partition_gen/__init__.py",
+      "sha256": "dae61527878b17c90a3b37d7ea4d86a37bbbc48c1c192b9e980b9e0285e7fb9a"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen/__main__.py",
+      "sha256": "a412c0b0bfb0726eb43012a19e70c8634a1f8611fa543111eac7832b0339dd47"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen/nvs_partition_gen.py",
+      "sha256": "1ec9f2b5dd220af37b3067195dfe5d9ae5dcc8d09b415d5d6af47bf4aa7424c4"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen-0.1.9.dist-info/LICENSE",
+      "sha256": "02ff931bfa172520949584836d00cb2cf16dc3872c9021a3699a9312e438c241"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen-0.1.9.dist-info/METADATA",
+      "sha256": "88bf2e23eeeb8d3eeb8ef5af3bfccb4f15f28f8eee52a77fc67164bf18f14dba"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen-0.1.9.dist-info/RECORD",
+      "sha256": "9c2f63321cffed5b15d4fd831d60bbe24c6acbd25095dd15bf3ec48da392b8b5"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen-0.1.9.dist-info/WHEEL",
+      "sha256": "880908cb97e8b1bec5cc83b038d7211dfd7d42eeffd70096c85351e60bbd9d4d"
+    },
+    {
+      "path": "esp_idf_nvs_partition_gen-0.1.9.dist-info/top_level.txt",
+      "sha256": "8a32221066ed5545632e8661092aa09b889b89462e8e3b210bda3e347f64d193"
+    }
+  ]
+}

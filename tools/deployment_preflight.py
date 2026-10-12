@@ -9,6 +9,7 @@ import sys
 import tempfile
 import subprocess
 sys.dont_write_bytecode = True
+from nvs_inspect import inspect as inspect_nvs
 from s3_validation import require, partition_tool, check_table, LEGACY_LAYOUT, LAYOUT
 from s3_migration import (sha256_file, checked_mkspiffs, source_listing, mk_run,
                          inventory, SPIFFS_SOURCE_BYTES, SPIFFS_DESTINATION_BYTES)
@@ -91,13 +92,14 @@ def verify_backups(core, directory, mkspiffs, expected=OWNER, expected_files=EXP
   repacked=t/'capacity-roundtrip.bin';mk_run(executable,'-c',t/'old-files',SPIFFS_DESTINATION_BYTES,repacked)
   require(decode_fs(executable,repacked,SPIFFS_DESTINATION_BYTES,t/'repack-files')==old_files,'Capacity/repack roundtrip failed')
  for name,row in files.items():require(sha256_file(directory/name)==row['sha256'],'Owner backup changed during verification')
- return dict(evidence=evidence,owner_files_verified=evidence=='owner-recorded',hardware_access=False,migration_authorized=False,files=files,original_layout=LEGACY_LAYOUT,proposed_layout=LAYOUT,original_applications=apps,original_bootloader=boot,spiffs_files=old_files,spiffs_roundtrip_verified=True,nvs_sha256=hashlib.sha256(full[0x9000:0xe000]).hexdigest(),nvs_settings_readability='unknown; bytes preserved, not decoded')
+ return dict(evidence=evidence,owner_files_verified=evidence=='owner-recorded',hardware_access=False,migration_authorized=False,files=files,original_layout=LEGACY_LAYOUT,proposed_layout=LAYOUT,original_applications=apps,original_bootloader=boot,spiffs_files=old_files,spiffs_roundtrip_verified=True,nvs_sha256=hashlib.sha256(full[0x9000:0xe000]).hexdigest(),nvs_settings_readability='unknown; private settings values not decoded',nvs_structure=inspect_nvs(full[0x9000:0xe000]))
 
 def verify_plan(core, build, plan_dir, backup_report, require_safe_start=True):
  """Recompute all files/ranges/provenance; no plan booleans substitute for evidence."""
  plan_dir=Path(plan_dir);plan=json.loads((plan_dir/'review-plan.json').read_text())
  require(plan.get('review_only') is True and plan.get('migration_authorized') is False and plan.get('hardware_execution_supported') is False,'Plan is not offline/review-only')
  require(backup_report.get('spiffs_roundtrip_verified') is True and backup_report.get('migration_authorized') is False,'Missing completed backup evidence')
+ require(backup_report.get('nvs_structure',{}).get('classification')=='compatible-within-verified-checks','NVS structure needs separate owner review; no checked plan')
  provenance=verify_firmware(core,build)
  report=json.loads((Path(build)/'s3-build-report.json').read_text())
  require(not require_safe_start or provenance.get('deployment_safe_start') is True,'Initial migration requires explicit deployment-safe-start build')

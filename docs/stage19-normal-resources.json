@@ -1,0 +1,18 @@
+{
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_address": 65536,
+  "flash_bytes": 16777216,
+  "application_bytes": 1330208,
+  "ota_slot_bytes": 7602176,
+  "free_bytes_per_slot": 6271968,
+  "free_percent_per_slot": 82.50227303340517,
+  "application_sha256": "543efb4637c6f9c756ba7dba928a88135e79d2396348323ad81546f2751b9ef4",
+  "hardware_verified": false,
+  "compiler_program_bytes": 1330059,
+  "static_ram_bytes": 82240,
+  "compiler_ram_maximum_bytes": 327680,
+  "merged_image_for_migration": false,
+  "deployment_safe_start": false,
+  "verified_cpp_extra_flags": "-DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1"
+}

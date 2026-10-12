@@ -2,6 +2,11 @@
 #include "debug.h"
 #include "config.h"
 #include <Preferences.h>
+#include <nvs.h>
+#include <memory>
+#include <new>
+#include <cstring>
+#include <utility>
 
 static Preferences prefs;
 static bool autorun_enabled = false;
@@ -20,29 +25,92 @@ static uint16_t autorun_delay_max = 0;
 
 namespace settings {
 
-void load() {
-  prefs.begin("duck", true);
-  autorun_enabled = prefs.getBool("autorun_enabled", false);
-  autorun_script_name = prefs.getString("autorun_script", "");
-  ap_ssid = prefs.getString("ap_ssid", WIFI_SSID);
-  ap_password = prefs.getString("ap_password", WIFI_PASSWORD);
-  ap_channel = static_cast<uint8_t>(prefs.getUChar("ap_channel", 1));
-  stealth_mode = prefs.getBool("stealth", false);
-  hidden_ap = prefs.getBool("hidden_ap", false);
-  disable_led = prefs.getBool("disable_led", false);
-  led_color = prefs.getUInt("led_color", 0x000028);
-  web_password = prefs.getString("web_pw", "");
-  autorun_delay_min = prefs.getUShort("ar_dly_min", 0);
-  autorun_delay_max = prefs.getUShort("ar_dly_max", 0);
-  prefs.end();
+// Read failures are distinct from missing keys; never write defaults while loading.
+static bool load_ready = false;
+static esp_err_t load_error = ESP_ERR_INVALID_STATE;
+bool ready() { return load_ready; }
+int32_t loadError() { return load_error; }
 
-  if (ap_ssid.length() == 0) ap_ssid = WIFI_SSID;
-  if (ap_password.length() < 8) ap_password = WIFI_PASSWORD;
-  if (ap_channel < 1 || ap_channel > 13) ap_channel = 1;
+static esp_err_t readString(nvs_handle_t handle, const char *key, String &value) {
+  size_t length = 0;
+  esp_err_t error = nvs_get_str(handle, key, nullptr, &length);
+  if (error == ESP_ERR_NVS_NOT_FOUND) return ESP_OK;
+  if (error != ESP_OK) return error;
+  if (length == 0 || length > 4000) return ESP_ERR_NVS_INVALID_LENGTH;
+  std::unique_ptr<char[]> buffer(new (std::nothrow) char[length]);
+  if (!buffer) return ESP_ERR_NO_MEM;
+  const size_t expected = length;
+  error = nvs_get_str(handle, key, buffer.get(), &length);
+  if (error != ESP_OK) return error;
+  if (length != expected || buffer[length - 1] != 0 ||
+      std::memchr(buffer.get(), 0, length - 1)) return ESP_ERR_NVS_INVALID_LENGTH;
+  value = buffer.get();
+  return value.length() == length - 1 ? ESP_OK : ESP_ERR_NO_MEM;
+}
+
+void load() {
+  load_ready = false;
+  load_error = ESP_OK;
+  nvs_handle_t handle = 0;
+  load_error = nvs_open("duck", NVS_READONLY, &handle);
+  if (load_error == ESP_ERR_NVS_NOT_FOUND) {
+    // A fresh device may have no namespace; in-memory defaults are sufficient.
+    autorun_enabled = false; autorun_script_name = "";
+    ap_ssid = WIFI_SSID; ap_password = WIFI_PASSWORD; ap_channel = 1;
+    stealth_mode = false; hidden_ap = false; disable_led = false;
+    led_color = 0x000028; web_password = "";
+    autorun_delay_min = 0; autorun_delay_max = 0;
+    load_error = ESP_OK;
+    load_ready = true;
+    return;
+  }
+  if (load_error != ESP_OK) return;
+  uint8_t ar = 0, channel = 1, stealth = 0, hidden = 0, disabled = 0;
+  uint32_t color = 0x000028;
+  uint16_t minimum = 0, maximum = 0;
+  String script = "", ssid = WIFI_SSID, password = WIFI_PASSWORD, web = "";
+  auto accept = [](esp_err_t error) { return error == ESP_ERR_NVS_NOT_FOUND ? ESP_OK : error; };
+  // Stop at the first real error and close without any commit/set/erase operation.
+#define ED_READ(operation) do { if (load_error == ESP_OK) load_error = accept(operation); } while (0)
+  ED_READ(nvs_get_u8(handle, "autorun_enabled", &ar));
+  ED_READ(readString(handle, "autorun_script", script));
+  ED_READ(readString(handle, "ap_ssid", ssid));
+  ED_READ(readString(handle, "ap_password", password));
+  ED_READ(nvs_get_u8(handle, "ap_channel", &channel));
+  ED_READ(nvs_get_u8(handle, "stealth", &stealth));
+  ED_READ(nvs_get_u8(handle, "hidden_ap", &hidden));
+  ED_READ(nvs_get_u8(handle, "disable_led", &disabled));
+  ED_READ(nvs_get_u32(handle, "led_color", &color));
+  ED_READ(readString(handle, "web_pw", web));
+  ED_READ(nvs_get_u16(handle, "ar_dly_min", &minimum));
+  ED_READ(nvs_get_u16(handle, "ar_dly_max", &maximum));
+#undef ED_READ
+  nvs_close(handle);
+  if (load_error != ESP_OK) return;
+  if (ar > 1 || stealth > 1 || hidden > 1 || disabled > 1 || channel < 1 || channel > 13 ||
+      ssid.length() == 0 || ssid.length() > 32 || password.length() < 8 || password.length() > 63 ||
+      color > 0xffffff || minimum > maximum || (ar && script.length() == 0)) {
+    load_error = ESP_ERR_INVALID_ARG;
+    return;
+  }
+  autorun_enabled = ar;
+  autorun_script_name = std::move(script);
+  ap_ssid = std::move(ssid);
+  ap_password = std::move(password);
+  ap_channel = channel;
+  stealth_mode = stealth;
+  hidden_ap = hidden;
+  disable_led = disabled;
+  led_color = color;
+  web_password = std::move(web);
+  autorun_delay_min = minimum;
+  autorun_delay_max = maximum;
+  load_ready = true;
 }
 
 void save() {
-  prefs.begin("duck", false);
+  if (!load_ready) { debug::info("Settings save refused: load not validated"); return; }
+  if (!prefs.begin("duck", false)) { debug::info("Settings save refused: namespace unavailable"); return; }
   prefs.putBool("autorun_enabled", autorun_enabled);
   prefs.putString("autorun_script", autorun_script_name);
   prefs.putString("ap_ssid", ap_ssid);

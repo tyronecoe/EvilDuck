@@ -1,0 +1,14 @@
+{
+  "evidence_class": "owner-verified-local-hashes-and-sizes",
+  "reported_by": "owner in Stage 19 instruction",
+  "reported_platform": "macOS 10.13.6; shasum -a 256 and wc -c",
+  "codex_files_supplied": false,
+  "codex_independently_inspected": false,
+  "full_structural_preflight_completed": false,
+  "migration_authorized": false,
+  "files": {
+    "evilduck-16m-backup.bin": {"bytes": 16777216, "sha256": "d1712805e3282e59395efc4f10bd9496b7d338e1b18710379c1112f35248bda7"},
+    "partition-table-backup.bin": {"bytes": 4096, "sha256": "8edc409c4d09a6ac4cb2b3029ad9aaf2edcd2c5e0e89137861b1018a7d21ee15"},
+    "new-spiffs-0x160000.bin": {"bytes": 1441792, "sha256": "fea8c95f9a0b49878e69fe9e9afec7472ce52f6b3d7c1b35db43e905470043fe"}
+  }
+}

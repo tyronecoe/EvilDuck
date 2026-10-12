@@ -3,6 +3,8 @@
 
 namespace settings {
   void load();
+  bool ready();
+  int32_t loadError();
   void save();
   void reset();
 

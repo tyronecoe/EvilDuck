@@ -7,6 +7,7 @@
 
 // Latch failure for the boot lifetime; a later core retry cannot arm an uninitialized app.
 static int32_t startupNvsError = 0;
+static bool startupSettingsFailed = false;
 #include "debug.h"
 #include "storage.h"
 #include "settings.h"
@@ -44,6 +45,14 @@ void setup() {
   debug::begin();
   debug::info("Booting EvilDuck...");
 
+  if (startupSettingsFailed) return;
+  settings::load();
+  if (!settings::ready()) {
+    startupSettingsFailed = true;
+    debug::info("Settings read failed; application disabled, error: " + String(settings::loadError()));
+    return;
+  }
+
   led::begin();
   led::setColor(40, 0, 0);
   delay(120);
@@ -56,7 +65,6 @@ void setup() {
 
   storage::begin();
   script_library::installIfNeeded();
-  settings::load();
   applyIdleLedColor();
   cli::begin();
 
@@ -75,7 +83,7 @@ void setup() {
 }
 
 void loop() {
-  if (deployment::safeStart() || startupNvsError != 0) {
+  if (deployment::safeStart() || startupNvsError != 0 || startupSettingsFailed) {
     delay(1);
     return; // Intentionally no web/CLI arming path or execution scheduler in this profile.
   }
