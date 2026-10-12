@@ -77,8 +77,8 @@ static void test(const std::string &n) {
     uint8_t mask=7; mockKeyboard->_onOutput(1,&mask,1); check(read("$_CAPSLOCK_ON")==1,"actual subclass receives interrupt output");
     mockKeyboard->_onOutput(1,nullptr,0); check(hid_backend::lockState().leds==7,"unsafe SDK read bypassed");
   } else if (n == "actual_keyboard_control_set_report_hook") {
-    uint8_t mask=1; mockKeyboard->_onSetFeature(1,&mask,1); check(read("$_NUMLOCK_ON")==1,"control SET_REPORT normalized hook");
-    mask=0;mockKeyboard->_onSetFeature(2,&mask,1); check(read("$_NUMLOCK_ON")==1,"wrong control ID ignored");
+    uint8_t mask=1; mockKeyboard->_onOutput(1,&mask,1); check(read("$_NUMLOCK_ON")==1,"control SET_REPORT normalized hook");
+    mask=0;mockKeyboard->_onOutput(2,&mask,1); check(read("$_NUMLOCK_ON")==1,"wrong control ID ignored");
   } else if (n == "duplicates_do_not_count_changes") {
     check(feedback(2),"first"); const auto before=hid_backend::lockState();
     for(unsigned i=0;i<1000;++i)check(feedback(2),"duplicate valid");

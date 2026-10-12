@@ -265,7 +265,7 @@ def stage25_build_wrapper_requires_clean_output():
     output.mkdir()
     (output / "keep.txt").write_text("existing user data")
     result = subprocess.run([sys.executable, str(ROOT / "tools/build_s3.py"),
-                             "--build-dir", str(output), "--arduino-cli", "not-a-command"],
+                             "--build-dir", str(output), "--patched-core-dir", str(CORE), "--arduino-cli", "not-a-command"],
                             capture_output=True, text=True)
     check(result.returncode != 0, "Nonempty directory rejected before invoking Arduino")
     check("must be empty" in result.stderr, "Useful clean-build diagnostic")

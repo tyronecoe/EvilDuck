@@ -19,6 +19,7 @@ def main():
     parser.add_argument("--arduino-cli", default=os.environ.get("ARDUINO_CLI", "arduino-cli"))
     parser.add_argument("--config-file", type=Path)
     parser.add_argument("--build-dir", type=Path, help="Must be empty; defaults to a temporary directory")
+    parser.add_argument("--patched-core-dir", type=Path, required=True, help="Verified disposable Stage16 core; use build_s3_patched.py")
     parser.add_argument("--jobs", type=int, default=2)
     args = parser.parse_args()
     require(args.jobs > 0, "--jobs must be positive")
@@ -38,7 +39,11 @@ def main():
     resolved = subprocess.run(cli + compile_args + ["--show-properties=expanded", str(ROOT / "EvilDuckS3")],
                               check=True, capture_output=True, text=True)
     properties = dict(line.split("=", 1) for line in resolved.stdout.splitlines() if "=" in line)
-    core = Path(properties["runtime.platform.path"])
+    core = Path(properties["runtime.platform.path"]).resolve()
+    from patched_core import check_sources
+    require(core == args.patched_core_dir.resolve(), "CLI selected a different core; refusing unpatched fallback")
+    check_sources(core, True)
+    compile_args += ["--build-property", "compiler.cpp.extra_flags=-DEVILDUCK_VERIFIED_HID_ROUTING=1"]
     validate_csv(core)  # Also rejects any active core other than 3.3.0.
     validate_properties(properties)
     print("Pinned ESP32 core {}: {}".format(CORE_VERSION, core), flush=True)
@@ -59,6 +64,7 @@ def main():
     (build / "s3-build.log").write_text(compiler_output)
     require(status == 0, "Arduino compilation failed with exit status {} (see s3-build.log)".format(status))
     (build / "s3-build-properties.json").write_text(json.dumps(properties, indent=2) + "\n")
+    check_sources(core, True)
     report = validate_build(core, build)
     program = re.search(r"Sketch uses (\d+) bytes .*Maximum is (\d+) bytes", compiler_output)
     ram = re.search(r"Global variables use (\d+) bytes .*Maximum is (\d+) bytes", compiler_output)

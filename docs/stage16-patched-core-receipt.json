@@ -1,0 +1,19 @@
+{
+  "core": "/workspace/tooling/stage16-repro-isolated/data/packages/esp32/hardware/esp32/3.3.0",
+  "original_core": "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0",
+  "pin": {
+    "core_version": "3.3.0",
+    "baseline": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ]
+  },
+  "config": "/workspace/tooling/stage16-repro-isolated/arduino-cli.json",
+  "user": "/workspace/tooling/arduino/user",
+  "tools_shared_read_only": true
+}

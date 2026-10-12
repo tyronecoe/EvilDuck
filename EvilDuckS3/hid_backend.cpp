@@ -1,3 +1,6 @@
+#if !defined(EVILDUCK_HOST_TEST) && !defined(EVILDUCK_VERIFIED_HID_ROUTING)
+#error "Use tools/build_s3_patched.py: the Stage16 paired HID routing dependency is required"
+#endif
 #include "hid_backend.h"
 #include "debug.h"
 #include "USB.h"
@@ -14,8 +17,7 @@ class FeedbackKeyboard : public USBHIDKeyboard {
   }
 public:
   void _onOutput(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
-  // Pinned Arduino3.3.0 routes nonzero-ID control SET_REPORT through this hook.
-  void _onSetFeature(uint8_t id, const uint8_t *data, uint16_t size) override { observe(id, data, size); }
+  // Verified Stage16 core routes OUTPUT here; FEATURE is not keyboard LED feedback.
 };
 static FeedbackKeyboard Keyboard;
 static bool releasePending = false;

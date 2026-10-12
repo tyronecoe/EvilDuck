@@ -10,7 +10,7 @@ def body(text,marker):
  while depth:
   depth+=(text[end]=='{')-(text[end]=='}');end+=1
  return text[start:end]
-def compile_exe(core,backend,build,name,paired):
+def compile_exe(core,backend,build,name,paired,main_source=None):
  build.mkdir(parents=True,exist_ok=True)
  source=(core/'libraries/USB/src/USBHID.cpp').read_text()
  markers=['USBHIDDevice *tinyusb_get_device_by_report_id(','static bool tinyusb_on_set_feature(','static bool tinyusb_on_set_output(','void tud_hid_set_report_cb(']
@@ -19,11 +19,11 @@ def compile_exe(core,backend,build,name,paired):
  (build/'stock_keyboard_slice.inc').write_text('// Extracted Apache-2.0 stock keyboard callback, name-only adaptation\n'+stock+'\n')
  modules=['com','duckscript','duck_vars','duck_keys','keyboard_locale','locales','script_log','cli','script_source','script_parser','duck_expr','duck_constants','script_functions','script_preprocessor','duck_random','attackmode','usb_msc','sd_card']
  fw=ROOT/'EvilDuckS3';exe=build/name
- args=['g++','-std=gnu++17','-g','-O1','-pthread','-DEVILDUCK_HOST_TEST','-DEVILDUCK_PRODUCTION_STORAGE','-DCONFIG_TINYUSB_MSC_ENABLED=1','-DCONFIG_TINYUSB_MSC_BUFSIZE=4096','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(build),'-I'+str(ROOT/'tests/stage10/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(fw),str(ROOT/'tests/stage15/routing.cpp'),str(ROOT/'tests/stage1/mocks/host.cpp'),str(backend),*[str(fw/(m+'.cpp')) for m in modules],'-o',str(exe)]
+ args=['g++','-std=gnu++17','-g','-O1','-pthread','-DEVILDUCK_HOST_TEST','-DEVILDUCK_PRODUCTION_STORAGE','-DCONFIG_TINYUSB_MSC_ENABLED=1','-DCONFIG_TINYUSB_MSC_BUFSIZE=4096','-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie','-I'+str(build),'-I'+str(ROOT/'tests/stage10/mocks'),'-I'+str(ROOT/'tests/stage1/mocks'),'-I'+str(fw),str(main_source or ROOT/'tests/stage15/routing.cpp'),str(ROOT/'tests/stage1/mocks/host.cpp'),str(backend),*[str(fw/(m+'.cpp')) for m in modules],'-o',str(exe)]
  if paired:args.insert(1,'-DPAIRED_PROPOSAL')
  subprocess.run(args,check=True);return exe
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--build-dir',type=Path);p.add_argument('--results',type=Path);a=p.parse_args();b=a.build_dir or Path(tempfile.mkdtemp(prefix='evilduck-stage15-'))
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--build-dir',type=Path);p.add_argument('--results',type=Path);p.add_argument('--baseline-backend',type=Path,help='Exact Stage15 backend for historical observations on later branches');a=p.parse_args();b=a.build_dir or Path(tempfile.mkdtemp(prefix='evilduck-stage15-'))
  before={}
  metadata=json.loads((ROOT/'docs/stage15-upstream-sources.json').read_text())
  for record in metadata['sources']:
@@ -31,10 +31,14 @@ def main():
   path=a.core_dir/saved.split('/hardware/esp32/3.3.0/',1)[1] if '/hardware/esp32/3.3.0/' in saved else a.core_dir.parents[2]/'tools'/saved.split('/tools/',1)[1]
   before[path]=hashlib.sha256(path.read_bytes()).hexdigest();assert before[path]==record['sha256'],'Pinned upstream source mismatch'
  assert hashlib.sha256((a.core_dir/'libraries/USB/src/USBHID.cpp').read_bytes()).hexdigest()==metadata['sources'][0]['sha256']
- original=compile_exe(a.core_dir,ROOT/'EvilDuckS3/hid_backend.cpp',b/'original','routing',False)
+ backend=a.baseline_backend or ROOT/'EvilDuckS3/hid_backend.cpp'
+ if a.baseline_backend:
+  expected=subprocess.run(['git','show','7a8229f9c04d2a5423c179fe8daa42e048554560:EvilDuckS3/hid_backend.cpp'],cwd=ROOT,check=True,capture_output=True).stdout
+  assert backend.read_bytes()==expected,'Historical backend must match Stage15 commit exactly'
+ original=compile_exe(a.core_dir,backend,b/'original','routing',False)
  temp=b/'proposal';(temp/'libraries/USB/src').mkdir(parents=True,exist_ok=True);(temp/'EvilDuckS3').mkdir()
  for name in ['USBHID.cpp','USBHIDKeyboard.cpp']:shutil.copyfile(a.core_dir/'libraries/USB/src'/name,temp/'libraries/USB/src'/name)
- shutil.copyfile(ROOT/'EvilDuckS3/hid_backend.cpp',temp/'EvilDuckS3/hid_backend.cpp')
+ shutil.copyfile(backend,temp/'EvilDuckS3/hid_backend.cpp')
  for patch in ['arduino-esp32-3.3.0-hid-routing.patch','evilduck-hid-feature-companion.patch']:subprocess.run(['patch','--batch','--forward','-p1','-i',str(ROOT/'proposals'/patch)],cwd=temp,check=True,capture_output=True)
  paired=compile_exe(temp,temp/'EvilDuckS3/hid_backend.cpp',b/'paired','routing',True)
  results=[]
