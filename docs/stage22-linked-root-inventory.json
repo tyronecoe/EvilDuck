@@ -1,0 +1,47 @@
+[
+  {
+    "symbol": "esp_flash_app_init",
+    "body_found": true,
+    "disassembly_sha256": "e9ab157c69a0eaa15ffb3f1fc6b1c0526a00ed613957ec9c82e1737f89cd0bdc"
+  },
+  {
+    "symbol": "esp_flash_init_default_chip",
+    "body_found": true,
+    "disassembly_sha256": "3646addbad54db0476509279ce6d4c311f68da238e2f5f46a72f7ad99f0448b9"
+  },
+  {
+    "symbol": "esp_flash_app_enable_os_functions",
+    "body_found": true,
+    "disassembly_sha256": "96dfa0d6cec73efb88e1657ad230d1f8c7f5a68301b78e87acb7737491e9807c"
+  },
+  {
+    "symbol": "main_flash_region_protected",
+    "body_found": true,
+    "disassembly_sha256": "3b9fc05f29ef7ee7e7ffade399de38dded634f855ac4e9f9b5801ea03d1ab388"
+  },
+  {
+    "symbol": "esp_partition_verify",
+    "body_found": true,
+    "disassembly_sha256": "56e16c0b637f54246996319f7d49201888587d0c485006e0c750dd5dcb72bfe0"
+  },
+  {
+    "symbol": "nvs_flash_init",
+    "body_found": true,
+    "disassembly_sha256": "e08123c95b691c6ec3aab0e5f8e1af79483dc407eff5955ef6ba675aa8a69ebb"
+  },
+  {
+    "symbol": "app_main",
+    "body_found": true,
+    "disassembly_sha256": "c8c810fa128b6015096313acf735f8987aa8eeea5de342c2b21d38f4b5fb8118"
+  },
+  {
+    "symbol": "initArduino",
+    "body_found": true,
+    "disassembly_sha256": "041fe089fe98f33421d1bf6bb4182dd9f72c32b4c6a2a047ba848a20f109df0c"
+  },
+  {
+    "symbol": "evilduck_nvs_preinit_gate",
+    "body_found": true,
+    "disassembly_sha256": "b30e0876761a50c414ce986a3c69f9f868b0a12bbb9bf42943128d9a83153595"
+  }
+]

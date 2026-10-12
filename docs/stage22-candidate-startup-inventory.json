@@ -1,0 +1,929 @@
+{
+  "elf_sha256": "8a6f8a161f27dae1e617d12170a599f568629108bd62c20435abecedbf160915",
+  "arrays": [
+    {
+      "start_symbol": "__init_priority_array_start",
+      "present": false
+    },
+    {
+      "start_symbol": "__init_array_start",
+      "end_symbol": "__init_array_end",
+      "present": true,
+      "stride": 4,
+      "entries": [
+        {
+          "address": 1107308308,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3cli5beginEv"
+          ]
+        },
+        {
+          "address": 1107308552,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE"
+          ]
+        },
+        {
+          "address": 1107308764,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj"
+          ]
+        },
+        {
+          "address": 1107309568,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10duckscript3runERK6String"
+          ]
+        },
+        {
+          "address": 1107309868,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11hid_backend5beginEv"
+          ]
+        },
+        {
+          "address": 1107309916,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3led5beginEv"
+          ]
+        },
+        {
+          "address": 1107309976,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10script_log5clearEv"
+          ]
+        },
+        {
+          "address": 1107310200,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8settings5readyEv"
+          ]
+        },
+        {
+          "address": 1107310336,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6spiffs5beginEv"
+          ]
+        },
+        {
+          "address": 1107310400,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN7usb_msc5beginEv"
+          ]
+        },
+        {
+          "address": 1107311100,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9webserver5beginEv"
+          ]
+        },
+        {
+          "address": 1107313988,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print"
+          ]
+        },
+        {
+          "address": 1107321256,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev"
+          ]
+        },
+        {
+          "address": 1107327828,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev"
+          ]
+        },
+        {
+          "address": 1107328272,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8SPIClassC2Eh"
+          ]
+        },
+        {
+          "address": 1107328448,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE"
+          ]
+        },
+        {
+          "address": 1107358412,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t"
+          ]
+        },
+        {
+          "address": 1107358564,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t"
+          ]
+        },
+        {
+          "address": 1107358592,
+          "symbols": [
+            "_GLOBAL__sub_I__Zli4_kHzy"
+          ]
+        },
+        {
+          "address": 1107359492,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9IPAddressC2Ev"
+          ]
+        },
+        {
+          "address": 1107366836,
+          "symbols": [
+            "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb"
+          ]
+        },
+        {
+          "address": 1107369028,
+          "symbols": [
+            "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS"
+          ]
+        },
+        {
+          "address": 1107372604,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6StringC2EPKc"
+          ]
+        },
+        {
+          "address": 1107383960,
+          "symbols": [
+            "_GLOBAL__sub_I_Serial0"
+          ]
+        },
+        {
+          "address": 1107395960,
+          "symbols": [
+            "esp_ipc_init"
+          ]
+        },
+        {
+          "address": 1107397556,
+          "symbols": [
+            "__esp_stack_guard_setup"
+          ]
+        },
+        {
+          "address": 1077395256,
+          "symbols": [
+            "enable_timer_group0_for_calibration"
+          ]
+        },
+        {
+          "address": 1107599876,
+          "symbols": [
+            "s_set_default_wifi_log_level"
+          ]
+        },
+        {
+          "address": 1107646556,
+          "symbols": [
+            "esp_reset_reason_init"
+          ]
+        },
+        {
+          "address": 1107878596,
+          "symbols": [
+            "esp_ds_conn_lock"
+          ]
+        },
+        {
+          "address": 1107879284,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE"
+          ]
+        },
+        {
+          "address": 1107883048,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv"
+          ]
+        },
+        {
+          "address": 1107884088,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107884404,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107884616,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1107884760,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        }
+      ]
+    },
+    {
+      "start_symbol": "_esp_system_init_fn_array_start",
+      "end_symbol": "_esp_system_init_fn_array_end",
+      "present": true,
+      "stride": 8,
+      "entries": [
+        {
+          "address": 1107391712,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_check"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107397388,
+          "symbols": [
+            "__esp_system_init_fn_init_show_cpu_freq"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107389112,
+          "symbols": [
+            "__esp_system_init_fn_init_show_app_info"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107974672,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_show_app_info"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107405164,
+          "symbols": [
+            "__esp_system_init_fn_init_heap"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107649568,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_os"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107411932,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_nonos"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107409488,
+          "symbols": [
+            "__esp_system_init_fn_init_libc"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107975220,
+          "symbols": [
+            "__esp_system_init_fn_esp_security_init"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107980200,
+          "symbols": [
+            "__esp_system_init_fn_add_psram_to_heap"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107397404,
+          "symbols": [
+            "__esp_system_init_fn_init_brownout"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107397420,
+          "symbols": [
+            "__esp_system_init_fn_init_newlib_time"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107419680,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_uart"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107435704,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_usj_sec"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107441616,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_nullfs"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107436848,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_console"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107409500,
+          "symbols": [
+            "__esp_system_init_fn_init_libc_stdio"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107397504,
+          "symbols": [
+            "__esp_system_init_fn_init_flash"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107607124,
+          "symbols": [
+            "__esp_system_init_fn_init_coredump"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107974680,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse"
+          ],
+          "cores_mask": 1
+        },
+        {
+          "address": 1107397432,
+          "symbols": [
+            "__esp_system_init_fn_init_apb_dma"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107397444,
+          "symbols": [
+            "__esp_system_init_fn_init_coexist"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107434868,
+          "symbols": [
+            "__esp_system_init_fn_usb_serial_jtag_conn_status_init"
+          ],
+          "cores_mask": 65537
+        },
+        {
+          "address": 1107397464,
+          "symbols": [
+            "__esp_system_init_fn_init_disable_rtc_wdt"
+          ],
+          "cores_mask": 65537
+        }
+      ]
+    }
+  ],
+  "selected_entrypoints": [
+    {
+      "symbol": "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS",
+      "address": 1107369028,
+      "body_found": true,
+      "body_sha256": "62bf4e0597099144a5d9f14fb2afc389fd975c1d934513d057fd6e9e83ea1957",
+      "direct_named_calls": [
+        "_ZN6USBCDCC1Eh"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I_Serial0",
+      "address": 1107383960,
+      "body_found": true,
+      "body_sha256": "0267835c455f0e1bc7fc44ab10dd8dce53808bb13385b7ff9d506d5e5bf56c2c",
+      "direct_named_calls": [
+        "_ZN14HardwareSerialC1Eh"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev",
+      "address": 1107327828,
+      "body_found": true,
+      "body_sha256": "75ed883bf0c67477b8a0b251081fe5730ad6e99d2ff47b76204b397bcee7f6b0",
+      "direct_named_calls": [
+        "_ZN2fs8SPIFFSFSC1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN10duckscript3runERK6String",
+      "address": 1107309568,
+      "body_found": true,
+      "body_sha256": "a7888467ab3d34bd1cd0478039fdc1b8d5013ccdbb20462c072301ccf2f9ce50",
+      "direct_named_calls": [
+        "_ZN8RunStateC1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN10script_log5clearEv",
+      "address": 1107309976,
+      "body_found": true,
+      "body_sha256": "03002f294dce5717f4130036cf3909d87f2fed70c87a995a3696339694fca17e",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZN6StringD1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t",
+      "address": 1107358564,
+      "body_found": true,
+      "body_sha256": "cba359ffccfa64c749680614dc4d1c02d1f1e3b8468b58ba655bd8c17cb8aeea",
+      "direct_named_calls": [
+        "_ZN11UpdateClassC1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN11hid_backend5beginEv",
+      "address": 1107309868,
+      "body_found": true,
+      "body_sha256": "0bbb123ff13f27936c1e83cc195371b42465615d60fca35092f8877cba9ac93a",
+      "direct_named_calls": [
+        "_ZN14USBHIDKeyboardC1Ev",
+        "_ZN6USBHIDC1E29hid_interface_protocol_enum_t"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev",
+      "address": 1107321256,
+      "body_found": true,
+      "body_sha256": "b89c30f953d37a6674429870626bf2665ff2f53996f985e59069d6568697db56",
+      "direct_named_calls": [
+        "_ZN14NetworkManagerC1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t",
+      "address": 1107358412,
+      "body_found": true,
+      "body_sha256": "808d197001c0c2dc403c7c733b1bd757ff4ddcb7989b87ae521381e33508a2d8",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE",
+      "address": 1107879284,
+      "body_found": true,
+      "body_sha256": "157c90fe8fa47ccc9c10c23f679fa3bb1085aa819a82eda599e70678383275a3",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE",
+      "address": 1107328448,
+      "body_found": true,
+      "body_sha256": "a4bde73cdede7626dc5ec017d6b8c3f152ec0ae434b2d6a072d296621b8691dc",
+      "direct_named_calls": [
+        "_ZN2fs4SDFSC1ESt10shared_ptrINS_6FSImplEE",
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN3cli5beginEv",
+      "address": 1107308308,
+      "body_found": true,
+      "body_sha256": "d0887b45f19c1b3b180ccbe9f641ce37e9c6081fcd53e3e8763917c9a1f878b6",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE",
+      "address": 1107308552,
+      "body_found": true,
+      "body_sha256": "daffcfbe95ba70cfebb3c3266be984cf319bb799fb03a1f18028978bd2aa20a0",
+      "direct_named_calls": [
+        "_ZN12_GLOBAL__N_17SessionC1Ev",
+        "_ZN6StringC1EPKc"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN3led5beginEv",
+      "address": 1107309916,
+      "body_found": true,
+      "body_sha256": "f3222265066cdac7eebb93f77961369937fd7a7e1da20ab94e5de27ae3aee714",
+      "direct_named_calls": [
+        "_ZN17Adafruit_NeoPixelC1Etst"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN6StringC2EPKc",
+      "address": 1107372604,
+      "body_found": true,
+      "body_sha256": "5887260b442877c8d37e35fcc0f167a05a9dac409de2355f09f4e0a79cdc3130",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN6spiffs5beginEv",
+      "address": 1107310336,
+      "body_found": true,
+      "body_sha256": "7c0b091ea229d14408b7ce02e42e4a4bc452d3f8e35f605602bff3d89b79a7ee",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN7usb_msc5beginEv",
+      "address": 1107310400,
+      "body_found": true,
+      "body_sha256": "88c195e3161db131eea75fe92ba841c21b45f77cca93beea81015b1c17020e21",
+      "direct_named_calls": [
+        "_ZN6USBMSCC1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN8SPIClassC2Eh",
+      "address": 1107328272,
+      "body_found": true,
+      "body_sha256": "504032fe1eeb992b10bbab8c2e4f29d660a27d2370b242b505783205d0f1a26c",
+      "direct_named_calls": [
+        "_ZN8SPIClassC1Eh"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN8settings5readyEv",
+      "address": 1107310200,
+      "body_found": true,
+      "body_sha256": "8a40413b20b5f6a9c6cc1719ca6c1f29633c3a7a4604b44a815726937e366c43",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN9IPAddressC2Ev",
+      "address": 1107359492,
+      "body_found": true,
+      "body_sha256": "310f2a44813d177810500470107f9288084493506c30ebf596a0fed7721189ea",
+      "direct_named_calls": [
+        "_ZN9IPAddressC1E6IPType",
+        "_ZN9IPAddressC1Ehhhh"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print",
+      "address": 1107313988,
+      "body_found": true,
+      "body_sha256": "a2b36974255313c763040e7e6eca12b9abfd9a2debb02a019f0f7169e0c6ddde",
+      "direct_named_calls": [
+        "_ZN7APClassC1Ev",
+        "_ZN8STAClassC1Ev",
+        "_ZN8STAClassD1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv",
+      "address": 1107883048,
+      "body_found": true,
+      "body_sha256": "3bb86f73f26aa6ddad1c806c718aea86592e786c2b3f54270538647ec1a4f74f",
+      "direct_named_calls": [
+        "_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEjjPKcj",
+        "__cxx_eh_arena_size_get",
+        "getenv"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZN9webserver5beginEv",
+      "address": 1107311100,
+      "body_found": true,
+      "body_sha256": "37bda882c502d7e25d5fef09a4173257c21641f765ca8c2a227ec4af880aa0d7",
+      "direct_named_calls": [
+        "_ZN14AsyncWebServerC1Et",
+        "_ZN14AsyncWebSocketC1EPKcSt8functionIFvPS_P20AsyncWebSocketClient12AwsEventTypePvPhjEE"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj",
+      "address": 1107308764,
+      "body_found": true,
+      "body_sha256": "811dbca292c2c70cbaa43cbe858c8e828968173c7d856e09ff21cca06447920f",
+      "direct_named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZN6StringD1Ev"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj",
+      "address": 1107884616,
+      "body_found": true,
+      "body_sha256": "d42cb71516c5bb8770d119c3721cbdb30955d8f4748832c07bd23604dcbf35bf",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj",
+      "address": 1107884088,
+      "body_found": true,
+      "body_sha256": "196a764f476d33adf81a6a719c119f3cfb292423b822c7ed96141a311606dbf6",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj",
+      "address": 1107884760,
+      "body_found": true,
+      "body_sha256": "a8b43e6e8e4bf06691f235d5673c51b3775467339e2de69f24f6a2b1d5a798b5",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj",
+      "address": 1107884404,
+      "body_found": true,
+      "body_sha256": "56ac73a05d40e98d987938e70dc06f6810cb9e1ccd6e2b02d1c6791fa8305997",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I__Zli4_kHzy",
+      "address": 1107358592,
+      "body_found": true,
+      "body_sha256": "495c0b2187b010fab54fd2115d121fdb6f9f3a4df7c2d1f0ff8b0c10aef650d3",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb",
+      "address": 1107366836,
+      "body_found": true,
+      "body_sha256": "e925f4c90ddeaa18b76577985ba5c32c6084117ead2915f9afab5bf747eb2056",
+      "direct_named_calls": [
+        "_ZN6ESPUSBC1Ejh"
+      ]
+    },
+    {
+      "symbol": "_Z4loopv",
+      "address": 1107308156,
+      "body_found": true,
+      "body_sha256": "a4868c6dd50aca941d63e7c24fb21352dd026cf3d1f718159ee13a852b05ba9d",
+      "direct_named_calls": [
+        "delay"
+      ]
+    },
+    {
+      "symbol": "_Z5setupv",
+      "address": 1107307924,
+      "body_found": true,
+      "body_sha256": "fb61f4ffc02b90bd5d48afa8ea9ae8a7365e0b643ebee6c7837285a6b6cc34a0",
+      "direct_named_calls": [
+        "_ZN5debug4infoERK6String",
+        "_ZN5debug5beginEv",
+        "_ZN6StringC1EPKc",
+        "_ZN6StringC1Elh",
+        "_ZN6StringD1Ev",
+        "_ZplRK15StringSumHelperRK6String"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_add_psram_to_heap",
+      "address": 1107980200,
+      "body_found": true,
+      "body_sha256": "4017c957790248760e1b7ac98a30239aef70b6aca0e41303820008f0e4222a2f",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_esp_security_init",
+      "address": 1107975220,
+      "body_found": true,
+      "body_sha256": "93732155021f978c5a947cd1ce0197e1daed3a6c3b8c6f5ba666ccd7da375b50",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_esp_timer_init_nonos",
+      "address": 1107411932,
+      "body_found": true,
+      "body_sha256": "200d97ad3e3fa888e2f3c9a16f63ab42566d8e5df2eab55eddea5742f18f719f",
+      "direct_named_calls": [
+        "esp_timer_impl_init_system_time"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_esp_timer_init_os",
+      "address": 1107649568,
+      "body_found": true,
+      "body_sha256": "949122b2c0cc5dd9f8a831c62369063170c3bd3a2106852c97865406c018499a",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_apb_dma",
+      "address": 1107397432,
+      "body_found": true,
+      "body_sha256": "b64b6c5fa170fff7ffaad53107c5f9bc7f810007772d538d47684fbdc6a3a397",
+      "direct_named_calls": [
+        "esp_apb_backup_dma_lock_init"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_brownout",
+      "address": 1107397404,
+      "body_found": true,
+      "body_sha256": "cea2914b684a0c58a3bfa5c0c110b3d146f06d04e3353e9d0b431c41241ae2a0",
+      "direct_named_calls": [
+        "esp_brownout_init"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_coexist",
+      "address": 1107397444,
+      "body_found": true,
+      "body_sha256": "911538fca9b77240e56060c4d9a5586aa13a2693fbdbbf228056ed1a634c9187",
+      "direct_named_calls": [
+        "coex_pre_init",
+        "esp_coex_adapter_register"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_coredump",
+      "address": 1107607124,
+      "body_found": true,
+      "body_sha256": "d0a438a0bd6a64685f9a28173a6e1c1e19a3ec908b8eb8a36e746c4e52594fed",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_disable_rtc_wdt",
+      "address": 1107397464,
+      "body_found": true,
+      "body_sha256": "b8d6cf9aa97754f6e95223fdf2217f73acb86e7b19f6e64ccf7aae9e788b5c5f",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_efuse",
+      "address": 1107974680,
+      "body_found": true,
+      "body_sha256": "8bef0f57cc8676de5e954435663d708d800c6cbeac54f9c0ec650de7982c0636",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_efuse_check",
+      "address": 1107391712,
+      "body_found": true,
+      "body_sha256": "edadb7fc6fc41b6c253182beae8975746c0a1acc3cac72b57a2f58d2cac423c2",
+      "direct_named_calls": [
+        "esp_efuse_check_errors",
+        "esp_restart"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_efuse_show_app_info",
+      "address": 1107974672,
+      "body_found": true,
+      "body_sha256": "44f3b02b27a75b96e3d0733575ad102057db049ac25f02ad9b7a900a7698bba6",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_flash",
+      "address": 1107397504,
+      "body_found": true,
+      "body_sha256": "cc1695ecd67bff6ab157666932957baae88e62c651255c07d57785dff441b57a",
+      "direct_named_calls": [
+        "esp_flash_app_init",
+        "esp_flash_init_default_chip"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_heap",
+      "address": 1107405164,
+      "body_found": true,
+      "body_sha256": "e6fc99762fb6cdc6c45bde4fc696e01fb26998fa9e901d80849df2af061f4be5",
+      "direct_named_calls": [
+        "heap_caps_init"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_libc",
+      "address": 1107409488,
+      "body_found": true,
+      "body_sha256": "5ddd2761e442290ee3bccaa0fb4023d91116d53e02ff70f0ef49bbe621b3f4c5",
+      "direct_named_calls": [
+        "esp_libc_init"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_libc_stdio",
+      "address": 1107409500,
+      "body_found": true,
+      "body_sha256": "4950340284ba0080becd9ae4f31f3d1d65fd4cdc607db2fd962647cab32291a1",
+      "direct_named_calls": [
+        "esp_libc_init_global_stdio"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_newlib_time",
+      "address": 1107397420,
+      "body_found": true,
+      "body_sha256": "a1c1d524d932e8a3cb8de5821d11ee5d85e9089c55f9b0f9a5760e9471c5ed2a",
+      "direct_named_calls": [
+        "esp_libc_time_init"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_show_app_info",
+      "address": 1107389112,
+      "body_found": true,
+      "body_sha256": "d42dfbb0db7c7d0ace64376aa9013de76db9d6744103ed48d912c4cf4a49b351",
+      "direct_named_calls": [
+        "esp_app_format_init_elf_sha256$part$0"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_show_cpu_freq",
+      "address": 1107397388,
+      "body_found": true,
+      "body_sha256": "f4f55ddf1c0246fdbde1b5b00b026c3a1e3f28fe2771116a863ea74b3f0f5310",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_vfs_console",
+      "address": 1107436848,
+      "body_found": true,
+      "body_sha256": "2b719cec1838d610cdb9d6b4e542fd9efb87cb4c1de11a1bbd35a921a393d9c8",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_vfs_nullfs",
+      "address": 1107441616,
+      "body_found": true,
+      "body_sha256": "6b8e06a6c4df401e07bee10e46d723a4bc7dbcd02776749cb41d3947babc124d",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_vfs_uart",
+      "address": 1107419680,
+      "body_found": true,
+      "body_sha256": "869cda1f8ef21ba0a8ff723083e503713d4e8cc3cf1469abd2d6fbf423c16e8e",
+      "direct_named_calls": [
+        "esp_vfs_dev_uart_register"
+      ]
+    },
+    {
+      "symbol": "__esp_system_init_fn_init_vfs_usj_sec",
+      "address": 1107435704,
+      "body_found": true,
+      "body_sha256": "00148ad5bfdc2a1f33c2d357124592594d7d6487494f7d70b8b5589e56c7acbd",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "__esp_system_init_fn_usb_serial_jtag_conn_status_init",
+      "address": 1107434868,
+      "body_found": true,
+      "body_sha256": "34f33c1dce9fea95305e80a183d232219d43aaeb4347f8df84415d9b299f09f2",
+      "direct_named_calls": []
+    },
+    {
+      "symbol": "app_main",
+      "address": 1107383264,
+      "body_found": true,
+      "body_sha256": "34f8d35a484971a8c51f3052c0dde66c2cdda4694bdafa478167410f6ad14c9c",
+      "direct_named_calls": [
+        "_ZN6ESPUSB5beginEv",
+        "_ZN6USBCDC5beginEm",
+        "initArduino",
+        "setCpuFrequencyMhz",
+        "xTaskCreateUniversal"
+      ]
+    },
+    {
+      "symbol": "initArduino",
+      "address": 1107373828,
+      "body_found": true,
+      "body_sha256": "61002192fb87525438324e80c177f54fa8159471ca32f2460b87df49c4492bed",
+      "direct_named_calls": [
+        "esp_bt_controller_mem_release",
+        "esp_ota_get_running_partition",
+        "esp_ota_get_state_partition",
+        "esp_ota_mark_app_invalid_rollback_and_reboot",
+        "esp_ota_mark_app_valid_cancel_rollback",
+        "evilduck_nvs_preinit_gate",
+        "nvs_flash_init"
+      ]
+    }
+  ],
+  "execution_performed": false,
+  "transitive_flash_write_audit_complete": false,
+  "rom_executed": false,
+  "hardware_access": false,
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING"
+}

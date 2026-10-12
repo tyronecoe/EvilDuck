@@ -1,0 +1,110 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage22-candidate-final/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42018284 <esp_flash_init_default_chip>:
+42018284:	00c136        	entry	a1, 96
+42018287:	714b      	addi.n	a7, a1, 4
+42018289:	a2da81        	l32r	a8, 42000df4 <_stext+0xdd4> (3fceffe4 <rom_spiflash_legacy_data>)
+4201828c:	cc3c      	movi.n	a12, 60
+4201828e:	0b0c      	movi.n	a11, 0
+42018290:	07ad      	mov.n	a10, a7
+42018292:	0858      	l32i.n	a5, a8, 0
+42018294:	9f7b81        	l32r	a8, 42000080 <_stext+0x60> (400011e8 <memset>)
+42018297:	0008e0        	callx8	a8
+4201829a:	180c      	movi.n	a8, 1
+4201829c:	0c4782        	s8i	a8, a7, 12
+4201829f:	144782        	s8i	a8, a7, 20
+420182a2:	085c      	movi.n	a8, 80
+420182a4:	0c6782        	s32i	a8, a7, 48
+420182a7:	a3bf81        	l32r	a8, 420011a4 <_stext+0x1184> (40001f74 <esp_rom_efuse_get_flash_gpio_info>)
+420182aa:	0008e0        	callx8	a8
+420182ad:	120c      	movi.n	a2, 1
+420182af:	080c      	movi.n	a8, 0
+420182b1:	8382a0        	moveqz	a8, a2, a10
+420182b4:	144782        	s8i	a8, a7, 20
+420182b7:	07ad      	mov.n	a10, a7
+420182b9:	fffae5        	call8	42018268 <s_esp_flash_choose_correct_mode>
+420182bc:	a3b361        	l32r	a6, 42001188 <_stext+0x1168> (3fc98464 <default_chip>)
+420182bf:	05b8      	l32i.n	a11, a5, 0
+420182c1:	06ad      	mov.n	a10, a6
+420182c3:	a3b981        	l32r	a8, 420011a8 <_stext+0x1188> (420a5ad0 <spi_flash_chip_list_check>)
+420182c6:	0008e0        	callx8	a8
+420182c9:	a3b881        	l32r	a8, 420011ac <_stext+0x118c> (4037aeec <spi_flash_timing_is_tuned>)
+420182cc:	0008e0        	callx8	a8
+420182cf:	9a8c      	beqz.n	a10, 420182dc <esp_flash_init_default_chip+0x58>
+420182d1:	2a4722        	s8i	a2, a7, 42
+420182d4:	07ad      	mov.n	a10, a7
+420182d6:	a3b681        	l32r	a8, 420011b0 <_stext+0x1190> (4037ae7c <spi_timing_get_flash_timing_param>)
+420182d9:	0008e0        	callx8	a8
+420182dc:	082782        	l32i	a8, a7, 32
+420182df:	50a0a2        	movi	a10, 80
+420182e2:	002856        	bnez	a8, 420182e8 <esp_flash_init_default_chip+0x64>
+420182e5:	fff5a5        	call8	42018240 <spimem_flash_ll_get_source_freq_mhz>
+420182e8:	d7a9      	s32i.n	a10, a7, 52
+420182ea:	a3a9a1        	l32r	a10, 42001190 <_stext+0x1170> (3fc98484 <esp_flash_default_host>)
+420182ed:	07bd      	mov.n	a11, a7
+420182ef:	a3b181        	l32r	a8, 420011b4 <_stext+0x1194> (403846a8 <memspi_host_init_pointers>)
+420182f2:	0008e0        	callx8	a8
+420182f5:	0a2d      	mov.n	a2, a10
+420182f7:	badc      	bnez.n	a10, 42018316 <esp_flash_init_default_chip+0x92>
+420182f9:	06ad      	mov.n	a10, a6
+420182fb:	a3af81        	l32r	a8, 420011b8 <_stext+0x1198> (40383da8 <esp_flash_init_main>)
+420182fe:	0008e0        	callx8	a8
+42018301:	0a2d      	mov.n	a2, a10
+42018303:	facc      	bnez.n	a10, 42018316 <esp_flash_init_default_chip+0x92>
+42018305:	1588      	l32i.n	a8, a5, 4
+42018307:	5698      	l32i.n	a9, a6, 20
+42018309:	2fb987        	bgeu	a9, a8, 4201833c <esp_flash_init_default_chip+0xb8>
+4201830c:	a35f81        	l32r	a8, 42001088 <_stext+0x1068> (3fc96708 <esp_log_default_level>)
+4201830f:	0888      	l32i.n	a8, a8, 0
+42018311:	38cc      	bnez.n	a8, 42018318 <esp_flash_init_default_chip+0x94>
+42018313:	04a122        	movi	a2, 0x104
+42018316:	f01d      	retw.n
+42018318:	a30081        	l32r	a8, 42000f18 <_stext+0xef8> (40383654 <esp_log_timestamp>)
+4201831b:	0008e0        	callx8	a8
+4201831e:	15e8      	l32i.n	a14, a5, 4
+42018320:	0526d2        	l32i	a13, a6, 20
+42018323:	20baa0        	or	a11, a10, a10
+42018326:	a39bc1        	l32r	a12, 42001194 <_stext+0x1174> (3c0d3988 <TAG>)
+42018329:	a39ba1        	l32r	a10, 42001198 <_stext+0x1178> (3c0c20f7 <_flash_rodata_start+0x1fd7>)
+4201832c:	41eae0        	srli	a14, a14, 10
+4201832f:	41dad0        	srli	a13, a13, 10
+42018332:	a35d81        	l32r	a8, 420010a8 <_stext+0x1088> (400005d0 <esp_rom_printf>)
+42018335:	0008e0        	callx8	a8
+42018338:	fff5c6        	j	42018313 <esp_flash_init_default_chip+0x8f>
+4201833b:	00          	.byte	00
+4201833c:	190c      	movi.n	a9, 1
+4201833e:	019980        	slli	a9, a9, 24
+42018341:	34b987        	bgeu	a9, a8, 42018379 <esp_flash_init_default_chip+0xf5>
+42018344:	a39e81        	l32r	a8, 420011bc <_stext+0x119c> (40379d4c <esp_mspi_32bit_address_flash_feature_check>)
+42018347:	0008e0        	callx8	a8
+4201834a:	0a7d      	mov.n	a7, a10
+4201834c:	9aac      	beqz.n	a10, 42018379 <esp_flash_init_default_chip+0xf5>
+4201834e:	a34e81        	l32r	a8, 42001088 <_stext+0x1068> (3fc96708 <esp_log_default_level>)
+42018351:	0888      	l32i.n	a8, a8, 0
+42018353:	58cc      	bnez.n	a8, 4201835c <esp_flash_init_default_chip+0xd8>
+42018355:	072d      	mov.n	a2, a7
+42018357:	ffeec6        	j	42018316 <esp_flash_init_default_chip+0x92>
+4201835a:	810000        	src	a0, a0, a0
+4201835d:	08e0a2ef 	ee.vmulas.s16.accx.ld.ip.qup	q0, a14, 0xfffffe20, q6, q5, q6, q0
+42018361:	0abd00        	add.s	f11, f13, f0
+42018364:	a38ed1        	l32r	a13, 4200119c <_stext+0x117c> (3c0d396c <__FUNCTION__$0>)
+42018367:	a38bc1        	l32r	a12, 42001194 <_stext+0x1174> (3c0d3988 <TAG>)
+4201836a:	a38da1        	l32r	a10, 420011a0 <_stext+0x1180> (3c0c215c <_flash_rodata_start+0x203c>)
+4201836d:	a7a1e2        	movi	a14, 0x1a7
+42018370:	a34e81        	l32r	a8, 420010a8 <_stext+0x1088> (400005d0 <esp_rom_printf>)
+42018373:	0008e0        	callx8	a8
+42018376:	fff6c6        	j	42018355 <esp_flash_init_default_chip+0xd1>
+42018379:	1588      	l32i.n	a8, a5, 4
+4201837b:	5689      	s32i.n	a8, a6, 20
+4201837d:	a1a981        	l32r	a8, 42000a24 <_stext+0xa04> (3fca000c <esp_flash_default_chip>)
+42018380:	0869      	s32i.n	a6, a8, 0
+42018382:	ffe406        	j	42018316 <esp_flash_init_default_chip+0x92>

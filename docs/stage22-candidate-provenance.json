@@ -1,0 +1,58 @@
+{
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+  "profile": "experimental-readonly-quiescent",
+  "pin": {
+    "patch_sha256": "b7c0b29321edcb2a5098c8df584e0d47cae87a230d92b2ca805c76c1d255ce63",
+    "gate_sha256": "9fa0f86e503d92d24f311826aa48340ce24f97be4aadafd00d65d46171f47fce",
+    "table_header_sha256": "3336afe22779335566fdd28594ba47485ce13e1b0b5d3a73c0c022170369e204",
+    "csv_sha256": "c63fd4feba64c8f17c1ff44c142b8c874c6f2214047cb234b939f7c37c0f1d61",
+    "candidate_tree_sha256": "32aefca062d69b9f500bc2766a1901e493fd9d6c7ab3583b89e10f6ee3515e11",
+    "candidate_misc_sha256": "6e23eb56bdb1f3d36f66927421fe5b4bdd4da993cac04c7e2aac377e50ce9f9b",
+    "partition_sha256": "a60cd4a103ec36ea102d964ee16a55980870d23d536b05390e622660c49d78cb",
+    "base": "516fb642b1126af55db909fcff856943935b7111",
+    "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+    "sdk_inputs": {
+      "lib/libnvs_flash.a": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "lib/libesp_partition.a": "dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d",
+      "lib/libapp_update.a": "b7d86a11aa415067680846c0a2befa4e5d0cc144f653c4fb852cff1dc3fc6957",
+      "qio_qspi/libspi_flash.a": "7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270",
+      "qio_qspi/libesp_system.a": "75df2579ef4f907c0af3fe8629f35c35c8e92165664f3e08aea373bc623386d7",
+      "qio_qspi/include/sdkconfig.h": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+      "include/spi_flash/include/esp_flash.h": "f85bdaaee2ca9482b35d51e1b710770724a7a238c60b66f6a3a97a679f0dc860",
+      "include/esp_partition/include/esp_partition.h": "726218797fec407bb9ad7f4235b44b70af7eec7c5283d35add36854734565f1e",
+      "include/esp_system/include/esp_private/startup_internal.h": "057d18a7315392ac93e97f1e6cd5265714837db58807dd734dc48dc8de0fd6b7"
+    }
+  },
+  "base_dependency_pin": {
+    "core_version": "3.3.0",
+    "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+  },
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "compiler_version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "elf_sha256": "8a6f8a161f27dae1e617d12170a599f568629108bd62c20435abecedbf160915",
+  "application_sha256": "e8f3637dd8914bb5e6e3f85e87108f272df8dab25d214cb6cc43361a7fd56851",
+  "partition_sha256": "a60cd4a103ec36ea102d964ee16a55980870d23d536b05390e622660c49d78cb",
+  "gate_precedes_initializer": true,
+  "source_pinned": true,
+  "physical_authorization": false,
+  "hardware_access": false
+}

@@ -1,0 +1,54 @@
+# Stage 22 created files
+
+No baseline tracked file is modified; every change is additive.
+
+- docs/stage22-EXPERIMENTAL-review-inventory.json
+- docs/stage22-candidate-build.log
+- docs/stage22-candidate-linked-app_main.txt
+- docs/stage22-candidate-linked-esp_flash_app_enable_os_functions.txt
+- docs/stage22-candidate-linked-esp_flash_app_init.txt
+- docs/stage22-candidate-linked-esp_flash_init_default_chip.txt
+- docs/stage22-candidate-linked-esp_partition_verify.txt
+- docs/stage22-candidate-linked-evilduck_nvs_preinit_gate.txt
+- docs/stage22-candidate-linked-initArduino.txt
+- docs/stage22-candidate-linked-main_flash_region_protected.txt
+- docs/stage22-candidate-linked-nvs_flash_init.txt
+- docs/stage22-candidate-pin.json
+- docs/stage22-candidate-provenance.json
+- docs/stage22-candidate-resources.json
+- docs/stage22-candidate-stack.json
+- docs/stage22-candidate-startup-inventory.json
+- docs/stage22-design.md
+- docs/stage22-files.md
+- docs/stage22-header-evidence.json
+- docs/stage22-linked-root-inventory.json
+- docs/stage22-normal-build.log
+- docs/stage22-normal-provenance.json
+- docs/stage22-normal-resources.json
+- docs/stage22-normal-stack.json
+- docs/stage22-normal-startup-inventory.json
+- docs/stage22-readiness.md
+- docs/stage22-report.md
+- docs/stage22-reproduction.md
+- docs/stage22-results.json
+- docs/stage22-safe-build.log
+- docs/stage22-safe-provenance.json
+- docs/stage22-safe-resources.json
+- docs/stage22-safe-stack.json
+- docs/stage22-safe-startup-inventory.json
+- docs/stage22-startup-analysis.md
+- docs/stage22-startup-order.json
+- docs/stage22-test-index.md
+- experimental/stage22/README.md
+- experimental/stage22/expected_table.h
+- experimental/stage22/nvs_gate.h
+- experimental/stage22/partitions.csv
+- proposals/arduino-esp32-3.3.0-stage22-nvs-gate.patch
+- tests/stage22/README.md
+- tests/stage22/gate_startup.cpp
+- tests/stage22/integration_tests.py
+- tests/stage22/mocks/esp_flash.h
+- tests/stage22/mocks/esp_partition.h
+- tests/stage22/run_tests.py
+- tools/stage22_candidate.py
+- tools/stage22_review_inventory.py

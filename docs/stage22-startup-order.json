@@ -1,0 +1,1333 @@
+{
+  "source_header_sha256": "057d18a7315392ac93e97f1e6cd5265714837db58807dd734dc48dc8de0fd6b7",
+  "header": "esp_private/startup_internal.h",
+  "record_abi": "fn pointer32, cores uint16, stage uint16; little endian",
+  "reports": {
+    "normal": {
+      "core_records_in_execution_order": [
+        {
+          "address": 1107503196,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_check"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508872,
+          "symbols": [
+            "__esp_system_init_fn_init_show_cpu_freq"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107500352,
+          "symbols": [
+            "__esp_system_init_fn_init_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1108143440,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107517120,
+          "symbols": [
+            "__esp_system_init_fn_init_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107524020,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_nonos"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107521444,
+          "symbols": [
+            "__esp_system_init_fn_init_libc"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1108148968,
+          "symbols": [
+            "__esp_system_init_fn_add_psram_to_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508888,
+          "symbols": [
+            "__esp_system_init_fn_init_brownout"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508904,
+          "symbols": [
+            "__esp_system_init_fn_init_newlib_time"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107531768,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_uart"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107547924,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_usj_sec"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107553836,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_nullfs"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107549068,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_console"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107521456,
+          "symbols": [
+            "__esp_system_init_fn_init_libc_stdio"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508988,
+          "symbols": [
+            "__esp_system_init_fn_init_flash"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1108143448,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "constructors_in_execution_order": [
+        {
+          "address": 1108034968,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1108034824,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1108034612,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1108034296,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1108033256,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv"
+          ]
+        },
+        {
+          "address": 1108029492,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE"
+          ]
+        },
+        {
+          "address": 1108028804,
+          "symbols": [
+            "esp_ds_conn_lock"
+          ]
+        },
+        {
+          "address": 1107798552,
+          "symbols": [
+            "esp_reset_reason_init"
+          ]
+        },
+        {
+          "address": 1107716792,
+          "symbols": [
+            "s_set_default_wifi_log_level"
+          ]
+        },
+        {
+          "address": 1077395276,
+          "symbols": [
+            "enable_timer_group0_for_calibration"
+          ]
+        },
+        {
+          "address": 1107509040,
+          "symbols": [
+            "__esp_stack_guard_setup"
+          ]
+        },
+        {
+          "address": 1107507444,
+          "symbols": [
+            "esp_ipc_init"
+          ]
+        },
+        {
+          "address": 1107495052,
+          "symbols": [
+            "_GLOBAL__sub_I_Serial0"
+          ]
+        },
+        {
+          "address": 1107481592,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6StringC2EPKc"
+          ]
+        },
+        {
+          "address": 1107476648,
+          "symbols": [
+            "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS"
+          ]
+        },
+        {
+          "address": 1107474456,
+          "symbols": [
+            "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb"
+          ]
+        },
+        {
+          "address": 1107467092,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9IPAddressC2Ev"
+          ]
+        },
+        {
+          "address": 1107466048,
+          "symbols": [
+            "_GLOBAL__sub_I__Zli4_kHzy"
+          ]
+        },
+        {
+          "address": 1107465916,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t"
+          ]
+        },
+        {
+          "address": 1107463760,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t"
+          ]
+        },
+        {
+          "address": 1107424800,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE"
+          ]
+        },
+        {
+          "address": 1107424352,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8SPIClassC2Eh"
+          ]
+        },
+        {
+          "address": 1107423620,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev"
+          ]
+        },
+        {
+          "address": 1107416332,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev"
+          ]
+        },
+        {
+          "address": 1107408972,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print"
+          ]
+        },
+        {
+          "address": 1107405672,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9webserver5beginEv"
+          ]
+        },
+        {
+          "address": 1107388948,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN7usb_msc5beginEv"
+          ]
+        },
+        {
+          "address": 1107380828,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6spiffs5beginEv"
+          ]
+        },
+        {
+          "address": 1107378328,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8settings5readyEv"
+          ]
+        },
+        {
+          "address": 1107353776,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10script_log5clearEv"
+          ]
+        },
+        {
+          "address": 1107350036,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3led5beginEv"
+          ]
+        },
+        {
+          "address": 1107349236,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11hid_backend5beginEv"
+          ]
+        },
+        {
+          "address": 1107345692,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10duckscript3runERK6String"
+          ]
+        },
+        {
+          "address": 1107336784,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj"
+          ]
+        },
+        {
+          "address": 1107327280,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE"
+          ]
+        },
+        {
+          "address": 1107318888,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3cli5beginEv"
+          ]
+        }
+      ],
+      "secondary_records_in_execution_order": [
+        {
+          "address": 1107801564,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_os"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1108143988,
+          "symbols": [
+            "__esp_system_init_fn_esp_security_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107724056,
+          "symbols": [
+            "__esp_system_init_fn_init_coredump"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508916,
+          "symbols": [
+            "__esp_system_init_fn_init_apb_dma"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508928,
+          "symbols": [
+            "__esp_system_init_fn_init_coexist"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107547088,
+          "symbols": [
+            "__esp_system_init_fn_usb_serial_jtag_conn_status_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107508948,
+          "symbols": [
+            "__esp_system_init_fn_init_disable_rtc_wdt"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "elf_sha256": "78e6838e9d80b27633e6f2ead068ea15ffd1f30329001206a257da57921a738b",
+      "whole_boot_executed": false
+    },
+    "safe": {
+      "core_records_in_execution_order": [
+        {
+          "address": 1107391072,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_check"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396748,
+          "symbols": [
+            "__esp_system_init_fn_init_show_cpu_freq"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107388572,
+          "symbols": [
+            "__esp_system_init_fn_init_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107974020,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107404524,
+          "symbols": [
+            "__esp_system_init_fn_init_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107411292,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_nonos"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107408848,
+          "symbols": [
+            "__esp_system_init_fn_init_libc"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107979548,
+          "symbols": [
+            "__esp_system_init_fn_add_psram_to_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396764,
+          "symbols": [
+            "__esp_system_init_fn_init_brownout"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396780,
+          "symbols": [
+            "__esp_system_init_fn_init_newlib_time"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107419040,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_uart"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107435060,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_usj_sec"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107440972,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_nullfs"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107436204,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_console"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107408860,
+          "symbols": [
+            "__esp_system_init_fn_init_libc_stdio"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396864,
+          "symbols": [
+            "__esp_system_init_fn_init_flash"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107974028,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "constructors_in_execution_order": [
+        {
+          "address": 1107884108,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1107883964,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1107883752,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107883436,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107882396,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv"
+          ]
+        },
+        {
+          "address": 1107878632,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE"
+          ]
+        },
+        {
+          "address": 1107877944,
+          "symbols": [
+            "esp_ds_conn_lock"
+          ]
+        },
+        {
+          "address": 1107645904,
+          "symbols": [
+            "esp_reset_reason_init"
+          ]
+        },
+        {
+          "address": 1107599224,
+          "symbols": [
+            "s_set_default_wifi_log_level"
+          ]
+        },
+        {
+          "address": 1077395256,
+          "symbols": [
+            "enable_timer_group0_for_calibration"
+          ]
+        },
+        {
+          "address": 1107396916,
+          "symbols": [
+            "__esp_stack_guard_setup"
+          ]
+        },
+        {
+          "address": 1107395320,
+          "symbols": [
+            "esp_ipc_init"
+          ]
+        },
+        {
+          "address": 1107383420,
+          "symbols": [
+            "_GLOBAL__sub_I_Serial0"
+          ]
+        },
+        {
+          "address": 1107372600,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6StringC2EPKc"
+          ]
+        },
+        {
+          "address": 1107369024,
+          "symbols": [
+            "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS"
+          ]
+        },
+        {
+          "address": 1107366832,
+          "symbols": [
+            "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb"
+          ]
+        },
+        {
+          "address": 1107359488,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9IPAddressC2Ev"
+          ]
+        },
+        {
+          "address": 1107358588,
+          "symbols": [
+            "_GLOBAL__sub_I__Zli4_kHzy"
+          ]
+        },
+        {
+          "address": 1107358560,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t"
+          ]
+        },
+        {
+          "address": 1107358408,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t"
+          ]
+        },
+        {
+          "address": 1107328444,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE"
+          ]
+        },
+        {
+          "address": 1107328268,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8SPIClassC2Eh"
+          ]
+        },
+        {
+          "address": 1107327824,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev"
+          ]
+        },
+        {
+          "address": 1107321252,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev"
+          ]
+        },
+        {
+          "address": 1107313984,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print"
+          ]
+        },
+        {
+          "address": 1107311096,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9webserver5beginEv"
+          ]
+        },
+        {
+          "address": 1107310396,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN7usb_msc5beginEv"
+          ]
+        },
+        {
+          "address": 1107310332,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6spiffs5beginEv"
+          ]
+        },
+        {
+          "address": 1107310196,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8settings5readyEv"
+          ]
+        },
+        {
+          "address": 1107309972,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10script_log5clearEv"
+          ]
+        },
+        {
+          "address": 1107309912,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3led5beginEv"
+          ]
+        },
+        {
+          "address": 1107309864,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11hid_backend5beginEv"
+          ]
+        },
+        {
+          "address": 1107309564,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10duckscript3runERK6String"
+          ]
+        },
+        {
+          "address": 1107308760,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj"
+          ]
+        },
+        {
+          "address": 1107308548,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE"
+          ]
+        },
+        {
+          "address": 1107308304,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3cli5beginEv"
+          ]
+        }
+      ],
+      "secondary_records_in_execution_order": [
+        {
+          "address": 1107648916,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_os"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107974568,
+          "symbols": [
+            "__esp_system_init_fn_esp_security_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107606472,
+          "symbols": [
+            "__esp_system_init_fn_init_coredump"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396792,
+          "symbols": [
+            "__esp_system_init_fn_init_apb_dma"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396804,
+          "symbols": [
+            "__esp_system_init_fn_init_coexist"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107434224,
+          "symbols": [
+            "__esp_system_init_fn_usb_serial_jtag_conn_status_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107396824,
+          "symbols": [
+            "__esp_system_init_fn_init_disable_rtc_wdt"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "elf_sha256": "f1b56acf494c83029ab0e9c553c076d95888e7f1f517c85626c7ad35a0deca3d",
+      "whole_boot_executed": false
+    },
+    "candidate": {
+      "core_records_in_execution_order": [
+        {
+          "address": 1107391712,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_check"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397388,
+          "symbols": [
+            "__esp_system_init_fn_init_show_cpu_freq"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107389112,
+          "symbols": [
+            "__esp_system_init_fn_init_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107974672,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse_show_app_info"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107405164,
+          "symbols": [
+            "__esp_system_init_fn_init_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107411932,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_nonos"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107409488,
+          "symbols": [
+            "__esp_system_init_fn_init_libc"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107980200,
+          "symbols": [
+            "__esp_system_init_fn_add_psram_to_heap"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397404,
+          "symbols": [
+            "__esp_system_init_fn_init_brownout"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397420,
+          "symbols": [
+            "__esp_system_init_fn_init_newlib_time"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107419680,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_uart"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107435704,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_usj_sec"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107441616,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_nullfs"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107436848,
+          "symbols": [
+            "__esp_system_init_fn_init_vfs_console"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107409500,
+          "symbols": [
+            "__esp_system_init_fn_init_libc_stdio"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397504,
+          "symbols": [
+            "__esp_system_init_fn_init_flash"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107974680,
+          "symbols": [
+            "__esp_system_init_fn_init_efuse"
+          ],
+          "cores_mask": 1,
+          "stage": 0,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "constructors_in_execution_order": [
+        {
+          "address": 1107884760,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1107884616,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+          ]
+        },
+        {
+          "address": 1107884404,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107884088,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj"
+          ]
+        },
+        {
+          "address": 1107883048,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv"
+          ]
+        },
+        {
+          "address": 1107879284,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE"
+          ]
+        },
+        {
+          "address": 1107878596,
+          "symbols": [
+            "esp_ds_conn_lock"
+          ]
+        },
+        {
+          "address": 1107646556,
+          "symbols": [
+            "esp_reset_reason_init"
+          ]
+        },
+        {
+          "address": 1107599876,
+          "symbols": [
+            "s_set_default_wifi_log_level"
+          ]
+        },
+        {
+          "address": 1077395256,
+          "symbols": [
+            "enable_timer_group0_for_calibration"
+          ]
+        },
+        {
+          "address": 1107397556,
+          "symbols": [
+            "__esp_stack_guard_setup"
+          ]
+        },
+        {
+          "address": 1107395960,
+          "symbols": [
+            "esp_ipc_init"
+          ]
+        },
+        {
+          "address": 1107383960,
+          "symbols": [
+            "_GLOBAL__sub_I_Serial0"
+          ]
+        },
+        {
+          "address": 1107372604,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6StringC2EPKc"
+          ]
+        },
+        {
+          "address": 1107369028,
+          "symbols": [
+            "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS"
+          ]
+        },
+        {
+          "address": 1107366836,
+          "symbols": [
+            "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb"
+          ]
+        },
+        {
+          "address": 1107359492,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9IPAddressC2Ev"
+          ]
+        },
+        {
+          "address": 1107358592,
+          "symbols": [
+            "_GLOBAL__sub_I__Zli4_kHzy"
+          ]
+        },
+        {
+          "address": 1107358564,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t"
+          ]
+        },
+        {
+          "address": 1107358412,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t"
+          ]
+        },
+        {
+          "address": 1107328448,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE"
+          ]
+        },
+        {
+          "address": 1107328272,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8SPIClassC2Eh"
+          ]
+        },
+        {
+          "address": 1107327828,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev"
+          ]
+        },
+        {
+          "address": 1107321256,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev"
+          ]
+        },
+        {
+          "address": 1107313988,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print"
+          ]
+        },
+        {
+          "address": 1107311100,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN9webserver5beginEv"
+          ]
+        },
+        {
+          "address": 1107310400,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN7usb_msc5beginEv"
+          ]
+        },
+        {
+          "address": 1107310336,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN6spiffs5beginEv"
+          ]
+        },
+        {
+          "address": 1107310200,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN8settings5readyEv"
+          ]
+        },
+        {
+          "address": 1107309976,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10script_log5clearEv"
+          ]
+        },
+        {
+          "address": 1107309916,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3led5beginEv"
+          ]
+        },
+        {
+          "address": 1107309868,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN11hid_backend5beginEv"
+          ]
+        },
+        {
+          "address": 1107309568,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN10duckscript3runERK6String"
+          ]
+        },
+        {
+          "address": 1107308764,
+          "symbols": [
+            "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj"
+          ]
+        },
+        {
+          "address": 1107308552,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE"
+          ]
+        },
+        {
+          "address": 1107308308,
+          "symbols": [
+            "_GLOBAL__sub_I__ZN3cli5beginEv"
+          ]
+        }
+      ],
+      "secondary_records_in_execution_order": [
+        {
+          "address": 1107649568,
+          "symbols": [
+            "__esp_system_init_fn_esp_timer_init_os"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107975220,
+          "symbols": [
+            "__esp_system_init_fn_esp_security_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107607124,
+          "symbols": [
+            "__esp_system_init_fn_init_coredump"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397432,
+          "symbols": [
+            "__esp_system_init_fn_init_apb_dma"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397444,
+          "symbols": [
+            "__esp_system_init_fn_init_coexist"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107434868,
+          "symbols": [
+            "__esp_system_init_fn_usb_serial_jtag_conn_status_init"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        },
+        {
+          "address": 1107397464,
+          "symbols": [
+            "__esp_system_init_fn_init_disable_rtc_wdt"
+          ],
+          "cores_mask": 1,
+          "stage": 1,
+          "transitive_flash_audit": "unverified"
+        }
+      ],
+      "elf_sha256": "8a6f8a161f27dae1e617d12170a599f568629108bd62c20435abecedbf160915",
+      "whole_boot_executed": false
+    }
+  }
+}

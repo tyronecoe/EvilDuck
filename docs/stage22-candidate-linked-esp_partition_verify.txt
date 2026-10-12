@@ -1,0 +1,49 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage22-candidate-final/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+420171d8 <esp_partition_verify>:
+420171d8:	004136        	entry	a1, 32
+420171db:	011256        	bnez	a2, 420171f0 <esp_partition_verify+0x18>
+420171de:	a797d1        	l32r	a13, 4200103c <_stext+0x101c> (3c0c1994 <_flash_rodata_start+0x1874>)
+420171e1:	a797c1        	l32r	a12, 42001040 <_stext+0x1020> (3c0d3773 <__func__$1>)
+420171e4:	a793a1        	l32r	a10, 42001030 <_stext+0x1010> (3c0c1977 <_flash_rodata_start+0x1857>)
+420171e7:	81a1b2        	movi	a11, 0x181
+420171ea:	a65981        	l32r	a8, 42000b50 <_stext+0xb30> (40383764 <__assert_func>)
+420171ed:	0008e0        	callx8	a8
+420171f0:	180282        	l8ui	a8, a2, 24
+420171f3:	00a0c2        	movi	a12, 0
+420171f6:	002816        	beqz	a8, 420171fc <esp_partition_verify+0x24>
+420171f9:	18c2c2        	addi	a12, a2, 24
+420171fc:	0222b2        	l32i	a11, a2, 8
+420171ff:	12a8      	l32i.n	a10, a2, 4
+42017201:	fff425        	call8	42017144 <esp_partition_find>
+42017204:	6aac      	beqz.n	a10, 4201722e <esp_partition_verify+0x56>
+42017206:	4a78      	l32i.n	a7, a10, 16
+42017208:	0288      	l32i.n	a8, a2, 0
+4201720a:	0798      	l32i.n	a9, a7, 0
+4201720c:	249987        	bne	a9, a8, 42017234 <esp_partition_verify+0x5c>
+4201720f:	3798      	l32i.n	a9, a7, 12
+42017211:	3288      	l32i.n	a8, a2, 12
+42017213:	1d9987        	bne	a9, a8, 42017234 <esp_partition_verify+0x5c>
+42017216:	4298      	l32i.n	a9, a2, 16
+42017218:	4788      	l32i.n	a8, a7, 16
+4201721a:	169987        	bne	a9, a8, 42017234 <esp_partition_verify+0x5c>
+4201721d:	290292        	l8ui	a9, a2, 41
+42017220:	290782        	l8ui	a8, a7, 41
+42017223:	0d9987        	bne	a9, a8, 42017234 <esp_partition_verify+0x5c>
+42017226:	a41881        	l32r	a8, 42000288 <_stext+0x268> (403838f4 <cfree>)
+42017229:	0008e0        	callx8	a8
+4201722c:	07ad      	mov.n	a10, a7
+4201722e:	0a2d      	mov.n	a2, a10
+42017230:	f01d      	retw.n
+42017232:	250000        	extui	a0, a0, 16, 3
+42017235:	ffe9      	s32i.n	a14, a15, 60
+42017237:	fff246        	j	42017204 <esp_partition_verify+0x2c>

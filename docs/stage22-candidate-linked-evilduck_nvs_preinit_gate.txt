@@ -1,0 +1,207 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage22-candidate-final/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42012cf8 <evilduck_nvs_preinit_gate>:
+42012cf8:	00c136        	entry	a1, 96
+42012cfb:	b4c981        	l32r	a8, 42000020 <_stext> (3fca008c <__stack_chk_guard>)
+42012cfe:	0020c0        	memw
+42012d01:	0888      	l32i.n	a8, a8, 0
+42012d03:	0020c0        	memw
+42012d06:	f189      	s32i.n	a8, a1, 60
+42012d08:	b74581        	l32r	a8, 42000a1c <_stext+0x9fc> (3fc96420 <evilduck_candidate_marker>)
+42012d0b:	0020c0        	memw
+42012d0e:	0888      	l32i.n	a8, a8, 0
+42012d10:	b74481        	l32r	a8, 42000a20 <_stext+0xa00> (3fc9f788 <evilduck_gate_consumed>)
+42012d13:	000892        	l8ui	a9, a8, 0
+42012d16:	69ac      	beqz.n	a9, 42012d40 <evilduck_nvs_preinit_gate+0x48>
+42012d18:	b74081        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012d1b:	190c      	movi.n	a9, 1
+42012d1d:	0020c0        	memw
+42012d20:	0899      	s32i.n	a9, a8, 0
+42012d22:	03a122        	movi	a2, 0x103
+42012d25:	b4be81        	l32r	a8, 42000020 <_stext> (3fca008c <__stack_chk_guard>)
+42012d28:	0020c0        	memw
+42012d2b:	0f2192        	l32i	a9, a1, 60
+42012d2e:	0020c0        	memw
+42012d31:	002882        	l32i	a8, a8, 0
+42012d34:	029987        	bne	a9, a8, 42012d3a <evilduck_nvs_preinit_gate+0x42>
+42012d37:	006bc6        	j	42012eea <evilduck_nvs_preinit_gate+0x1f2>
+42012d3a:	b4bd81        	l32r	a8, 42000030 <_stext+0x10> (40375b8c <__stack_chk_fail>)
+42012d3d:	0008e0        	callx8	a8
+42012d40:	b73961        	l32r	a6, 42000a24 <_stext+0xa04> (3fca000c <esp_flash_default_chip>)
+42012d43:	190c      	movi.n	a9, 1
+42012d45:	004892        	s8i	a9, a8, 0
+42012d48:	0688      	l32i.n	a8, a6, 0
+42012d4a:	150c      	movi.n	a5, 1
+42012d4c:	070c      	movi.n	a7, 0
+42012d4e:	115510        	slli	a5, a5, 15
+42012d51:	88cc      	bnez.n	a8, 42012d5d <evilduck_nvs_preinit_gate+0x65>
+42012d53:	b73181        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012d56:	290c      	movi.n	a9, 2
+42012d58:	fff046        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012d5b:	00          	.byte	00
+42012d5c:	06a800        	ee.ldf.64.xp	f10, f0, a0, a8
+42012d5f:	0d2c      	movi.n	a13, 32
+42012d61:	c75a      	add.n	a12, a7, a5
+42012d63:	1cc1b2        	addi	a11, a1, 28
+42012d66:	b73281        	l32r	a8, 42000a30 <_stext+0xa10> (40383eac <esp_flash_read>)
+42012d69:	0008e0        	callx8	a8
+42012d6c:	0a2d      	mov.n	a2, a10
+42012d6e:	ba8c      	beqz.n	a10, 42012d7d <evilduck_nvs_preinit_gate+0x85>
+42012d70:	b72a81        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012d73:	390c      	movi.n	a9, 3
+42012d75:	0020c0        	memw
+42012d78:	0899      	s32i.n	a9, a8, 0
+42012d7a:	ffe9c6        	j	42012d25 <evilduck_nvs_preinit_gate+0x2d>
+42012d7d:	b72ab1        	l32r	a11, 42000a28 <_stext+0xa08> (3c0d2840 <evilduck_expected_table>)
+42012d80:	0c2c      	movi.n	a12, 32
+42012d82:	bb7a      	add.n	a11, a11, a7
+42012d84:	1cc1a2        	addi	a10, a1, 28
+42012d87:	b5fe81        	l32r	a8, 42000580 <_stext+0x560> (4000120c <memcmp>)
+42012d8a:	0008e0        	callx8	a8
+42012d8d:	7a8c      	beqz.n	a10, 42012d98 <evilduck_nvs_preinit_gate+0xa0>
+42012d8f:	b72281        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012d92:	390c      	movi.n	a9, 3
+42012d94:	ffe146        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012d97:	a08200        	addx4	a8, a2, a0
+42012d9a:	03          	.byte	0x3
+42012d9b:	20c772        	addi	a7, a7, 32
+42012d9e:	118860        	slli	a8, a8, 10
+42012da1:	b89787        	bne	a7, a8, 42012d5d <evilduck_nvs_preinit_gate+0x65>
+42012da4:	00a0c2        	movi	a12, 0
+42012da7:	ffa0b2        	movi	a11, 255
+42012daa:	ffa0a2        	movi	a10, 255
+42012dad:	043965        	call8	42017144 <esp_partition_find>
+42012db0:	203aa0        	or	a3, a10, a10
+42012db3:	740c      	movi.n	a4, 7
+42012db5:	050c      	movi.n	a5, 0
+42012db7:	070c      	movi.n	a7, 0
+42012db9:	7acc      	bnez.n	a10, 42012dc4 <evilduck_nvs_preinit_gate+0xcc>
+42012dbb:	b71781        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012dbe:	490c      	movi.n	a9, 4
+42012dc0:	ffd646        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012dc3:	a33000        	movltz	a3, a0, a0
+42012dc6:	20          	.byte	0x20
+42012dc7:	043f65        	call8	420171bc <esp_partition_get>
+42012dca:	208aa0        	or	a8, a10, a10
+42012dcd:	003a16        	beqz	a10, 42012dd4 <evilduck_nvs_preinit_gate+0xdc>
+42012dd0:	440b      	addi.n	a4, a4, -1
+42012dd2:	e4cc      	bnez.n	a4, 42012de4 <evilduck_nvs_preinit_gate+0xec>
+42012dd4:	03ad      	mov.n	a10, a3
+42012dd6:	043d65        	call8	420171ac <esp_partition_iterator_release>
+42012dd9:	b70f81        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012ddc:	690c      	movi.n	a9, 6
+42012dde:	ffcec6        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012de1:	000000        	ill
+42012de4:	18ca92        	addi	a9, a10, 24
+42012de7:	b711e1        	l32r	a14, 42000a2c <_stext+0xa0c> (3c0d27c8 <expected$1>)
+42012dea:	0d0c      	movi.n	a13, 0
+42012dec:	0199      	s32i.n	a9, a1, 0
+42012dee:	0eb8      	l32i.n	a11, a14, 0
+42012df0:	01a8      	l32i.n	a10, a1, 0
+42012df2:	1c1c      	movi.n	a12, 17
+42012df4:	31d9      	s32i.n	a13, a1, 12
+42012df6:	2189      	s32i.n	a8, a1, 8
+42012df8:	11e9      	s32i.n	a14, a1, 4
+42012dfa:	b6f281        	l32r	a8, 420009c4 <_stext+0x9a4> (4000123c <strncmp>)
+42012dfd:	0008e0        	callx8	a8
+42012e00:	2188      	l32i.n	a8, a1, 8
+42012e02:	31d8      	l32i.n	a13, a1, 12
+42012e04:	b70af1        	l32r	a15, 42000a2c <_stext+0xa0c> (3c0d27c8 <expected$1>)
+42012e07:	0a2d      	mov.n	a2, a10
+42012e09:	ca8c      	beqz.n	a10, 42012e19 <evilduck_nvs_preinit_gate+0x121>
+42012e0b:	11e8      	l32i.n	a14, a1, 4
+42012e0d:	dd1b      	addi.n	a13, a13, 1
+42012e0f:	14cee2        	addi	a14, a14, 20
+42012e12:	d86d66        	bnei	a13, 6, 42012dee <evilduck_nvs_preinit_gate+0xf6>
+42012e15:	ffeec6        	j	42012dd4 <evilduck_nvs_preinit_gate+0xdc>
+42012e18:	d7d700        	ee.stf.64.xp	f13, f13, a0, a7
+42012e1b:	add0b7        	bbs	a0, a11, 42012dcc <evilduck_nvs_preinit_gate+0xd4>
+42012e1e:	aaf0a0        	floor.s	a15, f0, 10
+42012e21:	18c8a0        	lsxp	f12, a8, a10
+42012e24:	1ab8      	l32i.n	a11, a10, 4
+42012e26:	369cb7        	bne	a12, a11, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e29:	28c8      	l32i.n	a12, a8, 8
+42012e2b:	2ab8      	l32i.n	a11, a10, 8
+42012e2d:	2f9cb7        	bne	a12, a11, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e30:	38c8      	l32i.n	a12, a8, 12
+42012e32:	3ab8      	l32i.n	a11, a10, 12
+42012e34:	289cb7        	bne	a12, a11, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e37:	48b8      	l32i.n	a11, a8, 16
+42012e39:	4aa8      	l32i.n	a10, a10, 16
+42012e3b:	219ba7        	bne	a11, a10, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e3e:	08b8      	l32i.n	a11, a8, 0
+42012e40:	06a8      	l32i.n	a10, a6, 0
+42012e42:	1a9ba7        	bne	a11, a10, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e45:	190c      	movi.n	a9, 1
+42012e47:	58a8      	l32i.n	a10, a8, 20
+42012e49:	119940        	slli	a9, a9, 12
+42012e4c:	109a97        	bne	a10, a9, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e4f:	2908a2        	l8ui	a10, a8, 41
+42012e52:	aacc      	bnez.n	a10, 42012e60 <evilduck_nvs_preinit_gate+0x168>
+42012e54:	40fda0        	nsau	a10, a13
+42012e57:	2a08b2        	l8ui	a11, a8, 42
+42012e5a:	41a5a0        	srli	a10, a10, 5
+42012e5d:	0c1ba7        	beq	a11, a10, 42012e6d <evilduck_nvs_preinit_gate+0x175>
+42012e60:	03ad      	mov.n	a10, a3
+42012e62:	0434a5        	call8	420171ac <esp_partition_iterator_release>
+42012e65:	b6ec81        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012e68:	590c      	movi.n	a9, 5
+42012e6a:	ffabc6        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012e6d:	20a880        	or	a10, a8, a8
+42012e70:	0161d2        	s32i	a13, a1, 4
+42012e73:	0189      	s32i.n	a8, a1, 0
+42012e75:	043625        	call8	420171d8 <esp_partition_verify>
+42012e78:	0188      	l32i.n	a8, a1, 0
+42012e7a:	11d8      	l32i.n	a13, a1, 4
+42012e7c:	0c18a7        	beq	a8, a10, 42012e8c <evilduck_nvs_preinit_gate+0x194>
+42012e7f:	03ad      	mov.n	a10, a3
+42012e81:	0432a5        	call8	420171ac <esp_partition_iterator_release>
+42012e84:	b6e581        	l32r	a8, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012e87:	790c      	movi.n	a9, 7
+42012e89:	ffa406        	j	42012d1d <evilduck_nvs_preinit_gate+0x25>
+42012e8c:	01a0a2        	movi	a10, 1
+42012e8f:	401d00        	ssl	a13
+42012e92:	a1aa00        	sll	a10, a10
+42012e95:	2077a0        	or	a7, a7, a10
+42012e98:	20a330        	or	a10, a3, a3
+42012e9b:	8358d0        	moveqz	a5, a8, a13
+42012e9e:	0422a5        	call8	420170c8 <esp_partition_next>
+42012ea1:	203aa0        	or	a3, a10, a10
+42012ea4:	f1ca56        	bnez	a10, 42012dc4 <evilduck_nvs_preinit_gate+0xcc>
+42012ea7:	c1c772        	addi	a7, a7, -63
+42012eaa:	b6db41        	l32r	a4, 42000a18 <_stext+0x9f8> (3fc9f78c <evilduck_gate_reason>)
+42012ead:	07cc      	bnez.n	a7, 42012eb1 <evilduck_nvs_preinit_gate+0x1b9>
+42012eaf:	95cc      	bnez.n	a5, 42012ebc <evilduck_nvs_preinit_gate+0x1c4>
+42012eb1:	480c      	movi.n	a8, 4
+42012eb3:	0020c0        	memw
+42012eb6:	0489      	s32i.n	a8, a4, 0
+42012eb8:	ff9986        	j	42012d22 <evilduck_nvs_preinit_gate+0x2a>
+42012ebb:	06a800        	ee.ldf.64.xp	f10, f0, a0, a8
+42012ebe:	2a88      	l32i.n	a8, a10, 8
+42012ec0:	48cc      	bnez.n	a8, 42012ec8 <evilduck_nvs_preinit_gate+0x1d0>
+42012ec2:	880c      	movi.n	a8, 8
+42012ec4:	fffac6        	j	42012eb3 <evilduck_nvs_preinit_gate+0x1bb>
+42012ec7:	00          	.byte	00
+42012ec8:	2888      	l32i.n	a8, a8, 8
+42012eca:	ff4816        	beqz	a8, 42012ec2 <evilduck_nvs_preinit_gate+0x1ca>
+42012ecd:	3aa8      	l32i.n	a10, a10, 12
+42012ecf:	5c0c      	movi.n	a12, 5
+42012ed1:	9b0c      	movi.n	a11, 9
+42012ed3:	11cc40        	slli	a12, a12, 12
+42012ed6:	11bb40        	slli	a11, a11, 12
+42012ed9:	0008e0        	callx8	a8
+42012edc:	0da182        	movi	a8, 0x10d
+42012edf:	df9a87        	bne	a10, a8, 42012ec2 <evilduck_nvs_preinit_gate+0x1ca>
+42012ee2:	0020c0        	memw
+42012ee5:	0439      	s32i.n	a3, a4, 0
+42012ee7:	ff8e86        	j	42012d25 <evilduck_nvs_preinit_gate+0x2d>
+42012eea:	f01d      	retw.n

@@ -1,0 +1,39 @@
+--- a/cores/esp32/esp32-hal-misc.c
++++ b/cores/esp32/esp32-hal-misc.c
+@@ -147,6 +147,7 @@
+ void feedLoopWDT() {
+   esp_err_t err = esp_task_wdt_reset();
+   if (err != ESP_OK) {
++    log_e("EXPERIMENTAL NVS gate reason: %u", evilduck_nvs_gate_failure());
+     log_e("Failed to feed WDT! Error: %d", err);
+   }
+ }
+@@ -266,9 +267,14 @@
+ }
+ #endif
+ 
++#include "evilduck_nvs_gate.h"
++
+ // EvilDuck Stage18: preserve the original error; never erase NVS as recovery.
+ static esp_err_t evilduck_nvs_error = ESP_ERR_INVALID_STATE;
+-esp_err_t evilduck_nvs_startup_error(void) { return evilduck_nvs_error; }
++esp_err_t evilduck_nvs_startup_error(void) {
++  if (evilduck_nvs_gate_failure() && evilduck_nvs_error == ESP_OK) return ESP_ERR_INVALID_STATE;
++  return evilduck_nvs_error;
++}
+ 
+ void initArduino() {
+   //init proper ref tick value for PLL (uncomment if REF_TICK is different than 1MHz)
+@@ -295,9 +301,11 @@
+   }
+ #endif
+   esp_log_level_set("*", CONFIG_LOG_DEFAULT_LEVEL);
+-  esp_err_t err = nvs_flash_init();
++  esp_err_t err = evilduck_nvs_preinit_gate();
++  if (err == ESP_OK) err = nvs_flash_init();
+   evilduck_nvs_error = err;
+   if (err != ESP_OK) {
++    log_e("EXPERIMENTAL NVS gate reason: %u", evilduck_nvs_gate_failure());
+     log_e("NVS initialization failed; automatic erase disabled. Error: %d", err);
+     return; // No erase, retry, defaults, init() or initVariant() after failure.
+   }

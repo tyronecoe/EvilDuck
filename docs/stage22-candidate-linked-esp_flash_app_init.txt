@@ -1,0 +1,22 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage22-candidate-final/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42018388 <esp_flash_app_init>:
+42018388:	004136        	entry	a1, 32
+4201838b:	0001a5        	call8	420183a4 <spi_flash_init_lock>
+4201838e:	a38ca1        	l32r	a10, 420011c0 <_stext+0x11a0> (3fc985b4 <g_flash_guard_default_ops>)
+42018391:	a38c81        	l32r	a8, 420011c4 <_stext+0x11a4> (40375a54 <spi_flash_guard_set>)
+42018394:	0008e0        	callx8	a8
+42018397:	a37ca1        	l32r	a10, 42001188 <_stext+0x1168> (3fc98464 <default_chip>)
+4201839a:	a38b81        	l32r	a8, 420011c8 <_stext+0x11a8> (420b4048 <esp_flash_app_enable_os_functions>)
+4201839d:	0008e0        	callx8	a8
+420183a0:	0a2d      	mov.n	a2, a10
+420183a2:	f01d      	retw.n

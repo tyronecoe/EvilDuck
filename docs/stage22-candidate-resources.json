@@ -1,0 +1,14 @@
+{
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "compiler_program_bytes": 1069967,
+  "static_ram_bytes": 78288,
+  "application_bytes": 1070112,
+  "application_sha256": "e8f3637dd8914bb5e6e3f85e87108f272df8dab25d214cb6cc43361a7fd56851",
+  "free_bytes_per_slot": 6532064,
+  "free_percent_per_slot": 85.92360924030173,
+  "deployment_safe_start": true,
+  "experimental_readonly": true,
+  "physical_authorization": false
+}

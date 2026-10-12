@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/spi_flash/include/esp_flash.h",
+    "sdk_path": "include/spi_flash/include/esp_flash.h",
+    "sha256": "f85bdaaee2ca9482b35d51e1b710770724a7a238c60b66f6a3a97a679f0dc860",
+    "matches_installed_header": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_partition/include/esp_partition.h",
+    "sdk_path": "include/esp_partition/include/esp_partition.h",
+    "sha256": "726218797fec407bb9ad7f4235b44b70af7eec7c5283d35add36854734565f1e",
+    "matches_installed_header": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_system/include/esp_private/startup_internal.h",
+    "sdk_path": "include/esp_system/include/esp_private/startup_internal.h",
+    "sha256": "057d18a7315392ac93e97f1e6cd5265714837db58807dd734dc48dc8de0fd6b7",
+    "matches_installed_header": true
+  }
+]
