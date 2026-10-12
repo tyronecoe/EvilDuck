@@ -6,6 +6,13 @@ synthetic tests and documentation. Firmware, SDK patches, installed core, partit
 USB identities, migration artifacts and application behavior remain unchanged.
 Physical migration remains **NO-GO**. Stage 21 has not begun.
 
+Later owner update: both updated local tools now reportedly PASS, NVS is
+`compatible-within-verified-checks` with zero findings and SPIFFS roundtrip remains
+true. See [the latest evidence](stage20-owner-extended-preflight-evidence.json) and
+[current readiness](stage20-readiness.md). The earlier owner findings below are retained
+as historical context; no owner binaries were supplied or independently inspected here.
+SDK runtime preservation remains unresolved and migration is still NO-GO.
+
 ## Owner evidence
 
 The owner reports successfully running complete Stage 19 `deployment_preflight.py`

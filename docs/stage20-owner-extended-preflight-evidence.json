@@ -1,0 +1,31 @@
+{
+  "evidence_class": "owner-reported-local-extended-stage20-preflight-and-summary",
+  "reported_platform": "macOS High Sierra 10.13.6",
+  "reported_tools": ["tools/deployment_preflight.py", "tools/deployment_summary.py"],
+  "owner_checkout_commit_supplied": false,
+  "codex_files_supplied": false,
+  "codex_independently_inspected": false,
+  "raw_private_report_supplied": false,
+  "reported_results": {
+    "full_local_preflight": "PASS",
+    "privacy_safe_summary_creation": "PASS",
+    "nvs_classification": "compatible-within-verified-checks",
+    "nvs_issue_count": 0,
+    "spiffs_roundtrip_verified": true,
+    "migration_authorized": false
+  },
+  "prior_owner_evidence": "stage20-owner-preflight-evidence.json",
+  "prior_hash_and_size_evidence": "stage19-owner-evidence.json",
+  "prior_ten_blob_findings_no_longer_reported_by_owner": true,
+  "historical_evidence_rewritten": false,
+  "owner_reported_structural_subset_passed": true,
+  "independent_codex_structural_verification": false,
+  "sdk_runtime_nvs_preservation_established": false,
+  "migration_status": "NO-GO",
+  "stage21_started": false,
+  "limitations": [
+    "These are owner-reported results on local original backups, not Codex inspection of the binaries or private report.",
+    "Zero offline structural findings do not establish byte-for-byte or logical preservation during SDK initialization, recovery, reads or writes.",
+    "This evidence is input to a separately reviewed read-only NVS quiescent-profile evaluation, not authorization to implement it or access hardware."
+  ]
+}

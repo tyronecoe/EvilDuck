@@ -13,6 +13,15 @@ See [the follow-up report](stage20-blob-followup.md) for exact source rules, tes
 evidence boundaries and unchanged firmware measurements. The initial Stage20 report
 and test inventory below are retained as historical evidence from commit1896d625.
 
+A later owner update reports updated Stage20 local preflight and privacy-summary PASS,
+NVS compatible-within-verified-checks with zero findings and SPIFFS roundtrip true.
+Recorded in [the new owner evidence](stage20-owner-extended-preflight-evidence.json);
+this supersedes the earlier pending local-run status without rewriting its history.
+No owner binaries were inspected here, no regression results or firmware artifacts
+changed, and SDK runtime preservation remains unresolved. Migration stays NO-GO and
+Stage21 has not begun. The latest input to future candidate review is in
+[the readiness checklist](stage20-readiness.md).
+
 ## Selected strategy and implementation gate
 
 Current strategy: preserve independently retained original backups, privately inspect
