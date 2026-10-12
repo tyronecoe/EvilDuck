@@ -1,0 +1,51 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage23-candidate/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42012f04 <initArduino>:
+42012f04:	006136        	entry	a1, 48
+42012f07:	b6cd81        	l32r	a8, 42000a3c <_stext+0xa1c> (420a5734 <verifyRollbackLater>)
+42012f0a:	0008e0        	callx8	a8
+42012f0d:	8adc      	bnez.n	a10, 42012f29 <initArduino+0x25>
+42012f0f:	03cea5        	call8	42016bf8 <esp_ota_get_running_partition>
+42012f12:	b1cb      	addi.n	a11, a1, 12
+42012f14:	03f0a5        	call8	42016e20 <esp_ota_get_state_partition>
+42012f17:	eacc      	bnez.n	a10, 42012f29 <initArduino+0x25>
+42012f19:	3188      	l32i.n	a8, a1, 12
+42012f1b:	0a1866        	bnei	a8, 1, 42012f29 <initArduino+0x25>
+42012f1e:	b6c881        	l32r	a8, 42000a40 <_stext+0xa20> (420a572c <verifyOta>)
+42012f21:	0008e0        	callx8	a8
+42012f24:	8a9c      	beqz.n	a10, 42012f40 <initArduino+0x3c>
+42012f26:	03ed25        	call8	42016df8 <esp_ota_mark_app_valid_cancel_rollback>
+42012f29:	b6c3a1        	l32r	a10, 42000a38 <_stext+0xa18> (3c0cf878 <_flash_rodata_start+0xf758>)
+42012f2c:	1b0c      	movi.n	a11, 1
+42012f2e:	b6c581        	l32r	a8, 42000a44 <_stext+0xa24> (420b3f40 <esp_log_level_set>)
+42012f31:	0008e0        	callx8	a8
+42012f34:	ffdc25        	call8	42012cf8 <evilduck_nvs_preinit_gate>
+42012f37:	b6bf71        	l32r	a7, 42000a34 <_stext+0xa14> (3fc9641c <evilduck_nvs_error>)
+42012f3a:	ba8c      	beqz.n	a10, 42012f49 <initArduino+0x45>
+42012f3c:	07a9      	s32i.n	a10, a7, 0
+42012f3e:	f01d      	retw.n
+42012f40:	03ece5        	call8	42016e10 <esp_ota_mark_app_invalid_rollback_and_reboot>
+42012f43:	fff886        	j	42012f29 <initArduino+0x25>
+42012f46:	000000        	ill
+42012f49:	0b3ea5        	call8	4201e334 <nvs_flash_init>
+42012f4c:	0067a2        	s32i	a10, a7, 0
+42012f4f:	feba56        	bnez	a10, 42012f3e <initArduino+0x3a>
+42012f52:	b6bd81        	l32r	a8, 42000a48 <_stext+0xa28> (420a59dc <btInUse>)
+42012f55:	0008e0        	callx8	a8
+42012f58:	004a56        	bnez	a10, 42012f60 <initArduino+0x5c>
+42012f5b:	3a0c      	movi.n	a10, 3
+42012f5d:	382025        	call8	4204b160 <esp_bt_controller_mem_release>
+42012f60:	b6bb81        	l32r	a8, 42000a4c <_stext+0xa2c> (420a5724 <init>)
+42012f63:	0008e0        	callx8	a8
+42012f66:	b6ba81        	l32r	a8, 42000a50 <_stext+0xa30> (420a571c <initVariant>)
+42012f69:	0008e0        	callx8	a8
+42012f6c:	fff386        	j	42012f3e <initArduino+0x3a>

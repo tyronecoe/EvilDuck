@@ -1,0 +1,83 @@
+INSPECTION ONLY — NOT FOR LOADING. .xt.prop removed; original runtime bytes/addresses verified unchanged. Original ELF is untouched.
+
+/tmp/stage23-inspection-kq2jntfy/not-for-loading.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+4204c300 <esp_core_dump_partition_and_size_get>:
+4204c300:	006136        	entry	a1, 48
+4204c303:	080c      	movi.n	a8, 0
+4204c305:	3189      	s32i.n	a8, a1, 12
+4204c307:	208320        	or	a8, a3, a2
+4204c30a:	025d      	mov.n	a5, a2
+4204c30c:	61cb      	addi.n	a6, a1, 12
+4204c30e:	02a122        	movi	a2, 0x102
+4204c311:	48ac      	beqz.n	a8, 4204c339 <esp_core_dump_partition_and_size_get+0x39>
+4204c313:	0c0c      	movi.n	a12, 0
+4204c315:	3b0c      	movi.n	a11, 3
+4204c317:	1a0c      	movi.n	a10, 1
+4204c319:	cae765        	call8	42017190 <esp_partition_find_first>
+4204c31c:	207aa0        	or	a7, a10, a10
+4204c31f:	01aa56        	bnez	a10, 4204c33d <esp_core_dump_partition_and_size_get+0x3d>
+4204c322:	d12f81        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c325:	0008e0        	callx8	a8
+4204c328:	0abd      	mov.n	a11, a10
+4204c32a:	d134c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c32d:	d13fa1        	l32r	a10, 4204082c <wpa_add_kde+0x558> (3c0cca81 <_flash_rodata_start+0xc961>)
+4204c330:	05a122        	movi	a2, 0x105
+4204c333:	d12c81        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c336:	0008e0        	callx8	a8
+4204c339:	f01d      	retw.n
+4204c33b:	00          	.byte	00
+4204c33c:	4a8800        	madd.s	f8, f8, f0
+4204c33f:	1b48f6        	bgeui	a8, 4, 4204c35e <esp_core_dump_partition_and_size_get+0x5e>
+4204c342:	d12781        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c345:	0008e0        	callx8	a8
+4204c348:	0abd      	mov.n	a11, a10
+4204c34a:	d12cc1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c34d:	d138a1        	l32r	a10, 42040830 <wpa_add_kde+0x55c> (3c0ccaac <_flash_rodata_start+0xc98c>)
+4204c350:	d12581        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c353:	0008e0        	callx8	a8
+4204c356:	04a122        	movi	a2, 0x104
+4204c359:	fff706        	j	4204c339 <esp_core_dump_partition_and_size_get+0x39>
+4204c35c:	d20000        	quos	a0, a0, a0
+4204c35f:	a0          	.byte	0xa0
+4204c360:	c66004        	ee.srcxxp.2q	q0, q6, a0, a0
+4204c363:	a0b220        	addx4	a11, a2, a2
+4204c366:	076500        	ee.stf.64.xp	f6, f0, a0, a5
+4204c369:	2dcb      	addi.n	a2, a13, 12
+4204c36b:	9c0a      	add.n	a9, a12, a0
+4204c36d:	817a      	add.n	a8, a1, a7
+4204c36f:	d11c      	movi.n	a1, 29
+4204c371:	0008e0        	callx8	a8
+4204c374:	0abd      	mov.n	a11, a10
+4204c376:	d121c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c379:	d12ea1        	l32r	a10, 42040834 <wpa_add_kde+0x560> (3c0ccb4b <_flash_rodata_start+0xca2b>)
+4204c37c:	02dd      	mov.n	a13, a2
+4204c37e:	d11981        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c381:	0008e0        	callx8	a8
+4204c384:	ffec46        	j	4204c339 <esp_core_dump_partition_and_size_get+0x39>
+4204c387:	0688      	l32i.n	a8, a6, 0
+4204c389:	c90826        	beqi	a8, -1, 4204c356 <esp_core_dump_partition_and_size_get+0x56>
+4204c38c:	0448b6        	bltui	a8, 4, 4204c394 <esp_core_dump_partition_and_size_get+0x94>
+4204c38f:	4798      	l32i.n	a9, a7, 16
+4204c391:	1bb987        	bgeu	a9, a8, 4204c3b0 <esp_core_dump_partition_and_size_get+0xb0>
+4204c394:	d11381        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c397:	0008e0        	callx8	a8
+4204c39a:	20baa0        	or	a11, a10, a10
+4204c39d:	0026d2        	l32i	a13, a6, 0
+4204c3a0:	d117c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c3a3:	d125a1        	l32r	a10, 42040838 <wpa_add_kde+0x564> (3c0ccb81 <_flash_rodata_start+0xca61>)
+4204c3a6:	d10f81        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c3a9:	0008e0        	callx8	a8
+4204c3ac:	ffe986        	j	4204c356 <esp_core_dump_partition_and_size_get+0x56>
+4204c3af:	058c00        	extui	a8, a0, 28, 1
+4204c3b2:	0579      	s32i.n	a7, a5, 0
+4204c3b4:	f81316        	beqz	a3, 4204c339 <esp_core_dump_partition_and_size_get+0x39>
+4204c3b7:	0389      	s32i.n	a8, a3, 0
+4204c3b9:	ffdf06        	j	4204c339 <esp_core_dump_partition_and_size_get+0x39>

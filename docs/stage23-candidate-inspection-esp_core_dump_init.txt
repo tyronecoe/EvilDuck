@@ -1,0 +1,47 @@
+INSPECTION ONLY — NOT FOR LOADING. .xt.prop removed; original runtime bytes/addresses verified unchanged. Original ELF is untouched.
+
+/tmp/stage23-inspection-kq2jntfy/not-for-loading.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+4204c50c <esp_core_dump_init>:
+4204c50c:	006136        	entry	a1, 48
+4204c50f:	0c0c      	movi.n	a12, 0
+4204c511:	3b0c      	movi.n	a11, 3
+4204c513:	1a0c      	movi.n	a10, 1
+4204c515:	cac7a5        	call8	42017190 <esp_partition_find_first>
+4204c518:	0aec      	bnez.n	a10, 4204c53c <esp_core_dump_init+0x30>
+4204c51a:	d0b181        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c51d:	0008e0        	callx8	a8
+4204c520:	0abd      	mov.n	a11, a10
+4204c522:	d0b6c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c525:	d0c1a1        	l32r	a10, 4204082c <wpa_add_kde+0x558> (3c0cca81 <_flash_rodata_start+0xc961>)
+4204c528:	d0af81        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c52b:	0008e0        	callx8	a8
+4204c52e:	ffe8e5        	call8	4204c3bc <esp_core_dump_image_check>
+4204c531:	5acc      	bnez.n	a10, 4204c53a <esp_core_dump_init+0x2e>
+4204c533:	b1cb      	addi.n	a11, a1, 12
+4204c535:	a18b      	addi.n	a10, a1, 8
+4204c537:	ffdca5        	call8	4204c300 <esp_core_dump_partition_and_size_get>
+4204c53a:	f01d      	retw.n
+4204c53c:	d0ac71        	l32r	a7, 420407ec <wpa_add_kde+0x518> (3fca231c <s_core_flash_config>)
+4204c53f:	3a88      	l32i.n	a8, a10, 12
+4204c541:	cc0c      	movi.n	a12, 12
+4204c543:	0789      	s32i.n	a8, a7, 0
+4204c545:	4a88      	l32i.n	a8, a10, 16
+4204c547:	07bd      	mov.n	a11, a7
+4204c549:	1789      	s32i.n	a8, a7, 4
+4204c54b:	290a82        	l8ui	a8, a10, 41
+4204c54e:	0a0c      	movi.n	a10, 0
+4204c550:	084782        	s8i	a8, a7, 8
+4204c553:	d0ae81        	l32r	a8, 4204080c <wpa_add_kde+0x538> (40001c98 <r_lld_con_frm_isr_hook>)
+4204c556:	0008e0        	callx8	a8
+4204c559:	37a9      	s32i.n	a10, a7, 12
+4204c55b:	d0a581        	l32r	a8, 420407f0 <wpa_add_kde+0x51c> (403753d0 <esp_flash_encryption_enabled>)
+4204c55e:	0008e0        	callx8	a8
+4204c561:	fff246        	j	4204c52e <esp_core_dump_init+0x22>

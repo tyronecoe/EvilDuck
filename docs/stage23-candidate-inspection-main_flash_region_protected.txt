@@ -1,0 +1,30 @@
+INSPECTION ONLY — NOT FOR LOADING. .xt.prop removed; original runtime bytes/addresses verified unchanged. Original ELF is untouched.
+
+/tmp/stage23-inspection-kq2jntfy/not-for-loading.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+40385f40 <main_flash_region_protected>:
+40385f40:	004136        	entry	a1, 32
+40385f43:	04bd      	mov.n	a11, a4
+40385f45:	20a330        	or	a10, a3, a3
+40385f48:	bd0f81        	l32r	a8, 40375384 <_iram_text_start+0xf80> (42017464 <esp_partition_is_flash_region_writable>)
+40385f4b:	0008e0        	callx8	a8
+40385f4e:	027d      	mov.n	a7, a2
+40385f50:	0da122        	movi	a2, 0x10d
+40385f53:	5a9c      	beqz.n	a10, 40385f6c <main_flash_region_protected+0x2c>
+40385f55:	040782        	l8ui	a8, a7, 4
+40385f58:	e8cc      	bnez.n	a8, 40385f6a <main_flash_region_protected+0x2a>
+40385f5a:	04bd      	mov.n	a11, a4
+40385f5c:	20a330        	or	a10, a3, a3
+40385f5f:	bd0a81        	l32r	a8, 40375388 <_iram_text_start+0xf84> (420174b4 <esp_partition_main_flash_region_safe>)
+40385f62:	0008e0        	callx8	a8
+40385f65:	06a122        	movi	a2, 0x106
+40385f68:	0a8c      	beqz.n	a10, 40385f6c <main_flash_region_protected+0x2c>
+40385f6a:	020c      	movi.n	a2, 0
+40385f6c:	f01d      	retw.n
+
+Disassembly of section .flash.text:

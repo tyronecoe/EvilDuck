@@ -1,0 +1,1082 @@
+{
+  "inventory": {
+    "elf_sha256": "583385749cc08080208d6d35965a37765f14cda72372cb8f6a538930732630e7",
+    "arrays": [
+      {
+        "start_symbol": "__init_priority_array_start",
+        "present": false
+      },
+      {
+        "start_symbol": "__init_array_start",
+        "end_symbol": "__init_array_end",
+        "present": true,
+        "stride": 4,
+        "entries": [
+          {
+            "address": 1077733324,
+            "symbols": [
+              "enable_timer_group0_for_calibration"
+            ]
+          }
+        ]
+      },
+      {
+        "start_symbol": "_esp_system_init_fn_array_start",
+        "present": false
+      }
+    ],
+    "selected_entrypoints": [],
+    "execution_performed": false,
+    "transitive_flash_write_audit_complete": false,
+    "rom_executed": false,
+    "hardware_access": false
+  },
+  "records": {
+    "enable_timer_group0_for_calibration": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ffe5068f4f4ad606753eb29ea8d65547f15ca763a24c5cf2b1797fc8a36637fc",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_write": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "2c2d2d139b3c334f12a713736787c5ad6c1f86bddc05aae4d8d82d63e8d7d233",
+      "named_calls": [
+        "esp_log_early_timestamp",
+        "bootloader_flash_unlock_default",
+        "spi_to_esp_err"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "bootloader_flash_read": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "662a2fa9a75d297864a2d05d8ea7977426181d08bba50babe155303e649fe901",
+      "named_calls": [
+        "esp_log_early_timestamp",
+        "cache_hal_disable",
+        "mmu_hal_map_region",
+        "cache_hal_enable",
+        "spi_to_esp_err"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "call_start_cpu0": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "c4edda3c46c0c82e42834e2d58de1719755c7281f10d785b1222d1bc78b913c3",
+      "named_calls": [
+        "bootloader_init",
+        "bootloader_reset",
+        "bootloader_utility_load_boot_image_from_deep_sleep",
+        "bootloader_utility_load_partition_table",
+        "esp_log_early_timestamp",
+        "bootloader_utility_get_selected_boot_partition",
+        "bootloader_utility_load_boot_image"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "bootloader_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "5b782a90cbf7a1f57f4e97581d3e5c92d675ef5e80ee69838f1ae7005361f311",
+      "named_calls": [
+        "bootloader_ana_super_wdt_reset_config",
+        "bootloader_ana_clock_glitch_reset_config",
+        "bootloader_init_mem",
+        "__assert_func",
+        "bootloader_clear_bss_section",
+        "bootloader_clock_configure",
+        "bootloader_console_init",
+        "bootloader_print_banner",
+        "cache_hal_init",
+        "mmu_hal_init",
+        "bootloader_flash_update_id",
+        "bootloader_flash_xmc_startup",
+        "esp_log_early_timestamp",
+        "bootloader_read_bootloader_header",
+        "bootloader_check_bootloader_validity",
+        "bootloader_init_spi_flash",
+        "bootloader_config_wdt",
+        "bootloader_enable_random"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "bootloader_utility_load_boot_image": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "d15cc26a6bc524c6ae0a7e18e946482ec75f1663e8e2926a8b924a75f134b12a",
+      "named_calls": [
+        "try_load_partition",
+        "load_image",
+        "esp_log_early_timestamp",
+        "bootloader_reset",
+        "index_to_partition",
+        "set_actual_ota_seq",
+        "log_invalid_app_partition"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "bootloader_flash_erase_sector": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "f5dfd0b6ddf7586fd6d432a658e5f54c42cb38381c7013c9d4b0793b9af6ecac",
+      "named_calls": [
+        "spi_to_esp_err"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_log_early_timestamp": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5ec7f4c6b639d5235e10f5d07b275a59a8211a4a7840e43546b0df8fceee581a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_flash_unlock_default": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "2bbcea7bc15578bb8282ed5872edc33aa0dc1692b5bea64751fd95222bbe4a70",
+      "named_calls": [
+        "bootloader_execute_flash_command"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "spi_to_esp_err": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "75075ebfc4ca2c5f7508f9cb7dbba887e563e3fb84d715488d3ee9698721289e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "cache_hal_disable": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3387879702c934677cfc0e1bf5ff06b5e24fa91110d0cccf103456dca933a7ea",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "mmu_hal_map_region": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f83a45b5a8b641854b487b99deea139a34d82fa6b385a5a42b3d262862f7fda3",
+      "named_calls": [
+        "abort",
+        "mmu_hal_check_valid_ext_vaddr_region"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "cache_hal_enable": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "363d014ba67c71df24795d2f02b429b0c07bd52ed0083d39673013ff6c72f560",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_reset": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "669ee5e407f854bfa354940ed80295e6aec7c4f6b74f950bbf80e6bad1b38f5c",
+      "named_calls": [
+        "bootloader_console_deinit"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_utility_load_boot_image_from_deep_sleep": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "a3fb5567a6a86e429bb8d753f96a1a551df295a8e2cd66f4c1924d457ea97e81",
+      "named_calls": [
+        "bootloader_common_get_rtc_retain_mem_partition",
+        "bootloader_load_image_no_verify",
+        "bootloader_common_update_rtc_retain_mem",
+        "load_image",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_utility_load_partition_table": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ef8307749a272eee781b4b233d9c8ac9a90f39208d26faf5129caeccb4bfd6b3",
+      "named_calls": [
+        "bootloader_mmap",
+        "esp_log_early_timestamp",
+        "esp_partition_table_verify",
+        "bootloader_munmap"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_utility_get_selected_boot_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c808ef9e71bfe5b885c555de77b176764bf3a076efd6d6e489f381ee82b3d525",
+      "named_calls": [
+        "bootloader_common_read_otadata",
+        "esp_flash_encryption_enabled",
+        "write_otadata$isra$0",
+        "bootloader_common_ota_select_invalid",
+        "bootloader_common_get_active_otadata",
+        "bootloader_common_ota_select_crc",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_ana_super_wdt_reset_config": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "18b33dac2409e51c9cba063f15a0e5fe988a8aa20af573377412fd19f76e1188",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_ana_clock_glitch_reset_config": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "879ca697cdff9c7c2f0e8048d9d6df3e9b380844e9a8a971561a09eeae9cfe1f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_init_mem": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "319c4fe606c7c56734f8cdfe329728bb6b0695a553e2ac87750de5ddf29479e1",
+      "named_calls": [
+        "esp_cpu_configure_region_protection"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__assert_func": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "78d003e90dc1f878d56a79b4fcd1f30cb1bd66873171672c37106e82ea2ffafe",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_clear_bss_section": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "fb5c367ff66ed5eeb57706e312a84cdab90a320b6e4aec25a63958f3992731a1",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_clock_configure": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3a9c381d135b820b108ded7d549a967dbf395330b8a7371999ce53df16c6b2d4",
+      "named_calls": [
+        "rtc_clk_slow_src_get",
+        "rtc_clk_fast_src_get",
+        "rtc_clk_init",
+        "rtc_clk_apb_freq_get"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_console_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "536964ded6da9677d0ebd381d08c37557a3959872796eb5f2bc4261cd977badf",
+      "named_calls": [
+        "esp_rom_install_uart_printf",
+        "rtc_clk_apb_freq_get",
+        "rtc_clk_xtal_freq_get"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_print_banner": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "dc2d3ca0075d8b306fbddaa0f2e917109d874e36ad317acea734c2eeabd06182",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "cache_hal_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "d2e2b474e42a9119e99d3fc6bb5ccadc18ec91f3fc2962f146a43017e359de75",
+      "named_calls": [
+        "s_cache_hal_init_ctx"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "mmu_hal_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "0608c890078d05c3805a41b52504c30b8d3f0a90589bac3011ec27a452e0fa0b",
+      "named_calls": [
+        "mmu_hal_unmap_all"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_flash_update_id": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "bc014afe5a6873cc048ed6a5c6c58ffd49d2cf2156140e90e8f8a25825a1e6db",
+      "named_calls": [
+        "bootloader_read_flash_id"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_xmc_startup": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e1ba9c6bb53344cd038a7a731aca57ba5dc7d18381de152ab5c98f319740e022",
+      "named_calls": [
+        "is_xmc_chip_strict",
+        "bootloader_flash_read_sfdp",
+        "bootloader_execute_flash_command",
+        "bootloader_read_flash_id",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "bootloader_read_bootloader_header": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "298ed7b677f587af9665fe38bd1088fcc8b1dcdeb6405bc6fd4fd096b4accaa5",
+      "named_calls": [
+        "bootloader_flash_read",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_check_bootloader_validity": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "7bf0d12227f8492bb40d994bde44240eac9546f84cd91088935225a30513b106",
+      "named_calls": [
+        "efuse_hal_chip_revision",
+        "efuse_hal_blk_version",
+        "bootloader_common_check_chip_validity"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_init_spi_flash": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "cdc06c9a1e67623096dbfda464e4e306595a8cebd252d08a9d417b535aa670b4",
+      "named_calls": [
+        "bootloader_configure_spi_pins",
+        "bootloader_flash_set_dummy_out",
+        "bootloader_flash_cs_timing_config",
+        "bootloader_execute_flash_command",
+        "bootloader_flash_unlock_default",
+        "bootloader_flash_is_octal_mode_enabled",
+        "bootloader_enable_qio_mode",
+        "bootloader_flash_get_spi_mode",
+        "cache_hal_disable",
+        "cache_hal_enable",
+        "bootloader_enable_wp"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_config_wdt": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "555b0ce01c7dce1e0eba9f4a06180ac4bcce5a95873a92cdb50915ec76aa7389",
+      "named_calls": [
+        "rtc_clk_slow_freq_get_hz"
+      ],
+      "unresolved_indirect_calls": 11
+    },
+    "bootloader_enable_random": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "920aa13fc873ce6a6f11abaf0864e4b536301b4511e886ed9aa7621ee89e6657",
+      "named_calls": [
+        "bootloader_random_enable"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "try_load_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "825c90cc686cfdf8eb18285fc362383a7defcb7ae0ed201b10d501a16005b3d3",
+      "named_calls": [
+        "bootloader_load_image"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "load_image": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "a30061ffe04de227cbfcbcc3b966b6c022c778031bf5c63ef252733e60d55805",
+      "named_calls": [
+        "bootloader_random_disable",
+        "bootloader_ana_clock_glitch_reset_config",
+        "cache_hal_disable",
+        "mmu_hal_unmap_all",
+        "mmu_hal_map_region",
+        "cache_ll_l1_get_bus",
+        "cache_ll_l1_enable_bus",
+        "cache_hal_enable",
+        "bootloader_console_deinit",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "index_to_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "b4c9085c1748a429df44a419659e676f38d523081b3f2130123c3a69829eb881",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "set_actual_ota_seq": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e2366f72d93730dd8dfad4cadce8f5a9a1620684aef94b8a33304480f7d2251a",
+      "named_calls": [
+        "bootloader_common_ota_select_crc",
+        "esp_flash_encryption_enabled",
+        "write_otadata$isra$0",
+        "index_to_partition",
+        "bootloader_common_update_rtc_retain_mem"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "log_invalid_app_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "56a1834b7012e6de46376afd3c2a89dcbbd3d2f8c6f80d24a5f76795760c3336",
+      "named_calls": [
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_execute_flash_command": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e996eddcf6f50cc5a607a1bb67fc48ab4e845bae335b5a4b957b3fd651ec366b",
+      "named_calls": [
+        "bootloader_flash_execute_command_common"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "abort": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b3ba3b83ebb987c5d350fb65c820c93d002bec49a31b35f0b477b6adfa246c62",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "mmu_hal_check_valid_ext_vaddr_region": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e00cb5500c0dc681dee76bf0ef94293927b137fc682b786f2f27ba8796755aed",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_console_deinit": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "3f77d4dee8274e8002aea78557d6a6a24eb38b9c83a0af2f96247a97c32de20f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_common_get_rtc_retain_mem_partition": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "91288560e073c0bca42bc7e19c3909a4fb8b67b771c1fc414dce23199ea44cd1",
+      "named_calls": [
+        "is_retain_mem_valid"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_load_image_no_verify": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a0dd4c8455c658ab7c96c4b5db562f4f0de04d58ab4eaada400ebfbfee79cd2b",
+      "named_calls": [
+        "image_load"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_update_rtc_retain_mem": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "72a0cf70add06e074965eb60ffa37d0c7f00801ee07433cd59a287965c2f8029",
+      "named_calls": [
+        "is_retain_mem_valid",
+        "bootloader_common_reset_rtc_retain_mem",
+        "update_rtc_retain_mem_crc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_mmap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a2de6e5f43d5e3ac0729f42b1d1a7af9ee06df3ded792cbf0bb96d839afea612",
+      "named_calls": [
+        "esp_log_early_timestamp",
+        "cache_hal_disable",
+        "mmu_hal_map_region",
+        "cache_hal_enable"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_partition_table_verify": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "307389739fdbfb37c632ea2927bca81a8c3347c07ff5f6954db07050b00243d2",
+      "named_calls": [
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 7
+    },
+    "bootloader_munmap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "12d44ffdb6f460f42f86d4dcd054fd6bb95afbce0462c68efe96e0b6cb97fff4",
+      "named_calls": [
+        "cache_hal_disable",
+        "mmu_hal_unmap_all"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_read_otadata": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a3e8846b62e3592570e04db5f6d04a9f6140d1c02cf82561de1c1c410bf51f79",
+      "named_calls": [
+        "esp_log_early_timestamp",
+        "bootloader_munmap"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_flash_encryption_enabled": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "fd3ca4a42acfbca94111f780ec4d1d8306ddbc4e6318e733f852ad469ae7a56a",
+      "named_calls": [
+        "efuse_hal_flash_encryption_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "write_otadata$isra$0": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d9660725a28b3882d0073de2a99a1fda7627bb4f50a1b82ad74ffd3a8b3a4ec1",
+      "named_calls": [
+        "bootloader_flash_erase_sector",
+        "bootloader_flash_write",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_common_ota_select_invalid": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c58379c57c4be8cc7d54134cb36dc3926c0e70578089e8832dbaa1940cf66b3a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_get_active_otadata": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "bd6087a2ccf6d208b67a02e20f1b228ac2d5a6146456db1e325aab461f04cd87",
+      "named_calls": [
+        "bootloader_common_ota_select_valid",
+        "bootloader_common_select_otadata"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_ota_select_crc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "30acafdd40587d014e6406bc6a5cc8ee12f72d10cb8777445f7c83577a067836",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_cpu_configure_region_protection": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "74adedb5d29977acd772eda6a89c389517f05a698f0beb9f3ffa73b402592ef3",
+      "named_calls": [
+        "mpu_hal_set_region_access"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_slow_src_get": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b3eac841a1089c75b1a7f4e36aad4cf9c785c87d3f5a25f20a25e851b512791f",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_fast_src_get": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "6a3a86597545ef42d6dff3553378ecf68fcd171b4d87dbdab39739a943375c9b",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ff10cec443d0db9ec6eac9e6f4d537f7b3948eb9e49638d883caacf8244689d0",
+      "named_calls": [
+        "rtc_clk_divider_set",
+        "rtc_clk_8m_divider_set",
+        "rtc_clk_xtal_freq_update",
+        "rtc_clk_apb_freq_update",
+        "rtc_clk_cpu_freq_get_config",
+        "rtc_clk_cpu_freq_mhz_to_config",
+        "esp_log_early_timestamp",
+        "abort",
+        "rtc_clk_cpu_freq_set_config",
+        "rtc_clk_32k_enable",
+        "rtc_clk_8m_enable",
+        "rtc_clk_fast_src_set",
+        "rtc_clk_slow_src_set"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "rtc_clk_apb_freq_get": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b184af4ffed2716764c4151413b19cbad09d66acde4843f550377df613378d8a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_rom_install_uart_printf": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "40eb4762c5c818f470a658796a40789c63eaac0fcbb1b15381fbf02830581c13",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_xtal_freq_get": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "9724ecedf00559a7eb9f3d893f0e1c56fab2c1dab2569ff21fd3613c800dcd2e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "s_cache_hal_init_ctx": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "911e84ad7ab5fcb7f8b86ba3279a1611d63d1c4f356a6e88be1b6eb5f24b2f62",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "mmu_hal_unmap_all": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c68c8e9976bfc01b2ab46855d677cc0eaf525058314c6213089a9a06ddb84bd3",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_read_flash_id": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "79c80cf11905746c85706ee61cda864dc2fef8662e8077958828d6c8100c8d41",
+      "named_calls": [
+        "bootloader_execute_flash_command"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "is_xmc_chip_strict": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "2b7b0ebc6feb5619561ee9a8d774a2bd594f4a467a98cc6f0688a599c8b89b4e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_read_sfdp": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "15c8f2ccbf95ffe5d12413c48713cf02c05c1b609832cfec714fd411f137ccbb",
+      "named_calls": [
+        "__assert_func",
+        "bootloader_flash_execute_command_common"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "efuse_hal_chip_revision": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "9b32825b35405d03a45ecd8b09781921249bffd8ff0357053c36a3df7299ac13",
+      "named_calls": [
+        "efuse_hal_get_major_chip_version",
+        "efuse_hal_get_minor_chip_version"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "efuse_hal_blk_version": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f6f9c3e0c72be3180dd46a1790cddf7cfbfddcc190855a55d9413dcedbe48028",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_check_chip_validity": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "5f8a31e711db700182c12f32ec6700ad0abeb28cc0b43d739c2c504bb6895b73",
+      "named_calls": [
+        "esp_log_early_timestamp",
+        "bootloader_common_check_chip_revision_validity"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_configure_spi_pins": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "62862a24d6db49d797411ac176f0e11417034706635795adcaad4e5cd832831c",
+      "named_calls": [],
+      "unresolved_indirect_calls": 8
+    },
+    "bootloader_flash_set_dummy_out": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "335403cea8bcfd3610d394b1b6dc1d51a505f5cd634fe03eca2d58abe2fd6c5f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_cs_timing_config": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e74d73606fdda82b8f5cac332132b5ece2918c69b439f39dbc9daa7d37848c62",
+      "named_calls": [
+        "bootloader_flash_is_octal_mode_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_is_octal_mode_enabled": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ecdcdeae1f7b07107b3473c68e50b4a9f7ba287f9ee09822e83b7e4db006d6b7",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_enable_qio_mode": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "1a218ba7c14d4960186cb51a80e1cdeb7186311f11a709ebd57630f0fc6f3d2d",
+      "named_calls": [
+        "bootloader_execute_flash_command",
+        "esp_log_early_timestamp",
+        "spi_flash_wrap_probe",
+        "spi_flash_wrap_disable",
+        "rom_rx_gain_force+0x35c500"
+      ],
+      "unresolved_indirect_calls": 11
+    },
+    "bootloader_flash_get_spi_mode": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "31dfe87b45e7d4f0d7e1b291eda3824ff20062d452921defcbf1d0a72894192f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_enable_wp": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "988e223ebd05aebecb81a8bc9154528baed62ac7437a96560689ce3174e7ec8f",
+      "named_calls": [
+        "bootloader_execute_flash_command"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_slow_freq_get_hz": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "848ffbe2ceb92f285e6e70d09d9c6f7ac40440044d889567e5aaf86eeddccb27",
+      "named_calls": [
+        "rtc_clk_slow_src_get"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_random_enable": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8980e23b479a6b5cd058344107cdbddfe737dc6194199859a62f724fe61fbc21",
+      "named_calls": [],
+      "unresolved_indirect_calls": 4
+    },
+    "bootloader_load_image": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f5c90961fc4ee8964c0ff7039ee2ce1ba23d13367cd3f69fb94b880262783b81",
+      "named_calls": [
+        "image_load"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_random_disable": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "1d504399fad5600c21535414caafdb131ace9734603eb3d082f01d08c26bae21",
+      "named_calls": [],
+      "unresolved_indirect_calls": 4
+    },
+    "cache_ll_l1_get_bus": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d8445fd8554d3dbd338979fcdc4c0d6126ca3aa8404c2be5eeb7df768a25e6ac",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "cache_ll_l1_enable_bus": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "2f2d6e3252c531780bad665b2ef6528cd8ed56e63fe7f8cd41d69fd2a16eef0a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_execute_command_common": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "3b681a823dfcc8a46a13c33c152faf276f6fa94ac45c30a0b3966bc23a386bd3",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "is_retain_mem_valid": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "fbd51ad0ebd761cdc91140dbdac5a93eff1feff0577bcda2a38ef1123e242a01",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "image_load": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "09350e20f6f692aaa46a315a7ea474100c72437c468b4e46a511d87d70b04005",
+      "named_calls": [
+        "process_image_header",
+        "process_segments",
+        "process_checksum",
+        "process_appended_hash_and_sig$isra$0",
+        "bootloader_sha256_finish",
+        "bootloader_debug_buffer",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "bootloader_common_reset_rtc_retain_mem": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "f2f843c85066139c2195eaa130ef46009188a990e569facf1c7c0dd6c8515c5d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "update_rtc_retain_mem_crc": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "2d8419a5f6416593c76affc1e0b859adc5012e9d3afa14c1502193a76045f4ad",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "efuse_hal_flash_encryption_enabled": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "ec804419fda7755e52a9d86842a2ed10fb450d28929e3f07223e50b5caeb4ae8",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_ota_select_valid": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "7bd90cb4bb8b9c0ddf39df3897b2323f5aeb0abc8ed59b746c70ca50bac89f09",
+      "named_calls": [
+        "bootloader_common_ota_select_invalid",
+        "bootloader_common_ota_select_crc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_select_otadata": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "3aef8b9e12ab3fbfc3b5105a4c846acf7b7efb20b941c841169ea77eb04c30ca",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "mpu_hal_set_region_access": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "8a784e458375b6ab788ac37e581a14e1bdd6762847953438022bdce5fc469f89",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_divider_set": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "056e8de9109d152e9254b360f764e68860715e18d70344831772eff93359dddc",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_8m_divider_set": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "cabc08d35038350229b9006758b3311dbe745e5020da3fdccd3c173aaaaff835",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_xtal_freq_update": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "64e7cb6efeb47c4969f8c67d303e06a52f0c303449f953a295ead5cb57748066",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_apb_freq_update": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "3b19e1a4a1dea83875a4db001008af494cbcaac2900661ea9e2fb5be67f27a8a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_cpu_freq_get_config": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "e40ca33d410ccc384ae8ae2898b7264120ecfbf8db2f3f441867a45f39e04743",
+      "named_calls": [
+        "rtc_clk_xtal_freq_get",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_cpu_freq_mhz_to_config": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "4fad2a2f4eb8263a1b8317108f9e3e7252033783aa305090e6afe79b9ed81728",
+      "named_calls": [
+        "rtc_clk_xtal_freq_get"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_cpu_freq_set_config": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "7369d8f2b6c00863bb927bc4f9b70f27b514093b93d652b28edc951927cecf6a",
+      "named_calls": [
+        "rtc_clk_cpu_freq_to_xtal",
+        "rtc_clk_xtal_freq_get",
+        "abort",
+        "rtc_clk_cpu_freq_to_pll_mhz",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 9
+    },
+    "rtc_clk_32k_enable": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "ecbe2e12695752b11820fad3366ec1722c35f085ab4cd3bb07948440e5a341da",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_8m_enable": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "ae044d93711d33e118f9396e510157b7aeceeca609405eff88ec91c18637c5bc",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_fast_src_set": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "eaf66fb6e8e999f2b202f29b7eeae1d9bd85c14c52e172493f4da9ea1cc606cf",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_slow_src_set": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "c8ce856fcd5618b8e54fcab930304ba635d5534039e497376bc3ab3d7983fb6f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "efuse_hal_get_major_chip_version": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "2c6795966808b23e6a9163a103cfe4f575ec9659afc433271066bb65a0aa3610",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "efuse_hal_get_minor_chip_version": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "e0198d98c8015acea993a63dd3b7dce031e418f0bc642d1d856c496849518e93",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_check_chip_revision_validity": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "f8837ea33f2f5a0d071c334d12e24a528cb9302d3b0605b84db2dcbb3131b59b",
+      "named_calls": [
+        "efuse_hal_chip_revision",
+        "esp_log_early_timestamp",
+        "efuse_hal_get_disable_wafer_version_major"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "spi_flash_wrap_probe": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "d4898a4d822810bfe6e9215a956b3691a2dbe0b842d8ab04fdb3c963c4992e1b",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "spi_flash_wrap_disable": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "9f914e83d46398cb6cef01550496accb964dcbcda8952a885703011715c4cf38",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    }
+  },
+  "missing_roots": [
+    "app_main",
+    "bootloader_common_erase_part_type_data",
+    "bootloader_flash_erase_range",
+    "bootloader_load_partition_table",
+    "esp_core_dump_image_check",
+    "esp_core_dump_image_erase",
+    "esp_core_dump_init",
+    "esp_flash_app_enable_os_functions",
+    "esp_flash_app_init",
+    "esp_flash_init_default_chip",
+    "esp_flash_init_main",
+    "esp_ota_mark_app_invalid_rollback_and_reboot",
+    "esp_ota_mark_app_valid_cancel_rollback",
+    "esp_partition_find",
+    "esp_partition_is_flash_region_writable",
+    "esp_partition_iterator_release",
+    "esp_partition_next",
+    "esp_partition_verify",
+    "evilduck_nvs_preinit_gate",
+    "initArduino",
+    "main_flash_region_protected",
+    "start_cpu0"
+  ],
+  "maximum_depth": 3,
+  "maximum_functions": 400,
+  "truncated": false,
+  "unresolved_indirect_calls": 140,
+  "inspection_copy_only": true,
+  "inspection_runtime_bytes_verified": true,
+  "original_elf_modified": false,
+  "complete_transitive_audit": false,
+  "source_binary_equivalence": false,
+  "xtensa_execution": false,
+  "hardware_access": false
+}

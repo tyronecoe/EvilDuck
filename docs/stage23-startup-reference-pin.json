@@ -1,0 +1,43 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/spi_flash/esp_flash_spi_init.c",
+    "sha256": "8d7532a7d06289988b68f1c361a84df0cb1e9ba53c10ebeda6668fc0a850f5c9",
+    "retrieved": true,
+    "role": "immutable nominal source; not whole-archive byte equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/spi_flash/spi_flash_os_func_noos.c",
+    "sha256": "313585132c326c34c6e6fcd443f68fe74b1a8bede3aa6c658e25cd4201673ce2",
+    "retrieved": true,
+    "role": "immutable nominal source; not whole-archive byte equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/espcoredump/src/core_dump_flash.c",
+    "sha256": "7c8f20ce246bf0172020e8e74016333186d1453ef39095489e7ede47b491a366",
+    "retrieved": true,
+    "role": "immutable nominal source; not whole-archive byte equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/src/bootloader_flash.c",
+    "retrieved": false,
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/src/bootloader_common.c",
+    "sha256": "b0d06c886732d0ea814bf477d33c071f4dee8e8a8ffb3b8b7e2f58ea122533e4",
+    "retrieved": true,
+    "role": "immutable nominal source; not whole-archive byte equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/esp_system/port/soc/esp32s3/system_internal.c",
+    "sha256": "651e1f3f66401c9c210e09143ab0894a0d01bf54ca7363ee3ad0dd645e7933ba",
+    "retrieved": true,
+    "role": "immutable nominal source; not whole-archive byte equivalence"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/bootloader_flash/src/bootloader_flash.c",
+    "sha256": "5d029807af8167a3282bd705bdaf2a454b7a29405a90eef44ae22c47e6143886",
+    "retrieved": true,
+    "role": "immutable nominal bootloader source; not complete bootloader equivalence"
+  }
+]

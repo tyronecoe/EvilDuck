@@ -1,0 +1,135 @@
+INSPECTION ONLY — NOT FOR LOADING. .xt.prop removed; original runtime bytes/addresses verified unchanged. Original ELF is untouched.
+
+/tmp/stage23-inspection-kq2jntfy/not-for-loading.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+4204c3bc <esp_core_dump_image_check>:
+4204c3bc:	012136        	entry	a1, 144
+4204c3bf:	cfe281        	l32r	a8, 42040348 <wpa_add_kde+0x74> (3fca008c <__stack_chk_guard>)
+4204c3c2:	030c      	movi.n	a3, 0
+4204c3c4:	0020c0        	memw
+4204c3c7:	0888      	l32i.n	a8, a8, 0
+4204c3c9:	0c3c      	movi.n	a12, 48
+4204c3cb:	0b0c      	movi.n	a11, 0
+4204c3cd:	4139      	s32i.n	a3, a1, 16
+4204c3cf:	3cc1a2        	addi	a10, a1, 60
+4204c3d2:	14c152        	addi	a5, a1, 20
+4204c3d5:	0020c0        	memw
+4204c3d8:	1b6182        	s32i	a8, a1, 108
+4204c3db:	cfdd81        	l32r	a8, 42040350 <wpa_add_kde+0x7c> (400011e8 <memset>)
+4204c3de:	0008e0        	callx8	a8
+4204c3e1:	0539      	s32i.n	a3, a5, 0
+4204c3e3:	5abea5        	call8	420a6fcc <esp_core_dump_checksum_size>
+4204c3e6:	0a7d      	mov.n	a7, a10
+4204c3e8:	6139      	s32i.n	a3, a1, 24
+4204c3ea:	0c2c      	movi.n	a12, 32
+4204c3ec:	20a032        	movi	a3, 32
+4204c3ef:	00a0b2        	movi	a11, 0
+4204c3f2:	1cc1a2        	addi	a10, a1, 28
+4204c3f5:	10c142        	addi	a4, a1, 16
+4204c3f8:	18c162        	addi	a6, a1, 24
+4204c3fb:	cfd581        	l32r	a8, 42040350 <wpa_add_kde+0x7c> (400011e8 <memset>)
+4204c3fe:	0008e0        	callx8	a8
+4204c401:	11b377        	bgeu	a3, a7, 4204c416 <esp_core_dump_image_check+0x5a>
+4204c404:	d10ed1        	l32r	a13, 4204083c <wpa_add_kde+0x568> (3c0ccbb4 <_flash_rodata_start+0xca94>)
+4204c407:	d10ec1        	l32r	a12, 42040840 <wpa_add_kde+0x56c> (3c0d8101 <__func__$0>)
+4204c40a:	d10ea1        	l32r	a10, 42040844 <wpa_add_kde+0x570> (3c0ccbe9 <_flash_rodata_start+0xcac9>)
+4204c40d:	56a1b2        	movi	a11, 0x156
+4204c410:	d01f81        	l32r	a8, 4204048c <wpa_add_kde+0x1b8> (40383764 <__assert_func>)
+4204c413:	0008e0        	callx8	a8
+4204c416:	05bd      	mov.n	a11, a5
+4204c418:	04ad      	mov.n	a10, a4
+4204c41a:	ffee65        	call8	4204c300 <esp_core_dump_partition_and_size_get>
+4204c41d:	0a2d      	mov.n	a2, a10
+4204c41f:	072a56        	bnez	a10, 4204c495 <esp_core_dump_image_check+0xd9>
+4204c422:	0558      	l32i.n	a5, a5, 0
+4204c424:	64c1a2        	addi	a10, a1, 100
+4204c427:	c08570        	sub	a8, a5, a7
+4204c42a:	2189      	s32i.n	a8, a1, 8
+4204c42c:	5aba65        	call8	420a6fd4 <esp_core_dump_checksum_init>
+4204c42f:	2158      	l32i.n	a5, a1, 8
+4204c431:	030c      	movi.n	a3, 0
+4204c433:	002422        	l32i	a2, a4, 0
+4204c436:	b5ec      	bnez.n	a5, 4204c465 <esp_core_dump_image_check+0xa9>
+4204c438:	20b660        	or	a11, a6, a6
+4204c43b:	64c1a2        	addi	a10, a1, 100
+4204c43e:	5aba65        	call8	420a6fe4 <esp_core_dump_checksum_finish>
+4204c441:	21b8      	l32i.n	a11, a1, 8
+4204c443:	02ad      	mov.n	a10, a2
+4204c445:	07dd      	mov.n	a13, a7
+4204c447:	1cc1c2        	addi	a12, a1, 28
+4204c44a:	caf925        	call8	420173dc <esp_partition_read>
+4204c44d:	0a2d      	mov.n	a2, a10
+4204c44f:	076a16        	beqz	a10, 4204c4c9 <esp_core_dump_image_check+0x10d>
+4204c452:	d0e381        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c455:	0008e0        	callx8	a8
+4204c458:	0abd      	mov.n	a11, a10
+4204c45a:	d0e8c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c45d:	d0fba1        	l32r	a10, 4204084c <wpa_add_kde+0x578> (3c0ccc31 <_flash_rodata_start+0xcb11>)
+4204c460:	02dd      	mov.n	a13, a2
+4204c462:	000a46        	j	4204c48f <esp_core_dump_image_check+0xd3>
+4204c465:	20a082        	movi	a8, 32
+4204c468:	63d580        	minu	a13, a5, a8
+4204c46b:	20a220        	or	a10, a2, a2
+4204c46e:	40c1c2        	addi	a12, a1, 64
+4204c471:	20b330        	or	a11, a3, a3
+4204c474:	31d9      	s32i.n	a13, a1, 12
+4204c476:	caf665        	call8	420173dc <esp_partition_read>
+4204c479:	31d8      	l32i.n	a13, a1, 12
+4204c47b:	0a2d      	mov.n	a2, a10
+4204c47d:	caac      	beqz.n	a10, 4204c4ad <esp_core_dump_image_check+0xf1>
+4204c47f:	d0d881        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c482:	0008e0        	callx8	a8
+4204c485:	0abd      	mov.n	a11, a10
+4204c487:	d0ddc1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c48a:	d0efa1        	l32r	a10, 42040848 <wpa_add_kde+0x574> (3c0ccbfb <_flash_rodata_start+0xcadb>)
+4204c48d:	02dd      	mov.n	a13, a2
+4204c48f:	d0d581        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c492:	0008e0        	callx8	a8
+4204c495:	cfac81        	l32r	a8, 42040348 <wpa_add_kde+0x74> (3fca008c <__stack_chk_guard>)
+4204c498:	0020c0        	memw
+4204c49b:	1b2192        	l32i	a9, a1, 108
+4204c49e:	0020c0        	memw
+4204c4a1:	002882        	l32i	a8, a8, 0
+4204c4a4:	601987        	beq	a9, a8, 4204c508 <esp_core_dump_image_check+0x14c>
+4204c4a7:	cfa981        	l32r	a8, 4204034c <wpa_add_kde+0x78> (40375b8c <__stack_chk_fail>)
+4204c4aa:	0008e0        	callx8	a8
+4204c4ad:	20cdd0        	or	a12, a13, a13
+4204c4b0:	40c1b2        	addi	a11, a1, 64
+4204c4b3:	64c1a2        	addi	a10, a1, 100
+4204c4b6:	0361d2        	s32i	a13, a1, 12
+4204c4b9:	00c6e5        	call8	4204d128 <esp_core_dump_checksum_update>
+4204c4bc:	31d8      	l32i.n	a13, a1, 12
+4204c4be:	33da      	add.n	a3, a3, a13
+4204c4c0:	c055d0        	sub	a5, a5, a13
+4204c4c3:	ffdb06        	j	4204c433 <esp_core_dump_image_check+0x77>
+4204c4c6:	000000        	ill
+4204c4c9:	0026a2        	l32i	a10, a6, 0
+4204c4cc:	20c770        	or	a12, a7, a7
+4204c4cf:	1cc1b2        	addi	a11, a1, 28
+4204c4d2:	cf9781        	l32r	a8, 42040330 <wpa_add_kde+0x5c> (4000120c <memcmp>)
+4204c4d5:	0008e0        	callx8	a8
+4204c4d8:	0a2d      	mov.n	a2, a10
+4204c4da:	fb7a16        	beqz	a10, 4204c495 <esp_core_dump_image_check+0xd9>
+4204c4dd:	d0c081        	l32r	a8, 420407e0 <wpa_add_kde+0x50c> (40383634 <esp_log_early_timestamp>)
+4204c4e0:	0008e0        	callx8	a8
+4204c4e3:	d0c6c1        	l32r	a12, 420407fc <wpa_add_kde+0x528> (3c0d811b <TAG>)
+4204c4e6:	0abd      	mov.n	a11, a10
+4204c4e8:	d0daa1        	l32r	a10, 42040850 <wpa_add_kde+0x57c> (3c0ccc6b <_flash_rodata_start+0xcb4b>)
+4204c4eb:	09a122        	movi	a2, 0x109
+4204c4ee:	d0bd81        	l32r	a8, 420407e4 <wpa_add_kde+0x510> (400005d0 <esp_rom_printf>)
+4204c4f1:	0008e0        	callx8	a8
+4204c4f4:	06b8      	l32i.n	a11, a6, 0
+4204c4f6:	d0d7a1        	l32r	a10, 42040854 <wpa_add_kde+0x580> (3c0ccc95 <_flash_rodata_start+0xcb75>)
+4204c4f9:	00bf25        	call8	4204d0ec <esp_core_dump_print_checksum>
+4204c4fc:	d0d7a1        	l32r	a10, 42040858 <wpa_add_kde+0x584> (3c0ccca9 <_flash_rodata_start+0xcb89>)
+4204c4ff:	1cc1b2        	addi	a11, a1, 28
+4204c502:	00bea5        	call8	4204d0ec <esp_core_dump_print_checksum>
+4204c505:	ffe306        	j	4204c495 <esp_core_dump_image_check+0xd9>
+4204c508:	f01d      	retw.n

@@ -1,0 +1,149 @@
+In archive /workspace/tooling/arduino/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_partition.a:
+
+partition.c.obj:     file format elf32-xtensa-le
+
+
+Disassembly of section .literal.is_partition_encrypted:
+
+Disassembly of section .literal.ensure_partitions_loaded$part$0:
+
+Disassembly of section .literal.esp_partition_unload_all:
+
+Disassembly of section .literal.esp_partition_next:
+
+Disassembly of section .literal.esp_partition_find:
+
+Disassembly of section .literal.esp_partition_find_first:
+
+Disassembly of section .literal.esp_partition_iterator_release:
+
+Disassembly of section .literal.esp_partition_get:
+
+Disassembly of section .literal.esp_partition_verify:
+
+Disassembly of section .literal.esp_partition_register_external:
+
+Disassembly of section .literal.esp_partition_deregister_external:
+
+Disassembly of section .literal.esp_partition_copy:
+
+Disassembly of section .text.is_partition_encrypted:
+
+Disassembly of section .text.ensure_partitions_loaded$part$0:
+
+Disassembly of section .text.esp_partition_unload_all:
+
+Disassembly of section .text.esp_partition_next:
+
+Disassembly of section .text.esp_partition_find:
+
+Disassembly of section .text.esp_partition_find_first:
+
+Disassembly of section .text.esp_partition_iterator_release:
+
+Disassembly of section .text.esp_partition_get:
+
+Disassembly of section .text.esp_partition_verify:
+
+Disassembly of section .text.esp_partition_register_external:
+
+Disassembly of section .text.esp_partition_deregister_external:
+
+Disassembly of section .text.esp_partition_copy:
+
+partition_target.c.obj:     file format elf32-xtensa-le
+
+
+Disassembly of section .literal.esp_partition_write:
+
+Disassembly of section .literal.esp_partition_read_raw:
+
+Disassembly of section .literal.esp_partition_write_raw:
+
+Disassembly of section .literal.esp_partition_erase_range:
+
+Disassembly of section .literal.esp_partition_mmap:
+
+Disassembly of section .literal.esp_partition_read:
+
+Disassembly of section .literal.esp_partition_munmap:
+
+Disassembly of section .literal.esp_partition_get_sha256:
+
+Disassembly of section .literal.esp_partition_check_identity:
+
+Disassembly of section .literal.esp_partition_is_flash_region_writable:
+
+Disassembly of section .literal.esp_partition_main_flash_region_safe:
+
+Disassembly of section .text.esp_partition_write:
+
+Disassembly of section .text.esp_partition_read_raw:
+
+Disassembly of section .text.esp_partition_write_raw:
+
+Disassembly of section .text.esp_partition_erase_range:
+
+Disassembly of section .text.esp_partition_mmap:
+
+Disassembly of section .text.esp_partition_read:
+
+Disassembly of section .text.esp_partition_munmap:
+
+Disassembly of section .text.esp_partition_get_sha256:
+
+Disassembly of section .text.esp_partition_check_identity:
+
+Disassembly of section .text.esp_partition_is_flash_region_writable:
+
+00000000 <esp_partition_is_flash_region_writable>:
+   0:	004136        	entry	a1, 32
+   3:	0c0c      	movi.n	a12, 0
+   5:	ffa0b2        	movi	a11, 255
+   8:	ffa0a2        	movi	a10, 255
+   b:	000081        	l32r	a8, fffc000c <.LC3+0xfffbfffa>
+			b: R_XTENSA_SLOT0_OP	.literal.esp_partition_is_flash_region_writable
+			b: R_XTENSA_ASM_EXPAND	esp_partition_find
+   e:	0008e0        	callx8	a8
+  11:	0a7d      	mov.n	a7, a10
+  13:	323a      	add.n	a3, a2, a3
+  15:	37cc      	bnez.n	a7, 1c <esp_partition_is_flash_region_writable+0x1c>
+			15: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x1c
+  17:	120c      	movi.n	a2, 1
+  19:	f01d      	retw.n
+  1b:	00          	.byte	00
+  1c:	07ad      	mov.n	a10, a7
+  1e:	000081        	l32r	a8, fffc0020 <.LC3+0xfffc000e>
+			1e: R_XTENSA_SLOT0_OP	.literal.esp_partition_is_flash_region_writable+0x4
+			1e: R_XTENSA_ASM_EXPAND	esp_partition_get
+  21:	0008e0        	callx8	a8
+  24:	2a0a82        	l8ui	a8, a10, 42
+  27:	589c      	beqz.n	a8, 40 <esp_partition_is_flash_region_writable+0x40>
+			27: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x40
+  29:	3a88      	l32i.n	a8, a10, 12
+  2b:	0e3287        	bltu	a2, a8, 3d <esp_partition_is_flash_region_writable+0x3d>
+			2b: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x3d
+  2e:	4a98      	l32i.n	a9, a10, 16
+  30:	889a      	add.n	a8, a8, a9
+  32:	0ab287        	bgeu	a2, a8, 40 <esp_partition_is_flash_region_writable+0x40>
+			32: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x40
+  35:	020c      	movi.n	a2, 0
+  37:	fff786        	j	19 <esp_partition_is_flash_region_writable+0x19>
+			37: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x19
+  3a:	00          	.byte	00
+  3b:	00          	.byte	00
+  3c:	00          	.byte	00
+  3d:	f43837        	bltu	a8, a3, 35 <esp_partition_is_flash_region_writable+0x35>
+			3d: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x35
+  40:	07ad      	mov.n	a10, a7
+  42:	000081        	l32r	a8, fffc0044 <.LC3+0xfffc0032>
+			42: R_XTENSA_SLOT0_OP	.literal.esp_partition_is_flash_region_writable+0x8
+			42: R_XTENSA_ASM_EXPAND	esp_partition_next
+  45:	0008e0        	callx8	a8
+  48:	0a7d      	mov.n	a7, a10
+  4a:	fff1c6        	j	15 <esp_partition_is_flash_region_writable+0x15>
+			4a: R_XTENSA_SLOT0_OP	.text.esp_partition_is_flash_region_writable+0x15
+
+Disassembly of section .text.esp_partition_main_flash_region_safe:
+
+Disassembly of section .text.esp_partition_get_main_flash_sector_size:

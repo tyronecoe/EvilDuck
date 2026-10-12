@@ -1,0 +1,27 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage23-candidate/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+420b404c <esp_flash_app_enable_os_functions>:
+420b404c:	004136        	entry	a1, 32
+420b404f:	673971        	l32r	a7, 4208dd34 <TOUCH_v2_free_glob+0xddc> (3fc984dc <main_flash_arg>)
+420b4052:	673781        	l32r	a8, 4208dd30 <TOUCH_v2_free_glob+0xdd8> (3c0d4ff0 <g_spi_lock_main_flash_dev>)
+420b4055:	cc0c      	movi.n	a12, 12
+420b4057:	0b0c      	movi.n	a11, 0
+420b4059:	a74b      	addi.n	a10, a7, 4
+420b405b:	002862        	l32i	a6, a8, 0
+420b405e:	65fa81        	l32r	a8, 4208d848 <TOUCH_v2_free_glob+0x8f0> (400011e8 <memset>)
+420b4061:	0008e0        	callx8	a8
+420b4064:	673581        	l32r	a8, 4208dd38 <TOUCH_v2_free_glob+0xde0> (3fc984b4 <esp_flash_spi1_default_os_functions>)
+420b4067:	3279      	s32i.n	a7, a2, 12
+420b4069:	2289      	s32i.n	a8, a2, 8
+420b406b:	0769      	s32i.n	a6, a7, 0
+420b406d:	020c      	movi.n	a2, 0
+420b406f:	f01d      	retw.n

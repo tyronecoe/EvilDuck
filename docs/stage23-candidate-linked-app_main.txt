@@ -1,0 +1,36 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage23-candidate/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+420153e0 <app_main>:
+420153e0:	006136        	entry	a1, 48
+420153e3:	f0a0a2        	movi	a10, 240
+420153e6:	00aa65        	call8	42015e8c <setCpuFrequencyMhz>
+420153e9:	ab1ca1        	l32r	a10, 4200005c <_stext+0x3c> (3fc9f6a0 <USBSerial>)
+420153ec:	0b0c      	movi.n	a11, 0
+420153ee:	fc5125        	call8	42011900 <_ZN6USBCDC5beginEm>
+420153f1:	ab2ba1        	l32r	a10, 420000a0 <_stext+0x80> (3fc9f63c <USB>)
+420153f4:	fbe6a5        	call8	42011260 <_ZN6ESPUSB5beginEv>
+420153f7:	ae3f81        	l32r	a8, 42000cf4 <_stext+0xcd4> (3fc9fef0 <loopTaskWDTEnabled>)
+420153fa:	00a092        	movi	a9, 0
+420153fd:	004892        	s8i	a9, a8, 0
+42015400:	fdb025        	call8	42012f04 <initArduino>
+42015403:	ae4181        	l32r	a8, 42000d08 <_stext+0xce8> (420a592c <_Z27getArduinoLoopTaskStackSizev>)
+42015406:	0008e0        	callx8	a8
+42015409:	180c      	movi.n	a8, 1
+4201540b:	0acd      	mov.n	a12, a10
+4201540d:	add9f1        	l32r	a15, 42000b74 <_stext+0xb54> (3fc9fef4 <loopTaskHandle>)
+42015410:	ae3cb1        	l32r	a11, 42000d00 <_stext+0xce0> (3c0c0e47 <_flash_rodata_start+0xd27>)
+42015413:	ae3ca1        	l32r	a10, 42000d04 <_stext+0xce4> (42015398 <_Z8loopTaskPv>)
+42015416:	0189      	s32i.n	a8, a1, 0
+42015418:	1e0c      	movi.n	a14, 1
+4201541a:	00a0d2        	movi	a13, 0
+4201541d:	fd86a5        	call8	42012c88 <xTaskCreateUniversal>
+42015420:	f01d      	retw.n

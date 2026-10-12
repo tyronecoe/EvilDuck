@@ -1,0 +1,22 @@
+INSPECTION ONLY — NOT FOR LOADING. .xt.prop removed; original runtime bytes/addresses verified unchanged. Original ELF is untouched.
+
+/tmp/stage23-inspection-kq2jntfy/not-for-loading.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+4201838c <esp_flash_app_init>:
+4201838c:	004136        	entry	a1, 32
+4201838f:	0001a5        	call8	420183a8 <spi_flash_init_lock>
+42018392:	a38ba1        	l32r	a10, 420011c0 <_stext+0x11a0> (3fc985b4 <g_flash_guard_default_ops>)
+42018395:	a38b81        	l32r	a8, 420011c4 <_stext+0x11a4> (40375a54 <spi_flash_guard_set>)
+42018398:	0008e0        	callx8	a8
+4201839b:	a37ba1        	l32r	a10, 42001188 <_stext+0x1168> (3fc98464 <default_chip>)
+4201839e:	a38a81        	l32r	a8, 420011c8 <_stext+0x11a8> (420b404c <esp_flash_app_enable_os_functions>)
+420183a1:	0008e0        	callx8	a8
+420183a4:	0a2d      	mov.n	a2, a10
+420183a6:	f01d      	retw.n

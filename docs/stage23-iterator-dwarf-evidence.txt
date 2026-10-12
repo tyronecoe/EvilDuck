@@ -1,0 +1,52 @@
+rev Number: 8 (DW_TAG_structure_type)
+    <469>   DW_AT_name        : (indirect string, offset: 0x197): esp_partition_iterator_opaque_
+    <46d>   DW_AT_byte_size   : 20
+    <46e>   DW_AT_decl_file   : 1
+    <46f>   DW_AT_decl_line   : 62
+    <470>   DW_AT_decl_column : 16
+    <471>   DW_AT_sibling     : <0x4b7>
+ <2><475>: Abbrev Number: 9 (DW_TAG_member)
+    <476>   DW_AT_name        : (indirect string, offset: 0x192): type
+    <47a>   DW_AT_decl_file   : 1
+    <47b>   DW_AT_decl_line   : 63
+    <47c>   DW_AT_decl_column : 26
+    <47d>   DW_AT_type        : <0x333>
+    <481>   DW_AT_data_member_location: 0
+ <2><482>: Abbrev Number: 9 (DW_TAG_member)
+    <483>   DW_AT_name        : (indirect string, offset: 0x623): subtype
+    <487>   DW_AT_decl_file   : 1
+    <488>   DW_AT_decl_line   : 64
+    <489>   DW_AT_decl_column : 29
+    <48a>   DW_AT_type        : <0x44a>
+    <48e>   DW_AT_data_member_location: 4
+ <2><48f>: Abbrev Number: 9 (DW_TAG_member)
+    <490>   DW_AT_name        : (indirect string, offset: 0x149a): label
+    <494>   DW_AT_decl_file   : 1
+    <495>   DW_AT_decl_line   : 65
+    <496>   DW_AT_decl_column : 17
+    <497>   DW_AT_type        : <0x121>
+    <49b>   DW_AT_data_member_location: 8
+ <2><49c>: Abbrev Number: 9 (DW_TAG_member)
+    <49d>   DW_AT_name        : (indirect string, offset: 0x9d9): next_item
+    <4a1>   DW_AT_decl_file   : 1
+    <4a2>   DW_AT_decl_line   : 66
+    <4a3>   DW_AT_decl_column : 28
+    <4a4>   DW_AT_type        : <0xda4>
+    <4a8>   DW_AT_data_member_location: 12
+ <2><4a9>: Abbrev Number: 9 (DW_TAG_member)
+    <4aa>   DW_AT_name        : (indirect string, offset: 0xd66): info
+    <4ae>   DW_AT_decl_file   : 1
+    <4af>   DW_AT_decl_line   : 67
+    <4b0>   DW_AT_decl_column : 22
+    <4b1>   DW_AT_type        : <0xdaa>
+    <4b5>   DW_AT_data_member_location: 16
+ <2><4b6>: Abbrev Number: 0
+ <1><4b7>: Abbrev Number: 14 (DW_TAG_structure_type)
+    <4b8>   DW_AT_byte_size   : 44
+    <4b9>   DW_AT_decl_file   : 10
+    <4ba>   DW_AT_decl_line   : 142
+    <4bb>   DW_AT_decl_column : 9
+    <4bc>   DW_AT_sibling     : <0x536>
+ <2><4c0>: Abbrev Number: 9 (DW_TAG_member)
+    <4c1>   DW_AT_name        : (indirect string, offset: 0xb49): flash_chip
+    <4c5>   DW_AT_decl_file   : 10

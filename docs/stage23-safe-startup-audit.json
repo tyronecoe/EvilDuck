@@ -1,0 +1,4962 @@
+{
+  "inventory": {
+    "elf_sha256": "62ef5378b4f0d86af553d6933a70ccda66952649135d5f1d826cb29e58c75069",
+    "arrays": [
+      {
+        "start_symbol": "__init_priority_array_start",
+        "present": false
+      },
+      {
+        "start_symbol": "__init_array_start",
+        "end_symbol": "__init_array_end",
+        "present": true,
+        "stride": 4,
+        "entries": [
+          {
+            "address": 1107308304,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN3cli5beginEv"
+            ]
+          },
+          {
+            "address": 1107308548,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE"
+            ]
+          },
+          {
+            "address": 1107308760,
+            "symbols": [
+              "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj"
+            ]
+          },
+          {
+            "address": 1107309564,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN10duckscript3runERK6String"
+            ]
+          },
+          {
+            "address": 1107309864,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN11hid_backend5beginEv"
+            ]
+          },
+          {
+            "address": 1107309912,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN3led5beginEv"
+            ]
+          },
+          {
+            "address": 1107309972,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN10script_log5clearEv"
+            ]
+          },
+          {
+            "address": 1107310196,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN8settings5readyEv"
+            ]
+          },
+          {
+            "address": 1107310332,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN6spiffs5beginEv"
+            ]
+          },
+          {
+            "address": 1107310396,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN7usb_msc5beginEv"
+            ]
+          },
+          {
+            "address": 1107311096,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN9webserver5beginEv"
+            ]
+          },
+          {
+            "address": 1107313984,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print"
+            ]
+          },
+          {
+            "address": 1107321252,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev"
+            ]
+          },
+          {
+            "address": 1107327824,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev"
+            ]
+          },
+          {
+            "address": 1107328268,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN8SPIClassC2Eh"
+            ]
+          },
+          {
+            "address": 1107328444,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE"
+            ]
+          },
+          {
+            "address": 1107358408,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t"
+            ]
+          },
+          {
+            "address": 1107358560,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t"
+            ]
+          },
+          {
+            "address": 1107358588,
+            "symbols": [
+              "_GLOBAL__sub_I__Zli4_kHzy"
+            ]
+          },
+          {
+            "address": 1107359488,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN9IPAddressC2Ev"
+            ]
+          },
+          {
+            "address": 1107366832,
+            "symbols": [
+              "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb"
+            ]
+          },
+          {
+            "address": 1107369024,
+            "symbols": [
+              "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS"
+            ]
+          },
+          {
+            "address": 1107372600,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN6StringC2EPKc"
+            ]
+          },
+          {
+            "address": 1107383420,
+            "symbols": [
+              "_GLOBAL__sub_I_Serial0"
+            ]
+          },
+          {
+            "address": 1107395320,
+            "symbols": [
+              "esp_ipc_init"
+            ]
+          },
+          {
+            "address": 1107396916,
+            "symbols": [
+              "__esp_stack_guard_setup"
+            ]
+          },
+          {
+            "address": 1077395256,
+            "symbols": [
+              "enable_timer_group0_for_calibration"
+            ]
+          },
+          {
+            "address": 1107599224,
+            "symbols": [
+              "s_set_default_wifi_log_level"
+            ]
+          },
+          {
+            "address": 1107645904,
+            "symbols": [
+              "esp_reset_reason_init"
+            ]
+          },
+          {
+            "address": 1107877944,
+            "symbols": [
+              "esp_ds_conn_lock"
+            ]
+          },
+          {
+            "address": 1107878632,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE"
+            ]
+          },
+          {
+            "address": 1107882396,
+            "symbols": [
+              "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv"
+            ]
+          },
+          {
+            "address": 1107883436,
+            "symbols": [
+              "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj"
+            ]
+          },
+          {
+            "address": 1107883752,
+            "symbols": [
+              "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj"
+            ]
+          },
+          {
+            "address": 1107883964,
+            "symbols": [
+              "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+            ]
+          },
+          {
+            "address": 1107884108,
+            "symbols": [
+              "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"
+            ]
+          }
+        ]
+      },
+      {
+        "start_symbol": "_esp_system_init_fn_array_start",
+        "end_symbol": "_esp_system_init_fn_array_end",
+        "present": true,
+        "stride": 8,
+        "entries": [
+          {
+            "address": 1107391072,
+            "symbols": [
+              "__esp_system_init_fn_init_efuse_check"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396748,
+            "symbols": [
+              "__esp_system_init_fn_init_show_cpu_freq"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107388572,
+            "symbols": [
+              "__esp_system_init_fn_init_show_app_info"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107974020,
+            "symbols": [
+              "__esp_system_init_fn_init_efuse_show_app_info"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107404524,
+            "symbols": [
+              "__esp_system_init_fn_init_heap"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107648916,
+            "symbols": [
+              "__esp_system_init_fn_esp_timer_init_os"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107411292,
+            "symbols": [
+              "__esp_system_init_fn_esp_timer_init_nonos"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107408848,
+            "symbols": [
+              "__esp_system_init_fn_init_libc"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107974568,
+            "symbols": [
+              "__esp_system_init_fn_esp_security_init"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107979548,
+            "symbols": [
+              "__esp_system_init_fn_add_psram_to_heap"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396764,
+            "symbols": [
+              "__esp_system_init_fn_init_brownout"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396780,
+            "symbols": [
+              "__esp_system_init_fn_init_newlib_time"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107419040,
+            "symbols": [
+              "__esp_system_init_fn_init_vfs_uart"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107435060,
+            "symbols": [
+              "__esp_system_init_fn_init_vfs_usj_sec"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107440972,
+            "symbols": [
+              "__esp_system_init_fn_init_vfs_nullfs"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107436204,
+            "symbols": [
+              "__esp_system_init_fn_init_vfs_console"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107408860,
+            "symbols": [
+              "__esp_system_init_fn_init_libc_stdio"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396864,
+            "symbols": [
+              "__esp_system_init_fn_init_flash"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107606472,
+            "symbols": [
+              "__esp_system_init_fn_init_coredump"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107974028,
+            "symbols": [
+              "__esp_system_init_fn_init_efuse"
+            ],
+            "cores_mask": 1,
+            "stage": 0,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396792,
+            "symbols": [
+              "__esp_system_init_fn_init_apb_dma"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396804,
+            "symbols": [
+              "__esp_system_init_fn_init_coexist"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107434224,
+            "symbols": [
+              "__esp_system_init_fn_usb_serial_jtag_conn_status_init"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          },
+          {
+            "address": 1107396824,
+            "symbols": [
+              "__esp_system_init_fn_init_disable_rtc_wdt"
+            ],
+            "cores_mask": 65537,
+            "stage": 1,
+            "core_bits": 1
+          }
+        ]
+      }
+    ],
+    "selected_entrypoints": [
+      {
+        "symbol": "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS",
+        "address": 1107369024,
+        "body_found": true,
+        "body_sha256": "9fdc4f02c4e5e30ae78ef5a962bbaadf6f0fe84b3dd56bca5c974e62bc3c36f9",
+        "direct_named_calls": [
+          "_ZN6USBCDCC1Eh"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I_Serial0",
+        "address": 1107383420,
+        "body_found": true,
+        "body_sha256": "0d1bceb853bc0e36b8148feac6488518e30931cbfc1ec43ce1a705a05f0de4be",
+        "direct_named_calls": [
+          "_ZN14HardwareSerialC1Eh"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev",
+        "address": 1107327824,
+        "body_found": true,
+        "body_sha256": "14866c09ede174274cd1f08aa045495a784c8aa4eb6b11742da53404c1ed4bd1",
+        "direct_named_calls": [
+          "_ZN2fs8SPIFFSFSC1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN10duckscript3runERK6String",
+        "address": 1107309564,
+        "body_found": true,
+        "body_sha256": "62d8e338afcd0053c5fa1226b19d6a70c89f5d1820dbdb476206a5b730cbb37d",
+        "direct_named_calls": [
+          "_ZN8RunStateC1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN10script_log5clearEv",
+        "address": 1107309972,
+        "body_found": true,
+        "body_sha256": "b396e300de5dbccbdfef5a7d4ed116c42937b4bd91f0ef9319589d612103127c",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc",
+          "_ZN6StringD1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t",
+        "address": 1107358560,
+        "body_found": true,
+        "body_sha256": "b77ac29c4175d5d746411a5f281d537488302a079ea16b88e1c1c09504a77b3e",
+        "direct_named_calls": [
+          "_ZN11UpdateClassC1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN11hid_backend5beginEv",
+        "address": 1107309864,
+        "body_found": true,
+        "body_sha256": "4c268faabb7b369840fa9de7407a06473f8b3fa69411f00dbd534a1de7f2e278",
+        "direct_named_calls": [
+          "_ZN14USBHIDKeyboardC1Ev",
+          "_ZN6USBHIDC1E29hid_interface_protocol_enum_t"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev",
+        "address": 1107321252,
+        "body_found": true,
+        "body_sha256": "93a7f0da428bc2701abc01b23d543f5332b99b6504dbd20a9fa97801a25de88f",
+        "direct_named_calls": [
+          "_ZN14NetworkManagerC1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t",
+        "address": 1107358408,
+        "body_found": true,
+        "body_sha256": "dbc6ff6196f62b013388c48330ff0e4234e755174acb79ceb8e19c1654449045",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE",
+        "address": 1107878632,
+        "body_found": true,
+        "body_sha256": "3cac5c2f9af4698dc24cff85565414b40d0ef23696dd40b57586ab4a671816a8",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE",
+        "address": 1107328444,
+        "body_found": true,
+        "body_sha256": "907d1d8df4150ee7bade426c8e4894da211bdd3b02cc959cda414529b6fcb61b",
+        "direct_named_calls": [
+          "_ZN2fs4SDFSC1ESt10shared_ptrINS_6FSImplEE",
+          "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN3cli5beginEv",
+        "address": 1107308304,
+        "body_found": true,
+        "body_sha256": "6a668f0a1937aec746c0bd1b07184f06f3218a0ea16dfa57a10644674258df62",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE",
+        "address": 1107308548,
+        "body_found": true,
+        "body_sha256": "bf3f7cf179a165e1a2ad2c9a82fc704ed05e5bb452784bac55f1d8edf3ccbc40",
+        "direct_named_calls": [
+          "_ZN12_GLOBAL__N_17SessionC1Ev",
+          "_ZN6StringC1EPKc"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN3led5beginEv",
+        "address": 1107309912,
+        "body_found": true,
+        "body_sha256": "bafe42ee4d7c94e25d272e2d8906c82408c0280d911a2bf8556921398b901107",
+        "direct_named_calls": [
+          "_ZN17Adafruit_NeoPixelC1Etst"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN6StringC2EPKc",
+        "address": 1107372600,
+        "body_found": true,
+        "body_sha256": "1a8676fcdffc7653a2e29c53260894427d478acbb277bdc221670b57a14b1df6",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN6spiffs5beginEv",
+        "address": 1107310332,
+        "body_found": true,
+        "body_sha256": "510a4533d49ed9bb86e91ee427991c30fc8b665151fccee4433994a844ebc808",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN7usb_msc5beginEv",
+        "address": 1107310396,
+        "body_found": true,
+        "body_sha256": "c6d47f0689af1b8b799d05e95fe594df17acd3fadb4fd698d9e1cd89dd7dcaaa",
+        "direct_named_calls": [
+          "_ZN6USBMSCC1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN8SPIClassC2Eh",
+        "address": 1107328268,
+        "body_found": true,
+        "body_sha256": "579f3a82584c5761b98b7c3bc30eb2fa97ca8dbc0a5a37e7f3fd3f98bb614cac",
+        "direct_named_calls": [
+          "_ZN8SPIClassC1Eh"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN8settings5readyEv",
+        "address": 1107310196,
+        "body_found": true,
+        "body_sha256": "77b20f6f44d383392c1e0708c8976e7a874642671825fbe8e088228163af3973",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN9IPAddressC2Ev",
+        "address": 1107359488,
+        "body_found": true,
+        "body_sha256": "ce66113ef474ee763021a11fef990aacfe8e38673c2a13f50bc28f74c9863f38",
+        "direct_named_calls": [
+          "_ZN9IPAddressC1E6IPType",
+          "_ZN9IPAddressC1Ehhhh"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print",
+        "address": 1107313984,
+        "body_found": true,
+        "body_sha256": "9e13d05feaf8136352e034fb1bd61e1812ab418802b954ca149d437af2cdb207",
+        "direct_named_calls": [
+          "_ZN7APClassC1Ev",
+          "_ZN8STAClassC1Ev",
+          "_ZN8STAClassD1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv",
+        "address": 1107882396,
+        "body_found": true,
+        "body_sha256": "d2e41275614e2d2b5c4c3e161a71b145a9cd54c23425f20a36339b719c74468d",
+        "direct_named_calls": [
+          "_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEjjPKcj",
+          "__cxx_eh_arena_size_get",
+          "getenv"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZN9webserver5beginEv",
+        "address": 1107311096,
+        "body_found": true,
+        "body_sha256": "ddf6a3e6ad241c6d590b75202782877e6f6fa0f9951752c117b81304727b0aa3",
+        "direct_named_calls": [
+          "_ZN14AsyncWebServerC1Et",
+          "_ZN14AsyncWebSocketC1EPKcSt8functionIFvPS_P20AsyncWebSocketClient12AwsEventTypePvPhjEE"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj",
+        "address": 1107308760,
+        "body_found": true,
+        "body_sha256": "2d95defc095196bde464a7c169ae43dca422da140cda1cda02ad804f54cb19eb",
+        "direct_named_calls": [
+          "_ZN6StringC1EPKc",
+          "_ZN6StringD1Ev"
+        ]
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj",
+        "address": 1107883964,
+        "body_found": true,
+        "body_sha256": "3f4674067efef9c10557a03ad7c7ca4b9ea665aa825e47c11c1f10b533991cf4",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj",
+        "address": 1107883436,
+        "body_found": true,
+        "body_sha256": "23d083773bb41a70ac139257e1200894132f4fd535ee371cc2f147c496dbb093",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj",
+        "address": 1107884108,
+        "body_found": true,
+        "body_sha256": "231a44a9ca3d64ca08a14b5eff2cbc5fce2d3e6c43baaa0f3ef6f2837a6b95a5",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj",
+        "address": 1107883752,
+        "body_found": true,
+        "body_sha256": "705fdca66b01581cf2566efc06626da1940e707bd87df565bec72a564595afd1",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I__Zli4_kHzy",
+        "address": 1107358588,
+        "body_found": true,
+        "body_sha256": "5f5430bed77dcaccd63ee1703fb202a415efca35cca66b7d4a96afd8d2ae1279",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb",
+        "address": 1107366832,
+        "body_found": true,
+        "body_sha256": "0ff37a4c434f02a2f2434833197eb6075133f3c0ff94eefce3c5fca1a53f6538",
+        "direct_named_calls": [
+          "_ZN6ESPUSBC1Ejh"
+        ]
+      },
+      {
+        "symbol": "_Z4loopv",
+        "address": 1107308152,
+        "body_found": true,
+        "body_sha256": "42a6e140e950d629f08fc34003d23252a5117fec581b3dee20da7eb8587436f5",
+        "direct_named_calls": [
+          "delay"
+        ]
+      },
+      {
+        "symbol": "_Z5setupv",
+        "address": 1107307920,
+        "body_found": true,
+        "body_sha256": "33ced69b2fee82b286399a93e9418d1b05931483fd5ac22ab79edc5d342957dc",
+        "direct_named_calls": [
+          "_ZN5debug4infoERK6String",
+          "_ZN5debug5beginEv",
+          "_ZN6StringC1EPKc",
+          "_ZN6StringC1Elh",
+          "_ZN6StringD1Ev",
+          "_ZplRK15StringSumHelperRK6String",
+          "evilduck_nvs_startup_error"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_add_psram_to_heap",
+        "address": 1107979548,
+        "body_found": true,
+        "body_sha256": "9a8324794e286aac33cbe2a0f68a40681f24c2a55bbc60dd9d4086b2ab430db5",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_esp_security_init",
+        "address": 1107974568,
+        "body_found": true,
+        "body_sha256": "e2b1ef4a5c9dbabb4961cae295486a591e6eb3b85556a7ba24c9d6044663494d",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_esp_timer_init_nonos",
+        "address": 1107411292,
+        "body_found": true,
+        "body_sha256": "57e72312cc406b58694a786e68ce307d12a3d0d8a0269be27a41dcd25bab4b80",
+        "direct_named_calls": [
+          "esp_timer_impl_init_system_time"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_esp_timer_init_os",
+        "address": 1107648916,
+        "body_found": true,
+        "body_sha256": "6c78861810e546d8ae8be863e2cb295fe464c9a33e477c6a19c8981f517e91db",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_apb_dma",
+        "address": 1107396792,
+        "body_found": true,
+        "body_sha256": "06145bcc04f13f4f4d44ecfa4366f66cc93f8fd13db4aa20dbc1d12fedaf74fa",
+        "direct_named_calls": [
+          "esp_apb_backup_dma_lock_init"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_brownout",
+        "address": 1107396764,
+        "body_found": true,
+        "body_sha256": "ca10aa0a897cc414290fc883421fb02970904e361758b5c814ce07eac152b104",
+        "direct_named_calls": [
+          "esp_brownout_init"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_coexist",
+        "address": 1107396804,
+        "body_found": true,
+        "body_sha256": "ab7e718bf351d7642caa8af41188975cb4116518d12e4fd5477afbd2c3c687c4",
+        "direct_named_calls": [
+          "coex_pre_init",
+          "esp_coex_adapter_register"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_coredump",
+        "address": 1107606472,
+        "body_found": true,
+        "body_sha256": "0097e290bccc3978046433a1edf50a00382f601199938a1cc6fe8780f00a6179",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_disable_rtc_wdt",
+        "address": 1107396824,
+        "body_found": true,
+        "body_sha256": "bcc19d138b00a7ae96581829bc66f0fdd88150f3f08504123e1ad5e6264c3059",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_efuse",
+        "address": 1107974028,
+        "body_found": true,
+        "body_sha256": "180e321175e7569f0f9d75b72dc0c7f6f3d1b08a5f86d8f037dad81d5fe0f152",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_efuse_check",
+        "address": 1107391072,
+        "body_found": true,
+        "body_sha256": "8b2a5df392c917b6a4ae477c67e19b166983c5668f2fc613c19fa64f55d87d5f",
+        "direct_named_calls": [
+          "esp_efuse_check_errors",
+          "esp_restart"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_efuse_show_app_info",
+        "address": 1107974020,
+        "body_found": true,
+        "body_sha256": "bc73f9557e8a2c6ff5b188aa2e9eb2561a2728cd692a4abe031f00d61ed53970",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_flash",
+        "address": 1107396864,
+        "body_found": true,
+        "body_sha256": "a3f76490e392acc92c6fc5c8a34e61f5ca1f2066066e8a2f0279a670f0995232",
+        "direct_named_calls": [
+          "esp_flash_app_init",
+          "esp_flash_init_default_chip"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_heap",
+        "address": 1107404524,
+        "body_found": true,
+        "body_sha256": "75604c4b325369e6f23630facaca41f5b30ca3aa6800a76891c0ae5a1fd365f8",
+        "direct_named_calls": [
+          "heap_caps_init"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_libc",
+        "address": 1107408848,
+        "body_found": true,
+        "body_sha256": "7b0e6e554f891c36583f172c40222b20c79843cf0253ab69a780994b26f28676",
+        "direct_named_calls": [
+          "esp_libc_init"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_libc_stdio",
+        "address": 1107408860,
+        "body_found": true,
+        "body_sha256": "281f434c4d1ce4f08fff2dfd3e522f979370e1607b95198199d83df8e99d6037",
+        "direct_named_calls": [
+          "esp_libc_init_global_stdio"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_newlib_time",
+        "address": 1107396780,
+        "body_found": true,
+        "body_sha256": "724858f1da9da08538a03cfefb151b866327b9ee5c3a227345faedf74b7b5ac5",
+        "direct_named_calls": [
+          "esp_libc_time_init"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_show_app_info",
+        "address": 1107388572,
+        "body_found": true,
+        "body_sha256": "f19af510859c3230e757c0301a686a4ed11e50db9086bbfdd8c89a2d8e7f24ac",
+        "direct_named_calls": [
+          "esp_app_format_init_elf_sha256$part$0"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_show_cpu_freq",
+        "address": 1107396748,
+        "body_found": true,
+        "body_sha256": "4139003b64469ce9515330aea3946e025ec3ca9651421b176930b92b53402fee",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_vfs_console",
+        "address": 1107436204,
+        "body_found": true,
+        "body_sha256": "5ae60ced455c32943edc2e3884b6269ffd6e894a3c58624824b0e742a2269307",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_vfs_nullfs",
+        "address": 1107440972,
+        "body_found": true,
+        "body_sha256": "e8531588b3ee142fa5c74496ea5d86387f30aea1cf1f245623c03ed1f5162efc",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_vfs_uart",
+        "address": 1107419040,
+        "body_found": true,
+        "body_sha256": "b9f5fcc0fd72d465ca7ba8f44281976f37362809023be68a6c0654957c6a7856",
+        "direct_named_calls": [
+          "esp_vfs_dev_uart_register"
+        ]
+      },
+      {
+        "symbol": "__esp_system_init_fn_init_vfs_usj_sec",
+        "address": 1107435060,
+        "body_found": true,
+        "body_sha256": "197cccc7453da17fb8b0da0dd61ea164d4a4cdd6666b77454e9a6c3701a8144f",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "__esp_system_init_fn_usb_serial_jtag_conn_status_init",
+        "address": 1107434224,
+        "body_found": true,
+        "body_sha256": "0a13306d93e732abd876e5b30dbf9fe6bc1a62e468617181d179de8a1152206d",
+        "direct_named_calls": []
+      },
+      {
+        "symbol": "app_main",
+        "address": 1107382724,
+        "body_found": true,
+        "body_sha256": "e527a18142920b2bf1da74dcca9a82bcb1a819b25191baf930ebf1dacfb1f413",
+        "direct_named_calls": [
+          "_ZN6ESPUSB5beginEv",
+          "_ZN6USBCDC5beginEm",
+          "initArduino",
+          "setCpuFrequencyMhz",
+          "xTaskCreateUniversal"
+        ]
+      },
+      {
+        "symbol": "initArduino",
+        "address": 1107373296,
+        "body_found": true,
+        "body_sha256": "8890437b9c86e2a5dcf035c9cf74fdac06bc7a31e653efaa19a2f21f3acd43e9",
+        "direct_named_calls": [
+          "esp_bt_controller_mem_release",
+          "esp_ota_get_running_partition",
+          "esp_ota_get_state_partition",
+          "esp_ota_mark_app_valid_cancel_rollback",
+          "nvs_flash_init"
+        ]
+      }
+    ],
+    "execution_performed": false,
+    "transitive_flash_write_audit_complete": false,
+    "rom_executed": false,
+    "hardware_access": false
+  },
+  "records": {
+    "_GLOBAL__sub_I__ZN3cli5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "6a668f0a1937aec746c0bd1b07184f06f3218a0ea16dfa57a10644674258df62",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN3com6onDoneEPFvvE": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "bf3f7cf179a165e1a2ad2c9a82fc704ed05e5bb452784bac55f1d8edf3ccbc40",
+      "named_calls": [
+        "_ZN12_GLOBAL__N_17SessionC1Ev",
+        "__cxa_atexit",
+        "_ZN6StringC1EPKc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZNK9duck_vars7Symbols5indexEPKcj": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "2d95defc095196bde464a7c169ae43dca422da140cda1cda02ad804f54cb19eb",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "__cxa_atexit",
+        "_ZN6StringD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN10duckscript3runERK6String": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "62d8e338afcd0053c5fa1226b19d6a70c89f5d1820dbdb476206a5b730cbb37d",
+      "named_calls": [
+        "_ZN8RunStateC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN11hid_backend5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "4c268faabb7b369840fa9de7407a06473f8b3fa69411f00dbd534a1de7f2e278",
+      "named_calls": [
+        "_ZN6USBHIDC1E29hid_interface_protocol_enum_t",
+        "_ZN14USBHIDKeyboardC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN3led5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "bafe42ee4d7c94e25d272e2d8906c82408c0280d911a2bf8556921398b901107",
+      "named_calls": [
+        "_ZN17Adafruit_NeoPixelC1Etst",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN10script_log5clearEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "b396e300de5dbccbdfef5a7d4ed116c42937b4bd91f0ef9319589d612103127c",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "__cxa_atexit",
+        "_ZN6StringD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN8settings5readyEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "77b20f6f44d383392c1e0708c8976e7a874642671825fbe8e088228163af3973",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN6spiffs5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "510a4533d49ed9bb86e91ee427991c30fc8b665151fccee4433994a844ebc808",
+      "named_calls": [
+        "__cxa_atexit",
+        "_ZN6StringC1EPKc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN7usb_msc5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "c6d47f0689af1b8b799d05e95fe594df17acd3fadb4fd698d9e1cd89dd7dcaaa",
+      "named_calls": [
+        "_ZN6USBMSCC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN9webserver5beginEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ddf6a3e6ad241c6d590b75202782877e6f6fa0f9951752c117b81304727b0aa3",
+      "named_calls": [
+        "_ZN14AsyncWebServerC1Et",
+        "__cxa_atexit",
+        "_ZN14AsyncWebSocketC1EPKcSt8functionIFvPS_P20AsyncWebSocketClient12AwsEventTypePvPhjEE",
+        "_ZNSt14_Function_baseD1Ev",
+        "__stack_chk_fail",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_GLOBAL__sub_I__ZN9WiFiClass9printDiagER5Print": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "9e13d05feaf8136352e034fb1bd61e1812ab418802b954ca149d437af2cdb207",
+      "named_calls": [
+        "_ZN16WiFiGenericClassC1Ev",
+        "_ZN8STAClassC1Ev",
+        "_ZN7APClassC1Ev",
+        "__cxa_atexit",
+        "_ZN8STAClassD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN14NetworkManagerC2Ev": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "93a7f0da428bc2701abc01b23d543f5332b99b6504dbd20a9fa97801a25de88f",
+      "named_calls": [
+        "_ZN14NetworkManagerC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN10SPIFFSImplC2Ev": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "14866c09ede174274cd1f08aa045495a784c8aa4eb6b11742da53404c1ed4bd1",
+      "named_calls": [
+        "_ZN2fs8SPIFFSFSC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN8SPIClassC2Eh": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "579f3a82584c5761b98b7c3bc30eb2fa97ca8dbc0a5a37e7f3fd3f98bb614cac",
+      "named_calls": [
+        "_ZN8SPIClassC1Eh",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN2fs4SDFSC2ESt10shared_ptrINS_6FSImplEE": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "907d1d8df4150ee7bade426c8e4894da211bdd3b02cc959cda414529b6fcb61b",
+      "named_calls": [
+        "_Znwj",
+        "_ZN2fs4SDFSC1ESt10shared_ptrINS_6FSImplEE",
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev",
+        "__cxa_atexit",
+        "__cxa_begin_catch",
+        "__cxa_rethrow",
+        "__cxa_end_catch",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_GLOBAL__sub_I__ZN15AsyncTCP_detail18handle_async_eventEP23lwip_tcp_event_packet_t": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "dbc6ff6196f62b013388c48330ff0e4234e755174acb79ceb8e19c1654449045",
+      "named_calls": [
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN11UpdateClass16_enablePartitionEPK15esp_partition_t": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "b77ac29c4175d5d746411a5f281d537488302a079ea16b88e1c1c09504a77b3e",
+      "named_calls": [
+        "_ZN11UpdateClassC1Ev",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__Zli4_kHzy": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "5f5430bed77dcaccd63ee1703fb202a415efca35cca66b7d4a96afd8d2ae1279",
+      "named_calls": [
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN9IPAddressC2Ev": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ce66113ef474ee763021a11fef990aacfe8e38673c2a13f50bc28f74c9863f38",
+      "named_calls": [
+        "_ZN9IPAddressC1E6IPType",
+        "__cxa_atexit",
+        "_ZN9IPAddressC1Ehhhh"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I_tud_dfu_runtime_reboot_to_dfu_cb": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "0ff37a4c434f02a2f2434833197eb6075133f3c0ff94eefce3c5fca1a53f6538",
+      "named_calls": [
+        "_ZN6ESPUSBC1Ejh",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I_ARDUINO_USB_CDC_EVENTS": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "9fdc4f02c4e5e30ae78ef5a962bbaadf6f0fe84b3dd56bca5c974e62bc3c36f9",
+      "named_calls": [
+        "_ZN6USBCDCC1Eh",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN6StringC2EPKc": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "1a8676fcdffc7653a2e29c53260894427d478acbb277bdc221670b57a14b1df6",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I_Serial0": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "0d1bceb853bc0e36b8148feac6488518e30931cbfc1ec43ce1a705a05f0de4be",
+      "named_calls": [
+        "_ZN14HardwareSerialC1Eh",
+        "__cxa_atexit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ipc_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "9b6986f1101621434e2b39660fe91b5dc2ba50233b9ad2c587f03b288598b9d9",
+      "named_calls": [
+        "xQueueCreateMutexStatic",
+        "xQueueGenericCreateStatic",
+        "xTaskCreatePinnedToCore",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__esp_stack_guard_setup": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "2d837526c4e6fb72b1220a1e2df3e3e7804e6f00f8cf9192a65155bc1a217bb2",
+      "named_calls": [
+        "esp_random"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "enable_timer_group0_for_calibration": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "7a6bc837ddc732b91240880a98e5ef91cb9223d9949fa85ff21df92e82baec7a",
+      "named_calls": [
+        "periph_rcc_acquire_enter",
+        "periph_rcc_acquire_exit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "s_set_default_wifi_log_level": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "97c784ec18641874d1ee6954a3e651dc55f25f39cd5cb59beee3e49132679d09",
+      "named_calls": [
+        "esp_log_level_set"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_reset_reason_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "29840b21d230a6a68bd130179e92f744327d09f5ca60e7a99b23b69cb3688fc7",
+      "named_calls": [
+        "esp_reset_reason_get_hint"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_ds_conn_lock": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "fb3457ce0100529f49cbe176abe7790f7276804137028cd12a85dc14835cf81f",
+      "named_calls": [
+        "xQueueCreateMutex",
+        "esp_log_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_GLOBAL__sub_I__ZN17__eh_globals_init7_S_initE": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "3cac5c2f9af4698dc24cff85565414b40d0ef23696dd40b57586ab4a671816a8",
+      "named_calls": [
+        "pthread_key_create"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZN9__gnu_cxx9__freeresEv": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "d2e41275614e2d2b5c4c3e161a71b145a9cd54c23425f20a36339b719c74468d",
+      "named_calls": [
+        "pthread_mutex_init",
+        "getenv",
+        "_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEjjPKcj",
+        "__cxx_eh_arena_size_get",
+        "malloc"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKSsj": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "23d083773bb41a70ac139257e1200894132f4fd535ee371cc2f147c496dbb093",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKSsj": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "705fdca66b01581cf2566efc06626da1940e707bd87df565bec72a564595afd1",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZNSt12ctype_bynameIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "3f4674067efef9c10557a03ad7c7ca4b9ea665aa825e47c11c1f10b533991cf4",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_GLOBAL__sub_I__ZNSt12ctype_bynameIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "231a44a9ca3d64ca08a14b5eff2cbc5fce2d3e6c43baaa0f3ef6f2837a6b95a5",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_efuse_check": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "8b2a5df392c917b6a4ae477c67e19b166983c5668f2fc613c19fa64f55d87d5f",
+      "named_calls": [
+        "esp_efuse_check_errors",
+        "esp_restart"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_show_cpu_freq": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "4139003b64469ce9515330aea3946e025ec3ca9651421b176930b92b53402fee",
+      "named_calls": [
+        "esp_clk_cpu_freq"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_show_app_info": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "f19af510859c3230e757c0301a686a4ed11e50db9086bbfdd8c89a2d8e7f24ac",
+      "named_calls": [
+        "esp_app_format_init_elf_sha256$part$0"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_efuse_show_app_info": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "bc73f9557e8a2c6ff5b188aa2e9eb2561a2728cd692a4abe031f00d61ed53970",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_heap": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "75604c4b325369e6f23630facaca41f5b30ca3aa6800a76891c0ae5a1fd365f8",
+      "named_calls": [
+        "heap_caps_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_esp_timer_init_os": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "02c9a761f2045166beba46b81d02a983dbe410455f06e3a8965e6f940dc35935",
+      "named_calls": [
+        "esp_timer_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_esp_timer_init_nonos": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "57e72312cc406b58694a786e68ce307d12a3d0d8a0269be27a41dcd25bab4b80",
+      "named_calls": [
+        "esp_timer_impl_early_init",
+        "esp_timer_impl_init_system_time"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_libc": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "7b0e6e554f891c36583f172c40222b20c79843cf0253ab69a780994b26f28676",
+      "named_calls": [
+        "esp_libc_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_esp_security_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "e2b1ef4a5c9dbabb4961cae295486a591e6eb3b85556a7ba24c9d6044663494d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_add_psram_to_heap": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "9a8324794e286aac33cbe2a0f68a40681f24c2a55bbc60dd9d4086b2ab430db5",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_brownout": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ca10aa0a897cc414290fc883421fb02970904e361758b5c814ce07eac152b104",
+      "named_calls": [
+        "esp_brownout_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_newlib_time": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "724858f1da9da08538a03cfefb151b866327b9ee5c3a227345faedf74b7b5ac5",
+      "named_calls": [
+        "esp_libc_time_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_vfs_uart": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "b9f5fcc0fd72d465ca7ba8f44281976f37362809023be68a6c0654957c6a7856",
+      "named_calls": [
+        "esp_vfs_dev_uart_register"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_vfs_usj_sec": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "cb05b6a37ed5d620a200060607510bf4c19ad92d5d2f987447554be4054b8486",
+      "named_calls": [
+        "esp_vfs_register_fs"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_vfs_nullfs": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "6cb345717e909ded5f1e4f73af0c8bc939a6c019dfc4f92c58edda720a0faa87",
+      "named_calls": [
+        "esp_vfs_null_register"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_vfs_console": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "4aeb795b98c91a721dc7f7f8aa64537d4cb9754a35a329a0d034e43f59f7c8c2",
+      "named_calls": [
+        "esp_vfs_console_register"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_libc_stdio": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "281f434c4d1ce4f08fff2dfd3e522f979370e1607b95198199d83df8e99d6037",
+      "named_calls": [
+        "esp_libc_init_global_stdio"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_flash": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "a3f76490e392acc92c6fc5c8a34e61f5ca1f2066066e8a2f0279a670f0995232",
+      "named_calls": [
+        "esp_flash_app_init",
+        "esp_flash_init_default_chip",
+        "__assert_func",
+        "spi_flash_needs_reset_check",
+        "esp_log_util_set_cache_enabled_cb"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_coredump": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "e8650ddb458912fe6ab667a7145ef43961049c10a81fdba21dd4b6bde74cb062",
+      "named_calls": [
+        "esp_core_dump_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_efuse": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "180e321175e7569f0f9d75b72dc0c7f6f3d1b08a5f86d8f037dad81d5fe0f152",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_apb_dma": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "06145bcc04f13f4f4d44ecfa4366f66cc93f8fd13db4aa20dbc1d12fedaf74fa",
+      "named_calls": [
+        "esp_apb_backup_dma_lock_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_coexist": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ab7e718bf351d7642caa8af41188975cb4116518d12e4fd5477afbd2c3c687c4",
+      "named_calls": [
+        "esp_coex_adapter_register",
+        "coex_pre_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_usb_serial_jtag_conn_status_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "8a2e0eaf53c72b9e00949b273ff3bececdcb67acfafc5129e5c300b9b8c144d3",
+      "named_calls": [
+        "rtc_clk_bbpll_add_consumer",
+        "esp_register_freertos_tick_hook"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__esp_system_init_fn_init_disable_rtc_wdt": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "bcc19d138b00a7ae96581829bc66f0fdd88150f3f08504123e1ad5e6264c3059",
+      "named_calls": [],
+      "unresolved_indirect_calls": 3
+    },
+    "app_main": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "e527a18142920b2bf1da74dcca9a82bcb1a819b25191baf930ebf1dacfb1f413",
+      "named_calls": [
+        "setCpuFrequencyMhz",
+        "_ZN6USBCDC5beginEm",
+        "_ZN6ESPUSB5beginEv",
+        "initArduino",
+        "_Z27getArduinoLoopTaskStackSizev",
+        "xTaskCreateUniversal"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "initArduino": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "8890437b9c86e2a5dcf035c9cf74fdac06bc7a31e653efaa19a2f21f3acd43e9",
+      "named_calls": [
+        "verifyRollbackLater",
+        "esp_ota_get_running_partition",
+        "esp_ota_get_state_partition",
+        "verifyOta",
+        "esp_ota_mark_app_valid_cancel_rollback",
+        "esp_log_level_set",
+        "nvs_flash_init",
+        "btInUse",
+        "esp_bt_controller_mem_release",
+        "init",
+        "initVariant"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "start_cpu0": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "fa8f8af59103a6b68350d037b3bdfd4a479bf7931440bde46b7b024dd76a7ddf",
+      "named_calls": [
+        "do_system_init_fn",
+        "__register_frame_info",
+        "startup_resume_other_cores",
+        "esp_startup_start_app"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_flash_init_default_chip": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "c881fbcf4b80db5b3a2bf9d0296beb7e548407bc3a0bb411092e3911b38eb8fa",
+      "named_calls": [
+        "s_esp_flash_choose_correct_mode",
+        "spi_flash_chip_list_check",
+        "spi_flash_timing_is_tuned",
+        "spi_timing_get_flash_timing_param",
+        "spimem_flash_ll_get_source_freq_mhz",
+        "memspi_host_init_pointers",
+        "esp_flash_init_main",
+        "esp_log_timestamp",
+        "esp_mspi_32bit_address_flash_feature_check"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "esp_flash_init_main": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "41b525f75e087ff06571f13ec39edaa90f21a691893b4c0563497784c53179e7",
+      "named_calls": [
+        "esp_flash_chip_driver_initialized",
+        "esp_flash_get_physical_size",
+        "esp_log_timestamp",
+        "esp_flash_read_chip_id",
+        "detect_spi_flash_chip"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "esp_flash_app_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "35175b13f6408d93885fef5582d2d17d09f6c56a4f3eca3c2a1ab2110728ded7",
+      "named_calls": [
+        "spi_flash_init_lock",
+        "spi_flash_guard_set",
+        "esp_flash_app_enable_os_functions"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_flash_app_enable_os_functions": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "f94a3f21836edfbbb4df0e25d0f6dd5410722c7496839ec139efe250dc089252",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "main_flash_region_protected": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ca755a656b7dadc19a57e27455d030b968605c39cf17b84c490b544bd8edd752",
+      "named_calls": [
+        "esp_partition_is_flash_region_writable",
+        "esp_partition_main_flash_region_safe"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_is_flash_region_writable": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "3e94fa1145cef68298ffe7e4e67b9b52669ea60b274da9b8838e7ca83811819c",
+      "named_calls": [
+        "esp_partition_find",
+        "esp_partition_get",
+        "esp_partition_next"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_find": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "c93463af2d405d6b390a48f22cda5c67774283e6d92932280823854762d82869",
+      "named_calls": [
+        "ensure_partitions_loaded$part$0",
+        "malloc",
+        "esp_partition_next"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_next": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "15ed30b2a5714e3b38e9bbed42af8389f41fb1e89d9e1643831b22a2fe3a4a7a",
+      "named_calls": [
+        "__assert_func",
+        "cfree",
+        "_lock_acquire",
+        "_lock_release"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_partition_iterator_release": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "a5ceab8984f9b5ebc0fb11c6aa2cde6bea9448558bcec18658c6fcf3898079e2",
+      "named_calls": [
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_core_dump_init": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "eefebfae6376dc5508091ca52b37dd61d3aa16d8b123b3ed1e9b14521924457f",
+      "named_calls": [
+        "esp_partition_find_first",
+        "esp_log_early_timestamp",
+        "esp_core_dump_image_check",
+        "esp_core_dump_partition_and_size_get",
+        "esp_flash_encryption_enabled"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_core_dump_image_check": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "ccee165a20c82fb896346f9666badf8c9baa2d85f3b7d474f0fd1f1ca83c7a33",
+      "named_calls": [
+        "esp_core_dump_checksum_size",
+        "__assert_func",
+        "esp_core_dump_partition_and_size_get",
+        "esp_core_dump_checksum_init",
+        "esp_core_dump_checksum_finish",
+        "esp_partition_read",
+        "esp_log_early_timestamp",
+        "__stack_chk_fail",
+        "esp_core_dump_checksum_update",
+        "esp_core_dump_print_checksum"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "esp_ota_mark_app_valid_cancel_rollback": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "46bc7ce4c7cf7d46b50034d65b91f9b3678eb57a6f0006abdc118c6a3c3e3350",
+      "named_calls": [
+        "esp_ota_current_ota_is_workable"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ota_mark_app_invalid_rollback_and_reboot": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "6cfd8762e7e06225e02dcc930354578fa5b7359e6cd90d83e9857172f59278a7",
+      "named_calls": [
+        "esp_ota_mark_app_invalid_rollback",
+        "esp_restart"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_flash_read": {
+      "depth": 0,
+      "body_found": true,
+      "body_sha256": "c5e993c73b4a7203033084855eadf05656c5709155480eedb48c60953fc160ad",
+      "named_calls": [
+        "esp_flash_encryption_enabled",
+        "esp_flash_read_encrypted",
+        "esp_flash_read"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6StringC1EPKc": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "9aa1608ca42cf7237d37e3d74897a88c94f6e31cd6cec6340a1819b4a3f28280",
+      "named_calls": [
+        "_ZN6String4initEv",
+        "_ZN6String4copyEPKcj"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__cxa_atexit": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "53d9b7adb45c9ed3cd2fcf7454f90bbac3930c97c06d7349a1c0696f1549846b",
+      "named_calls": [
+        "__register_exitproc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN12_GLOBAL__N_17SessionC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "b01bd7f483f567803728545624422c68bfed72a6a5a16703e1d1f41c14ea30e4",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZN6StringD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6StringD1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "badae30bf9190aa5e984c0d04975e37457eb2361d921cdd29477fde2e30bacf7",
+      "named_calls": [
+        "_ZN6String10invalidateEv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Unwind_Resume": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "2720dbdd4def877ddc5b2f54c5c4d4685670812c2b243e74202f4a869be4f277",
+      "named_calls": [
+        "__xtensa_libgcc_window_spill",
+        "uw_init_context_1",
+        "_Unwind_RaiseException_Phase2",
+        "mbedtls_pem_read_buffer+0x210",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN8RunStateC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "175409d80919165b4513ea6f4155425495660150d5249c089508f472afa20d5b",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZN6StringD1Ev",
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 15
+    },
+    "_ZN6USBHIDC1E29hid_interface_protocol_enum_t": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "06cf9f2174c742e6fbab5d1a09aaa41691188c5f5f78a8ea19fcb4592236d73a",
+      "named_calls": [
+        "tinyusb_enable_interface2"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN14USBHIDKeyboardC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "a93da6e6726daa5a0fd1922c6306536f89bda7a5f923c3cea2a2c12b4e4d9b12",
+      "named_calls": [
+        "_ZN6USBHIDC1E29hid_interface_protocol_enum_t",
+        "_ZN6USBHID9addDeviceEP12USBHIDDevicet"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN17Adafruit_NeoPixelC1Etst": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "77c2df58481e4634890bd7c48fb3d90c2abfb9a47ad83deea340b6a6fe79a731",
+      "named_calls": [
+        "_ZN17Adafruit_NeoPixel10updateTypeEt",
+        "_ZN17Adafruit_NeoPixel12updateLengthEt",
+        "_ZN17Adafruit_NeoPixel6setPinEs",
+        "espInit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6USBMSCC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ad55fa82cb0e1c87452e2fd1a7b7ca90ff30d0029442b7b5d770c2daafa243d1",
+      "named_calls": [
+        "tinyusb_enable_interface"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN14AsyncWebServerC1Et": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "bdc7f9388134b3fa1425b3f3725966baa8606174e281dfa91aea808920131e40",
+      "named_calls": [
+        "_ZN11AsyncServerC1Et",
+        "_Znwj",
+        "_ZN23AsyncCallbackWebHandlerC1Ev",
+        "_ZN11AsyncServer8onClientESt8functionIFvPvP11AsyncClientEES1_",
+        "_ZNSt14_Function_baseD1Ev",
+        "__stack_chk_fail",
+        "_ZdlPvj",
+        "_ZNSt7__cxx1110_List_baseISt10unique_ptrI15AsyncWebHandlerSt14default_deleteIS2_EESaIS5_EE8_M_clearEv",
+        "_ZNSt7__cxx1110_List_baseISt10shared_ptrI15AsyncWebRewriteESaIS3_EE8_M_clearEv",
+        "_ZN11AsyncServerD1Ev",
+        "_ZN20AsyncMiddlewareChainD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN14AsyncWebSocketC1EPKcSt8functionIFvPS_P20AsyncWebSocketClient12AwsEventTypePvPhjEE": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "dcfcd67ddd4cd16e296dd116291ac43a3b3463d7f923d7b643452da480c06e92",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZNSt8functionIFvP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhjEEC1ERKS8_",
+        "pthread_mutexattr_init",
+        "pthread_mutexattr_settype",
+        "pthread_mutex_init",
+        "pthread_mutexattr_destroy",
+        "_ZNSt14_Function_baseD1Ev",
+        "_ZNSt7__cxx1110_List_baseI20AsyncWebSocketClientSaIS1_EE8_M_clearEv",
+        "_ZN6StringD1Ev",
+        "_ZN15AsyncWebHandlerD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "_ZNSt14_Function_baseD1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3800404b3216dc4fc9ce27834a7a263f8b20bd673a87e01346e884c4a705bd53",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "__stack_chk_fail": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ac31e93fbfcd0060fbe0784d768db4ff8ca7d4a384570a19ea7f28a8033fb263",
+      "named_calls": [
+        "esp_system_abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN16WiFiGenericClassC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "76e0bc1825c1e75d61be6869a215aea78760c908e3f70123cf36a3636f36ea09",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN8STAClassC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3b6b779fea88821b05ba6c18ebe6083e7d0e06796f4daa42247df4e2d5238f79",
+      "named_calls": [
+        "_ZN16NetworkInterfaceC1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN7APClassC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "20ff2e55433641cf9c3c720a6b909309c9ed71e623582586914cc10c34c487b0",
+      "named_calls": [
+        "_ZN16NetworkInterfaceC1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN8STAClassD1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "42691d5a5cd3f950efef4c9d45e7c6e4f05eca163b43d58e726cc5fee9d03723",
+      "named_calls": [
+        "_ZN8STAClass3endEv",
+        "_ZN16NetworkInterfaceD1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN14NetworkManagerC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "1f081a0600a7c6dbbb4b3e0404bad92b959415f5ec68c849c2506fae35fc6f4c",
+      "named_calls": [
+        "_ZN13NetworkEventsC1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN2fs8SPIFFSFSC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "30e13e3f31fd7bdfd72379a8f51cc3fea7ebb66e8e61351a70b806d4187aa914",
+      "named_calls": [
+        "_Znwj",
+        "__atomic_fetch_add_4",
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev",
+        "__cxa_begin_catch",
+        "__cxa_rethrow",
+        "__cxa_end_catch",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN8SPIClassC1Eh": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "187b85cba52a15726787413be4d3f3f0aea573aa849dc7b292100b1d0bc97f01",
+      "named_calls": [
+        "xQueueCreateMutex"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Znwj": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "934b15f3918357a80bab206336aff7f91b7cd541dd1e0b566bee5b115223b374",
+      "named_calls": [
+        "_ZSt15get_new_handlerv",
+        "__cxa_allocate_exception",
+        "__cxa_throw",
+        "malloc"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN2fs4SDFSC1ESt10shared_ptrINS_6FSImplEE": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5c5f743bb3cd4c601b8a3cf28318a3e094c973f956040e9b49008e0d1f8ab0ff",
+      "named_calls": [
+        "__atomic_fetch_add_4",
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "929a59691b086466949081f68aa204f0dab2416a15b8abaa43bea4a1061c78a0",
+      "named_calls": [
+        "__atomic_fetch_add_4"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "__cxa_begin_catch": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3c71785b80f097098331e563750b2b26ddb63675616c18b4e4a31a2bf8816692",
+      "named_calls": [
+        "__cxa_get_globals",
+        "_ZSt9terminatev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__cxa_rethrow": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ee5497b4a409d66f3e39444e4059571c525bec47c5cbd0e347e7575ddb6dcc12",
+      "named_calls": [
+        "__cxa_get_globals",
+        "_Unwind_Resume_or_Rethrow",
+        "__cxa_begin_catch",
+        "_ZSt9terminatev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__cxa_end_catch": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "d75bda1a5abc2d664ae3e0ba48218312798da7ad223cccc709dc4e9194cf9204",
+      "named_calls": [
+        "__cxa_get_globals_fast",
+        "_Unwind_DeleteException",
+        "_vfprintf_r+0x460",
+        "_ZSt9terminatev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN11UpdateClassC1Ev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "69e789c2e7ae901b4dc2b77330dd7454c9b6f54851abe1c7bccf48577195a7c9",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "_ZNSt14_Function_baseD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN9IPAddressC1E6IPType": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "d53fb38ae8d1ad136b2c51313f765bec10119021d43a3a73dac8340a4ab104f8",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN9IPAddressC1Ehhhh": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "8380cf386d4284d3b80346dbe9ff1aadab9620da27e95e320f4ee318371eb33e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN6ESPUSBC1Ejh": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "9b60b3e4c2f8e8a4d90704eb11cdc56d7e535b9f12aa6b334774040cf196ed77",
+      "named_calls": [
+        "_ZN6StringC1EPKc",
+        "esp_event_loop_create",
+        "_ZN6StringD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6USBCDCC1Eh": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "afe455d0b43db3fd8837e2219dc7707b4c81f21d9fe121617902d9837523b98f",
+      "named_calls": [
+        "tinyusb_enable_interface",
+        "_Z39arduino_usb_event_handler_register_withPKclPFvPvS0_lS1_ES1_"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN14HardwareSerialC1Eh": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3d1f3646133fc52306971d7646b96ff347fd52d050812957b0acbb755c1c1c43",
+      "named_calls": [
+        "xQueueCreateMutex",
+        "uart_init_PeriMan",
+        "_ZNSt14_Function_baseD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "xQueueCreateMutexStatic": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f79827409db0b9dd9f3e2ad6b1ab85f9547f0da2164158031cc55aaafca14155",
+      "named_calls": [
+        "xQueueGenericCreateStatic",
+        "xQueueGenericSend"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xQueueGenericCreateStatic": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e75c274a6cc753bea3e5aceeb4a15e2a0463858f44ae06e93910bfaa0270fe43",
+      "named_calls": [
+        "__assert_func",
+        "xQueueGenericReset"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskCreatePinnedToCore": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "bfa5355ef810e23cdf0ee08a221cbfca2556989d7f6f963d0375fcf09742187b",
+      "named_calls": [
+        "__assert_func",
+        "pvPortMalloc",
+        "prvInitialiseNewTask$constprop$0",
+        "prvAddNewTaskToReadyList",
+        "vPortFree"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__assert_func": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "aea3a7f98625c007717ff5d519dd4e7b51aa2cb44ec8964970f77ec58db3741a",
+      "named_calls": [
+        "spi_flash_cache_enabled",
+        "esp_system_abort"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "esp_random": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "84c886610a928dddf0b84b4b814982d4beb7378a7344e7de37ba857a63347511",
+      "named_calls": [
+        "esp_clk_cpu_freq",
+        "esp_clk_apb_freq"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "periph_rcc_acquire_enter": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "2314cb6b840af5b26ec35dd76ea77738564bc0f237f5880f1cb08d355d57a9e9",
+      "named_calls": [
+        "periph_rcc_enter"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "periph_rcc_acquire_exit": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "71faa564cd55578a94f10bd9a93ce4917ebbbbacdcc797cc0658e110899a9976",
+      "named_calls": [
+        "periph_rcc_exit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_level_set": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "8f2a6998bea27ca5464b56d376c18dac1adc540f54ae113fbdf4ea814167df50",
+      "named_calls": [
+        "esp_log_impl_lock",
+        "esp_log_set_default_level",
+        "esp_log_linked_list_clean",
+        "esp_log_cache_clean",
+        "esp_log_impl_unlock",
+        "esp_log_linked_list_set_level",
+        "esp_log_cache_set_level"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_reset_reason_get_hint": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "553f14081db0ffa5eb62d4c963c57e245c047814ab23dd5059bba33bec8be740",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "xQueueCreateMutex": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "9262eca2274450c731419cd5842569fb528d6e785c7f3fe03842b1650211d1fe",
+      "named_calls": [
+        "xQueueGenericCreate",
+        "xQueueGenericSend"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_timestamp": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "896ac1266e05eee062bde2bd6d294c19e94fed9061c88978cae7001ca7f08436",
+      "named_calls": [
+        "xTaskGetSchedulerState",
+        "esp_log_early_timestamp",
+        "xPortInIsrContext",
+        "xTaskGetTickCountFromISR",
+        "xTaskGetTickCount"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "pthread_key_create": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c8587f5556b50de22dc954f1a2a166e18479ca810243f49d3b3a5185df5bda81",
+      "named_calls": [
+        "malloc",
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "pthread_mutex_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "22c84d6561f6bcd13af15ad766a32dcc0daa5aaad67f6b7b941a4e1e4b6ef50a",
+      "named_calls": [
+        "malloc",
+        "xQueueCreateMutex",
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "getenv": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c25715a40f784c9018c78aaf5f5c437d18a130648e6b067830aa057dd0dfd03b",
+      "named_calls": [
+        "__getreent",
+        "_findenv_r"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEjjPKcj": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "26abd3919ee82cf00b72da01afbd2587f1fc4440d55a5fa585840f681fc261a9",
+      "named_calls": [
+        "_ZSt24__throw_out_of_range_fmtPKcz"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__cxx_eh_arena_size_get": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "af7d23a65b463e0d3a79f7dd9ead4de1fadaa30f8fb86dd95c8b1193a69b95d9",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "malloc": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e38f5831961540d391b0ebe22c64f3571afc84368c3d7df88aa890244ad4098d",
+      "named_calls": [
+        "heap_caps_malloc_default"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_efuse_check_errors": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3b8864b0626898b54a3215785f2acfdc82cec5d65c86e618a786e9afcf02ffaf",
+      "named_calls": [
+        "esp_efuse_utility_check_errors"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_restart": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "0eb66ecbd6ae7c242193eb8298b4aa5b1bbfaf418e68b079878b627f6f56a379",
+      "named_calls": [
+        "vTaskSuspendAll",
+        "esp_restart_noos"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_clk_cpu_freq": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "539dd2116164371c18ac8fa3abc07caa7a788e3d5de98db174edd5a45d0f4710",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_app_format_init_elf_sha256$part$0": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "59db152e7762f7530204924420b3d983a48fca1c0463b5250afba1eae1361298",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "heap_caps_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f3de527227aa3d484b4e944da0c98b88d8087a43177822c22f87a515a31da1ff",
+      "named_calls": [
+        "soc_get_available_memory_region_max_count",
+        "soc_get_available_memory_regions",
+        "__assert_func",
+        "register_heap",
+        "heap_caps_match",
+        "multi_heap_malloc",
+        "multi_heap_set_lock",
+        "__stack_chk_fail"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "esp_timer_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "a2ae2faf5fe25713ac02eed79b72df5338e0e7f067bb76edc253c5433e548e4d",
+      "named_calls": [
+        "xTaskCreatePinnedToCore",
+        "esp_timer_impl_init",
+        "esp_log_timestamp",
+        "deinit_timer_task"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "esp_timer_impl_early_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "7c82ec458293ed0db3646af0acc982361f1da6dbd436017168d34e022e141b54",
+      "named_calls": [
+        "periph_rcc_acquire_enter",
+        "periph_rcc_acquire_exit",
+        "systimer_hal_init",
+        "systimer_hal_set_tick_rate_ops",
+        "systimer_hal_enable_counter",
+        "systimer_hal_select_alarm_mode",
+        "systimer_hal_connect_alarm_counter",
+        "systimer_hal_counter_can_stall_by_cpu"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_timer_impl_init_system_time": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "9e979e54ab8182397d9683860290812580312c47703b2e7dc1d6b9ab9b461e2e",
+      "named_calls": [
+        "esp_rtc_get_time_us",
+        "esp_timer_get_time",
+        "esp_register_shutdown_handler"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_libc_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "74b4c72b34c2c8f1f87c389d63badc0ac2de869b2289a78664c09e078858ba27",
+      "named_calls": [
+        "malloc",
+        "abort",
+        "esp_libc_locks_init"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_brownout_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c0c00506f7c096c351c2c9215c2fd1ba4f121f8463fd7aa408927b902231c7fc",
+      "named_calls": [
+        "brownout_hal_config",
+        "rtc_isr_register"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_libc_time_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "29cc8380bfa989e94c7daf2ad82225df7ad210942ee12985bf24b528f1819258",
+      "named_calls": [
+        "esp_set_time_from_rtc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_dev_uart_register": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "49b7974c599b110de9c5c3ae09e1cda0d4dfe9d5053b6daf798f5c9b73918412",
+      "named_calls": [
+        "esp_vfs_register_fs",
+        "_esp_error_check_failed"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_register_fs": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "2eee48a8670131b513a5a513fb2ffc49da2fe3281dfef2d723f5e4cb8cbc52f1",
+      "named_calls": [
+        "esp_vfs_register_fs_common",
+        "heap_caps_malloc",
+        "esp_vfs_free_fs_ops",
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "esp_vfs_null_register": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "044eb9ee49c93e8a03904559b3c19e3ea959314f08d6f1a4ab7a9af1ffb7ba56",
+      "named_calls": [
+        "esp_vfs_register_fs"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_console_register": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "784ef90b3e9834a1bdfc271497dfddb0b6e064c7686b8298e27c422cdb3a6244",
+      "named_calls": [
+        "esp_vfs_uart_get_vfs",
+        "esp_vfs_usb_serial_jtag_get_vfs",
+        "esp_vfs_register_fs"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_libc_init_global_stdio": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "85f790534309f9d08ae8db967bb29a7051fd440060894042631619a18ecb7aa1",
+      "named_calls": [
+        "fopen",
+        "__swsetup_r"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_needs_reset_check": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "877b1517c1216b7d7097927b91330ed8fa9b68d706fb6338678b22fcc9e79c15",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_util_set_cache_enabled_cb": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "eca6ccba8977fcd1a5601801325f6c44c7b97f0121f1a5cee3deb65486fc3be4",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_apb_backup_dma_lock_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "d47922f404a511798665c43900f1cb06bd226509d71afb8489225f466cf70cbe",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_coex_adapter_register": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e0a4eb8df088f6b22a9f37dcb933ed4d623686beb4f9c3e2497aca03bf8024cb",
+      "named_calls": [
+        "puts",
+        "coexist_printf"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "coex_pre_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "a0e60935b2cd0b1be4d484affc22e74c9808ef4f8f177f54a15de1bc2475ede8",
+      "named_calls": [
+        "coexist_printf",
+        "coex_core_pre_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_bbpll_add_consumer": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "22cb30594a5f63c66df56d7da1002c232c15ca784e188dd376117d37b0a3aeec",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_register_freertos_tick_hook": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "acd5b73c8417658f3b6cc4ab0ac6c4ff2ab2bd2c027ea250d3a1bd10befcb596",
+      "named_calls": [
+        "esp_register_freertos_tick_hook_for_cpu"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "setCpuFrequencyMhz": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e9e5b7cf3e94168581002feb2308f9334a2eeac8b2347515c5339ff63ae7b7ff",
+      "named_calls": [
+        "rtc_clk_xtal_freq_get",
+        "rtc_clk_cpu_freq_get_config",
+        "rtc_clk_cpu_freq_mhz_to_config",
+        "triggerApbChangeCallback$constprop$0",
+        "rtc_clk_cpu_freq_set_config_fast"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6USBCDC5beginEm": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "db2bd6b1079d355957fb78b5c0182538043d4eb755b09400b18a5a324f4c115f",
+      "named_calls": [
+        "xQueueCreateMutex",
+        "_ZN6USBCDC15setRxBufferSizeEj"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6ESPUSB5beginEv": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "55f6d5144e7a066b4ff3230f752036805f5b4e118c5d960af5ed3c11080ed33c",
+      "named_calls": [
+        "_ZNK6String6equalsEPKc",
+        "_ZN6StringC1EPKc",
+        "esp_efuse_mac_get_default",
+        "_ZN5Print6printfEPKcz",
+        "_ZN6StringaSERKS_",
+        "_ZN6StringD1Ev",
+        "tinyusb_init",
+        "__stack_chk_fail",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Z27getArduinoLoopTaskStackSizev": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "4f435e54da091f85d754059444a9a5b7b06901e881e7a08952abbedd632cf470",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskCreateUniversal": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f4b8fe98843c35b3dc49a34482bd6c7bacee3b14c8c776c48d2e0d17a3596724",
+      "named_calls": [
+        "xTaskCreatePinnedToCore"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "verifyRollbackLater": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "32c932ea740bc23baf8556911420b7e182f754ff12a54a25657d6f1a13831b1b",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ota_get_running_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5b8167b793f0b3520c215c5f7fbf8d632cefbfefc10c640303080eeae333dba4",
+      "named_calls": [
+        "spi_flash_cache2phys",
+        "__assert_func",
+        "esp_partition_find",
+        "esp_partition_iterator_release",
+        "esp_partition_next",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ota_get_state_partition": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5971ab95341cf095ea004bd0207323494c5a0a3c950c9bfa695f5d4d47e9d0bc",
+      "named_calls": [
+        "is_ota_partition",
+        "esp_ota_get_app_partition_count",
+        "read_otadata",
+        "bootloader_common_ota_select_crc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "verifyOta": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3d55845651ebd2c7efe32cdb0d40ba005f51c9112efcb0fd15648130f3b94506",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "nvs_flash_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c8072942ad93afb7d4d781dcc50252dbb4e2a64c9dfbf13db057624976c8efd1",
+      "named_calls": [
+        "nvs_flash_init_partition"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "btInUse": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ecbffad433ebac02691db0468cf646c00b1b6a4ad2ea668a67fe17dca869b362",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_bt_controller_mem_release": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c4a7e15169e39bca1f2d29794c1f5fbd8cd2842fbe4896a20ec02aa34c79a5e1",
+      "named_calls": [
+        "esp_bt_mem_release_areas",
+        "esp_bt_controller_rom_mem_release"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "8c3ab3061f3822961bae4e17b340e6f7ab28f90d0fa4696111790a5dfcef438c",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "initVariant": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e8f31220461d8b37e1f1ea64ba3f492630aab2ab1c8fab6220fa2ac299d9b438",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "do_system_init_fn": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "2bfb741756940438781688ff90d0d1a94b3cfdfe79fe52075aebeba4a4cf7e9a",
+      "named_calls": [
+        "esp_log_timestamp",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "__register_frame_info": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ef15316a8ad83503c45c0a4b9b551fa74cc4a24682d2bee2e1ad8da1c59ef2d5",
+      "named_calls": [
+        "__register_frame_info_bases"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "startup_resume_other_cores": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "826b3b4a700bb6c750758a3322e73a4b3d40ed71c755e5d1463f0eb3a890d664",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_startup_start_app": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "cf3bc42d37e26c712be5dd985fa5a74aabb47f33773a0859e520365fd1466ac8",
+      "named_calls": [
+        "esp_int_wdt_init",
+        "esp_int_wdt_cpu_init",
+        "esp_crosscore_int_init",
+        "xTaskCreatePinnedToCore",
+        "__assert_func",
+        "vTaskStartScheduler"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "s_esp_flash_choose_correct_mode": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "aed3de5293aab48b72798e1e57b29df04ba2fcf987c39ee906cb08677d83b7ab",
+      "named_calls": [
+        "bootloader_flash_is_octal_mode_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_chip_list_check": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "1dec5abc0bb8d391bf99cb4dc523da609fa40bc3adb3acee0d5899cb2544403d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_timing_is_tuned": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "6222a3d468c66c9e847bc8420ca76b6ac39e3ebab9c6cb277bec87035a4d7517",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_timing_get_flash_timing_param": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "53b9b05cfe8812b9eab3925234a6d6ec7f3cf6eb24ada6f9706c742956b05b86",
+      "named_calls": [
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "spimem_flash_ll_get_source_freq_mhz": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "461cbab79db3bc886e326c00895fd4a3ccc50801fa8b7d4650c1293a3ee3dbe0",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "memspi_host_init_pointers": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3f639106820f7f12be68ec1899a1ffb812fd6e3b17c4567c1b04388e27443493",
+      "named_calls": [
+        "spi_flash_hal_init"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_mspi_32bit_address_flash_feature_check": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ca5bf1c29e54c91f45e3a90f7dfc8c89aa77ca2718dbaf8a424d71e105740f54",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_flash_chip_driver_initialized": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5be06b2fcf07906c3dcd05d57ae6f190c657fd2255fbaa2da6c8dc15cebdd92d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_flash_get_physical_size": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "07c730871d68ef5930af9141246bfd4ac8d99b4c9191df6c038f8fe9f400ab79",
+      "named_calls": [],
+      "unresolved_indirect_calls": 4
+    },
+    "esp_flash_read_chip_id": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "b5abc8ab4a549aad7f3163e45a25b8b4702e8ce48de8b48c33fef1e4358951e3",
+      "named_calls": [
+        "read_id_core"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "detect_spi_flash_chip": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "3bf34dc7870e9af9794080eb03c5809aaf59ef99e37b873c64be22b93022ad1b",
+      "named_calls": [
+        "esp_flash_chip_driver_initialized"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "spi_flash_init_lock": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "fe0c5553bdce0f8b614504a7004df2cf0dd83ab0fc916cd94ddb1a795a644f7a",
+      "named_calls": [
+        "xQueueCreateMutex",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_guard_set": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5e6d2aeb123f2bd3d3d7f3c546f5ab54f75986709ef398c186f9a78e3b5dda96",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_main_flash_region_safe": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "d11db36ea87d87c3ae50c01429de2ca5eddbdcfcd2aa3fe7f7fa66cfd59a5d93",
+      "named_calls": [
+        "esp_ota_get_running_partition"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_get": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "6aa9533a0480d0789fb32e696fa17113e040b292988a2dfd724a71f31b223a2c",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "ensure_partitions_loaded$part$0": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "6c8a7a119b454460821b6be6248d276730027234f02463a8ce89e511a3770202",
+      "named_calls": [
+        "_lock_acquire",
+        "_lock_release",
+        "__stack_chk_fail",
+        "spi_flash_mmap",
+        "calloc",
+        "is_partition_encrypted",
+        "esp_log_timestamp",
+        "esp_log",
+        "cfree",
+        "spi_flash_munmap"
+      ],
+      "unresolved_indirect_calls": 6
+    },
+    "cfree": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f1b6222a09ffa3db97f202e6f7ce0ac01850d3c35dfa037e54b62c5830fc96bc",
+      "named_calls": [
+        "heap_caps_free"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_lock_acquire": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "db295cd3d5bfa1cbd45be6463564353ecedecb8b09ca8880afc7c8604b7dce0e",
+      "named_calls": [
+        "lock_acquire_generic"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_lock_release": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "90969927770bc6836d35cd8e7604c3059debd9f1d980751b8f540be0aaf5eaea",
+      "named_calls": [
+        "lock_release_generic"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_find_first": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "5fc3941061485470a47d0da92b1d4f566016dd13b78a7d81af0d41b8500e0160",
+      "named_calls": [
+        "esp_partition_find",
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_early_timestamp": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "ba364c13f04be3341c7706570c0047353f0005f70ded809a1c8a7789701ae981",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_core_dump_partition_and_size_get": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "1599b0eac33e1ad8f652418c1a9a837d9dc3c5770f9316b884a3bd309b7749c4",
+      "named_calls": [
+        "esp_partition_find_first",
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "esp_flash_encryption_enabled": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "26ae8f4938cb1decd6e669d43ad20235394c3559f0f646a120f258f2463839dd",
+      "named_calls": [
+        "efuse_hal_flash_encryption_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_core_dump_checksum_size": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "f6f1671ed8b21286b74ee234e52b4a8108a7c089b70df2d849512b646867213c",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_core_dump_checksum_init": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "04a71394d79a903cf9166f4558fe0b338694ab3418409390f7bc47dcad67641c",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_core_dump_checksum_finish": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "bb1ddc265ab47ea3f1f70f9950a010453c530f83a10713d991617619a523348d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_read": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "4ce96f53a8a79e0fb482aeb85dd0011501e59383201a19b6f4e0958f8a1fedf3",
+      "named_calls": [
+        "__assert_func",
+        "esp_flash_read",
+        "esp_partition_mmap",
+        "spi_flash_munmap"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_core_dump_checksum_update": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "fc91d5e82913cb50c0928846cf9cb90cc2f7a599433596f895377f5dc4638ec0",
+      "named_calls": [
+        "esp_log_early_timestamp"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_core_dump_print_checksum": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "b5d7c1dc59883e1055c5671055e5b9551b8a65737e33be38f6bbb4e07098e478",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_ota_current_ota_is_workable": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e712b015937c0aee56fa971d45a0f55db69c53c47e6308ce528b90a78bc25274",
+      "named_calls": [
+        "read_otadata",
+        "bootloader_common_get_active_otadata",
+        "esp_ota_get_app_partition_count",
+        "esp_log",
+        "rewrite_ota_seq$part$0"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ota_mark_app_invalid_rollback": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "e550e5f752904f08dc9be3d79eb5e5de77a49a6c37cbad1eef8f51a6679ee6e0",
+      "named_calls": [
+        "esp_ota_current_ota_is_workable"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_flash_read_encrypted": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "1781f013f392dad6203f9da19486d817ee335805f35d32f9778067b3649a2e11",
+      "named_calls": [
+        "spi_flash_mmap",
+        "spi_flash_munmap"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "esp_flash_read": {
+      "depth": 1,
+      "body_found": true,
+      "body_sha256": "c9fd463fcf5ecf5996bbec1bd9695ebb33440b8db60c9c8659c696710631491d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 9
+    },
+    "_ZN6String4initEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "50d2ce4e5653755a5e4abc06bb4e35dae1f22191b0dd100522cc43e8a4cc72de",
+      "named_calls": [
+        "_ZN6String6setLenEi"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6String4copyEPKcj": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "4184f1b165dd1170c4c7d84a7d0e2dde8669c46f6ae11af14d843681b5ee2471",
+      "named_calls": [
+        "_ZN6String10invalidateEv",
+        "_ZN6String7reserveEj",
+        "_ZN6String6setLenEi"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__register_exitproc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "570c9c226d4700b6872c4a9c1bbcda1c8f957bb6bda5f8343a7c2687dddd2b0d",
+      "named_calls": [
+        "__retarget_lock_acquire_recursive",
+        "__retarget_lock_release_recursive"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6String10invalidateEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "03c935ea0240bd2f9b86969f7e36ac287f7d63a67edfba349e8380a986342019",
+      "named_calls": [
+        "cfree",
+        "_ZN6String4initEv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__xtensa_libgcc_window_spill": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "cbb59ba1187fb055b3c3540443d2fde7a58418f1118f55bf28022bd8c19e48b3",
+      "named_calls": [
+        "__xtensa_libgcc_window_spill+0x8"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "uw_init_context_1": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "68ad766ca852afe2f6e88d589a50de5103bed1106ce34e6de5d1c708825b4624",
+      "named_calls": [
+        "uw_update_context_1"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "_Unwind_RaiseException_Phase2": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "114fb5eb7812d4c4d13dce54ecdd3c10ae57b4e531f993e73e6a792521fa81c1",
+      "named_calls": [
+        "uw_frame_state_for",
+        "pmksa_cache_expire+0x43c",
+        "abort",
+        "uw_update_context"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "abort": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "73c0c3901b0d3014ce02f8de09eb4c824c1a7e29e6d649de43409e8439a0a842",
+      "named_calls": [
+        "esp_system_abort"
+      ],
+      "unresolved_indirect_calls": 5
+    },
+    "tinyusb_enable_interface2": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b4f389a4e6589370f128b86a24b5c402cbe37c4f8125aa3e5eb5bf0dc6dfb04e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6USBHID9addDeviceEP12USBHIDDevicet": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a74edfb6d98cc89bff276b357a772398eeff328b2d6104c4fbd3bc4f5e9f6e3a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN17Adafruit_NeoPixel10updateTypeEt": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "559b7bf1c3c855ee46e48e0e91431ee8ae8eafca2d146d6188d40d1169fdec2d",
+      "named_calls": [
+        "_ZN17Adafruit_NeoPixel12updateLengthEt"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN17Adafruit_NeoPixel12updateLengthEt": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a1f794822d09b456d282a8e3480c5252ac55982f0cfca5014ca21bb4b09d0206",
+      "named_calls": [
+        "cfree",
+        "malloc"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN17Adafruit_NeoPixel6setPinEs": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8f8b3be49418303add2d2267018b4869f66a1902d686965e5900fae76873d918",
+      "named_calls": [
+        "__pinMode",
+        "__digitalWrite"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "espInit": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "3ef281852466c986fe593c11ac69f2d49007a5640eb44b205ca0fd0c561beca3",
+      "named_calls": [
+        "xQueueCreateMutex"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "tinyusb_enable_interface": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e11b56067c31d87cf15a134943785e0ba6ac3964bd3737cfa0506d38d1f57dbf",
+      "named_calls": [
+        "tinyusb_enable_interface2"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN11AsyncServerC1Et": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "297f3e8f75f0496eb4bb7df3ff4ac674cafec9cc0f1bc50282d4d7e61ba8d067",
+      "named_calls": [
+        "_ZNSt8functionIFvPvP11AsyncClientEEC1EDn"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN23AsyncCallbackWebHandlerC1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "7b2f8eeda134881b796293a35fad44c77b1498a9a2825ce11ec1b5de35e9d5d4",
+      "named_calls": [
+        "_ZNSt14_Function_baseC1Ev",
+        "_ZN6StringC1EPKc",
+        "_ZN15AsyncURIMatcherC1E6StringNS_4TypeEt",
+        "_ZN6StringD1Ev",
+        "__stack_chk_fail",
+        "_ZN15AsyncWebHandlerD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "_ZN11AsyncServer8onClientESt8functionIFvPvP11AsyncClientEES1_": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "41a96bf5455eb191cb4c84a4cea91844fc2d7963e13cfbdea0381281238e7a43",
+      "named_calls": [
+        "_ZNSt8functionIFvPvP11AsyncClientEEaSERKS4_$isra$0"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZdlPvj": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "403d0ee428cddc4426ff1ee6e003f90557799ea28e251d09852e222d0af12a6e",
+      "named_calls": [
+        "_ZdlPv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt7__cxx1110_List_baseISt10unique_ptrI15AsyncWebHandlerSt14default_deleteIS2_EESaIS5_EE8_M_clearEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "49f2f394c78193937d9cf02742634b7f2a42b47b57e5c1e57c816fd4084cce82",
+      "named_calls": [
+        "_ZNSt10unique_ptrI15AsyncWebHandlerSt14default_deleteIS0_EED1Ev",
+        "_ZdlPvj"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt7__cxx1110_List_baseISt10shared_ptrI15AsyncWebRewriteESaIS3_EE8_M_clearEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f19016e2baa6f507026eedcebdf06339d2121f99d7f4feacc7e75be0ae7be2a3",
+      "named_calls": [
+        "_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev",
+        "_ZdlPvj"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN11AsyncServerD1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "00395f02aea9420bdf6b9308dd66984e15a59611efc5261971058b39ee0d167d",
+      "named_calls": [
+        "_ZN11AsyncServer3endEv",
+        "_ZNSt14_Function_baseD1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN20AsyncMiddlewareChainD1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8ac7ee45be47ec48783c57338979fdffd70e9f56c17e066dceed1600d3255abe",
+      "named_calls": [
+        "_ZdlPvj"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZNSt8functionIFvP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhjEEC1ERKS8_": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "90771e2f710f5c9dede9fcb6e041e67bd324d4ac3ea63427642f86b3525d7a08",
+      "named_calls": [
+        "_ZNSt14_Function_baseD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "pthread_mutexattr_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "345e258f85d2a81b3e319caa60346f5d4bc6f02bee4484930b79c2f88add02e0",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "pthread_mutexattr_settype": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a1f2c2d840a59737c55175625ba10a67b9d2111326a61633dc0b00286f86fd41",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "pthread_mutexattr_destroy": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "904a5118da3e9f98316d6aa3b988f1995e96c7978e762dfd4b41733fbdfa57fa",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt7__cxx1110_List_baseI20AsyncWebSocketClientSaIS1_EE8_M_clearEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "dbfd8569863e691668b786086d3e6732c0cbd120a181fe1117aafd11fd3298ea",
+      "named_calls": [
+        "_ZN20AsyncWebSocketClientD1Ev",
+        "_ZdlPvj"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN15AsyncWebHandlerD1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "eb9cebb0f2a93e568f4e082d1617fbe7a16ea7ef2c9beba20c6a8f4fa4ae0b67",
+      "named_calls": [
+        "_ZNSt14_Function_baseD1Ev",
+        "_ZN20AsyncMiddlewareChainD1Ev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_system_abort": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "111dd01718d522065f1bb4ad774877a03a327d2dd68f0b99956e069c833afedb",
+      "named_calls": [
+        "panic_abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN16NetworkInterfaceC1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "fa9f2525669d808bdf93dedc9d64d4bc6242c51f88f51a8a794c14b455f98968",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN8STAClass3endEv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "311beb8d79c764477e989b3b68ebea0a786d6fe519b54e43cfa0dfe999f02a40",
+      "named_calls": [
+        "_ZN16WiFiGenericClass9enableSTAEb"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN16NetworkInterfaceD1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ec67b473360706885cf8dbbd8600a3d50de19a86662296578a3aee6ea332cc94",
+      "named_calls": [
+        "_ZN16NetworkInterface12destroyNetifEv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN13NetworkEventsC1Ev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8e253ce52b5b364d98e60f87a6772b9c6bd41060e8ddb1018df73f5e36ff6caa",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__atomic_fetch_add_4": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "bfd272078c04d99c66236261de5057e1892c6ef053fe5b3fff0f36f0767deb1b",
+      "named_calls": [
+        "__atomic_s32c1i_fetch_add_4",
+        "xPortEnterCriticalTimeout",
+        "xPortInIsrContext",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZSt15get_new_handlerv": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "83539226f484228a2d1a8b8c970a3334c7c7d79c18abb8d1d7d0ce7c7cd9153b",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "__cxa_allocate_exception": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f0154adff1ef954b948b33f03aa92b0e1455888d6448d1a2d20da13db062bbbe",
+      "named_calls": [
+        "malloc",
+        "_ZN12_GLOBAL__N_14pool8allocateEj$constprop$0",
+        "_ZSt9terminatev"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__cxa_throw": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "727714f5656f71bb1ebe1304238763861a9c32b5151dbc6f278376766c1ffe12",
+      "named_calls": [
+        "__cxa_get_globals",
+        "__cxa_init_primary_exception",
+        "_Unwind_RaiseException",
+        "__cxa_begin_catch",
+        "_ZSt9terminatev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__cxa_get_globals": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "70f6592d2e682940170681db8eee02eff841e30d6a8872b1d184b9a8fcc19907",
+      "named_calls": [
+        "pthread_getspecific",
+        "malloc",
+        "_ZSt9terminatev",
+        "pthread_setspecific"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZSt9terminatev": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d3d61a7d8a6db3489195c70325f0af005746f3d8d81ccf6bd718b906fbf06c3c",
+      "named_calls": [
+        "_ZSt13get_terminatev",
+        "_ZN10__cxxabiv111__terminateEPFvvE"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Unwind_Resume_or_Rethrow": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d17e3c3424b5248a1d50019b740a5154384f42510bff7b3adec5c9da9369a9be",
+      "named_calls": [
+        "_Unwind_RaiseException",
+        "__xtensa_libgcc_window_spill",
+        "uw_init_context_1",
+        "_Unwind_ForcedUnwind_Phase2",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__cxa_get_globals_fast": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8b7b4622423be45f5542fda65765aa2fce98c7e48ae7fdc7b0706fd415151dbd",
+      "named_calls": [
+        "pthread_getspecific"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Unwind_DeleteException": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "df479bd40029a3ea3bc1745b0a5e223eab0ad78c87035956beb3c986f83fcbc8",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_event_loop_create": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "310fbeb4e56ebe1f02645f6af8fdd2f0e6778f8cde21d9100a1d8dd920516202",
+      "named_calls": [
+        "esp_log_timestamp",
+        "esp_log",
+        "calloc",
+        "xQueueGenericCreate",
+        "vQueueDelete",
+        "cfree",
+        "xQueueCreateMutex",
+        "xTaskCreatePinnedToCore"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Z39arduino_usb_event_handler_register_withPKclPFvPvS0_lS1_ES1_": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "334aabcc97be3bce4894c38f24456db502e8a33ac12076771cd18afc046b84d8",
+      "named_calls": [
+        "esp_event_handler_register_with"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "uart_init_PeriMan": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "5f273d06c7f0118164119a43f60b30daf93dbc628bc8f2b9aaa0206718f4c574",
+      "named_calls": [
+        "perimanSetBusDeinit"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xQueueGenericSend": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "06c300a33bbe3eba28eda0f884cfd9d12de67975b253f99133ef3dc0830ee7e7",
+      "named_calls": [
+        "__assert_func",
+        "xTaskGetSchedulerState",
+        "xPortEnterCriticalTimeout",
+        "prvCopyDataToQueue",
+        "prvNotifyQueueSetContainer",
+        "esp_crosscore_int_send_yield",
+        "vPortExitCritical",
+        "xTaskRemoveFromEventList",
+        "vTaskInternalSetTimeOutState",
+        "xTaskCheckForTimeOut",
+        "vTaskPlaceOnEventList"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xQueueGenericReset": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "71581c300cf415590c597715d1818822204a26a6d3b90dcda5eaa5f8d4a250e6",
+      "named_calls": [
+        "__assert_func",
+        "xPortEnterCriticalTimeout",
+        "xTaskRemoveFromEventList",
+        "esp_crosscore_int_send_yield",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "pvPortMalloc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "af1b5d4436d143f393ff5aceb948439c7d78f1de85593a828a7ab3807b123b9d",
+      "named_calls": [
+        "heap_caps_malloc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "prvInitialiseNewTask$constprop$0": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f1ddd70654d20ee701b23ad123eb366619e5f246d21bd406382b2fb5d8a649d3",
+      "named_calls": [
+        "__assert_func",
+        "vListInitialiseItem",
+        "esp_reent_init",
+        "pxPortInitialiseStack"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "prvAddNewTaskToReadyList": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8b399eebd59db6398b378a5bee631d5b2c08b7a3e96ac67f36984b2f81ab9cd2",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "vListInitialise",
+        "prvIsYieldRequiredSMP",
+        "esp_crosscore_int_send_yield",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "vPortFree": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "dde97f837a8ec19197e42214554234e2000cf7d7ae53579f808de89404576983",
+      "named_calls": [
+        "heap_caps_free"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_cache_enabled": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "0944801989367bc911911e45c4743ea6d0194315cbaf221055ecde0a736af5a6",
+      "named_calls": [
+        "cache_hal_is_cache_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_clk_apb_freq": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "101bf98b0eca692d97b8537a6277906dd4c1ed1cd60f8af0546a0ccc1d8341f8",
+      "named_calls": [],
+      "unresolved_indirect_calls": 2
+    },
+    "periph_rcc_enter": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "34980300e48839a28ad848e5471b3c2affdd5e1c292f02bf0febfaf597a0718f",
+      "named_calls": [
+        "xPortInIsrContext",
+        "xPortEnterCriticalTimeout"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "periph_rcc_exit": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "5280092523c0134becc8b2f4389fd4f6d771b8e62c5f3ca0b41d085a71dbd6db",
+      "named_calls": [
+        "xPortInIsrContext",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_impl_lock": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "6f1090b093cc738b5eed39ad081b2a4d090403e83b4d4f8f46a97e97ad266544",
+      "named_calls": [
+        "xQueueCreateMutex",
+        "xTaskGetSchedulerState",
+        "xQueueSemaphoreTake"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_set_default_level": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ea843b32faffc721596e458993edd951eecc4ea2501eb22babc729eebf449130",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_linked_list_clean": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "5f9f49906cc89ccf798a33a21f3b90986b62fc84eeff83b5d9f9460d7aeeaeea",
+      "named_calls": [
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_cache_clean": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c12a76de7e195ab30bae67d42629e833fda2a3b82c792f39876fd86807a03f03",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_impl_unlock": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c7847d22fde3a83d99e504130806d53820013a1ed5e1214bf24ddf7cf4d68524",
+      "named_calls": [
+        "xTaskGetSchedulerState",
+        "xQueueGenericSend"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log_linked_list_set_level": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f6046e6353066a1295435b03dea4a5223d2568e2243f8ec98bb3c5035c6cc393",
+      "named_calls": [
+        "malloc"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "esp_log_cache_set_level": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "1c0ae6f6761a007d5fb1589006abe5fc07b1e991cd2b39de5e70f52ec5f3f6b6",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "xQueueGenericCreate": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b7a6763db16ef822fbcb470e50ee14330953c7ad5dc7b943f1f102109fe10bd0",
+      "named_calls": [
+        "pvPortMalloc",
+        "xQueueGenericReset",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskGetSchedulerState": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "583335589503346d57f33dadd81eaf5a68f2fdbe4a56b96dbb717b57beca664c",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "xPortInIsrContext": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "922a9daea6c5bb0417d38314e236a77c65e3e6d14600380cd58b264c93ad8fe0",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "xTaskGetTickCountFromISR": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b1d0b96928be2375c2a23581fb54f22537ebe74b577c7db4c9b3692a3e7627b5",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskGetTickCount": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "3a6928cca3815a586ec6447c2bb147370d77d11c98fab285e4f1611cd65bdc45",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "xPortEnterCriticalTimeout": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f393e16ea1963eb18e2af1d0873989cab7cc855d5f0611e01f882e50828d824f",
+      "named_calls": [
+        "esp_cpu_compare_and_set",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "vPortExitCritical": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "dcc6e73dc9e1e61db641efccc567c6c5cd54bf26d20b5f435251e6a1c5bfdd96",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__getreent": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "55ba0a6c55af6dbb431d5732d4cccfa4eb7f4ee054a0c3a2f423d268952dec8f",
+      "named_calls": [
+        "xTaskGetCurrentTaskHandle"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_findenv_r": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ccedf7a6283830b0c01c88f8fe3ddded4d2442773ca2e1d8637a14095b5ea0d7",
+      "named_calls": [
+        "__env_lock",
+        "__env_unlock"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZSt24__throw_out_of_range_fmtPKcz": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f887a90ff90d7e03c8be13452c870e5f84bfe6c3a9e4ac70292fa38b9a627301",
+      "named_calls": [
+        "_ZSt20__throw_out_of_rangePKc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "heap_caps_malloc_default": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "4154620feeb12d0c9b378a74b1a2d8c8937dd4d9c7f29d014db3a1c171761d94",
+      "named_calls": [
+        "heap_caps_malloc",
+        "rom_rx_gain_force+0x310f80",
+        "rom_rx_gain_force+0x32ba64",
+        "heap_caps_malloc_base",
+        "heap_caps_alloc_failed"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_efuse_utility_check_errors": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "813225f5311295c452e07cb896395960c61d235f5d520fbdddc29d561f71146f",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "vTaskSuspendAll": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "53dd8b4ad0e5c8aa7e4b0b0a70368eea248524b3b2b16dd522e2be9c1e48c349",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_restart_noos": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d4d33b9f4aa523793bd00c454f8e1a08f741d308133de05a8aab30cd35574164",
+      "named_calls": [
+        "xt_ints_off",
+        "rtc_clk_slow_freq_get_hz",
+        "esp_ptr_external_ram",
+        "esp_cpu_stall",
+        "esp_system_reset_modules_on_exit",
+        "rtc_clk_cpu_set_to_default_config",
+        "esp_cpu_unstall"
+      ],
+      "unresolved_indirect_calls": 19
+    },
+    "soc_get_available_memory_region_max_count": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "faec966b59d3051f0e637a789668690e16c5b5e57c96f452b9e2603d2243eec9",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "soc_get_available_memory_regions": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "595a80d41d2efbe9e6c41a6cbb0d6de849631aa7d3f7106575b83115fbf68310",
+      "named_calls": [
+        "__stack_chk_fail",
+        "__assert_func",
+        "esp_log_timestamp",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 6
+    },
+    "register_heap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "170da2f21305d3067f047c2cae76cec99c019916e16bc193f2af384d13edc0a3",
+      "named_calls": [
+        "__assert_func",
+        "multi_heap_register"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "heap_caps_match": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c7c958e46198a7b697b48b758cc0952824124250afd73ec18da98d4a1ff582e6",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "multi_heap_malloc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8b1b7f4608c6c4fae388498e0a2f8acff462cb21bddd0ab70120b31658bb4cfc",
+      "named_calls": [
+        "multi_heap_internal_lock",
+        "multi_heap_malloc_impl",
+        "poison_allocated_region",
+        "multi_heap_internal_unlock"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "multi_heap_set_lock": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d1f0eb1d89864e78f9b54df4168e9c1c4d868b56eb369082581db27b9c0eac14",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_timer_impl_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "373136b736844a996aadf47dfd95431c82468dac2dc5c9f1bae424e5c5832832",
+      "named_calls": [
+        "esp_log_timestamp",
+        "_etext+0x685bc",
+        "esp_intr_enable"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "deinit_timer_task": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b590ffcbba6b403e88aa21053a34ea118507bad48ed2d9851e878abceb2747d5",
+      "named_calls": [
+        "vTaskDelete"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "55903136a9effe6528a83465740adf6deefb13975b1fb7bbaaed2afdf242a3ae",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_set_tick_rate_ops": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "7d075bc17b572ed87b9618590f3a8d3d1a18f100589e602fed337ca76eda11c3",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_enable_counter": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "2440445fa8429e8540b1c66e9a250e24e0292ecf382a6a2dba78bf67a0f2979d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_select_alarm_mode": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "50924d72e4ad07574611784796c6198f654a11e9f7f5ea5f55f77e17ec97fef9",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_connect_alarm_counter": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "51b8f82bf30570b7cf82e1dff9cbf95772d2ec1265c68f35f889d6582a9c1432",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "systimer_hal_counter_can_stall_by_cpu": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "079de2bcd4dd03dde394b0e0c62f5865f2c05915740d706db0514133cc2d06df",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_rtc_get_time_us": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "6c94ffc0e4c31274e13c5786f63fc581a4f3ce31e3d7131f70b497ff457f9eba",
+      "named_calls": [
+        "xPortInIsrContext",
+        "xPortEnterCriticalTimeout",
+        "calc_checksum",
+        "rtc_time_get",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_timer_get_time": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a4857af054ceb433ec33f566670bb6379448c737921d5b6533c5f21f21ffe209",
+      "named_calls": [
+        "systimer_hal_get_counter_value"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_register_shutdown_handler": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "0ceab5ea573aa5cb69a9b4a1577da9f32a3d7064f4d8f2dfe5d87dfbbe6ec333",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_libc_locks_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b9ab6f5b52a7d31767abacadb62a2c3d747b1198aa3fde29bca059c9728f01c5",
+      "named_calls": [
+        "xQueueCreateMutexStatic",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "brownout_hal_config": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "99cfe191a6cbf21e86821cdfae87dcdd833c2ee768d1f323166257005d3169dc",
+      "named_calls": [
+        "regi2c_ctrl_write_reg_mask"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_isr_register": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "781cc97d2a6642c86724a15078fab5b2721e147426ec7771ef1f5fcb0a6d1eb6",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "esp_intr_alloc",
+        "esp_intr_get_cpu",
+        "vPortExitCritical",
+        "heap_caps_malloc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_set_time_from_rtc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "0f960cefd8a4ce24be35e999c366abea3970ec0795aa367f3fe4b9f758ec2f59",
+      "named_calls": [
+        "esp_rtc_get_time_us",
+        "esp_system_get_time"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_esp_error_check_failed": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d9ef67fabe60e12780c0d72f21ce2fa65eece51a065c186ff02c06f23c1070e6",
+      "named_calls": [
+        "esp_error_check_failed_print",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_register_fs_common": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "78497d4d126bed91cd5c0dfb105c359d7673e58831a8bc2d1611f13ee49226f5",
+      "named_calls": [
+        "heap_caps_malloc"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "heap_caps_malloc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "6370b3f38943f1be666c849f88cb07e57db91ae74266bf37bbc683586ffffc80",
+      "named_calls": [
+        "heap_caps_malloc_base",
+        "heap_caps_alloc_failed"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_free_fs_ops": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "36305f7b45afe4b53b92e7c3d93f892641ea988ed52f9c7395c5e93dd8ae9487",
+      "named_calls": [
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_uart_get_vfs": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f853b7b1c69348c2472c44dc3d8890510b255ec2a860f92ad4ea2791cdb1cf8a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_vfs_usb_serial_jtag_get_vfs": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "198c29f9a25eb8a6ccce187859dc074aa443c964843a44e71a4497bbdf2c9e37",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "fopen": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "83b16a49edad5bd0afc18334364aa229a19bb91059fc97838bfc0b1124ada16b",
+      "named_calls": [
+        "__getreent",
+        "_fopen_r"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__swsetup_r": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "486db7909768182151fa03298103bd06c78bb4ada0528f41d03884341a1d33bd",
+      "named_calls": [
+        "__getreent",
+        "__sinit",
+        "_free_r",
+        "__smakebuf_r"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "puts": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ce43039465d75dff2dbb801599476e2b51d2f22caf9c8a1bf04c024ac15b0338",
+      "named_calls": [
+        "__getreent",
+        "_puts_r"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "coexist_printf": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "68bfe7bbf82a6fed1493797b66ad83005e072e132decc64167c1cf9b45417fa6",
+      "named_calls": [
+        "lib_printf$constprop$0"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "coex_core_pre_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "1dc973f087014d32648ffa41947467e24bec107fdadb9640b290fe846aa8b24f",
+      "named_calls": [
+        "coexist_printf",
+        "coex_schm_init",
+        "coex_rom_osi_funcs_init",
+        "coex_register_start_cb+0x68"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "esp_register_freertos_tick_hook_for_cpu": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b7665e246c5add5a1f6e12284b314f188ac51199d480fc98ffe182c9364c921a",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_xtal_freq_get": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "0905243c28c015f93d3edbd34538ff574cadf61f66db8bd7d6003e39bf89acdf",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "rtc_clk_cpu_freq_get_config": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "5b0e206930be6872caeb39bf6c888071ba341ca674c64a9e28c41553da82374e",
+      "named_calls": [
+        "rtc_clk_xtal_freq_get",
+        "esp_log_timestamp"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "rtc_clk_cpu_freq_mhz_to_config": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "f16f903ba4f5aefc41eb77d3743935068f491107608db3b35b63bf26a72a0bb5",
+      "named_calls": [
+        "rtc_clk_xtal_freq_get"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "triggerApbChangeCallback$constprop$0": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "cc51ffca9c5334a204cb48cae0e9ee95d9bb7f6ef2596a841bfa3be62ca33e8a",
+      "named_calls": [
+        "initApbChangeCallback",
+        "xQueueSemaphoreTake",
+        "xQueueGenericSend"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "rtc_clk_cpu_freq_set_config_fast": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "0a0d439233c6030fa493868f3685b2d2f0b2184241e5e1684927e039cbaab198",
+      "named_calls": [
+        "rtc_clk_cpu_freq_to_xtal",
+        "rtc_clk_cpu_freq_to_pll_mhz",
+        "rtc_clk_cpu_freq_set_config"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6USBCDC15setRxBufferSizeEj": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "c0ea165853c131c93389f68585931131604cb1969b993fac976dc51ca9a29fb4",
+      "named_calls": [
+        "uxQueueSpacesAvailable",
+        "uxQueueMessagesWaiting",
+        "xQueueGenericCreate",
+        "xQueueReceive",
+        "xQueueGenericSend",
+        "_Z22arduino_usb_event_postPKclPvjm",
+        "vQueueDelete"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNK6String6equalsEPKc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "829d700e6e2947249c882e2be6f1d4eacea54c99bcc07afafa20d9f6bfb09a97",
+      "named_calls": [
+        "_ZNK6String3lenEv"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_efuse_mac_get_default": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "af1431733dd2884f24f6f37cd7d77a402cfd8d5a441bbd7291561b5c78eae5e5",
+      "named_calls": [
+        "get_efuse_factory_mac"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN5Print6printfEPKcz": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "fdc9a2405c586d003a797788f159ae1fdfba2c4f65c447281d0b976f83da3c0a",
+      "named_calls": [
+        "_ZN5Print7vprintfEPKc13__va_list_tag"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6StringaSERKS_": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "939cc19e679ad10d72b0ee58a2bf6d7b93c5c6e8b849f2856fb365ea6c33f1ca",
+      "named_calls": [
+        "_ZNK6String3lenEv",
+        "_ZN6String4copyEPKcj"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "tinyusb_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "822836730f72c3a3d5f0bc1e92bcb88b949cea0c2b765fc1d4ab21075edea77c",
+      "named_calls": [
+        "snprintf",
+        "malloc",
+        "tinyusb_add_string_descriptor",
+        "periph_ll_reset$constprop$0",
+        "tinyusb_driver_install",
+        "__stack_chk_fail",
+        "xTaskCreatePinnedToCore"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "spi_flash_cache2phys": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "fed12fe648c2f87e9e20337a03eb64dfe565ead290478ea6046569a0da3c2f51",
+      "named_calls": [
+        "esp_mmu_vaddr_to_paddr"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "is_ota_partition": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "305ee2dbb59971e3ef22c43d349b39e1261de4921fc7f29f1f2b6e4c7df25631",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_ota_get_app_partition_count": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "08e9a2f1b7532adb524d54e8c3d3d9c26ce415fe60db1b1eb8a54ab9bd66cb47",
+      "named_calls": [
+        "esp_partition_find_first",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "read_otadata": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "49e1b5b148282eab30a49a5707d9da505ff3e61eda2880a26c9a1d71d14463ac",
+      "named_calls": [
+        "esp_partition_find_first",
+        "esp_log_timestamp",
+        "esp_log",
+        "esp_partition_mmap",
+        "esp_partition_munmap"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "bootloader_common_ota_select_crc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d29f5a777c6e383be8ee642f89767d481e41a2ec972195c70cdc01da61aa11ee",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "nvs_flash_init_partition": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "b93e8dc16db62b69a08b6b806a1876dac364e574013465053dde4ea171174c39",
+      "named_calls": [
+        "_ZN3nvs4Lock4initEv",
+        "_ZN3nvs4LockC1Ev",
+        "esp_partition_get_main_flash_sector_size",
+        "__assert_func",
+        "_ZN3nvs4LockD1Ev",
+        "_Unwind_Resume",
+        "_ZN3nvs19NVSPartitionManager12get_instanceEv",
+        "_ZN3nvs19NVSPartitionManager14init_partitionEPKc"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_bt_mem_release_areas": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "ee853af28c39646c22122eeb199cb9d2ee828c0482e5818e9ce261fd4320cabe",
+      "named_calls": [
+        "esp_bt_mem_release_area"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_bt_controller_rom_mem_release": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "41dadebc18d71e06f466b721eea3959cb98f5a009d1f3d1ade61754b26beba45",
+      "named_calls": [
+        "esp_bt_mem_release_areas"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__register_frame_info_bases": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8b802d9f0f5ca2718bcc4eb92b1fc2e8274842a83d3884850de2307b879dfd97",
+      "named_calls": [
+        "pthread_mutex_lock",
+        "pthread_mutex_unlock"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_int_wdt_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e0183106c051a556b10bffa262a9b92003d493273f5c886f5c5e08a571508665",
+      "named_calls": [
+        "periph_rcc_acquire_enter",
+        "periph_rcc_acquire_exit"
+      ],
+      "unresolved_indirect_calls": 6
+    },
+    "esp_int_wdt_cpu_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "11bc5ecf11d1285c66b8bd6f67d51aa6dc437bab4b106c5bec09e5969610bf91",
+      "named_calls": [
+        "esp_register_freertos_tick_hook_for_cpu",
+        "esp_intr_disable_source",
+        "esp_intr_enable_source"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "esp_crosscore_int_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "7477742c104a8deaca9c241333934e9b18ab0e434e23c4383b41cbaeda59faf2",
+      "named_calls": [
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical",
+        "esp_intr_alloc",
+        "_esp_error_check_failed"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "vTaskStartScheduler": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "bc5ae4389e817f74680ea0200d5b8c9ef25bf6cf92812d786bf548d6c9a60928",
+      "named_calls": [
+        "vApplicationGetIdleTaskMemory",
+        "xTaskCreateStaticPinnedToCore",
+        "xTimerCreateTimerTask",
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical",
+        "xPortStartScheduler",
+        "__stack_chk_fail",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "bootloader_flash_is_octal_mode_enabled": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "085c347f50f5d75c8ed7d6d2c2dfeeea61431009260a4d2a22722ab962044bfe",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "spi_flash_hal_init": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "8f42caaafd5a1cd0fbf9cf742ab8bd89af2f02df742a4755e3bfd92ca3886787",
+      "named_calls": [
+        "abort",
+        "get_flash_clock_divider"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "read_id_core": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "72a773c3f7d910d83635fba0177b1a47fb26975ef29ca67533dfd57607ca205e",
+      "named_calls": [
+        "esp_flash_chip_driver_initialized"
+      ],
+      "unresolved_indirect_calls": 4
+    },
+    "spi_flash_mmap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d0d924711b4d167a35ac7b1619c6af185db13a3229ab164511dabbf971c1d2fa",
+      "named_calls": [
+        "heap_caps_calloc",
+        "esp_mmu_map",
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "calloc": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "de5f68cb3152bf624351283f2b5dc5b7a4cbff99063c8e92c02bce350bee864d",
+      "named_calls": [
+        "heap_caps_malloc_default"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "is_partition_encrypted": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a0d50749bb9906d7d5cd3f3506d563c76a148b8b8a3f4729a2ba6ee9aeb7a6dd",
+      "named_calls": [
+        "esp_flash_encryption_enabled"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_log": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "fdfb47048a71cd65f2a9578e6829d849085ac9ea695ee1455d209694c84fa3a8",
+      "named_calls": [
+        "esp_log_is_tag_loggable"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "spi_flash_munmap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "79116083f7447ec1f186b303c686d93507edb52c8618bdd3bedf32e98c876ec6",
+      "named_calls": [
+        "cfree",
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "heap_caps_free": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "7480e9bcbafcd433d08c6de506cb12edb17308aa89ada662761a148a7aba7bb8",
+      "named_calls": [
+        "__assert_func",
+        "multi_heap_free"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "lock_acquire_generic": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "e1aa1b8fa71af08625ed42800cc52d2d50485963e726e6466e0cd868347ee2f1",
+      "named_calls": [
+        "xTaskGetSchedulerState",
+        "lock_init_generic",
+        "__assert_func",
+        "abort",
+        "xQueueReceiveFromISR",
+        "_frxt_setup_switch",
+        "_coredump_iram_end+0x36fb4"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "lock_release_generic": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "06ee37b1f0e4e8cce4a6fca13653df537829007fa3d541ffc1ea5468e6746f9f",
+      "named_calls": [
+        "xTaskGetSchedulerState",
+        "__assert_func",
+        "abort",
+        "xQueueGiveFromISR",
+        "_frxt_setup_switch",
+        "xQueueGiveMutexRecursive",
+        "xQueueGenericSend"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "efuse_hal_flash_encryption_enabled": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "74a0e3c2235e84b4bebbc5e8f217462ed9518005a189e9a99a234e8d1c1a3019",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_partition_mmap": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "d8f77fce89f1aa3cdf6e2cf4fbc5f6f96b701026040b9da4cf64a271eaee95d3",
+      "named_calls": [
+        "__assert_func",
+        "spi_flash_mmap"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "bootloader_common_get_active_otadata": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "116ce69dcae0d410c692b6007a24383153cb2b9599fb1bcfb04a67aab45c4968",
+      "named_calls": [
+        "bootloader_common_ota_select_valid",
+        "bootloader_common_select_otadata"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "rewrite_ota_seq$part$0": {
+      "depth": 2,
+      "body_found": true,
+      "body_sha256": "a3862d792e3fc24a17d230745d5f2f519616728a66256aa5ed8d359605ac9372",
+      "named_calls": [
+        "bootloader_common_ota_select_crc",
+        "esp_partition_erase_range",
+        "esp_partition_write"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6String6setLenEi": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "57ca838d7c0c53903e7f4afb004a042e567481098fd238426e55ea87aaa30ebf",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN6String7reserveEj": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "dad9ff805489fcff7670c74890018d4326bf9db5f5f45381c00706b1d8ecbe2a",
+      "named_calls": [
+        "_ZN6String12changeBufferEj",
+        "_ZNK6String3lenEv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__retarget_lock_acquire_recursive": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "706749c388564f5830b8b5dca1e513575496357d15d1e5712068143f543786bf",
+      "named_calls": [
+        "check_lock_nonzero",
+        "_lock_acquire_recursive"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__retarget_lock_release_recursive": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "0758586139447a34dabcef7b1fad0d9b9c6222bd61ca6c9318552c7e677fb82f",
+      "named_calls": [
+        "check_lock_nonzero",
+        "_lock_release_recursive"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "uw_update_context_1": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "785061e73f1fc7d2037ea977b73e0dc5acb176cc4035018c646218d0ef39647b",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "uw_frame_state_for": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "dcf8fb8d78ab0620f4c4136d301e482c4a84d5aa5798b3665ca63e3997a546b7",
+      "named_calls": [
+        "_Unwind_Find_FDE",
+        "read_uleb128",
+        "read_sleb128",
+        "read_encoded_value",
+        "abort"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "uw_update_context": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b5664a38eb9ce1639a259b65c38b109fc18f490826a7002d3bc0d4744db4dc28",
+      "named_calls": [
+        "uw_update_context_1",
+        "_Unwind_GetGR"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__pinMode": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "f4f42bf0ff36541fa7c52439620f77e47122ecb5c2c995a3482f5ec3600ce503",
+      "named_calls": [
+        "__pinMode",
+        "perimanGetPinBus",
+        "gpio_config",
+        "perimanSetPinBus",
+        "perimanSetBusDeinit"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "__digitalWrite": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b16e1f7e00587d13ec19c908b090905ecc9a6e9a2715e1b661e75ba94bc85782",
+      "named_calls": [
+        "rgbLedWrite",
+        "perimanGetPinBus",
+        "gpio_set_level"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt8functionIFvPvP11AsyncClientEEC1EDn": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "71ecc450880c3620c61d74d288246c102b76f7eea00e76651e3ff6d0247f712d",
+      "named_calls": [
+        "_ZNSt14_Function_baseC1Ev"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZNSt14_Function_baseC1Ev": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "024f51d2596766800cf355226197f6ec1a1997f2862a5a5048f1ec25fdf334cd",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN15AsyncURIMatcherC1E6StringNS_4TypeEt": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "fdae3f3468fe149612ffcb4e16576b6d82f3fd2a597654fb2a35061e8af3f21d",
+      "named_calls": [
+        "_ZN6StringC1EOS_",
+        "_ZN6String11toLowerCaseEv",
+        "_ZN6StringD1Ev",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt8functionIFvPvP11AsyncClientEEaSERKS4_$isra$0": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "ef7d4185b8f2a9c053e7adb3b276f1f987c009c7a6ed20f0a5f7496a487729e8",
+      "named_calls": [
+        "_ZSt4swapISt9_Any_dataENSt9enable_ifIXsrSt6__and_IJSt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SF_",
+        "_ZNSt14_Function_baseD1Ev",
+        "__stack_chk_fail",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "_ZdlPv": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "2e5820af89d6da5fcfb4e0ee88b8be52260bd501ccbee69e29798f44b7668e42",
+      "named_calls": [
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZNSt10unique_ptrI15AsyncWebHandlerSt14default_deleteIS0_EED1Ev": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "32571970230bfdb3a01593820a245fed80abce90d5555f8e1a89386b864c314e",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "_ZN11AsyncServer3endEv": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "ffe04c301cbaab1cd0df89e6642bac861d92f2ff1ce34d70f43e77ee16832d4c",
+      "named_calls": [
+        "_ZN12_GLOBAL__N_114tcp_core_guardC1Ev",
+        "tcp_arg",
+        "tcp_accept",
+        "tcp_close",
+        "_ZN12_GLOBAL__N_114tcp_core_guardD2Ev$isra$0",
+        "tcp_abort",
+        "_Unwind_Resume"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN20AsyncWebSocketClientD1Ev": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "18cbd61265049937b94bc3c71d1640e74e255b76836e895d86d4402ff572633e",
+      "named_calls": [
+        "_ZNSt15recursive_mutex4lockEv",
+        "_ZNSt5dequeI21AsyncWebSocketMessageSaIS0_EE5clearEv",
+        "_ZL32__gthread_recursive_mutex_unlockPm$isra$0",
+        "_ZN14AsyncWebSocket12_handleEventEP20AsyncWebSocketClient12AwsEventTypePvPhj",
+        "_ZNSt5dequeI21AsyncWebSocketMessageSaIS0_EED1Ev",
+        "pthread_mutex_destroy"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "panic_abort": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "e3abde437d17815b27c0935039121d437b6b3fa3e55a4d46d9734a036b3bf294",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN16WiFiGenericClass9enableSTAEb": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "23bdd703e33bec4df8c5f5bfb8a7d86f28c959a3c68501495b7a2861fcfa2b18",
+      "named_calls": [
+        "_ZN16WiFiGenericClass7getModeEv",
+        "_ZN16WiFiGenericClass4modeE11wifi_mode_t"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN16NetworkInterface12destroyNetifEv": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "27b12c00a310a0648d82c4764797c960f430b42f19e463cb06f502c2af8af5d6",
+      "named_calls": [
+        "esp_event_handler_unregister",
+        "esp_netif_destroy",
+        "vEventGroupDelete"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__atomic_s32c1i_fetch_add_4": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "919fa01ffa71b9793188b2b6f2bce609200f16b004f35c8395ffb39c2b63b150",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN12_GLOBAL__N_14pool8allocateEj$constprop$0": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "2cdca81bccf8323471424d7e427bdd6675c1204fab944c3c920301b5b070e578",
+      "named_calls": [
+        "_ZN9__gnu_cxx7__mutex4lockEv",
+        "_ZN9__gnu_cxx7__mutex6unlockEv"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__cxa_init_primary_exception": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "e3419598b5f17a752ac67b77a433ff0a95d5f4c63f1dd929b63e57e93685c555",
+      "named_calls": [
+        "_ZSt14get_unexpectedv",
+        "_ZSt13get_terminatev"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_Unwind_RaiseException": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "150fb7968e93216559ae7547a9312f48c2af4850a0ea9d825b1ffc8bad8cdedf",
+      "named_calls": [
+        "__xtensa_libgcc_window_spill",
+        "uw_init_context_1",
+        "uw_frame_state_for",
+        "uw_update_context",
+        "_Unwind_RaiseException_Phase2"
+      ],
+      "unresolved_indirect_calls": 3
+    },
+    "pthread_getspecific": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "bfcf1262fbff1aeecb32af807935045d845437bc8b63992dfc4a4635b5f4c273",
+      "named_calls": [
+        "pvTaskGetThreadLocalStoragePointer"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "pthread_setspecific": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "275419311762454ddf73bbe04fe6ac6e160e8e190750aca15ee7b3125e9d4486",
+      "named_calls": [
+        "find_key",
+        "pvTaskGetThreadLocalStoragePointer",
+        "calloc",
+        "vTaskSetThreadLocalStoragePointerAndDelCallback",
+        "malloc",
+        "cfree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZSt13get_terminatev": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "f9dea20cf61a8f2f93434f6604c3bcba06bd1a1a1ca514c6ee87d480e3644b1d",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "_ZN10__cxxabiv111__terminateEPFvvE": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "d27195d1ce35eed8016f20066db995423cc5330a78f4d6d6c9fe56407bda5c86",
+      "named_calls": [
+        "abort",
+        "__cxa_begin_catch"
+      ],
+      "unresolved_indirect_calls": 1
+    },
+    "_Unwind_ForcedUnwind_Phase2": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "a4bd1eb5d5a0d10f41511d3137b3e93bf379c1842e576b2fed2004a99eb0f7ed",
+      "named_calls": [
+        "uw_frame_state_for",
+        "uw_update_context"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "vQueueDelete": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "79b023d0bfc84fd34655b2b4bab900df42ba3091681b2a207edd4a90e0f03194",
+      "named_calls": [
+        "__assert_func",
+        "vPortFree"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_event_handler_register_with": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "84dc646a53b5a839ba4c6fb17f93f2e21d4cd676ccf5641bc493749687670205",
+      "named_calls": [
+        "esp_event_handler_register_with_internal"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "perimanSetBusDeinit": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b947314e62acdc3be703c00c8f39fb5c684f1d36a407df94a29821e7cc9a2c55",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "prvCopyDataToQueue": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "4fa5a94e1ed71b7ce965b368312526b9b746295b65c881db3dc51a473ea427cb",
+      "named_calls": [
+        "xTaskPriorityDisinherit"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "prvNotifyQueueSetContainer": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "c485e7b068e00166d2d568e6aa581184cec546fb4123e84d847c85094d80ead4",
+      "named_calls": [
+        "__assert_func",
+        "xPortInIsrContext",
+        "xPortEnterCriticalTimeout",
+        "prvCopyDataToQueue",
+        "xTaskRemoveFromEventList",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_crosscore_int_send_yield": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "e24ce58ee7ecfc821ba9cd1f8a081b7f9e49807bc752f9c54b25457bafdce79a",
+      "named_calls": [
+        "esp_crosscore_int_send"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskRemoveFromEventList": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "8becd6bb25c7f03161574e0b4a45394cb5fec54fb5168fd1085e1ebe47fbc3ff",
+      "named_calls": [
+        "xPortInIsrContext",
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical",
+        "__assert_func",
+        "prvCheckTaskCanBeScheduledSMP",
+        "prvIsYieldRequiredSMP"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "vTaskInternalSetTimeOutState": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "75f14426a78686d5601627536b64a2cc36ae29725d9854d7dba2b8537697db6a",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskCheckForTimeOut": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "1547728c7f74021d3ea533e44001075b41e57864a6aff58fa55109612ec7a62d",
+      "named_calls": [
+        "__assert_func",
+        "xPortEnterCriticalTimeout",
+        "vPortExitCritical",
+        "vTaskInternalSetTimeOutState"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "vTaskPlaceOnEventList": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "19932b602afd52655b09e9de3a929ce118b0235a6b5e640b309bbf6af8ec0ee4",
+      "named_calls": [
+        "__assert_func",
+        "xPortEnterCriticalTimeout",
+        "vListInsert",
+        "prvAddCurrentTaskToDelayedList",
+        "vPortExitCritical"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "vListInitialiseItem": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "41992e24a17fefc3bd30cccdc379e518b681dcf50c33de70df58acb517dc6942",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_reent_init": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "3f24cccd18501bd384179545585dc94abc8cd6f03c433a3469a138c3b60495a1",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "pxPortInitialiseStack": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "91dc982f195ffe587ebbc33e36830e8917eed46b16cf9c4efd40397f8aef0bb9",
+      "named_calls": [
+        "__assert_func"
+      ],
+      "unresolved_indirect_calls": 2
+    },
+    "vListInitialise": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "50e6a72a6f68416d5f71d03bf626ec0585e96713749bbe0d0fb8690de8ab4e67",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "prvIsYieldRequiredSMP": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b217e276ca1580869bf975cec8126142982108f4037759b4c3a38227e1609a1a",
+      "named_calls": [
+        "__assert_func",
+        "vPortYieldOtherCore"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "cache_hal_is_cache_enabled": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "cd640de6d08df6b833a862ca9db666c1ef1b777a1e042ba1da74a8e9d43cc076",
+      "named_calls": [
+        "rom_rx_gain_force+0x33b15c"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "xQueueSemaphoreTake": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "61ef5e65633830710b785e1f2a850df6dd19db4270a750183d10d814a78dc5e0",
+      "named_calls": [
+        "__assert_func",
+        "xTaskGetSchedulerState",
+        "xPortEnterCriticalTimeout",
+        "pvTaskIncrementMutexHeldCount",
+        "xTaskRemoveFromEventList",
+        "esp_crosscore_int_send_yield",
+        "vPortExitCritical",
+        "vTaskInternalSetTimeOutState",
+        "xTaskCheckForTimeOut",
+        "xTaskPriorityInherit",
+        "vTaskPlaceOnEventList",
+        "vTaskPriorityDisinheritAfterTimeout"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "esp_cpu_compare_and_set": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "18d48db92a57d69029f30e29ff00c6b5919dd289895451ff14fdbd48718755d7",
+      "named_calls": [],
+      "unresolved_indirect_calls": 0
+    },
+    "xTaskGetCurrentTaskHandle": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b4a492e056c248ebf229419004d696c6f94cfdbdac8eedc608698a95dc756af8",
+      "named_calls": [],
+      "unresolved_indirect_calls": 1
+    },
+    "__env_lock": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "51192388f283022b064aaf3d9d51943d6c832c011fa79cc30ffc3a2137dd2bd8",
+      "named_calls": [
+        "__retarget_lock_acquire_recursive"
+      ],
+      "unresolved_indirect_calls": 0
+    },
+    "__env_unlock": {
+      "depth": 3,
+      "body_found": true,
+      "body_sha256": "b987a9b9b541cda700328afe77308a06a62c7bf6f87e4184c3e779c912c831b0",
+      "named_calls": [
+        "__retarget_lock_release_recursive"
+      ],
+      "unresolved_indirect_calls": 0
+    }
+  },
+  "missing_roots": [
+    "bootloader_flash_erase_range",
+    "bootloader_flash_write",
+    "esp_core_dump_image_erase",
+    "esp_partition_verify",
+    "evilduck_nvs_preinit_gate"
+  ],
+  "maximum_depth": 3,
+  "maximum_functions": 400,
+  "truncated": true,
+  "unresolved_indirect_calls": 237,
+  "inspection_copy_only": true,
+  "inspection_runtime_bytes_verified": true,
+  "original_elf_modified": false,
+  "complete_transitive_audit": false,
+  "source_binary_equivalence": false,
+  "xtensa_execution": false,
+  "hardware_access": false
+}

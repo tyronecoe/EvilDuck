@@ -1,0 +1,17 @@
+{
+  "source_sha256": "5917caadeb7a4a405c72eecbee939fdd153f50c32d9340699623da172f0f58d6",
+  "patched_source_sha256": "99acce5481a72547beebb1063b3b6dedacc22378159d3c32dc6fb89604aea40d",
+  "patch_sha256": "5c18697e62248153ec4cf443384f24086c7a216ad063e9e284d6a32882ccdd48",
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "original_archive_sha256": "dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d",
+  "patched_archive_sha256": "5d1f3620100058b4a7b800dc4550af87ce4fd360a9cae3b1312712f7ef75c502",
+  "original_target_sha256": "4738bb03150936723b320d05704a13169bc3a9f056af0017d88647a624a8c0dd",
+  "reference_object_sha256": "ce120af6384ef7ab5ab302381eabe494713b4a4423ddbfbd9cdaf02e958726bb",
+  "patched_object_sha256": "f438b25afca51ab0756a5483c0ae284dbc8b282270dd8b0a89f99f160a8fa4b6",
+  "unchanged_member_sha256": "35db02facb2af138c17ad680778278b1983bf286e71baa1b160d0ae0fbca4529",
+  "sdk_tree_sha256": "46b8d05a00881fe538e3ff802c0d9ad374b60c2a171f3e0835882ae6c0c61320",
+  "patched_sdk_tree_sha256": "cac0ba8fcd3bbebb42a19cf354aadd7206b622af7ef0ae0cf2a6e6a8f450ec07",
+  "base_commit": "89006f886fa30058a965e8e1883fb743d1683b70",
+  "profile": "experimental-readonly-quiescent-sdk-cleanup",
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING"
+}

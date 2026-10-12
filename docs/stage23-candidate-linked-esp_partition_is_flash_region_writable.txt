@@ -1,0 +1,40 @@
+EXPERIMENTAL — REVIEW ONLY — NOT AUTHORIZED FOR FLASHING
+
+/workspace/tooling/arduino/build/stage23-candidate/EvilDuckS3.ino.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42017464 <esp_partition_is_flash_region_writable>:
+42017464:	004136        	entry	a1, 32
+42017467:	00a0c2        	movi	a12, 0
+4201746a:	ffa0b2        	movi	a11, 255
+4201746d:	ffa0a2        	movi	a10, 255
+42017470:	ffcd25        	call8	42017144 <esp_partition_find>
+42017473:	207aa0        	or	a7, a10, a10
+42017476:	803230        	add	a3, a2, a3
+42017479:	37cc      	bnez.n	a7, 42017480 <esp_partition_is_flash_region_writable+0x1c>
+4201747b:	120c      	movi.n	a2, 1
+4201747d:	000846        	j	420174a2 <esp_partition_is_flash_region_writable+0x3e>
+42017480:	20a770        	or	a10, a7, a7
+42017483:	ffd3a5        	call8	420171bc <esp_partition_get>
+42017486:	2a0a82        	l8ui	a8, a10, 42
+42017489:	01b816        	beqz	a8, 420174a8 <esp_partition_is_flash_region_writable+0x44>
+4201748c:	032a82        	l32i	a8, a10, 12
+4201748f:	123287        	bltu	a2, a8, 420174a5 <esp_partition_is_flash_region_writable+0x41>
+42017492:	4a98      	l32i.n	a9, a10, 16
+42017494:	889a      	add.n	a8, a8, a9
+42017496:	0eb287        	bgeu	a2, a8, 420174a8 <esp_partition_is_flash_region_writable+0x44>
+42017499:	20a770        	or	a10, a7, a7
+4201749c:	ffd0e5        	call8	420171ac <esp_partition_iterator_release>
+4201749f:	00a022        	movi	a2, 0
+420174a2:	000090        	retw
+420174a5:	f03837        	bltu	a8, a3, 42017499 <esp_partition_is_flash_region_writable+0x35>
+420174a8:	07ad      	mov.n	a10, a7
+420174aa:	ffc1e5        	call8	420170c8 <esp_partition_next>
+420174ad:	0a7d      	mov.n	a7, a10
+420174af:	fff186        	j	42017479 <esp_partition_is_flash_region_writable+0x15>
