@@ -1,0 +1,116 @@
+{
+  "label": "REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+  "kind": "stage26-controlled-installation-review",
+  "profile": "controlled-normal-start",
+  "migration_authorized": false,
+  "hardware_access": false,
+  "flash_bytes": 16777216,
+  "rows": [
+    {
+      "role": "bootloader",
+      "file": "bootloader.bin",
+      "offset": 0,
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "erase_start": 0,
+      "erase_end_exclusive": 20480,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 32768,
+      "purpose": "Pinned ESP32-S3 startup loader"
+    },
+    {
+      "role": "partitions",
+      "file": "partitions.bin",
+      "offset": 32768,
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "erase_start": 32768,
+      "erase_end_exclusive": 36864,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 36864,
+      "purpose": "Approved writable 16 MiB layout with MD5"
+    },
+    {
+      "role": "otadata",
+      "file": "ota-app0.bin",
+      "offset": 57344,
+      "bytes": 8192,
+      "sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+      "erase_start": 57344,
+      "erase_end_exclusive": 65536,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 65536,
+      "purpose": "Deterministic initial app0 selection"
+    },
+    {
+      "role": "app0",
+      "file": "controlled-stage26.bin",
+      "offset": 65536,
+      "bytes": 1329760,
+      "sha256": "a2087f560f60b03990f8133591dffa218f0414e15dc87530c215f8949a4758c4",
+      "erase_start": 65536,
+      "erase_end_exclusive": 1396736,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 7667712,
+      "purpose": "Controlled normal-start Stage26 image"
+    },
+    {
+      "role": "app1",
+      "file": "controlled-stage26.bin",
+      "offset": 7667712,
+      "bytes": 1329760,
+      "sha256": "a2087f560f60b03990f8133591dffa218f0414e15dc87530c215f8949a4758c4",
+      "erase_start": 7667712,
+      "erase_end_exclusive": 8998912,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 15269888,
+      "purpose": "Same controlled image in alternate OTA slot"
+    },
+    {
+      "role": "spiffs",
+      "file": "empty-spiffs.bin",
+      "offset": 15269888,
+      "bytes": 1441792,
+      "sha256": "f19dc5da480ce1eff46d82376f45a8c1c425148016f9a8c34acef7a330552233",
+      "erase_start": 15269888,
+      "erase_end_exclusive": 16711680,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 16711680,
+      "purpose": "Empty filesystem; zero scripts"
+    },
+    {
+      "role": "coredump",
+      "file": "coredump-erased.bin",
+      "offset": 16711680,
+      "bytes": 65536,
+      "sha256": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063",
+      "erase_start": 16711680,
+      "erase_end_exclusive": 16777216,
+      "initial_write_planned": true,
+      "authorized_for_flashing": false,
+      "region_end_exclusive": 16777216,
+      "purpose": "New coredump region in erased state"
+    }
+  ],
+  "fallback": {
+    "file": "deployment-safe-stage26.bin",
+    "bytes": 1066128,
+    "sha256": "93160306c9668e59e7e8f03577c498b5ea43ef9e4c71b0b0686116889c793127",
+    "initial_write_planned": false,
+    "purpose": "Quiescent fallback; not proof of physical recovery"
+  },
+  "private_nvs": "REQUIRED LATER: explicit fresh owner credentials; not included",
+  "geometry": {
+    "block": 4096,
+    "page": 256,
+    "bytes": 1441792,
+    "files": 0
+  },
+  "source_baseline": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+}

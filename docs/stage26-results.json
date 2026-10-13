@@ -1,0 +1,561 @@
+{
+  "baseline_commit": "f929bdf2353e0022f10c164d2c09cb3db2564a5a",
+  "scope": "Focused artifact/provisioning tests and affected startup/network regressions; not a full historical rerun",
+  "groups": {
+    "installation": {
+      "results": [
+        {
+          "name": "pinned_public_set",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "missing_image",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "bad_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_address",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_profile",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_flash_context",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_ota",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_spiffs_geometry",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "interrupted_generation_no_manifest",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "overlap_even_with_updated_trusted_fixture",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "oversized_app",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "incorrect_erase_range",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "out_of_range_nvs_not_allowed_in_public_set",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "invalid_ota_with_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_chip_with_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "unsupported_flash_mode",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_flash_header",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "corrupt_image_with_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "experimental_table_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "mixed_safe_app_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "symlink_image_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "corrupt_coredump_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "explicit_secure_config",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "missing_credentials",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "short_ap",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "short_web",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "empty_web",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "incomplete",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "newline",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "wrong_type",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "legacy_password",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "real_pinned_generator_empty_fs_roundtrip",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "complete_private_schema_and_plan",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "existing_outputs_not_overwritten",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "different_credentials_rejected_even_structurally_valid",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "corrupt_nvs_even_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "review_never_contains_private_nvs",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "nonempty_fs_even_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": "Expected-safe rejection"
+        },
+        {
+          "name": "public_preparation_cli_exact_repeat",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "actual_publication_interruption_fails_closed",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "public_inputs_unchanged",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        }
+      ],
+      "counts": {
+        "PASS": 41,
+        "FAIL": 0
+      },
+      "assertions": 41,
+      "hardware_access": false,
+      "synthetic_credentials_only": true,
+      "actual_generator_executed": true,
+      "actual_mkspiffs_executed": true,
+      "physical_recovery_verified": false
+    },
+    "startup": {
+      "results": [
+        {
+          "name": "network_failure",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS network_failure (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_fresh",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS valid_fresh (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_namespace",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_namespace (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_ssid",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_ssid (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_web_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_web_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "blank_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS blank_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "blank_web_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS blank_web_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "legacy_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS legacy_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "short_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS short_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "long_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS long_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "long_ssid",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS long_ssid (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "newline_credentials",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS newline_credentials (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "credential_type_mismatch",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS credential_type_mismatch (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "credential_read_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS credential_read_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "allocation_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS allocation_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "corrupt_nul",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS corrupt_nul (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "nvs_open_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS nvs_open_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "nvs_startup_failure",
+          "status": "PASS",
+          "assertions": 18,
+          "stdout": "PASS nvs_startup_failure (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "stored_autorun",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS stored_autorun (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "mount_failure",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS mount_failure (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_filesystem",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS missing_filesystem (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "interrupted_mount",
+          "status": "PASS",
+          "assertions": 22,
+          "stdout": "PASS interrupted_mount (22 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_layout",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS wrong_layout (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "readonly_layout",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS readonly_layout (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "partition_lookup_failure",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS partition_lookup_failure (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_partition",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS duplicate_partition (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_partition",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS missing_partition (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_chip",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS wrong_chip (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "settings_controls",
+          "status": "PASS",
+          "assertions": 23,
+          "stdout": "PASS settings_controls (23 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 30,
+        "FAIL": 0
+      },
+      "assertions": 635,
+      "sanitizers": "ASan/UBSan; leak detection enabled",
+      "production_sources": [
+        "settings.cpp",
+        "spiffs.cpp",
+        "storage.cpp",
+        "EvilDuckS3.ino",
+        "controlled_layout.h"
+      ],
+      "adapters": [
+        "typed NVS API",
+        "partition iterator/table",
+        "SPIFFS/SD File",
+        "services/clock/USB"
+      ],
+      "complete_sdk_startup_executed": false,
+      "hardware_access": false
+    },
+    "network": {
+      "results": [
+        {
+          "name": "valid",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS valid (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "settings_failure",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS settings_failure (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_profile",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS wrong_profile (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "mode_failure",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS mode_failure (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "ap_failure",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS ap_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "shutdown_failure",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS shutdown_failure (5 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "assertions": 23,
+      "sanitizers": "ASan/UBSan",
+      "actual_helper_source_executed": true,
+      "whole_webserver_executed": false,
+      "physical_network_verified": false
+    }
+  },
+  "pass_count": 77,
+  "fail_count": 0,
+  "assertions": 699,
+  "historical_diagnostics": "Unchanged, not rerun or added to current totals",
+  "hardware_access": false
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "per-function compiler estimates, not runtime high-water",
+  "core_version": "3.3.0",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "application_sha256": "a2087f560f60b03990f8133591dffa218f0414e15dc87530c215f8949a4758c4",
+  "record_count": 457,
+  "largest_per_function_bytes": 1184,
+  "selected_functions": [
+    {
+      "module": "EvilDuckS3.ino.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:37:6:void setup()",
+      "bytes": 80,
+      "qualifier": "static"
+    },
+    {
+      "module": "EvilDuckS3.ino.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/EvilDuckS3.ino:114:6:void loop()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "settings.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/settings.cpp:33:9:int32_t settings::loadError()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "module": "settings.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/settings.cpp:52:6:void settings::load()",
+      "bytes": 128,
+      "qualifier": "static"
+    },
+    {
+      "module": "webserver.cpp",
+      "symbol": "/workspace/EvilDuck-stage6/EvilDuckS3/webserver.cpp:641:6:bool webserver::prepareControlledNetwork()",
+      "bytes": 112,
+      "qualifier": "static"
+    }
+  ]
+}
