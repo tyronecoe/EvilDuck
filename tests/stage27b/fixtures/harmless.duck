@@ -1,0 +1,17 @@
+REM Mock output only; no host commands or physical HID
+DEFINE #COUNT 3
+DEFINE #MESSAGE ready
+VAR $n = 0
+WHILE ($n < #COUNT)
+    IF ($n == 1) THEN
+        STRINGLN middle
+    ELSE
+        STRINGLN #MESSAGE
+    END_IF
+    $n = ($n + 1)
+END_WHILE
+FUNCTION MARK()
+    STRINGLN complete
+    RETURN TRUE
+END_FUNCTION
+MARK()

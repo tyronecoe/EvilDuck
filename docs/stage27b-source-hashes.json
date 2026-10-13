@@ -1,0 +1,27 @@
+[
+  {
+    "file": "language_preview/core.h",
+    "sha256": "fa2e5153f3c899c1c675b6c644809d52fe6838dc381ab18d00e2f42d97be2b98",
+    "bytes": 3987
+  },
+  {
+    "file": "language_preview/core.cpp",
+    "sha256": "bae5b4dc3b17331543d2bb2b2e9350b5315e609da978c8f2e9c510a8bfb15d94",
+    "bytes": 23451
+  },
+  {
+    "file": "tests/stage27b/test_core.cpp",
+    "sha256": "8a29e67439831fe7d1c8547bb6d9f5578787d40b027851d5932fc699f216e08b",
+    "bytes": 19586
+  },
+  {
+    "file": "tests/stage27b/run_tests.py",
+    "sha256": "2d87711e7053db2e3305d27e53f0878573791f1b831d5f481d216cc049ca1a81",
+    "bytes": 2426
+  },
+  {
+    "file": "tests/stage27b/target_check.py",
+    "sha256": "9fc8d3def10d6ff02f999b54561effc6e5b7cf7fa5f08f1ac7ddc6ef8cbc224e",
+    "bytes": 3834
+  }
+]
