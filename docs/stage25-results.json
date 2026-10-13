@@ -1,0 +1,1217 @@
+{
+  "baseline_commit": "54b3ee184f98308783e7b78c253b15fce2b30a87",
+  "scope": "Focused Stage25 startup/network/recovery and affected settings/Stage1 regressions; full 1551-test baseline not rerun",
+  "groups": {
+    "stage25-startup-with-network": {
+      "results": [
+        {
+          "name": "network_failure",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS network_failure (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_fresh",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS valid_fresh (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_namespace",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_namespace (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_ssid",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_ssid (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_web_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS missing_web_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "blank_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS blank_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "blank_web_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS blank_web_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "legacy_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS legacy_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "short_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS short_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "long_password",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS long_password (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "long_ssid",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS long_ssid (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "newline_credentials",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS newline_credentials (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "credential_type_mismatch",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS credential_type_mismatch (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "credential_read_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS credential_read_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "allocation_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS allocation_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "corrupt_nul",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS corrupt_nul (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "nvs_open_failure",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS nvs_open_failure (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "nvs_startup_failure",
+          "status": "PASS",
+          "assertions": 18,
+          "stdout": "PASS nvs_startup_failure (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "stored_autorun",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS stored_autorun (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "mount_failure",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS mount_failure (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_filesystem",
+          "status": "PASS",
+          "assertions": 25,
+          "stdout": "PASS missing_filesystem (25 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "interrupted_mount",
+          "status": "PASS",
+          "assertions": 22,
+          "stdout": "PASS interrupted_mount (22 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_layout",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS wrong_layout (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "readonly_layout",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS readonly_layout (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "partition_lookup_failure",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS partition_lookup_failure (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "duplicate_partition",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS duplicate_partition (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_partition",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS missing_partition (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_chip",
+          "status": "PASS",
+          "assertions": 20,
+          "stdout": "PASS wrong_chip (20 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "settings_controls",
+          "status": "PASS",
+          "assertions": 23,
+          "stdout": "PASS settings_controls (23 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 30,
+        "FAIL": 0
+      },
+      "assertions": 635,
+      "sanitizers": "ASan/UBSan; leak detection enabled",
+      "production_sources": [
+        "settings.cpp",
+        "spiffs.cpp",
+        "storage.cpp",
+        "EvilDuckS3.ino",
+        "controlled_layout.h"
+      ],
+      "adapters": [
+        "typed NVS API",
+        "partition iterator/table",
+        "SPIFFS/SD File",
+        "services/clock/USB"
+      ],
+      "complete_sdk_startup_executed": false,
+      "hardware_access": false
+    },
+    "stage25-network-tests": {
+      "results": [
+        {
+          "name": "valid",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS valid (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "settings_failure",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS settings_failure (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "wrong_profile",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS wrong_profile (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "mode_failure",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS mode_failure (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "ap_failure",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS ap_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "shutdown_failure",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS shutdown_failure (5 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "assertions": 23,
+      "sanitizers": "ASan/UBSan",
+      "actual_helper_source_executed": true,
+      "whole_webserver_executed": false,
+      "physical_network_verified": false
+    },
+    "stage25-final-recovery-tests": {
+      "results": [
+        {
+          "name": "compiled_images_offline_structure_only",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "wrong_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "wrong_offset",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "wrong_bytes",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "wrong_physical_size",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "missing_role",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "duplicate_role",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "corrupt_table_even_with_matching_hash",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "synthetic_legacy_4m_header_on_16m_hardware_context",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "upgraded_application_does_not_fit_original_slot",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_minimum_revision",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_maximum_revision",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_bad_flash_frequency",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_excess_flash_capacity",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_insufficient_flash_profile",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "reject_bad_chip",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "unsupported_entry_point_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "sdk_max_revision_zero_sentinel_and_bootloader_max_exemption",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "nondeterministic_ota_initializer_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "linked_normal_profile",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "linked_safe_profile",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "linked_controlled_profile",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "conflicting_build_profile_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "explicit_private_config_contract",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "missing_private_config_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "legacy_provisioning_password_rejected",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "pinned_native_image_header_revision_offsets",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        },
+        {
+          "name": "merged_output_suppressed_by_real_compile_options",
+          "status": "PASS",
+          "assertions": 1,
+          "error": ""
+        }
+      ],
+      "counts": {
+        "PASS": 28,
+        "FAIL": 0
+      },
+      "assertions": 28,
+      "owner_recovery_files_inspected": false,
+      "hardware_access": false,
+      "known_good_recovery_independently_established": false
+    },
+    "stage25-settings-regressions": {
+      "results": [
+        {
+          "name": "allocation_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS allocation_failure (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_keys",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS missing_keys (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_namespace",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS missing_namespace (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "open_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS open_failure (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "not_initialized",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS not_initialized (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "type_mismatch",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS type_mismatch (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "read_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS read_failure (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "string_read_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS string_read_failure (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_bool",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_bool (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_channel",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_channel (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_ssid",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_ssid (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_password",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_password (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_rgb",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_rgb (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_delay",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS invalid_delay (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "autorun_without_script",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS autorun_without_script (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "oversized_string",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS oversized_string (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_nul",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS missing_nul (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "embedded_nul",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS embedded_nul (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "zero_length_string",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS zero_length_string (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_autorun",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 9,
+          "stdout": "PASS valid_autorun (9 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "maximum_string",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS maximum_string (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "repeat_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 23,
+          "stdout": "PASS repeat_failure (23 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "save_after_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS save_after_failure (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "latched_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 16,
+          "stdout": "PASS latched_failure (16 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "save_open_failure",
+          "target": "legacy-normal",
+          "status": "PASS",
+          "assertions": 10,
+          "stdout": "PASS save_open_failure (10 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "allocation_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS allocation_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_keys",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS missing_keys (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_namespace",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS missing_namespace (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "open_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS open_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "not_initialized",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS not_initialized (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "type_mismatch",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS type_mismatch (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "read_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS read_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "string_read_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS string_read_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_bool",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_bool (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_channel",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_channel (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_ssid",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_ssid (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_password",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_password (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_rgb",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_rgb (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_delay",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS invalid_delay (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "autorun_without_script",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS autorun_without_script (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "oversized_string",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS oversized_string (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "missing_nul",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS missing_nul (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "embedded_nul",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS embedded_nul (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "zero_length_string",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS zero_length_string (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_autorun",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS valid_autorun (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "maximum_string",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS maximum_string (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "repeat_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS repeat_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "save_after_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS save_after_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "latched_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS latched_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "save_open_failure",
+          "target": "legacy-safe",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS save_open_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "busy_save",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS busy_save (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "busy_reset",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS busy_reset (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "healthy_save",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS healthy_save (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_autorun",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS valid_autorun (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "valid_reset",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS valid_reset (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "unloaded_save",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS unloaded_save (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "unloaded_reset",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 3,
+          "stdout": "PASS unloaded_reset (3 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "read_failure_save",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS read_failure_save (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "open_failure",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS open_failure (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "open_full",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS open_full (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "commit_failure",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS commit_failure (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_delay",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS invalid_delay (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "invalid_web_length",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS invalid_web_length (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "embedded_nul",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS embedded_nul (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_full",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS set_full (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_flash_error",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS set_flash_error (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "failed_set_may_change_bytes",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS failed_set_may_change_bytes (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "mixed_autorun_after_failure",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS mixed_autorun_after_failure (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "reset_failure",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS reset_failure (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_1",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_1 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_2",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_2 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_3",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_3 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_4",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_4 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_5",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_5 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_6",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_6 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_7",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_7 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_8",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_8 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_9",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_9 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_10",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_10 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_11",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_11 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "set_failure_12",
+          "target": "legacy-checked-save",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS set_failure_12 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "interrupted_save",
+          "target": "legacy-checked-save",
+          "status": "OBSERVED",
+          "assertions": 2,
+          "stdout": "SIMULATED_POWER_LOSS sets=4 commits=0\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 81,
+        "FAIL": 0,
+        "OBSERVED": 1
+      },
+      "assertions": 573,
+      "sanitizers": "ASan/UBSan; leak detection enabled except intentional interruption observation",
+      "language_suites_not_repeated": true,
+      "hardware_access": false
+    },
+    "stage1_runtime": {
+      "results": [
+        {
+          "name": "supported_commands_and_mock_interfaces",
+          "status": "PASS",
+          "assertions": 29
+        },
+        {
+          "name": "script_run_state_isolation",
+          "status": "PASS",
+          "assertions": 22
+        },
+        {
+          "name": "cooperative_delay_and_text_cancellation",
+          "status": "PASS",
+          "assertions": 33
+        },
+        {
+          "name": "repeat_timing_and_control_loop_yield",
+          "status": "PASS",
+          "assertions": 24
+        },
+        {
+          "name": "live_commands_cannot_mutate_running_script",
+          "status": "PASS",
+          "assertions": 19
+        }
+      ],
+      "counts": {
+        "PASS": 5,
+        "FAIL": 0
+      },
+      "assertions": 139,
+      "historical_diagnostics": [
+        {
+          "name": "known_nested_if",
+          "status": "XPASS",
+          "evidence": "expected 'good', actual 'good'"
+        },
+        {
+          "name": "known_canonical_if",
+          "status": "XPASS",
+          "evidence": "expected 'good', actual 'good'"
+        },
+        {
+          "name": "known_false_while",
+          "status": "XPASS",
+          "evidence": "expected 'good', actual 'good'"
+        },
+        {
+          "name": "known_f13_mapping",
+          "status": "XPASS",
+          "evidence": "expected usage 104, actual 104"
+        },
+        {
+          "name": "known_german_ascii_table",
+          "status": "XPASS",
+          "evidence": "expected 128 records, actual 128; exact content/alignment independently checked by Stage 8 when table is corrected"
+        }
+      ]
+    }
+  },
+  "current_pass_count": 150,
+  "unexpected_fail_count": 0,
+  "assertions": 1398,
+  "owner_recovery_gate": {
+    "status": "BLOCKED",
+    "missing": "Owner-provided recovery image bundle and trusted hashes/known-good evidence",
+    "recovery_authorized": false,
+    "hardware_access": false
+  },
+  "hardware_access": false,
+  "physical_installation_authorized": false
+}

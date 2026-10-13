@@ -137,14 +137,22 @@ def validate_build(core_dir, build_dir):
     size = validate_image(app)
     validate_image(boot, app=False)
     merged = build_dir / "EvilDuckS3.ino.merged.bin"
-    require(merged.stat().st_size == FLASH_BYTES, "Merged image does not span 16 MiB")
-    with merged.open("rb") as source:
-        for offset, image in ((0, boot), (0x8000, partition_bin),
-                              (0xE000, Path(core_dir) / "tools/partitions/boot_app0.bin"),
-                              (APP_OFFSET, app)):
-            source.seek(offset)
-            require(source.read(image.stat().st_size) == image.read_bytes(),
-                    "Merged image mismatch at {}".format(hex(offset)))
+    merge_disabled = "recipe.hooks.objcopy.postobjcopy.3.pattern=" in options["customBuildProperties"].split(',')
+    if merge_disabled:
+        require(not merged.exists(), "Merge hook disabled but unexpected merged artifact exists")
+        properties = json.loads((build_dir / "s3-build-properties.json").read_text())
+        require(int(properties["build.bootloader_addr"], 0) == 0, "ESP32-S3 bootloader address mismatch")
+        from s3_write_plan import validate_ota_initializer
+        validate_ota_initializer((Path(core_dir) / "tools/partitions/boot_app0.bin").read_bytes())
+    else:
+        require(merged.stat().st_size == FLASH_BYTES, "Merged image does not span 16 MiB")
+        with merged.open("rb") as source:
+            for offset, image in ((0, boot), (0x8000, partition_bin),
+                                  (0xE000, Path(core_dir) / "tools/partitions/boot_app0.bin"),
+                                  (APP_OFFSET, app)):
+                source.seek(offset)
+                require(source.read(image.stat().st_size) == image.read_bytes(),
+                        "Merged image mismatch at {}".format(hex(offset)))
     return {"core_version": CORE_VERSION, "fqbn": FQBN,
             "application_address": APP_OFFSET, "flash_bytes": FLASH_BYTES,
             "application_bytes": size, "ota_slot_bytes": APP_BYTES,

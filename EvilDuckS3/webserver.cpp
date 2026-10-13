@@ -14,6 +14,7 @@
 #include "led.h"
 
 #include <WiFi.h>
+#include "deployment_boot.h"
 #include <SPIFFS.h>
 #include <SD.h>
 #include <ESPAsyncWebServer.h>
@@ -635,15 +636,33 @@ static void handleStatic(AsyncWebServerRequest *req) {
 
 namespace webserver {
 
+static bool controlledNetworkReady = false;
+
+bool prepareControlledNetwork() {
+  if (!deployment::controlledStart() || !settings::ready()) return false;
+  controlledNetworkReady = false;
+  if (!WiFi.mode(WIFI_AP) ||
+      !WiFi.softAP(settings::getSSID().c_str(), settings::getPassword().c_str(),
+                   settings::getChannel(), settings::getHiddenAp() ? 1 : 0)) {
+    WiFi.mode(WIFI_OFF); // Best-effort shutdown, not a claimed hardware acknowledgement.
+    return false;
+  }
+  controlledNetworkReady = true;
+  return true;
+}
+
 void begin() {
-  WiFi.mode(WIFI_AP);
-  int hidden = settings::getHiddenAp() ? 1 : 0;
-  WiFi.softAP(settings::getSSID().c_str(),
+  if (deployment::controlledStart() && !controlledNetworkReady) return;
+  if (!deployment::controlledStart()) {
+    WiFi.mode(WIFI_AP);
+    int hidden = settings::getHiddenAp() ? 1 : 0;
+    WiFi.softAP(settings::getSSID().c_str(),
               settings::getPassword().c_str(),
               settings::getChannel(),
               hidden);
+  }
 
-  debug::info("AP SSID: " + settings::getSSID());
+  if (!deployment::controlledStart()) debug::info("AP SSID: " + settings::getSSID());
   debug::info("AP IP: " + WiFi.softAPIP().toString());
 
   server.on("/list", HTTP_GET, handleListScripts);

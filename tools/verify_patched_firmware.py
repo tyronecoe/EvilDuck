@@ -26,6 +26,9 @@ def verify(core,build):
  misc=[e for e in entries if Path(e['file']).name=='esp32-hal-misc.c']
  require(len(misc)==1 and Path(misc[0]['file']).resolve()==core/pin['nvs_source'],'Early startup is not from the verified isolated core')
  safe_flag='-DEVILDUCK_DEPLOYMENT_SAFE_START=1' in sketch_entries[0]['arguments']
+ controlled_flag='-DEVILDUCK_CONTROLLED_START=1' in sketch_entries[0]['arguments']
+ require(not(safe_flag and controlled_flag),'Conflicting startup profiles')
+ require(controlled_flag is build_report.get('controlled_normal_start',False),'Controlled profile metadata/flags mismatch')
  require(safe_flag is build_report.get('deployment_safe_start',False),'Startup profile metadata differs from actual compiler flags')
  if (ROOT/'EvilDuckS3/deployment_boot.h').exists():
   header=ROOT/'EvilDuckS3/deployment_boot.h'
@@ -45,12 +48,22 @@ def verify(core,build):
   subprocess.run([prefix+'objcopy','--dump-section','.flash.rodata='+str(rodata),str(elf),str(Path(t)/'inspection-only.elf')],capture_output=True,text=True,check=True)
   marker=b'DEPLOYMENT SAFE START: application services and payload execution disabled'
   require((marker in rodata.read_bytes())==safe_flag,'Linked application startup profile differs from build flags')
+  controlled_marker=b'CONTROLLED NORMAL START: strict credentials, no format, no examples, no autorun'
+  require((controlled_marker in rodata.read_bytes())==controlled_flag,'Linked controlled startup identity mismatch')
  symbols=subprocess.run([nm,'-C','--defined-only',str(elf)],capture_output=True,text=True,check=True).stdout
  callback=[l for l in symbols.splitlines() if l.endswith(' T tud_hid_set_report_cb')];require(len(callback)==1,'Final ELF must contain exactly one strong SET_REPORT callback')
  require('FeedbackKeyboard::_onOutput(' in symbols,'Production OUTPUT override missing from linked ELF')
  require('FeedbackKeyboard::_onSetFeature(' not in symbols,'Legacy FEATURE-as-LED workaround still linked')
  require(sum(l.endswith(' T evilduck_nvs_startup_error') for l in symbols.splitlines())==1,'Protected NVS status hook missing/duplicated')
  require('startupNvsError' in symbols,'Application failure latch absent')
+ if controlled_flag:
+  for module in ['spiffs.cpp','storage.cpp']:
+   matches=[e for e in entries if Path(e['file']).name==module];original=ROOT/'EvilDuckS3'/module
+   require(len(matches)==1 and '-DEVILDUCK_CONTROLLED_START=1' in matches[0]['arguments'],'Controlled storage flag absent')
+   require(Path(matches[0]['file']).read_bytes()==('#line 1 '+json.dumps(str(original))+'\n').encode()+original.read_bytes(),'Compiled controlled storage differs from source')
+  header=ROOT/'EvilDuckS3/controlled_layout.h'
+  require((build/'sketch/controlled_layout.h').read_bytes()==('#line 1 '+json.dumps(str(header))+'\n').encode()+header.read_bytes(),'Compiled controlled layout differs from source')
+  for latch in ['startupStorageFailed','startupControlledAttempted','startupControlledReady']:require(latch in symbols,'Controlled startup latch absent: '+latch)
  nvs_header=ROOT/'EvilDuckS3/nvs_startup.h'
  require((build/'sketch/nvs_startup.h').read_bytes()==('#line 1 '+json.dumps(str(nvs_header))+'\n').encode()+nvs_header.read_bytes(),'Compiled NVS contract header differs from source')
  setup_disasm=subprocess.run([objdump,'-d','--disassemble=_Z5setupv',str(elf)],capture_output=True,text=True,check=True).stdout
@@ -82,6 +95,10 @@ def verify(core,build):
     require(len(found)==1 and Path(found[0]['file']).read_bytes()==('#line 1 '+json.dumps(str(original))+'\n').encode()+original.read_bytes(),'Compiled checked-persistence caller differs from source')
    if not safe_flag:
     require('settings::saveChecked()' in symbols and 'settings::resetChecked()' in symbols,'Checked persistence API absent from final normal ELF')
+  if controlled_flag:
+   require('_ZN7storage5beginEv' in setup_disasm,'Controlled mount check not linked')
+   require(setup_disasm.index('_ZN7storage5beginEv')<setup_disasm.index('_ZN11hid_backend5beginEv'),'Storage must precede HID activation')
+   require('_ZN14script_library15installIfNeededEv' not in setup_disasm and '_ZN10duckscript3run' not in setup_disasm,'Controlled startup injects examples or payloads')
   (build/'stage19-linked-startup.txt').write_text(setup_disasm)
  (build/'stage18-linked-startup.txt').write_text(setup_disasm)
  nvs_disasm=subprocess.run([objdump,'-d','--disassemble=initArduino',str(elf)],capture_output=True,text=True,check=True).stdout
@@ -94,7 +111,7 @@ def verify(core,build):
  disasm=subprocess.run([objdump,'-d','--disassemble=tud_hid_set_report_cb',str(elf)],capture_output=True,text=True,check=True).stdout
  require('<tud_hid_set_report_cb>:' in disasm,'Linked callback disassembly missing')
  (build/'stage16-linked-routing.txt').write_text(disasm)
- report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),checked_settings_persistence=True,settings_failure_quiescent=True,settings_source_sha256=sha(ROOT/'EvilDuckS3/settings.cpp'),sdk_nvs_immutable=False,nvs_preservation_policy=True,nvs_source_sha256=sha(core/pin['nvs_source']),hardware_access=False)
+ report=dict(patched_core_pin=pin,core=str(core),compiled_routing=str(entry['file']),routing_object_sha256=sha(obj),elf_sha256=sha(elf),application_sha256=sha(build/'EvilDuckS3.ino.bin'),backend_sha256=sha(ROOT/'EvilDuckS3/hid_backend.cpp'),compiler_sha256=sha(compiler),compiler_version=subprocess.run([str(compiler),'--version'],capture_output=True,text=True,check=True).stdout,cli_settings=props['build.fqbn'],single_strong_callback=True,feature_workaround_absent=True,hid_cdc_msc_linked=True,deployment_safe_start=safe_flag,controlled_normal_start=controlled_flag,elf_to_image_verified=True,esptool_sha256=sha(esptool),checked_settings_persistence=True,settings_failure_quiescent=True,settings_source_sha256=sha(ROOT/'EvilDuckS3/settings.cpp'),sdk_nvs_immutable=False,nvs_preservation_policy=True,nvs_source_sha256=sha(core/pin['nvs_source']),hardware_access=False)
  (build/'stage16-link-provenance.json').write_text(json.dumps(report,indent=2)+'\n');return report
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--core-dir',type=Path,required=True);p.add_argument('--build-dir',type=Path,required=True);a=p.parse_args();print(json.dumps(verify(a.core_dir,a.build_dir),indent=2))

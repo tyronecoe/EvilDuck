@@ -1,5 +1,6 @@
 #include "spiffs.h"
 #include "debug.h"
+#include "deployment_boot.h"
 #include <SPIFFS.h>
 
 namespace {
@@ -17,7 +18,8 @@ String normalizePath(const String &in) {
 namespace spiffs {
 
 bool begin() {
-  if (!SPIFFS.begin(true)) {
+  const bool mounted = deployment::controlledStart() ? SPIFFS.begin(false) : SPIFFS.begin(true);
+  if (!mounted) {
     debug::error("SPIFFS mount failed");
     return false;
   }

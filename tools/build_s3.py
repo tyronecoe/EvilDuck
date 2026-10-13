@@ -20,7 +20,9 @@ def main():
     parser.add_argument("--config-file", type=Path)
     parser.add_argument("--build-dir", type=Path, help="Must be empty; defaults to a temporary directory")
     parser.add_argument("--patched-core-dir", type=Path, required=True, help="Verified disposable Stage16 core; use build_s3_patched.py")
-    parser.add_argument("--deployment-safe-start", action="store_true", help="Explicit quiescent first-boot profile; normal behavior otherwise")
+    profiles = parser.add_mutually_exclusive_group()
+    profiles.add_argument("--controlled-normal-start", action="store_true", help="Explicit Stage25 strict normal-start candidate")
+    profiles.add_argument("--deployment-safe-start", action="store_true", help="Explicit quiescent first-boot profile; normal behavior otherwise")
     parser.add_argument("--jobs", type=int, default=2)
     args = parser.parse_args()
     require(args.jobs > 0, "--jobs must be positive")
@@ -35,7 +37,8 @@ def main():
         cli += ["--config-file", str(args.config_file)]
     compile_args = ["compile", "--fqbn", FQBN, "--build-path", str(build),
                     "--build-property", "upload.maximum_size={}".format(APP_BYTES),
-                    "--jobs", str(args.jobs)]
+                    "--jobs", str(args.jobs),
+                    "--build-property", "recipe.hooks.objcopy.postobjcopy.3.pattern="]
     # --show-properties computes configuration without port discovery or uploading.
     resolved = subprocess.run(cli + compile_args + ["--show-properties=expanded", str(ROOT / "EvilDuckS3")],
                               check=True, capture_output=True, text=True)
@@ -48,6 +51,9 @@ def main():
     if args.deployment_safe_start:
         extra_flags += " -DEVILDUCK_DEPLOYMENT_SAFE_START=1"
     compile_args += ["--build-property", "compiler.cpp.extra_flags=" + extra_flags]
+    if args.controlled_normal_start:
+        extra_flags += " -DEVILDUCK_CONTROLLED_START=1"
+        compile_args[-1] = "compiler.cpp.extra_flags=" + extra_flags
     validate_csv(core)  # Also rejects any active core other than 3.3.0.
     validate_properties(properties)
     print("Pinned ESP32 core {}: {}".format(CORE_VERSION, core), flush=True)
@@ -76,7 +82,7 @@ def main():
     require(int(program[2]) == APP_BYTES, "Compiler maximum differs from the OTA slot size")
     report.update(compiler_program_bytes=int(program[1]), static_ram_bytes=int(ram[1]),
                   compiler_ram_maximum_bytes=int(ram[2]), merged_image_for_migration=False,
-                  deployment_safe_start=args.deployment_safe_start, verified_cpp_extra_flags=extra_flags)
+                  deployment_safe_start=args.deployment_safe_start, controlled_normal_start=args.controlled_normal_start, verified_cpp_extra_flags=extra_flags)
     (build / "s3-build-report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
     print("PASS: clean 16 MiB build. Application-only .bin is for OTA AFTER authorized migration.")

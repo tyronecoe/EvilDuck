@@ -15,12 +15,15 @@ def main():
     p.add_argument('--isolation-dir',type=Path,required=True,help='New external directory')
     p.add_argument('--build-dir',type=Path,required=True)
     p.add_argument('--arduino-cli',required=True)
-    p.add_argument('--deployment-safe-start',action='store_true')
+    profiles=p.add_mutually_exclusive_group()
+    profiles.add_argument('--deployment-safe-start',action='store_true')
+    profiles.add_argument('--controlled-normal-start',action='store_true')
     p.add_argument('--jobs',type=int,default=2)
     a=p.parse_args()
     receipt=prepare(a.core_dir,a.isolation_dir,a.user_dir)
     command=[sys.executable,str(Path(__file__).with_name('build_s3.py')),'--arduino-cli',a.arduino_cli,'--config-file',receipt['config'],'--patched-core-dir',receipt['core'],'--build-dir',str(a.build_dir),'--jobs',str(a.jobs)]
     if a.deployment_safe_start:command.append('--deployment-safe-start')
+    if a.controlled_normal_start:command.append('--controlled-normal-start')
     subprocess.run(command,check=True)
     from verify_patched_firmware import verify
     verify(receipt["core"], a.build_dir)

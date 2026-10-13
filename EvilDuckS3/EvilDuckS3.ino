@@ -3,11 +3,15 @@
 
 #include "config.h"
 #include "deployment_boot.h"
+#include "controlled_layout.h"
 #include "nvs_startup.h"
 
 // Latch failure for the boot lifetime; a later core retry cannot arm an uninitialized app.
 static int32_t startupNvsError = 0;
 static bool startupSettingsFailed = false;
+static bool startupStorageFailed = false;
+static bool startupControlledAttempted = false;
+static bool startupControlledReady = false;
 #include "debug.h"
 #include "storage.h"
 #include "settings.h"
@@ -31,6 +35,10 @@ static void applyIdleLedColor() {
 }
 
 void setup() {
+  if (deployment::controlledStart()) {
+    if (startupControlledAttempted) return;
+    startupControlledAttempted = true; // One attempt; failures cannot silently re-arm.
+  }
   if (startupNvsError == 0) startupNvsError = evilduck_nvs_startup_error();
   if (startupNvsError != 0) {
     debug::begin();
@@ -46,11 +54,29 @@ void setup() {
   debug::info("Booting EvilDuck...");
 
   if (startupSettingsFailed) return;
+  if (deployment::controlledStart() && !deployment::controlledLayoutReady()) {
+    startupStorageFailed = true;
+    debug::info("Controlled partition layout mismatch; application disabled");
+    return;
+  }
   settings::load();
   if (!settings::ready()) {
     startupSettingsFailed = true;
     debug::info("Settings read failed; application disabled, error: " + String(settings::loadError()));
     return;
+  }
+
+  if (deployment::controlledStart()) {
+    debug::info("CONTROLLED NORMAL START: strict credentials, no format, no examples, no autorun");
+    if (!storage::begin()) {
+      startupStorageFailed = true;
+      debug::info("Required SPIFFS mount failed; application disabled without formatting");
+      return;
+    }
+    if (!webserver::prepareControlledNetwork()) {
+      debug::info("Controlled AP startup failed; application services remain disabled");
+      return;
+    }
   }
 
   led::begin();
@@ -63,14 +89,16 @@ void setup() {
   keyboard_locale::begin();
   attackmode::begin();
 
-  storage::begin();
-  script_library::installIfNeeded();
+  if (!deployment::controlledStart()) {
+    storage::begin();
+    script_library::installIfNeeded();
+  }
   applyIdleLedColor();
   cli::begin();
 
   webserver::begin();
 
-  if (settings::autorunEnabled()) {
+  if (!deployment::controlledStart() && settings::autorunEnabled()) {
     String s = settings::getAutorun();
     if (s.length()) {
       uint32_t delayMs = settings::pickAutorunDelayMs();
@@ -80,10 +108,12 @@ void setup() {
       duckscript::run(s);
     }
   }
+  if (deployment::controlledStart()) startupControlledReady = true;
 }
 
 void loop() {
-  if (deployment::safeStart() || startupNvsError != 0 || startupSettingsFailed) {
+  if (deployment::safeStart() || startupNvsError != 0 || startupSettingsFailed ||
+      (deployment::controlledStart() && (!startupControlledReady || startupStorageFailed))) {
     delay(1);
     return; // Intentionally no web/CLI arming path or execution scheduler in this profile.
   }

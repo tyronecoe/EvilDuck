@@ -1,0 +1,118 @@
+{
+  "review_only": true,
+  "physical_authorization": false,
+  "artifacts": [
+    {
+      "profile": "normal",
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1329632,
+      "sha256": "6c36e73afc84b77d3105a107158c862409ac720dd217338ab1b705efa0632cf9",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "normal",
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 22746320,
+      "sha256": "ecd6499a36e0ac14f3eb4e5632afcca6101ddcdca84d44c72f979c6b3f1bc2fa",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "normal",
+      "file": "EvilDuckS3.ino.bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "normal",
+      "file": "EvilDuckS3.ino.partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "safe",
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1066128,
+      "sha256": "b0b0b17a5fdf2761f89bc2d1131db9e0e4980686cf2092b65677929f9dae5020",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "safe",
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 22101256,
+      "sha256": "f312e084ff0cd8dbbd780a53857f85ef3fd260b049d6ec23ab99a2502b181b68",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "safe",
+      "file": "EvilDuckS3.ino.bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "safe",
+      "file": "EvilDuckS3.ino.partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "controlled",
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1329760,
+      "sha256": "f4c280322db16f345bd88523bec119b1014f9123d0026494527a800203778446",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "controlled",
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 22755364,
+      "sha256": "dd9bce42f1e0218f348721d5638673095d8d66c2800f872062bd4530b6c304fd",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "controlled",
+      "file": "EvilDuckS3.ino.bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "controlled",
+      "file": "EvilDuckS3.ino.partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "readonly",
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1070144,
+      "sha256": "e3fff2a52b0814bc292c5a2f7e8012dda1a392faa0051ec4d195ea559f385695",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "readonly",
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 22121084,
+      "sha256": "52461210014257b30b833dc6b6e4a714ff41bb3634f42c1cb48f559fb4b5df61",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "readonly",
+      "file": "EvilDuckS3.ino.bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "authorized_for_flashing": false
+    },
+    {
+      "profile": "readonly",
+      "file": "EvilDuckS3.ino.partitions.bin",
+      "bytes": 3072,
+      "sha256": "a60cd4a103ec36ea102d964ee16a55980870d23d536b05390e622660c49d78cb",
+      "authorized_for_flashing": false
+    }
+  ]
+}

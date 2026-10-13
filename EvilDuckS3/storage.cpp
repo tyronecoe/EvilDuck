@@ -2,6 +2,7 @@
 #include "spiffs.h"
 #include "sd_card.h"
 #include "config.h"
+#include "deployment_boot.h"
 #include <SPIFFS.h>
 
 namespace storage {
@@ -71,6 +72,7 @@ String sdPath(const String &name) {
 
 bool begin() {
   bool ok = spiffs::begin();
+  if (deployment::controlledStart() && !ok) return false;
 #if SD_ENABLED
   sd_card::begin();
 #endif

@@ -2,6 +2,7 @@
 #include "debug.h"
 #include "config.h"
 #include "execution_guard.h"
+#include "deployment_boot.h"
 #include <atomic>
 #include <nvs.h>
 #include <memory>
@@ -11,8 +12,8 @@
 
 static bool autorun_enabled = false;
 static String autorun_script_name = "";
-static String ap_ssid = WIFI_SSID;
-static String ap_password = WIFI_PASSWORD;
+static String ap_ssid = deployment::controlledStart() ? "" : WIFI_SSID;
+static String ap_password = deployment::controlledStart() ? "" : WIFI_PASSWORD;
 static uint8_t ap_channel = 1;
 
 static bool stealth_mode = false;
@@ -53,6 +54,7 @@ void load() {
   load_error = ESP_OK;
   nvs_handle_t handle = 0;
   load_error = nvs_open("duck", NVS_READONLY, &handle);
+  if (deployment::controlledStart() && load_error != ESP_OK) return;
   if (load_error == ESP_ERR_NVS_NOT_FOUND) {
     // A fresh device may have no namespace; in-memory defaults are sufficient.
     autorun_enabled = false; autorun_script_name = "";
@@ -68,7 +70,8 @@ void load() {
   uint8_t ar = 0, channel = 1, stealth = 0, hidden = 0, disabled = 0;
   uint32_t color = 0x000028;
   uint16_t minimum = 0, maximum = 0;
-  String script = "", ssid = WIFI_SSID, password = WIFI_PASSWORD, web = "";
+  String script = "", ssid = deployment::controlledStart() ? "" : WIFI_SSID;
+  String password = deployment::controlledStart() ? "" : WIFI_PASSWORD, web = "";
   auto accept = [](esp_err_t error) { return error == ESP_ERR_NVS_NOT_FOUND ? ESP_OK : error; };
   // Stop at the first real error and close without any commit/set/erase operation.
 #define ED_READ(operation) do { if (load_error == ESP_OK) load_error = accept(operation); } while (0)
@@ -87,6 +90,14 @@ void load() {
 #undef ED_READ
   nvs_close(handle);
   if (load_error != ESP_OK) return;
+  if (deployment::controlledStart() &&
+      (web.length() == 0 || password == WIFI_PASSWORD || ar != 0 ||
+       ssid.indexOf('\n') >= 0 || ssid.indexOf('\r') >= 0 ||
+       password.indexOf('\n') >= 0 || password.indexOf('\r') >= 0 ||
+       web.indexOf('\n') >= 0 || web.indexOf('\r') >= 0)) {
+    load_error = ESP_ERR_INVALID_ARG;
+    return;
+  }
   if (ar > 1 || stealth > 1 || hidden > 1 || disabled > 1 || channel < 1 || channel > 13 ||
       ssid.length() == 0 || ssid.length() > 32 || password.length() < 8 || password.length() > 63 ||
       color > 0xffffff || minimum > maximum || (ar && script.length() == 0)) {
@@ -116,6 +127,14 @@ bool saveChecked() {
   if (!guard) { save_error.store(ESP_ERR_INVALID_STATE); return false; }
   if (!load_ready) {
     save_error = load_error == ESP_OK ? ESP_ERR_INVALID_STATE : load_error;
+    return false;
+  }
+  if (deployment::controlledStart() &&
+      (web_password.length() == 0 || ap_password == WIFI_PASSWORD || autorun_enabled ||
+       ap_ssid.indexOf('\n') >= 0 || ap_ssid.indexOf('\r') >= 0 ||
+       ap_password.indexOf('\n') >= 0 || ap_password.indexOf('\r') >= 0 ||
+       web_password.indexOf('\n') >= 0 || web_password.indexOf('\r') >= 0)) {
+    save_error = ESP_ERR_INVALID_ARG;
     return false;
   }
   if (ap_ssid.length() == 0 || ap_ssid.length() > 32 ||
@@ -159,6 +178,8 @@ void save() {
 }
 
 bool resetChecked() {
+  // Legacy reset installs legacy/blank credentials. Never do that in this candidate.
+  if (deployment::controlledStart()) { save_error = ESP_ERR_INVALID_STATE; return false; }
   execution::TryGuard guard;
   if (!guard) { save_error.store(ESP_ERR_INVALID_STATE); return false; }
   if (!load_ready) {
@@ -187,6 +208,7 @@ void reset() {
 bool autorunEnabled() { return autorun_enabled; }
 String getAutorun() { return autorun_script_name; }
 void setAutorun(const String &scriptName) {
+  if (deployment::controlledStart()) return;
   autorun_script_name = scriptName;
   autorun_enabled = scriptName.length() > 0;
 }
@@ -196,9 +218,13 @@ String getPassword() { return ap_password; }
 uint8_t getChannel() { return ap_channel; }
 
 void setSSID(const String &ssid) {
+  if (deployment::controlledStart() &&
+      (std::strlen(ssid.c_str()) != ssid.length() || ssid.indexOf('\n') >= 0 || ssid.indexOf('\r') >= 0)) return;
   if (ssid.length() > 0 && ssid.length() <= 32) ap_ssid = ssid;
 }
 void setPassword(const String &password) {
+  if (deployment::controlledStart() &&
+      (std::strlen(password.c_str()) != password.length() || password == WIFI_PASSWORD || password.indexOf('\n') >= 0 || password.indexOf('\r') >= 0)) return;
   if (password.length() >= 8 && password.length() <= 63) ap_password = password;
 }
 void setChannel(uint8_t channel) {
@@ -237,7 +263,11 @@ bool setLedColorHex(const String &hex) {
   return true;
 }
 String getWebPassword() { return web_password; }
-void setWebPassword(const String &pw) { web_password = pw; }
+void setWebPassword(const String &pw) {
+  if (deployment::controlledStart() &&
+      (std::strlen(pw.c_str()) != pw.length() || pw.length() == 0 || pw.length() >= 4000 || pw.indexOf('\n') >= 0 || pw.indexOf('\r') >= 0)) return;
+  web_password = pw;
+}
 uint16_t getAutorunDelayMin() { return autorun_delay_min; }
 uint16_t getAutorunDelayMax() { return autorun_delay_max; }
 void setAutorunDelay(uint16_t minMs, uint16_t maxMs) {

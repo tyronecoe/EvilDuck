@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/src/esp_image_format.c",
+    "sha256": "52d146fe4803158c0108d875c202a612f41e0a093c6517eb85200ff78930b83c",
+    "role": "Pinned nominal SDK format/revision source; no archive rebuild or owner image inspection"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/b66b5448e0dfac6be135e6f0ac21010aba231180/components/bootloader_support/src/bootloader_common_loader.c",
+    "sha256": "32a906e51f7c8c56de95cab09f6891b71ddceef7e470d746d42d2cb5b0b4296a",
+    "role": "Pinned nominal SDK chip revision rules"
+  },
+  {
+    "sdk_path": "include/soc/esp32s3/include/soc/soc.h",
+    "sha256": "0e28401a641d92aece3c61ad29ae9b18e9cc0c1a0ec7131949c4a585e40881a9",
+    "role": "Pinned target IRAM bounds; native static assertions executed"
+  }
+]
