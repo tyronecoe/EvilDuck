@@ -1,0 +1,37 @@
+[
+  {
+    "file": "language_preview/core.h",
+    "bytes": 4691,
+    "sha256": "f76f099c8ba583b104e391037ea850efa2b95d59b9f4ba376526b94e760239fe"
+  },
+  {
+    "file": "language_preview/core.cpp",
+    "bytes": 29581,
+    "sha256": "3c679bfd0e965e63fa584106fa5a58106e1db23460e6dad9b58b5b29173bf7a5"
+  },
+  {
+    "file": "tests/stage27b/test_core.cpp",
+    "bytes": 19620,
+    "sha256": "3e2ffba335078dfb53ac2f1187c31e18b026da80888cf3d4a4adb7c9eb7c3620"
+  },
+  {
+    "file": "tests/stage28a/test_calls.cpp",
+    "bytes": 14466,
+    "sha256": "e2b3ac6e372aa93fc39f9c6f476692a93ad00fd862e61ed6170c2c8d184cf298"
+  },
+  {
+    "file": "tests/stage28a/run_tests.py",
+    "bytes": 2708,
+    "sha256": "0c61bb973b6bdf93332d19bc1dff8261fabb214942a025b7ef520a236ee17740"
+  },
+  {
+    "file": "tests/stage28a/target_check.py",
+    "bytes": 3997,
+    "sha256": "7d628dc253b486af57f8b3199ba262b6935f1a4da4f53c2f457917e3b6480165"
+  },
+  {
+    "file": "tests/stage28a/fixtures/expression-calls.duck",
+    "bytes": 204,
+    "sha256": "a9799dacfba91afba5d3152ddf1c44266a8100664957881314af1af7f7eba97f"
+  }
+]

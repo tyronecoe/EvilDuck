@@ -83,13 +83,13 @@ void run(const std::string& name){
  }else if(name=="named_key_event_order"){
   Program p;compile(p,"STRING a\nENTER\nTAB\nSPACE\nESCAPE\nBACKSPACE\nDELETE\nUPARROW\nDOWNARROW\nLEFTARROW\nRIGHTARROW\nSTRINGLN z");Capture c;Runtime r;CHECK(r.start(p,Capture::sink,&c));drive(r);const uint16_t keys[]={0x28,0x2b,0x2c,0x29,0x2a,0x4c,0x52,0x51,0x50,0x4f};CHECK(c.events.size()==13);CHECK(c.events[0].type==EventType::Character&&c.events[0].value=='a');for(size_t i=0;i<10;++i)CHECK(c.events[i+1].type==EventType::KeyTap&&c.events[i+1].value==keys[i]);CHECK(c.events[11].value=='z');CHECK(c.events[12].value==0x28);
  }else if(name=="delay_clock_and_wrap"){
-  Program p;compile(p,"DELAY 20\nSTRINGLN done");Capture c;Runtime r;uint32_t start=0xfffffff0;CHECK(r.start(p,Capture::sink,&c,start));r.tick(start);CHECK(c.events.size()==1);CHECK(c.events[0].type==EventType::Delay&&c.events[0].value==20);for(uint32_t i=1;i<20;++i)r.tick(start+i);CHECK(c.events.size()==1);drive(r,start+20);CHECK(c.visible()=="done\n");
+  Program p;compile(p,"DELAY 20\nSTRINGLN done");Capture c;Runtime r;uint32_t start=0xfffffff0;CHECK(r.start(p,Capture::sink,&c,start));uint32_t acceptedAt=start;for(unsigned i=0;i<64&&c.events.empty();++i){acceptedAt=start+i;r.tick(acceptedAt);}CHECK(c.events.size()==1);CHECK(c.events[0].type==EventType::Delay&&c.events[0].value==20);for(uint32_t i=1;i<20;++i)r.tick(acceptedAt+i);CHECK(c.events.size()==1);drive(r,acceptedAt+20);CHECK(c.visible()=="done\n");
   Program z;compile(z,"DELAY 0\nSTRING zero");Runtime q;Capture e;CHECK(q.start(z,Capture::sink,&e));drive(q);CHECK(e.visible()=="zero");
  }else if(name=="retry_does_not_duplicate"){
   Program p;compile(p,"STRINGLN hello\nDELAY 20\nTAB");Capture c;c.retries=5;Runtime r;CHECK(r.start(p,Capture::sink,&c));drive(r);CHECK(c.visible()=="hello\n");CHECK(c.events.size()==8);CHECK(c.calls==13);CHECK(c.events[6].type==EventType::Delay);CHECK(c.events[7].value==0x2b);
  }else if(name=="cancellation_and_sink_errors"){
   Program p;compile(p,"STRINGLN long\nSTRING no");Capture c;Runtime r;CHECK(r.start(p,Capture::sink,&c));r.tick(0);r.tick(1);CHECK(c.visible()=="l");r.cancel();for(int i=2;i<50;++i)r.tick(i);CHECK(r.state()==State::Cancelled);CHECK(c.visible()=="l");
-  Program wait;compile(wait,"DELAY 100\nSTRING no");Runtime w;Capture d;CHECK(w.start(wait,Capture::sink,&d));w.tick(0);w.cancel();w.tick(1000);CHECK(w.state()==State::Cancelled);CHECK(d.events.size()==1);
+  Program wait;compile(wait,"DELAY 100\nSTRING no");Runtime w;Capture d;CHECK(w.start(wait,Capture::sink,&d));for(unsigned i=0;i<64&&d.events.empty();++i)w.tick(i);w.cancel();w.tick(1000);CHECK(w.state()==State::Cancelled);CHECK(d.events.size()==1);
   Capture failed;failed.failAfter=1;Runtime f;CHECK(f.start(p,Capture::sink,&failed));drive(f);CHECK(f.state()==State::Error);CHECK(f.error().code==ErrorCode::SinkFailure);CHECK(failed.visible()=="l");
   output("IF FALSE THEN\nSTOP_PAYLOAD\nEND_IF\nSTRINGLN ok", "ok\n");
   Runtime s;Capture e;Program stop;compile(stop,"STRING ok\nSTOP_PAYLOAD\nSTRING no");CHECK(s.start(stop,Capture::sink,&e));drive(s);CHECK(s.state()==State::Cancelled);CHECK(e.visible()=="ok");
@@ -118,7 +118,7 @@ void run(const std::string& name){
   runtimeError("VAR $n = 0\n$n = ($n - 1)",ErrorCode::Arithmetic);
   runtimeError("VAR $s = 16\nVAR $n = (1 << $s)",ErrorCode::Arithmetic);
  }else if(name=="unsupported_explicit_rejection"){
-  const char* bad[]={"STRING","STRINGLN","STRING_BASH\ntext\nEND_STRING","HOLD SHIFT","CTRL a","ATTACKMODE HID","INJECT_VAR $n","VAR $n = F()\nFUNCTION F()\nRETURN 1\nEND_FUNCTION","IF F() THEN\nEND_IF\nFUNCTION F()\nRETURN TRUE\nEND_FUNCTION","FUNCTION F(x)\nEND_FUNCTION","F(1)","UNKNOWN","STRINGLN café"};
+  const char* bad[]={"STRING","STRINGLN","STRING_BASH\ntext\nEND_STRING","HOLD SHIFT","CTRL a","ATTACKMODE HID","INJECT_VAR $n","FUNCTION F(x)\nEND_FUNCTION","F(1)","UNKNOWN","STRINGLN café"};
   for(const char* s:bad)rejected(s);rejected("F()",ErrorCode::UndefinedFunction);rejected("FUNCTION F()\nEND_FUNCTION\nFUNCTION F()\nEND_FUNCTION",ErrorCode::DuplicateFunction);
  }else if(name=="source_and_table_limits"){
   Program api;CHECK(!api.compile(nullptr,1));CHECK(api.error().code==ErrorCode::InvalidSource);CHECK(!api.compile("",0,std::string(64,'x').c_str()));CHECK(api.error().code==ErrorCode::Identifier);CHECK(api.compile("",0));Runtime invalid;Capture dummy;CHECK(!invalid.start(api,Capture::sink,&dummy,0,0));CHECK(invalid.error().code==ErrorCode::InvalidBudget);CHECK(!invalid.start(api,nullptr,nullptr));CHECK(invalid.error().code==ErrorCode::SinkFailure);

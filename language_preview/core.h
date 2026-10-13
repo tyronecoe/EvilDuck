@@ -11,12 +11,20 @@ enum class ErrorCode : uint8_t { None, InputLimit, InvalidSource, LineLimit, Cod
  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, SinkFailure, NotCompiled, Busy };
+ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy };
 struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
 const char* message(ErrorCode code);
 enum class Op : uint8_t { Set, Text, TextLn, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop };
 struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
 struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+enum class ExprKind : uint8_t { Literal, Variable, Call, Binary };
+struct ExprToken { uint16_t value=0, column=0; ExprKind kind=ExprKind::Literal; };
+struct Continuation {
+    ExprToken tokens[MaxExprTokens]={}; uint16_t values[MaxExprTokens]={};
+    uint8_t length=0, cursor=0, size=0; bool active=false;
+    void clear(){length=cursor=size=0;active=false;}
+};
+struct CallFrame { uint16_t next=0, column=0; bool needsValue=false; };
 class Compiler;
 class Expression;
 class Runtime;
@@ -24,7 +32,7 @@ class Program {
     friend class Compiler; friend class Expression; friend class Runtime;
     char text_[MaxText]={}, names_[MaxSymbols][24]={}, source_[64]={};
     Instruction code_[MaxCode]={}; Function functions_[MaxFunctions]={};
-    uint16_t used_=0, count_=0; uint8_t symbols_=0, functionsCount_=0;
+    uint16_t used_=0, count_=0, valueFunctions_=0; uint8_t symbols_=0, functionsCount_=0;
     uint32_t revision_=0; bool ready_=false; mutable bool borrowed_=false; Error error_{};
 public:
     Program()=default;
@@ -45,7 +53,7 @@ class Runtime {
     friend class Expression;
     const Program* program_=nullptr; Sink sink_=nullptr; void* context_=nullptr;
     uint16_t values_[MaxSymbols]={}; bool initialized_[MaxSymbols]={};
-    uint16_t returns_[MaxCalls]={}; uint8_t depth_=0;
+    CallFrame calls_[MaxCalls]={}; Continuation evaluations_[MaxCalls+1]={}; uint8_t depth_=0;
     uint16_t pc_=0, textPos_=0; bool typing_=false, enter_=false, pending_=false, delayed_=false;
     Event event_{EventType::Character,0}; uint32_t started_=0, delayAt_=0, steps_=0;
     uint32_t stepLimit_=MaxSteps, elapsedLimit_=MaxElapsedMs, ticks_=0, programRevision_=0;
@@ -54,6 +62,10 @@ class Runtime {
     void fail(ErrorCode code,uint16_t column=1);
     void releaseProgram();
     void returnFromCall(bool hasValue,uint16_t value);
+    void clearContinuations();
+    void enterCall(uint8_t function,bool needsValue,uint16_t column);
+    void evaluationStep(uint32_t now);
+    void completeInstruction(uint32_t now,uint16_t value);
     void deliver(uint32_t now);
 public:
     Runtime()=default;

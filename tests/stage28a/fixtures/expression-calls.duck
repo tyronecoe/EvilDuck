@@ -1,0 +1,8 @@
+REM Harmless mock-only expression-call fixture. Not authorized for real HID.
+FUNCTION DOUBLE()
+    RETURN 6 * 2
+END_FUNCTION
+VAR $result = DOUBLE() + 5
+IF ($result == 17) THEN
+    STRINGLN math-ok
+END_IF

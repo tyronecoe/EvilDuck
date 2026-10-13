@@ -1,0 +1,411 @@
+{
+  "baseline_commit": "a570786a932bdf2312061d9a2e6105c0dcb89f3b",
+  "scope": "New call continuation tests plus freshly executed Stage27B preview regressions only",
+  "groups": {
+    "new_expression_calls": {
+      "results": [
+        {
+          "name": "required_fixture",
+          "status": "PASS",
+          "assertions": 7,
+          "stdout": "PASS required_fixture (7 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "assignment_forward_nested_arithmetic",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS assignment_forward_nested_arithmetic (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "return_of_call_and_boolean",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS return_of_call_and_boolean (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "if_else_if_selected_calls_only",
+          "status": "PASS",
+          "assertions": 6,
+          "stdout": "PASS if_else_if_selected_calls_only (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "while_reevaluation_zero_iteration",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS while_reevaluation_zero_iteration (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "left_to_right_capture_eager_power",
+          "status": "PASS",
+          "assertions": 14,
+          "stdout": "PASS left_to_right_capture_eager_power (14 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "delay_call_single_timing_owner",
+          "status": "PASS",
+          "assertions": 12,
+          "stdout": "PASS delay_call_single_timing_owner (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "static_void_unknown_arity_zero_output",
+          "status": "PASS",
+          "assertions": 52,
+          "stdout": "PASS static_void_unknown_arity_zero_output (52 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "runtime_void_no_stale_return",
+          "status": "PASS",
+          "assertions": 19,
+          "stdout": "PASS runtime_void_no_stale_return (19 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "depth_limit_cycles_and_frames",
+          "status": "PASS",
+          "assertions": 32,
+          "stdout": "PASS depth_limit_cycles_and_frames (32 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "arithmetic_results_and_source_mapping",
+          "status": "PASS",
+          "assertions": 31,
+          "stdout": "PASS arithmetic_results_and_source_mapping (31 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "cancellation_stop_suspended_and_restart",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS cancellation_stop_suspended_and_restart (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "retry_failure_timeout_and_budget_during_call",
+          "status": "PASS",
+          "assertions": 26,
+          "stdout": "PASS retry_failure_timeout_and_budget_during_call (26 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "bounded_work_cooperative_and_reentrant",
+          "status": "PASS",
+          "assertions": 27,
+          "stdout": "PASS bounded_work_cooperative_and_reentrant (27 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "expression_function_token_limits",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS expression_function_token_limits (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "operators_with_function_operands",
+          "status": "PASS",
+          "assertions": 144,
+          "stdout": "PASS operators_with_function_operands (144 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "standalone_inside_value_call_no_leak",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS standalone_inside_value_call_no_leak (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "cancel_called_delay_and_restart_same_program",
+          "status": "PASS",
+          "assertions": 17,
+          "stdout": "PASS cancel_called_delay_and_restart_same_program (17 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "static_invalid_inactive_and_void_control_flow",
+          "status": "PASS",
+          "assertions": 18,
+          "stdout": "PASS static_invalid_inactive_and_void_control_flow (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "define_call_and_mixed_function_control",
+          "status": "PASS",
+          "assertions": 10,
+          "stdout": "PASS define_call_and_mixed_function_control (10 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "suspended_clock_timeout_and_sink_exception",
+          "status": "PASS",
+          "assertions": 14,
+          "stdout": "PASS suspended_clock_timeout_and_sink_exception (14 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "static_truth_facts_preserve_eager_calls",
+          "status": "PASS",
+          "assertions": 18,
+          "stdout": "PASS static_truth_facts_preserve_eager_calls (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "no_heap_multiple_continuations",
+          "status": "PASS",
+          "assertions": 5,
+          "stdout": "PASS no_heap_multiple_continuations (5 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 23,
+        "FAIL": 0
+      },
+      "assertions": 526,
+      "sanitizers": "ASan/UBSan and leak detection enabled",
+      "hardware_access": false,
+      "scope": "Stage28A focused continuations only; Stage27B regression results separate",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-DPREVIEW_CALL_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28a/fixtures\"",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28a/test_calls.cpp",
+        "-o",
+        "/workspace/tooling/stage28a-fixture-tests/preview-tests"
+      ]
+    },
+    "fresh_stage27b_regressions": {
+      "results": [
+        {
+          "name": "harmless_fixture_files",
+          "status": "PASS",
+          "assertions": 13,
+          "stdout": "PASS harmless_fixture_files (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "empty_comments",
+          "status": "PASS",
+          "assertions": 30,
+          "stdout": "PASS empty_comments (30 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "line_endings_whitespace",
+          "status": "PASS",
+          "assertions": 24,
+          "stdout": "PASS line_endings_whitespace (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "all_numeric_operators",
+          "status": "PASS",
+          "assertions": 168,
+          "stdout": "PASS all_numeric_operators (168 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "precedence_and_grouping",
+          "status": "PASS",
+          "assertions": 88,
+          "stdout": "PASS precedence_and_grouping (88 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "variables_global_redeclaration",
+          "status": "PASS",
+          "assertions": 43,
+          "stdout": "PASS variables_global_redeclaration (43 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "constants_replacement",
+          "status": "PASS",
+          "assertions": 48,
+          "stdout": "PASS constants_replacement (48 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "if_else_chains",
+          "status": "PASS",
+          "assertions": 30,
+          "stdout": "PASS if_else_chains (30 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "while_and_mixed_flow",
+          "status": "PASS",
+          "assertions": 16,
+          "stdout": "PASS while_and_mixed_flow (16 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "inactive_side_effects",
+          "status": "PASS",
+          "assertions": 8,
+          "stdout": "PASS inactive_side_effects (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "functions_and_returns",
+          "status": "PASS",
+          "assertions": 29,
+          "stdout": "PASS functions_and_returns (29 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "named_key_event_order",
+          "status": "PASS",
+          "assertions": 18,
+          "stdout": "PASS named_key_event_order (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "delay_clock_and_wrap",
+          "status": "PASS",
+          "assertions": 13,
+          "stdout": "PASS delay_clock_and_wrap (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "retry_does_not_duplicate",
+          "status": "PASS",
+          "assertions": 9,
+          "stdout": "PASS retry_does_not_duplicate (9 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "cancellation_and_sink_errors",
+          "status": "PASS",
+          "assertions": 32,
+          "stdout": "PASS cancellation_and_sink_errors (32 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "budgets_and_no_progress",
+          "status": "PASS",
+          "assertions": 21,
+          "stdout": "PASS budgets_and_no_progress (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "clean_sessions_and_borrowing",
+          "status": "PASS",
+          "assertions": 24,
+          "stdout": "PASS clean_sessions_and_borrowing (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "reentrant_callbacks",
+          "status": "PASS",
+          "assertions": 10,
+          "stdout": "PASS reentrant_callbacks (10 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "malformed_structure_zero_events",
+          "status": "PASS",
+          "assertions": 64,
+          "stdout": "PASS malformed_structure_zero_events (64 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "arithmetic_and_syntax_failures",
+          "status": "PASS",
+          "assertions": 139,
+          "stdout": "PASS arithmetic_and_syntax_failures (139 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "unsupported_explicit_rejection",
+          "status": "PASS",
+          "assertions": 67,
+          "stdout": "PASS unsupported_explicit_rejection (67 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "source_and_table_limits",
+          "status": "PASS",
+          "assertions": 99,
+          "stdout": "PASS source_and_table_limits (99 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "nesting_and_expression_boundaries",
+          "status": "PASS",
+          "assertions": 46,
+          "stdout": "PASS nesting_and_expression_boundaries (46 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "deterministic_source_mutations",
+          "status": "PASS",
+          "assertions": 1500,
+          "stdout": "PASS deterministic_source_mutations (1500 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "name": "no_core_heap_allocations",
+          "status": "PASS",
+          "assertions": 4,
+          "stdout": "PASS no_core_heap_allocations (4 assertions)\n",
+          "stderr": ""
+        }
+      ],
+      "counts": {
+        "PASS": 25,
+        "FAIL": 0
+      },
+      "assertions": 2543,
+      "sanitizers": "ASan/UBSan and leak detection enabled",
+      "hardware_access": false,
+      "scope": "New independent preview only; historical suites not reused",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage27b/test_core.cpp",
+        "-o",
+        "/workspace/tooling/stage28a-verified-regressions/preview-tests"
+      ]
+    }
+  },
+  "pass_count": 48,
+  "fail_count": 0,
+  "assertions": 3069,
+  "sanitizers": "ASan/UBSan and leak detection clean in both executed suites",
+  "hardware_access": false,
+  "physical_parity_proven": false
+}
