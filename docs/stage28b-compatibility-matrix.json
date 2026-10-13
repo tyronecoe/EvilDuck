@@ -1,0 +1,1452 @@
+[
+  {
+    "category": "Keyboard",
+    "syntax": "STRING text / STRINGLN text",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Partial",
+    "behavior": "Single-line ASCII text, CHARACTER events, trailing whitespace omitted; STRINGLN finishes ENTER; no real HID/layout",
+    "evidence": "line_endings_whitespace; named_key_event_order",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING \u2026 END_STRING",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Supported within bounds; formatting edge policy explicit",
+    "behavior": "One instruction, packed arena line spans; strips all leading spaces/tabs, preserves trailing bytes, no ENTER; raw body and bounded DEFINE",
+    "evidence": "Stage28B official_fixture_files, whitespace_preservation, control/function and limit tests",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN \u2026 END_STRINGLN",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Supported within bounds; formatting edge policy explicit",
+    "behavior": "One instruction, per-line ENTER; removes one leading tab only, preserves other bytes; empty block no events, blank body line ENTER",
+    "evidence": "Stage28B fixture, whitespace/blank/ENTER retry/cancel tests",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_BASH \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_BASH \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_BATCH \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_BATCH \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_HTML \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_HTML \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_JAVASCRIPT \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_JAVASCRIPT \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_POWERSHELL \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_POWERSHELL \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_PYTHON \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_PYTHON \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRING_RUBY \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "STRINGLN_RUBY \u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "F1 \u2026 F24",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "UPARROW/DOWNARROW/LEFTARROW/RIGHTARROW (UP/DOWN/LEFT/RIGHT)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Partial",
+    "behavior": "Only UPARROW/DOWNARROW/LEFTARROW/RIGHTARROW (no short aliases)",
+    "evidence": "named_key_event_order",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "PAGEUP/PAGEDOWN/HOME/END",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "INSERT/DELETE/BACKSPACE/TAB/SPACE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Partial",
+    "behavior": "DELETE/BACKSPACE/TAB/SPACE only",
+    "evidence": "named_key_event_order",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "ENTER/ESCAPE/PAUSE/BREAK/PRINTSCREEN",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Partial",
+    "behavior": "ENTER/ESCAPE only",
+    "evidence": "named_key_event_order",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "CAPSLOCK/NUMLOCK/SCROLLLOCK",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "SHIFT key (or modifier-key)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "ALT / OPTION key (or modifier-key)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "CONTROL / CTRL key (or modifier-key)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "WINDOWS / GUI / COMMAND key (or modifier-key)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "Bare letter/number; keypad/named aliases; KEYCODE modifier keys\u2026",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "HOLD key",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "RELEASE key",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "INJECT_MOD [modifier]",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Keyboard",
+    "syntax": "Locale / Unicode",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Comments",
+    "syntax": "REM text",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/rem.md",
+    "preview_status": "Supported in bounded mock core",
+    "behavior": "Exact REM token; comment-only",
+    "evidence": "empty_comments",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Comments",
+    "syntax": "REM_BLOCK [introductory text] \u2026 END_REM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/rem.md",
+    "preview_status": "Partial",
+    "behavior": "REM_BLOCK with no heading or DOCUMENTATION only; exact END_REM",
+    "evidence": "empty_comments",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Variables/constants",
+    "syntax": "VAR $name = expression; $name = expression",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+    "preview_status": "Supported within documented preview bounds",
+    "behavior": "Declarations/assignments consume resumable call values; globals and checked uint16 semantics unchanged",
+    "evidence": "Stage28A assignment_forward_nested_arithmetic; left_to_right_capture_eager_power",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Variables/constants",
+    "syntax": "TRUE / FALSE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+    "preview_status": "Supported in bounded mock core",
+    "behavior": "TRUE1/FALSE0; all nonzero values true",
+    "evidence": "all_numeric_operators",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Variables/constants",
+    "syntax": "DEFINE #LABEL value / DEFINE LABEL value",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/constants.md",
+    "preview_status": "Partial",
+    "behavior": "One-pass operand substitution; no structural expansion; duplicate definitions rejected; bounded nonrecursive text-block expansion after indentation handling",
+    "evidence": "Stage27B constants_replacement; Stage28B forward/constants boundaries and arena tests",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Variables/constants",
+    "syntax": "VAR $x = ($x + 1) (reference \u201caugmented assignment\u201d)",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Supported within bounds",
+    "behavior": "VAR redeclaration evaluates existing global value",
+    "evidence": "variables_global_redeclaration",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "+ - * / % ^",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Partial",
+    "behavior": "All listed operators; checked overflow/domain policy not independently canonical",
+    "evidence": "Stage28A operators_with_function_operands; arithmetic_results_and_source_mapping; fresh Stage27B operator regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "== != < <= > >=",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Supported in bounded mock core",
+    "behavior": "Six numeric comparisons give0/1",
+    "evidence": "Stage28A operators_with_function_operands; arithmetic_results_and_source_mapping; fresh Stage27B operator regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "&& ||",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Partial",
+    "behavior": "AND/OR truth; eager evaluation policy unresolved in reference",
+    "evidence": "Stage28A operators_with_function_operands; arithmetic_results_and_source_mapping; fresh Stage27B operator regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "& | << >>",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Partial",
+    "behavior": "Bitwise AND/OR and shifts0..15; overflowing left shift rejected",
+    "evidence": "Stage28A operators_with_function_operands; arithmetic_results_and_source_mapping; fresh Stage27B operator regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "(expression), decimal, 0xhex",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Partial",
+    "behavior": "Grouping/decimal/hex; unparenthesized precedence is explicit preview policy",
+    "evidence": "Stage28A operators_with_function_operands; arithmetic_results_and_source_mapping; fresh Stage27B operator regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Expressions",
+    "syntax": "Unary ! ~ - + / XOR",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+    "preview_status": "Not established / unsupported",
+    "behavior": "No invented unary/XOR syntax",
+    "evidence": "arithmetic_and_syntax_failures",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Control flow",
+    "syntax": "IF expression THEN \u2026 ELSE IF expression THEN \u2026 ELSE \u2026 END_IF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/conditional-statements.md",
+    "preview_status": "Supported within bounds",
+    "behavior": "Existing IF/ELSE IF plus eligible expression function calls; inactive conditions do not call",
+    "evidence": "Stage28A if_else_if_selected_calls_only; Stage27B regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Control flow",
+    "syntax": "WHILE expression \u2026 END_WHILE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/loops.md",
+    "preview_status": "Supported within bounds",
+    "behavior": "Fresh function conditions each iteration; bounded mixed IF/WHILE/calls",
+    "evidence": "Stage28A while_reevaluation_zero_iteration; Stage27B regressions",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Control flow",
+    "syntax": "FUNCTION NAME() \u2026 END_FUNCTION / NAME()",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+    "preview_status": "Supported within preview bounds; oracle edge parity unresolved",
+    "behavior": "Standalone and numeric expression calls, forward/nested invocation; same eight-frame cap",
+    "evidence": "Stage28A required_fixture; depth_limit_cycles_and_frames; bounded_work_cooperative_and_reentrant",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Control flow",
+    "syntax": "RETURN [integer/boolean expression]",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+    "preview_status": "Supported within bounds; partial static return proof",
+    "behavior": "Integer/Boolean/void returns; resumable return-of-call; static no-value rejection and mixed-path runtime VoidValue",
+    "evidence": "Stage28A return_of_call_and_boolean; runtime_void_no_stale_return; static_void_unknown_arity_zero_output",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Timing/execution",
+    "syntax": "DELAY integer/expression",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/delay.md",
+    "preview_status": "Partial",
+    "behavior": "Function-result uint16 delay; one acceptance-based clock owner; existing time/tick caps",
+    "evidence": "Stage28A delay_call_single_timing_owner",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Timing/execution",
+    "syntax": "DEFAULT_DELAY / DEFAULTDELAY, WAIT, REPEAT / REPLAY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/delay.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Timing/execution",
+    "syntax": "STOP_PAYLOAD",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+    "preview_status": "Supported in bounded mock core",
+    "behavior": "Cancels pending mock work only; no physical ownership exists",
+    "evidence": "cancellation_and_sink_errors",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Timing/execution",
+    "syntax": "RESTART_PAYLOAD",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Timing/execution",
+    "syntax": "RESET",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "ATTACKMODE HID / STORAGE / HID STORAGE / OFF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "VID_xxxx PID_xxxx",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "MAN_name PROD_name SERIAL_name",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "SAVE_ATTACKMODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "RESTORE_ATTACKMODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "WAIT_FOR_BUTTON_PRESS",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/wait_for_button_press.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "BUTTON_DEF \u2026 END_BUTTON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/wait_for_button_press.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "DISABLE_BUTTON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/wait_for_button_press.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "ENABLE_BUTTON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/wait_for_button_press.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "LED_OFF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "LED_R",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "LED_G",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Button/LED",
+    "syntax": "System/injection/storage/exfil/lock LED policies",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/button/led.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_CAPS_CHANGE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_CAPS_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_CAPS_OFF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_NUM_CHANGE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_NUM_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_NUM_OFF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_SCROLL_CHANGE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_SCROLL_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "WAIT_FOR_SCROLL_OFF",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "SAVE_HOST_KEYBOARD_LOCK_STATE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Lock feedback",
+    "syntax": "RESTORE_HOST_KEYBOARD_LOCK_STATE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "VID_RANDOM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "PID_RANDOM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "MAN_RANDOM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "PROD_RANDOM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device configuration",
+    "syntax": "SERIAL_RANDOM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_LOWERCASE_LETTER",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_UPPERCASE_LETTER",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_LETTER",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_NUMBER",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_SPECIAL",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_CHAR",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "RANDOM_CHARACTER",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Randomization",
+    "syntax": "INJECT_VAR $variable",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Storage",
+    "syntax": "WAIT_FOR_STORAGE_ACTIVITY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/storage-activity.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Storage",
+    "syntax": "WAIT_FOR_STORAGE_INACTIVITY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/storage-activity.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Storage",
+    "syntax": "HIDE_PAYLOAD",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-hiding.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Storage",
+    "syntax": "RESTORE_PAYLOAD",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-hiding.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Storage",
+    "syntax": "Keystroke Reflection / $_EXFIL_MODE_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/exfiltration.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "IF_DEFINED_TRUE #LABEL",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "IF_NOT_DEFINED_TRUE #LABEL",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "ELSE_DEFINED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "END_IF_DEFINED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "EXTENSION name \u2026 END_EXTENSION",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "VERSION version",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "OS_DETECT / DETECT_OS() / $_OS",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "TRANSLATE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Preprocessing/extensions",
+    "syntax": "ASCIIDUCK / DUCK()",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device-specific exclusions",
+    "syntax": "MATCH",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Device-specific exclusions",
+    "syntax": "SAVEKEYS",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_BUTTON_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_BUTTON_USER_DEFINED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_BUTTON_PUSH_RECEIVED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_BUTTON_TIMEOUT",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_SYSTEM_LEDS_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_STORAGE_LEDS_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_LED_CONTINUOUS_SHOW_STORAGE_ACTIVITY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_INJECTING_LEDS_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_EXFIL_LEDS_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_LED_SHOW_CAPS",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_LED_SHOW_NUM",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_LED_SHOW_SCROLL",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_CURRENT_VID",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_CURRENT_PID",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_CURRENT_ATTACKMODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_INT",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_MIN",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_MAX",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_SEED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_LOWER_LETTER_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_UPPER_LETTER_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_LETTER_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_NUMBER_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_SPECIAL_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RANDOM_CHAR_KEYCODE",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_JITTER_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_JITTER_MAX",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_CAPSLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_NUMLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_SCROLLLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_SAVED_CAPSLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_SAVED_NUMLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_SAVED_SCROLLLOCK_ON",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_RECEIVED_HOST_LOCK_LED_REPLY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_STORAGE_ACTIVITY_TIMEOUT",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_EXFIL_MODE_ENABLED",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_HOST_CONFIGURATION_REQUEST_COUNT",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Internal variables",
+    "syntax": "$_OS",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "preview_status": "Hardware-dependent / unsupported in preview",
+    "behavior": "No adapter/implementation; never forward to legacy command dispatch",
+    "evidence": "Unsupported rejection path; no per-feature conformance PASS claimed",
+    "source": "No preview implementation",
+    "legacy_firmware_unchanged": true
+  },
+  {
+    "category": "Control flow",
+    "syntax": "NAME() inside numeric expressions / conditions / RETURN / DELAY",
+    "reference": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+    "preview_status": "Supported within bounds; ordering policy explicit",
+    "behavior": "Cooperative postfix continuations; captured earlier operands; no void coercion; eager left-to-right calls; numeric/Boolean only",
+    "evidence": "Stage28A focused test suite and fresh sanitizer run",
+    "source": "language_preview/core.cpp",
+    "legacy_firmware_unchanged": true
+  }
+]

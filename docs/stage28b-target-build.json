@@ -1,0 +1,410 @@
+{
+  "dependency_pin": {
+    "core_version": "3.3.0",
+    "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+  },
+  "verified_patched_core_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+  "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+  "status": "PASS",
+  "scope": "Xtensa target object compilation; not a linked preview firmware or hardware execution",
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "source_sha256": "624434eead12383f7336fd34e41ab8cd7affb6db58837626e4caf4a9744ef0f6",
+  "header_sha256": "b7935962dd8dba79f592e8e57da37ca9885368be324ea8b2b3f5f965feba3457",
+  "metadata_dump_bytes": 32,
+  "object_sha256": "6a7ce01fa3abbd01de0079f3c9c619be969d5490a70bbb8edde9fcc87c0af8f7",
+  "target_sizes": {
+    "Program": 6932,
+    "Runtime": 4872,
+    "Event": 4,
+    "Instruction": 12,
+    "Continuation": 516,
+    "CallFrame": 6,
+    "ExprToken": 6,
+    "TextCursor": 14
+  },
+  "stack_estimates": [
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:6:6:bool ds_preview::{anonymous}::letter(char)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:8:6:bool ds_preview::{anonymous}::ident(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:9:7:char* ds_preview::{anonymous}::left(char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:14:7:char* ds_preview::{anonymous}::argument(char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:10:6:void ds_preview::{anonymous}::right(char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:16:6:bool ds_preview::{anonymous}::functionName(const char*, char (&)[24])",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:12:6:bool ds_preview::{anonymous}::whole(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:13:6:bool ds_preview::{anonymous}::command(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:11:6:bool ds_preview::{anonymous}::exact(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:15:5:int ds_preview::{anonymous}::findName(const char (*)[24], size_t, const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:17:9:uint8_t ds_preview::{anonymous}::key(const char*)",
+      "bytes": 96,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:215:6:int ds_preview::Compiler::fn(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:146:7:bool ds_preview::Compiler::fail(ds_preview::ErrorCode, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:27:13:const char* ds_preview::message(ErrorCode)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:56:7:void ds_preview::Expression::fail(ds_preview::ErrorCode)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:89:8:ds_preview::Expression::Value ds_preview::Expression::apply(const char*, Value, Value)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:57:7:void ds_preview::Expression::next()",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:88:13:static int ds_preview::Expression::precedence(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:114:7:void ds_preview::Expression::emit(ds_preview::ExprKind, uint16_t, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:122:8:ds_preview::Expression::Value ds_preview::Expression::parse(int, unsigned int)",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:136:8:ds_preview::Error ds_preview::Expression::evaluate(uint16_t&, bool*)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:157:7:bool ds_preview::Compiler::skip(char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:164:7:bool ds_preview::Compiler::addSymbol(const char*)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:169:7:bool ds_preview::Compiler::constant(char*)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:177:7:bool ds_preview::Compiler::expand(const char*, char (&)[257])",
+      "bytes": 64,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:187:7:bool ds_preview::Compiler::emit(ds_preview::Op, const char*, uint16_t, uint8_t, uint16_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:194:7:bool ds_preview::Compiler::textLine(char*, unsigned int)",
+      "bytes": 320,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:214:7:bool ds_preview::Compiler::expr(const char*)",
+      "bytes": 112,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:216:7:bool ds_preview::Compiler::push(ds_preview::Op, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:217:7:bool ds_preview::Compiler::condition(char*, char (&)[257], bool)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:221:7:bool ds_preview::Compiler::statement(char*)",
+      "bytes": 336,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:276:17:ds_preview::Compiler::valueInventory()::<lambda(uint16_t)>",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:273:7:bool ds_preview::Compiler::valueInventory()",
+      "bytes": 544,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:300:7:bool ds_preview::Compiler::compile()",
+      "bytes": 448,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:324:6:bool ds_preview::Program::compile(const char*, size_t, const char*)",
+      "bytes": 1600,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:333:6:void ds_preview::Runtime::releaseProgram()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:345:6:bool ds_preview::Runtime::variable(const char*, uint16_t&) const",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:346:6:void ds_preview::Runtime::clearContinuations()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:334:6:void ds_preview::Runtime::fail(ds_preview::ErrorCode, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:335:6:bool ds_preview::Runtime::start(const ds_preview::Program&, ds_preview::Sink, void*, uint32_t, uint32_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:344:6:void ds_preview::Runtime::cancel()",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:347:6:void ds_preview::Runtime::enterCall(uint8_t, bool, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:353:6:void ds_preview::Runtime::returnFromCall(bool, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:380:6:void ds_preview::Runtime::deliver(uint32_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:421:6:void ds_preview::Runtime::completeInstruction(uint32_t, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:363:6:void ds_preview::Runtime::evaluationStep(uint32_t)",
+      "bytes": 144,
+      "qualifier": "static"
+    },
+    {
+      "symbol": "/workspace/EvilDuck-stage6/language_preview/core.cpp:389:6:void ds_preview::Runtime::tick(uint32_t)",
+      "bytes": 112,
+      "qualifier": "static"
+    }
+  ],
+  "section_sizes": "/workspace/tooling/stage28b-delivery-target/core.o  :\nsection                                                                                     size   addr\n.group                                                                                        52      0\n.group                                                                                        20      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        20      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        20      0\n.literal._ZN10ds_preview12_GLOBAL__N_15identEPKc                                               8      0\n.literal._ZN10ds_preview12_GLOBAL__N_15rightEPc                                                4      0\n.literal._ZN10ds_preview12_GLOBAL__N_112functionNameEPKcRA24_c                                12      0\n.literal._ZN10ds_preview8Compiler8textLineEPcj                                                76      0\n.literal._ZN10ds_preview12_GLOBAL__N_17commandEPKcS2_                                          8      0\n.literal._ZN10ds_preview12_GLOBAL__N_15exactEPKcS2_                                            4      0\n.literal._ZN10ds_preview12_GLOBAL__N_18findNameEPA24_KcjPS1_                                   4      0\n.literal._ZN10ds_preview12_GLOBAL__N_13keyEPKc                                                28      0\n.literal._ZN10ds_preview8Compiler2fnEPKc$isra$0                                                4      0\n.literal._ZN10ds_preview7messageENS_9ErrorCodeE                                              132      0\n.literal._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0                          168      0\n.literal._ZN10ds_preview10Expression4nextEv                                                   64      0\n.literal._ZN10ds_preview10Expression10precedenceEPKc                                         136      0\n.literal._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                      4      0\n.literal._ZN10ds_preview10Expression5parseEij                                                 80      0\n.literal._ZN10ds_preview10Expression8evaluateERtPb                                            12      0\n.literal._ZN10ds_preview8Compiler4skipEPc                                                     44      0\n.literal._ZN10ds_preview8Compiler9addSymbolEPKc                                               20      0\n.literal._ZN10ds_preview8Compiler8constantEPc                                                 36      0\n.literal._ZN10ds_preview8Compiler6expandEPKcRA257_c                                           20      0\n.literal._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                          12      0\n.literal._ZN10ds_preview8Compiler4exprEPKc                                                    20      0\n.literal._ZN10ds_preview8Compiler4pushENS_2OpEt                                                4      0\n.literal._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                        32      0\n.literal._ZN10ds_preview8Compiler9statementEPc                                               328      0\n.literal._ZN10ds_preview8Compiler14valueInventoryEv                                           60      0\n.literal._ZN10ds_preview8Compiler7compileEv                                                  152      0\n.literal._ZN10ds_preview7Program7compileEPKcjS2_                                              28      0\n.literal._ZNK10ds_preview7Runtime8variableEPKcRt                                               4      0\n.literal._ZN10ds_preview7Runtime4failENS_9ErrorCodeEt                                         12      0\n.literal._ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_mmm       20      0\n.literal._ZN10ds_preview7Runtime6cancelEv                                                     12      0\n.literal._ZN10ds_preview7Runtime9enterCallEhbt                                                 4      0\n.literal._ZN10ds_preview7Runtime14returnFromCallEbt                                            4      0\n.literal._ZN10ds_preview7Runtime7deliverEm                                                    16      0\n.literal._ZN10ds_preview7Runtime19completeInstructionEmt                                      32      0\n.literal._ZN10ds_preview7Runtime14evaluationStepEm                                            36      0\n.literal._ZN10ds_preview7Runtime4tickEm                                                       64      0\n.text                                                                                          0      0\n.data                                                                                          0      0\n.bss                                                                                           0      0\n.text._ZN10ds_preview12_GLOBAL__N_16letterEc                                                  42      0\n.text._ZN10ds_preview12_GLOBAL__N_15identEPKc                                                 59      0\n.text._ZN10ds_preview12_GLOBAL__N_14leftEPc                                                   34      0\n.text._ZN10ds_preview12_GLOBAL__N_18argumentEPc                                               28      0\n.text._ZN10ds_preview12_GLOBAL__N_15rightEPc                                                  56      0\n.text._ZN10ds_preview12_GLOBAL__N_112functionNameEPKcRA24_c                                   78      0\n.text._ZN10ds_preview12_GLOBAL__N_15wholeEPKcS2_                                             101      0\n.text._ZN10ds_preview12_GLOBAL__N_17commandEPKcS2_                                            63      0\n.text._ZN10ds_preview12_GLOBAL__N_15exactEPKcS2_                                              21      0\n.text._ZN10ds_preview12_GLOBAL__N_18findNameEPA24_KcjPS1_                                     38      0\n.rodata._ZN10ds_preview12_GLOBAL__N_13keyEPKc.str1.1                                          90      0\n.rodata                                                                                      140      0\n.text._ZN10ds_preview12_GLOBAL__N_13keyEPKc                                                  110      0\n.text._ZN10ds_preview8Compiler2fnEPKc$isra$0                                                  47      0\n.text._ZN10ds_preview8Compiler4failENS_9ErrorCodeEt$isra$0                                    30      0\n.rodata._ZN10ds_preview7messageENS_9ErrorCodeE.str1.1                                       1114      0\n.text._ZN10ds_preview7messageENS_9ErrorCodeE                                                 287      0\n.text._ZN10ds_preview10Expression4failENS_9ErrorCodeE                                         22      0\n.rodata._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0.str1.1                     44      0\n.text._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0                             611      0\n.rodata._ZN10ds_preview10Expression4nextEv.str1.1                                             28      0\n.text._ZN10ds_preview10Expression4nextEv                                                     733      0\n.text._ZN10ds_preview10Expression10precedenceEPKc                                            268      0\n.text._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                        73      0\n.text._ZN10ds_preview10Expression5parseEij                                                   406      0\n.text._ZN10ds_preview10Expression8evaluateERtPb                                              108      0\n.rodata._ZN10ds_preview8Compiler4skipEPc.str1.1                                               36      0\n.text._ZN10ds_preview8Compiler4skipEPc                                                       126      0\n.text._ZN10ds_preview8Compiler9addSymbolEPKc                                                 127      0\n.text._ZN10ds_preview8Compiler8constantEPc                                                   233      0\n.text._ZN10ds_preview8Compiler6expandEPKcRA257_c                                             237      0\n.text._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                            220      0\n.rodata._ZN10ds_preview8Compiler8textLineEPcj.str1.1                                          40      0\n.text._ZN10ds_preview8Compiler8textLineEPcj                                                  359      0\n.text._ZN10ds_preview8Compiler4exprEPKc                                                      142      0\n.text._ZN10ds_preview8Compiler4pushENS_2OpEt                                                  76      0\n.rodata._ZN10ds_preview8Compiler9conditionEPcRA257_cb.str1.1                                   5      0\n.text._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                          138      0\n.rodata._ZN10ds_preview8Compiler9statementEPc.str1.1                                          91      0\n.text._ZN10ds_preview8Compiler9statementEPc                                                 1624      0\n.text._ZZN10ds_preview8Compiler14valueInventoryEvENKUltE_clEt                                 52      0\n.text._ZN10ds_preview8Compiler14valueInventoryEv                                             704      0\n.rodata._ZN10ds_preview8Compiler7compileEv.str1.1                                             52      0\n.text._ZN10ds_preview8Compiler7compileEv                                                     975      0\n.text._ZN10ds_preview7Program7compileEPKcjS2_                                                285      0\n.text._ZN10ds_preview7Runtime14releaseProgramEv                                               31      0\n.text._ZNK10ds_preview7Runtime8variableEPKcRt                                                 83      0\n.text._ZN10ds_preview7Runtime18clearContinuationsEv                                           42      0\n.text._ZN10ds_preview7Runtime4failENS_9ErrorCodeEt                                           140      0\n.text._ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_mmm         264      0\n.text._ZN10ds_preview7Runtime6cancelEv                                                        78      0\n.text._ZN10ds_preview7Runtime9enterCallEhbt                                                  140      0\n.text._ZN10ds_preview7Runtime14returnFromCallEbt                                             164      0\n.text._ZN10ds_preview7Runtime7deliverEm                                                      213      0\n.gcc_except_table._ZN10ds_preview7Runtime7deliverEm                                           24      0\n.text._ZN10ds_preview7Runtime19completeInstructionEmt                                        395      0\n.text._ZN10ds_preview7Runtime14evaluationStepEm                                              482      0\n.text._ZN10ds_preview7Runtime4tickEm                                                         764      0\n.gcc_except_table._ZN10ds_preview7Runtime4tickEm                                              15      0\n.rodata._ZZN10ds_preview10Expression10binaryNameEtE5names                                     72      0\n.debug_frame                                                                                1144      0\n.eh_frame                                                                                    144      0\n.debug_info                                                                                24367      0\n.debug_abbrev                                                                               2546      0\n.debug_loc                                                                                 13144      0\n.debug_aranges                                                                               400      0\n.debug_ranges                                                                               2416      0\n.debug_line                                                                                34719      0\n.debug_str                                                                                  6658      0\n.comment                                                                                      48      0\n.xtensa.info                                                                                  56      0\n.xt.lit                                                                                      168      0\n.xt.lit._ZN10ds_preview8Compiler8textLineEPcj                                                  8      0\n.xt.lit._ZN10ds_preview10Expression4nextEv                                                     8      0\n.xt.lit._ZN10ds_preview10Expression10precedenceEPKc                                            8      0\n.xt.lit._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                       8      0\n.xt.lit._ZN10ds_preview10Expression5parseEij                                                   8      0\n.xt.lit._ZN10ds_preview10Expression8evaluateERtPb                                              8      0\n.xt.lit._ZN10ds_preview8Compiler4skipEPc                                                       8      0\n.xt.lit._ZN10ds_preview8Compiler9addSymbolEPKc                                                 8      0\n.xt.lit._ZN10ds_preview8Compiler8constantEPc                                                   8      0\n.xt.lit._ZN10ds_preview8Compiler6expandEPKcRA257_c                                             8      0\n.xt.lit._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                            8      0\n.xt.lit._ZN10ds_preview8Compiler4exprEPKc                                                      8      0\n.xt.lit._ZN10ds_preview8Compiler4pushENS_2OpEt                                                 8      0\n.xt.lit._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                          8      0\n.xt.lit._ZN10ds_preview8Compiler9statementEPc                                                  8      0\n.xt.lit._ZN10ds_preview8Compiler14valueInventoryEv                                             8      0\n.xt.lit._ZN10ds_preview8Compiler7compileEv                                                     8      0\n.xt.prop                                                                                    3972      0\n.xt.prop._ZN10ds_preview8Compiler8textLineEPcj                                               216      0\n.xt.prop._ZN10ds_preview10Expression4nextEv                                                  660      0\n.xt.prop._ZN10ds_preview10Expression10precedenceEPKc                                          60      0\n.xt.prop._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                     84      0\n.xt.prop._ZN10ds_preview10Expression5parseEij                                                240      0\n.xt.prop._ZN10ds_preview10Expression8evaluateERtPb                                            84      0\n.xt.prop._ZN10ds_preview8Compiler4skipEPc                                                    132      0\n.xt.prop._ZN10ds_preview8Compiler9addSymbolEPKc                                              120      0\n.xt.prop._ZN10ds_preview8Compiler8constantEPc                                                156      0\n.xt.prop._ZN10ds_preview8Compiler6expandEPKcRA257_c                                          192      0\n.xt.prop._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                          96      0\n.xt.prop._ZN10ds_preview8Compiler4exprEPKc                                                    60      0\n.xt.prop._ZN10ds_preview8Compiler4pushENS_2OpEt                                               72      0\n.xt.prop._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                        96      0\n.xt.prop._ZN10ds_preview8Compiler9statementEPc                                               780      0\n.xt.prop._ZN10ds_preview8Compiler14valueInventoryEv                                          288      0\n.xt.prop._ZN10ds_preview8Compiler7compileEv                                                  672      0\n.xt.prop._ZN10ds_preview12_GLOBAL__N_15wholeEPKcS2_                                           96      0\n.xt.prop._ZN10ds_preview10Expression4failENS_9ErrorCodeE                                      36      0\n.xt.prop._ZZN10ds_preview8Compiler14valueInventoryEvENKUltE_clEt                              36      0\n.xt.prop._ZZN10ds_preview10Expression10binaryNameEtE5names                                    12      0\nTotal                                                                                     109558\n\n\n",
+  "undefined_symbols": "         U _Unwind_Resume\n         U __cxa_begin_catch\n         U __cxa_end_catch\n         U __gxx_personality_v0\n         U __stack_chk_fail\n         U __stack_chk_guard\n         U memcpy\n         U memset\n         U strchr\n         U strcmp\n         U strcpy\n         U strlen\n         U strncmp\n",
+  "commands": [
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28b-delivery-target/core.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "/workspace/tooling/stage28b-delivery-target/sizes.cpp",
+      "-o",
+      "/workspace/tooling/stage28b-delivery-target/sizes.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ]
+  ],
+  "production_firmware_changed": false,
+  "flash_authorized": false,
+  "selected_sections": {
+    "text": 11309,
+    "literal": 1704,
+    "rodata": 1712,
+    "data": 0,
+    "bss": 0
+  }
+}

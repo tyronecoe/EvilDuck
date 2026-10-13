@@ -9,6 +9,7 @@ bool ident(const char* s){if(!letter(*s))return false;for(++s;*s;++s)if(!letter(
 char* left(char* p){while(white(*p))++p;return p;}
 void right(char* p){size_t n=strlen(p);while(n&&white(p[n-1]))p[--n]=0;}
 bool exact(const char* p,const char* word){return strcmp(p,word)==0;}
+bool whole(const char* p,const char* word){while(white(*p))++p;size_t n=strlen(word);if(strncmp(p,word,n))return false;p+=n;while(white(*p))++p;return !*p;}
 bool command(const char* p,const char* word){size_t n=strlen(word);return strncmp(p,word,n)==0&&(p[n]==0||white(p[n]));}
 char* argument(char* p){while(*p&&!white(*p))++p;return *p?p+1:p;}
 int findName(const char names[][24],size_t n,const char* name){for(size_t i=0;i<n;++i)if(exact(names[i],name))return static_cast<int>(i);return -1;}
@@ -19,7 +20,7 @@ uint8_t key(const char* p){
  for(size_t i=0;i<10;++i)if(exact(p,names[i]))return codes[i];return 0;
 }
 bool reserved(const char* p){
- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR"};
+ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR"};
  if(key(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
 }
 }
@@ -141,7 +142,7 @@ public:
 class Compiler {
  struct Constant{char name[24]={},value[64]={};};Constant constants_[MaxConstants]{};size_t constantsCount_=0;
  struct Block{Op kind;uint16_t start,lastFalse;bool otherwise=false;};Block blocks_[MaxNesting]{};size_t depth_=0;
- Program& p_;const char* source_;size_t bytes_;uint16_t line_=0;bool comment_=false;
+ Program& p_;const char* source_;size_t bytes_;uint16_t line_=0;bool comment_=false;uint8_t textMode_=0;uint16_t textInstruction_=0,textOpening_=0;
  bool fail(ErrorCode c,uint16_t column=1){if(p_.error_.code==ErrorCode::None)p_.error_={c,line_,column};return false;}
  bool read(size_t& offset,char (&line)[MaxLine+1]){
   size_t n=0;++line_;
@@ -188,6 +189,27 @@ class Compiler {
   if(p_.used_+n+1>MaxText)return fail(ErrorCode::TextLimit);
   Instruction& ins=p_.code_[p_.count_++];ins={line_,p_.used_,static_cast<uint16_t>(n),target,owner,op,symbol};
   memcpy(p_.text_+p_.used_,arg,n+1);p_.used_+=static_cast<uint16_t>(n+1);return true;
+ }
+ // Blocks use one IR instruction and checked, byte-addressed arena records.
+ bool textLine(char* raw,unsigned pass){
+  const char* close=textMode_==1?"END_STRING":"END_STRINGLN";
+  if(whole(raw,close)){if(pass)p_.code_[textInstruction_].length=p_.used_-p_.code_[textInstruction_].offset;textMode_=0;return true;}
+  char* trimmed=left(raw);
+  if(command(trimmed,"END_STRING")||command(trimmed,"END_STRINGLN")||whole(raw,"STRING")||whole(raw,"STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(trimmed-raw+1));
+  if(!pass)return true;
+  const char* content=textMode_==1?trimmed:(raw[0]=='\t'?raw+1:raw);
+  char expanded[MaxLine+1]={};if(!expand(content,expanded))return false;
+  size_t length=strlen(expanded),required=4+length;
+  if(required>MaxText-p_.used_)return fail(ErrorCode::TextLimit);
+  char* record=p_.text_+p_.used_;record[0]=static_cast<char>(line_&255);record[1]=static_cast<char>(line_>>8);
+  record[2]=static_cast<char>(length&255);record[3]=static_cast<char>(length>>8);memcpy(record+4,expanded,length);
+  p_.used_+=static_cast<uint16_t>(required);return true;
+ }
+ bool openText(const char* text,unsigned pass){
+  textMode_=exact(text,"STRING")?1:2;textOpening_=line_;
+  if(pass){if(p_.count_==MaxCode)return fail(ErrorCode::CodeLimit);textInstruction_=p_.count_++;
+   p_.code_[textInstruction_]={line_,p_.used_,0,0,0,textMode_==1?Op::TextBlock:Op::TextLnBlock,0};}
+  return true;
  }
  bool expr(const char* arg){uint16_t ignored;Error e=Expression(p_,nullptr,arg).evaluate(ignored);return e.code==ErrorCode::None||fail(e.code,e.column);}
  int fn(const char* name){for(size_t i=0;i<p_.functionsCount_;++i)if(exact(name,p_.functions_[i].name))return static_cast<int>(i);return -1;}
@@ -279,8 +301,12 @@ public:
   if(bytes_>MaxSource)return fail(ErrorCode::InputLimit);if(bytes_&&!source_)return fail(ErrorCode::InvalidSource);
   size_t begin=0;if(bytes_>=3&&static_cast<unsigned char>(source_[0])==0xef&&static_cast<unsigned char>(source_[1])==0xbb&&static_cast<unsigned char>(source_[2])==0xbf)begin=3;
   char raw[MaxLine+1]={};
-  for(unsigned pass=0;pass<2;++pass){line_=0;comment_=false;
-   size_t offset=begin;while(offset<bytes_){if(!read(offset,raw))return false;char* text=left(raw);right(text);
+  for(unsigned pass=0;pass<2;++pass){line_=0;comment_=false;textMode_=0;
+   size_t offset=begin;while(offset<bytes_){if(!read(offset,raw))return false;
+    if(textMode_){if(!textLine(raw,pass))return false;continue;}
+    char* text=left(raw);right(text);
+    if(!comment_&&(exact(text,"STRING")||exact(text,"STRINGLN"))){if(!openText(text,pass))return false;continue;}
+    if(!comment_&&(command(text,"END_STRING")||command(text,"END_STRINGLN")))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw+1));
     if(pass==0){if(!*text||skip(text)){if(p_.error_.code!=ErrorCode::None)return false;continue;}
      if(command(text,"DEFINE")){if(!constant(text))return false;}
      else if(command(text,"VAR")){char* name=left(argument(text));char* end=name;while(*end&&!white(*end)&&*end!='=')++end;*end=0;if(!addSymbol(name))return false;}
@@ -290,7 +316,7 @@ public:
      }
     }else if(!statement(text))return false;
    }
-   if(comment_)return fail(ErrorCode::Structure);
+   if(textMode_){line_=textOpening_;return fail(ErrorCode::Structure);}if(comment_)return fail(ErrorCode::Structure);
   }
   if(depth_)return fail(ErrorCode::Structure);if(!valueInventory())return false;p_.ready_=true;return true;
  }
@@ -305,9 +331,9 @@ bool Program::compile(const char* source,size_t bytes,const char* location){
  Compiler compiler(*this,source,bytes);return compiler.compile();
 }
 void Runtime::releaseProgram(){if(ownsProgram_&&program_)program_->borrowed_=false;ownsProgram_=false;}
-void Runtime::fail(ErrorCode code,uint16_t column){error_={code,program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=false;depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
+void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
 bool Runtime::start(const Program& p,Sink sink,void* context,uint32_t now,uint32_t steps,uint32_t elapsed){
- if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=false;steps_=0;error_={};hasReturn_=false;lastReturn_=0;
+ if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=false;steps_=0;block_=TextCursor{};error_={};hasReturn_=false;lastReturn_=0;
  memset(values_,0,sizeof(values_));memset(initialized_,0,sizeof(initialized_));for(auto& call:calls_)call=CallFrame{};clearContinuations();started_=now;ticks_=0;stepLimit_=steps;elapsedLimit_=elapsed;
  if(!p.ready_){fail(ErrorCode::NotCompiled);return false;}
  if(!sink){fail(ErrorCode::SinkFailure);return false;}
@@ -315,7 +341,7 @@ bool Runtime::start(const Program& p,Sink sink,void* context,uint32_t now,uint32
  if(p.borrowed_){fail(ErrorCode::Busy);return false;}p.borrowed_=true;ownsProgram_=true;
  state_=State::Running;return true;
 }
-void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=false;depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
+void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
 bool Runtime::variable(const char* name,uint16_t& out)const{if(!program_||programRevision_!=program_->revision_||!name)return false;int id=findName(program_->names_,program_->symbols_,name);if(id<0||!initialized_[id])return false;out=values_[id];return true;}
 void Runtime::clearContinuations(){for(auto& frame:evaluations_)frame.clear();}
 void Runtime::enterCall(uint8_t function,bool needsValue,uint16_t column){
@@ -356,6 +382,7 @@ void Runtime::deliver(uint32_t now){
  try{accepted=sink_(context_,event_);}catch(...){if(state_==State::Running)fail(ErrorCode::SinkFailure);return;}
  if(state_!=State::Running)return;if(accepted==Accept::Retry)return;if(accepted!=Accept::Accepted){fail(ErrorCode::SinkFailure);return;}pending_=false;
  if(event_.type==EventType::Delay){delayAt_=now;delayed_=true;}
+ else if(block_.active){if(block_.position<block_.length)++block_.position;else{block_.next=block_.offset+block_.length;block_.loaded=false;}}
  else if(typing_){const Instruction& ins=program_->code_[pc_];if(textPos_<ins.length)++textPos_;else{typing_=false;++pc_;}}
  else ++pc_;
 }
@@ -366,6 +393,20 @@ void Runtime::tick(uint32_t now){
  if(uint32_t(now-started_)>=elapsedLimit_){fail(ErrorCode::Timeout);return;}
  if(pending_){deliver(now);return;}
  if(delayed_){if(uint32_t(now-delayAt_)<event_.value)return;delayed_=false;++pc_;return;}
+ if(block_.active){
+  if(!block_.loaded){
+   if(block_.next==block_.end){block_=TextCursor{};++pc_;return;}
+   if(block_.next>block_.end||block_.end>program_->used_||block_.end-block_.next<4){fail(ErrorCode::Structure);return;}
+   const unsigned char* record=reinterpret_cast<const unsigned char*>(program_->text_+block_.next);
+   block_.line=static_cast<uint16_t>(record[0]|uint16_t(record[1])<<8);block_.length=static_cast<uint16_t>(record[2]|uint16_t(record[3])<<8);
+   block_.offset=block_.next+4;
+   if(block_.length>MaxLine||block_.length>block_.end-block_.offset){fail(ErrorCode::Structure);return;}
+   block_.position=0;block_.loaded=true;return;
+  }
+  if(block_.position<block_.length){event_={EventType::Character,static_cast<uint8_t>(program_->text_[block_.offset+block_.position])};pending_=true;deliver(now);return;}
+  if(program_->code_[pc_].op==Op::TextLnBlock){event_={EventType::KeyTap,0x28};pending_=true;deliver(now);return;}
+  block_.next=block_.offset+block_.length;block_.loaded=false;return;
+ }
  if(typing_){const Instruction& ins=program_->code_[pc_];if(textPos_<ins.length){event_={EventType::Character,static_cast<uint8_t>(program_->text_[ins.offset+textPos_])};pending_=true;deliver(now);return;}
   if(enter_){event_={EventType::KeyTap,0x28};pending_=true;deliver(now);return;}typing_=false;++pc_;return;}
  if(evaluations_[depth_].active){evaluationStep(now);return;}
@@ -382,6 +423,9 @@ void Runtime::completeInstruction(uint32_t now,uint16_t value){
  switch(ins.op){
  case Op::Set:if(!ins.target&&!initialized_[ins.symbol]){fail(ErrorCode::Uninitialized);return;}values_[ins.symbol]=value;initialized_[ins.symbol]=true;++pc_;break;
  case Op::Text:case Op::TextLn:typing_=true;enter_=ins.op==Op::TextLn;textPos_=0;break;
+ case Op::TextBlock:case Op::TextLnBlock:
+  if(ins.offset>program_->used_||ins.length>program_->used_-ins.offset){fail(ErrorCode::Structure);return;}
+  block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
  case Op::Key:event_={EventType::KeyTap,ins.target};pending_=true;deliver(now);break;
  case Op::If:pc_=value?pc_+1:ins.target;break;

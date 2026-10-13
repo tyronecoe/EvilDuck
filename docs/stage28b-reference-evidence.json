@@ -1,0 +1,105 @@
+{
+  "primary_requested_url": "https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference",
+  "current_retrieval": "No new network retrieval in Stage28B; Stage27B retrieval was HTTP403; saved official snapshots rechecked, no latest-content claim",
+  "saved_official_reference_records": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+      "snapshot": "duckyscript-tm-quick-reference.md",
+      "bytes": 40486,
+      "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+      "retrieved_utc": "2026-10-11T18:01:06.298030+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/rem.md",
+      "snapshot": "ducky-script-basics__rem.md",
+      "bytes": 5774,
+      "sha256": "24201856dc7dec9ff3d00223a43d49082bc4d1963ae539ade705439d5f775558",
+      "retrieved_utc": "2026-10-11T18:01:07.404478+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/delay.md",
+      "snapshot": "ducky-script-basics__delay.md",
+      "bytes": 3656,
+      "sha256": "f2b9f78f1d7161ac31f4b09bbbf1caf2be78858f676cc8fdd91408913f970435",
+      "retrieved_utc": "2026-10-11T18:01:06.627816+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/constants.md",
+      "snapshot": "attack-modes-constants-and-variables__constants.md",
+      "bytes": 11150,
+      "sha256": "26362406a2a196e91ca82af494c50c9d45315cfe021925a8a8c9654adfa35869",
+      "retrieved_utc": "2026-10-11T18:01:06.992448+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+      "snapshot": "attack-modes-constants-and-variables__variables.md",
+      "bytes": 4358,
+      "sha256": "46a9c7de2faba3776a129081f7cd21995b30853466beb8567948dad523332b02",
+      "retrieved_utc": "2026-10-11T18:01:07.244496+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/operators.md",
+      "snapshot": "operators-conditions-loops-and-functions__operators.md",
+      "bytes": 8108,
+      "sha256": "9bda28fc9c3e546503f7140e88c45440e8655872a47dbce0aa81b24d16ec8e0b",
+      "retrieved_utc": "2026-10-11T18:01:07.371157+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/conditional-statements.md",
+      "snapshot": "operators-conditions-loops-and-functions__conditional-statements.md",
+      "bytes": 6793,
+      "sha256": "ff8534cb66e8fd0a987e7b65932a9c5ac32a4ee1e0ba95fd6b3a6bbdd38f09f9",
+      "retrieved_utc": "2026-10-11T18:01:07.410742+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/loops.md",
+      "snapshot": "operators-conditions-loops-and-functions__loops.md",
+      "bytes": 5771,
+      "sha256": "57a344a03b83d9077d7d18726f90feb6addde2ffae3b06eb34f3041ebfc98f7d",
+      "retrieved_utc": "2026-10-11T18:01:07.612475+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+      "snapshot": "operators-conditions-loops-and-functions__functions.md",
+      "bytes": 6106,
+      "sha256": "8ec237904c974397ac9e631c1f17668638638ef4025e48106debb1173a38e965",
+      "retrieved_utc": "2026-10-11T18:01:07.775064+00:00",
+      "hash_independently_rechecked": true,
+      "stage28b_hash_independently_rechecked": true
+    }
+  ],
+  "official_runtime_or_compiler_oracle_available": false,
+  "proprietary_compiler_code_used": false,
+  "stage28b_decisions": {
+    "STRING": "Strip all leading ASCII spaces/tabs, ignore line breaks, retain trailing bytes; official leading/newline prose, trailing policy without oracle",
+    "STRINGLN": "Strip exactly one leading tab; spaces and all other bytes preserved; blank body line ENTER, empty block nothing; conservative first-tab policy",
+    "constants": "Existing nonrecursive #anywhere/bare-space boundaries extended to body text after indentation transformation; raw delimiters recognized before expansion",
+    "body": "DEFINE/VAR/FUNCTION/comment/control words literal; no declaration collection or execution",
+    "unsupported": "Numeric variable interpolation, aliases, Unicode, modifiers, locale and hardware adapters remain unsupported"
+  }
+}

@@ -7,6 +7,7 @@ constexpr size_t MaxSource=8192, MaxLine=256, MaxCode=128, MaxText=4096;
 constexpr size_t MaxSymbols=32, MaxFunctions=16, MaxConstants=16;
 constexpr size_t MaxNesting=16, MaxCalls=8, MaxExprTokens=64, MaxExprDepth=16;
 constexpr uint32_t MaxSteps=10000, MaxElapsedMs=30000, MaxTicks=100000;
+static_assert(MaxText<=UINT16_MAX && MaxSource<=UINT16_MAX && MaxCode<=UINT16_MAX, "Preview offset representation bound");
 enum class ErrorCode : uint8_t { None, InputLimit, InvalidSource, LineLimit, CodeLimit,
  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
@@ -14,7 +15,7 @@ enum class ErrorCode : uint8_t { None, InputLimit, InvalidSource, LineLimit, Cod
  ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy };
 struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
 const char* message(ErrorCode code);
-enum class Op : uint8_t { Set, Text, TextLn, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop };
+enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop };
 struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
 struct Function { char name[24]={}; uint16_t entry=0, end=0; };
 enum class ExprKind : uint8_t { Literal, Variable, Call, Binary };
@@ -23,6 +24,10 @@ struct Continuation {
     ExprToken tokens[MaxExprTokens]={}; uint16_t values[MaxExprTokens]={};
     uint8_t length=0, cursor=0, size=0; bool active=false;
     void clear(){length=cursor=size=0;active=false;}
+};
+struct TextCursor {
+    uint16_t next=0, end=0, offset=0, length=0, position=0, line=0;
+    bool active=false, loaded=false;
 };
 struct CallFrame { uint16_t next=0, column=0; bool needsValue=false; };
 class Compiler;
@@ -55,6 +60,7 @@ class Runtime {
     uint16_t values_[MaxSymbols]={}; bool initialized_[MaxSymbols]={};
     CallFrame calls_[MaxCalls]={}; Continuation evaluations_[MaxCalls+1]={}; uint8_t depth_=0;
     uint16_t pc_=0, textPos_=0; bool typing_=false, enter_=false, pending_=false, delayed_=false;
+    TextCursor block_{};
     Event event_{EventType::Character,0}; uint32_t started_=0, delayAt_=0, steps_=0;
     uint32_t stepLimit_=MaxSteps, elapsedLimit_=MaxElapsedMs, ticks_=0, programRevision_=0;
     bool ownsProgram_=false, inTick_=false;
