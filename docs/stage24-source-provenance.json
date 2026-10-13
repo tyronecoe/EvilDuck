@@ -1,0 +1,24 @@
+{
+  "base_commit": "9af270f01d455e0bd282a14449ee941751938b1a",
+  "source_sha256": {
+    "tools/stage24_fresh_images.py": "96a75f86127977be1be25520ecec8ea5389e28d2dc243aef3e59f8b68e8e9aca",
+    "tools/stage24_candidate.py": "a8c9e65eb0c17593566c8bcfc9a71de58e57684c4844ea6504c7329aa65aa87b",
+    "tools/stage24_sdk_scanner.py": "3f97b7bfb7a4f4c68fe83789208015cd4fc372a27d52b21d088f4cdeb968e7a2",
+    "tests/stage24/gate_tests.py": "64ffab88a68c7e6790430bbe70ef85fcf5fe63375629eaf02a9488169ca346ff",
+    "tests/stage24/protection.cpp": "d24d3dc677a745a04e085110d20a8be1fadac66686ce2d2563d75abf08a6d0d5",
+    "tests/stage24/protection_startup.cpp": "1a49bc642b816db5bd4527fc38147206c849611a858468673245a27d2fa59a9d",
+    "tests/stage24/protection_tests.py": "7a8f79e9d003a696c1f38348c87f123bed1386139e8c38c48c95dc089a6fbf85",
+    "tests/stage24/nvs_readonly.cpp": "99fe7228f2b8aa1576385d0cf5834258eeeda16f4661f58bfdb65b44394fd317",
+    "tests/stage24/scanner.cpp": "11f4b5f924331773880c19f624363540ff495cfe4978d6ca9397fa8af5d05928",
+    "tests/stage24/integration_tests.py": "bc085b6cf177cecaa842fbb87c5de966bf90ee25459f262c724d7b81a64554f8",
+    "tests/stage24/fresh_startup.cpp": "de3b481e9de15d4b8ea88b20c1da41f597219d8dbffa953c855062be1ad08573",
+    "tests/stage24/scanner_tests.py": "08689c1ccd9f6209c6c6a3eab70fe29fe85aee927917f1aa4b811790958d214e",
+    "tests/stage24/fresh_tests.py": "35bb3d5f6183ed4e2496b2f11e7ceab917d4b115dcae89df3da796908ee8769f",
+    "tests/stage24/gate_startup.cpp": "765f5592c13eec1360244600db1c633e1a6728d8eed50810a67a7ae48e87d2a4",
+    "tests/stage24/fresh_startup_tests.py": "e7b9c71cd796f1227275c44d0c000ca7c86f60003a34afd3d1a9926e8fb5ee2c",
+    "proposals/esp-idf-5.5-stage24-failclosed-scanner.patch": "11a6e638bef6c47669b85ac303750e95f387b8ca8fd5a328a90be14ffdea4de2"
+  },
+  "production_source_tree_unchanged": true,
+  "production_table_unchanged": true,
+  "hardware_access": false
+}

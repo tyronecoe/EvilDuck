@@ -1,0 +1,17 @@
+{
+  "normal": {
+    "records": 457,
+    "application_core_estimates_unchanged": true,
+    "largest_per_function_bytes": 1184
+  },
+  "safe": {
+    "records": 457,
+    "application_core_estimates_unchanged": true,
+    "largest_per_function_bytes": 1184
+  },
+  "candidate": {
+    "records": 460,
+    "application_core_estimates_unchanged": true,
+    "largest_per_function_bytes": 1184
+  }
+}

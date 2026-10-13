@@ -1,0 +1,48 @@
+# Stage 24 file inventory
+
+All changes are additive; no baseline tracked file is modified.
+
+- `docs/stage24-artifact-inventory.json`
+- `docs/stage24-candidate-build.log`
+- `docs/stage24-candidate-provenance.json`
+- `docs/stage24-candidate-resources.json`
+- `docs/stage24-candidate-stack.json`
+- `docs/stage24-fresh-provisioning.md`
+- `docs/stage24-normal-build.log`
+- `docs/stage24-normal-provenance.json`
+- `docs/stage24-normal-resources.json`
+- `docs/stage24-normal-stack.json`
+- `docs/stage24-readiness.md`
+- `docs/stage24-report.md`
+- `docs/stage24-reproduction.md`
+- `docs/stage24-results.json`
+- `docs/stage24-safe-build.log`
+- `docs/stage24-safe-provenance.json`
+- `docs/stage24-safe-resources.json`
+- `docs/stage24-safe-stack.json`
+- `docs/stage24-scanner-analysis.md`
+- `docs/stage24-sdk-pin.json`
+- `docs/stage24-sdk-rebuild-evidence.json`
+- `docs/stage24-sdk-repeat-evidence.json`
+- `docs/stage24-sdk-stack.json`
+- `docs/stage24-source-provenance.json`
+- `docs/stage24-stack-comparison.json`
+- `docs/stage24-startup-audit.json`
+- `docs/stage24-test-index.md`
+- `proposals/esp-idf-5.5-stage24-failclosed-scanner.patch`
+- `tests/stage24/fresh_startup.cpp`
+- `tests/stage24/fresh_startup_tests.py`
+- `tests/stage24/fresh_tests.py`
+- `tests/stage24/gate_startup.cpp`
+- `tests/stage24/gate_tests.py`
+- `tests/stage24/integration_tests.py`
+- `tests/stage24/nvs_readonly.cpp`
+- `tests/stage24/protection.cpp`
+- `tests/stage24/protection_startup.cpp`
+- `tests/stage24/protection_tests.py`
+- `tests/stage24/scanner.cpp`
+- `tests/stage24/scanner_tests.py`
+- `tools/stage24_candidate.py`
+- `tools/stage24_fresh_images.py`
+- `tools/stage24_sdk_scanner.py`
+- `docs/stage24-files.md`

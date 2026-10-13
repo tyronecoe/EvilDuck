@@ -1,0 +1,31 @@
+--- a/components/esp_partition/partition_target.c
++++ b/components/esp_partition/partition_target.c
+@@ -204,14 +204,28 @@
+ 
+ bool esp_partition_is_flash_region_writable(size_t addr, size_t size)
+ {
++    /* Conservative Boolean policy: NULL cannot distinguish absence from failure.
++     * Reject endpoint overflow before addition, including on wider host tests. */
++    if (addr > UINT32_MAX || size > UINT32_MAX - addr) {
++        return false;
++    }
+     esp_partition_iterator_t it = esp_partition_find(ESP_PARTITION_TYPE_ANY, ESP_PARTITION_SUBTYPE_ANY, NULL);
++    if (it == NULL) {
++        return false;
++    }
+     for (; it != NULL; it = esp_partition_next(it)) {
+         const esp_partition_t *p = esp_partition_get(it);
++        if (p == NULL || p->size == 0 || p->size > UINT32_MAX - p->address) {
++            esp_partition_iterator_release(it);
++            return false;
++        }
+         if (p->readonly) {
+             if (addr >= p->address && addr < p->address + p->size) {
++                esp_partition_iterator_release(it);
+                 return false;
+             }
+             if (addr < p->address && addr + size > p->address) {
++                esp_partition_iterator_release(it);
+                 return false;
+             }
+         }

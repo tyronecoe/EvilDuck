@@ -1,0 +1,17 @@
+{
+  "source_sha256": "5917caadeb7a4a405c72eecbee939fdd153f50c32d9340699623da172f0f58d6",
+  "patched_source_sha256": "6d8e76681b6a60189dcad43676e51e8f8c64fc8dd407a4aa3573452975ba9b29",
+  "patch_sha256": "11a6e638bef6c47669b85ac303750e95f387b8ca8fd5a328a90be14ffdea4de2",
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "original_archive_sha256": "dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d",
+  "patched_archive_sha256": "c0f1b50e79db307b60c6b1b5e71aae1bf468fd46b88b7fd4556e02acb13058e3",
+  "original_target_sha256": "4738bb03150936723b320d05704a13169bc3a9f056af0017d88647a624a8c0dd",
+  "reference_object_sha256": "ce120af6384ef7ab5ab302381eabe494713b4a4423ddbfbd9cdaf02e958726bb",
+  "patched_object_sha256": "9764013cd988c034ec8489e1028822432b519801ce026e0eb9cf46476e4ac96f",
+  "unchanged_member_sha256": "35db02facb2af138c17ad680778278b1983bf286e71baa1b160d0ae0fbca4529",
+  "sdk_tree_sha256": "46b8d05a00881fe538e3ff802c0d9ad374b60c2a171f3e0835882ae6c0c61320",
+  "patched_sdk_tree_sha256": "08ef228bef15e968786fb8301d5db01586eca2b8917699ec9fe3af06aa8a0e5f",
+  "base_commit": "9af270f01d455e0bd282a14449ee941751938b1a",
+  "profile": "experimental-readonly-quiescent-failclosed-scanner",
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING"
+}
