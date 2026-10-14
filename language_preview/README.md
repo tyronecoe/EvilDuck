@@ -42,3 +42,13 @@ and explicit accepted neutral cleanup. It does not consume Runtime events or
 add HOLD/RELEASE parser syntax. mapUS/character use a fixed printable-US ASCII
 model, not locale/Unicode/host text guarantees. See docs/stage28d-design.md.
 No real HID/USB/OS adapter exists. Core compiler/runtime source remains unchanged.
+
+Stage28E adds opt-in ds_bridge::Bridge, owning an independent Runtime and Planner.
+begin/step establishes mock neutral sync; optional Prepared owner setup precedes
+start(program). Each driver step advances one Runtime tick or one planner report
+attempt. A keyboard source event is acknowledged only after its press AND restoration
+finish; next identical events remain distinct. Delay is acknowledged without a report
+and timed by Runtime. cancel clears local intent; explicit drain confirms mock neutral
+before restart. See docs/stage28e-design.md and the host-only Mac smoke recipe.
+Existing core/Sink ABI is untouched. Planner adds only a pure validUsage query.
+No production transport, real HID, firmware image, arming or host control exists here.

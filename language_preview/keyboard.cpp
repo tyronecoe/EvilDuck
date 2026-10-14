@@ -5,6 +5,7 @@ bool Planner::equal(const Report& a,const Report& b){return memcmp(a.bytes,b.byt
 bool Planner::neutral(const Report& r){for(uint8_t b:r.bytes)if(b)return false;return true;}
 bool Planner::neutralConfirmed()const{return known_&&!uncertain_&&neutral(accepted_);}
 bool Planner::ordinary(uint16_t usage){return usage>=4&&usage<=0x73;}
+bool Planner::validUsage(uint16_t usage){return ordinary(usage)||(usage>=0xe0&&usage<=0xe7);}
 bool Planner::reject(Reason r){if(state_!=State::Failed)reason_=r;return false;}
 bool Planner::available(){if(inStep_||state_!=State::Ready)return reject(Reason::Busy);reason_=Reason::None;return true;}
 bool Planner::snapshot(const OwnerTable& table,Report& result,uint8_t key,uint8_t modifiers){

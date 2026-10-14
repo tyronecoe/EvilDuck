@@ -1,0 +1,47 @@
+{
+  "language_status_changes": false,
+  "opt_in_mock_adapter_added": true,
+  "capabilities": [
+    {
+      "feature": "Opt-in Runtime-to-Planner bridge",
+      "status": "Implemented mock-only",
+      "evidence": "Complete-script exact vectors and acknowledgement tests"
+    },
+    {
+      "feature": "Character/KeyTap press plus restoration",
+      "status": "Implemented within existing limits",
+      "evidence": "Ack waits, identical neighbors and long Retry tests"
+    },
+    {
+      "feature": "Delay accepted after preceding actions",
+      "status": "Implemented virtual scheduling",
+      "evidence": "No report for Delay; accepted timestamp/wrap/stalled tests"
+    },
+    {
+      "feature": "Persistent owner setup/restoration",
+      "status": "Prepared internal API only",
+      "evidence": "Shift restore, held-tap/rollover and completion cleanup"
+    },
+    {
+      "feature": "Cancel/STOP/error plus explicit drain",
+      "status": "Implemented mock-only",
+      "evidence": "No fabricated ack, failure snapshots, neutral/restart gate"
+    },
+    {
+      "feature": "HOLD/RELEASE parser commands",
+      "status": "Still unsupported in preview",
+      "evidence": "No grammar or legacy dispatch change"
+    },
+    {
+      "feature": "Unicode/DE/dead keys/host locks",
+      "status": "Still unsupported",
+      "evidence": "Preflight/domain rejection; no approximation"
+    },
+    {
+      "feature": "Real HID/USB/OS/transport or physical release",
+      "status": "Absent/unauthorized",
+      "evidence": "Only opaque memory reports; no hardware operation"
+    }
+  ],
+  "physical_compatibility_claim": false
+}

@@ -44,6 +44,7 @@ public:
  bool releaseRequired()const{return !neutralConfirmed();}
  static bool equal(const Report&,const Report&);
  static bool neutral(const Report&);
+ static bool validUsage(uint16_t usage);
  static bool mapUS(uint16_t ascii,uint8_t& usage,uint8_t& modifiers);
 };
 }
