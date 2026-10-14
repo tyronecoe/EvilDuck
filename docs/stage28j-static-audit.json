@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "baseline": "220970bc633d969e76d1d8c91750b5939377df0a",
+  "historical_files_byte_identical": 1017,
+  "verified_source_spans": 47,
+  "allowed_added_files": [
+    "docs/stage28j-dependencies.md",
+    "docs/stage28j-next-gates.md",
+    "docs/stage28j-owner-decisions.md",
+    "docs/stage28j-publication.json",
+    "docs/stage28j-report-contract.md",
+    "docs/stage28j-report.md",
+    "docs/stage28j-source-evidence.json",
+    "docs/stage28j-source-hashes.json",
+    "docs/stage28j-stage26-freeze.json",
+    "docs/stage28j-static-audit.json",
+    "docs/stage28j-target-build.json",
+    "docs/stage28j-test-results.json",
+    "tests/stage28j/verify_audit.py"
+  ],
+  "proposed_decisions": 10,
+  "empty_owner_acceptance_fields": 10,
+  "specification_only_traces": 18,
+  "runtime_tests": 0,
+  "physical_testing": false,
+  "kind": "Static audit checks, not runtime assertion totals"
+}

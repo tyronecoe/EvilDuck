@@ -1,0 +1,83 @@
+{
+  "algorithm": "SHA-256",
+  "baseline": "220970bc633d969e76d1d8c91750b5939377df0a",
+  "self_excluded": true,
+  "files": {
+    "docs/stage28j-dependencies.md": {
+      "size_bytes": 11016,
+      "sha256": "d95bb53a2a98adc2831c66e7841552cea05d4c5dadc91e19e36e7c1cb05d52ad"
+    },
+    "docs/stage28j-next-gates.md": {
+      "size_bytes": 5797,
+      "sha256": "c4da7a66e301823995910344cdf0c608005824a6dbceb379d5d22ece172b63d0"
+    },
+    "docs/stage28j-owner-decisions.md": {
+      "size_bytes": 9860,
+      "sha256": "b134d25b5e7318a80a3f8a02ea98c80db0580ac0822c867640c8a98f64e46d18"
+    },
+    "docs/stage28j-publication.json": {
+      "size_bytes": 3629,
+      "sha256": "85b5f77d86ab9141200baa1eeabea75c15a94d69458ea77bd2e37fa8cc51c092"
+    },
+    "docs/stage28j-report-contract.md": {
+      "size_bytes": 13185,
+      "sha256": "56da9a46d9780672a5b4fd7a497cd52af2599eec9e22f6fc6e9aa8f442c0ea65"
+    },
+    "docs/stage28j-report.md": {
+      "size_bytes": 10740,
+      "sha256": "b8e57936cddc771cfc30e9f1eb1a70bb5928740e2f63ce5ec09af76955ea81b8"
+    },
+    "docs/stage28j-source-evidence.json": {
+      "size_bytes": 14848,
+      "sha256": "45d61ebd712c29b5dc3f984b93ea0a7dda8c0e43e6a3a6dfd1bc8e126e399d12"
+    },
+    "docs/stage28j-stage26-freeze.json": {
+      "size_bytes": 40054,
+      "sha256": "70306fb82fd20e07f54ffba4ae68cb76558c2dec7d7a783b33c6c977ca6dfd67"
+    },
+    "docs/stage28j-static-audit.json": {
+      "size_bytes": 901,
+      "sha256": "5fb1be65dacae15feddfcfc1ad8f67956a4befe90d52ac16e77bf5f4968a4b7e"
+    },
+    "docs/stage28j-target-build.json": {
+      "size_bytes": 73148,
+      "sha256": "f773d5fa37ec12bd2a26b19d8f4cca2e2a7e5e865a41f56fb1c73d36b14ec672"
+    },
+    "docs/stage28j-test-results.json": {
+      "size_bytes": 72929,
+      "sha256": "4a2c5d7b982f335a02fa8aa732225712b7e772e10eb0577438210a5362e70975"
+    },
+    "language_preview/README.md": {
+      "size_bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    "language_preview/bridge.cpp": {
+      "size_bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    "language_preview/bridge.h": {
+      "size_bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    "language_preview/core.cpp": {
+      "size_bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    "language_preview/core.h": {
+      "size_bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    "language_preview/keyboard.cpp": {
+      "size_bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    "language_preview/keyboard.h": {
+      "size_bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    "tests/stage28j/verify_audit.py": {
+      "size_bytes": 4000,
+      "sha256": "18303db274c10ed532682a0e3ed5cb8a4601e05a578359f361c4cb54d66b28b0"
+    }
+  }
+}
