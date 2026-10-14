@@ -1,0 +1,121 @@
+{
+  "baseline": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+  "preview_unchanged": true,
+  "files": [
+    {
+      "file": "tests/stage28h/expected-traces.json",
+      "bytes": 936,
+      "sha256": "a4e3407c8147616ed2d46916aace031a1b9481c83dedf43a140fce35e30c084a"
+    },
+    {
+      "file": "tests/stage28h/target_check.py",
+      "bytes": 6952,
+      "sha256": "a7c198964a730f728540db1e7a8e55e78fe6a59ab9736b064f23f662bb4a8be5"
+    },
+    {
+      "file": "tests/stage28h/run_tests.py",
+      "bytes": 11868,
+      "sha256": "5c65321c1548611aa53f0b2ea8647dad0f8a95e8d4827943fd0e04600a4f03ad"
+    },
+    {
+      "file": "tests/stage28h/test-results.json",
+      "bytes": 67489,
+      "sha256": "82f9b0a4ded60036d674b8e66cfc4b5bf61279b3efdce2c6d41c1977ed37b6fc"
+    },
+    {
+      "file": "tests/stage28h/verify_freeze.py",
+      "bytes": 2133,
+      "sha256": "9b3c5e6586330917516a00ef563c0be872cda4312b39b33dbf600957e86470c7"
+    },
+    {
+      "file": "tests/stage28h/test_host_validation.cpp",
+      "bytes": 7599,
+      "sha256": "332e5ef7b3c02d3c55790643fdb081d40ba8fbeb840537b5216339667a3a340c"
+    },
+    {
+      "file": "tests/stage28h/test-results.md",
+      "bytes": 12329,
+      "sha256": "364a0d4528b50c3af0b7191e831111c8c487b9e99b205f5434703e17e176df91"
+    },
+    {
+      "file": "tests/stage28h/run_host_smoke.sh",
+      "bytes": 4981,
+      "sha256": "31874e8e6120ffaf53c20d19f73bd78adfa98781889312b3a0211607c9b91b78"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    {
+      "file": "language_preview/README.md",
+      "bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    {
+      "file": "language_preview/core.h",
+      "bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    {
+      "file": "docs/stage28h-reproduction.md",
+      "bytes": 2363,
+      "sha256": "429248d2362404d37c5439cef6a49aaa0dd602971a524f4f28776fd5a9b2a0f1"
+    },
+    {
+      "file": "docs/stage28h-reproduction.json",
+      "bytes": 3845,
+      "sha256": "1357f14d97c8a1d2942e6e8949db11b282b49a7863d04e1d23e7b033628538e0"
+    },
+    {
+      "file": "docs/stage28h-stage26-freeze.json",
+      "bytes": 39987,
+      "sha256": "1179b03115c543ca649807c7d5279a2f371bae5d3eadb2fbe29a5390873e5254"
+    },
+    {
+      "file": "docs/stage28h-report.md",
+      "bytes": 10877,
+      "sha256": "9bfcefe9c6e0ad2e8c97d8bd76d027ac7001444587887794aff9f542379c5dc2"
+    },
+    {
+      "file": "docs/stage28h-macos-validation.md",
+      "bytes": 6064,
+      "sha256": "e980e9e5d77c63288fd43ba91945bc202fd073ff84e93cd6bdaf63e1f8dbb470"
+    },
+    {
+      "file": "docs/stage28h-target-build.json",
+      "bytes": 73174,
+      "sha256": "0810c3fda16dab23b3c6687a1cd31195490b207bd5d1eec1d0138dc128821d66"
+    },
+    {
+      "file": "docs/stage28h-publication.json",
+      "bytes": 3515,
+      "sha256": "bca57fb32fbbccf2d305fd3b53666449da8c01b3b74160233d947164b63aa1a3"
+    },
+    {
+      "file": "docs/stage28h-preview-identity.json",
+      "bytes": 1290,
+      "sha256": "2666ce2d1ff13ea077390dc32a47909ce70db7d7ea6e282ec6c6cb99fc016edf"
+    }
+  ]
+}

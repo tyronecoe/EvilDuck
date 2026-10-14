@@ -1,0 +1,146 @@
+{
+  "baseline": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+  "owner_command": [
+    "bash",
+    "tests/stage28h/run_host_smoke.sh"
+  ],
+  "fresh_suite_commands": [
+    {
+      "suite": "stage27b",
+      "command": [
+        "python3",
+        "tests/stage27b/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage27b-build",
+        "--results",
+        "<fresh-external-dir>/stage27b.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28a",
+      "command": [
+        "python3",
+        "tests/stage28a/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28a-build",
+        "--results",
+        "<fresh-external-dir>/stage28a.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28b",
+      "command": [
+        "python3",
+        "tests/stage28b/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28b-build",
+        "--results",
+        "<fresh-external-dir>/stage28b.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28c",
+      "command": [
+        "python3",
+        "tests/stage28c/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28c-build",
+        "--results",
+        "<fresh-external-dir>/stage28c.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28d",
+      "command": [
+        "python3",
+        "tests/stage28d/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28d-build",
+        "--results",
+        "<fresh-external-dir>/stage28d.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28e",
+      "command": [
+        "python3",
+        "tests/stage28e/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28e-build",
+        "--results",
+        "<fresh-external-dir>/stage28e.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28f",
+      "command": [
+        "python3",
+        "tests/stage28f/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28f-build",
+        "--results",
+        "<fresh-external-dir>/stage28f.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28g",
+      "command": [
+        "python3",
+        "tests/stage28g/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28g-build",
+        "--results",
+        "<fresh-external-dir>/stage28g.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28h",
+      "command": [
+        "python3",
+        "tests/stage28h/run_tests.py",
+        "--build-dir",
+        "<fresh-external-dir>/stage28h-build",
+        "--results",
+        "<fresh-external-dir>/stage28h.json"
+      ],
+      "executed": "PASS"
+    }
+  ],
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "sanitizer_command": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-misleading-indentation",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-fno-pie",
+    "-no-pie",
+    "<project-root>/language_preview/core.cpp",
+    "<project-root>/language_preview/keyboard.cpp",
+    "<project-root>/language_preview/bridge.cpp",
+    "<project-root>/tests/stage28h/test_host_validation.cpp",
+    "-o",
+    "/workspace/tooling/stage28h-delivery-final/trace-audit"
+  ],
+  "env": {
+    "ASAN_OPTIONS": "detect_leaks=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "target": "Fresh objects verified byte-identical to Stage28G; source flags/commands in target receipt",
+  "native_mac": "SKIP_ENVIRONMENT",
+  "hardware_access": false,
+  "paths_redacted": true
+}
