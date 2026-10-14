@@ -1,5 +1,6 @@
 #include "core.h"
 #include <string.h>
+#include <new>
 namespace ds_preview {
 namespace {
 bool white(char c){return c==' '||c=='\t';}
@@ -44,6 +45,7 @@ const char* message(ErrorCode c){
  case ErrorCode::VoidValue:return "Function returned no value in a numeric context";
  case ErrorCode::SinkFailure:return "Mock sink rejected event";
  case ErrorCode::NotCompiled:return "Program did not pass preflight";case ErrorCode::Busy:return "Cannot restart an active preview session";
+ case ErrorCode::ReadError:return "Mock source read failed or changed";case ErrorCode::SeekError:return "Mock source seek failed";case ErrorCode::CompileLimit:return "Compiler step budget exhausted";
  }
  return "Unknown preview error";
 }
@@ -142,18 +144,13 @@ public:
 class Compiler {
  struct Constant{char name[24]={},value[64]={};};Constant constants_[MaxConstants]{};size_t constantsCount_=0;
  struct Block{Op kind;uint16_t start,lastFalse;bool otherwise=false;};Block blocks_[MaxNesting]{};size_t depth_=0;
- Program& p_;const char* source_;size_t bytes_;uint16_t line_=0;bool comment_=false;uint8_t textMode_=0;uint16_t textInstruction_=0,textOpening_=0;
+ Program& p_;Reader reader_;size_t received_=0,seen_=0;uint16_t line_=1;
+ char raw_[MaxLine+1]={},chunk_[ReadChunk]={};size_t rawUsed_=0,chunkUsed_=0,chunkPos_=0;
+ unsigned pass_=0;bool cr_=false,eof_=false;uint8_t bom_=0;
+ uint64_t hash_=1469598103934665603ull,firstHash_=0;
+ bool visited_[MaxCode]={};uint16_t work_[MaxCode]={};size_t workUsed_=0,function_=0,validate_=0;
+ CompilePhase phase_=CompilePhase::SeekFirst;bool comment_=false;uint8_t textMode_=0;uint16_t textInstruction_=0,textOpening_=0;
  bool fail(ErrorCode c,uint16_t column=1){if(p_.error_.code==ErrorCode::None)p_.error_={c,line_,column};return false;}
- bool read(size_t& offset,char (&line)[MaxLine+1]){
-  size_t n=0;++line_;
-  while(offset<bytes_&&source_[offset]!='\n'){
-   unsigned char c=static_cast<unsigned char>(source_[offset++]);
-   if(c=='\r'){if(offset>=bytes_||source_[offset]!='\n')return fail(ErrorCode::InvalidSource);break;}
-   if(c==0||(c<32&&c!='\t')||c>126)return fail(ErrorCode::InvalidSource);
-   if(n==MaxLine)return fail(ErrorCode::LineLimit);line[n++]=static_cast<char>(c);
-  }
-  if(offset<bytes_&&source_[offset]=='\n')++offset;line[n]=0;return true;
- }
  bool skip(char* text){
   if(comment_){if(exact(text,"END_REM"))comment_=false;return true;}
   if(command(text,"REM"))return true;
@@ -270,65 +267,132 @@ class Compiler {
   if(functionName(text,name)){int id=fn(name);if(id<0)return fail(ErrorCode::UndefinedFunction);return emit(Op::Call,"",0,static_cast<uint8_t>(id));}
   return fail(ErrorCode::UnknownStatement);
  }
- bool valueInventory(){
-  for(size_t function=0;function<p_.functionsCount_;++function){
-   const Function& f=p_.functions_[function];bool visited[MaxCode]={};uint16_t work[MaxCode]={};size_t used=0;
-   auto enqueue=[&](uint16_t pc){if(pc>=f.entry&&pc<=f.end&&!visited[pc]){visited[pc]=true;work[used++]=pc;}};
-   enqueue(f.entry);
-   while(used){uint16_t pc=work[--used];const Instruction& ins=p_.code_[pc];
-    if(ins.op==Op::Return){if(ins.length)p_.valueFunctions_|=static_cast<uint16_t>(1u<<function);continue;}
-    if(ins.op==Op::EndFunction||ins.op==Op::Stop)continue;
-    if(ins.op==Op::Jump){enqueue(ins.target);continue;}
-    if(ins.op==Op::If){uint16_t value=0;bool known=false;Expression e(p_,nullptr,p_.text_+ins.offset);Error error=e.evaluate(value,&known);
-     if(error.code!=ErrorCode::None)return fail(error.code,error.column);
-     if(!known||value)enqueue(pc+1);if(!known||!value)enqueue(ins.target);continue;
-    }
-    enqueue(pc+1);
-   }
-  }
-  // Full table now exists: enforce all numeric call contexts, including unused bodies.
-  for(size_t pc=0;pc<p_.count_;++pc){const Instruction& ins=p_.code_[pc];
-   if(ins.op==Op::Set||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
-    uint16_t ignored=0;Expression e(p_,nullptr,p_.text_+ins.offset,nullptr,true);Error error=e.evaluate(ignored);
-    if(error.code!=ErrorCode::None){line_=ins.line;return fail(error.code,error.column);}
-   }
-  }
-  return true;
+ void enqueue(uint16_t pc){const Function& f=p_.functions_[function_];if(pc>=f.entry&&pc<=f.end&&!visited_[pc]){visited_[pc]=true;work_[workUsed_++]=pc;}}
+ bool line(){
+  if(textMode_)return textLine(raw_,pass_);
+  char* text=left(raw_);right(text);
+  if(!comment_&&(exact(text,"STRING")||exact(text,"STRINGLN")))return openText(text,pass_);
+  if(!comment_&&(command(text,"END_STRING")||command(text,"END_STRINGLN")))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
+  if(pass_)return statement(text);
+  if(!*text||skip(text))return p_.error_.code==ErrorCode::None;
+  if(command(text,"DEFINE"))return constant(text);
+  if(command(text,"VAR")){char* name=left(argument(text));char* end=name;while(*end&&!white(*end)&&*end!='=')++end;*end=0;return addSymbol(name);}
+  if(command(text,"FUNCTION")){
+   char name[24]={};if(!functionName(left(argument(text)),name)||reserved(name))return fail(ErrorCode::Identifier);
+   if(fn(name)>=0)return fail(ErrorCode::DuplicateFunction);if(p_.functionsCount_==MaxFunctions)return fail(ErrorCode::FunctionLimit);strcpy(p_.functions_[p_.functionsCount_++].name,name);
+  }return true;
+ }
+ bool byte(unsigned char c){
+  hash_=(hash_^c)*1099511628211ull;size_t at=seen_++;
+  if(at==0&&c==0xef&&reader_.bytes>=3){bom_=1;return true;}
+  if(bom_){if((bom_==1&&c!=0xbb)||(bom_==2&&c!=0xbf))return fail(ErrorCode::InvalidSource);if(++bom_==3)bom_=0;return true;}
+  if(cr_){if(c!='\n')return fail(ErrorCode::InvalidSource);cr_=false;phase_=CompilePhase::Line;return true;}
+  if(c=='\r'){cr_=true;return true;}
+  if(c=='\n'){phase_=CompilePhase::Line;return true;}
+  if(c==0||(c<32&&c!='\t')||c>126)return fail(ErrorCode::InvalidSource);
+  if(rawUsed_==MaxLine)return fail(ErrorCode::LineLimit);raw_[rawUsed_++]=static_cast<char>(c);raw_[rawUsed_]=0;return true;
  }
 public:
- Compiler(Program& p,const char* source,size_t bytes):p_(p),source_(source),bytes_(bytes){}
- bool compile(){
-  if(bytes_>MaxSource)return fail(ErrorCode::InputLimit);if(bytes_&&!source_)return fail(ErrorCode::InvalidSource);
-  size_t begin=0;if(bytes_>=3&&static_cast<unsigned char>(source_[0])==0xef&&static_cast<unsigned char>(source_[1])==0xbb&&static_cast<unsigned char>(source_[2])==0xbf)begin=3;
-  char raw[MaxLine+1]={};
-  for(unsigned pass=0;pass<2;++pass){line_=0;comment_=false;textMode_=0;
-   size_t offset=begin;while(offset<bytes_){if(!read(offset,raw))return false;
-    if(textMode_){if(!textLine(raw,pass))return false;continue;}
-    char* text=left(raw);right(text);
-    if(!comment_&&(exact(text,"STRING")||exact(text,"STRINGLN"))){if(!openText(text,pass))return false;continue;}
-    if(!comment_&&(command(text,"END_STRING")||command(text,"END_STRINGLN")))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw+1));
-    if(pass==0){if(!*text||skip(text)){if(p_.error_.code!=ErrorCode::None)return false;continue;}
-     if(command(text,"DEFINE")){if(!constant(text))return false;}
-     else if(command(text,"VAR")){char* name=left(argument(text));char* end=name;while(*end&&!white(*end)&&*end!='=')++end;*end=0;if(!addSymbol(name))return false;}
-     else if(command(text,"FUNCTION")){
-      char name[24]={};if(!functionName(left(argument(text)),name)||reserved(name))return fail(ErrorCode::Identifier);
-      if(fn(name)>=0)return fail(ErrorCode::DuplicateFunction);if(p_.functionsCount_==MaxFunctions)return fail(ErrorCode::FunctionLimit);strcpy(p_.functions_[p_.functionsCount_++].name,name);
-     }
-    }else if(!statement(text))return false;
-   }
-   if(textMode_){line_=textOpening_;return fail(ErrorCode::Structure);}if(comment_)return fail(ErrorCode::Structure);
+ Compiler(Program& p,Reader reader):p_(p),reader_(reader){}
+ CompilePhase phase()const{return phase_;}
+ void abort(ErrorCode code){fail(code,static_cast<uint16_t>(rawUsed_+1));}
+ void detach(){reader_=Reader{};}
+ bool step(CompileWork& cost){
+  switch(phase_){
+  case CompilePhase::SeekFirst:case CompilePhase::Rewind:{
+   ++cost.callbacks;if(!reader_.seek(reader_.context,0))return fail(ErrorCode::SeekError);
+   received_=seen_=rawUsed_=chunkUsed_=chunkPos_=0;cr_=eof_=false;bom_=0;hash_=1469598103934665603ull;line_=1;comment_=false;textMode_=0;raw_[0]=0;phase_=CompilePhase::Read;return true;
   }
-  if(depth_)return fail(ErrorCode::Structure);if(!valueInventory())return false;p_.ready_=true;return true;
+  case CompilePhase::Read:{
+   size_t capacity=reader_.bytes-received_;if(capacity>ReadChunk)capacity=ReadChunk;
+   ++cost.callbacks;ReadResult result=reader_.read(reader_.context,chunk_,capacity);
+   if(result.bytes>capacity)return fail(ErrorCode::ReadError);
+   if(result.status==ReadStatus::Retry){if(result.bytes)return fail(ErrorCode::ReadError);return true;}
+   if(result.status==ReadStatus::Eof){
+    if(result.bytes||received_!=reader_.bytes)return fail(ErrorCode::ReadError);eof_=true;
+    if(cr_||bom_)return fail(ErrorCode::InvalidSource);
+    phase_=rawUsed_?CompilePhase::Line:CompilePhase::EndPass;return true;
+   }
+   if(result.status==ReadStatus::Error)return fail(result.error==ErrorCode::InvalidSource?ErrorCode::InvalidSource:ErrorCode::ReadError);
+   if(result.status!=ReadStatus::Data||!result.bytes)return fail(ErrorCode::ReadError);
+   received_+=result.bytes;chunkUsed_=result.bytes;chunkPos_=0;phase_=CompilePhase::Consume;return true;
+  }
+  case CompilePhase::Consume:
+   while(chunkPos_<chunkUsed_&&cost.bytes<ReadChunk){++cost.bytes;if(!byte(static_cast<unsigned char>(chunk_[chunkPos_++])))return false;if(phase_==CompilePhase::Line)return true;}
+   if(chunkPos_==chunkUsed_)phase_=CompilePhase::Read;return true;
+  case CompilePhase::Line:
+   ++cost.lines;if(!line())return false;rawUsed_=0;raw_[0]=0;++line_;phase_=eof_?CompilePhase::EndPass:(chunkPos_==chunkUsed_?CompilePhase::Read:CompilePhase::Consume);return true;
+  case CompilePhase::EndPass:
+   if(textMode_){line_=textOpening_;return fail(ErrorCode::Structure);}if(comment_){if(line_>1)--line_;return fail(ErrorCode::Structure);}
+   if(!pass_){firstHash_=hash_;pass_=1;phase_=CompilePhase::Rewind;}else{if(hash_!=firstHash_)return fail(ErrorCode::ReadError);phase_=CompilePhase::Structure;}return true;
+  case CompilePhase::Structure:
+   if(depth_){if(line_>1)--line_;return fail(ErrorCode::Structure);}phase_=CompilePhase::InventoryStart;return true;
+  case CompilePhase::InventoryStart:
+   if(function_==p_.functionsCount_){phase_=CompilePhase::Validate;return true;}
+   memset(visited_,0,sizeof(visited_));workUsed_=0;enqueue(p_.functions_[function_].entry);phase_=CompilePhase::InventoryNode;return true;
+  case CompilePhase::InventoryNode:{
+   if(!workUsed_){++function_;phase_=CompilePhase::InventoryStart;return true;}
+   ++cost.nodes;uint16_t pc=work_[--workUsed_];const Instruction& ins=p_.code_[pc];line_=ins.line;
+   if(ins.op==Op::Return){if(ins.length)p_.valueFunctions_|=static_cast<uint16_t>(1u<<function_);return true;}
+   if(ins.op==Op::EndFunction||ins.op==Op::Stop)return true;
+   if(ins.op==Op::Jump){enqueue(ins.target);return true;}
+   if(ins.op==Op::If){++cost.expressions;uint16_t value=0;bool known=false;Expression e(p_,nullptr,p_.text_+ins.offset);Error error=e.evaluate(value,&known);
+    if(error.code!=ErrorCode::None)return fail(error.code,error.column);if(!known||value)enqueue(pc+1);if(!known||!value)enqueue(ins.target);return true;}
+   enqueue(pc+1);return true;
+  }
+  case CompilePhase::Validate:{
+   if(validate_==p_.count_){phase_=CompilePhase::Publish;return true;}const Instruction& ins=p_.code_[validate_++];line_=ins.line;
+   if(ins.op==Op::Set||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
+    ++cost.expressions;uint16_t ignored=0;Expression e(p_,nullptr,p_.text_+ins.offset,nullptr,true);Error error=e.evaluate(ignored);if(error.code!=ErrorCode::None)return fail(error.code,error.column);
+   }return true;
+  }
+  case CompilePhase::Publish:p_.ready_=true;return true;
+  }return fail(ErrorCode::Structure);
  }
 };
+static_assert(sizeof(Compiler)<=CompileStorage,"Fixed compiler storage too small");
+static_assert(alignof(Compiler)<=alignof(max_align_t),"Compiler storage alignment");
+ReadResult MemoryReader::read(void* ptr,char* out,size_t capacity){
+ auto& m=*static_cast<MemoryReader*>(ptr);if(m.position==m.bytes)return {ReadStatus::Eof,0};
+ if(!m.source)return {ReadStatus::Error,0,ErrorCode::InvalidSource};if(m.position>m.bytes||!capacity)return {ReadStatus::Error,0};size_t n=m.bytes-m.position;if(n>capacity)n=capacity;memcpy(out,m.source+m.position,n);m.position+=n;return {ReadStatus::Data,n};
+}
+bool MemoryReader::seek(void* ptr,size_t position){auto& m=*static_cast<MemoryReader*>(ptr);if(position>m.bytes)return false;m.position=position;return true;}
+Reader MemoryReader::reader(){return {read,seek,this,bytes};}
+size_t CompileSession::compilerBytes(){return sizeof(Compiler);}
+CompileSession::~CompileSession(){cancel();if(compiler_)compiler_->~Compiler();}
+void CompileSession::finish(CompileState state){if(compiler_)compiler_->detach();state_=state;if(program_){program_->compiling_=false;if(state!=CompileState::Complete)program_->ready_=false;error_=program_->error_;} }
+bool CompileSession::start(Program& p,Reader reader,const char* location,uint32_t limit){
+ if(inStep_||state_==CompileState::Compiling)return false;
+ if(p.borrowed_||p.compiling_){error_={ErrorCode::Busy,0,0};return false;}
+ if(compiler_){compiler_->~Compiler();compiler_=nullptr;}
+ program_=&p;state_=CompileState::Compiling;steps_=0;limit_=limit;work_={};error_={};
+ ++p.revision_;p.ready_=false;p.compiling_=true;p.used_=p.count_=p.valueFunctions_=0;p.symbols_=p.functionsCount_=0;p.error_={};
+ memset(p.names_,0,sizeof(p.names_));for(auto& f:p.functions_)f=Function{};for(auto& i:p.code_)i=Instruction{};memset(p.text_,0,sizeof(p.text_));
+ size_t n=0;if(location)while(n<sizeof(p.source_)&&location[n])++n;
+ ErrorCode err=ErrorCode::None;
+ if(!location||n==sizeof(p.source_))err=ErrorCode::Identifier;else memcpy(p.source_,location,n+1);
+ if(!limit||limit>MaxCompileSteps)err=ErrorCode::InvalidBudget;
+ if(reader.bytes>MaxSource)err=ErrorCode::InputLimit;
+ if(!reader.read||!reader.seek)err=ErrorCode::ReadError;
+ if(err!=ErrorCode::None){p.error_={err,0,0};finish(CompileState::Error);return false;}
+ compiler_=new(storage_) Compiler(p,reader);return true;
+}
+CompilePhase CompileSession::phase()const{return compiler_?compiler_->phase():CompilePhase::SeekFirst;}
+void CompileSession::step(){
+ if(state_!=CompileState::Compiling||inStep_)return;work_={};
+ if(steps_++==limit_){compiler_->abort(ErrorCode::CompileLimit);finish(CompileState::Error);return;}
+ inStep_=true;struct Guard{bool& flag;~Guard(){flag=false;}} guard{inStep_};bool ok=false;
+ try{ok=compiler_->step(work_);}catch(...){compiler_->abort(compiler_->phase()==CompilePhase::SeekFirst||compiler_->phase()==CompilePhase::Rewind?ErrorCode::SeekError:ErrorCode::ReadError);}
+ if(state_==CompileState::Cancelled){finish(CompileState::Cancelled);return;}
+ if(state_!=CompileState::Compiling)return;
+ if(!ok){finish(CompileState::Error);return;}if(program_->ready_)finish(CompileState::Complete);
+}
+void CompileSession::cancel(){if(state_==CompileState::Compiling){if(inStep_)state_=CompileState::Cancelled;else finish(CompileState::Cancelled);}}
 bool Program::compile(const char* source,size_t bytes,const char* location){
- // Reset directly, avoiding an aggregate Program temporary on an embedded stack.
- if(borrowed_){error_={ErrorCode::Busy,0,0};return false;}
- ++revision_;ready_=false;used_=count_=valueFunctions_=0;symbols_=functionsCount_=0;error_={};
- memset(names_,0,sizeof(names_));for(auto& f:functions_)f=Function{};for(auto& i:code_)i=Instruction{};memset(text_,0,sizeof(text_));
- size_t length=0;if(location)while(length<sizeof(source_)&&location[length])++length;
- if(!location||length==sizeof(source_)){error_={ErrorCode::Identifier,0,0};return false;}memcpy(source_,location,length+1);
- Compiler compiler(*this,source,bytes);return compiler.compile();
+ if(borrowed_){error_={ErrorCode::Busy,0,0};return false;}if(compiling_)return false;
+ MemoryReader memory{source,bytes,0};CompileSession session;
+ if(!session.start(*this,memory.reader(),location))return false;
+ while(session.state()==CompileState::Compiling)session.step();return session.state()==CompileState::Complete;
 }
 void Runtime::releaseProgram(){if(ownsProgram_&&program_)program_->borrowed_=false;ownsProgram_=false;}
 void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}

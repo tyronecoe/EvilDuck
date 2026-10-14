@@ -23,3 +23,14 @@ independently established official compiler results. Forward DEFINE substitution
 is bounded/nonrecursive; $variable text stays literal. Aliases remain unsupported.
 See docs/stage28b-report.md for fresh tests, limits and object-only resource evidence.
 No storage/USB/HID adapter, installable firmware or arming path exists in this preview.
+
+Stage28C adds CompileSession::start/step/cancel for RAM-only Reader callbacks.
+Each step has a bounded callback/byte/line/CFG/expression operation; only final
+publication makes Program ready. Sources declare exact size and stable two-pass
+bytes; read/seek/context and Program must outlive active compilation. Terminal
+completion/error/cancellation detaches reader callbacks. MemoryReader is the only
+provided adapter; no filesystem, USB, Arduino or network reader exists.
+Program::compile remains a synchronous convenience that drives the same session,
+with a larger caller-stack cost. Prefer an externally owned CompileSession for
+cooperative scheduling; see docs/stage28c-design.md and reproduction/report.
+Grammar/runtime semantics, Stage28B whitespace and every existing cap are unchanged.

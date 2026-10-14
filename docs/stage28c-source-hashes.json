@@ -1,0 +1,100 @@
+{
+  "baseline_commit": "e184f2837d008d2d732b97dcd5aab839bec3f502",
+  "branch": "stage28c-cooperative-source-preflight",
+  "files": [
+    {
+      "file": "language_preview/README.md",
+      "bytes": 2530,
+      "sha256": "52efc5acafe79b73f7ba1cad4bdf0ab27450e5ba75495a25b483f64238bf9e9e"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "bytes": 38790,
+      "sha256": "e482f229c2e9702155ffe5f193e376fd230ee7f1dda0596a699a615d178c5336"
+    },
+    {
+      "file": "language_preview/core.h",
+      "bytes": 7018,
+      "sha256": "ddaa3a363149df1df63e28cd31a033f25921a4065eb29f4a1444aa7ed88e8571"
+    },
+    {
+      "file": "tests/stage28c/run_tests.py",
+      "bytes": 2552,
+      "sha256": "2f290f9fa81952d4bd4b9efef70009e4573a8aec8e33161163f7164359b2c437"
+    },
+    {
+      "file": "tests/stage28c/target_check.py",
+      "bytes": 4672,
+      "sha256": "268743483ac91b3fb5eb82119e51d68b273e65575e2cde525c42ed889e446b19"
+    },
+    {
+      "file": "tests/stage28c/test_compile.cpp",
+      "bytes": 12805,
+      "sha256": "de48fdaf2cc3062ed8c7bb94e627dd7bdc1bfe24fa8d8bd6c04c052de5f4c7ce"
+    },
+    {
+      "file": "tests/stage28c/verify_freeze.py",
+      "bytes": 2133,
+      "sha256": "fa956f03228e299719fa288bc326a27915ee799c01ba12271084ea01ef6c96d4"
+    }
+  ],
+  "core": {
+    "core_version": "3.3.0",
+    "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+  },
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+  "target_object_sha256": "64241a9bf8d586d8cff5887166b7b1ea6d7fa5658571ee49640b09d4a093eaeb",
+  "verified_patched_core_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+  "preexisting_remote_heads": {
+    "refs/heads/main": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf",
+    "refs/heads/stage10-usb-storage-reliability": "5ac88388635ac2d6e464eb17006aea2e8819dae4",
+    "refs/heads/stage11-duckyscript-hold-release": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7",
+    "refs/heads/stage12-internal-variables-lock-feedback": "f3841747fee7ff79c381723d1e578e5d65410011",
+    "refs/heads/stage13-duckyscript-preprocessing": "cd0cf0ea94e751d6e10bed3820484c1228abccd6",
+    "refs/heads/stage14-duckyscript-random-jitter": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d",
+    "refs/heads/stage15-usb-readiness-hardening": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+    "refs/heads/stage16-usb-routing-integration": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f",
+    "refs/heads/stage17-deployment-safety-preflight": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+    "refs/heads/stage18-nvs-preservation-hardening": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b",
+    "refs/heads/stage19-nvs-sdk-compatibility": "524d643a12af05e4efd9da509eae274ec43959a6",
+    "refs/heads/stage20-nvs-preservation-contract": "7c4559132251340b03bcb68a3d66d04d1659e503",
+    "refs/heads/stage21-readonly-nvs-quiescent-validation": "516fb642b1126af55db909fcff856943935b7111",
+    "refs/heads/stage22-readonly-nvs-preinit-gate": "89006f886fa30058a965e8e1883fb743d1683b70",
+    "refs/heads/stage23-nvs-iterator-early-writer-audit": "9af270f01d455e0bd282a14449ee941751938b1a",
+    "refs/heads/stage24-nvs-hardening-fresh-provisioning": "54b3ee184f98308783e7b78c253b15fce2b30a87",
+    "refs/heads/stage25-controlled-first-boot": "f929bdf2353e0022f10c164d2c09cb3db2564a5a",
+    "refs/heads/stage26-installation-readiness": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+    "refs/heads/stage27b-duckyscript3-offline": "a570786a932bdf2312061d9a2e6105c0dcb89f3b",
+    "refs/heads/stage28a-expression-function-continuations": "9422ac34c3c7954c0be07076ee2ee719378b783d",
+    "refs/heads/stage28b-bounded-multiline-strings": "e184f2837d008d2d732b97dcd5aab839bec3f502",
+    "refs/heads/stage4-duckyscript-migration": "c3e9c34f887015a6c8bcc3146835ebac54432b58",
+    "refs/heads/stage5-duckyscript-while": "1222fc6fb9307dd9680493b189b595cdd0c91b2f",
+    "refs/heads/stage6-duckyscript-functions": "b636495a786554afdf3512bee788c6faaa26b229",
+    "refs/heads/stage7-duckyscript-multiline": "68f44b7a7bd1478064b32316fa49a62f68d8527b",
+    "refs/heads/stage8-duckyscript-hid-locale": "d59562b7d08ff7833cbe1eddb07c32359138faac",
+    "refs/heads/stage9-duckyscript-compatibility-audit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+  },
+  "target_object_only": true,
+  "firmware_produced": false,
+  "hardware_access": false
+}

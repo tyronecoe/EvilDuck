@@ -12,7 +12,7 @@ enum class ErrorCode : uint8_t { None, InputLimit, InvalidSource, LineLimit, Cod
  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy };
+ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit };
 struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
 const char* message(ErrorCode code);
 enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop };
@@ -31,14 +31,15 @@ struct TextCursor {
 };
 struct CallFrame { uint16_t next=0, column=0; bool needsValue=false; };
 class Compiler;
+class CompileSession;
 class Expression;
 class Runtime;
 class Program {
-    friend class Compiler; friend class Expression; friend class Runtime;
+    friend class Compiler; friend class CompileSession; friend class Expression; friend class Runtime;
     char text_[MaxText]={}, names_[MaxSymbols][24]={}, source_[64]={};
     Instruction code_[MaxCode]={}; Function functions_[MaxFunctions]={};
     uint16_t used_=0, count_=0, valueFunctions_=0; uint8_t symbols_=0, functionsCount_=0;
-    uint32_t revision_=0; bool ready_=false; mutable bool borrowed_=false; Error error_{};
+    uint32_t revision_=0; bool ready_=false; mutable bool borrowed_=false; bool compiling_=false; Error error_{};
 public:
     Program()=default;
     Program(const Program&)=delete;
@@ -48,6 +49,46 @@ public:
     const char* location() const { return source_; }
     bool ready() const { return ready_; }
     size_t instructions() const { return count_; }
+};
+// RAM mocks only. Exact size, stable bytes, callbacks/context alive until terminal state.
+constexpr size_t ReadChunk=32, CompileStorage=2368;
+constexpr uint32_t MaxCompileSteps=65536;
+enum class ReadStatus : uint8_t { Data, Eof, Retry, Error };
+struct ReadResult { ReadStatus status; size_t bytes; ErrorCode error=ErrorCode::ReadError; };
+struct Reader {
+    using Read=ReadResult(*)(void*,char*,size_t);
+    using Seek=bool(*)(void*,size_t);
+    Read read=nullptr; Seek seek=nullptr; void* context=nullptr; size_t bytes=0;
+};
+struct MemoryReader {
+    const char* source=nullptr; size_t bytes=0, position=0;
+    Reader reader();
+    static ReadResult read(void*,char*,size_t);
+    static bool seek(void*,size_t);
+};
+enum class CompileState : uint8_t { Idle, Compiling, Complete, Cancelled, Error };
+enum class CompilePhase : uint8_t { SeekFirst, Read, Consume, Line, EndPass, Rewind, Structure, InventoryStart, InventoryNode, Validate, Publish };
+struct CompileWork { uint8_t bytes=0, callbacks=0, lines=0, nodes=0, expressions=0; };
+class CompileSession {
+    alignas(max_align_t) unsigned char storage_[CompileStorage];
+    Compiler* compiler_=nullptr; Program* program_=nullptr;
+    CompileState state_=CompileState::Idle; Error error_{}; bool inStep_=false;
+    uint32_t steps_=0, limit_=MaxCompileSteps; CompileWork work_{};
+    void finish(CompileState);
+public:
+    CompileSession()=default;
+    CompileSession(const CompileSession&)=delete;
+    CompileSession& operator=(const CompileSession&)=delete;
+    ~CompileSession();
+    bool start(Program&,Reader,const char* location="preview.duck",uint32_t steps=MaxCompileSteps);
+    void step();
+    void cancel();
+    CompileState state()const{return state_;}
+    CompilePhase phase()const;
+    const Error& error()const{return error_;}
+    uint32_t steps()const{return steps_;}
+    CompileWork work()const{return work_;}
+    static size_t compilerBytes();
 };
 enum class EventType : uint8_t { Character, KeyTap, Delay };
 struct Event { EventType type; uint16_t value; }; // ASCII byte, HID page07 usage, or milliseconds.
