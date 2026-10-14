@@ -1,0 +1,668 @@
+{
+  "vendor_inputs": [
+    {
+      "file": "src/class/hid/hid.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid.h",
+      "sha256": "df44b1215ccce40ae12c22e3895109a6d01aa13a77115ad43f28d488351bb97c",
+      "bytes": 71291,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/class/hid/hid_device.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.c",
+      "sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "bytes": 14901,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/class/hid/hid_device.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.h",
+      "sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "bytes": 39331,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_common.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_common.h",
+      "sha256": "2971b25129184457fd21108d70db33bef23d976c04d44853c3f1678225769a7d",
+      "bytes": 13442,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_compiler.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_compiler.h",
+      "sha256": "67c0d328da1fce878e8424345927608f72bd229c75cab004ef870b8337835dfd",
+      "bytes": 13105,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_debug.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_debug.h",
+      "sha256": "0005954726c85cdf8a8980a54f1d13b6c41dfbcc6e16c1925607f01d8eedf004",
+      "bytes": 5132,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_fifo.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_fifo.c",
+      "sha256": "d1615ef8ab73e329e17e1900820ddce8e0302ef965cfe28d5fa209d3ba811db6",
+      "bytes": 34799,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_fifo.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_fifo.h",
+      "sha256": "b2ffb668fb6f0dee1bb42684a340b99604440bb9d2ae7df22becf7f53467c4d9",
+      "bytes": 7861,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_mcu.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_mcu.h",
+      "sha256": "5e81f146f134a924cd15c2e24a6b1c62f67ee788a979be50d6ea8458e8d4d8bd",
+      "bytes": 20666,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_private.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_private.h",
+      "sha256": "9214c32c2b145fadc6ad27de80edb2b0c525b42f70371e795a3caea00cbff7fa",
+      "bytes": 6155,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_types.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_types.h",
+      "sha256": "9dfd468116b53eeabc9a9838a06f90ea414c96d82a59f7eaecdd71381042969f",
+      "bytes": 23677,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_verify.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_verify.h",
+      "sha256": "ce951c9250ed0183fa7e5814f5ad13af865d28b8da5bf32efdffc82728252768",
+      "bytes": 5646,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/dcd.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/dcd.h",
+      "sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "bytes": 8635,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd.c",
+      "sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "bytes": 52744,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd.h",
+      "sha256": "69b199bff49bae8f9d95a3fa1b85b448c299e6a10239f94e7c410e028940192a",
+      "bytes": 50935,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd_control.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd_control.c",
+      "sha256": "f22f7a5b833670e2736dbdbffc00d7cd081b934d54e191aafd25375ee2427ee3",
+      "bytes": 7243,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd_pvt.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd_pvt.h",
+      "sha256": "7f40a19c5aa8c599de92e90a15faa14998d82399545d2859a79b0d1c2f1e008f",
+      "bytes": 5712,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/osal/osal.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/osal/osal.h",
+      "sha256": "c8ceb744a8e5cc8f8f4e0526ce79247d19a28c2f5ff97fe5cfb50b2ec45e4bd2",
+      "bytes": 3883,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb.c",
+      "sha256": "693bf8bff293603e3e9b0d3b238364999028ab62046aa0a6c52d15181d83baf5",
+      "bytes": 18249,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb.h",
+      "sha256": "8062e10ddf34838aba8ddbad82daa6623f6a39fe11fa8dc01aaa55f3ad6d7328",
+      "bytes": 5183,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb_option.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb_option.h",
+      "sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "bytes": 24023,
+      "remote_bytes_match_compiled_bytes": true
+    }
+  ],
+  "include_closure_other": [
+    {
+      "file": "/usr/include/features-time64.h",
+      "bytes": 1532,
+      "sha256": "89036fa88ac19881ddfb07d4e65beb620a083d770cbf1c925f148c9ea1ce5a63",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/features.h",
+      "bytes": 19214,
+      "sha256": "20c5358da5ab2353b26bda1b36e66400290fbd2b16d30a6a21dc16f4f22ab280",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/inttypes.h",
+      "bytes": 11309,
+      "sha256": "551dfff797d3f445de7045e134e5e7b057320febea176f9e5e0fb33ece1b8d69",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/setjmp.h",
+      "bytes": 3190,
+      "sha256": "faf5d75f63557d63e0407547aa69dbf2a0a510cd5aeb1a41d12532b2e7855645",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/stdc-predef.h",
+      "bytes": 2462,
+      "sha256": "82975831ea2d1f95b60225f37ddd6130225f0c3de2318674cb178fea661ad87b",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/stdint.h",
+      "bytes": 8155,
+      "sha256": "38751c3803361248b73bba3d8b48aa7015ccb94c2c31f247f587b157c4ee344a",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/stdio.h",
+      "bytes": 34172,
+      "sha256": "e5094b40bd7ab3bea3a4e80a4071069882c2e9a4488ff2b1b03174352a0db0b1",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/stdlib.h",
+      "bytes": 41039,
+      "sha256": "999cb2acafbb64984f99ee410a42dfd79815de184a0312d7c136e31795a952d2",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/string.h",
+      "bytes": 19969,
+      "sha256": "2829e08094d8e97155e863a0aa5ea37cf09d4ffcd6ce86e572571276c2e21a8a",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/floatn-common.h",
+      "bytes": 10325,
+      "sha256": "a8a1a20b3e3c9811b348f9f7c4a3825d0eae6b27615991d1ca50dd1338e32a00",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/floatn.h",
+      "bytes": 4929,
+      "sha256": "959a6fafb663ca665daa89066124c126291603e14d727d8a1d59823e9fd92451",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h",
+      "bytes": 4286,
+      "sha256": "06256b79e2535489e5dce8c21854d3b0bd72d5479a3d013170f09261defc0a4f",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/long-double.h",
+      "bytes": 970,
+      "sha256": "30f74e9207fbbbe7fafb7b5e3e54124997abc44549506c514f2adae054ee3d56",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/setjmp.h",
+      "bytes": 1287,
+      "sha256": "2c953ac477ba1060a84f7fbad27dffd2f4fe5e8b5847b382ec19bff1270ef5ef",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+      "bytes": 1037,
+      "sha256": "88f639a4e588077b6edfad36b3bb045f0cc052b5f9d194f8e706ee27cd846f67",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/stdint-least.h",
+      "bytes": 1305,
+      "sha256": "f2f6cc431ef00e9182f7367cd06fb1130740c41a1f4dd1c61f146a1e761a4474",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h",
+      "bytes": 1049,
+      "sha256": "8ce3858074e8073db1eed4d25d69b3c14d41e826fa2351c5fc5246bb546161f8",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h",
+      "bytes": 1059,
+      "sha256": "436ad57abe906d460631967c822c0622dc100da1e1bd3e0fa8879b6f7f2c6654",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h",
+      "bytes": 1115,
+      "sha256": "fdd6c94e471e2aa2e03bae449f993392a6593044490fc82601b77d7116381201",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/time64.h",
+      "bytes": 1340,
+      "sha256": "b0c5f25ce84037dda2c42408543a4616e129d70d6ebf10bd3ecc8b756466582a",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/timesize.h",
+      "bytes": 1109,
+      "sha256": "d949eed9646ca5916b338e1f02ffaf31a4c62907738805aba4ffa329a365f8f2",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/FILE.h",
+      "bytes": 180,
+      "sha256": "37515f78be386f2edad4746f2947c928f480728c56d9a94e25302ebbdaef3c96",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/__FILE.h",
+      "bytes": 110,
+      "sha256": "26c909942e8a6bc82725e9c402f393aed9e32d94190257ddf71e1b5f819b4e5e",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h",
+      "bytes": 410,
+      "sha256": "8afae3abf006beb39fd9d4d4bae38745cdf08a91e6217ddf25833c8d4b04751b",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h",
+      "bytes": 381,
+      "sha256": "603e58ab31ed75b7e0ab09a2ca94e99955f7fbc63310466321ce27c906227eb4",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h",
+      "bytes": 564,
+      "sha256": "c561df72d5b987ccbd022059fdb1bcb6899c3e94b403997a0576ef3e1afb0f94",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h",
+      "bytes": 206,
+      "sha256": "05291a7d38bb1d0da1ed01c09fe85fa2b1f4d5bc708e06bb930efec672db08d5",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h",
+      "bytes": 4239,
+      "sha256": "5b1e0312496e150398e71409ffd203e00cdff92365772ffa6aa4a198c3b8ea53",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h",
+      "bytes": 1467,
+      "sha256": "05e69f8d10ee12c3ad50204ff9e55926d9b57d3a24634c04b2c718547573f735",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/types.h",
+      "bytes": 8806,
+      "sha256": "74d92766725404961cc2908de587aeaf24a5a8ef49a0103c5d3fb9f9fe9dead0",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/typesizes.h",
+      "bytes": 3737,
+      "sha256": "49656ffcee2a7091ae16f8ad737c63c1d3e06ecdb84c3fa1c6f65b0b6784262a",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/wchar.h",
+      "bytes": 1906,
+      "sha256": "169453a3eb0c5e504b513fb3bad0bda7780bb84c7139c501e3deeb75ac731f35",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/bits/wordsize.h",
+      "bytes": 398,
+      "sha256": "948177c0fc84c4746588f62252029880ec4c6f88b743ba55d952f980303ebfbb",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h",
+      "bytes": 481,
+      "sha256": "0b6ab3e2ed3ba79b30fe6ba81a68fc41f57965b8d56662763633431b703c9289",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/gnu/stubs.h",
+      "bytes": 384,
+      "sha256": "ef444295a0a9e8f5c40918399a00cc91ba0bd79774110cdf6e652baa6cfadb2e",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/include/x86_64-linux-gnu/sys/cdefs.h",
+      "bytes": 34638,
+      "sha256": "69a3c3625bac01b58ab781d02c7800592b5082c4ea962a456260dcf288216f68",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h",
+      "bytes": 4303,
+      "sha256": "7ead4a2428691baf94bec3fd2db8984dbb1c5f597edf0f9bc3068fb43dad22f7",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/lib/gcc/x86_64-linux-gnu/14/include/stdbool.h",
+      "bytes": 1490,
+      "sha256": "7b9c438a5b2f082a560a72da8d752da51062cc6f84d1c4acec45ff0a68e8d037",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h",
+      "bytes": 13735,
+      "sha256": "c93f57f1538121cdbc27b59a47f1ed82b078d40e404b46481c83bafadd5deada",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "/usr/lib/gcc/x86_64-linux-gnu/14/include/stdint.h",
+      "bytes": 328,
+      "sha256": "86a7914ab7d6a18465a6fb9a7b54f945cad604fdbf3ca0d10e4e0254e0037911",
+      "origin": "local host compiler/system header; not SDK, official TinyUSB URL not applicable"
+    },
+    {
+      "file": "<project-root>/tests/stage28n/boundary.c",
+      "bytes": 9981,
+      "sha256": "8d806c0c5015f964da1a3452a9b860b26bb79069d801765b70fc35ee0b433a25",
+      "origin": "Stage28N fixture source/platform/OS"
+    },
+    {
+      "file": "<project-root>/tests/stage28n/boundary.h",
+      "bytes": 1628,
+      "sha256": "4763b6d95bc01c50564487ec66cb3dce67f07243d2a99f4c2974e8a8a1403978",
+      "origin": "Stage28N fixture source/platform/OS"
+    },
+    {
+      "file": "<project-root>/tests/stage28n/test_components.c",
+      "bytes": 10242,
+      "sha256": "6af5c9e3ee49f91f663adf3276d6da961bc16ed66414e850ff9ec9b120a886c2",
+      "origin": "Stage28N fixture source/platform/OS"
+    },
+    {
+      "file": "<project-root>/tests/stage28n/tusb_config.h",
+      "bytes": 825,
+      "sha256": "8ba7eeb2439dfeeca70c667d742ab85cac87aa96a01b693a0262b7ac015f86aa",
+      "origin": "Stage28N fixture source/platform/OS"
+    },
+    {
+      "file": "<project-root>/tests/stage28n/tusb_os_custom.h",
+      "bytes": 1314,
+      "sha256": "bbcfb26285a82956eb33dcdc0c7c260461f3f38045a95be987f1e1002dfb99e0",
+      "origin": "Stage28N fixture source/platform/OS"
+    }
+  ],
+  "compiled_translation_units": [
+    "tusb.c",
+    "device/usbd.c",
+    "device/usbd_control.c",
+    "class/hid/hid_device.c",
+    "common/tusb_fifo.c"
+  ],
+  "units_are_byte_identical": true,
+  "configuration": "tests/stage28n/tusb_config.h and supported osal_custom port; not shipped RTOS config",
+  "parent": "50ec41349136bfaddbac6a44622c3c25e2ce42e3",
+  "recorded_revisions": {
+    "builder": "afa5cdd0d41d7e465d2e39867b24aef48b1c7b84",
+    "tinyusb": "8a78804ff91271fb32008288777fad9fe73f5735",
+    "idf": "b66b5448e0dfac6be135e6f0ac21010aba231180"
+  },
+  "provenance_layers": {
+    "A": "Package/archive independently rechecked during Stage28N; artifact receipt recorded separately",
+    "B": "Publisher recorded full revisions and builder selected DCD recipe",
+    "C": "21 exact official source/header files compiled natively, unchanged",
+    "D": "Matching shipped headers and inspected archived instructions support specific source behavior",
+    "E": "Full clean working tree/include/compile source-to-object equivalence and hardware lifecycle unproven"
+  },
+  "source_only_builder_inputs": [
+    {
+      "name": "pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/CMakeLists.txt",
+      "sha256": "db0a022d38eab1691b32152c637b64a810735ab93056682ffa140d239546b447",
+      "bytes": 2715,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-build.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/build.sh",
+      "sha256": "433866f04f3b7c358e3b36f96ed18d9cb326a44f58e2d881ab14c061919460ef",
+      "bytes": 12363,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_include_tusb_config.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/include/tusb_config.h",
+      "sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+      "bytes": 5048,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c",
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "bytes": 37380,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_patches_dcd_dwc2.patch",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/patches/dcd_dwc2.patch",
+      "sha256": "0862debc67bd7e30990f6d23def90bdb523aff2b2af940d7958c18a6cba302b9",
+      "bytes": 2622,
+      "status": "retrieved"
+    }
+  ],
+  "artifact_verification": {
+    "status": "PASS",
+    "package_size": 430471837,
+    "package_sha256": "a871d945c6bfb685ecff5e30ad759f280c841ea143071466b2e611bd1800f18f",
+    "sdk_archive_bytes": 1109204,
+    "sdk_archive_sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18",
+    "versions_sha256": "7f344027a09a21c24ab11d4e6fc5037a2b65b7957c4bcd706a07cce886d6df76",
+    "core_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+    "source_only_builder_files_verified": 8,
+    "pin": {
+      "core_version": "3.3.0",
+      "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+    },
+    "SDK_changed": false
+  },
+  "official_package_metadata": [
+    {
+      "file": "official-package",
+      "url": "https://raw.githubusercontent.com/espressif/arduino-esp32/3.3.0/package/package_esp32_index.template.json",
+      "sha256": "fac90622c04b7b45d8a64f90daa7c0b8c73168f59d46b74bf30c8c0dc6d737e5",
+      "bytes": 34482
+    },
+    {
+      "file": "official-release",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/releases/tags/idf-release_v5.5",
+      "sha256": "f0dfff5a5313bf5e35d8022fc6099f47e33f89aa5c90fa78349202d5c116b461",
+      "bytes": 361100
+    }
+  ],
+  "official_asset_digest": "sha256:a871d945c6bfb685ecff5e30ad759f280c841ea143071466b2e611bd1800f18f",
+  "official_asset_url": "https://github.com/espressif/esp32-arduino-lib-builder/releases/download/idf-release_v5.5/esp32-arduino-libs-idf-release_v5.5-b66b5448-v1.zip",
+  "source_only_static_files": [
+    {
+      "name": "pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/CMakeLists.txt",
+      "sha256": "db0a022d38eab1691b32152c637b64a810735ab93056682ffa140d239546b447",
+      "bytes": 2715,
+      "status": "retrieved",
+      "file": "/workspace/tooling/stage28n-evidence/pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "freshly_retrieved": true,
+      "native_executed": false
+    },
+    {
+      "name": "pinned-build.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/build.sh",
+      "sha256": "433866f04f3b7c358e3b36f96ed18d9cb326a44f58e2d881ab14c061919460ef",
+      "bytes": 12363,
+      "status": "retrieved",
+      "file": "/workspace/tooling/stage28n-evidence/pinned-build.sh",
+      "freshly_retrieved": true,
+      "native_executed": false
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_include_tusb_config.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/include/tusb_config.h",
+      "sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+      "bytes": 5048,
+      "status": "retrieved",
+      "file": "/workspace/tooling/stage28n-evidence/pinned-components_arduino_tinyusb_include_tusb_config.h",
+      "freshly_retrieved": true,
+      "native_executed": false
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c",
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "bytes": 37380,
+      "status": "retrieved",
+      "file": "/workspace/tooling/stage28n-evidence/pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "freshly_retrieved": true,
+      "native_executed": false
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_patches_dcd_dwc2.patch",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/patches/dcd_dwc2.patch",
+      "sha256": "0862debc67bd7e30990f6d23def90bdb523aff2b2af940d7958c18a6cba302b9",
+      "bytes": 2622,
+      "status": "retrieved",
+      "file": "/workspace/tooling/stage28n-evidence/pinned-components_arduino_tinyusb_patches_dcd_dwc2.patch",
+      "freshly_retrieved": true,
+      "native_executed": false
+    }
+  ],
+  "selected_config": {
+    "MCU": "ESP32S3 constant only",
+    "OS": "OPT_OS_CUSTOM",
+    "device": true,
+    "HID_instances": 1,
+    "HID_buffer": 64,
+    "event_queue": 4,
+    "interface": 0,
+    "endpoint": "0x81",
+    "interface_protocol": "KEYBOARD",
+    "report_id": 1,
+    "other_USB_classes": "disabled in native fixture; production CDC/MSC not executed",
+    "native_only": true
+  },
+  "scope": "Byte-identical publisher-pinned C/header components; substitutions in NEW Stage28N OS/DCD/application observer only. No SDK patch.",
+  "compiled_static_evidence": [
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/dcd-disassembly.txt",
+      "bytes": 76498,
+      "sha256": "90d0317cd48160eb68dd18ffb95490320bfcc66c157b70c6ba67c769c592f0fc"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/dcd_dwc2.c.obj",
+      "bytes": 131148,
+      "sha256": "3931f64bdf2e77ff2ba5297815366e5ef0ef577c1d2deddca03b2bf1f167082e"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/hid-disassembly.txt",
+      "bytes": 34100,
+      "sha256": "67f22a4684d888b61acae2299f5529b652891917e4b95175a74532ea8d884d3d"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/hid_device.c.obj",
+      "bytes": 54276,
+      "sha256": "265cad4695124e3d99fc838617b54361f889ea7f81e6a6770f2f5137c3c51a9a"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/tusb-disassembly.txt",
+      "bytes": 39434,
+      "sha256": "486fc7ab98fd623659013ba3f9a2e0910828adbf80600c798cb0b126376ed92c"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/tusb.c.obj",
+      "bytes": 66888,
+      "sha256": "4377b0699f50f0834814626841bd5af0eae6a3c8a65cedf64df3442e17389082"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/usbd.c.obj",
+      "bytes": 159396,
+      "sha256": "11cabcbe1762a3eb32ee88dca456b0ab60eef087a9b4d19fad6fa1105307d326"
+    }
+  ],
+  "archive_deinit_symbols": {
+    "usbd.c.obj": "dcd_deinit W; tud_deinit T",
+    "builder_DCD": "no source dcd_deinit definition",
+    "existing_controlled_ELF": "no exact dcd_deinit symbol; strong complete callback4201e87c, weak failed420d089c; not a runtime claim"
+  },
+  "native_OS_limits": [
+    "No real RTOS/ISR locking",
+    "WAIT_FOREVER entry instrumented; forced would-block/failure returns not real wait behavior",
+    "Queue capacity4 copied events; timeout0 try receive; non-ISR saturation forced failure rather than scheduler wait",
+    "No controller/FIFO/DMA retirement proof"
+  ]
+}
