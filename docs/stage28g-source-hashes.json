@@ -1,0 +1,76 @@
+{
+  "scope": "Final preview code and Stage28G test/runners/results",
+  "preview_changed": false,
+  "files": [
+    {
+      "file": "tests/stage28g/mac_smoke.cpp",
+      "bytes": 1615,
+      "sha256": "61fecdd34ce8113188da40a4d7de10e4b5d6614a538efe614beb50e316d19857"
+    },
+    {
+      "file": "tests/stage28g/target_check.py",
+      "bytes": 6952,
+      "sha256": "a7c198964a730f728540db1e7a8e55e78fe6a59ab9736b064f23f662bb4a8be5"
+    },
+    {
+      "file": "tests/stage28g/run_tests.py",
+      "bytes": 2669,
+      "sha256": "7c19e1bfc798e83e59a1324bcab456443004673c602dd32dc52d254c0f9d0239"
+    },
+    {
+      "file": "tests/stage28g/test_contract.cpp",
+      "bytes": 13793,
+      "sha256": "735e5b4bc4edd7872de1dcff6de93cbba3a13124e2763706432310ba8eaf47db"
+    },
+    {
+      "file": "tests/stage28g/test-results.json",
+      "bytes": 50376,
+      "sha256": "bad6deb2ff4121a8a7394133b88a21ca06645c822d462e7d0fdce931983b8806"
+    },
+    {
+      "file": "tests/stage28g/verify_freeze.py",
+      "bytes": 2133,
+      "sha256": "36dedf3a8f03aa18e5ea36977f5bab1e25a7a33ebc0dd8b731aecce2e21f88b4"
+    },
+    {
+      "file": "tests/stage28g/test-results.md",
+      "bytes": 10916,
+      "sha256": "83bc4698641180466701d7092f35531c2a9376f653909592bcf440486a0b3b92"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    {
+      "file": "language_preview/README.md",
+      "bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    {
+      "file": "language_preview/core.h",
+      "bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    }
+  ]
+}

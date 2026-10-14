@@ -1,0 +1,140 @@
+{
+  "baseline_commit": "3650caf7c66d5742d39a939fa0c8495be11d3b1b",
+  "tests": [
+    {
+      "suite": "stage27b",
+      "command": [
+        "python3",
+        "tests/stage27b/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage27b",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage27b.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28a",
+      "command": [
+        "python3",
+        "tests/stage28a/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28a",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28a.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28b",
+      "command": [
+        "python3",
+        "tests/stage28b/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28b",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28b.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28c",
+      "command": [
+        "python3",
+        "tests/stage28c/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28c",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28c.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28d",
+      "command": [
+        "python3",
+        "tests/stage28d/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28d",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28d.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28e",
+      "command": [
+        "python3",
+        "tests/stage28e/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28e",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28e.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28f",
+      "command": [
+        "python3",
+        "tests/stage28f/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28f",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28f.json"
+      ],
+      "executed": "PASS"
+    },
+    {
+      "suite": "stage28g",
+      "command": [
+        "python3",
+        "tests/stage28g/run_tests.py",
+        "--build-dir",
+        "/workspace/tooling/stage28g-final-stage28g",
+        "--results",
+        "/workspace/tooling/stage28g-final-stage28g.json"
+      ],
+      "executed": "PASS"
+    }
+  ],
+  "target_command": [
+    "python3",
+    "tests/stage28g/target_check.py",
+    "--baseline-build",
+    "/workspace/tooling/arduino/build/stage26-final-controlled",
+    "--original-core",
+    "/workspace/tooling/arduino/data/packages/esp32/hardware/esp32/3.3.0",
+    "--output-dir",
+    "/workspace/tooling/stage28g-target"
+  ],
+  "target": "PASS objects only",
+  "fresh_outputs_required": true,
+  "smoke_command": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-misleading-indentation",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-fno-pie",
+    "-no-pie",
+    "language_preview/core.cpp",
+    "language_preview/keyboard.cpp",
+    "language_preview/bridge.cpp",
+    "tests/stage28g/mac_smoke.cpp",
+    "-o",
+    "/workspace/tooling/stage28g-linux-smoke"
+  ],
+  "smoke_env": {
+    "ASAN_OPTIONS": "detect_leaks=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "native_mac": "SKIP_ENVIRONMENT",
+  "hardware_access": false,
+  "global_environment_changed": false
+}

@@ -1,0 +1,42 @@
+{
+  "baseline": "3650caf7c66d5742d39a939fa0c8495be11d3b1b",
+  "all_preview_files_byte_identical": true,
+  "all_historical_docs_tests_unchanged": true,
+  "files": [
+    {
+      "file": "language_preview/README.md",
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7",
+      "bytes": 4664
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1",
+      "bytes": 6608
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5",
+      "bytes": 2734
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "bytes": 39765
+    },
+    {
+      "file": "language_preview/core.h",
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "bytes": 7084
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "bytes": 7474
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3",
+      "bytes": 2959
+    }
+  ]
+}

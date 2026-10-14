@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+      "cached_sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+      "cached_bytes": 40486,
+      "snapshot": "duckyscript-tm-quick-reference.md",
+      "cached_observation": "2026-10-11T18:01:06.298030+00:00",
+      "live_observation_utc": "2026-10-14T03:56:38.048953+00:00",
+      "live_status": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "cached_sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "cached_bytes": 23001,
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "cached_observation": "2026-10-11T18:01:06.380681+00:00",
+      "live_observation_utc": "2026-10-14T03:56:38.049855+00:00",
+      "live_status": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+      "cached_sha256": "c57852d2f4dad7b64b104c98da910c2a61d229875b9e02b121a1c259920372a3",
+      "cached_bytes": 7034,
+      "snapshot": "advanced-features__holding-keys.md",
+      "cached_observation": "2026-10-11T18:01:07.767125+00:00",
+      "live_observation_utc": "2026-10-14T03:56:38.049536+00:00",
+      "live_status": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+      "cached_sha256": "3f2e1c1431d294a8cb2812a7d6f0a297542690319552feff6e1198079522085a",
+      "cached_bytes": 3409,
+      "snapshot": "advanced-features__payload-control.md",
+      "cached_observation": "2026-10-11T18:01:08.696077+00:00",
+      "live_observation_utc": "2026-10-14T03:56:38.050108+00:00",
+      "live_status": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "oracle": "No official compiler or authorized behavior oracle available",
+  "proprietary_code_used": false
+}
