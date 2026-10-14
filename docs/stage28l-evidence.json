@@ -1,0 +1,720 @@
+{
+  "baseline": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+  "frozen_stage26": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+  "scope": "documentation-only design; no runtime tests or firmware generation",
+  "roots": {
+    "repository": "<repository>",
+    "core": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0",
+    "sdk": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3"
+  },
+  "source_anchors": [
+    {
+      "root": "repository",
+      "file": "tests/stage28k/journal_driver.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 9,
+      "end": 18,
+      "topic": "terminal/first fault",
+      "file_sha256": "5aa10d7442c4bf284276ba15b75c4091cdc45c5ad7463c9c4f5ba52548eda64c",
+      "span_sha256": "e83ecae9b1ba719cd3630a16e6eec488cb365435bd07d9ae9416116868e7e21b"
+    },
+    {
+      "root": "repository",
+      "file": "tests/stage28k/journal_driver.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 39,
+      "end": 65,
+      "topic": "setup/start handoff finding K01",
+      "file_sha256": "5aa10d7442c4bf284276ba15b75c4091cdc45c5ad7463c9c4f5ba52548eda64c",
+      "span_sha256": "ab81b4a9c8f44dc637c4c7c2c70839439e7c037221f725b325d7edd89ab24a90"
+    },
+    {
+      "root": "repository",
+      "file": "tests/stage28k/journal_driver.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 83,
+      "end": 153,
+      "topic": "accept/counter/delay/guard/notice",
+      "file_sha256": "5aa10d7442c4bf284276ba15b75c4091cdc45c5ad7463c9c4f5ba52548eda64c",
+      "span_sha256": "7d6ffea8f83b19bd0d51ade6a2d83e99a7eddcb617ebca72a997e3c1d95ffd26"
+    },
+    {
+      "root": "repository",
+      "file": "tests/stage28k/journal_driver.h",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 7,
+      "end": 66,
+      "topic": "fixed arrays/lifetime",
+      "file_sha256": "ba740d0637dc4fb4fd0eac8860e328d3d7024b0be3069a203d5a14180a9858f1",
+      "span_sha256": "a7a0a805e933ddb254a1c5255e890183b8a1ba89cba0ea438220c6f827c5ce42"
+    },
+    {
+      "root": "repository",
+      "file": "language_preview/bridge.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 15,
+      "end": 92,
+      "topic": "source/report stepping and acknowledgements",
+      "file_sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1",
+      "span_sha256": "601467317e281b3b881a47c96e3eaa4140ae095f1a7cbbaa7e57b0d21e7aac3d"
+    },
+    {
+      "root": "repository",
+      "file": "language_preview/keyboard.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 67,
+      "end": 83,
+      "topic": "poll budgets/cancel/drain",
+      "file_sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "span_sha256": "32c515861d0ffe5d3affa261866c1a5ca9a5ed3871caf8cdcbd6078326d288bd"
+    },
+    {
+      "root": "repository",
+      "file": "language_preview/core.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 462,
+      "end": 477,
+      "topic": "Delay and Runtime tick deadlines",
+      "file_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "072cae829f557c88f578e5a549e79a2fbc826fd20699fd9c3a083935c063aae4"
+    },
+    {
+      "root": "repository",
+      "file": "language_preview/core.h",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 6,
+      "end": 9,
+      "topic": "limits",
+      "file_sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "a322b25661c22ddcc37ced0f0002e768c0d676d1f6aa8fc18b57f96503a9aa3b"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 12,
+      "end": 54,
+      "topic": "constructors/feedback/event context",
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "21fd204652bb9c2ad4e3591ad9309a7eb4061a7ceb7013852d0ce0c167205128"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 123,
+      "end": 131,
+      "topic": "startup/registry",
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "04c2a42d3aff85f9152910ecebfff7e0175b93917d3b05a5bfefed2257ceb62f"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 254,
+      "end": 318,
+      "topic": "raw send and ledger",
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "f4460a6f99d4dffe7f0f49c564c2ad0dcaa577110f033bfeb4f0cac20f4df940"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 332,
+      "end": 389,
+      "topic": "cancel/retry/legacy producers",
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "0d8aa5dd3ac101c9bf72dfa6d3c8108559a7909d684f5f1e47df421d6946824a"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/com.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 392,
+      "end": 451,
+      "topic": "script/live ownership",
+      "file_sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "8b0c402f020d88b5c82ab82a5ab0a4e7346b17839c3265e1e9524b58a3cfd2fc"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/execution_guard.h",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 28,
+      "end": 50,
+      "topic": "blocking Guard versus TryGuard",
+      "file_sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6",
+      "span_sha256": "e0d4d2975091226effb24a3191a30a8dc7e86f1009c0a61606bd90a37a91d4d5"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/webserver.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 549,
+      "end": 585,
+      "topic": "web/live contexts",
+      "file_sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0",
+      "span_sha256": "913982cfc03b4df72c969312205835ba7dfa5a23f3ef172143fa44c3c4b79db0"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/cli.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 193,
+      "end": 207,
+      "topic": "CLI dispatch",
+      "file_sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad",
+      "span_sha256": "9aa9b842aeaebccda2d2cbb4a6b332aa013e90c071087fb2159406899572d6ac"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 114,
+      "end": 123,
+      "topic": "loop gating",
+      "file_sha256": "2efcf7720b4026130a359567797f7e66bdb5639f334caf786d294f3e14ccb115",
+      "span_sha256": "f479959908d1f066ac8a1ad63fefe01c83f72dddbb3e13fd686d5a2b16434675"
+    },
+    {
+      "root": "repository",
+      "file": "EvilDuckS3/usb_msc.cpp",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 49,
+      "end": 78,
+      "topic": "MSC zero-time guard",
+      "file_sha256": "80fcd96cd18e4863df6eb7017d5e0046c58d9b0ad7f421d6a67f95495606000d",
+      "span_sha256": "846c1d2c12a45f4694bf8b34f57784abc9a45f041a56b2634b03e1141f771bc4"
+    },
+    {
+      "root": "repository",
+      "file": "tools/patched_core.py",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 18,
+      "end": 40,
+      "topic": "source hash guard",
+      "file_sha256": "fda38616d70d9df8e841308c632c1b7dd8ffb393e3ad28db30bde387593daa78",
+      "span_sha256": "3656c821c0c36f6e7635508e4fa100a7780cae9d4820de37b985029454807257"
+    },
+    {
+      "root": "repository",
+      "file": "tools/s3_validation.py",
+      "revision": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "start": 14,
+      "end": 28,
+      "topic": "build geometry and identity",
+      "file_sha256": "ab8c368a73c9f231b0110915c4b2022134c9415136ab94214cd6d38d885ed31e",
+      "span_sha256": "bfb93686347f76e5dfe7a31f290062228fc827356150ece2a1a3d99c050e4701"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 23,
+      "end": 46,
+      "topic": "registry and semaphore",
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "c98230e1e78a895a5b50f9207f77bbc547643618704382f7d268474f167db493"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 154,
+      "end": 215,
+      "topic": "descriptor allocation/endpoint selection",
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "cc572317f871e5ceb2c1f62a62903555223e06477a98b2534ff1e8e9c59db0d6"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 230,
+      "end": 280,
+      "topic": "protocol events/paired OUT fixes",
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "507655868653058ae27b194ea3bd15ccec555646b23034d1604a9f3ba568269b"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 282,
+      "end": 374,
+      "topic": "constructor/semaphores/complete/send",
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "73f2bf5bda352f735349f7701458c64a709738d051346292acf0acb42671d02b"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHID.h",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 30,
+      "end": 82,
+      "topic": "IDs/public hooks/default timeout",
+      "file_sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+      "span_sha256": "3152204e7befa9a7ce136772540b74964d1f2c080695b89ab92c300873cedb48"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHIDKeyboard.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 33,
+      "end": 51,
+      "topic": "descriptor and constructor",
+      "file_sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+      "span_sha256": "87607ea4ffe6e618b226eb6265f75a20021b57412fd3a1261997bc9eb0cfa522"
+    },
+    {
+      "root": "core",
+      "file": "libraries/USB/src/USBHIDKeyboard.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 73,
+      "end": 80,
+      "topic": "legacy void send",
+      "file_sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+      "span_sha256": "2cee311dec8224f3c3e10be63a40a2bbe65347f93aed00fcc74744f5ddfc7b77"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/USB.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 83,
+      "end": 150,
+      "topic": "connection flags/event task",
+      "file_sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+      "span_sha256": "2c2d9413f845f53835a77e210545977cf22e8dca10c682224b7fd0eacdd76fed"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/USB.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 199,
+      "end": 201,
+      "topic": "mounted bool excludes suspend flag",
+      "file_sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+      "span_sha256": "c99da3bc3e8406e82d64994d399811469033dc76aebd10fb18b8ae5572f9d9f3"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/USB.h",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 44,
+      "end": 46,
+      "topic": "event-task defaults",
+      "file_sha256": "f4aec2b5ea130792357d628d29906e5c3fce5ed08330b08bd98f24dfff022f2d",
+      "span_sha256": "81662b27aece90cba557876de1ee341d78f32f2456c5bf8912779485db737b84"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/esp32-hal-tinyusb.c",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 760,
+      "end": 767,
+      "topic": "service task",
+      "file_sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+      "span_sha256": "94da6975fa3ec59a5dfc97f271ae19c9d8a1e806b13912c7ec557a49eda25ba6"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/esp32-hal-tinyusb.c",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 838,
+      "end": 847,
+      "topic": "service startup/stack",
+      "file_sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+      "span_sha256": "1c31aa083731ec3733f1d12dbf8dfc89adf85abcf10a97ed37bf0765afef353e"
+    },
+    {
+      "root": "core",
+      "file": "cores/esp32/main.cpp",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 47,
+      "end": 105,
+      "topic": "loop task and startup",
+      "file_sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d",
+      "span_sha256": "de91280896d1a0dc59a07d8b62d336efc9523b091c68d30f97dc65a2315283ac"
+    },
+    {
+      "root": "core",
+      "file": "platform.txt",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 1,
+      "end": 2,
+      "topic": "exact version",
+      "file_sha256": "ef6a6808dd488962c05264e8094173ea8d2ce4c76a2c54b7eb84040d3b586b0c",
+      "span_sha256": "881ed4a366de2cacf5219a341965bbaf9da82b812161096442c0a73c6c9dfa58"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/class/hid/hid_device.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 54,
+      "end": 68,
+      "topic": "send API",
+      "file_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "span_sha256": "3e5f47d534d1c96cc14d50b1a801587452b06ccf34c554dda27da40c5eb15384"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/class/hid/hid_device.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 143,
+      "end": 156,
+      "topic": "callback data and framing",
+      "file_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "span_sha256": "76dcf31e82056aa4e80e8a8d1f379c1e1d4e97db209308635c463177d540371b"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/class/hid/hid_device.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 177,
+      "end": 216,
+      "topic": "keyboard descriptor bits",
+      "file_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "span_sha256": "2575422bd0219123bcd5b9e1589dbef2611e705e60ea4eeb0a8079e4e00f6856"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/class/hid/hid.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 357,
+      "end": 363,
+      "topic": "packed payload",
+      "file_sha256": "df44b1215ccce40ae12c22e3895109a6d01aa13a77115ad43f28d488351bb97c",
+      "span_sha256": "4b816c799a5b54c20672798e75de2e2539ce3134ff48ed5bc4429f06f9dedf4e"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/tusb_option.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 33,
+      "end": 38,
+      "topic": "TinyUSB header version",
+      "file_sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "span_sha256": "eefc9d1a151a8146d9ae86e5f2a4f5f617abb7920eaf048a4b0809483efe5567"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/include/tusb_config.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 85,
+      "end": 141,
+      "topic": "OS/capacity macros",
+      "file_sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+      "span_sha256": "39dd10937386cc3a914e2900a1d8ae0cf4a2bfc0f269833e55fa4b084aa382f0"
+    },
+    {
+      "root": "sdk",
+      "file": "include/esp_common/include/esp_idf_version.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 14,
+      "end": 18,
+      "topic": "SDK version",
+      "file_sha256": "30fdfbed6cc0055a89f3454f61b56d5e5643bbc46c0774aae63e41869cf2947a",
+      "span_sha256": "c162aa569d788dc830986e6a60dbee9adf0526de418b2661018a0b0682436657"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/osal/osal_freertos.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 192,
+      "end": 220,
+      "topic": "semaphore/mutex mapping",
+      "file_sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "span_sha256": "2ac56de674462da866e9e4295921ebb60534c15a2560485d3e332654c4c064b7"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/common/tusb_types.h",
+      "revision": "idf-release_v5.5-b66b5448-v1, installed headers",
+      "start": 273,
+      "end": 280,
+      "topic": "success/failure enum",
+      "file_sha256": "9dfd468116b53eeabc9a9838a06f90ea414c96d82a59f7eaecdd71381042969f",
+      "span_sha256": "249f1ffded67a1815d74731ef9662a1171d0cb5b7db4f24182ba7b1b305904bb"
+    },
+    {
+      "root": "core",
+      "file": "boards.txt",
+      "revision": "Arduino-ESP32 3.3.0 protected core",
+      "start": 1010,
+      "end": 1015,
+      "topic": "ESP32-S3 board default flash frequency 80m",
+      "file_sha256": "232552f718960b2cf25f397fc53a8f6a21215c3112227252b81fa145f8592544",
+      "span_sha256": "cf80345d5df377af4c53e76ae197f11c32e9d76ab7777b447988dc113e85dfb1"
+    }
+  ],
+  "dependency_check": {
+    "status": "PASS",
+    "core_version": "3.3.0",
+    "core_tree": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "verified_pins": {
+      "core_version": "3.3.0",
+      "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+    }
+  },
+  "binary_artifacts_inspected": [
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libarduino_tinyusb.a",
+      "bytes": 1109204,
+      "sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18"
+    },
+    {
+      "file": "/workspace/tooling/arduino/build/stage26-final-controlled/EvilDuckS3.ino.elf",
+      "bytes": 22755364,
+      "sha256": "ad94738e5625318ea7b6a710496b1ec33ed15b49c8a1fb11563241ebd240bace"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/hid_device.c.obj",
+      "bytes": 54276,
+      "sha256": "265cad4695124e3d99fc838617b54361f889ea7f81e6a6770f2f5137c3c51a9a"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/usbd.c.obj",
+      "bytes": 159396,
+      "sha256": "11cabcbe1762a3eb32ee88dca456b0ab60eef087a9b4d19fad6fa1105307d326"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/tusb.c.obj",
+      "bytes": 66888,
+      "sha256": "4377b0699f50f0834814626841bd5af0eae6a3c8a65cedf64df3442e17389082"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/hid_device.c.obj.disassembly.txt",
+      "bytes": 34137,
+      "sha256": "b4fa297e2b4b0df5adbe32fad4c747a5343005403144d83a4f5b55cc3c2fe11f"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/usbd.c.obj.disassembly.txt",
+      "bytes": 113639,
+      "sha256": "aa0d80956ee360ce315dd9f1f30ebe272021079b98e824ac0b463b9bd08adff8"
+    },
+    {
+      "file": "/workspace/tooling/stage28l-evidence/tusb.c.obj.disassembly.txt",
+      "bytes": 39471,
+      "sha256": "8ec7e6d5787b68b33f0c1fe8597f20e5e4cb924224c058e3e7a77e363210277e"
+    }
+  ],
+  "compiled_static_findings": {
+    "symbols_in_existing_elf": {
+      "tud_hid_n_report": "42074f40 T",
+      "tud_hid_report_complete_cb": "4201e87c T",
+      "tud_hid_report_failed_cb": "420d089c W",
+      "hidd_xfer_cb": "4207520c T",
+      "usbd_edpt_xfer": "42076ca4 T"
+    },
+    "hid_static_symbol_sizes": {
+      "_hidd_epbuf": 192,
+      "_hidd_itf": 12
+    },
+    "entry_disassembly_excerpt": "\n\n00000000 <tud_hid_n_report>:\n   0:\t004136        \tentry\ta1, 32\n   3:\t742020        \textui\ta2, a2, 0, 8\n   6:\t743030        \textui\ta3, a3, 0, 8\n   9:\tf45050        \textui\ta5, a5, 0, 16\n   c:\t428c      \tbeqz.n\ta2, 14 <tud_hid_n_report+0x14>\n\t\t\tc: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0x14\n   e:\t020c      \tmovi.n\ta2, 0\n  10:\tf01d      \tretw.n\n  12:\t00          \t.byte\t00\n  13:\t00          \t.byte\t00\n  14:\t000021        \tl32r\ta2, fffc0014 <tud_hid_n_report+0xfffc0014>\n\t\t\t14: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report\n  17:\t0a0c      \tmovi.n\ta10, 0\n  19:\t0102b2        \tl8ui\ta11, a2, 1\n  1c:\t000081        \tl32r\ta8, fffc001c <tud_hid_n_report+0xfffc001c>\n\t\t\t1c: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x10\n\t\t\t1c: R_XTENSA_ASM_EXPAND\tusbd_edpt_claim\n  1f:\t0008e0        \tcallx8\ta8\n  22:\tfe8a16        \tbeqz\ta10, e <tud_hid_n_report+0xe>\n\t\t\t22: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0xe\n  25:\t13bc      \tbeqz.n\ta3, 5a <tud_hid_n_report+0x5a>\n\t\t\t25: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0x5a\n  27:\t000081        \tl32r\ta8, fffc0028 <tud_hid_n_report+0xfffc0028>\n\t\t\t27: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x4\n  2a:\t404832        \ts8i\ta3, a8, 64\n  2d:\tf83c      \tmovi.n\ta8, 63\n  2f:\tdb3857        \tbltu\ta8, a5, e <tud_hid_n_report+0xe>\n\t\t\t2f: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0xe\n  32:\t0000a1        \tl32r\ta10, fffc0034 <tud_hid_n_report+0xfffc0034>\n\t\t\t32: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x8\n  35:\t05cd      \tmov.n\ta12, a5\n  37:\t04bd      \tmov.n\ta11, a4\n  39:\t551b      \taddi.n\ta5, a5, 1\n  3b:\t000081        \tl32r\ta8, fffc003c <tud_hid_n_report+0xfffc003c>\n\t\t\t3b: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x14\n\t\t\t3b: R_XTENSA_ASM_EXPAND\tmemcpy\n  3e:\t0008e0        \tcallx8\ta8\n  41:\tf45050        \textui\ta5, a5, 0, 16\n  44:\t0102b2        \tl8ui\ta11, a2, 1\n  47:\t0000c1        \tl32r\ta12, fffc0048 <tud_hid_n_report+0xfffc0048>\n\t\t\t47: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0xc\n  4a:\t05dd      \tmov.n\ta13, a5\n  4c:\t0a0c      \tmovi.n\ta10, 0\n  4e:\t000081        \tl32r\ta8, fffc0050 <tud_hid_n_report+0xfffc0050>\n\t\t\t4e: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x18\n\t\t\t4e: R_XTENSA_ASM_EXPAND\tusbd_edpt_xfer\n  51:\t0008e0        \tcallx8\ta8\n  54:\t0a2d      \tmov.n\ta2, a10\n  56:\tffed86        \tj\t10 <tud_hid_n_report+0x10>\n\t\t\t56: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0x10\n  59:\t00          \t.byte\t00\n  5a:\t084c      \tmovi.n\ta8, 64\n  5c:\tae3857        \tbltu\ta8, a5, e <tud_hid_n_report+0xe>\n\t\t\t5c: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0xe\n  5f:\t0000a1        \tl32r\ta10, fffc0060 <tud_hid_n_report+0xfffc0060>\n\t\t\t5f: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0xc\n  62:\t05cd      \tmov.n\ta12, a5\n  64:\t04bd      \tmov.n\ta11, a4\n  66:\t000081        \tl32r\ta8, fffc0068 <tud_hid_n_report+0xfffc0068>\n\t\t\t66: R_XTENSA_SLOT0_OP\t.literal.tud_hid_n_report+0x1c\n\t\t\t66: R_XTENSA_ASM_EXPAND\tmemcpy\n  69:\t0008e0        \tcallx8\ta8\n  6c:\tfff506        \tj\t44 <tud_hid_n_report+0x44>\n\t\t\t6c: R_XTENSA_SLOT0_OP\t.text.tud_hid_n_report+0x44\n\n",
+    "evidence_level": "COMPILED-STATIC, not runtime/source-build equivalence",
+    "hooks_have_submission_identity": false,
+    "claim_timeout_instruction": "tu_edpt_claim offset 0x1a: movi.n a11,-1 then xQueueSemaphoreTake"
+  },
+  "commands": [
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-ar",
+      "x",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libarduino_tinyusb.a",
+      "hid_device.c.obj",
+      "usbd.c.obj"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-ar",
+      "x",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libarduino_tinyusb.a",
+      "tusb.c.obj"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-objdump",
+      "-dr",
+      "/workspace/tooling/stage28l-evidence/hid_device.c.obj"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-objdump",
+      "-dr",
+      "/workspace/tooling/stage28l-evidence/usbd.c.obj"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-objdump",
+      "-dr",
+      "/workspace/tooling/stage28l-evidence/tusb.c.obj"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-nm",
+      "-C",
+      "/workspace/tooling/arduino/build/stage26-final-controlled/EvilDuckS3.ino.elf"
+    ]
+  ],
+  "critical_source_gaps": [
+    "Exact shipped TinyUSB hid_device.c/usbd.c/tusb.c source-build relation",
+    "Exact DCD lifecycle/event tagging/reset retirement body and build relation"
+  ],
+  "supporting_cache_only": {
+    "path": "/workspace/tooling/stage15-tinyusb-0.18.0-hid_device.c",
+    "sha256": "f5a6f34579f09388a26d52bc4afbca341047ad8fb9c7b1cdc04be7c43d36b9e4",
+    "not_certified_shipped_source": true
+  },
+  "new_findings": [
+    {
+      "id": "K01",
+      "evidence": "source review only, not newly runtime-reproduced",
+      "status": "setup request/start barrier gap, not repaired"
+    }
+  ],
+  "prior_results_not_rerun": {
+    "stage28k": {
+      "PASS": 37,
+      "assertions": 10346
+    },
+    "legacy": {
+      "PASS": 187,
+      "assertions": 579622
+    }
+  },
+  "runtime_tests_executed": false,
+  "new_runtime_assertions": 0,
+  "prospective_traces": {
+    "count": 24,
+    "status": "NOT EXECUTED"
+  },
+  "integrity": {
+    "historical_files_paths_modes_checked": 1052,
+    "stage26_protected_files_pass": 235,
+    "source_spans": 44,
+    "allowed_added_files": [
+      "docs/stage28l-evidence.json",
+      "docs/stage28l-memory-and-capacity.md",
+      "docs/stage28l-ownership-and-recovery.md",
+      "docs/stage28l-prospective-traces.md",
+      "docs/stage28l-review-report.md",
+      "docs/stage28l-scope-and-review.md",
+      "docs/stage28l-transport-contract.md",
+      "docs/stage28l-usb-source-evidence.md"
+    ],
+    "final_source_and_doc_checks": "PASS"
+  },
+  "publication_precommit": {
+    "new_branch": "stage28l-transport-ownership-design",
+    "existing_remote_refs": {
+      "refs/heads/main": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf",
+      "refs/heads/stage10-usb-storage-reliability": "5ac88388635ac2d6e464eb17006aea2e8819dae4",
+      "refs/heads/stage11-duckyscript-hold-release": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7",
+      "refs/heads/stage12-internal-variables-lock-feedback": "f3841747fee7ff79c381723d1e578e5d65410011",
+      "refs/heads/stage13-duckyscript-preprocessing": "cd0cf0ea94e751d6e10bed3820484c1228abccd6",
+      "refs/heads/stage14-duckyscript-random-jitter": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d",
+      "refs/heads/stage15-usb-readiness-hardening": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+      "refs/heads/stage16-usb-routing-integration": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f",
+      "refs/heads/stage17-deployment-safety-preflight": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "refs/heads/stage18-nvs-preservation-hardening": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b",
+      "refs/heads/stage19-nvs-sdk-compatibility": "524d643a12af05e4efd9da509eae274ec43959a6",
+      "refs/heads/stage20-nvs-preservation-contract": "7c4559132251340b03bcb68a3d66d04d1659e503",
+      "refs/heads/stage21-readonly-nvs-quiescent-validation": "516fb642b1126af55db909fcff856943935b7111",
+      "refs/heads/stage22-readonly-nvs-preinit-gate": "89006f886fa30058a965e8e1883fb743d1683b70",
+      "refs/heads/stage23-nvs-iterator-early-writer-audit": "9af270f01d455e0bd282a14449ee941751938b1a",
+      "refs/heads/stage24-nvs-hardening-fresh-provisioning": "54b3ee184f98308783e7b78c253b15fce2b30a87",
+      "refs/heads/stage25-controlled-first-boot": "f929bdf2353e0022f10c164d2c09cb3db2564a5a",
+      "refs/heads/stage26-installation-readiness": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+      "refs/heads/stage27b-duckyscript3-offline": "a570786a932bdf2312061d9a2e6105c0dcb89f3b",
+      "refs/heads/stage28a-expression-function-continuations": "9422ac34c3c7954c0be07076ee2ee719378b783d",
+      "refs/heads/stage28b-bounded-multiline-strings": "e184f2837d008d2d732b97dcd5aab839bec3f502",
+      "refs/heads/stage28c-cooperative-source-preflight": "aff427ab6346433729487e5359d101ea764e5357",
+      "refs/heads/stage28d-mock-keyboard-report-planning": "d44582884da33c4028612fa595e07384a08f9c84",
+      "refs/heads/stage28e-mock-runtime-planner-bridge": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5",
+      "refs/heads/stage28f-mock-ownership-commands": "3650caf7c66d5742d39a939fa0c8495be11d3b1b",
+      "refs/heads/stage28g-modifier-contract-mock": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+      "refs/heads/stage28h-host-validation-kit": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+      "refs/heads/stage28i-integration-readiness-audit": "220970bc633d969e76d1d8c91750b5939377df0a",
+      "refs/heads/stage28j-integration-contract-review": "dce42b8664c2964019cf4b488388d08b2b7fc2d0",
+      "refs/heads/stage28k-synthetic-report-journal": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "refs/heads/stage4-duckyscript-migration": "c3e9c34f887015a6c8bcc3146835ebac54432b58",
+      "refs/heads/stage5-duckyscript-while": "1222fc6fb9307dd9680493b189b595cdd0c91b2f",
+      "refs/heads/stage6-duckyscript-functions": "b636495a786554afdf3512bee788c6faaa26b229",
+      "refs/heads/stage7-duckyscript-multiline": "68f44b7a7bd1478064b32316fa49a62f68d8527b",
+      "refs/heads/stage8-duckyscript-hid-locale": "d59562b7d08ff7833cbe1eddb07c32359138faac",
+      "refs/heads/stage9-duckyscript-compatibility-audit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    },
+    "status": "precommit snapshot; final SHA/post-push confirmation reported at delivery, never self-referential",
+    "prepush_comparison": "PASS: all 36 previous refs unchanged"
+  },
+  "physical_testing": false,
+  "firmware_generated": false,
+  "packages_installed": false,
+  "core_sdk_modified": false,
+  "compiler_file_verified": {
+    "path": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+    "sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+    "version_evidence": "prior committed Stage26 provenance; no new build"
+  },
+  "existing_build_selected_flags_verified": [
+    "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+    "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+    "-DEVILDUCK_CONTROLLED_START=1",
+    "-DF_CPU=240000000L",
+    "-DARDUINO_USB_MODE=0",
+    "-DARDUINO_USB_CDC_ON_BOOT=1",
+    "-DARDUINO_USB_MSC_ON_BOOT=0",
+    "-DARDUINO_USB_DFU_ON_BOOT=0"
+  ],
+  "build_configuration_note": "Historical controlled build, no Stage28L build. Recorded FQBN has no explicit FlashFreq menu; actual pinned boards.txt:1013 sets esp32s3.build.flash_freq=80m. This is source evidence, not a new image/header or hardware measurement.",
+  "new_document_hashes_self_excluded": {
+    "docs/stage28l-memory-and-capacity.md": {
+      "size_bytes": 6005,
+      "sha256": "d20b10b4a1aaaa1c2fe192ee5d9ebbd75f4aad1acaf08db97f16518643f8126d"
+    },
+    "docs/stage28l-ownership-and-recovery.md": {
+      "size_bytes": 10495,
+      "sha256": "6d1581343aaafa4701167b22aa9785ba6769877d36129cf616dfebc5a942fa73"
+    },
+    "docs/stage28l-prospective-traces.md": {
+      "size_bytes": 8014,
+      "sha256": "db48297d6c83fa4e058116c2041ce25c089ea6722a8427035cbfa427b8f283fa"
+    },
+    "docs/stage28l-review-report.md": {
+      "size_bytes": 11617,
+      "sha256": "80dcb1d068f97222ea99cbfe39912ef40edd29575ecef3b54f5e181f5fec40dc"
+    },
+    "docs/stage28l-scope-and-review.md": {
+      "size_bytes": 4740,
+      "sha256": "73689c896db5751414791229061381eccc77faa024234b364cc9f14870469511"
+    },
+    "docs/stage28l-transport-contract.md": {
+      "size_bytes": 10362,
+      "sha256": "12dc21b2ed95c1b423fb06f667bfdb00720538d5c8587ab152b39cf4ead230af"
+    },
+    "docs/stage28l-usb-source-evidence.md": {
+      "size_bytes": 9024,
+      "sha256": "aa220aa6a2998c088d62026ec56f4a16991801d40d2c6341133980d83f5e7f14"
+    }
+  },
+  "documentation_consistency": {
+    "prospective_trace_ids": "L01\u2013L24 present once",
+    "runtime_test_execution": false,
+    "eight_docs_only": true,
+    "acceptance_action_eligibility": "E-bearing cancelled source excluded; explicit E=0 drain allowed after retirement"
+  }
+}
