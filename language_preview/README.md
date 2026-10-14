@@ -34,3 +34,11 @@ Program::compile remains a synchronous convenience that drives the same session,
 with a larger caller-stack cost. Prefer an externally owned CompileSession for
 cooperative scheduling; see docs/stage28c-design.md and reproduction/report.
 Grammar/runtime semantics, Stage28B whitespace and every existing cap are unchanged.
+
+Stage28D's keyboard.h/keyboard.cpp define an independent ds_keyboard::Planner.
+It plans eight-byte mock snapshots with four idempotent persistent owners,
+ascending six-key union, transient press/restoration, strict overflow rejection,
+and explicit accepted neutral cleanup. It does not consume Runtime events or
+add HOLD/RELEASE parser syntax. mapUS/character use a fixed printable-US ASCII
+model, not locale/Unicode/host text guarantees. See docs/stage28d-design.md.
+No real HID/USB/OS adapter exists. Core compiler/runtime source remains unchanged.

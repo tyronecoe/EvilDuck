@@ -1,0 +1,64 @@
+{
+  "official_hak5_saved": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+      "snapshot": "duckyscript-tm-quick-reference.md",
+      "bytes": 40486,
+      "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+      "retrieved_utc": "2026-10-11T18:01:06.298030+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+      "snapshot": "advanced-features__holding-keys.md",
+      "bytes": 7034,
+      "sha256": "c57852d2f4dad7b64b104c98da910c2a61d229875b9e02b121a1c259920372a3",
+      "retrieved_utc": "2026-10-11T18:01:07.767125+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+      "snapshot": "advanced-features__payload-control.md",
+      "bytes": 3409,
+      "sha256": "3f2e1c1431d294a8cb2812a7d6f0a297542690319552feff6e1198079522085a",
+      "retrieved_utc": "2026-10-11T18:01:08.696077+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true
+    }
+  ],
+  "usb_usage_reference": {
+    "url": "https://www.usb.org/sites/default/files/hut1_5.pdf",
+    "version": "USB HID Usage Tables1.5, section10 page07",
+    "cached_pdf_bytes": 4452110,
+    "cached_pdf_sha256": "f4ead217b01134f89199155ed616d4eeae9ad40a5f73dad9544002b592c07db3",
+    "cached_text_sha256": "c966b6ac46b99ea94a1e0b7aa329634b5cdd972bfc7818e93be4a99781338ac7",
+    "provenance": "Stage8 saved reference credited to official USB.org URL; cache read/fingerprinted in Stage28D; no new retrieval or latest-content claim",
+    "reviewed": "04..1D letters,1E..27 digits,28/2B/2C ENTER/TAB/SPACE,2D..38 punctuation,3A..45 F1..12,68..73 F13..24,E0..E7 left/right modifiers"
+  },
+  "report_model": "Conventional8-byte modifier/reserved/six-key snapshot is a chosen mock model, not a descriptor or physical protocol verification",
+  "official_compiler_oracle": false,
+  "proprietary_code_used": false,
+  "decisions": [
+    "No HOLD/RELEASE/INJECT_MOD parser implementation; internal numeric API only",
+    "Four persistent idempotent owners and one transient action are engineering policy",
+    "Reject seventh distinct key and held-key taps without mutation",
+    "All printable US ASCII and TAB/LF only; no Unicode, DE or lock compensation",
+    "Cancellation does not imply accepted neutral; explicit mock drain and restart gate",
+    "No real transport/report ID/timing or typematic claims"
+  ]
+}

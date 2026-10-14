@@ -1,0 +1,60 @@
+{
+  "language_status_changes": false,
+  "internal_capabilities": [
+    {
+      "feature": "Persistent ownership",
+      "status": "Implemented within bounds",
+      "scope": "Internal API only",
+      "evidence": "Two owners, shared keys/modifiers, idempotence and cap tests"
+    },
+    {
+      "feature": "Transient tap/modifier restoration",
+      "status": "Implemented within bounds",
+      "scope": "Internal API only",
+      "evidence": "Shift overlap and exact press/restoration bytes"
+    },
+    {
+      "feature": "US printable ASCII32..126 + TAB/LF",
+      "status": "Implemented model",
+      "scope": "Internal character/mapUS API only",
+      "evidence": "Independent literal punctuation/letter vectors plus95 printable cases"
+    },
+    {
+      "feature": "Six-key union/seventh rejection",
+      "status": "Implemented policy",
+      "scope": "Model only, no NKRO",
+      "evidence": "Sorted snapshots, owner cap and rollover recovery"
+    },
+    {
+      "feature": "Accepted neutral cleanup",
+      "status": "Implemented model",
+      "scope": "Explicit drain only",
+      "evidence": "Retry, Failed, exception, cancel and restart gates"
+    },
+    {
+      "feature": "HOLD/RELEASE/INJECT_MOD syntax",
+      "status": "Unsupported in preview",
+      "scope": "Language parser unchanged",
+      "evidence": "No parser change or legacy forwarding"
+    },
+    {
+      "feature": "Runtime Character/KeyTap/Delay adapter",
+      "status": "Not implemented",
+      "scope": "Deferred mock bridge",
+      "evidence": "Existing event ABI unchanged"
+    },
+    {
+      "feature": "DE/dead keys/Unicode/lock-state compensation",
+      "status": "Unsupported",
+      "scope": "Not approximated",
+      "evidence": "Unsupported bytes reject; no layout selector"
+    },
+    {
+      "feature": "Real HID/USB/OS/transport/physical release",
+      "status": "Not implemented or tested",
+      "scope": "Unauthorized",
+      "evidence": "No adapter, descriptor, report ID or hardware access"
+    }
+  ],
+  "full_ds3_compatibility_claim": false
+}
