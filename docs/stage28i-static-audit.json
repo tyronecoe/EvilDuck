@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "source_spans": 40,
+  "checked_historical_files": 1004,
+  "scope_checks": 1096,
+  "kind": "static integrity checks, NOT runtime compatibility tests/assertions",
+  "preview_unchanged": true,
+  "baseline": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+  "physical_testing": false,
+  "mac_native": "PENDING OWNER / NOT TESTED"
+}

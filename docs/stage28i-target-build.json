@@ -1,0 +1,901 @@
+{
+  "dependency_pin": {
+    "core_version": "3.3.0",
+    "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+    "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+    "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+  },
+  "verified_patched_core_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+  "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+  "status": "PASS",
+  "scope": "Xtensa target object compilation; not a linked preview firmware or hardware execution",
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "source_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+  "header_sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+  "metadata_dump_bytes": 72,
+  "object_sha256": "a65b3c15a509685aa2d8984e64d9eb24f633592d6939658cfb57ae8332689de2",
+  "target_sizes": {
+    "Program": 6936,
+    "Runtime": 4872,
+    "Event": 4,
+    "Instruction": 12,
+    "Continuation": 516,
+    "CallFrame": 6,
+    "ExprToken": 6,
+    "TextCursor": 14,
+    "CompileSession": 2408,
+    "Reader": 16,
+    "MemoryReader": 12,
+    "Compiler": 2312,
+    "Planner": 84,
+    "Report": 8,
+    "Owner": 7,
+    "OwnerTable": 28,
+    "Bridge": 5020,
+    "BridgeDiagnostic": 14
+  },
+  "stack_estimates": [
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:7:6:bool ds_preview::{anonymous}::letter(char)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:9:6:bool ds_preview::{anonymous}::ident(const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:10:7:char* ds_preview::{anonymous}::left(char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:15:7:char* ds_preview::{anonymous}::argument(char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:377:6:static bool ds_preview::MemoryReader::seek(void*, size_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:373:12:static ds_preview::ReadResult ds_preview::MemoryReader::read(void*, char*, size_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:11:6:void ds_preview::{anonymous}::right(char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:17:6:bool ds_preview::{anonymous}::functionName(const char*, char (&)[24])",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:13:6:bool ds_preview::{anonymous}::whole(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:14:6:bool ds_preview::{anonymous}::command(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:12:6:bool ds_preview::{anonymous}::exact(const char*, const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:16:5:int ds_preview::{anonymous}::findName(const char (*)[24], size_t, const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:18:9:uint8_t ds_preview::{anonymous}::key(const char*)",
+      "bytes": 96,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:225:6:int ds_preview::Compiler::fn(const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:166:7:bool ds_preview::Compiler::fail(ds_preview::ErrorCode, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:36:13:const char* ds_preview::message(ErrorCode)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:60:6:bool ds_preview::Program::ownershipCommands() const",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:71:7:void ds_preview::Expression::fail(ds_preview::ErrorCode)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:104:8:ds_preview::Expression::Value ds_preview::Expression::apply(const char*, Value, Value)",
+      "bytes": 64,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:72:7:void ds_preview::Expression::next()",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:103:13:static int ds_preview::Expression::precedence(const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:129:7:void ds_preview::Expression::emit(ds_preview::ExprKind, uint16_t, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:137:8:ds_preview::Expression::Value ds_preview::Expression::parse(int, unsigned int)",
+      "bytes": 64,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:151:8:ds_preview::Error ds_preview::Expression::evaluate(uint16_t&, bool*)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:167:7:bool ds_preview::Compiler::skip(char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:174:7:bool ds_preview::Compiler::addSymbol(const char*)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:179:7:bool ds_preview::Compiler::constant(char*)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:187:7:bool ds_preview::Compiler::expand(const char*, char (&)[257])",
+      "bytes": 64,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:197:7:bool ds_preview::Compiler::emit(ds_preview::Op, const char*, uint16_t, uint8_t, uint16_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:204:7:bool ds_preview::Compiler::textLine(char*, unsigned int)",
+      "bytes": 304,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:224:7:bool ds_preview::Compiler::expr(const char*)",
+      "bytes": 112,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:226:7:bool ds_preview::Compiler::push(ds_preview::Op, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:227:7:bool ds_preview::Compiler::condition(char*, char (&)[257], bool)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:231:7:bool ds_preview::Compiler::statement(char*)",
+      "bytes": 336,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:288:7:void ds_preview::Compiler::enqueue(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:289:7:bool ds_preview::Compiler::line()",
+      "bytes": 160,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:318:7:bool ds_preview::Compiler::step(ds_preview::CompileWork&)",
+      "bytes": 144,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:378:8:ds_preview::Reader ds_preview::MemoryReader::reader()",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:379:8:static size_t ds_preview::CompileSession::compilerBytes()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:381:6:void ds_preview::CompileSession::finish(ds_preview::CompileState)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:382:6:bool ds_preview::CompileSession::start(ds_preview::Program&, ds_preview::Reader, const char*, uint32_t)",
+      "bytes": 80,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:398:14:ds_preview::CompilePhase ds_preview::CompileSession::phase() const",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:399:6:void ds_preview::CompileSession::step()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:408:6:void ds_preview::CompileSession::cancel()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:380:1:ds_preview::CompileSession::~CompileSession()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:409:6:bool ds_preview::Program::compile(const char*, size_t, const char*)",
+      "bytes": 2496,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:415:6:void ds_preview::Runtime::releaseProgram()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:427:6:bool ds_preview::Runtime::variable(const char*, uint16_t&) const",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:428:6:void ds_preview::Runtime::clearContinuations()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:416:6:void ds_preview::Runtime::fail(ds_preview::ErrorCode, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:417:6:bool ds_preview::Runtime::start(const ds_preview::Program&, ds_preview::Sink, void*, uint32_t, uint32_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:426:6:void ds_preview::Runtime::cancel()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:429:6:void ds_preview::Runtime::enterCall(uint8_t, bool, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:435:6:void ds_preview::Runtime::returnFromCall(bool, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:462:6:void ds_preview::Runtime::deliver(uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:503:6:void ds_preview::Runtime::completeInstruction(uint32_t, uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:445:6:void ds_preview::Runtime::evaluationStep(uint32_t)",
+      "bytes": 144,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/core.cpp:471:6:void ds_preview::Runtime::tick(uint32_t)",
+      "bytes": 112,
+      "qualifier": "static",
+      "object": "core"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:4:6:static bool ds_keyboard::Planner::equal(const ds_keyboard::Report&, const ds_keyboard::Report&)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:5:6:static bool ds_keyboard::Planner::neutral(const ds_keyboard::Report&)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:6:6:bool ds_keyboard::Planner::neutralConfirmed() const",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:7:6:static bool ds_keyboard::Planner::ordinary(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:8:6:static bool ds_keyboard::Planner::validUsage(uint16_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:9:6:bool ds_keyboard::Planner::reject(ds_keyboard::Reason)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:10:6:bool ds_keyboard::Planner::available()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:11:6:static bool ds_keyboard::Planner::snapshot(const ds_keyboard::OwnerTable&, ds_keyboard::Report&, uint8_t, uint8_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:22:6:void ds_keyboard::Planner::queue(const ds_keyboard::Report&, ds_keyboard::Phase, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:23:6:bool ds_keyboard::Planner::start(ds_keyboard::Sink, void*, uint32_t, uint32_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:29:6:bool ds_keyboard::Planner::ownership(size_t, uint16_t, bool, uint32_t, bool)",
+      "bytes": 96,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:41:6:bool ds_keyboard::Planner::hold(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:42:6:bool ds_keyboard::Planner::release(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:43:6:bool ds_keyboard::Planner::holdConfirmed(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:44:6:bool ds_keyboard::Planner::releaseConfirmed(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:45:6:bool ds_keyboard::Planner::ownerEmpty(size_t) const",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:49:6:bool ds_keyboard::Planner::tap(uint16_t, uint16_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:55:6:static bool ds_keyboard::Planner::mapUS(uint16_t, uint8_t&, uint8_t&)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:66:6:bool ds_keyboard::Planner::character(uint16_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:67:6:void ds_keyboard::Planner::failure(ds_keyboard::Reason, ds_keyboard::Phase)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:68:6:void ds_keyboard::Planner::step(uint32_t)",
+      "bytes": 64,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:79:6:void ds_keyboard::Planner::cancel()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/keyboard.cpp:80:6:bool ds_keyboard::Planner::drain(uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "keyboard"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:35:8:static ds_preview::Accept ds_bridge::Bridge::report(void*, const ds_keyboard::Report&)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:5:6:bool ds_bridge::Bridge::reject(ds_bridge::Reason)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:6:6:static bool ds_bridge::Bridge::validEvent(const ds_preview::Event&)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:12:6:void ds_bridge::Bridge::latch(ds_bridge::Reason)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:15:6:bool ds_bridge::Bridge::begin(ds_keyboard::Sink, void*, uint32_t, uint32_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:23:6:bool ds_bridge::Bridge::start(const ds_preview::Program&, uint32_t, uint32_t, uint32_t)",
+      "bytes": 48,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:29:6:bool ds_bridge::Bridge::hold(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:32:6:bool ds_bridge::Bridge::release(size_t, uint16_t, uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:43:8:ds_preview::Accept ds_bridge::Bridge::receive(const ds_preview::Event&)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:39:8:static ds_preview::Accept ds_bridge::Bridge::sourceSink(void*, const ds_preview::Event&)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:63:6:void ds_bridge::Bridge::observeRuntime()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:70:6:void ds_bridge::Bridge::runtimeStep()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:71:6:void ds_bridge::Bridge::step(uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:86:6:void ds_bridge::Bridge::cancel()",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    },
+    {
+      "symbol": "<project-root>/language_preview/bridge.cpp:90:6:bool ds_bridge::Bridge::drain(uint32_t)",
+      "bytes": 32,
+      "qualifier": "static",
+      "object": "bridge"
+    }
+  ],
+  "section_sizes": "/workspace/tooling/stage28i-target/core.o  :\nsection                                                                                     size   addr\n.group                                                                                        52      0\n.group                                                                                        20      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        20      0\n.group                                                                                        36      0\n.group                                                                                        36      0\n.group                                                                                        20      0\n.literal._ZN10ds_preview12_GLOBAL__N_15identEPKc                                               8      0\n.literal._ZN10ds_preview12MemoryReader4readEPvPcj                                             16      0\n.literal._ZN10ds_preview12_GLOBAL__N_15rightEPc                                                4      0\n.literal._ZN10ds_preview12_GLOBAL__N_112functionNameEPKcRA24_c                                12      0\n.literal._ZN10ds_preview8Compiler8textLineEPcj                                                76      0\n.literal._ZN10ds_preview12_GLOBAL__N_17commandEPKcS2_                                          8      0\n.literal._ZN10ds_preview12_GLOBAL__N_15exactEPKcS2_                                            4      0\n.literal._ZN10ds_preview12_GLOBAL__N_18findNameEPA24_KcjPS1_                                   4      0\n.literal._ZN10ds_preview12_GLOBAL__N_13keyEPKc                                                28      0\n.literal._ZN10ds_preview8Compiler2fnEPKc$isra$0                                                4      0\n.literal._ZN10ds_preview7messageENS_9ErrorCodeE                                              144      0\n.literal._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0                          168      0\n.literal._ZN10ds_preview10Expression4nextEv                                                   64      0\n.literal._ZN10ds_preview10Expression10precedenceEPKc                                         136      0\n.literal._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                      4      0\n.literal._ZN10ds_preview10Expression5parseEij                                                 80      0\n.literal._ZN10ds_preview10Expression8evaluateERtPb                                            12      0\n.literal._ZN10ds_preview8Compiler4skipEPc                                                     44      0\n.literal._ZN10ds_preview8Compiler9addSymbolEPKc                                               20      0\n.literal._ZN10ds_preview8Compiler8constantEPc                                                 36      0\n.literal._ZN10ds_preview8Compiler6expandEPKcRA257_c                                           20      0\n.literal._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                          12      0\n.literal._ZN10ds_preview8Compiler4exprEPKc                                                    20      0\n.literal._ZN10ds_preview8Compiler4pushENS_2OpEt                                                4      0\n.literal._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                        32      0\n.literal._ZN10ds_preview8Compiler9statementEPc                                               364      0\n.literal._ZN10ds_preview8Compiler4lineEv                                                     144      0\n.literal._ZN10ds_preview8Compiler4stepERNS_11CompileWorkE                                     76      0\n.literal._ZN10ds_preview12MemoryReader6readerEv                                                8      0\n.literal._ZN10ds_preview14CompileSession6finishENS_12CompileStateE                             4      0\n.literal._ZN10ds_preview14CompileSession5startERNS_7ProgramENS_6ReaderEPKcm                   52      0\n.literal._ZN10ds_preview14CompileSession4stepEv                                               32      0\n.literal._ZN10ds_preview14CompileSession6cancelEv                                              4      0\n.literal._ZN10ds_preview14CompileSessionD2Ev                                                   4      0\n.literal._ZN10ds_preview7Program7compileEPKcjS2_                                              40      0\n.literal._ZNK10ds_preview7Runtime8variableEPKcRt                                               4      0\n.literal._ZN10ds_preview7Runtime4failENS_9ErrorCodeEt                                         12      0\n.literal._ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_mmm       20      0\n.literal._ZN10ds_preview7Runtime6cancelEv                                                     12      0\n.literal._ZN10ds_preview7Runtime9enterCallEhbt                                                 4      0\n.literal._ZN10ds_preview7Runtime14returnFromCallEbt                                            4      0\n.literal._ZN10ds_preview7Runtime7deliverEm                                                    16      0\n.literal._ZN10ds_preview7Runtime19completeInstructionEmt                                      32      0\n.literal._ZN10ds_preview7Runtime14evaluationStepEm                                            36      0\n.literal._ZN10ds_preview7Runtime4tickEm                                                       64      0\n.text                                                                                          0      0\n.data                                                                                          0      0\n.bss                                                                                           0      0\n.text._ZN10ds_preview12_GLOBAL__N_16letterEc                                                  42      0\n.text._ZN10ds_preview12_GLOBAL__N_15identEPKc                                                 59      0\n.text._ZN10ds_preview12_GLOBAL__N_14leftEPc                                                   34      0\n.text._ZN10ds_preview12_GLOBAL__N_18argumentEPc                                               28      0\n.text._ZN10ds_preview12MemoryReader4seekEPvj                                                  18      0\n.rodata                                                                                      176      0\n.text._ZN10ds_preview12MemoryReader4readEPvPcj                                                99      0\n.text._ZN10ds_preview12_GLOBAL__N_15rightEPc                                                  56      0\n.text._ZN10ds_preview12_GLOBAL__N_112functionNameEPKcRA24_c                                   78      0\n.text._ZN10ds_preview12_GLOBAL__N_15wholeEPKcS2_                                             101      0\n.text._ZN10ds_preview12_GLOBAL__N_17commandEPKcS2_                                            63      0\n.text._ZN10ds_preview12_GLOBAL__N_15exactEPKcS2_                                              21      0\n.text._ZN10ds_preview12_GLOBAL__N_18findNameEPA24_KcjPS1_                                     38      0\n.rodata._ZN10ds_preview12_GLOBAL__N_13keyEPKc.str1.1                                          90      0\n.text._ZN10ds_preview12_GLOBAL__N_13keyEPKc                                                  110      0\n.text._ZN10ds_preview8Compiler2fnEPKc$isra$0                                                  47      0\n.text._ZN10ds_preview8Compiler4failENS_9ErrorCodeEt$isra$0                                    30      0\n.rodata._ZN10ds_preview7messageENS_9ErrorCodeE.str1.1                                       1204      0\n.text._ZN10ds_preview7messageENS_9ErrorCodeE                                                 307      0\n.text._ZNK10ds_preview7Program17ownershipCommandsEv                                           51      0\n.text._ZN10ds_preview10Expression4failENS_9ErrorCodeE                                         22      0\n.rodata._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0.str1.1                     44      0\n.text._ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_$isra$0                             611      0\n.rodata._ZN10ds_preview10Expression4nextEv.str1.1                                             28      0\n.text._ZN10ds_preview10Expression4nextEv                                                     733      0\n.text._ZN10ds_preview10Expression10precedenceEPKc                                            268      0\n.text._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                        73      0\n.text._ZN10ds_preview10Expression5parseEij                                                   406      0\n.text._ZN10ds_preview10Expression8evaluateERtPb                                              108      0\n.rodata._ZN10ds_preview8Compiler4skipEPc.str1.1                                               36      0\n.text._ZN10ds_preview8Compiler4skipEPc                                                       126      0\n.text._ZN10ds_preview8Compiler9addSymbolEPKc                                                 127      0\n.text._ZN10ds_preview8Compiler8constantEPc                                                   233      0\n.text._ZN10ds_preview8Compiler6expandEPKcRA257_c                                             238      0\n.text._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                            220      0\n.rodata._ZN10ds_preview8Compiler8textLineEPcj.str1.1                                          40      0\n.text._ZN10ds_preview8Compiler8textLineEPcj                                                  363      0\n.text._ZN10ds_preview8Compiler4exprEPKc                                                      142      0\n.text._ZN10ds_preview8Compiler4pushENS_2OpEt                                                  76      0\n.rodata._ZN10ds_preview8Compiler9conditionEPcRA257_cb.str1.1                                   5      0\n.text._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                          138      0\n.rodata._ZN10ds_preview8Compiler9statementEPc.str1.1                                         104      0\n.text._ZN10ds_preview8Compiler9statementEPc                                                 1796      0\n.text._ZN10ds_preview8Compiler7enqueueEt                                                      87      0\n.rodata._ZN10ds_preview8Compiler4lineEv.str1.1                                                39      0\n.text._ZN10ds_preview8Compiler4lineEv                                                        708      0\n.text._ZN10ds_preview8Compiler4stepERNS_11CompileWorkE                                      1543      0\n.text._ZN10ds_preview12MemoryReader6readerEv                                                  15      0\n.text._ZN10ds_preview14CompileSession13compilerBytesEv                                        10      0\n.text._ZN10ds_preview14CompileSession6finishENS_12CompileStateE                               75      0\n.text._ZN10ds_preview14CompileSession5startERNS_7ProgramENS_6ReaderEPKcm                     588      0\n.text._ZNK10ds_preview14CompileSession5phaseEv                                                22      0\n.text._ZN10ds_preview14CompileSession4stepEv                                                 220      0\n.gcc_except_table._ZN10ds_preview14CompileSession4stepEv                                      28      0\n.text._ZN10ds_preview14CompileSession6cancelEv                                                37      0\n.text._ZN10ds_preview14CompileSessionD2Ev                                                     14      0\n.text._ZN10ds_preview7Program7compileEPKcjS2_                                                274      0\n.gcc_except_table._ZN10ds_preview7Program7compileEPKcjS2_                                     15      0\n.text._ZN10ds_preview7Runtime14releaseProgramEv                                               31      0\n.text._ZNK10ds_preview7Runtime8variableEPKcRt                                                 83      0\n.text._ZN10ds_preview7Runtime18clearContinuationsEv                                           42      0\n.text._ZN10ds_preview7Runtime4failENS_9ErrorCodeEt                                           140      0\n.text._ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_mmm         264      0\n.text._ZN10ds_preview7Runtime6cancelEv                                                        78      0\n.text._ZN10ds_preview7Runtime9enterCallEhbt                                                  140      0\n.text._ZN10ds_preview7Runtime14returnFromCallEbt                                             164      0\n.text._ZN10ds_preview7Runtime7deliverEm                                                      213      0\n.gcc_except_table._ZN10ds_preview7Runtime7deliverEm                                           24      0\n.text._ZN10ds_preview7Runtime19completeInstructionEmt                                        441      0\n.text._ZN10ds_preview7Runtime14evaluationStepEm                                              481      0\n.text._ZN10ds_preview7Runtime4tickEm                                                         760      0\n.gcc_except_table._ZN10ds_preview7Runtime4tickEm                                              15      0\n.rodata._ZZN10ds_preview10Expression10binaryNameEtE5names                                     72      0\n.debug_frame                                                                                1408      0\n.eh_frame                                                                                    236      0\n.debug_info                                                                                28152      0\n.debug_abbrev                                                                               2699      0\n.debug_loc                                                                                 15497      0\n.debug_aranges                                                                               488      0\n.debug_ranges                                                                               2496      0\n.debug_line                                                                                40678      0\n.debug_str                                                                                  8017      0\n.comment                                                                                      48      0\n.xtensa.info                                                                                  56      0\n.xt.lit                                                                                      224      0\n.xt.lit._ZN10ds_preview8Compiler8textLineEPcj                                                  8      0\n.xt.lit._ZN10ds_preview10Expression4nextEv                                                     8      0\n.xt.lit._ZN10ds_preview10Expression10precedenceEPKc                                            8      0\n.xt.lit._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                       8      0\n.xt.lit._ZN10ds_preview10Expression5parseEij                                                   8      0\n.xt.lit._ZN10ds_preview10Expression8evaluateERtPb                                              8      0\n.xt.lit._ZN10ds_preview8Compiler4skipEPc                                                       8      0\n.xt.lit._ZN10ds_preview8Compiler9addSymbolEPKc                                                 8      0\n.xt.lit._ZN10ds_preview8Compiler8constantEPc                                                   8      0\n.xt.lit._ZN10ds_preview8Compiler6expandEPKcRA257_c                                             8      0\n.xt.lit._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                            8      0\n.xt.lit._ZN10ds_preview8Compiler4exprEPKc                                                      8      0\n.xt.lit._ZN10ds_preview8Compiler4pushENS_2OpEt                                                 8      0\n.xt.lit._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                          8      0\n.xt.lit._ZN10ds_preview8Compiler9statementEPc                                                  8      0\n.xt.lit._ZN10ds_preview8Compiler4lineEv                                                        8      0\n.xt.lit._ZN10ds_preview8Compiler4stepERNS_11CompileWorkE                                       8      0\n.xt.prop                                                                                    5064      0\n.xt.prop._ZN10ds_preview8Compiler8textLineEPcj                                               216      0\n.xt.prop._ZN10ds_preview10Expression4nextEv                                                  660      0\n.xt.prop._ZN10ds_preview10Expression10precedenceEPKc                                          60      0\n.xt.prop._ZN10ds_preview10Expression4emitENS_8ExprKindEtt                                     84      0\n.xt.prop._ZN10ds_preview10Expression5parseEij                                                240      0\n.xt.prop._ZN10ds_preview10Expression8evaluateERtPb                                            84      0\n.xt.prop._ZN10ds_preview8Compiler4skipEPc                                                    132      0\n.xt.prop._ZN10ds_preview8Compiler9addSymbolEPKc                                              120      0\n.xt.prop._ZN10ds_preview8Compiler8constantEPc                                                156      0\n.xt.prop._ZN10ds_preview8Compiler6expandEPKcRA257_c                                          192      0\n.xt.prop._ZN10ds_preview8Compiler4emitENS_2OpEPKctht                                          96      0\n.xt.prop._ZN10ds_preview8Compiler4exprEPKc                                                    60      0\n.xt.prop._ZN10ds_preview8Compiler4pushENS_2OpEt                                               72      0\n.xt.prop._ZN10ds_preview8Compiler9conditionEPcRA257_cb                                        96      0\n.xt.prop._ZN10ds_preview8Compiler9statementEPc                                               876      0\n.xt.prop._ZN10ds_preview8Compiler4lineEv                                                     432      0\n.xt.prop._ZN10ds_preview8Compiler4stepERNS_11CompileWorkE                                    996      0\n.xt.prop._ZN10ds_preview12_GLOBAL__N_15wholeEPKcS2_                                           96      0\n.xt.prop._ZN10ds_preview10Expression4failENS_9ErrorCodeE                                      36      0\n.xt.prop._ZN10ds_preview8Compiler7enqueueEt                                                   36      0\n.xt.prop._ZZN10ds_preview10Expression10binaryNameEtE5names                                    12      0\nTotal                                                                                     127743\n\n\n",
+  "undefined_symbols": "         U _Unwind_Resume\n         U __cxa_begin_catch\n         U __cxa_end_catch\n         U __gxx_personality_v0\n         U __stack_chk_fail\n         U __stack_chk_guard\n         U memcpy\n         U memset\n         U strchr\n         U strcmp\n         U strcpy\n         U strlen\n         U strncmp\n",
+  "commands": [
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I<project-root>/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "<project-root>/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28i-target/core.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I<project-root>/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "<project-root>/language_preview/keyboard.cpp",
+      "-o",
+      "/workspace/tooling/stage28i-target/keyboard.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I<project-root>/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "<project-root>/language_preview/bridge.cpp",
+      "-o",
+      "/workspace/tooling/stage28i-target/bridge.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ],
+    [
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "-DEVILDUCK_VERIFIED_HID_ROUTING=1",
+      "-DEVILDUCK_VERIFIED_NVS_PRESERVATION=1",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-MMD",
+      "-c",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/cpp_flags",
+      "-w",
+      "-Os",
+      "-Werror=return-type",
+      "-DF_CPU=240000000L",
+      "-DARDUINO=10607",
+      "-DARDUINO_ESP32S3_DEV",
+      "-DARDUINO_ARCH_ESP32",
+      "-DARDUINO_BOARD=\"ESP32S3_DEV\"",
+      "-DARDUINO_VARIANT=\"esp32s3\"",
+      "-DARDUINO_PARTITION_",
+      "-DARDUINO_HOST_OS=\"linux\"",
+      "-DARDUINO_FQBN=\"esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default\"",
+      "-DESP32=ESP32",
+      "-DCORE_DEBUG_LEVEL=0",
+      "-DARDUINO_RUNNING_CORE=1",
+      "-DARDUINO_EVENT_RUNNING_CORE=1",
+      "-DARDUINO_USB_MODE=0",
+      "-DARDUINO_USB_CDC_ON_BOOT=1",
+      "-DARDUINO_USB_MSC_ON_BOOT=0",
+      "-DARDUINO_USB_DFU_ON_BOOT=0",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/defines",
+      "-I<project-root>/EvilDuckS3",
+      "-iprefix",
+      "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/",
+      "@/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/includes",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/include",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/variants/esp32s3",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/WiFi/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Network/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/FS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src",
+      "-I/workspace/tooling/arduino/user/libraries/Adafruit_NeoPixel",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPIFFS/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SPI/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/SD/src",
+      "-I/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src",
+      "-I/workspace/tooling/arduino/user/libraries/Async_TCP/src",
+      "-I/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/Update/src",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/build_opt.h",
+      "@/workspace/tooling/arduino/build/stage26-final-controlled/file_opts",
+      "/workspace/tooling/stage28i-target/sizes.cpp",
+      "-o",
+      "/workspace/tooling/stage28i-target/sizes.o",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ]
+  ],
+  "production_firmware_changed": false,
+  "flash_authorized": false,
+  "selected_sections": {
+    "text": 13292,
+    "literal": 1892,
+    "rodata": 1838,
+    "data": 0,
+    "bss": 0
+  },
+  "planner_source_sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+  "planner_header_sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3",
+  "planner_object_sha256": "885cc9f6b9d3e1c7b99ae213a898c0a6a39a675d3ba9f9b7a19482db54dea994",
+  "planner_sections": "/workspace/tooling/stage28i-target/keyboard.o  :\nsection                                                                                  size   addr\n.literal._ZN11ds_keyboard7Planner5equalERKNS_6ReportES3_                                    4      0\n.literal._ZNK11ds_keyboard7Planner16neutralConfirmedEv                                      4      0\n.literal._ZN11ds_keyboard7Planner8snapshotERKNS_10OwnerTableERNS_6ReportEhh                 4      0\n.literal._ZN11ds_keyboard7Planner5queueERKNS_6ReportENS_5PhaseEm                            4      0\n.literal._ZN11ds_keyboard7Planner5startEPFN10ds_preview6AcceptEPvRKNS_6ReportEES3_mmm       8      0\n.literal._ZN11ds_keyboard7Planner9ownershipEjtbmb                                          28      0\n.literal._ZN11ds_keyboard7Planner4holdEjtm                                                  4      0\n.literal._ZN11ds_keyboard7Planner7releaseEjtm                                               4      0\n.literal._ZN11ds_keyboard7Planner13holdConfirmedEjtm                                        4      0\n.literal._ZN11ds_keyboard7Planner16releaseConfirmedEjtm                                     4      0\n.literal._ZN11ds_keyboard7Planner3tapEttm                                                  16      0\n.literal._ZN11ds_keyboard7Planner5mapUSEtRhS1_                                             28      0\n.literal._ZN11ds_keyboard7Planner9characterEtm                                             12      0\n.literal._ZN11ds_keyboard7Planner7failureENS_6ReasonENS_5PhaseE                             4      0\n.literal._ZN11ds_keyboard7Planner4stepEm                                                   36      0\n.literal._ZN11ds_keyboard7Planner6cancelEv                                                  4      0\n.text                                                                                       0      0\n.data                                                                                       0      0\n.bss                                                                                        0      0\n.text._ZN11ds_keyboard7Planner5equalERKNS_6ReportES3_                                      24      0\n.text._ZN11ds_keyboard7Planner7neutralERKNS_6ReportE                                       27      0\n.text._ZNK11ds_keyboard7Planner16neutralConfirmedEv                                        30      0\n.text._ZN11ds_keyboard7Planner8ordinaryEt                                                  25      0\n.text._ZN11ds_keyboard7Planner10validUsageEt                                               43      0\n.text._ZN11ds_keyboard7Planner6rejectENS_6ReasonE                                          19      0\n.text._ZN11ds_keyboard7Planner9availableEv                                                 37      0\n.text._ZN11ds_keyboard7Planner8snapshotERKNS_10OwnerTableERNS_6ReportEhh                  221      0\n.text._ZN11ds_keyboard7Planner5queueERKNS_6ReportENS_5PhaseEm                              40      0\n.text._ZN11ds_keyboard7Planner5startEPFN10ds_preview6AcceptEPvRKNS_6ReportEES3_mmm        146      0\n.text._ZN11ds_keyboard7Planner9ownershipEjtbmb                                            390      0\n.text._ZN11ds_keyboard7Planner4holdEjtm                                                    26      0\n.text._ZN11ds_keyboard7Planner7releaseEjtm                                                 26      0\n.text._ZN11ds_keyboard7Planner13holdConfirmedEjtm                                          26      0\n.text._ZN11ds_keyboard7Planner16releaseConfirmedEjtm                                       26      0\n.text._ZNK11ds_keyboard7Planner10ownerEmptyEj                                              49      0\n.text._ZN11ds_keyboard7Planner3tapEttm                                                    232      0\n.rodata._ZN11ds_keyboard7Planner5mapUSEtRhS1_.str1.1                                       47      0\n.text._ZN11ds_keyboard7Planner5mapUSEtRhS1_                                               270      0\n.text._ZN11ds_keyboard7Planner9characterEtm                                                70      0\n.text._ZN11ds_keyboard7Planner7failureENS_6ReasonENS_5PhaseE                               39      0\n.text._ZN11ds_keyboard7Planner4stepEm                                                     292      0\n.gcc_except_table._ZN11ds_keyboard7Planner4stepEm                                          28      0\n.text._ZN11ds_keyboard7Planner6cancelEv                                                    58      0\n.text._ZN11ds_keyboard7Planner5drainEm                                                     65      0\n.debug_frame                                                                              568      0\n.eh_frame                                                                                  56      0\n.debug_info                                                                              9724      0\n.debug_abbrev                                                                            1574      0\n.debug_loc                                                                               4674      0\n.debug_aranges                                                                            208      0\n.debug_ranges                                                                             680      0\n.debug_line                                                                              9367      0\n.debug_str                                                                               4009      0\n.comment                                                                                   48      0\n.xtensa.info                                                                               56      0\n.xt.lit                                                                                   128      0\n.xt.prop                                                                                 2352      0\nTotal                                                                                   35868\n\n\n",
+  "planner_undefined": "         U _Unwind_Resume\n         U __cxa_begin_catch\n         U __cxa_end_catch\n         U __gxx_personality_v0\n         U __stack_chk_fail\n         U __stack_chk_guard\n         U memcmp\n         U memcpy\n         U memset\n",
+  "planner_selected_sections": {
+    "text": 2181,
+    "literal": 168,
+    "rodata": 47,
+    "data": 0,
+    "bss": 0
+  },
+  "bridge_source_sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1",
+  "bridge_header_sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5",
+  "bridge_object_sha256": "1e69a4375511b3bf4ada498fc569c2385b2b96175196cc433bb5a881ebefa0b2",
+  "bridge_sections": "/workspace/tooling/stage28i-target/bridge.o  :\nsection                                                                                                  size   addr\n.literal._ZN9ds_bridge6Bridge6reportEPvRKN11ds_keyboard6ReportE                                             4      0\n.literal._ZN9ds_bridge6Bridge10validEventERKN10ds_preview5EventE                                            8      0\n.literal._ZN9ds_bridge6Bridge5beginEPFN10ds_preview6AcceptEPvRKN11ds_keyboard6ReportEES3_mmm               28      0\n.literal._ZN9ds_bridge6Bridge5startERKN10ds_preview7ProgramEmmm                                            28      0\n.literal._ZN9ds_bridge6Bridge4holdEjtm                                                                      4      0\n.literal._ZN9ds_bridge6Bridge7releaseEjtm                                                                   4      0\n.literal._ZN9ds_bridge6Bridge7receiveERKN10ds_preview5EventE                                               36      0\n.literal._ZN9ds_bridge6Bridge10sourceSinkEPvRKN10ds_preview5EventE                                          8      0\n.literal._ZN9ds_bridge6Bridge14observeRuntimeEv                                                             8      0\n.literal._ZN9ds_bridge6Bridge11runtimeStepEv                                                                8      0\n.literal._ZN9ds_bridge6Bridge4stepEm                                                                       32      0\n.literal._ZN9ds_bridge6Bridge6cancelEv                                                                      8      0\n.literal._ZN9ds_bridge6Bridge5drainEm                                                                       4      0\n.text                                                                                                       0      0\n.data                                                                                                       0      0\n.bss                                                                                                        0      0\n.text._ZN9ds_bridge6Bridge6reportEPvRKN11ds_keyboard6ReportE                                               60      0\n.gcc_except_table._ZN9ds_bridge6Bridge6reportEPvRKN11ds_keyboard6ReportE                                   12      0\n.text._ZN9ds_bridge6Bridge6rejectENS_6ReasonE                                                              13      0\n.text._ZN9ds_bridge6Bridge10validEventERKN10ds_preview5EventE                                              87      0\n.text._ZN9ds_bridge6Bridge5latchENS_6ReasonE                                                               50      0\n.text._ZN9ds_bridge6Bridge5beginEPFN10ds_preview6AcceptEPvRKN11ds_keyboard6ReportEES3_mmm                 223      0\n.gcc_except_table._ZN9ds_bridge6Bridge5beginEPFN10ds_preview6AcceptEPvRKN11ds_keyboard6ReportEES3_mmm       8      0\n.text._ZN9ds_bridge6Bridge5startERKN10ds_preview7ProgramEmmm                                              170      0\n.text._ZN9ds_bridge6Bridge4holdEjtm                                                                        58      0\n.text._ZN9ds_bridge6Bridge7releaseEjtm                                                                     58      0\n.text._ZN9ds_bridge6Bridge7receiveERKN10ds_preview5EventE                                                 274      0\n.text._ZN9ds_bridge6Bridge10sourceSinkEPvRKN10ds_preview5EventE                                            72      0\n.gcc_except_table._ZN9ds_bridge6Bridge10sourceSinkEPvRKN10ds_preview5EventE                                12      0\n.text._ZN9ds_bridge6Bridge14observeRuntimeEv                                                               96      0\n.text._ZN9ds_bridge6Bridge11runtimeStepEv                                                                  38      0\n.text._ZN9ds_bridge6Bridge4stepEm                                                                         248      0\n.gcc_except_table._ZN9ds_bridge6Bridge4stepEm                                                              15      0\n.text._ZN9ds_bridge6Bridge6cancelEv                                                                        68      0\n.text._ZN9ds_bridge6Bridge5drainEm                                                                         71      0\n.debug_frame                                                                                              376      0\n.eh_frame                                                                                                 392      0\n.debug_info                                                                                             11478      0\n.debug_abbrev                                                                                            1476      0\n.debug_loc                                                                                               2278      0\n.debug_aranges                                                                                            144      0\n.debug_ranges                                                                                             320      0\n.debug_line                                                                                              6306      0\n.debug_str                                                                                               7574      0\n.comment                                                                                                   48      0\n.xtensa.info                                                                                               56      0\n.xt.lit                                                                                                   104      0\n.xt.prop                                                                                                 1668      0\nTotal                                                                                                   34033\n\n\n",
+  "bridge_undefined": "         U _Unwind_Resume\n         U _ZN10ds_preview7Runtime4tickEm\n         U _ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_mmm\n         U _ZN10ds_preview7Runtime6cancelEv\n         U _ZN11ds_keyboard7Planner10validUsageEt\n         U _ZN11ds_keyboard7Planner13holdConfirmedEjtm\n         U _ZN11ds_keyboard7Planner16releaseConfirmedEjtm\n         U _ZN11ds_keyboard7Planner3tapEttm\n         U _ZN11ds_keyboard7Planner4holdEjtm\n         U _ZN11ds_keyboard7Planner4stepEm\n         U _ZN11ds_keyboard7Planner5drainEm\n         U _ZN11ds_keyboard7Planner5mapUSEtRhS1_\n         U _ZN11ds_keyboard7Planner5startEPFN10ds_preview6AcceptEPvRKNS_6ReportEES3_mmm\n         U _ZN11ds_keyboard7Planner6cancelEv\n         U _ZN11ds_keyboard7Planner7releaseEjtm\n         U _ZN11ds_keyboard7Planner9characterEtm\n         U _ZNK10ds_preview7Program17ownershipCommandsEv\n         U _ZNK11ds_keyboard7Planner10ownerEmptyEj\n         U _ZNK11ds_keyboard7Planner16neutralConfirmedEv\n         U __gxx_personality_v0\n         U memset\n",
+  "bridge_selected_sections": {
+    "text": 1586,
+    "literal": 180,
+    "rodata": 0,
+    "data": 0,
+    "bss": 0
+  }
+}

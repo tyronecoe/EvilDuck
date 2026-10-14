@@ -1,0 +1,206 @@
+{
+  "seams": [
+    {
+      "seam": "Report transport **CONFIRMED / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "ds_preview::Event/Sink core.h:94\u201397; Bridge turns events into Planner Report8",
+      "production_evidence": "hid_backend.h:27\u201331 beginReport/releaseReport; hid_backend.cpp:254\u2013286 queueRaw",
+      "gap_and_future_verification": "Event is NOT report; beginReport merges with backend-owned keys, not a verbatim snapshot sink. No public raw-snapshot API. Contract review must choose one ownership authority; cannot wire Bridge Sink to com::send or beginReport and assume byte equivalence."
+    },
+    {
+      "seam": "Ownership ledger **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "Planner four Owner records, sorted union keyboard.cpp:11\u201320,29\u201348; script owner3 bridge.cpp:24\u201325",
+      "production_evidence": "One global Owned in hid_backend.cpp:25\u201328; hold/release:288\u2013318",
+      "gap_and_future_verification": "Four sources versus one global ledger; same-key owner release and ordering differ. Idempotent firmware hold can return true without enqueue at295, whereas confirmed preview commands demand fresh report. Future mock cases must model shared claims, unchanged reports, six-key rejection and competing live/script submissions."
+    },
+    {
+      "seam": "Invocation vs acceptance **CONFIRMED / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "Bridge receive:43\u201361 Wait/Ackable; keyboard.cpp:68\u201377",
+      "production_evidence": "com::executeNow:434\u2013451 accepts scheduled work; queueRaw:254\u2013261 bool direct tud_hid_n_report; backend false also readiness/disconnect/in-flight at256,279",
+      "gap_and_future_verification": "HTTP/CLI 'Accepted', scheduler admission, USB queue accepted, transfer-complete and OS delivery are different. Review explicit adapter ack level and Retry/Failed classification, never convert void helper/API call to accepted output."
+    },
+    {
+      "seam": "Completion correlation **UNKNOWN / critical**",
+      "statuses": [
+        "UNKNOWN"
+      ],
+      "severity": "critical",
+      "preview_contract": "Current one-intent current-report association; no real asynchronous completion queue",
+      "production_evidence": "Patched core USBHID.cpp:331\u2013335 report-complete wakes global semaphore, ignores report/id/instance parameters; SendReport:337\u2013373 takes mutex/waits",
+      "gap_and_future_verification": "Raw backend bypasses SendReport completion wait; no per-Bridge token exposed. Exact linked TinyUSB/DCD transfer/failure semantics and stale callback correlation need separately reviewed non-device evidence. Header declaration is not proof of linked-library transfer behavior. No second global callback may be introduced casually."
+    },
+    {
+      "seam": "Descriptor/report ID/protocol **CONFIRMED mismatch; runtime UNKNOWN / high**",
+      "statuses": [
+        "CONFIRMED",
+        "UNKNOWN"
+      ],
+      "severity": "high",
+      "preview_contract": "Planner eight bytes, no ID/descriptor/boot protocol",
+      "production_evidence": "hid_backend.cpp:260\u2013261 hardcodes keyboard ID; protected core USBHIDKeyboard.cpp:33\u201346 descriptor with keyboard ID; USBHID.cpp:348\u2013362 selects effective ID0 in supported boot protocol",
+      "gap_and_future_verification": "Direct queueRaw bypasses core wrapper's conditional normalization. Actual interface protocol depends on constructors: backend HID then Keyboard at12\u201322; core USBHID.h:75 defaults NONE, USBHID.cpp:282\u2013290 initializes once. Current linked constructor/protocol/host negotiation not newly proven. This is a future protocol review gate, NOT a demonstrated physical defect or descriptor-change authorization."
+    },
+    {
+      "seam": "Neutral/cancel/restart **CONFIRMED / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "Bridge.cancel:86\u201388 clears intent/owners; drain:90\u201392 plus81 requires current zero action; Planner accepted snapshot retained",
+      "production_evidence": "hid_backend.cancelReport:347\u2013353 immediately attempts zero then update:332\u2013345 retries; com endScript:403\u2013411 resets command state",
+      "gap_and_future_verification": "Explicit preview drain versus automatic production clearing; zero snapshot can be merged with foreign owned state via releaseReport. Need future cancellation/queue-refusal/disconnect mock journal proving current action; no 'host keys released' claim while disconnected."
+    },
+    {
+      "seam": "Delay/dwell/jitter **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "Runtime.deliver:462\u2013469 stores accepted Delay clock, tick:475\u2013477 wrap subtraction; bridge.cpp:54 no report",
+      "production_evidence": "com.waitFor:105\u2013109, Wait:526\u2013534 millis wrap; Press:550\u2013555 adds5ms dwell; jitterWait:117\u2013129; Finish:602\u2013611 default delay",
+      "gap_and_future_verification": "Sending Event Delay back through com duplicates clock ownership; preview has no production jitter/default-dwell behavior. One authoritative clock/timing layer required. Future mocked wrap/deadline/queue-delay tests must define policy before integration."
+    },
+    {
+      "seam": "Progress/scheduler limits **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "core.h:9 10000 instructions/100000 ticks/30000ms; planner256 attempts/30000ms; Bridge.step:71\u201384 one unit",
+      "production_evidence": "ino:114\u2013123; duckscript.cpp:348\u2013354 uses256-byte/8-line budgets from config.h:44\u201345; production loop/call limits config.h:28\u201341",
+      "gap_and_future_verification": "Not equivalent budgets; preview30s total cap can reject long valid waits. Identify future fairness/STOP owner and work budget. No measured latency, IRQ scheduling or web responsiveness from object code."
+    },
+    {
+      "seam": "Thread/ownership boundaries **CONFIRMED mismatch / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "Bridge single-thread guards (bridge.cpp:39\u201341,71\u201372), no mutex/atomic cross-thread promise",
+      "production_evidence": "execution_guard.h:28\u201350 recursive RTOS mutex/portMAX_DELAY or TryGuard; webserver.cpp:549\u2013566,573\u2013585 calls com/CLI; CLI:193\u2013207",
+      "gap_and_future_verification": "Can't expose Bridge callbacks/start/cancel directly to async web/USB tasks. Future proposal must serialize requests, callbacks and UI observation without lock inversion or unbounded lock holds; fixed handoff design not implemented here."
+    },
+    {
+      "seam": "File reader/source stability **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "Reader raw bytes Data/Eof/Retry/Error+seek, exact stable bytes, core.h:54\u201369; CompileSession:382\u2013408 detached on terminal",
+      "production_evidence": "storage.cpp:208 openRead; duckscript.cpp:291\u2013305 owns File; script_source.cpp:7\u201375 line/64-byte chunk/size/position checks",
+      "gap_and_future_verification": "Existing line Reader is not raw-byte Reader. Preview Program is compiled memory IR/text, not runtime streamed256KiB file execution. Need File-context lifetime, same-size mutation/removal/seek failure mock plan; no storage adapter exists. Source fingerprint is accidental-change detection, not authentication."
+    },
+    {
+      "seam": "Input/capacity compatibility **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "8192B source/256B line/128IR/4096B arena/32 symbols/16nest core.h:6\u20138",
+      "production_evidence": "config.h:12\u201353 source256KiB/line512/8192 lines/16vars/8blocks/128expr tokens",
+      "gap_and_future_verification": "Preview rejects some previously supported files even if SD present; merely streaming compile cannot remove fixed IR/arena caps. Owner must explicitly select opt-in subset versus future capacity plan; do not silently replace whole parser."
+    },
+    {
+      "seam": "Numeric policy **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "core.cpp:113\u2013127 rejects overflow/underflow,0^0; eager bounded expression continuations",
+      "production_evidence": "duck_expr.cpp:135\u2013165 truncates uint16 results, modular exponentiation;0^0 result1",
+      "gap_and_future_verification": "Source-derived examples:65535+1 production0 vs preview error;0-1 production65535 vs error. Not newly executed production comparisons or official-oracle claims. Semantic choice/regression fixtures needed; not an adapter-only issue."
+    },
+    {
+      "seam": "Diagnostics/preflight **CONFIRMED / medium**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "medium",
+      "preview_contract": "Error code+physical line/column core.h:11\u201316, core.cpp:416; raw text records:482\u2013485; start requires ready",
+      "production_evidence": "duckscript.cpp:68\u201379 includes path/callee/log+stop; run/preflight:276\u2013397; API getters:341\u2013344",
+      "gap_and_future_verification": "Typed preview errors need reviewed UI/log mapping, filename lifetime/truncation64B and physical line preservation; don't expose untrusted full source/credentials. Invalid compile must not start output. Future mock UI outcomes must distinguish preflight/run/transport fault."
+    },
+    {
+      "seam": "Locale/Unicode/text **CONFIRMED / high**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "high",
+      "preview_contract": "Planner.mapUS keyboard.cpp:55\u201366; ASCII-only source; preview text interpolation not implemented",
+      "production_evidence": "keyboard_locale.h:7\u201316, cpp:28\u2013105 US/DE+conditional tables/UTF8/dead keys; com.cpp:569\u2013577 interpolation/translation path and skipped-character warning",
+      "gap_and_future_verification": "Direct preview US map bypasses locale handling and unsupported-scalar policy. Held modifiers intentionally OR into output, no host-case guarantee. Future opt-in subset/locale design required; no arbitrary Unicode support or host correctness claim."
+    },
+    {
+      "seam": "Language/device extensions **BLOCKED / high**",
+      "statuses": [
+        "BLOCKED"
+      ],
+      "severity": "high",
+      "preview_contract": "Stage28F nonmodifier HOLD/RELEASE; modifier prefix/RESET blocked; no random/internal vars/storage/LED/ATTACKMODE",
+      "production_evidence": "com.cpp:198\u2013225 existing RESET/HOLD/INJECT_MOD engineering behavior; config/preprocessor, internal_vars and random modules separate",
+      "gap_and_future_verification": "Existing firmware policy is not independent canonical oracle. No guessed prefix/RESET scope from reuse. Replacing dispatcher removes extensions/settings feedback; not full DuckyScript compatibility. Keep unsupported features rejected in future optional path."
+    },
+    {
+      "seam": "Startup/settings/profile **CONFIRMED / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "Preview is never booted/armed; caller alone starts Program",
+      "production_evidence": "ino:37\u201380 fail latches/safe return/controlled layout+settings+SPIFFS;88\u2013111 HID/services; legacy autorun101\u2013108; settings.cpp:52\u201364,125\u2013177; spiffs.cpp:20\u201327",
+      "gap_and_future_verification": "Safe/controlled/legacy are distinct. Legacy allows examples/autorun/autoformat; controlled gates those and strict settings. Future integration must not bypass profiles, write settings or select an arming path. Checked saves not atomic. Existing Stage27A independent; no new boot authorization."
+    },
+    {
+      "seam": "Partition/core/USB coexistence **CONFIRMED repository; physical UNKNOWN / high**",
+      "statuses": [
+        "CONFIRMED",
+        "UNKNOWN"
+      ],
+      "severity": "high",
+      "preview_contract": "Unlinked object checks share pinned flags, not deployment",
+      "production_evidence": "tools/s3_validation.py:14\u201343 core3.3.0/16MiB/QIO80/CPU240/PSRAMoff/USB0/CDC1 and CSV; build_s3_patched.py:18\u201331 isolated patches; attackmode.cpp:10\u201342 requested vs active MSC",
+      "gap_and_future_verification": "Repo map standard app0+dual0x740000 confirmed unchanged. Historical installed map differs; current device layout/CDC/HID/MSC coexistence not rechecked here. No personality/descriptors/pins/table changes proposed. Full linked integration resource/constructor proof absent."
+    },
+    {
+      "seam": "Web/OTA/staging surfaces **CONFIRMED / critical**",
+      "statuses": [
+        "CONFIRMED"
+      ],
+      "severity": "critical",
+      "preview_contract": "No network or update path in preview",
+      "production_evidence": "webserver.cpp:369\u2013388 application updater;685\u2013695 update route/restart;549\u2013566 live /send; CLI:193\u2013207; tools/s3_validation.py:22\u201335 old/new geometry",
+      "gap_and_future_verification": "App-only OTA is not partition migration nor bootstrap approval. Do not invoke it. Future supervised plan must block concurrent live commands/settings/uploads/OTA and establish artifact/recovery approval separately; no executable deployment plan in this audit."
+    },
+    {
+      "seam": "Memory/lifetime feasibility **INFERRED; production margin UNKNOWN / high**",
+      "statuses": [
+        "INFERRED",
+        "UNKNOWN"
+      ],
+      "severity": "high",
+      "preview_contract": "target Program6936 +CompileSession2408 +Bridge5020 =14364B; Bridge ALREADY includes Runtime4872/Planner84",
+      "production_evidence": "Static RunState duckscript.cpp:22\u201345; Session com.cpp:21\u201358; dynamic String/File and mutex allocations",
+      "gap_and_future_verification": "Additive/replacement peak cannot be inferred from isolated objects. Need future placement/lifetime ledger including reader input/context, driver/UI, existing contexts and compiler stack; never allocate all large objects as nested loop-task locals. No production heap/stack/OTA headroom measured."
+    }
+  ],
+  "evidence": "stage28i-source-evidence.json",
+  "gates": {
+    "A": "PENDING OWNER / NOT TESTED",
+    "B": "PENDING REVIEW",
+    "C": "NOT AUTHORIZED",
+    "D": "NOT AUTHORIZED"
+  },
+  "physical_testing": false,
+  "integration_authorized": false
+}

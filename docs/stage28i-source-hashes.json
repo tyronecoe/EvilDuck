@@ -1,0 +1,83 @@
+{
+  "algorithm": "SHA-256",
+  "baseline": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+  "self_excluded": true,
+  "files": {
+    "docs/stage28i-gated-roadmap.md": {
+      "size_bytes": 5482,
+      "sha256": "d72d91eaec54dad9cd1df94703de57205670d4fef3fe4c84dd04a57b0432204e"
+    },
+    "docs/stage28i-publication.json": {
+      "size_bytes": 3550,
+      "sha256": "0bc8304e5b01c2e7d16fae19620bd070861994dba3faed732cd8649c32f194a9"
+    },
+    "docs/stage28i-readiness-matrix.md": {
+      "size_bytes": 14984,
+      "sha256": "7664e25f60f815dd958043b30d7712c7c2bddfc303671ce7eafcc5ee27f5bd79"
+    },
+    "docs/stage28i-readiness.json": {
+      "size_bytes": 14837,
+      "sha256": "365d47d5ffe3af9b2621f7e9a97f2691809e708e42111d2b71bcf9f84337bf75"
+    },
+    "docs/stage28i-report.md": {
+      "size_bytes": 9451,
+      "sha256": "5ae15e6dd80b39267ca53627f955a8223505b7fe1b4717cc1a880efed852ce16"
+    },
+    "docs/stage28i-reproduction.md": {
+      "size_bytes": 3531,
+      "sha256": "5bfa5dfaa2ea731418b8702a047e629a5ef7336824550f4767965cfa5c702a29"
+    },
+    "docs/stage28i-source-evidence.json": {
+      "size_bytes": 12541,
+      "sha256": "ca99c58ece11647c969fdb041018a7bdfb3fc31d2eca26329195a8ddc78fe898"
+    },
+    "docs/stage28i-stage26-freeze.json": {
+      "size_bytes": 40054,
+      "sha256": "60c1eae04073ef06bed7315b51dc1e0d650c28c19e5c60a88bb2b61431310376"
+    },
+    "docs/stage28i-static-audit.json": {
+      "size_bytes": 348,
+      "sha256": "802028d74dce47fcba06fca36e57e80a959cd85edbe77937928cec4d36647739"
+    },
+    "docs/stage28i-target-build.json": {
+      "size_bytes": 73148,
+      "sha256": "a3bd777532b43fcc1869bca052e0c55d85b388e16c508a8d0109dcb653a23f78"
+    },
+    "docs/stage28i-test-results.json": {
+      "size_bytes": 66713,
+      "sha256": "5b2afc7388fb167c9cabfc91c4fcf72ed6e888cf70c4e24435d199deb04cc37b"
+    },
+    "language_preview/README.md": {
+      "size_bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    "language_preview/bridge.cpp": {
+      "size_bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    "language_preview/bridge.h": {
+      "size_bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    "language_preview/core.cpp": {
+      "size_bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    "language_preview/core.h": {
+      "size_bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    "language_preview/keyboard.cpp": {
+      "size_bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    "language_preview/keyboard.h": {
+      "size_bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    "tests/stage28i/audit_sources.py": {
+      "size_bytes": 2154,
+      "sha256": "8e092da92b3b0a90efcba88c4d39af8752de951b0125658628d8abeaec4975d3"
+    }
+  }
+}

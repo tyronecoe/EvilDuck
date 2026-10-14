@@ -1,0 +1,330 @@
+{
+  "baseline": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+  "evidence_level": "read-only exact source spans, not firmware/physical execution",
+  "repo_anchors": [
+    {
+      "file": "language_preview/core.h",
+      "topic": "limits",
+      "start": 6,
+      "end": 10,
+      "file_sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "a7f23d08b35531f273249c408ea8995abea1b0184acbb079e884f13fc73c7a01"
+    },
+    {
+      "file": "language_preview/core.h",
+      "topic": "Program and Reader",
+      "start": 37,
+      "end": 97,
+      "file_sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "ccb6525c3f354e7add7e1db8277186117206a5a5b5ce23354991eb8932511680"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "topic": "compile/session",
+      "start": 382,
+      "end": 413,
+      "file_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "9985501fc53d319fde2f655961dff9e47753fdd6d81c2e163e14b92e2e95f00c"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "topic": "runtime lifecycle",
+      "start": 415,
+      "end": 426,
+      "file_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "5fbffa06c4dc41c11554192dbbc01ea118b14190b1c65c70d85a111230d85c1b"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "topic": "delivery and clock",
+      "start": 462,
+      "end": 477,
+      "file_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "072cae829f557c88f578e5a549e79a2fbc826fd20699fd9c3a083935c063aae4"
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "topic": "report and owners",
+      "start": 5,
+      "end": 20,
+      "file_sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3",
+      "span_sha256": "55dfbce2848291537244d1cceb08c26b2761b2162cb445698e9573167185fb3c"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "topic": "ownership and confirmed reports",
+      "start": 29,
+      "end": 48,
+      "file_sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "span_sha256": "dbfe77f86c008121c4fed9bc530a3e46a22264acf3b61affde04e92d9585c238"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "topic": "accept/cancel/drain",
+      "start": 67,
+      "end": 83,
+      "file_sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "span_sha256": "32c515861d0ffe5d3affa261866c1a5ca9a5ed3871caf8cdcbd6078326d288bd"
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "topic": "owned runtime/planner and API",
+      "start": 14,
+      "end": 46,
+      "file_sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5",
+      "span_sha256": "2d5c236efe4c12bbfc878aa14b1cb84a972ed90eede8f84d55e4f16082923efc"
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "topic": "intent and tick gate",
+      "start": 39,
+      "end": 92,
+      "file_sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1",
+      "span_sha256": "d5413e8a52f83632d539cd9e6b75452595fe00b66578bf13614c97723ee78cc0"
+    },
+    {
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "topic": "startup/scheduler",
+      "start": 37,
+      "end": 124,
+      "file_sha256": "2efcf7720b4026130a359567797f7e66bdb5639f334caf786d294f3e14ccb115",
+      "span_sha256": "36b7fdf9b3f8d36fe14569e7a3e9f2dd51a4eabd0cfbb7cde55898e1e717809f"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "topic": "run/stop/update and source passes",
+      "start": 276,
+      "end": 397,
+      "file_sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846",
+      "span_sha256": "92fc662cc1d3e254a1ac12de2d8c88a29b4a456574fa06c72e9956b1aa3addbb"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "topic": "command ownership",
+      "start": 392,
+      "end": 451,
+      "file_sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "8b0c402f020d88b5c82ab82a5ab0a4e7346b17839c3265e1e9524b58a3cfd2fc"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "topic": "scheduler and press/restoration",
+      "start": 454,
+      "end": 578,
+      "file_sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "8be8b22a9d49a34948ad01c2622ec7f3856a221a6be876c875a80910fa077dde"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "topic": "transport and global ownership",
+      "start": 254,
+      "end": 354,
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "0471b03b667927957f57189fb74d31c53ac08deba963f5c285ff26d7fcc99486"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "topic": "HID APIs",
+      "start": 24,
+      "end": 42,
+      "file_sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072",
+      "span_sha256": "76bd30ff451cca45c9cb77f4bae829da9cf5e0d3d6b3b8289a1183d8333e08e9"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "topic": "locking",
+      "start": 28,
+      "end": 50,
+      "file_sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6",
+      "span_sha256": "e0d4d2975091226effb24a3191a30a8dc7e86f1009c0a61606bd90a37a91d4d5"
+    },
+    {
+      "file": "EvilDuckS3/script_source.cpp",
+      "topic": "file contract",
+      "start": 7,
+      "end": 75,
+      "file_sha256": "7ea73e3b9e773448c317b8e24176381f52768bc64f175191088284c0310463f3",
+      "span_sha256": "4c40f8bf2ecba6cd4ea691dfe6d017345425ed0b6cddfd3e6e37368f5550b692"
+    },
+    {
+      "file": "EvilDuckS3/config.h",
+      "topic": "production bounds",
+      "start": 12,
+      "end": 53,
+      "file_sha256": "8e52a6f2d284efb28d17c74a83f01f818ce2eeb307c6b3c387f959af0a7fcdcf",
+      "span_sha256": "3363a777a4d9ca46bfc79bf8cbbbf33fe20d3ee536d66b4b32ee66fcf44b48c2"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "topic": "locale mapping",
+      "start": 28,
+      "end": 105,
+      "file_sha256": "54e30399e0f5280ec01a7e51372b97a280f60aa5678dd43dc8c94c5c6e4e86ea",
+      "span_sha256": "cf9fcf546f46c2a90a28e6b73c02d8ac3b837c109906d48381318964575fd67c"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.h",
+      "topic": "locale policy",
+      "start": 7,
+      "end": 16,
+      "file_sha256": "7146c6c398ed0d76dd009f9b0374b7b3f2c04097df1768b138fa01817db6c737",
+      "span_sha256": "a36c65f79dc7fcbb502acd0b057b694db67b7830d06ac73b9ddf49b4ac1969d5"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.cpp",
+      "topic": "production arithmetic",
+      "start": 135,
+      "end": 165,
+      "file_sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330",
+      "span_sha256": "ef9423acff1c6a252c0ec8b5e2a3e3a5e58e328d18d5f1a25ff17b2f001a458a"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "topic": "preview arithmetic",
+      "start": 113,
+      "end": 127,
+      "file_sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "d000f07c71e7c2cd5a8aecacbee12f78d2ef30d2c231fec4a6a40c571aeba91f"
+    },
+    {
+      "file": "EvilDuckS3/settings.cpp",
+      "topic": "read/write settings",
+      "start": 52,
+      "end": 64,
+      "file_sha256": "1ca2614c44a7457e29816b2705bc61680ed9a60aa4d42454eb464d1c7517a9f5",
+      "span_sha256": "0d780313b5779c4724ca2566a3c89b918b3fac3cf1938265c3f15322cd5426af"
+    },
+    {
+      "file": "EvilDuckS3/settings.cpp",
+      "topic": "checked persistence",
+      "start": 125,
+      "end": 177,
+      "file_sha256": "1ca2614c44a7457e29816b2705bc61680ed9a60aa4d42454eb464d1c7517a9f5",
+      "span_sha256": "969aacb3a599638cbf4e135ac8303bbf03ef21df1e7f3f69a6f7768be9cce021"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.cpp",
+      "topic": "format profile",
+      "start": 20,
+      "end": 27,
+      "file_sha256": "924573433bb5a76725932ea22ec2c61f8b11fa5c0599bf727847f70c34ba2300",
+      "span_sha256": "f2d56af7d8f18991e75a22501be5bc134a15cf348678e4c37036153de3af75f3"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.cpp",
+      "topic": "requested and active modes",
+      "start": 10,
+      "end": 42,
+      "file_sha256": "ad6aab13b9868fe026b5543c53b5d631ed3e63f2caabc79d99a84baeaa075093",
+      "span_sha256": "b652049d70f8bd317c2ce3a9881abe1b76ba74c40a1a2f01f3493445b87c6b58"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "topic": "web live command",
+      "start": 549,
+      "end": 566,
+      "file_sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0",
+      "span_sha256": "64cbe8033bbb37a00a089aa2e9ec9f2c030d3d0901c7f7ff850c469b2f7aed99"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "topic": "update surface",
+      "start": 369,
+      "end": 388,
+      "file_sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0",
+      "span_sha256": "13528595be5d2aa54d285235025b87d2fb03d31f93d2193f66de071b25ad533f"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "topic": "update route",
+      "start": 685,
+      "end": 695,
+      "file_sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0",
+      "span_sha256": "de58aedf7e10a1336982cb5dd4a60660412df8c6fed0fb6875d8dd5b4558729d"
+    },
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "topic": "CLI commands",
+      "start": 193,
+      "end": 207,
+      "file_sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad",
+      "span_sha256": "9aa9b842aeaebccda2d2cbb4a6b332aa013e90c071087fb2159406899572d6ac"
+    },
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "topic": "serial loop",
+      "start": 314,
+      "end": 337,
+      "file_sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad",
+      "span_sha256": "ae85ba220818d7e98e880d42ce8b2d6f985633adfa72052f0dd557a6b921fdd5"
+    },
+    {
+      "file": "tools/s3_validation.py",
+      "topic": "layout/profiles",
+      "start": 14,
+      "end": 43,
+      "file_sha256": "ab8c368a73c9f231b0110915c4b2022134c9415136ab94214cd6d38d885ed31e",
+      "span_sha256": "6c5b5ab3c0bdb8229b5c3c9e41fe919192099807a399a014754b1a427c91cb1c"
+    },
+    {
+      "file": "tools/build_s3_patched.py",
+      "topic": "protected build workflow",
+      "start": 18,
+      "end": 31,
+      "file_sha256": "2ea9b1db0e8189c875038545a68ce53ae11153f2427e41c6c349983cd8ff52aa",
+      "span_sha256": "d72e3d361a3447342a22b2bcc9954aa28db43b7d976eab66bc170079e4f713f5"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "topic": "USB globals and feedback",
+      "start": 12,
+      "end": 53,
+      "file_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "68dbf3b1cc1c41322fddc825c74a7ed9e9251a30ab3d6e42894adec331002149"
+    }
+  ],
+  "dependency_anchors": [
+    {
+      "root": "protected-core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "start": 263,
+      "end": 280,
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "aee97fecab6c9256406c9c47cfc9f9ddce5b22358d50c5df77736495f50f686f"
+    },
+    {
+      "root": "protected-core",
+      "file": "libraries/USB/src/USBHID.cpp",
+      "start": 331,
+      "end": 373,
+      "file_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "32562b1fac89fd6e06bcee6fe4659ff2a2f87271cbee35889dff5a3c35c1bb54"
+    },
+    {
+      "root": "protected-core",
+      "file": "libraries/USB/src/USBHIDKeyboard.cpp",
+      "start": 33,
+      "end": 46,
+      "file_sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+      "span_sha256": "db901a42043449bf9c3912b3fee590a728af9fc58d515edcea452584e1724160"
+    },
+    {
+      "root": "protected-core",
+      "file": "libraries/USB/src/USBHID.h",
+      "start": 75,
+      "end": 75,
+      "file_sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+      "span_sha256": "c4018967661a34631014d21918e7ca09fee9bb60afd8706f394873aee08b18df"
+    },
+    {
+      "root": "sdk",
+      "file": "include/arduino_tinyusb/tinyusb/src/class/hid/hid_device.h",
+      "start": 63,
+      "end": 68,
+      "file_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "span_sha256": "09ae7338dce914182e8008c592764702a505304fd37f92bd09291b626f2b4dc2"
+    }
+  ],
+  "mac_native": "PENDING OWNER / NOT TESTED",
+  "physical_testing": false
+}
