@@ -1,0 +1,156 @@
+{
+  "status": "PASS",
+  "baseline": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669",
+  "historical_files_paths_modes": 1060,
+  "stage26_frozen_files": 235,
+  "dependency": "PASS exact existing protected core and SDK pins; no patch/build",
+  "new_files": [
+    {
+      "file": "docs/stage28m-contract-implementation.md",
+      "bytes": 7319,
+      "sha256": "f1446ea10e0a1b449d4c147481a9b442130d8c0a4918bb242b6f998a6ec28712"
+    },
+    {
+      "file": "docs/stage28m-k01-regression.md",
+      "bytes": 2059,
+      "sha256": "f23d3f6d7dff72f3b1d6b9d7592fa763c08154a982420376be858d071fba5b04"
+    },
+    {
+      "file": "docs/stage28m-limitations-and-next-gates.md",
+      "bytes": 3182,
+      "sha256": "7e09a04598187d35233ea9ac2e7c61a516a016c9b8c24f235af74ad6357dc757"
+    },
+    {
+      "file": "docs/stage28m-owner-scope.md",
+      "bytes": 1736,
+      "sha256": "f491a132ee9fca6323eb7e39154904300db0aa18d3dc69be4584cace84dadcf3"
+    },
+    {
+      "file": "docs/stage28m-report.md",
+      "bytes": 5989,
+      "sha256": "fdf58bc79fb0b3b8b9078870b8d7f70c9258bb7bf91df089ee105ffe0cc67d0d"
+    },
+    {
+      "file": "docs/stage28m-source-evidence.json",
+      "bytes": 20327,
+      "sha256": "ac1d61ce1aebd5fe207ca7a1cbad3a9f13095531df3ace5a1e034e249aa65f64"
+    },
+    {
+      "file": "docs/stage28m-test-report.md",
+      "bytes": 6910,
+      "sha256": "4fb5a9ba6495685fdeb2f7ed6f78fb186a4860869f38345c290cc579e623f6b3"
+    },
+    {
+      "file": "docs/stage28m-test-results.json",
+      "bytes": 664420,
+      "sha256": "c52f9131cf7cad1419f8e0701f3e649114ad1508d319822364228e5e9739dfb2"
+    },
+    {
+      "file": "docs/stage28m-usb-provenance.md",
+      "bytes": 7284,
+      "sha256": "01cf28570182867ab997a9ad59da27ec7a435d44e870fa9255a310f1f87f37d4"
+    },
+    {
+      "file": "tests/stage28m/allocation_probe.cpp",
+      "bytes": 1614,
+      "sha256": "fe5629e9e4ca285d33fe33955dea401ff93a134936c8547b7a46320218af7af5"
+    },
+    {
+      "file": "tests/stage28m/journal_driver.cpp",
+      "bytes": 11978,
+      "sha256": "7b32263db96de0ef606b56cc7e95dce2ed16bccfc03c80e7453ba3df83bc1f62"
+    },
+    {
+      "file": "tests/stage28m/journal_driver.h",
+      "bytes": 5995,
+      "sha256": "44a29ff1400f5af49a4242f27d7f125cf7f511e2b1cb1ba55dbd999c0cccd0f9"
+    },
+    {
+      "file": "tests/stage28m/k01_reproducer.cpp",
+      "bytes": 1682,
+      "sha256": "20a8185431a9c656a0525246d2e65514af870df426febdb34b1dece2d7dbd65a"
+    },
+    {
+      "file": "tests/stage28m/run_tests.py",
+      "bytes": 6170,
+      "sha256": "aa946ff1693ec6e19928e622bdc2acc5c4ff49bf4981b93fd5ca47177804f0c6"
+    },
+    {
+      "file": "tests/stage28m/synthetic_transport.cpp",
+      "bytes": 5785,
+      "sha256": "7211ea64997574245e6a65715b5f39e02e20d4c66173c4fe3456322e1f157b79"
+    },
+    {
+      "file": "tests/stage28m/synthetic_transport.h",
+      "bytes": 3556,
+      "sha256": "8d1c0146cf94021d8526e1449300d6bc87cf4c1febcb6075d505f8811d3fe6de"
+    },
+    {
+      "file": "tests/stage28m/test_transport.cpp",
+      "bytes": 25221,
+      "sha256": "9e4962a49a97647d95199250188082ff249044b506cda7e0a6ffaf2528a190e7"
+    },
+    {
+      "file": "tests/stage28m/verify_scope.py",
+      "bytes": 2224,
+      "sha256": "cb6d1210942fd560111b790332d203c4d685ccfcb7d8c64b592eb22378de0383"
+    }
+  ],
+  "runtime_assertions": 0,
+  "new_branch": "stage28m-synthetic-transport-state",
+  "publication": {
+    "status": "PRECOMMIT; final commit/post-push proof supplied separately, no self-reference",
+    "previous_remote_refs": {
+      "refs/heads/main": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf",
+      "refs/heads/stage10-usb-storage-reliability": "5ac88388635ac2d6e464eb17006aea2e8819dae4",
+      "refs/heads/stage11-duckyscript-hold-release": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7",
+      "refs/heads/stage12-internal-variables-lock-feedback": "f3841747fee7ff79c381723d1e578e5d65410011",
+      "refs/heads/stage13-duckyscript-preprocessing": "cd0cf0ea94e751d6e10bed3820484c1228abccd6",
+      "refs/heads/stage14-duckyscript-random-jitter": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d",
+      "refs/heads/stage15-usb-readiness-hardening": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+      "refs/heads/stage16-usb-routing-integration": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f",
+      "refs/heads/stage17-deployment-safety-preflight": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "refs/heads/stage18-nvs-preservation-hardening": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b",
+      "refs/heads/stage19-nvs-sdk-compatibility": "524d643a12af05e4efd9da509eae274ec43959a6",
+      "refs/heads/stage20-nvs-preservation-contract": "7c4559132251340b03bcb68a3d66d04d1659e503",
+      "refs/heads/stage21-readonly-nvs-quiescent-validation": "516fb642b1126af55db909fcff856943935b7111",
+      "refs/heads/stage22-readonly-nvs-preinit-gate": "89006f886fa30058a965e8e1883fb743d1683b70",
+      "refs/heads/stage23-nvs-iterator-early-writer-audit": "9af270f01d455e0bd282a14449ee941751938b1a",
+      "refs/heads/stage24-nvs-hardening-fresh-provisioning": "54b3ee184f98308783e7b78c253b15fce2b30a87",
+      "refs/heads/stage25-controlled-first-boot": "f929bdf2353e0022f10c164d2c09cb3db2564a5a",
+      "refs/heads/stage26-installation-readiness": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+      "refs/heads/stage27b-duckyscript3-offline": "a570786a932bdf2312061d9a2e6105c0dcb89f3b",
+      "refs/heads/stage28a-expression-function-continuations": "9422ac34c3c7954c0be07076ee2ee719378b783d",
+      "refs/heads/stage28b-bounded-multiline-strings": "e184f2837d008d2d732b97dcd5aab839bec3f502",
+      "refs/heads/stage28c-cooperative-source-preflight": "aff427ab6346433729487e5359d101ea764e5357",
+      "refs/heads/stage28d-mock-keyboard-report-planning": "d44582884da33c4028612fa595e07384a08f9c84",
+      "refs/heads/stage28e-mock-runtime-planner-bridge": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5",
+      "refs/heads/stage28f-mock-ownership-commands": "3650caf7c66d5742d39a939fa0c8495be11d3b1b",
+      "refs/heads/stage28g-modifier-contract-mock": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+      "refs/heads/stage28h-host-validation-kit": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+      "refs/heads/stage28i-integration-readiness-audit": "220970bc633d969e76d1d8c91750b5939377df0a",
+      "refs/heads/stage28j-integration-contract-review": "dce42b8664c2964019cf4b488388d08b2b7fc2d0",
+      "refs/heads/stage28k-synthetic-report-journal": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "refs/heads/stage28l-transport-ownership-design": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669",
+      "refs/heads/stage4-duckyscript-migration": "c3e9c34f887015a6c8bcc3146835ebac54432b58",
+      "refs/heads/stage5-duckyscript-while": "1222fc6fb9307dd9680493b189b595cdd0c91b2f",
+      "refs/heads/stage6-duckyscript-functions": "b636495a786554afdf3512bee788c6faaa26b229",
+      "refs/heads/stage7-duckyscript-multiline": "68f44b7a7bd1478064b32316fa49a62f68d8527b",
+      "refs/heads/stage8-duckyscript-hid-locale": "d59562b7d08ff7833cbe1eddb07c32359138faac",
+      "refs/heads/stage9-duckyscript-compatibility-audit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  },
+  "source_span_checks": "14 new public spans and 44 preserved Stage28L anchors PASS",
+  "receipt_consistency": "36 unique primary cases, L01-L24 exactly once, source/report/transfer counts and fixture fences PASS",
+  "new_file_hashes_self_excluded": true,
+  "physical_testing": false,
+  "firmware_generated": false,
+  "target_objects_generated": false,
+  "primary_counts": {
+    "PASS": 36,
+    "FAIL": 0,
+    "assertions": 9689
+  },
+  "all_fixtures_explicitly_fenced_after_capture": true,
+  "delivered_file_count_including_this_receipt": 19
+}

@@ -1,0 +1,450 @@
+{
+  "baseline": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669",
+  "retrievals": [
+    {
+      "name": "builder-tree",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/git/trees/master?recursive=1",
+      "sha256": "3536715ccadb53979eefbd7eafc7a67b327038496179ae2658e94a3eaffccaa4",
+      "bytes": 30103,
+      "status": "retrieved"
+    },
+    {
+      "name": "core-package",
+      "url": "https://raw.githubusercontent.com/espressif/arduino-esp32/3.3.0/package/package_esp32_index.template.json",
+      "sha256": "fac90622c04b7b45d8a64f90daa7c0b8c73168f59d46b74bf30c8c0dc6d737e5",
+      "bytes": 34482,
+      "status": "retrieved"
+    },
+    {
+      "name": "core-platform",
+      "url": "https://raw.githubusercontent.com/espressif/arduino-esp32/3.3.0/platform.txt",
+      "sha256": "0d1de2839d67b355e40489afef3f87b93d1a768fd2f1a264c4f42f0564fd178c",
+      "bytes": 23548,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-release",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/releases/tags/idf-release_v5.5-b66b5448-v1",
+      "status": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "builder-cmake",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/6671d0bd65cdb9d4cc1001b759e8610de945a8d5/components/arduino_tinyusb/CMakeLists.txt",
+      "sha256": "88fc27316d8908ee9777c8ce08386af054297060ef8b6d2cf4650d1fd77b495c",
+      "bytes": 3336,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-build",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/6671d0bd65cdb9d4cc1001b759e8610de945a8d5/build.sh",
+      "sha256": "09d45d15a40cdb585494adbc2076770f69a11e469c73807c5f019fdb1647e510",
+      "bytes": 17057,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-config",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/6671d0bd65cdb9d4cc1001b759e8610de945a8d5/tools/config.sh",
+      "sha256": "ab86cc834149ed7f9912936bc3d314f00c7af581a761cd98ced0ff6434b678c2",
+      "bytes": 10888,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-patch-readme",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/6671d0bd65cdb9d4cc1001b759e8610de945a8d5/patches/tinyusb/README.md",
+      "sha256": "72f2ee83af50351d1fa02398a10b163974426fb5c38d973e27f2f3f86e7883b4",
+      "bytes": 3495,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-commit",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/commits/afa5cdd",
+      "sha256": "c304ec0fe9b9a9ce227de43c0d9231098f09fc63f069a972a6c3079ff3278a2b",
+      "bytes": 12423,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-commit",
+      "url": "https://api.github.com/repos/hathach/tinyusb/commits/8a78804ff",
+      "sha256": "7ebbbb72d6ebe238affc19cc5153eab3bb6889500ef2f851558f8c96c29e4781",
+      "bytes": 6003,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-release-actual",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/releases/tags/idf-release_v5.5",
+      "sha256": "233458a8c46062a7588fc8a1f4fc9f26f2e932d40576974f80f03beea85ca7e8",
+      "bytes": 361100,
+      "status": "retrieved"
+    },
+    {
+      "name": "builder-pinned-tree",
+      "url": "https://api.github.com/repos/espressif/esp32-arduino-lib-builder/git/trees/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84?recursive=1",
+      "sha256": "e085fd2929cfb607d1a040fdabbc44dc76c8a51e3375952095643768a1e968df",
+      "bytes": 28854,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/CMakeLists.txt",
+      "sha256": "db0a022d38eab1691b32152c637b64a810735ab93056682ffa140d239546b447",
+      "bytes": 2715,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-build.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/build.sh",
+      "sha256": "433866f04f3b7c358e3b36f96ed18d9cb326a44f58e2d881ab14c061919460ef",
+      "bytes": 12363,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-tools_config.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/tools/config.sh",
+      "sha256": "93aaf466a68a52276e214b66433390fda557eaf0c1c77751983409dc6297db7f",
+      "bytes": 10512,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-tools_update-components.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/tools/update-components.sh",
+      "sha256": "108657952ea44921deae0d7abf7b27943908c0cce875ceca5349f7ad5e8c39a7",
+      "bytes": 424,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_include_tusb_config.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/include/tusb_config.h",
+      "sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+      "bytes": 5048,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_class_hid_hid_device.c",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.c",
+      "sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "bytes": 14901,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_device_usbd.c",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd.c",
+      "sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "bytes": 52744,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_tusb.c",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb.c",
+      "sha256": "693bf8bff293603e3e9b0d3b238364999028ab62046aa0a6c52d15181d83baf5",
+      "bytes": 18249,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_portable_synopsys_dwc2_dcd_dwc2.c",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dcd_dwc2.c",
+      "sha256": "c1b361c196e02f92cbe214bde2b481c3259886b5b5f336fd70b0cde8619838a9",
+      "bytes": 36597,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_portable_synopsys_dwc2_dwc2_common.c",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_common.c",
+      "sha256": "e13eb89e4a044743cddf9946da39ba1b4f5b327eda3bad8bd682bb16e22a7c5e",
+      "bytes": 9846,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_portable_synopsys_dwc2_dwc2_esp32.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_esp32.h",
+      "sha256": "53c145a3b5eea99aee64d5d50ada658a31fae90b7369661dbe6e90e87eabfa18",
+      "bytes": 5826,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_osal_osal_freertos.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/osal/osal_freertos.h",
+      "sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "bytes": 8671,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c",
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "bytes": 37380,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_patches_dcd_dwc2.patch",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/patches/dcd_dwc2.patch",
+      "sha256": "0862debc67bd7e30990f6d23def90bdb523aff2b2af940d7958c18a6cba302b9",
+      "bytes": 2622,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-tools_patch-tinyusb.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/tools/patch-tinyusb.sh",
+      "sha256": "abee85d1dbe774b3b7e49727ede0aaa564159c72a60520d662a9caab4555c896",
+      "bytes": 288,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_device_dcd.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/dcd.h",
+      "sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "bytes": 8635,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_tusb_option.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb_option.h",
+      "sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "bytes": 24023,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_class_hid_hid_device.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.h",
+      "sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "bytes": 39331,
+      "status": "retrieved"
+    },
+    {
+      "name": "tinyusb-src_device_usbd_pvt.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd_pvt.h",
+      "sha256": "7f40a19c5aa8c599de92e90a15faa14998d82399545d2859a79b0d1c2f1e008f",
+      "bytes": 5712,
+      "status": "retrieved"
+    }
+  ],
+  "cached_package": {
+    "size": 430471837,
+    "sha256": "a871d945c6bfb685ecff5e30ad759f280c841ea143071466b2e611bd1800f18f",
+    "members": [
+      {
+        "member": "esp32-arduino-libs/esp32s3/lib/libarduino_tinyusb.a",
+        "sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18",
+        "bytes": 1109204
+      },
+      {
+        "member": "esp32-arduino-libs/versions.txt",
+        "sha256": "7f344027a09a21c24ab11d4e6fc5037a2b65b7957c4bcd706a07cce886d6df76",
+        "bytes": 1275
+      }
+    ]
+  },
+  "header_comparisons": [
+    {
+      "path": "src/tusb_option.h",
+      "retrieved_sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "installed_sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "identical": true
+    },
+    {
+      "path": "src/class/hid/hid_device.h",
+      "retrieved_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "installed_sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "identical": true
+    },
+    {
+      "path": "src/device/usbd_pvt.h",
+      "retrieved_sha256": "7f40a19c5aa8c599de92e90a15faa14998d82399545d2859a79b0d1c2f1e008f",
+      "installed_sha256": "7f40a19c5aa8c599de92e90a15faa14998d82399545d2859a79b0d1c2f1e008f",
+      "identical": true
+    },
+    {
+      "path": "src/device/dcd.h",
+      "retrieved_sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "installed_sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "identical": true
+    },
+    {
+      "path": "src/osal/osal_freertos.h",
+      "retrieved_sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "installed_sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "identical": true
+    }
+  ],
+  "dependency_check": {
+    "status": "PASS",
+    "core_tree": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "pin": {
+      "core_version": "3.3.0",
+      "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+    },
+    "Stage28L_source_spans_checked": 44,
+    "existing_ELF_hash": "ad94738e5625318ea7b6a710496b1ec33ed15b49c8a1fb11563241ebd240bace",
+    "firmware_generation": false
+  },
+  "public_source_anchors": [
+    {
+      "file": "pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "start": 26,
+      "end": 49,
+      "topic": "shipped builder source selection",
+      "file_sha256": "db0a022d38eab1691b32152c637b64a810735ab93056682ffa140d239546b447",
+      "span_sha256": "860acf124d8d275832fff10ecbe5e9843355da99a154be0af43e613b012e6531"
+    },
+    {
+      "file": "pinned-build.sh",
+      "start": 274,
+      "end": 290,
+      "topic": "version recording",
+      "file_sha256": "433866f04f3b7c358e3b36f96ed18d9cb326a44f58e2d881ab14c061919460ef",
+      "span_sha256": "113aa090ec489ac05c368cd570f33488cd560de7f9df749ef83bf7737b3913e3"
+    },
+    {
+      "file": "tinyusb-src_class_hid_hid_device.c",
+      "start": 113,
+      "end": 132,
+      "topic": "claim/copy/submit",
+      "file_sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "span_sha256": "d52d40f23b73502ecdfb06c90fe8d7219e2653fc49cab094333274f578f24ed5"
+    },
+    {
+      "file": "tinyusb-src_class_hid_hid_device.c",
+      "start": 386,
+      "end": 418,
+      "topic": "completion route",
+      "file_sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "span_sha256": "c411e9bfe4a3e73b0f2da37311b834a5359f753b79706740c1316a4dc60f091b"
+    },
+    {
+      "file": "tinyusb-src_tusb.c",
+      "start": 200,
+      "end": 229,
+      "topic": "claim mutex and release",
+      "file_sha256": "693bf8bff293603e3e9b0d3b238364999028ab62046aa0a6c52d15181d83baf5",
+      "span_sha256": "c67e1b90d3f765717ba62113be88e0b3ef936d83a8cc05354c51fc97ef8485da"
+    },
+    {
+      "file": "tinyusb-src_device_usbd.c",
+      "start": 622,
+      "end": 707,
+      "topic": "device event routing/reset",
+      "file_sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "span_sha256": "68799b85558a1e8a12ca697f774f75d2346f13ccdeec4d3d83fab2b695895ef8"
+    },
+    {
+      "file": "tinyusb-src_device_usbd.c",
+      "start": 1389,
+      "end": 1422,
+      "topic": "endpoint submit",
+      "file_sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "span_sha256": "e308238198edcb17e21f8e81895f33bf8e09fe79bc875c9bd8b3db407acdf09c"
+    },
+    {
+      "file": "tinyusb-src_device_dcd.h",
+      "start": 49,
+      "end": 88,
+      "topic": "tokenless event struct",
+      "file_sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "span_sha256": "395dfd8242c1781e7349ffb9dc259ac9692985db93b5606b82f9011fa78c5746"
+    },
+    {
+      "file": "tinyusb-src_device_dcd.h",
+      "start": 220,
+      "end": 229,
+      "topic": "completion event creation",
+      "file_sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "span_sha256": "9ba88030fd8e4d07ec27ede29afbf0502a1010017894e3d62b015eba5dada7d8"
+    },
+    {
+      "file": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "start": 601,
+      "end": 628,
+      "topic": "DCD submit/lock/closed refusal",
+      "file_sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "9b7147ee23285d3afa253df2b81484bde17d91e4d7974f7fa3d29eac070fde89"
+    },
+    {
+      "file": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "start": 689,
+      "end": 742,
+      "topic": "reset",
+      "file_sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "28bb10639147204a9d39bdfcd08ea3597de6dfef756b798b5fc0f21abc33af23"
+    },
+    {
+      "file": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "start": 876,
+      "end": 922,
+      "topic": "IN complete/FIFO",
+      "file_sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "10e3c164865e87e6f9e5547dd3e51c725cebb021a40c581b3f58b19bcd75d129"
+    },
+    {
+      "file": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "start": 1038,
+      "end": 1090,
+      "topic": "reset/suspend/unplug",
+      "file_sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "5edf4f49bcb501350c147b7e6adb515ad9eb63f1697023a205fc3ecd94a8519f"
+    },
+    {
+      "file": "tinyusb-src_osal_osal_freertos.h",
+      "start": 249,
+      "end": 262,
+      "topic": "task versus ISR queue send",
+      "file_sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "span_sha256": "245502055fedff1bb7748c938e2cf5379171e3b6a7ffdd85511125a33543c7a2"
+    }
+  ],
+  "existing_archive_inspection": [
+    {
+      "file": "/workspace/tooling/stage28m-evidence/archive/dcd-disassembly.txt",
+      "bytes": 76498,
+      "sha256": "90d0317cd48160eb68dd18ffb95490320bfcc66c157b70c6ba67c769c592f0fc"
+    },
+    {
+      "file": "/workspace/tooling/stage28m-evidence/archive/dcd-lines.txt",
+      "bytes": 239787,
+      "sha256": "9ba50e703f418ff08c9cbdb5e9ddddda12ab9a8a1c0306292de568d28b7aa2cd"
+    },
+    {
+      "file": "/workspace/tooling/stage28m-evidence/archive/dcd_dwc2.c.obj",
+      "bytes": 131148,
+      "sha256": "3931f64bdf2e77ff2ba5297815366e5ef0ef577c1d2deddca03b2bf1f167082e"
+    }
+  ],
+  "revisions": {
+    "builder": "afa5cdd0d41d7e465d2e39867b24aef48b1c7b84",
+    "tinyusb": "8a78804ff91271fb32008288777fad9fe73f5735",
+    "idf": "b66b5448e0dfac6be135e6f0ac21010aba231180"
+  },
+  "status": "Authenticated package/member identities and publisher-recorded revisions; not reproducible source-to-object equivalence or proven lifecycle fences",
+  "unresolved": [
+    "Clean exact build working tree/source checksums/compile recipe for all archive members",
+    "Full reset/disconnect/observer/DCD retirement proof",
+    "Genuine C/Q identity through event path",
+    "Bounded sender and exclusive producer ownership"
+  ],
+  "network_scope": "Targeted official public-source HTTPS reads and Git publication only; no installations or builds of dependencies",
+  "installed_versions_match_cached_package": {
+    "sha256": "7f344027a09a21c24ab11d4e6fc5037a2b65b7957c4bcd706a07cce886d6df76",
+    "status": "PASS"
+  },
+  "builder_config_header_comparison": {
+    "installed_sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+    "retrieved_sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+    "identical": true
+  }
+}
