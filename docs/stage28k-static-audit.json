@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "baseline": "dce42b8664c2964019cf4b488388d08b2b7fc2d0",
+  "byte_identical_historical_files": 1030,
+  "source_spans": 47,
+  "protected_stage26_files": 235,
+  "added_files": [
+    "docs/stage28k-contract-implementation.md",
+    "docs/stage28k-legacy-results.json",
+    "docs/stage28k-limitations-and-next-gates.md",
+    "docs/stage28k-memory-ledger.md",
+    "docs/stage28k-object-layout.json",
+    "docs/stage28k-owner-approval.md",
+    "docs/stage28k-publication.json",
+    "docs/stage28k-reproduction.md",
+    "docs/stage28k-source-evidence.json",
+    "docs/stage28k-source-hashes.json",
+    "docs/stage28k-stage26-freeze.json",
+    "docs/stage28k-static-audit.json",
+    "docs/stage28k-target-build.json",
+    "docs/stage28k-test-report.md",
+    "docs/stage28k-test-results.json",
+    "tests/stage28k/allocation_probe.cpp",
+    "tests/stage28k/journal_driver.cpp",
+    "tests/stage28k/journal_driver.h",
+    "tests/stage28k/object_layout.cpp",
+    "tests/stage28k/run_tests.py",
+    "tests/stage28k/test_journal.cpp",
+    "tests/stage28k/verify_scope.py"
+  ],
+  "kind": "static integrity evidence, not runtime assertion totals",
+  "physical_testing": false
+}

@@ -1,0 +1,119 @@
+{
+  "baseline": "dce42b8664c2964019cf4b488388d08b2b7fc2d0",
+  "algorithm": "SHA-256",
+  "self_excluded": true,
+  "files": {
+    "docs/stage28k-contract-implementation.md": {
+      "size_bytes": 8310,
+      "sha256": "feb5d0ea66aadd9cd911d515b0b2a62d3988e5c3fd39c19a277fb1263e18c496"
+    },
+    "docs/stage28k-legacy-results.json": {
+      "size_bytes": 72688,
+      "sha256": "6168975f4ec2003eea4f0708177300a6fd2d9301dcbaf6a9b269ddf684956343"
+    },
+    "docs/stage28k-limitations-and-next-gates.md": {
+      "size_bytes": 4541,
+      "sha256": "833424dec7ad7d049f164d77698a9ac11d57541e48bf3297fa7d36eaf43addb6"
+    },
+    "docs/stage28k-memory-ledger.md": {
+      "size_bytes": 3643,
+      "sha256": "6d8fe4df7afa236ef6b07901bc0d0b59eb8234c30bb5eaf94ccc5b080bd5949e"
+    },
+    "docs/stage28k-object-layout.json": {
+      "size_bytes": 4766,
+      "sha256": "2bf0acabb77a3c74ef3361fceabf656e94f17f00feff59b067e470b41911b231"
+    },
+    "docs/stage28k-owner-approval.md": {
+      "size_bytes": 3709,
+      "sha256": "e182c4001dff396140e4a3af7cd63447fc70cb410047605c4a27c7e3f1fdfaf1"
+    },
+    "docs/stage28k-publication.json": {
+      "size_bytes": 3801,
+      "sha256": "8e70da19f859235611221f737cdd3ad6b1c407448143c2ad6ac49f7577c238c1"
+    },
+    "docs/stage28k-reproduction.md": {
+      "size_bytes": 6120,
+      "sha256": "61709667916b6405e7963b4266c46b4e65065b52c50cea358aabcd6d623cf4db"
+    },
+    "docs/stage28k-source-evidence.json": {
+      "size_bytes": 14848,
+      "sha256": "a92a8ae40034f642ab798529dc1a7455491958d5698253746aa56fc2aea68613"
+    },
+    "docs/stage28k-stage26-freeze.json": {
+      "size_bytes": 40054,
+      "sha256": "ca12a643fafbb4849a1cffacad628900ce2df6e3679bff65affdcce5dcc214b2"
+    },
+    "docs/stage28k-static-audit.json": {
+      "size_bytes": 1184,
+      "sha256": "02f645970d90f4d61d1e52bb9cec159872a2a6a6706812c5bc113a1efdcbbe9d"
+    },
+    "docs/stage28k-target-build.json": {
+      "size_bytes": 73148,
+      "sha256": "7bf9093d517c3b3369f317bf52d4da789c8163edd96b2a5e28272f603b7bcae2"
+    },
+    "docs/stage28k-test-report.md": {
+      "size_bytes": 9728,
+      "sha256": "60aa65ae782b181a99cee8e8c8629e5fb63555077ac7560ba04d9a1b21f3c991"
+    },
+    "docs/stage28k-test-results.json": {
+      "size_bytes": 183865,
+      "sha256": "5fa56c108bd93f78be37c53ae7af801b4953e5475cc9b9fc9345182c30d75b6b"
+    },
+    "language_preview/README.md": {
+      "size_bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    "language_preview/bridge.cpp": {
+      "size_bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    "language_preview/bridge.h": {
+      "size_bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    "language_preview/core.cpp": {
+      "size_bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    "language_preview/core.h": {
+      "size_bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    "language_preview/keyboard.cpp": {
+      "size_bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    "language_preview/keyboard.h": {
+      "size_bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    "tests/stage28k/allocation_probe.cpp": {
+      "size_bytes": 1399,
+      "sha256": "49fc921ed9315bfc6a59c1551060ddd01a49daea541fc22c42db59c758cddf79"
+    },
+    "tests/stage28k/journal_driver.cpp": {
+      "size_bytes": 9975,
+      "sha256": "5aa10d7442c4bf284276ba15b75c4091cdc45c5ad7463c9c4f5ba52548eda64c"
+    },
+    "tests/stage28k/journal_driver.h": {
+      "size_bytes": 4988,
+      "sha256": "ba740d0637dc4fb4fd0eac8860e328d3d7024b0be3069a203d5a14180a9858f1"
+    },
+    "tests/stage28k/object_layout.cpp": {
+      "size_bytes": 427,
+      "sha256": "e16aeee1be830961ab0c854d8a33b31ccb097b6f80c402f40c54ab4adffd1259"
+    },
+    "tests/stage28k/run_tests.py": {
+      "size_bytes": 5827,
+      "sha256": "2e04bd94659d63419b56fc5bad38bd49c53ad9a23de429359fed42df02ea8832"
+    },
+    "tests/stage28k/test_journal.cpp": {
+      "size_bytes": 21917,
+      "sha256": "773a8d04e20f09d1177a8e2d8e0e73d86c1ecaee0c7b6fd6a610a136cc8dcdf0"
+    },
+    "tests/stage28k/verify_scope.py": {
+      "size_bytes": 3093,
+      "sha256": "6b0173cab97c3348e10623d7486f215f2d103699e9b398e9b4e0fe5f17263871"
+    }
+  }
+}

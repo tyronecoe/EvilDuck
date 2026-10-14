@@ -1,0 +1,1185 @@
+{
+  "baseline_commit": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+  "stage28h_baseline": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+  "all_files_byte_identical": true,
+  "stage27a_must_use_stage26_only": true,
+  "scope": "All Stage26 production source/public review files, preparation tools, Stage26 documents and dependency patch proposals",
+  "files": [
+    {
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "bytes": 3814,
+      "sha256": "2efcf7720b4026130a359567797f7e66bdb5639f334caf786d294f3e14ccb115"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.cpp",
+      "bytes": 1940,
+      "sha256": "ad6aab13b9868fe026b5543c53b5d631ed3e63f2caabc79d99a84baeaa075093"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.h",
+      "bytes": 519,
+      "sha256": "d9e68dd330af814b87cae856c16cb85dc02a4009da07e67ce72ce5a4e87504a8"
+    },
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "bytes": 11111,
+      "sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad"
+    },
+    {
+      "file": "EvilDuckS3/cli.h",
+      "bytes": 209,
+      "sha256": "962f59d6b211a3bbca0da9996dc648014c2197c17e5d02a4730a69b61a814229"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "bytes": 25137,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "bytes": 823,
+      "sha256": "9eec37e589bcc58e7b932f6c90539d96e252177be8f6480dfcea6585b2ca84c4"
+    },
+    {
+      "file": "EvilDuckS3/conditional_state.h",
+      "bytes": 1236,
+      "sha256": "82a061d989437c41aeee6ecdde365c74088b502307f1eb807d29190e37cdb05d"
+    },
+    {
+      "file": "EvilDuckS3/config.h",
+      "bytes": 2645,
+      "sha256": "8e52a6f2d284efb28d17c74a83f01f818ce2eeb307c6b3c387f959af0a7fcdcf"
+    },
+    {
+      "file": "EvilDuckS3/control_flow.h",
+      "bytes": 3811,
+      "sha256": "6bb648c0e8d0596f1374aa3577cdc3b134385bd09596a286d16dea9092c04fe2"
+    },
+    {
+      "file": "EvilDuckS3/controlled_layout.h",
+      "bytes": 1406,
+      "sha256": "f181a0290427b6bcf38b9fdb55ceef4087d527e8cca56a0fb30151d0d913fd51"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/01_variables.txt",
+      "bytes": 119,
+      "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/02_if_else.txt",
+      "bytes": 129,
+      "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/03_while_loop.txt",
+      "bytes": 141,
+      "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/04_save_spiffs.txt",
+      "bytes": 98,
+      "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/05_save_sd.txt",
+      "bytes": 136,
+      "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/06_attackmode.txt",
+      "bytes": 120,
+      "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/07_attackmode_hid_only.txt",
+      "bytes": 86,
+      "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/08_read_file.txt",
+      "bytes": 124,
+      "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/01_hello_windows.txt",
+      "bytes": 149,
+      "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/02_calculator_windows.txt",
+      "bytes": 81,
+      "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/03_delay_test.txt",
+      "bytes": 116,
+      "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/04_repeat_demo.txt",
+      "bytes": 74,
+      "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/05_special_keys.txt",
+      "bytes": 131,
+      "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/06_locale_de.txt",
+      "bytes": 130,
+      "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/07_led_blink.txt",
+      "bytes": 126,
+      "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/08_keycode_ctrl_a.txt",
+      "bytes": 77,
+      "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+    },
+    {
+      "file": "EvilDuckS3/data/index.html",
+      "bytes": 246,
+      "sha256": "c67a22c88c1e5741138e035018c07bdbf600aeb5f18d5367f8e35203565eeb83"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/01_terminal.txt",
+      "bytes": 157,
+      "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/02_nano_editor.txt",
+      "bytes": 212,
+      "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/03_firefox.txt",
+      "bytes": 88,
+      "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/04_tmux_new.txt",
+      "bytes": 130,
+      "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/01_terminal.txt",
+      "bytes": 135,
+      "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/02_safari.txt",
+      "bytes": 87,
+      "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/03_lock_screen.txt",
+      "bytes": 77,
+      "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/04_textedit.txt",
+      "bytes": 120,
+      "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/01_run_dialog.txt",
+      "bytes": 75,
+      "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/02_cmd_prompt.txt",
+      "bytes": 122,
+      "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/03_powershell.txt",
+      "bytes": 135,
+      "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/04_lock_screen.txt",
+      "bytes": 59,
+      "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/05_desktop_show.txt",
+      "bytes": 54,
+      "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/06_task_manager.txt",
+      "bytes": 78,
+      "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/07_file_explorer.txt",
+      "bytes": 53,
+      "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/08_settings.txt",
+      "bytes": 85,
+      "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/alt_f4_close.txt",
+      "bytes": 83,
+      "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/browser_url.txt",
+      "bytes": 134,
+      "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/hacker_terminals_3_monitors.txt",
+      "bytes": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/hello_notepad.txt",
+      "bytes": 180,
+      "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/lock_screen.txt",
+      "bytes": 63,
+      "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_calculator.txt",
+      "bytes": 97,
+      "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_cmd.txt",
+      "bytes": 137,
+      "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_dedsec_image.txt",
+      "bytes": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_explorer.txt",
+      "bytes": 67,
+      "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_powershell.txt",
+      "bytes": 156,
+      "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_settings.txt",
+      "bytes": 61,
+      "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_taskmgr.txt",
+      "bytes": 90,
+      "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/paste_clipboard.txt",
+      "bytes": 60,
+      "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/screenshot.txt",
+      "bytes": 105,
+      "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/select_all_copy.txt",
+      "bytes": 96,
+      "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/show_desktop.txt",
+      "bytes": 75,
+      "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/skull_loading_terminal.txt",
+      "bytes": 4043,
+      "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/typing_speed_test.txt",
+      "bytes": 238,
+      "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+    },
+    {
+      "file": "EvilDuckS3/debug.cpp",
+      "bytes": 261,
+      "sha256": "21995b69ab6f4f587d95222187aab167fdf344eda0a861810c8b17c8fc7ac6cc"
+    },
+    {
+      "file": "EvilDuckS3/debug.h",
+      "bytes": 136,
+      "sha256": "eed438797b682327c9de78d4f9ed7d431e29fd345fb9ec3d860264acab98ff5e"
+    },
+    {
+      "file": "EvilDuckS3/deployment_boot.h",
+      "bytes": 853,
+      "sha256": "0c4dc2d8b6fc6ab610536eb201de6611d7cd7761de17e5df351d6e2e25afe232"
+    },
+    {
+      "file": "EvilDuckS3/duck_constants.cpp",
+      "bytes": 4932,
+      "sha256": "058c6d6fcde39de3f4fbcce6f0aa407cec62babd59fc658948779716f5ebbff5"
+    },
+    {
+      "file": "EvilDuckS3/duck_constants.h",
+      "bytes": 612,
+      "sha256": "ab3d4de46274f557085e963835f4d25473f062ab4a74c8e1c22f354973c4ac27"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.cpp",
+      "bytes": 13040,
+      "sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.h",
+      "bytes": 1720,
+      "sha256": "933f5e10f0e16972d77e44f0af6946ffa289b1595794c78fc609c0f33f512192"
+    },
+    {
+      "file": "EvilDuckS3/duck_keys.cpp",
+      "bytes": 3567,
+      "sha256": "2817becad1c4cca4bd29d5d1b6cc3866ddb35ba535f03cb531cafed692c6b62a"
+    },
+    {
+      "file": "EvilDuckS3/duck_keys.h",
+      "bytes": 604,
+      "sha256": "6b0dd4921d076defdbe60e74afab33b764ca6c5cae2aa30dbea4f0a19e55258f"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.cpp",
+      "bytes": 2775,
+      "sha256": "d4ffe176ee222bb4add3aebdf7aa4a70801572893f0d88940d7443449f63b170"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.h",
+      "bytes": 840,
+      "sha256": "e6dc9b5c3fb2edb329d088f57ce4d314cc4ef5cb62afc16b500085d0936e0d06"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.cpp",
+      "bytes": 12206,
+      "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.h",
+      "bytes": 1304,
+      "sha256": "c49314e670ebcc4c15804d329d003f119a013136c003b08314f4efbd6587ce6f"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "bytes": 21927,
+      "sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.h",
+      "bytes": 220,
+      "sha256": "745a86898e98f242df28840b87f30cd16c5ad9e2cfc62fdefd8a88843252437e"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "bytes": 1545,
+      "sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6"
+    },
+    {
+      "file": "EvilDuckS3/fetch_locales.ps1",
+      "bytes": 799,
+      "sha256": "b7290777966bc4d32c301115149f134420ae2ea6195a2710c004205ff0d13eb3"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "bytes": 15616,
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "bytes": 1880,
+      "sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072"
+    },
+    {
+      "file": "EvilDuckS3/internal_vars.h",
+      "bytes": 580,
+      "sha256": "9b62bb7af0340a2bb1c7a85252fda729b940856ff8a19a6c2d063f4ba92f7c82"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "bytes": 4005,
+      "sha256": "54e30399e0f5280ec01a7e51372b97a280f60aa5678dd43dc8c94c5c6e4e86ea"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.h",
+      "bytes": 732,
+      "sha256": "7146c6c398ed0d76dd009f9b0374b7b3f2c04097df1768b138fa01817db6c737"
+    },
+    {
+      "file": "EvilDuckS3/led.cpp",
+      "bytes": 1695,
+      "sha256": "8d17a3a4f572119d90e77b7a7bd524ed4a45d84ed98b4600a883fc057a36442a"
+    },
+    {
+      "file": "EvilDuckS3/led.h",
+      "bytes": 104,
+      "sha256": "e8fc9756baa3a06a08c10948b85082b0b2aeb958d06752ee0cb957de0ad568d8"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_de.h",
+      "bytes": 4942,
+      "sha256": "dc10ea86906667c24ea43c3f1b8b7c450568d26d3c7e4a7c4b80daad75b2cd56"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_types.h",
+      "bytes": 228,
+      "sha256": "c48cf655a0b810ea275edc4319d34a120f2aebc97ad231c755a87c5d72305ea0"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_us.h",
+      "bytes": 3667,
+      "sha256": "d1982e64f18ec1c0a87ac232ce53c63cdb114fa0898ca79a77a8387eddedf61c"
+    },
+    {
+      "file": "EvilDuckS3/locale/locales.h",
+      "bytes": 1673,
+      "sha256": "d1657a7b159776d35e84c00f29f623ef2389f1cf2176f0a11811f0fb4602cdf0"
+    },
+    {
+      "file": "EvilDuckS3/locale/usb_hid_keys.h",
+      "bytes": 3081,
+      "sha256": "4c9c49c041811f16c0e2dba6362b44cb8b65eb36cb5f772674d9e877faf51dcb"
+    },
+    {
+      "file": "EvilDuckS3/locales.cpp",
+      "bytes": 419,
+      "sha256": "3fe13d85fd47f64c584f720fa860d7d72e09d36b68e40443fde7fb1ea53315b2"
+    },
+    {
+      "file": "EvilDuckS3/nvs_startup.h",
+      "bytes": 417,
+      "sha256": "615745d0c93d17448002d9094c4868bbb7264d7ebec966b6befdea146d55ed83"
+    },
+    {
+      "file": "EvilDuckS3/partitions.csv",
+      "bytes": 394,
+      "sha256": "29f1c8956b5b68b26a1eb79ea46c68cb110d2510b40091e4bebfb89f06f511ef"
+    },
+    {
+      "file": "EvilDuckS3/script_functions.cpp",
+      "bytes": 2949,
+      "sha256": "ed9ab30624a5ad4687d5d9b822634204cdf5a49e7e3b22c8e47622b69d8dcb47"
+    },
+    {
+      "file": "EvilDuckS3/script_functions.h",
+      "bytes": 2066,
+      "sha256": "44a285d895ea946c54a564350e0259eb7dc9b60efdd8ec20e257bfd94e976ed7"
+    },
+    {
+      "file": "EvilDuckS3/script_library.cpp",
+      "bytes": 3185,
+      "sha256": "5a5453d2b20d6c48caa8bf507d3bc790b2eda14bea5ea2087c36659212c7ecac"
+    },
+    {
+      "file": "EvilDuckS3/script_library.h",
+      "bytes": 278,
+      "sha256": "bf7f8005fbb586d8a3f41473a9f7acfd97b3d79b49616d90257d8129783efab2"
+    },
+    {
+      "file": "EvilDuckS3/script_log.cpp",
+      "bytes": 1778,
+      "sha256": "9a269ef95b6ec0d8c22ea7ce24687339b8c08471a134b807a669846972f7434a"
+    },
+    {
+      "file": "EvilDuckS3/script_log.h",
+      "bytes": 270,
+      "sha256": "48af946b433dfab38af76e79a504c9d0d15f72440411e496056e62e87d5233de"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "bytes": 35558,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.h",
+      "bytes": 2628,
+      "sha256": "9624a59e80b718f7525c0c4702dc992501d5aa53be3fc8559095ddf49044140b"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.cpp",
+      "bytes": 4276,
+      "sha256": "fc09ef1124ac9a6a4f47f6fd1ad543cafda814e927d05cf148e6d86089c52d79"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.h",
+      "bytes": 1353,
+      "sha256": "b390d7b2879852c6a66e4f89928bc75b52d9690109cd6794140d04dd72d380f0"
+    },
+    {
+      "file": "EvilDuckS3/script_source.cpp",
+      "bytes": 3043,
+      "sha256": "7ea73e3b9e773448c317b8e24176381f52768bc64f175191088284c0310463f3"
+    },
+    {
+      "file": "EvilDuckS3/script_source.h",
+      "bytes": 1239,
+      "sha256": "1ea0ddbd7bf239af6c715f1b057bbdc5a7bd491f11c19314f407239d98ef84b0"
+    },
+    {
+      "file": "EvilDuckS3/scripts/README.txt",
+      "bytes": 892,
+      "sha256": "cc8adc67182f4c753773d1fbe939d7d17ac8bb31338ee7cff2a0b2a26418c587"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/01_variables.txt",
+      "bytes": 119,
+      "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/02_if_else.txt",
+      "bytes": 129,
+      "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/03_while_loop.txt",
+      "bytes": 141,
+      "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/04_save_spiffs.txt",
+      "bytes": 98,
+      "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/05_save_sd.txt",
+      "bytes": 136,
+      "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/06_attackmode.txt",
+      "bytes": 120,
+      "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/07_attackmode_hid_only.txt",
+      "bytes": 86,
+      "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/08_read_file.txt",
+      "bytes": 124,
+      "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/01_hello_windows.txt",
+      "bytes": 149,
+      "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/02_calculator_windows.txt",
+      "bytes": 81,
+      "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/03_delay_test.txt",
+      "bytes": 116,
+      "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/04_repeat_demo.txt",
+      "bytes": 74,
+      "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/05_special_keys.txt",
+      "bytes": 131,
+      "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/06_locale_de.txt",
+      "bytes": 130,
+      "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/07_led_blink.txt",
+      "bytes": 126,
+      "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/08_keycode_ctrl_a.txt",
+      "bytes": 77,
+      "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/01_terminal.txt",
+      "bytes": 157,
+      "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/02_nano_editor.txt",
+      "bytes": 212,
+      "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/03_firefox.txt",
+      "bytes": 88,
+      "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/04_tmux_new.txt",
+      "bytes": 130,
+      "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/01_terminal.txt",
+      "bytes": 135,
+      "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/02_safari.txt",
+      "bytes": 87,
+      "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/03_lock_screen.txt",
+      "bytes": 77,
+      "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/04_textedit.txt",
+      "bytes": 120,
+      "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+    },
+    {
+      "file": "EvilDuckS3/scripts/sync_to_data.ps1",
+      "bytes": 774,
+      "sha256": "103f1f45641921b97f45f4b5d4f842b62d540ec7ce96cdd5d100edc868a5a534"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/01_run_dialog.txt",
+      "bytes": 75,
+      "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/02_cmd_prompt.txt",
+      "bytes": 122,
+      "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/03_powershell.txt",
+      "bytes": 135,
+      "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/04_lock_screen.txt",
+      "bytes": 59,
+      "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/05_desktop_show.txt",
+      "bytes": 54,
+      "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/06_task_manager.txt",
+      "bytes": 78,
+      "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/07_file_explorer.txt",
+      "bytes": 53,
+      "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/08_settings.txt",
+      "bytes": 85,
+      "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/alt_f4_close.txt",
+      "bytes": 83,
+      "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/browser_url.txt",
+      "bytes": 134,
+      "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/hello_notepad.txt",
+      "bytes": 180,
+      "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/lock_screen.txt",
+      "bytes": 63,
+      "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_calculator.txt",
+      "bytes": 97,
+      "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_cmd.txt",
+      "bytes": 137,
+      "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_dedsec_image.txt",
+      "bytes": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_explorer.txt",
+      "bytes": 67,
+      "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_powershell.txt",
+      "bytes": 156,
+      "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_settings.txt",
+      "bytes": 61,
+      "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_taskmgr.txt",
+      "bytes": 90,
+      "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/paste_clipboard.txt",
+      "bytes": 60,
+      "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/run_hacker_terminals.cmd",
+      "bytes": 266,
+      "sha256": "402c0056d6eba24f2e2c9f80f99cd1e214b1a327c2a7f5aba0235024727193e2"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/screenshot.txt",
+      "bytes": 105,
+      "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/select_all_copy.txt",
+      "bytes": 96,
+      "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/show_desktop.txt",
+      "bytes": 75,
+      "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/skull_loading_terminal.txt",
+      "bytes": 4043,
+      "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/typing_speed_test.txt",
+      "bytes": 238,
+      "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+    },
+    {
+      "file": "EvilDuckS3/sd_card.cpp",
+      "bytes": 5083,
+      "sha256": "050d31ba667e68f4c4d54e45d3a7e24737c287da0b2566564fa93ee87a63dccd"
+    },
+    {
+      "file": "EvilDuckS3/sd_card.h",
+      "bytes": 605,
+      "sha256": "363a41bee3f28c5570cd1749e46a7157f7f92942f8c51b0f7287a7f1db8bff9e"
+    },
+    {
+      "file": "EvilDuckS3/settings.cpp",
+      "bytes": 11370,
+      "sha256": "1ca2614c44a7457e29816b2705bc61680ed9a60aa4d42454eb464d1c7517a9f5"
+    },
+    {
+      "file": "EvilDuckS3/settings.h",
+      "bytes": 1008,
+      "sha256": "733cfefc1aa1e34e0bbaa1419405785492bce6753ec559be52b17477cac84e00"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.cpp",
+      "bytes": 3071,
+      "sha256": "924573433bb5a76725932ea22ec2c61f8b11fa5c0599bf727847f70c34ba2300"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.h",
+      "bytes": 624,
+      "sha256": "a168225fdb4bec5a7d63c56809cab4ee6c4e42cc3b8d18f77c459f3f49fe2aab"
+    },
+    {
+      "file": "EvilDuckS3/storage.cpp",
+      "bytes": 9683,
+      "sha256": "b84b75beef87999d7392832c3e186f24c60580b4a61233b9fe5a82da2c462419"
+    },
+    {
+      "file": "EvilDuckS3/storage.h",
+      "bytes": 920,
+      "sha256": "b89f8e791997f79f173dfcacc375a4efb51241e3975d3c3c6ba83a0021c32937"
+    },
+    {
+      "file": "EvilDuckS3/usb_msc.cpp",
+      "bytes": 7225,
+      "sha256": "80fcd96cd18e4863df6eb7017d5e0046c58d9b0ad7f421d6a67f95495606000d"
+    },
+    {
+      "file": "EvilDuckS3/usb_msc.h",
+      "bytes": 504,
+      "sha256": "c03a6068ccf9ce2a53c057a15cc02628a12e04f5a4b82a67b6c1659dc2b1efe9"
+    },
+    {
+      "file": "EvilDuckS3/webfiles.h",
+      "bytes": 60150,
+      "sha256": "ba67e8550607a69c3c2c93b0ae089bf64527321c2f3814a4c71bf2f656bf7892"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "bytes": 22378,
+      "sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0"
+    },
+    {
+      "file": "EvilDuckS3/webserver.h",
+      "bytes": 89,
+      "sha256": "3187c949614453e0703ac750079804abd7871a8b5e143cc821893476b4e54c4b"
+    },
+    {
+      "file": "docs/stage26-artifact-pin.json",
+      "bytes": 3858,
+      "sha256": "5f98f49470500e00832d941df5c0b773209f434350f471c1398a9fe670e67855"
+    },
+    {
+      "file": "docs/stage26-compatibility.md",
+      "bytes": 4677,
+      "sha256": "cccdf2286ca871129cc4593bd9ded6880676d967c5ef8040bb823123f2c99c80"
+    },
+    {
+      "file": "docs/stage26-controlled-build.json",
+      "bytes": 4458,
+      "sha256": "8109b4aceb11d85b2a02ef17bdf5ae1a4fb92b5017018aa4f7fcd94167f8775c"
+    },
+    {
+      "file": "docs/stage26-controlled-stack.json",
+      "bytes": 1436,
+      "sha256": "cb45e9fae8cd701c3d0c2b2796627934ca18cab8cbfd93dc0c6338f4a97e8d41"
+    },
+    {
+      "file": "docs/stage26-files.md",
+      "bytes": 1217,
+      "sha256": "32ece8425ab1e7b53070ed990e133d475830263790b8991f9ec44fefc3051998"
+    },
+    {
+      "file": "docs/stage26-installation-plan.md",
+      "bytes": 4953,
+      "sha256": "c1cf3e1bc9b5024b690ba75b633bade56fb24f206b2e7d3664a0f69bb7bb79c3"
+    },
+    {
+      "file": "docs/stage26-private-preparation.md",
+      "bytes": 4837,
+      "sha256": "3f2867909b0a0eef861a5fe653946ef003008d601cff1ca8c712f774880d274a"
+    },
+    {
+      "file": "docs/stage26-readiness.md",
+      "bytes": 4604,
+      "sha256": "5b4167091f8c726c6e4972885a7b1f4369400f406adbb3568d8c12e69e757f61"
+    },
+    {
+      "file": "docs/stage26-report.md",
+      "bytes": 9847,
+      "sha256": "5489db5dd11e406cacbe60369c4c5b5e2bfd3d1fff8ef44b5ceedc33e3c003aa"
+    },
+    {
+      "file": "docs/stage26-reproduction.md",
+      "bytes": 2832,
+      "sha256": "3e0b28f121a060112401040b60d52d095a560ca4b2c6a4b09f80764c8b5fad05"
+    },
+    {
+      "file": "docs/stage26-results.json",
+      "bytes": 15414,
+      "sha256": "70fbedc21bac755d92c566d37562e2aa4d16cb3ac2248821cd210513ade4ab01"
+    },
+    {
+      "file": "docs/stage26-safe-build.json",
+      "bytes": 4451,
+      "sha256": "caa4687a459da8d87f00301619018b69cdc2d8623f3e63e63ec3b01dcf9d4fed"
+    },
+    {
+      "file": "docs/stage26-safe-stack.json",
+      "bytes": 1435,
+      "sha256": "d5f0ea44ba3190b2a93b7b7ab71b6af8a48dbd2b7514bcff2826e582cea0c015"
+    },
+    {
+      "file": "docs/stage26-test-index.md",
+      "bytes": 3838,
+      "sha256": "1a441e6c5e2b504abbe33825882f16d4d03863108d1bb9faa350f97a68d4e2f2"
+    },
+    {
+      "file": "proposals/README.md",
+      "bytes": 1556,
+      "sha256": "f97dcdd91b658a14fe9498bc13a2da22f4aef6d8371322bf57af4bc42cfea8ae"
+    },
+    {
+      "file": "proposals/arduino-esp32-3.3.0-hid-routing.patch",
+      "bytes": 1347,
+      "sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154"
+    },
+    {
+      "file": "proposals/arduino-esp32-3.3.0-nvs-preservation.patch",
+      "bytes": 1561,
+      "sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5"
+    },
+    {
+      "file": "proposals/arduino-esp32-3.3.0-stage22-nvs-gate.patch",
+      "bytes": 1403,
+      "sha256": "b7c0b29321edcb2a5098c8df584e0d47cae87a230d92b2ca805c76c1d255ce63"
+    },
+    {
+      "file": "proposals/esp-idf-5.5-readonly-iterator-cleanup.patch",
+      "bytes": 553,
+      "sha256": "5c18697e62248153ec4cf443384f24086c7a216ad063e9e284d6a32882ccdd48"
+    },
+    {
+      "file": "proposals/esp-idf-5.5-stage24-failclosed-scanner.patch",
+      "bytes": 1271,
+      "sha256": "11a6e638bef6c47669b85ac303750e95f387b8ca8fd5a328a90be14ffdea4de2"
+    },
+    {
+      "file": "proposals/evilduck-hid-feature-companion.patch",
+      "bytes": 556,
+      "sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec"
+    },
+    {
+      "file": "review/stage26-installation/README.md",
+      "bytes": 628,
+      "sha256": "2933b7d664a5704829ad1ee85da553cb9b13b799d98aa2e323aaaed22807b99f"
+    },
+    {
+      "file": "review/stage26-installation/SHA256SUMS.txt",
+      "bytes": 593,
+      "sha256": "b314bc657d4db919b9d54cb62d0e8899a683a60a7ecb56e34da8d8d7213a417e"
+    },
+    {
+      "file": "review/stage26-installation/bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf"
+    },
+    {
+      "file": "review/stage26-installation/controlled-stage26.bin",
+      "bytes": 1329760,
+      "sha256": "a2087f560f60b03990f8133591dffa218f0414e15dc87530c215f8949a4758c4"
+    },
+    {
+      "file": "review/stage26-installation/coredump-erased.bin",
+      "bytes": 65536,
+      "sha256": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063"
+    },
+    {
+      "file": "review/stage26-installation/deployment-safe-stage26.bin",
+      "bytes": 1066128,
+      "sha256": "93160306c9668e59e7e8f03577c498b5ea43ef9e4c71b0b0686116889c793127"
+    },
+    {
+      "file": "review/stage26-installation/empty-spiffs.bin",
+      "bytes": 1441792,
+      "sha256": "f19dc5da480ce1eff46d82376f45a8c1c425148016f9a8c34acef7a330552233"
+    },
+    {
+      "file": "review/stage26-installation/manifest.json",
+      "bytes": 3858,
+      "sha256": "5f98f49470500e00832d941df5c0b773209f434350f471c1398a9fe670e67855"
+    },
+    {
+      "file": "review/stage26-installation/ota-app0.bin",
+      "bytes": 8192,
+      "sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0"
+    },
+    {
+      "file": "review/stage26-installation/partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    },
+    {
+      "file": "tools/analyze_s3_stack.py",
+      "bytes": 2989,
+      "sha256": "9b496c1944fd0684bb0d4f3e8a5b3bd7d7b6217c88ac161030bf48d1d50aae60"
+    },
+    {
+      "file": "tools/build_s3.py",
+      "bytes": 5879,
+      "sha256": "b0337fd2fd9ef82e8fa74a99c03ec6b3ee4273cd05468273d7da4b27dd22c5f4"
+    },
+    {
+      "file": "tools/build_s3_patched.py",
+      "bytes": 1748,
+      "sha256": "2ea9b1db0e8189c875038545a68ce53ae11153f2427e41c6c349983cd8ff52aa"
+    },
+    {
+      "file": "tools/deployment_inventory.py",
+      "bytes": 3664,
+      "sha256": "eda28f0487170f4499548e0d53cfa0bee443202a994045b91f530006fc194e46"
+    },
+    {
+      "file": "tools/deployment_plan.py",
+      "bytes": 3033,
+      "sha256": "91157bd2f1be08f66c5bb7e5dbc155dd9c394f915fc2232e79816fecfc01906c"
+    },
+    {
+      "file": "tools/deployment_preflight.py",
+      "bytes": 10952,
+      "sha256": "f9b03cec95821925c476681dc9b0c19f69336689ab2105964f35c6e42e8822a3"
+    },
+    {
+      "file": "tools/deployment_summary.py",
+      "bytes": 5255,
+      "sha256": "d297cbcd6516c8088f1c9448adf8da4164fbe37230e6bae118cb1f89ee0a044d"
+    },
+    {
+      "file": "tools/inspect_startup_elf.py",
+      "bytes": 3479,
+      "sha256": "c2aa931e6f549e1959fb84681644d049d7645c2438d0a122c162ae62a31cfaef"
+    },
+    {
+      "file": "tools/nvs_blob.py",
+      "bytes": 3954,
+      "sha256": "0601cca35f137ae65c806fa608041c15abdb660da8511426ddf5e9c4be06e13c"
+    },
+    {
+      "file": "tools/nvs_generator_prepare.py",
+      "bytes": 1810,
+      "sha256": "420bf731e8b4cc11c430c382147ec4057b69479e228ec13817c9b95a074adfd8"
+    },
+    {
+      "file": "tools/nvs_inspect.py",
+      "bytes": 7499,
+      "sha256": "9b56cfd0009bebe81cd72319fbf0ccfa2a57e5b08bc5b95698707cf0aacd12f8"
+    },
+    {
+      "file": "tools/nvs_sdk_evidence.py",
+      "bytes": 2636,
+      "sha256": "65a3b5332f1a7e9a745a2f81f20f27d3ca28161a85a21b81297506550b6fa86a"
+    },
+    {
+      "file": "tools/nvs_source_prepare.py",
+      "bytes": 1709,
+      "sha256": "72cd157fb11da6a61b59da0d37865326392543a5f5bb06698a13187b8f8ed97d"
+    },
+    {
+      "file": "tools/partition_source_prepare.py",
+      "bytes": 1191,
+      "sha256": "88cdfa813d74ec130dfe5eb2b74d287d076d6236f2da475f176be76a703cf829"
+    },
+    {
+      "file": "tools/patched_core.py",
+      "bytes": 5050,
+      "sha256": "fda38616d70d9df8e841308c632c1b7dd8ffb393e3ad28db30bde387593daa78"
+    },
+    {
+      "file": "tools/s3_migration.py",
+      "bytes": 14106,
+      "sha256": "6b600fec6f06801fbaa3c30a0a7d261d15aa6bdca41c870ec5d0a6096fe1e7c2"
+    },
+    {
+      "file": "tools/s3_validation.py",
+      "bytes": 8420,
+      "sha256": "ab8c368a73c9f231b0110915c4b2022134c9415136ab94214cd6d38d885ed31e"
+    },
+    {
+      "file": "tools/s3_write_plan.py",
+      "bytes": 9077,
+      "sha256": "7a68a0f4c3ded5e44ba4afe5caad5d156514143b31114209aa3f9d22a26eb0d4"
+    },
+    {
+      "file": "tools/stage22_candidate.py",
+      "bytes": 11929,
+      "sha256": "d56dc04d26b8af7b0d684e13c1eb4b34445c6f2b36def5190c6943b26eec1733"
+    },
+    {
+      "file": "tools/stage22_review_inventory.py",
+      "bytes": 3327,
+      "sha256": "03705cd508ba9dc990e5f7737a366d2ed901f7b1483ae8095c27a601dc539f0d"
+    },
+    {
+      "file": "tools/stage23_candidate.py",
+      "bytes": 15779,
+      "sha256": "9500bfd9119d511d8e2277103b2c00fe158545c192ee4fc50b65779185283ad5"
+    },
+    {
+      "file": "tools/stage23_sdk_cleanup.py",
+      "bytes": 7825,
+      "sha256": "7b1fc4fee6adb69c05951abda056d9748ef421ce2b3e915112aeb0d9ef53a009"
+    },
+    {
+      "file": "tools/stage23_startup_audit.py",
+      "bytes": 5002,
+      "sha256": "8a76374a4c19063adfc60843f3e2e6ba8d8ce9f36d9e6b14faa09cf0e6c07804"
+    },
+    {
+      "file": "tools/stage24_candidate.py",
+      "bytes": 16006,
+      "sha256": "a8c9e65eb0c17593566c8bcfc9a71de58e57684c4844ea6504c7329aa65aa87b"
+    },
+    {
+      "file": "tools/stage24_fresh_images.py",
+      "bytes": 7186,
+      "sha256": "96a75f86127977be1be25520ecec8ea5389e28d2dc243aef3e59f8b68e8e9aca"
+    },
+    {
+      "file": "tools/stage24_sdk_scanner.py",
+      "bytes": 8094,
+      "sha256": "3f97b7bfb7a4f4c68fe83789208015cd4fc372a27d52b21d088f4cdeb968e7a2"
+    },
+    {
+      "file": "tools/stage25_fresh_config.py",
+      "bytes": 1453,
+      "sha256": "a080a4ed736783a9add8aaee40c1cac45d38773592d82a945871c025a132a76e"
+    },
+    {
+      "file": "tools/stage25_recovery_check.py",
+      "bytes": 6191,
+      "sha256": "b4f32773f304651b754f2957d0b6db9205720e5409cdc369d46c74802401053f"
+    },
+    {
+      "file": "tools/stage26_installation.py",
+      "bytes": 8940,
+      "sha256": "a58fb05892106e87784ba62aa7bdfb26fd48c32688161a8fcf1ed3f7a70d27ad"
+    },
+    {
+      "file": "tools/stage26_prepare.py",
+      "bytes": 732,
+      "sha256": "ad714a9dd121c2e468eb7d1f50a0adb0bc70fa3afc1715f6f9b6abd3c05eaf94"
+    },
+    {
+      "file": "tools/stage26_private.py",
+      "bytes": 3607,
+      "sha256": "ccf0d79d6da32235f1d10e3954a4eaa8030ab36b22a31dae0ff7537c019ca006"
+    },
+    {
+      "file": "tools/startup_reference_prepare.py",
+      "bytes": 1752,
+      "sha256": "b651c965f6fb0a81d459992808615bb89702cde12276a8b7cca693bbef04ab8e"
+    },
+    {
+      "file": "tools/verify_patched_firmware.py",
+      "bytes": 11894,
+      "sha256": "d8b1ea90ea3528ecc0f6639f6d5b6c8d22dccf763532fb05726a2d45d96a00ac"
+    }
+  ],
+  "stage28k_baseline": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+}
