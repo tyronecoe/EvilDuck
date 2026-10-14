@@ -1,0 +1,384 @@
+{
+  "parent": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871",
+  "tinyusb": "8a78804ff91271fb32008288777fad9fe73f5735",
+  "builder": "afa5cdd0d41d7e465d2e39867b24aef48b1c7b84",
+  "idf": "b66b5448e0dfac6be135e6f0ac21010aba231180",
+  "new_inputs": [
+    {
+      "file": "dwc2_common.c",
+      "repo": "hathach/tinyusb",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_common.c",
+      "size": 9846,
+      "sha256": "e13eb89e4a044743cddf9946da39ba1b4f5b327eda3bad8bd682bb16e22a7c5e",
+      "tree_file": "src/portable/synopsys/dwc2/dwc2_common.c"
+    },
+    {
+      "file": "dwc2_common.h",
+      "repo": "hathach/tinyusb",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_common.h",
+      "size": 3767,
+      "sha256": "7e4fa06726c5bb8217b5e517aee3709aec729966ce15c609c4be0feff9644da9",
+      "tree_file": "src/portable/synopsys/dwc2/dwc2_common.h"
+    },
+    {
+      "file": "dwc2_type.h",
+      "repo": "hathach/tinyusb",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_type.h",
+      "size": 153733,
+      "sha256": "f2dcb9ba9feaa0aa9ceee42c7f52166b9b73be7082020de9b70cf92b42f6df69",
+      "tree_file": "src/portable/synopsys/dwc2/dwc2_type.h"
+    },
+    {
+      "file": "dwc2_esp32.h",
+      "repo": "hathach/tinyusb",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/portable/synopsys/dwc2/dwc2_esp32.h",
+      "size": 5826,
+      "sha256": "53c145a3b5eea99aee64d5d50ada658a31fae90b7369661dbe6e90e87eabfa18",
+      "tree_file": "src/portable/synopsys/dwc2/dwc2_esp32.h"
+    },
+    {
+      "file": "dcd_dwc2.c",
+      "tree_file": "builder/dcd_dwc2.c",
+      "revision": "afa5cdd0d41d7e465d2e39867b24aef48b1c7b84",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c",
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "size": 37380
+    }
+  ],
+  "original_tinyusb_inputs": [
+    {
+      "file": "src/class/hid/hid.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid.h",
+      "sha256": "df44b1215ccce40ae12c22e3895109a6d01aa13a77115ad43f28d488351bb97c",
+      "bytes": 71291,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/class/hid/hid_device.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.c",
+      "sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "bytes": 14901,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/class/hid/hid_device.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/class/hid/hid_device.h",
+      "sha256": "04b4f4ade699ee4fbeb061ef0d65d53d0e5955b1d7d20b794a5401aa61d1a293",
+      "bytes": 39331,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_common.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_common.h",
+      "sha256": "2971b25129184457fd21108d70db33bef23d976c04d44853c3f1678225769a7d",
+      "bytes": 13442,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_compiler.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_compiler.h",
+      "sha256": "67c0d328da1fce878e8424345927608f72bd229c75cab004ef870b8337835dfd",
+      "bytes": 13105,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_debug.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_debug.h",
+      "sha256": "0005954726c85cdf8a8980a54f1d13b6c41dfbcc6e16c1925607f01d8eedf004",
+      "bytes": 5132,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_fifo.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_fifo.c",
+      "sha256": "d1615ef8ab73e329e17e1900820ddce8e0302ef965cfe28d5fa209d3ba811db6",
+      "bytes": 34799,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_fifo.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_fifo.h",
+      "sha256": "b2ffb668fb6f0dee1bb42684a340b99604440bb9d2ae7df22becf7f53467c4d9",
+      "bytes": 7861,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_mcu.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_mcu.h",
+      "sha256": "5e81f146f134a924cd15c2e24a6b1c62f67ee788a979be50d6ea8458e8d4d8bd",
+      "bytes": 20666,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_private.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_private.h",
+      "sha256": "9214c32c2b145fadc6ad27de80edb2b0c525b42f70371e795a3caea00cbff7fa",
+      "bytes": 6155,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_types.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_types.h",
+      "sha256": "9dfd468116b53eeabc9a9838a06f90ea414c96d82a59f7eaecdd71381042969f",
+      "bytes": 23677,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/common/tusb_verify.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/common/tusb_verify.h",
+      "sha256": "ce951c9250ed0183fa7e5814f5ad13af865d28b8da5bf32efdffc82728252768",
+      "bytes": 5646,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/dcd.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/dcd.h",
+      "sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1",
+      "bytes": 8635,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd.c",
+      "sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "bytes": 52744,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd.h",
+      "sha256": "69b199bff49bae8f9d95a3fa1b85b448c299e6a10239f94e7c410e028940192a",
+      "bytes": 50935,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd_control.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd_control.c",
+      "sha256": "f22f7a5b833670e2736dbdbffc00d7cd081b934d54e191aafd25375ee2427ee3",
+      "bytes": 7243,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/device/usbd_pvt.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/device/usbd_pvt.h",
+      "sha256": "7f40a19c5aa8c599de92e90a15faa14998d82399545d2859a79b0d1c2f1e008f",
+      "bytes": 5712,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/osal/osal.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/osal/osal.h",
+      "sha256": "c8ceb744a8e5cc8f8f4e0526ce79247d19a28c2f5ff97fe5cfb50b2ec45e4bd2",
+      "bytes": 3883,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb.c",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb.c",
+      "sha256": "693bf8bff293603e3e9b0d3b238364999028ab62046aa0a6c52d15181d83baf5",
+      "bytes": 18249,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb.h",
+      "sha256": "8062e10ddf34838aba8ddbad82daa6623f6a39fe11fa8dc01aaa55f3ad6d7328",
+      "bytes": 5183,
+      "remote_bytes_match_compiled_bytes": true
+    },
+    {
+      "file": "src/tusb_option.h",
+      "revision": "8a78804ff91271fb32008288777fad9fe73f5735",
+      "official_url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/tusb_option.h",
+      "sha256": "26bd60a86341eeb8170badd2b3f2d3ad02980f8afcb716e2084579aba7487506",
+      "bytes": 24023,
+      "remote_bytes_match_compiled_bytes": true
+    }
+  ],
+  "adapted_files": [
+    {
+      "file": "src/portable/synopsys/dwc2/dwc2_common.h",
+      "input_sha256": "7e4fa06726c5bb8217b5e517aee3709aec729966ce15c609c4be0feff9644da9",
+      "output_sha256": "b3bdf3c6629911877ed538f7fa08f40224efaef5950fed313a528464bdde03ad"
+    },
+    {
+      "file": "src/portable/synopsys/dwc2/dwc2_common.c",
+      "input_sha256": "e13eb89e4a044743cddf9946da39ba1b4f5b327eda3bad8bd682bb16e22a7c5e",
+      "output_sha256": "f3b5b80cc4b1f58d2bbf5ac5b3d9f86f2f6ba709989ce2e4eec866440cc032aa"
+    }
+  ],
+  "patch_sha256": "aa5e55e1bed39b18fbff60172fd2d95fc52a4e811be2a2356249e86740b4ebd2",
+  "driver_body_byte_identical": true,
+  "no_tagged_controller_prototype": true,
+  "prototype_gate": "DEFERRED: real descriptor/IRQ lacks originating token; no proven stop/flush/IRQ-publication fence before reuse. Do not retag old IRQ with current descriptor.",
+  "scope": "Native host register/platform substitutions only. Installed SDK/core/driver untouched.",
+  "static_only_inputs": [
+    {
+      "file": "osal_freertos.h",
+      "url": "https://raw.githubusercontent.com/hathach/tinyusb/8a78804ff91271fb32008288777fad9fe73f5735/src/osal/osal_freertos.h",
+      "sha256": "ec42e3828ac7ad7d42fa6142ae3522cffd8083880df3e55d528107e25142a69e",
+      "size": 8671
+    }
+  ],
+  "authenticated_existing_artifacts": {
+    "status": "PASS",
+    "package_size": 430471837,
+    "package_sha256": "a871d945c6bfb685ecff5e30ad759f280c841ea143071466b2e611bd1800f18f",
+    "sdk_archive_bytes": 1109204,
+    "sdk_archive_sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18",
+    "versions_sha256": "7f344027a09a21c24ab11d4e6fc5037a2b65b7957c4bcd706a07cce886d6df76",
+    "core_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+    "source_only_builder_files_verified": 8,
+    "pin": {
+      "core_version": "3.3.0",
+      "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+    },
+    "SDK_changed": false
+  },
+  "selected_builder_recipe_and_config": [
+    {
+      "name": "pinned-components_arduino_tinyusb_CMakeLists.txt",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/CMakeLists.txt",
+      "sha256": "db0a022d38eab1691b32152c637b64a810735ab93056682ffa140d239546b447",
+      "bytes": 2715,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-build.sh",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/build.sh",
+      "sha256": "433866f04f3b7c358e3b36f96ed18d9cb326a44f58e2d881ab14c061919460ef",
+      "bytes": 12363,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_include_tusb_config.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/include/tusb_config.h",
+      "sha256": "467a732b117c9c9366ace3ef5a6640791a81f4af9fea6a7cb188ec334fc22283",
+      "bytes": 5048,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_src_dcd_dwc2.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c",
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "bytes": 37380,
+      "status": "retrieved"
+    },
+    {
+      "name": "pinned-components_arduino_tinyusb_patches_dcd_dwc2.patch",
+      "url": "https://raw.githubusercontent.com/espressif/esp32-arduino-lib-builder/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/patches/dcd_dwc2.patch",
+      "sha256": "0862debc67bd7e30990f6d23def90bdb523aff2b2af940d7958c18a6cba302b9",
+      "bytes": 2622,
+      "status": "retrieved"
+    }
+  ],
+  "existing_object_evidence_rehashed": [
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/dcd-disassembly.txt",
+      "bytes": 76498,
+      "sha256": "90d0317cd48160eb68dd18ffb95490320bfcc66c157b70c6ba67c769c592f0fc"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/dcd_dwc2.c.obj",
+      "bytes": 131148,
+      "sha256": "3931f64bdf2e77ff2ba5297815366e5ef0ef577c1d2deddca03b2bf1f167082e"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/hid-disassembly.txt",
+      "bytes": 34100,
+      "sha256": "67f22a4684d888b61acae2299f5529b652891917e4b95175a74532ea8d884d3d"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/hid_device.c.obj",
+      "bytes": 54276,
+      "sha256": "265cad4695124e3d99fc838617b54361f889ea7f81e6a6770f2f5137c3c51a9a"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/tusb-disassembly.txt",
+      "bytes": 39434,
+      "sha256": "486fc7ab98fd623659013ba3f9a2e0910828adbf80600c798cb0b126376ed92c"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/tusb.c.obj",
+      "bytes": 66888,
+      "sha256": "4377b0699f50f0834814626841bd5af0eae6a3c8a65cedf64df3442e17389082"
+    },
+    {
+      "file": "/workspace/tooling/stage28n-evidence/archive/usbd.c.obj",
+      "bytes": 159396,
+      "sha256": "11cabcbe1762a3eb32ee88dca456b0ab60eef087a9b4d19fad6fa1105307d326"
+    }
+  ],
+  "native_configuration": {
+    "MCU": "ESP32S3 constant",
+    "slave": 1,
+    "DMA": 0,
+    "ep_count": 7,
+    "ep_in_count": 5,
+    "fifo_bytes": 1024,
+    "OS": "CUSTOM fake",
+    "HID": 1,
+    "CDC": 0,
+    "MSC": 0,
+    "queue_capacity": 4,
+    "driver": "builder-selected; never upstream replacement"
+  },
+  "adaptation_boundary": [
+    "common.h platform include substitution",
+    "common reset/flush register read hooks; predicates and loops unchanged",
+    "common FIFO load/store hooks; genuine byte packing remains",
+    "packet-consumed-on-helper-return fixture hook; not validated hardware timing"
+  ],
+  "explicitly_unmodeled": [
+    "in-driver W1C and read-only registers",
+    "RxFIFO pop semantics",
+    "posted writes/interrupt propagation",
+    "DMA",
+    "real FreeRTOS/inter-core ordering",
+    "per-endpoint retirement/event fence"
+  ],
+  "plain_platform_header_sha256": "dc19e91a24c1507e6aec1e427c39685d6f27baa1df097eb8540914e2bdc84138"
+}

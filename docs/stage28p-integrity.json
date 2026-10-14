@@ -1,0 +1,315 @@
+{
+  "status": "PASS",
+  "baseline": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871",
+  "historical_files_paths_modes": 1118,
+  "frozen_stage26_files": 235,
+  "core_sdk": "PASS unchanged pinned protected core/SDK",
+  "receipts": "PASS unique cases, tested fixture/manifest hashes; separate unchanged O/N counts",
+  "remote": "NOT REQUESTED",
+  "new_file_count": 20,
+  "new_files": [
+    {
+      "file": "docs/stage28p-controller-change-plan.md",
+      "size": 4689,
+      "sha256": "2225a2eb943e3c220207a1be5bef4c22b4c618da804928145da70a0a1921af40"
+    },
+    {
+      "file": "docs/stage28p-controller-ownership.md",
+      "size": 7611,
+      "sha256": "b9d390171093acc84f99e6324c9380b3152f1b3ddfd93d2f4180f1c0485e9c9d"
+    },
+    {
+      "file": "docs/stage28p-owner-scope.md",
+      "size": 1503,
+      "sha256": "c15d0463c283fe883d0e1c11ce58006760ad8e920c22a286f5a7b00fbdba7128"
+    },
+    {
+      "file": "docs/stage28p-report.md",
+      "size": 7518,
+      "sha256": "e5ad2d905ae8e48b6da118485fc36628cf2691387e6f0d1aa7e46114a8e05569"
+    },
+    {
+      "file": "docs/stage28p-retirement-design.md",
+      "size": 6277,
+      "sha256": "4a0542bdccb96b1ec1dc40fba5b17d0f24559b007b92b1e68244baf48295a5da"
+    },
+    {
+      "file": "docs/stage28p-source-and-boundary-manifest.json",
+      "size": 18922,
+      "sha256": "0a52f2ffb27369f0922d9daa3e110f49693eb1c7ea88b825be040916d11247fd"
+    },
+    {
+      "file": "docs/stage28p-test-report.md",
+      "size": 6249,
+      "sha256": "c5bea6d459449465ab02c4a8b1772cbeefcdf151aac27e68d8e483f76d72a573"
+    },
+    {
+      "file": "docs/stage28p-test-results.json",
+      "size": 1608692,
+      "sha256": "254d414eb861aef847944f3cad6733b526c3d3d39966e3941cda9d692f119fc9"
+    },
+    {
+      "file": "tests/stage28p/boundary.c",
+      "size": 7237,
+      "sha256": "a7de0409ced65f257736aa73c1d55631b68097c6e7c26d99eb374a42bd2feac1"
+    },
+    {
+      "file": "tests/stage28p/boundary.h",
+      "size": 1652,
+      "sha256": "23abb6bfe63e560347e1c33f09f618b1740fd12eaf5acceb5fb3398d25b703e0"
+    },
+    {
+      "file": "tests/stage28p/driver_unit.c",
+      "size": 559,
+      "sha256": "fa5598a17dd39d070880f8cdbc4c3a4625ab3679d31a02fdc8140127c66dccd3"
+    },
+    {
+      "file": "tests/stage28p/native-io-adaptation.patch",
+      "size": 3040,
+      "sha256": "aa5e55e1bed39b18fbff60172fd2d95fc52a4e811be2a2356249e86740b4ebd2"
+    },
+    {
+      "file": "tests/stage28p/platform.c",
+      "size": 2777,
+      "sha256": "dc266e0e0820345b29e2350ac0044912eddb12021b0c25c809b710105e5f2939"
+    },
+    {
+      "file": "tests/stage28p/prepare_sources.py",
+      "size": 2098,
+      "sha256": "10cf35c56bfb29448d2891f241484fd5266193659f9f167114aa26f9e4bd625c"
+    },
+    {
+      "file": "tests/stage28p/run_tests.py",
+      "size": 7214,
+      "sha256": "311935cda12aad41ae8b5c6d52ab4f2d4b5b5432a35b6e3f97c60d4eda0bfcb6"
+    },
+    {
+      "file": "tests/stage28p/stage28p_platform.h",
+      "size": 1623,
+      "sha256": "8a4b042036991289d8af43b2fb70f890d388b29236fafddf9af0fe21221043ae"
+    },
+    {
+      "file": "tests/stage28p/test_controller.c",
+      "size": 10906,
+      "sha256": "50bb96dda8435a28e71318495e49713d06d5d9cdfbc64c75dca3723e598bf826"
+    },
+    {
+      "file": "tests/stage28p/tusb_config.h",
+      "size": 825,
+      "sha256": "8ba7eeb2439dfeeca70c667d742ab85cac87aa96a01b693a0262b7ac015f86aa"
+    },
+    {
+      "file": "tests/stage28p/tusb_os_custom.h",
+      "size": 1314,
+      "sha256": "bbcfb26285a82956eb33dcdc0c7c260461f3f38045a95be987f1e1002dfb99e0"
+    },
+    {
+      "file": "tests/stage28p/verify_scope.py",
+      "size": 4137,
+      "sha256": "e00e1fae19860ad6edbd2ab355a07afd261bf6a4e8b49b04037c177fac6897ca"
+    }
+  ],
+  "integrity_self_excluded": true,
+  "runtime_assertions": 0,
+  "receipt_phase": "PRECOMMIT; final SHA/push/clean state checked separately; own hash excluded",
+  "new_file_count_including_integrity": 21,
+  "initial_state": {
+    "head": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871",
+    "branch": "stage28o-native-tagged-transfer-prototype",
+    "clean": true
+  },
+  "previous_remote_refs": [
+    {
+      "ref": "refs/heads/main",
+      "sha": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "sha": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "sha": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "sha": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "sha": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "sha": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "sha": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "sha": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "sha": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "sha": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "sha": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "sha": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "sha": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "sha": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "sha": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "sha": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "sha": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "sha": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "sha": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "sha": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "sha": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "sha": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "sha": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "sha": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "sha": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "sha": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "sha": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "sha": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "sha": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "sha": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "sha": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "sha": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "sha": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "sha": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "sha": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "sha": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "sha": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "sha": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "sha": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "sha": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "counts": {
+    "primary_observation_PASS": 33,
+    "primary_unexpected_FAIL": 0,
+    "primary_assertions": 167,
+    "expected_watchdog_observations": 3,
+    "separate_O_PASS": 46,
+    "separate_O_assertions": 931,
+    "separate_fresh_N_PASS": 20,
+    "separate_fresh_N_assertions": 131,
+    "separate_O_disabled_PASS": 20,
+    "separate_O_disabled_assertions": 131,
+    "expected_old_contract_reproductions": 2,
+    "expected_negative_controls": 3
+  },
+  "native_executables": [
+    {
+      "file": "controller",
+      "size": 930304,
+      "sha256": "6d3be8866d50296b97c24de88ddd2d356305ca31c48c58ed4b88145c406567b0"
+    },
+    {
+      "file": "plain-controller",
+      "size": 936936,
+      "sha256": "0c9d697c01e6e5e4e065228ad9ffc4e6e079866e5a244cc574f10c8690fbf2fe"
+    },
+    {
+      "file": "negative",
+      "size": 927448,
+      "sha256": "80bd7b90fe3c4c760d60b8d68fdfec3a67252e82b02a183fbfa8a5c82fcbf8b2"
+    }
+  ],
+  "whitespace": "Patch only has required blank context markers; all other files checked normally"
+}
