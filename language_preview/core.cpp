@@ -20,6 +20,14 @@ uint8_t key(const char* p){
  const uint8_t codes[]={0x28,0x2b,0x2c,0x29,0x2a,0x4c,0x52,0x51,0x50,0x4f};
  for(size_t i=0;i<10;++i)if(exact(p,names[i]))return codes[i];return 0;
 }
+// Deliberately narrow reference-backed ownership operand domain. No modifier prefix guesses.
+uint8_t ownedKey(const char* p){
+ if(uint8_t named=key(p))return named;
+ if(!p[0]||p[1])return 0;
+ if(p[0]>='a'&&p[0]<='z')return static_cast<uint8_t>(4+p[0]-'a');
+ if(p[0]>='1'&&p[0]<='9')return static_cast<uint8_t>(0x1e + p[0]-'1');
+ return p[0]=='0'?0x27:0;
+}
 bool reserved(const char* p){
  const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR"};
  if(key(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
@@ -48,6 +56,11 @@ const char* message(ErrorCode c){
  case ErrorCode::ReadError:return "Mock source read failed or changed";case ErrorCode::SeekError:return "Mock source seek failed";case ErrorCode::CompileLimit:return "Compiler step budget exhausted";
  }
  return "Unknown preview error";
+}
+bool Program::ownershipCommands()const{
+ if(!ready_)return false;
+ for(size_t i=0;i<count_;++i)if(code_[i].op==Op::Hold||code_[i].op==Op::Release)return true;
+ return false;
 }
 // One evaluator used for validation and every runtime numeric consumer. No AST/allocation.
 class Expression {
@@ -263,6 +276,11 @@ class Compiler {
    char* arg=left(argument(text));if(*arg&&(!expand(arg,expanded)||!expr(expanded)))return false;return emit(Op::Return,expanded);
   }
   if(exact(text,"STOP_PAYLOAD"))return emit(Op::Stop);
+  if(command(text,"HOLD")||command(text,"RELEASE")){
+   bool acquire=command(text,"HOLD");if(!expand(left(argument(text)),expanded))return false;
+   right(expanded);uint8_t usage=ownedKey(expanded);if(!usage)return fail(ErrorCode::Unsupported);
+   return emit(acquire?Op::Hold:Op::Release,"",usage);
+  }
   if(uint8_t k=key(text))return emit(Op::Key,"",k);
   if(functionName(text,name)){int id=fn(name);if(id<0)return fail(ErrorCode::UndefinedFunction);return emit(Op::Call,"",0,static_cast<uint8_t>(id));}
   return fail(ErrorCode::UnknownStatement);
@@ -492,6 +510,7 @@ void Runtime::completeInstruction(uint32_t now,uint16_t value){
   block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
  case Op::Key:event_={EventType::KeyTap,ins.target};pending_=true;deliver(now);break;
+ case Op::Hold:case Op::Release:event_={ins.op==Op::Hold?EventType::Hold:EventType::Release,ins.target};pending_=true;deliver(now);break;
  case Op::If:pc_=value?pc_+1:ins.target;break;
  case Op::Jump:case Op::Function:pc_=ins.target;break;
  case Op::Call:enterCall(ins.symbol,false,1);break;

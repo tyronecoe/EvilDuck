@@ -6,6 +6,7 @@ bool Bridge::reject(Reason reason){rejection_=reason;return false;}
 bool Bridge::validEvent(const ds_preview::Event& event){
  if(event.type==EventType::Delay)return true;
  if(event.type==EventType::KeyTap)return ds_keyboard::Planner::validUsage(event.value);
+ if(event.type==EventType::Hold||event.type==EventType::Release)return event.value>=4&&event.value<=0x73;
  if(event.type==EventType::Character){uint8_t usage,modifiers;return ds_keyboard::Planner::mapUS(event.value,usage,modifiers);}return false;
 }
 void Bridge::latch(Reason reason){
@@ -21,6 +22,7 @@ bool Bridge::begin(ds_keyboard::Sink sink,void* context,uint32_t now,uint32_t at
 }
 bool Bridge::start(const ds_preview::Program& program,uint32_t now,uint32_t steps,uint32_t elapsed){
  if(inStep_||state_!=State::Prepared||planner_.state()!=ds_keyboard::State::Ready)return reject(Reason::Busy);
+ if(program.ownershipCommands()&&!planner_.ownerEmpty(ScriptOwner))return reject(Reason::PlannerRejected);
  if(!runtime_.start(program,sourceSink,this,now,steps,elapsed)){latch(Reason::RuntimeFailure);error_.runtime=runtime_.error();planner_.cancel();state_=State::Error;return false;}
  intent_=Intent::None;runAt_=now;runElapsed_=elapsed;state_=State::Running;rejection_=Reason::None;return true;
 }
@@ -50,7 +52,11 @@ Accept Bridge::receive(const ds_preview::Event& event){
  if(!validEvent(event)){latch(Reason::InvalidEvent);planner_.cancel();return Accept::Failed;}
  if(planner_.state()!=ds_keyboard::State::Ready){latch(Reason::Protocol);planner_.cancel();return Accept::Failed;}
  if(event.type==EventType::Delay){++delayAcks_;lastAckAt_=now_;return Accept::Accepted;}
- bool ok=event.type==EventType::Character?planner_.character(event.value,now_):planner_.tap(event.value,0,now_);
+ bool ok=false;
+ if(event.type==EventType::Hold)ok=planner_.holdConfirmed(ScriptOwner,event.value,now_);
+ else if(event.type==EventType::Release)ok=planner_.releaseConfirmed(ScriptOwner,event.value,now_);
+ else if(event.type==EventType::Character)ok=planner_.character(event.value,now_);
+ else ok=planner_.tap(event.value,0,now_);
  if(!ok){latch(Reason::PlannerRejected);planner_.cancel();return Accept::Failed;}
  ++admitted_;intent_=Intent::Waiting;return Accept::Retry;
 }

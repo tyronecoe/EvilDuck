@@ -52,3 +52,14 @@ and timed by Runtime. cancel clears local intent; explicit drain confirms mock n
 before restart. See docs/stage28e-design.md and the host-only Mac smoke recipe.
 Existing core/Sink ABI is untouched. Planner adds only a pure validUsage query.
 No production transport, real HID, firmware image, arming or host control exists here.
+
+Stage28F adds the narrow, mock-only HOLD key / RELEASE key source subset. Lowercase
+letters, digits and the existing ten named nonmodifier keys only. Modifier source
+commands, INJECT_MOD and RESET/release-all remain unsupported with reference gaps
+recorded in docs/stage28f-command-contract.md. Programs containing ownership commands
+reserve script owner3; older programs retain all four Prepared setup owners. Every
+source ownership command requires fresh union-report acceptance, even if idempotent.
+No tap/restoration is invented for HOLD. Runtime terminal cleanup remains logical;
+explicit drain is necessary to establish mock neutral. Event layout and original
+numeric enum values are preserved; EventType now appends Hold/Release, so a standalone
+Sink must explicitly handle or reject them. There is no production adapter.

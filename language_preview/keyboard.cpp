@@ -26,7 +26,7 @@ bool Planner::start(Sink sink,void* context,uint32_t now,uint32_t attempts,uint3
  if(!sink)return reject(Reason::SinkFailure);if(!attempts||attempts>MaxAttempts||!elapsed||elapsed>MaxElapsed)return reject(Reason::InvalidBudget);
  owners_=OwnerTable{};desired_=Report{};sink_=sink;context_=context;attemptLimit_=attempts;elapsedLimit_=elapsed;queue(Report{},Phase::Sync,now);return true;
 }
-bool Planner::ownership(size_t owner,uint16_t usage,bool acquire,uint32_t now){
+bool Planner::ownership(size_t owner,uint16_t usage,bool acquire,uint32_t now,bool confirm){
  if(!available())return false;if(owner>=MaxOwners)return reject(Reason::InvalidOwner);
  bool modifier=usage>=0xe0&&usage<=0xe7;if(!modifier&&!ordinary(usage))return reject(Reason::InvalidUsage);
  OwnerTable proposed=owners_;Owner& record=proposed.owners[owner];
@@ -36,10 +36,16 @@ bool Planner::ownership(size_t owner,uint16_t usage,bool acquire,uint32_t now){
   else if(!acquire&&slot<MaxKeys)record.keys[slot]=0;
  }
  Report report;if(!snapshot(proposed,report))return reject(Reason::Rollover);
- owners_=proposed;desired_=report;if(!known_||!equal(report,accepted_))queue(report,Phase::Held,now);return true;
+ owners_=proposed;desired_=report;if(confirm||!known_||!equal(report,accepted_))queue(report,Phase::Held,now);return true;
 }
 bool Planner::hold(size_t owner,uint16_t usage,uint32_t now){return ownership(owner,usage,true,now);}
 bool Planner::release(size_t owner,uint16_t usage,uint32_t now){return ownership(owner,usage,false,now);}
+bool Planner::holdConfirmed(size_t owner,uint16_t usage,uint32_t now){return ownership(owner,usage,true,now,true);}
+bool Planner::releaseConfirmed(size_t owner,uint16_t usage,uint32_t now){return ownership(owner,usage,false,now,true);}
+bool Planner::ownerEmpty(size_t owner)const{
+ if(owner>=MaxOwners)return false;const Owner& record=owners_.owners[owner];
+ if(record.modifiers)return false;for(uint8_t key:record.keys)if(key)return false;return true;
+}
 bool Planner::tap(uint16_t usage,uint16_t modifierMask,uint32_t now){
  if(!available())return false;if(modifierMask>255)return reject(Reason::InvalidModifiers);uint8_t modifiers=static_cast<uint8_t>(modifierMask),key=0;
  if(usage>=0xe0&&usage<=0xe7){uint8_t bit=static_cast<uint8_t>(1u<<(usage-0xe0));if(desired_.bytes[0]&bit)return reject(Reason::HeldTap);modifiers|=bit;}

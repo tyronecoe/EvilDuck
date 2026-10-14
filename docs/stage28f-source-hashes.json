@@ -1,0 +1,76 @@
+{
+  "files": [
+    {
+      "file": "language_preview/core.cpp",
+      "bytes": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "bytes": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "bytes": 7474,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "bytes": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "bytes": 6608,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    {
+      "file": "language_preview/README.md",
+      "bytes": 4664,
+      "sha256": "e0020ad7c5d098450628a7c8e7f69a521f60271ee77077f26cea60c2d86e46e7"
+    },
+    {
+      "file": "language_preview/core.h",
+      "bytes": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    {
+      "file": "tests/stage28f/mac_smoke.cpp",
+      "bytes": 1615,
+      "sha256": "61fecdd34ce8113188da40a4d7de10e4b5d6614a538efe614beb50e316d19857"
+    },
+    {
+      "file": "tests/stage28f/target_check.py",
+      "bytes": 6952,
+      "sha256": "a7c198964a730f728540db1e7a8e55e78fe6a59ab9736b064f23f662bb4a8be5"
+    },
+    {
+      "file": "tests/stage28f/run_tests.py",
+      "bytes": 2948,
+      "sha256": "0865e82bf65dadb7e987d4fe15b218d196aa23140f2a38bf0b766017ddfdf64e"
+    },
+    {
+      "file": "tests/stage28f/test-results.json",
+      "bytes": 46208,
+      "sha256": "11dc0cc8a4bd4ec4d5c23de4f0313f1ec7c19d6f6956581624a0478436a2e913"
+    },
+    {
+      "file": "tests/stage28f/verify_freeze.py",
+      "bytes": 2133,
+      "sha256": "62eff2f5644de2222b4109510f96abb8f7708eaad4e18d0475ea0e783584fce1"
+    },
+    {
+      "file": "tests/stage28f/test_ownership.cpp",
+      "bytes": 18692,
+      "sha256": "add84d97cda694323fdf4bec149dcc37a0379360b9901e42879fef9c6925ecf6"
+    },
+    {
+      "file": "tests/stage28f/test-results.md",
+      "bytes": 10382,
+      "sha256": "c2ab6ef62c16c82601ffe9d4e080b39f9ab79d37f8917668de5f1607d76b2456"
+    }
+  ],
+  "compiler_and_sdk": "stage28f-target-build.json",
+  "scope": "Final preview sources, independent tests and results; no private files"
+}

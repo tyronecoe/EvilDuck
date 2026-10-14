@@ -23,13 +23,17 @@ class Planner {
  void failure(Reason,Phase);
  static bool ordinary(uint16_t);
  static bool snapshot(const OwnerTable&,Report&,uint8_t key=0,uint8_t modifiers=0);
- bool ownership(size_t,uint16_t,bool,uint32_t);
+ bool ownership(size_t,uint16_t,bool,uint32_t,bool confirm=false);
 public:
  Planner()=default;
  Planner(const Planner&)=delete;Planner& operator=(const Planner&)=delete;
  bool start(Sink,void*,uint32_t now=0,uint32_t attempts=MaxAttempts,uint32_t elapsed=MaxElapsed);
  bool hold(size_t owner,uint16_t usage,uint32_t now=0);
  bool release(size_t owner,uint16_t usage,uint32_t now=0);
+ // Source ownership commands require fresh union-report acceptance even when idempotent.
+ bool holdConfirmed(size_t owner,uint16_t usage,uint32_t now=0);
+ bool releaseConfirmed(size_t owner,uint16_t usage,uint32_t now=0);
+ bool ownerEmpty(size_t owner)const;
  bool tap(uint16_t usage,uint16_t modifiers=0,uint32_t now=0);
  bool character(uint16_t ascii,uint32_t now=0); // fixed US reference model only
  void step(uint32_t now);

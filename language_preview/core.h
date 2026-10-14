@@ -15,7 +15,7 @@ enum class ErrorCode : uint8_t { None, InputLimit, InvalidSource, LineLimit, Cod
  ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit };
 struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
 const char* message(ErrorCode code);
-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop };
+enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release };
 struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
 struct Function { char name[24]={}; uint16_t entry=0, end=0; };
 enum class ExprKind : uint8_t { Literal, Variable, Call, Binary };
@@ -49,6 +49,7 @@ public:
     const char* location() const { return source_; }
     bool ready() const { return ready_; }
     size_t instructions() const { return count_; }
+    bool ownershipCommands() const;
 };
 // RAM mocks only. Exact size, stable bytes, callbacks/context alive until terminal state.
 constexpr size_t ReadChunk=32, CompileStorage=2368;
@@ -90,7 +91,7 @@ public:
     CompileWork work()const{return work_;}
     static size_t compilerBytes();
 };
-enum class EventType : uint8_t { Character, KeyTap, Delay };
+enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release };
 struct Event { EventType type; uint16_t value; }; // ASCII byte, HID page07 usage, or milliseconds.
 enum class Accept : uint8_t { Accepted, Retry, Failed };
 using Sink = Accept(*)(void*, const Event&);

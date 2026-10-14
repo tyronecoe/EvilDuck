@@ -2,6 +2,7 @@
 // Synthetic mock bridge ONLY. Never a HID/USB or OS adapter.
 #include "keyboard.h"
 namespace ds_bridge {
+constexpr size_t ScriptOwner=ds_keyboard::MaxOwners-1;
 enum class State:uint8_t { Idle, Syncing, Prepared, Running, Failing, Completed, Cancelled, Error, Draining };
 enum class Intent:uint8_t { None, Waiting, Ackable };
 enum class Reason:uint8_t { None, Busy, InvalidSink, InvalidEvent, Protocol, PlannerRejected, PlannerFailure, RuntimeFailure, Cancelled };
