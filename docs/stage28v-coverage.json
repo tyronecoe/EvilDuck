@@ -1,0 +1,1975 @@
+{
+  "status": "SOURCE INDEX ONLY; consult coverage matrix for executed vs compiled",
+  "source_index": [
+    {
+      "file": "EvilDuckS3.ino",
+      "line": 32,
+      "declaration": "static void applyIdleLedColor() {"
+    },
+    {
+      "file": "EvilDuckS3.ino",
+      "line": 41,
+      "declaration": "void setup() {"
+    },
+    {
+      "file": "EvilDuckS3.ino",
+      "line": 118,
+      "declaration": "void loop() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 17,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 24,
+      "declaration": "bool hidEnabled() { execution::Guard guard; return hidOn; }"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 25,
+      "declaration": "bool storageEnabled() { execution::Guard guard; return usb_msc::active(); }"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 26,
+      "declaration": "bool storageRequested() { execution::Guard guard; return storageWanted; }"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 27,
+      "declaration": "bool storagePreparing() { return usb_msc::preparing(); }"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 30,
+      "declaration": "void update() { usb_msc::update(); }"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 31,
+      "declaration": "void cancelPendingStorage() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 41,
+      "declaration": "void setHid(bool on) {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 48,
+      "declaration": "void setStorage(bool on) {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 60,
+      "declaration": "void setOff() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 67,
+      "declaration": "void setHidOnly() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 74,
+      "declaration": "void setStorageOnly() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 81,
+      "declaration": "void setHidStorage() {"
+    },
+    {
+      "file": "attackmode.cpp",
+      "line": 88,
+      "declaration": "bool applyFromString(const String &modes) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 22,
+      "declaration": "String trimLine(const String &in) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 28,
+      "declaration": "bool startsWithNoCase(const String &s, const char *keyword) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 32,
+      "declaration": "bool equalsNoCase(const String &aIn, const char *bIn) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 40,
+      "declaration": "String normalizePath(const String &in) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 46,
+      "declaration": "void out(const String &msg) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 50,
+      "declaration": "void serialOut(const char *s) { Serial.println(s); }"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 52,
+      "declaration": "void printHelp() {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 68,
+      "declaration": "void executeCommand(const String &raw) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 318,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 323,
+      "declaration": "void parse(const char *input, PrintFunction printfunc, bool echo) {"
+    },
+    {
+      "file": "cli.cpp",
+      "line": 352,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 68,
+      "declaration": "String trimLine(const String &s) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 77,
+      "declaration": "bool startsWithNoCase(const String &s, const char *keyword) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 81,
+      "declaration": "bool equalsNoCase(const String &aIn, const char *bIn) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 94,
+      "declaration": "bool parseFilePayload(const String &line, const char *cmd, String &fileRef, String &payload) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 105,
+      "declaration": "bool fileIoWrite(const String &fileRef, const String &payload, bool append) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 117,
+      "declaration": "void waitFor(uint32_t ms, Phase next) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 124,
+      "declaration": "void releaseOwnedKeys() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 129,
+      "declaration": "bool jitterWait(Phase next) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 138,
+      "declaration": "void report(uint8_t modifiers, const uint8_t *keys, uint8_t count, Phase next) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 147,
+      "declaration": "void startText(const String &text, bool enter, Phase next, uint8_t modifiers = 0) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 160,
+      "declaration": "bool startLine() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 381,
+      "declaration": "void fail() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 397,
+      "declaration": "void submit(const String &line, bool preprocessed = false) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 410,
+      "declaration": "void onDone(cb_t cb) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 419,
+      "declaration": "void onRepeat(cb_t cb) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 428,
+      "declaration": "void onError(cb_t cb) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 438,
+      "declaration": "bool statusLedOverridden() { execution::Guard guard; return session.manualLed; }"
+    },
+    {
+      "file": "com.cpp",
+      "line": 440,
+      "declaration": "void beginScript() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 458,
+      "declaration": "void endScript() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 476,
+      "declaration": "bool busy() {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 485,
+      "declaration": "String lastError() { execution::Guard guard; return session.error; }"
+    },
+    {
+      "file": "com.cpp",
+      "line": 486,
+      "declaration": "String submissionError() { execution::Guard guard; return rejected; }"
+    },
+    {
+      "file": "com.cpp",
+      "line": 488,
+      "declaration": "void send(const String &line) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 500,
+      "declaration": "void sendText(const String &text, bool enter) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 518,
+      "declaration": "bool executeNow(const String &line) {"
+    },
+    {
+      "file": "com.cpp",
+      "line": 545,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 58,
+      "declaration": "void setStatusColor(int r, int g, int b) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 62,
+      "declaration": "void setIdleColor() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 72,
+      "declaration": "void fail(const String &message, uint32_t line) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 103,
+      "declaration": "bool enterFunction(uint16_t index,bool valueRequired) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 116,
+      "declaration": "void returnFunction(bool hasValue,uint16_t value) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 128,
+      "declaration": "void advanceEvaluation() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 152,
+      "declaration": "bool inventoryLine(const String &line,String &error) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 174,
+      "declaration": "bool isControlLine(const script_parser::Statement &stmt) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 280,
+      "declaration": "bool run(const String &filename) {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 330,
+      "declaration": "void stop() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 349,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 360,
+      "declaration": "bool running() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 365,
+      "declaration": "String runningScript() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 375,
+      "declaration": "String lastError() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 383,
+      "declaration": "static void loadNextLine() {"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 478,
+      "declaration": "static void comDone() {} // The main loop advances the next line, never callbacks."
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 480,
+      "declaration": "static void comRepeat() {}"
+    },
+    {
+      "file": "duckscript.cpp",
+      "line": 482,
+      "declaration": "static void comError() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 57,
+      "declaration": "void usbEvent(void *, esp_event_base_t, int32_t event, void *) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 124,
+      "declaration": "void applyModifiers(uint8_t modifiers) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 138,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 157,
+      "declaration": "void invalidateLockState() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 162,
+      "declaration": "bool receiveLockReport(uint8_t id, const uint8_t *data, uint16_t size, uint32_t session) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 182,
+      "declaration": "bool saveLockState() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 190,
+      "declaration": "bool keyNameToHid(const String &input, uint8_t &outCode) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 270,
+      "declaration": "void pressModifier(uint8_t modMask) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 284,
+      "declaration": "void pressKeyHeld(uint8_t hidKeycode) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 298,
+      "declaration": "static bool queueRaw(const Owned &state, [[maybe_unused]] bool clear = false) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 331,
+      "declaration": "static bool append(Owned &state, uint8_t key) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 340,
+      "declaration": "bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 366,
+      "declaration": "bool releaseReport() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 379,
+      "declaration": "bool hold(uint8_t modifier, uint8_t key) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 400,
+      "declaration": "bool release(uint8_t modifier, uint8_t key) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 429,
+      "declaration": "bool hasPersistent() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 435,
+      "declaration": "bool clearing() { execution::Guard guard;"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 441,
+      "declaration": "bool takeTransportLoss() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 452,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 477,
+      "declaration": "void cancelReport() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 496,
+      "declaration": "void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 516,
+      "declaration": "void pressKeycode(uint8_t hidKeycode, uint8_t modifiers) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 531,
+      "declaration": "bool pressNamedCombo(const String &keyName, uint8_t modifiers) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 548,
+      "declaration": "void releaseAll() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 564,
+      "declaration": "void sendText(const String &text) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 578,
+      "declaration": "void sendTextLn(const String &text) {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 593,
+      "declaration": "void pressEnter() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 604,
+      "declaration": "void pressTab() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 615,
+      "declaration": "void pressEscape() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 626,
+      "declaration": "void pressSpace() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 637,
+      "declaration": "void pressBackspace() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 648,
+      "declaration": "void pressDelete() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 659,
+      "declaration": "void pressArrowUp() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 670,
+      "declaration": "void pressArrowDown() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 681,
+      "declaration": "void pressArrowLeft() {"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "line": 692,
+      "declaration": "void pressArrowRight() {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 17,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 27,
+      "declaration": "void setLocale(hid_locale_t *locale) {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 41,
+      "declaration": "static bool nameEq(const String &a, const char *b) {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 65,
+      "declaration": "bool supportsLocale(const String &name) { return findLocale(name) != nullptr; }"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 66,
+      "declaration": "bool setLocaleByName(const String &name) {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 79,
+      "declaration": "size_t translate(const char *text, size_t remaining, Stroke (&strokes)[2], uint8_t &count) {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 140,
+      "declaration": "void write(const char *str, size_t len) {"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "line": 151,
+      "declaration": "void write(const String &text) {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 38,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 47,
+      "declaration": "void setColor(int r, int g, int b) {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 60,
+      "declaration": "bool enabled() { return true; }"
+    },
+    {
+      "file": "led.cpp",
+      "line": 64,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 73,
+      "declaration": "void setColor(int r, int g, int b) {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 85,
+      "declaration": "bool enabled() { return true; }"
+    },
+    {
+      "file": "led.cpp",
+      "line": 92,
+      "declaration": "void begin() {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 97,
+      "declaration": "void setColor(int, int, int) {"
+    },
+    {
+      "file": "led.cpp",
+      "line": 102,
+      "declaration": "bool enabled() { return false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 29,
+      "declaration": "void press(uint8_t code) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 51,
+      "declaration": "void release() { heldModifiers=0; heldKeys.clear(); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 52,
+      "declaration": "bool report(const hid_keyboard_report_t &report, uint8_t instance, uint8_t id, size_t length) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 61,
+      "declaration": "void print(const char *s) { output += String(s)+\"\\n\"; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 62,
+      "declaration": "void file(const char *name,const char *content) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 65,
+      "declaration": "void tick(uint32_t ms) { now+=ms; duckscript::update(); com::update(); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 66,
+      "declaration": "void drain(unsigned limit) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 70,
+      "declaration": "void reset() {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 81,
+      "declaration": "void delay(uint32_t ms) { ++mock::blockingDelays; mock::now+=ms; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 84,
+      "declaration": "void setColor(int r,int g,int b) { mock::colors.push_back({r,g,b}); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 85,
+      "declaration": "bool enabled() { return true; } void begin() {}"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 88,
+      "declaration": "bool parseRef(const String &input,Ref &out) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 97,
+      "declaration": "String toDisplay(const Ref &r) { return r.display; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 98,
+      "declaration": "bool exists(const Ref &r) { return mock::files.count(r.display.c_str()); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 99,
+      "declaration": "String readFile(const Ref &r) { auto i=mock::files.find(r.display.c_str()); return i==mock::files.end() ? String() : i->second; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 100,
+      "declaration": "bool writeFile(const Ref &r,const String &s) { mock::files[r.display.c_str()]=s; return true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 101,
+      "declaration": "bool appendFile(const Ref &r,const String &s) { mock::files[r.display.c_str()]+=s; return true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 102,
+      "declaration": "bool remove(const Ref &r) { return mock::files.erase(r.display.c_str()); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 104,
+      "declaration": "bool resolveScript(const String &s,Ref &r) { return parseRef(s,r) && exists(r); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 105,
+      "declaration": "bool resolveScriptForLoad(const String &s,Ref &r) { return resolveScript(s,r); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 106,
+      "declaration": "bool sdReady() { return true; } bool begin() { return true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 107,
+      "declaration": "String infoJson() { return \"{\\\"mock\\\":true}\"; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 108,
+      "declaration": "String listSpiffsScriptsJson() { return \"[]\"; } String listAllScriptsJson() { return \"[]\"; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 109,
+      "declaration": "bool copyToSpiffs(const Ref &r,const String &s) { Ref to; return parseRef(s,to) && writeFile(to,readFile(r)); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 110,
+      "declaration": "bool copyToSd(const String &s,const Ref &r) { Ref from; return parseRef(s,from) && writeFile(r,readFile(from)); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 115,
+      "declaration": "bool storageRequested() { return disk; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 116,
+      "declaration": "bool storagePreparing() { return false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 119,
+      "declaration": "void update() {}"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 120,
+      "declaration": "void cancelPendingStorage() {}"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 121,
+      "declaration": "void begin() { hid=true; disk=false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 122,
+      "declaration": "bool hidEnabled() { return hid; } bool storageEnabled() { return disk; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 123,
+      "declaration": "void setHid(bool on) { hid=on; } void setStorage(bool on) { disk=on; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 124,
+      "declaration": "void setOff() { hid=disk=false; } void setHidOnly() { hid=true; disk=false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 125,
+      "declaration": "void setStorageOnly() { hid=false; disk=true; } void setHidStorage() { hid=disk=true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 126,
+      "declaration": "bool applyFromString(const String &input) {"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 139,
+      "declaration": "void load() {} void save() {} bool saveChecked() { save(); return mock::settingsSaveOk; } int32_t saveError() { return 0; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 140,
+      "declaration": "void reset() { disable=stealth=hidden=false; color=0; autorun=\"\"; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 141,
+      "declaration": "bool resetChecked() { reset(); return mock::settingsSaveOk; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 142,
+      "declaration": "bool autorunEnabled() { return autorun.length(); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 143,
+      "declaration": "String getAutorun() { return autorun; } void setAutorun(const String &s) { autorun=s; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 144,
+      "declaration": "String getSSID() { return ssid; } void setSSID(const String &s) { ssid=s; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 145,
+      "declaration": "String getPassword() { return password; } void setPassword(const String &s) { password=s; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 147,
+      "declaration": "bool getDisableLed() { return disable; } void setDisableLed(bool b) { disable=b; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 148,
+      "declaration": "bool getStealthMode() { return stealth; } void setStealthMode(bool b) { stealth=b; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 149,
+      "declaration": "bool getHiddenAp() { return hidden; } void setHiddenAp(bool b) { hidden=b; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 151,
+      "declaration": "String getLedColorHex() { return \"000000\"; } bool setLedColorHex(const String &) { return true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 152,
+      "declaration": "String getWebPassword() { return webPassword; } void setWebPassword(const String &s) { webPassword=s; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 154,
+      "declaration": "void setAutorunDelay(uint16_t a,uint16_t b) { delayMin=a; delayMax=b; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 158,
+      "declaration": "size_t size() { return 1024; } size_t usedBytes() { return 0; } size_t freeBytes() { return 1024; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 159,
+      "declaration": "bool begin() { return true; } bool format() { mock::files.clear(); return true; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 160,
+      "declaration": "String listDir(const String &) { return \"mock\"; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 161,
+      "declaration": "String readFile(const String &s) { storage::Ref r; storage::parseRef(s,r); return storage::readFile(r); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 162,
+      "declaration": "bool create(const String &s) { storage::Ref r; return storage::parseRef(s,r) && storage::writeFile(r,\"\"); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 163,
+      "declaration": "bool remove(const String &s) { storage::Ref r; return storage::parseRef(s,r) && storage::remove(r); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 164,
+      "declaration": "bool append(const String &s,const String &text) { storage::Ref r; return storage::parseRef(s,r) && storage::appendFile(r,text); }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 165,
+      "declaration": "bool rename(const String &,const String &) { return false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 166,
+      "declaration": "bool streamOpen(const String &) { return false; } void streamClose() {}"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 167,
+      "declaration": "bool streaming() { return false; } bool streamAvailable() { return false; }"
+    },
+    {
+      "file": "platform.cpp",
+      "line": 168,
+      "declaration": "size_t streamWrite(const char *,size_t) { return 0; } size_t streamRead(char *,size_t) { return 0; }"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 55,
+      "declaration": "bool allExamplesOnDisk() {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 64,
+      "declaration": "void installIfNeeded() {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 79,
+      "declaration": "String listJson() {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 91,
+      "declaration": "String listSpiffsOnlyJson() {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 95,
+      "declaration": "String listCombinedJson() {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 109,
+      "declaration": "bool readFirmware(const String &name, String &out) {"
+    },
+    {
+      "file": "script_library.cpp",
+      "line": 119,
+      "declaration": "bool readExample(const String &name, String &out) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 16,
+      "declaration": "String normalizePath(const String &in) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 24,
+      "declaration": "bool isScriptName(const String &name) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 32,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 52,
+      "declaration": "bool ready() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 57,
+      "declaration": "size_t totalBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 63,
+      "declaration": "size_t usedBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 69,
+      "declaration": "size_t freeBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 75,
+      "declaration": "bool exists(const String &path) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 81,
+      "declaration": "bool mkdir(const String &path) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 91,
+      "declaration": "bool remove(const String &path) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 101,
+      "declaration": "bool rename(const String &from, const String &to) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 117,
+      "declaration": "String readFile(const String &path) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 127,
+      "declaration": "bool writeFile(const String &path, const String &content) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 141,
+      "declaration": "bool appendFile(const String &path, const String &content) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 155,
+      "declaration": "String listDir(const String &path) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 172,
+      "declaration": "String listScriptsJson() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 210,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 216,
+      "declaration": "bool ready() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 218,
+      "declaration": "size_t totalBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 220,
+      "declaration": "size_t usedBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 222,
+      "declaration": "size_t freeBytes() {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 224,
+      "declaration": "bool exists(const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 226,
+      "declaration": "bool mkdir(const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 232,
+      "declaration": "bool remove(const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 238,
+      "declaration": "bool rename(const String &, const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 244,
+      "declaration": "String readFile(const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 246,
+      "declaration": "bool writeFile(const String &, const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 252,
+      "declaration": "bool appendFile(const String &, const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 258,
+      "declaration": "String listDir(const String &) {"
+    },
+    {
+      "file": "sd_card.cpp",
+      "line": 260,
+      "declaration": "String listScriptsJson() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 35,
+      "declaration": "bool ready() { return load_ready; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 36,
+      "declaration": "int32_t loadError() { return load_error; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 55,
+      "declaration": "void load() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 130,
+      "declaration": "int32_t saveError() { return save_error.load(); }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 132,
+      "declaration": "bool saveChecked() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 187,
+      "declaration": "void save() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 191,
+      "declaration": "bool resetChecked() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 219,
+      "declaration": "void reset() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 223,
+      "declaration": "bool autorunEnabled() { return autorun_enabled; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 224,
+      "declaration": "String getAutorun() { return autorun_script_name; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 225,
+      "declaration": "void setAutorun(const String &scriptName) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 235,
+      "declaration": "String getSSID() { return ap_ssid; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 236,
+      "declaration": "String getPassword() { return ap_password; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 239,
+      "declaration": "void setSSID(const String &ssid) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 248,
+      "declaration": "void setPassword(const String &password) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 257,
+      "declaration": "void setChannel(uint8_t channel) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 265,
+      "declaration": "bool getStealthMode() { return stealth_mode; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 266,
+      "declaration": "void setStealthMode(bool on) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 271,
+      "declaration": "bool getHiddenAp() { return hidden_ap; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 272,
+      "declaration": "void setHiddenAp(bool on) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 277,
+      "declaration": "bool getDisableLed() { return disable_led; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 278,
+      "declaration": "void setDisableLed(bool on) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 284,
+      "declaration": "String getLedColorHex() {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 289,
+      "declaration": "void setLedColor(uint32_t color) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 294,
+      "declaration": "bool setLedColorHex(const String &hex) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 316,
+      "declaration": "String getWebPassword() { return web_password; }"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 317,
+      "declaration": "void setWebPassword(const String &pw) {"
+    },
+    {
+      "file": "settings.cpp",
+      "line": 328,
+      "declaration": "void setAutorunDelay(uint16_t minMs, uint16_t maxMs) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 14,
+      "declaration": "String normalizePath(const String &in) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 23,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 37,
+      "declaration": "size_t size() { return SPIFFS.totalBytes(); }"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 38,
+      "declaration": "size_t usedBytes() { return SPIFFS.usedBytes(); }"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 39,
+      "declaration": "size_t freeBytes() { return SPIFFS.totalBytes() - SPIFFS.usedBytes(); }"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 41,
+      "declaration": "String listDir(const String &path) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 59,
+      "declaration": "bool create(const String &path) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 70,
+      "declaration": "bool remove(const String &path) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 78,
+      "declaration": "bool rename(const String &from, const String &to) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 86,
+      "declaration": "bool append(const String &path, const String &content) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 98,
+      "declaration": "String readFile(const String &path) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 106,
+      "declaration": "bool format() {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 112,
+      "declaration": "bool streamOpen(const String &path) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 124,
+      "declaration": "void streamClose() {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 134,
+      "declaration": "bool streaming() {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 138,
+      "declaration": "size_t streamWrite(const char *data, size_t len) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 147,
+      "declaration": "size_t streamRead(char *buffer, size_t maxLen) {"
+    },
+    {
+      "file": "spiffs.cpp",
+      "line": 163,
+      "declaration": "bool streamAvailable() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 19,
+      "declaration": "bool isScriptFile(const String &name) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 23,
+      "declaration": "String basenameOnly(const String &name) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 32,
+      "declaration": "String spiffsPath(const String &name) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 38,
+      "declaration": "bool spiffsExistsPath(const String &path) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 45,
+      "declaration": "String dirPrefix(const String &dirPath) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 52,
+      "declaration": "String scriptRelPath(const String &dirPath, const String &entryName) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 62,
+      "declaration": "bool ensureSpiffsParents(const String &filePath) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 72,
+      "declaration": "String sdPath(const String &name) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 80,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 96,
+      "declaration": "bool sdReady() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 104,
+      "declaration": "bool parseRef(const String &input, Ref &out) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 129,
+      "declaration": "String toDisplay(const Ref &ref) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 133,
+      "declaration": "bool exists(const Ref &ref) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 144,
+      "declaration": "bool resolveScriptForLoad(const String &name, Ref &out) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 163,
+      "declaration": "bool remove(const Ref &ref) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 181,
+      "declaration": "String readFile(const Ref &ref) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 195,
+      "declaration": "bool writeFile(const Ref &ref, const String &content) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 224,
+      "declaration": "bool appendFile(const Ref &ref, const String &content) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 255,
+      "declaration": "bool resolveScript(const String &name, Ref &out) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 281,
+      "declaration": "String listSpiffsScriptsJson() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 302,
+      "declaration": "void appendSpiffsDir(const String &dirPath, String &json, bool &first) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 329,
+      "declaration": "String listAllScriptsJson() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 370,
+      "declaration": "String infoJson() {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 388,
+      "declaration": "bool copyToSpiffs(const Ref &fromSd, const String &spiffsName) {"
+    },
+    {
+      "file": "storage.cpp",
+      "line": 408,
+      "declaration": "bool copyToSd(const String &spiffsName, const Ref &toSd) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 30,
+      "declaration": "void fail(const char *why) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 38,
+      "declaration": "bool available() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 43,
+      "declaration": "bool address(uint32_t lba, uint32_t offset, const void *buffer, uint32_t size, uint32_t &position) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 52,
+      "declaration": "int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t size) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 68,
+      "declaration": "int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t size) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 85,
+      "declaration": "bool onStartStop(uint8_t, bool start, bool) {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 103,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 119,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 165,
+      "declaration": "void end() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 178,
+      "declaration": "bool active() { execution::Guard guard; return status == State::Active; }"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 179,
+      "declaration": "bool preparing() { execution::Guard guard; return status == State::Preparing; }"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 187,
+      "declaration": "bool begin() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 192,
+      "declaration": "void update() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 197,
+      "declaration": "void end() {"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 202,
+      "declaration": "bool active() { return false; }"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "line": 203,
+      "declaration": "bool preparing() { return false; }"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 37,
+      "declaration": "static bool checkAuth(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 49,
+      "declaration": "static void sendAuthRequired(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 53,
+      "declaration": "static bool isScriptFile(const String &filename) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 57,
+      "declaration": "static String scriptBaseName(const String &name) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 62,
+      "declaration": "static bool isSafeScriptName(const String &name) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 77,
+      "declaration": "static bool parseScriptParam(const String &name, storage::Ref &ref) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 83,
+      "declaration": "static bool wantsSdStorage(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 97,
+      "declaration": "static String getContentType(const String &filename) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 109,
+      "declaration": "static void handleListScripts(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 114,
+      "declaration": "static void handleLibrary(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 133,
+      "declaration": "static void handleExecLog(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 142,
+      "declaration": "static void handleStorageInfo(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 146,
+      "declaration": "static void handleDeleteScript(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 172,
+      "declaration": "static void handleRunScript(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 238,
+      "declaration": "static void handleSaveSettings(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 326,
+      "declaration": "static void handleGetSettings(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 426,
+      "declaration": "static void handleStop(AsyncWebServerRequest *req){"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 431,
+      "declaration": "static void handleUploadComplete(AsyncWebServerRequest *request){"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 438,
+      "declaration": "static void handleFirmwareComplete(AsyncWebServerRequest *request){"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 446,
+      "declaration": "static void handleStatus(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 492,
+      "declaration": "static void handleSetLed(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 522,
+      "declaration": "static bool loadScriptBody(const String &filename, String &body, String &err, int &httpCode) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 550,
+      "declaration": "static void handleGetScript(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 565,
+      "declaration": "static void handleLoadScriptPost(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 580,
+      "declaration": "static void handleSaveScript(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 619,
+      "declaration": "static void handleSendLine(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 642,
+      "declaration": "static void wsOut(const char *s) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 664,
+      "declaration": "static void handleStatic(AsyncWebServerRequest *req) {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 717,
+      "declaration": "bool prepareControlledNetwork() {"
+    },
+    {
+      "file": "webserver.cpp",
+      "line": 733,
+      "declaration": "void begin() {"
+    }
+  ],
+  "core_main": {
+    "file": "cores/esp32/main.cpp",
+    "sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d"
+  },
+  "prior_refs": [
+    {
+      "ref": "refs/heads/main",
+      "commit": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "commit": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "commit": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "commit": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "commit": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "commit": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "commit": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "commit": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "commit": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "commit": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "commit": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "commit": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "commit": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "commit": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "commit": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "commit": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "commit": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "commit": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "commit": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "commit": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "commit": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "commit": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "commit": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "commit": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "commit": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "commit": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "commit": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "commit": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "commit": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "commit": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "commit": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "commit": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "commit": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "commit": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "commit": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence",
+      "commit": "9afdeabffae32186e56fe7012cf5f639bb88dec9"
+    },
+    {
+      "ref": "refs/heads/stage28r-transport-decision-language-roadmap",
+      "commit": "6c186219c9ef7037f3ecab9bae44179421fd1278"
+    },
+    {
+      "ref": "refs/heads/stage28s-native-runtime-scheduler",
+      "commit": "5355b4dd76fe57884fb9036348f218dd28634958"
+    },
+    {
+      "ref": "refs/heads/stage28t-native-real-backend-route-b",
+      "commit": "3e450127f7e6e1664a97be1107a18253844bfe35"
+    },
+    {
+      "ref": "refs/heads/stage28u-portable-coordinator-file-dispatch",
+      "commit": "967596476dfe0dde5e824c8f6d1b2ba543502443"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "commit": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "commit": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "commit": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "commit": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "commit": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "commit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "frozen_files": 235,
+  "baseline_files": 1254,
+  "link": {
+    "attempted": false,
+    "status": "BLOCKED",
+    "gates": {
+      "native_service_bodies": "PASS within explicit mocks",
+      "complete_core_framework_bypass_closure": "UNVERIFIED/BLOCKED"
+    },
+    "reason": "Wrapper admission does not fence raw SDK/VFS handles or attest asynchronous framework lifetime/driver paths. V48 demonstrates this capability boundary, not an enabled production caller."
+  },
+  "hardware": false,
+  "source_outputs": [
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "c36370cd210cc9153789f5b9641d0df35d659732a9ca2d1c208bfbeec9c21816"
+    },
+    {
+      "file": "attackmode.cpp",
+      "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "01a894bf2b2ee67146ded0cb88d56ab619fe48a45ba4f334689d3f125f1c5ed2"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c576d65b8de42c6c91016eaeec2392fed952f83eaa2aa4f91376967afca36166"
+    },
+    {
+      "file": "com.h",
+      "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "9a31d1cbdece96e097f075a38ef0088f30c115acab9dc2e7f63afdaf5fe06e1a"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fca398639a0e1d516fe0e403881052b6ad93abb5891fd74a73c34d0136aa6441"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "3ffdf955452b366f33c44821423c5ecb98711cba358c4386293665232209e13e"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+    },
+    {
+      "file": "led.cpp",
+      "sha256": "2c0bce17312132821c66a21d537cff3180385005dd8f533fcd787ac637da01aa"
+    },
+    {
+      "file": "platform.cpp",
+      "sha256": "cb817562c171452a67e37fb1d661ceb973498e37ace8e27630a2e8a5ec4d87d2"
+    },
+    {
+      "file": "script_library.cpp",
+      "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769"
+    },
+    {
+      "file": "sd_card.cpp",
+      "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8"
+    },
+    {
+      "file": "settings.cpp",
+      "sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3"
+    },
+    {
+      "file": "spiffs.cpp",
+      "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da"
+    },
+    {
+      "file": "storage.cpp",
+      "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "77cdb0714910ddecfe972dc6ecbf52d74f29d8f13a75aa058c01bd33ff1888e7"
+    }
+  ]
+}

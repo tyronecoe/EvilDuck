@@ -1,0 +1,858 @@
+--- cli.cpp
++++ cli.cpp
+@@ -321,10 +321,21 @@
+ }
+ 
+ void parse(const char *input, PrintFunction printfunc, bool echo) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  if(input&&strncmp(input,"routeb ",7)==0){
++    auto reply=route_u::requestStart(input+7);
++    if(printfunc)printfunc(reply==route_u::Reply::Accepted?"Queued Route B":"Route B refused");return;
++  }
++#endif
++
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!route_u::legacyAllowed()){
+     if(input&&strcmp(input,"stop")==0){route_u::stop();if(printfunc)printfunc("Stop requested");return;}
+-    if(input&&strcmp(input,"status")==0){if(printfunc)printfunc("Execution or service owns admission");return;}
++    if(input&&strcmp(input,"status")==0){
++      auto status=route_u::status();char line[96];
++      snprintf(line,sizeof(line),"Route B phase=%u reason=%u owned=%u",unsigned(status.phase),unsigned(status.reason),unsigned(status.owned));
++      if(printfunc)printfunc(line);return;
++    }
+     if(printfunc)printfunc("Busy: RouteB ownership");return;
+   }
+ #endif
+--- led.cpp
++++ led.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "led.h"
+ #include "config.h"
+ 
+@@ -33,11 +36,19 @@
+ 
+ namespace led {
+ void begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   pixel.begin();
+   pixel.setBrightness(LED_BRIGHTNESS);
+   pixel.show();
+ }
+ void setColor(int r, int g, int b) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   uint8_t rr = corrected(constrain(r, 0, 255), LED_CORRECT_R);
+   uint8_t gg = corrected(constrain(g, 0, 255), LED_CORRECT_G);
+   uint8_t bb = corrected(constrain(b, 0, 255), LED_CORRECT_B);
+@@ -51,11 +62,19 @@
+ #else
+ namespace led {
+ void begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   pinMode(LED_PIN_R, OUTPUT);
+   pinMode(LED_PIN_G, OUTPUT);
+   pinMode(LED_PIN_B, OUTPUT);
+ }
+ void setColor(int r, int g, int b) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+ #if LED_ANODE
+   r = 255 - r; g = 255 - g; b = 255 - b;
+ #endif
+@@ -70,8 +89,16 @@
+ #else
+ 
+ namespace led {
+-void begin() {}
+-void setColor(int, int, int) {}
++void begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++}
++void setColor(int, int, int) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++}
+ bool enabled() { return false; }
+ }
+ 
+--- script_library.cpp
++++ script_library.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "script_library.h"
+ #include "storage.h"
+ #include "spiffs.h"
+@@ -59,6 +62,10 @@
+ }
+ 
+ void installIfNeeded() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (allExamplesOnDisk()) return;
+   for (size_t i = 0; i < sizeof(EXAMPLES) / sizeof(EXAMPLES[0]); ++i) {
+     storage::Ref ref;
+--- sd_card.cpp
++++ sd_card.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "sd_card.h"
+ #include "config.h"
+ #include "debug.h"
+@@ -27,6 +30,10 @@
+ namespace sd_card {
+ 
+ bool begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   mounted = false;
+   SPI.begin(SD_SCK, SD_MISO, SD_MOSI, SD_CS);
+@@ -72,18 +79,30 @@
+ }
+ 
+ bool mkdir(const String &path) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (!ready()) return false;
+   return SD.mkdir(normalizePath(path));
+ }
+ 
+ bool remove(const String &path) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (!ready()) return false;
+   return SD.remove(normalizePath(path));
+ }
+ 
+ bool rename(const String &from, const String &to) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (!ready()) return false;
+   return SD.rename(normalizePath(from), normalizePath(to));
+@@ -106,6 +125,10 @@
+ }
+ 
+ bool writeFile(const String &path, const String &content) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (!ready()) return false;
+   File f = SD.open(normalizePath(path), FILE_WRITE);
+@@ -116,6 +139,10 @@
+ }
+ 
+ bool appendFile(const String &path, const String &content) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (!ready()) return false;
+   File f = SD.open(normalizePath(path), FILE_APPEND);
+@@ -181,6 +208,10 @@
+ 
+ namespace sd_card {
+ bool begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ bool ready() {
+   execution::Guard guard; return false; }
+@@ -193,16 +224,36 @@
+ bool exists(const String &) {
+   execution::Guard guard; return false; }
+ bool mkdir(const String &) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ bool remove(const String &) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ bool rename(const String &, const String &) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ String readFile(const String &) {
+   execution::Guard guard; return ""; }
+ bool writeFile(const String &, const String &) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ bool appendFile(const String &, const String &) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard; return false; }
+ String listDir(const String &) {
+   execution::Guard guard; return ""; }
+--- settings.cpp
++++ settings.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "settings.h"
+ #include "debug.h"
+ #include "config.h"
+@@ -50,6 +53,10 @@
+ }
+ 
+ void load() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   load_ready = false;
+   load_error = ESP_OK;
+   nvs_handle_t handle = 0;
+@@ -123,6 +130,10 @@
+ int32_t saveError() { return save_error.load(); }
+ 
+ bool saveChecked() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::TryGuard guard;
+   if (!guard) { save_error.store(ESP_ERR_INVALID_STATE); return false; }
+   if (!load_ready) {
+@@ -178,6 +189,10 @@
+ }
+ 
+ bool resetChecked() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   // Legacy reset installs legacy/blank credentials. Never do that in this candidate.
+   if (deployment::controlledStart()) { save_error = ESP_ERR_INVALID_STATE; return false; }
+   execution::TryGuard guard;
+@@ -208,6 +223,10 @@
+ bool autorunEnabled() { return autorun_enabled; }
+ String getAutorun() { return autorun_script_name; }
+ void setAutorun(const String &scriptName) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (deployment::controlledStart()) return;
+   autorun_script_name = scriptName;
+   autorun_enabled = scriptName.length() > 0;
+@@ -218,33 +237,65 @@
+ uint8_t getChannel() { return ap_channel; }
+ 
+ void setSSID(const String &ssid) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (deployment::controlledStart() &&
+       (std::strlen(ssid.c_str()) != ssid.length() || ssid.indexOf('\n') >= 0 || ssid.indexOf('\r') >= 0)) return;
+   if (ssid.length() > 0 && ssid.length() <= 32) ap_ssid = ssid;
+ }
+ void setPassword(const String &password) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (deployment::controlledStart() &&
+       (std::strlen(password.c_str()) != password.length() || password == WIFI_PASSWORD || password.indexOf('\n') >= 0 || password.indexOf('\r') >= 0)) return;
+   if (password.length() >= 8 && password.length() <= 63) ap_password = password;
+ }
+ void setChannel(uint8_t channel) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (channel >= 1 && channel <= 13) ap_channel = channel;
+ }
+ 
+ bool getStealthMode() { return stealth_mode; }
+-void setStealthMode(bool on) { stealth_mode = on; }
++void setStealthMode(bool on) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++ stealth_mode = on; }
+ bool getHiddenAp() { return hidden_ap; }
+-void setHiddenAp(bool on) { hidden_ap = on; }
++void setHiddenAp(bool on) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++ hidden_ap = on; }
+ bool getDisableLed() { return disable_led; }
+-void setDisableLed(bool on) { disable_led = on; }
++void setDisableLed(bool on) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++ disable_led = on; }
+ uint32_t getLedColor() { return led_color; }
+ String getLedColorHex() {
+   char buf[8];
+   snprintf(buf, sizeof(buf), "#%06X", static_cast<unsigned int>(led_color & 0xFFFFFF));
+   return String(buf);
+ }
+-void setLedColor(uint32_t color) { led_color = color & 0xFFFFFF; }
++void setLedColor(uint32_t color) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++ led_color = color & 0xFFFFFF; }
+ bool setLedColorHex(const String &hex) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   String h = hex;
+   h.trim();
+   if (h.startsWith("#")) h = h.substring(1);
+@@ -264,6 +315,10 @@
+ }
+ String getWebPassword() { return web_password; }
+ void setWebPassword(const String &pw) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (deployment::controlledStart() &&
+       (std::strlen(pw.c_str()) != pw.length() || pw.length() == 0 || pw.length() >= 4000 || pw.indexOf('\n') >= 0 || pw.indexOf('\r') >= 0)) return;
+   web_password = pw;
+@@ -271,6 +326,10 @@
+ uint16_t getAutorunDelayMin() { return autorun_delay_min; }
+ uint16_t getAutorunDelayMax() { return autorun_delay_max; }
+ void setAutorunDelay(uint16_t minMs, uint16_t maxMs) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   autorun_delay_min = minMs;
+   autorun_delay_max = maxMs;
+ }
+--- spiffs.cpp
++++ spiffs.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "spiffs.h"
+ #include "debug.h"
+ #include "deployment_boot.h"
+@@ -18,6 +21,10 @@
+ namespace spiffs {
+ 
+ bool begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   const bool mounted = deployment::controlledStart() ? SPIFFS.begin(false) : SPIFFS.begin(true);
+   if (!mounted) {
+     debug::error("SPIFFS mount failed");
+@@ -50,6 +57,10 @@
+ }
+ 
+ bool create(const String &path) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   File f = SPIFFS.open(normalizePath(path), FILE_WRITE);
+   if (!f) return false;
+   f.close();
+@@ -57,14 +68,26 @@
+ }
+ 
+ bool remove(const String &path) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   return SPIFFS.remove(normalizePath(path));
+ }
+ 
+ bool rename(const String &from, const String &to) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   return SPIFFS.rename(normalizePath(from), normalizePath(to));
+ }
+ 
+ bool append(const String &path, const String &content) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   File f = SPIFFS.open(normalizePath(path), FILE_APPEND);
+   if (!f) return false;
+   size_t written = f.print(content);
+@@ -80,9 +103,17 @@
+   return out;
+ }
+ 
+-bool format() { return SPIFFS.format(); }
++bool format() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++ return SPIFFS.format(); }
+ 
+ bool streamOpen(const String &path) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   streamClose();
+   streamPath = normalizePath(path);
+   streamReadOffset = 0;
+@@ -91,6 +122,10 @@
+ }
+ 
+ void streamClose() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   if (streamFile) streamFile.close();
+   streamPath = "";
+   streamReadOffset = 0;
+@@ -101,11 +136,19 @@
+ }
+ 
+ size_t streamWrite(const char *data, size_t len) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return 0;
++#endif
++
+   if (!streamFile) return 0;
+   return streamFile.write(reinterpret_cast<const uint8_t *>(data), len);
+ }
+ 
+ size_t streamRead(char *buffer, size_t maxLen) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return 0;
++#endif
++
+   if (!streamFile || maxLen == 0 || !streamPath.length()) return 0;
+   File rf = SPIFFS.open(streamPath, FILE_READ);
+   if (!rf) return 0;
+--- storage.cpp
++++ storage.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -75,8 +78,11 @@
+ }
+ 
+ bool begin() {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #endif
+ 
+   bool ok = spiffs::begin();
+@@ -155,8 +161,11 @@
+ }
+ 
+ bool remove(const Ref &ref) {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #endif
+ 
+   if (ref.volume == Volume::SD) {
+@@ -184,8 +193,11 @@
+ }
+ 
+ bool writeFile(const Ref &ref, const String &content) {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #endif
+ 
+   if (ref.volume == Volume::SD) {
+@@ -210,8 +222,11 @@
+ }
+ 
+ bool appendFile(const Ref &ref, const String &content) {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #endif
+ 
+   if (ref.volume == Volume::SD) {
+@@ -371,6 +386,10 @@
+ }
+ 
+ bool copyToSpiffs(const Ref &fromSd, const String &spiffsName) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+ #if !SD_ENABLED
+   (void)fromSd;
+   (void)spiffsName;
+@@ -387,8 +406,11 @@
+ }
+ 
+ bool copyToSd(const String &spiffsName, const Ref &toSd) {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #endif
+ 
+ #if !SD_ENABLED
+--- usb_msc.cpp
++++ usb_msc.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #include "usb_msc.h"
+ #include "config.h"
+ #include "execution_guard.h"
+@@ -47,6 +50,10 @@
+   return true;
+ }
+ int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t size) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return 0;
++#endif
++
+   execution::TryGuard guard;
+   if (!guard) return 0; // TUD_MSC_RET_BUSY: retry later, no cursor mutation.
+   if (status != usb_msc::State::Active) return -1;
+@@ -59,6 +66,10 @@
+   return int32_t(size);
+ }
+ int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t size) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return 0;
++#endif
++
+   execution::TryGuard guard;
+   if (!guard) return 0;
+   if (status != usb_msc::State::Active) return -1;
+@@ -72,6 +83,10 @@
+   return int32_t(size);
+ }
+ bool onStartStop(uint8_t, bool start, bool) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::TryGuard guard;
+   if (!guard) return false; // Boolean API has no busy result; host may retry command.
+   if (!requested) return false; // Stale host START cannot undo OFF/STOP cancellation.
+@@ -86,6 +101,10 @@
+ }
+ namespace usb_msc {
+ bool begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++
+   execution::Guard guard;
+   if (status == State::Active) return available();
+   if (status == State::Preparing) return true;
+@@ -98,6 +117,10 @@
+   return true;
+ }
+ void update() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   execution::Guard guard;
+   if (status == State::Active) {
+     if (!SD.cardType()) fail("MSC: backing SD unavailable");
+@@ -140,6 +163,10 @@
+   }
+ }
+ void end() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++
+   execution::Guard guard;
+   MSC.mediaPresent(false);
+   MSC.isWritable(false); // Do not race SDK callback-table teardown with TinyUSB.
+@@ -157,9 +184,21 @@
+ namespace usb_msc {
+ static State status = State::Off;
+ static const char *error = "";
+-bool begin() { execution::Guard guard; status = State::Failed; error = "MSC: unavailable in this build"; return false; }
+-void update() {}
+-void end() { execution::Guard guard; status = State::Off; error = ""; }
++bool begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return false;
++#endif
++ execution::Guard guard; status = State::Failed; error = "MSC: unavailable in this build"; return false; }
++void update() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++}
++void end() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation serviceMutation;if(!serviceMutation) return;
++#endif
++ execution::Guard guard; status = State::Off; error = ""; }
+ bool active() { return false; }
+ bool preparing() { return false; }
+ State state() { execution::Guard guard; return status; }
+--- webserver.cpp
++++ webserver.cpp
+@@ -1,3 +1,6 @@
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++#include "mutation_guard.h"
++#endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -141,6 +144,9 @@
+ }
+ 
+ static void handleDeleteScript(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (!req->hasParam("s")) {
+     req->send(400, "text/plain", "Missing parameter s");
+@@ -164,8 +170,20 @@
+ }
+ 
+ static void handleRunScript(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
++#else
+   execution::Guard guard;
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++#endif
++  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  if(req->hasParam("engine")){
++    if(req->getParam("engine")->value()!="routeb"||!req->hasParam("s")){req->send(400,"text/plain","Invalid engine request");return;}
++    auto reply=route_u::requestStart(req->getParam("s")->value().c_str());
++    req->send(reply==route_u::Reply::Accepted?202:409,"text/plain",reply==route_u::Reply::Accepted?"Queued Route B":"Route B refused");return;
++  }
++  if(!route_u::legacyAllowed()){req->send(409,"text/plain","Route B busy");return;}
++#endif
+   if (req->hasParam("cmd")) {
+     String cmd = req->getParam("cmd")->value();
+     if (!cmd.length()) {
+@@ -219,7 +237,7 @@
+ 
+ static void handleSaveSettings(AsyncWebServerRequest *req) {
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Settings);if(!transaction){req->send(409,"text/plain","Busy");return;}
++ route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
+ #endif
+ 
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+@@ -404,10 +422,39 @@
+   }
+ }
+ 
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++static void handleStop(AsyncWebServerRequest *req){
++  if(!checkAuth(req)){sendAuthRequired(req);return;}
++  duckscript::stop();req->send(202,"text/plain","Stop requested");
++}
++#endif
++static void handleUploadComplete(AsyncWebServerRequest *request){
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  request->send(503,"text/plain","Uploads disabled");
++#else
++  (void)request; // Original upload chunks supply their own response.
++#endif
++}
++static void handleFirmwareComplete(AsyncWebServerRequest *request){
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  request->send(503,"text/plain","Updates and restart disabled");return;
++#else
++  if(fwUpdateOk){request->send(200,"text/plain","OK");delay(100);ESP.restart();}
++  else request->send(500,"text/plain","FAIL");
++#endif
++}
+ static void handleStatus(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
++#else
+   execution::Guard guard;
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   String json = "{";
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  auto routeStatus=route_u::status();
++  json += "\"routeBPhase\":"+String(unsigned(routeStatus.phase))+",\"routeBReason\":"+String(unsigned(routeStatus.reason))+",";
++#endif
+   json += "\"running\":";
+   json += duckscript::running() ? "true" : "false";
+   json += ",\"autorunEnabled\":";
+@@ -444,7 +491,7 @@
+ 
+ static void handleSetLed(AsyncWebServerRequest *req) {
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+- route_u::Transaction transaction(route_u::Service::Settings);if(!transaction){req->send(409,"text/plain","Busy");return;}
++ route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
+ #endif
+ 
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+@@ -531,6 +578,9 @@
+ }
+ 
+ static void handleSaveScript(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (!req->hasParam("name", true) || !req->hasParam("content", true)) {
+     req->send(400, "text/plain", "Missing name or content");
+@@ -567,6 +617,9 @@
+ }
+ 
+ static void handleSendLine(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
++#endif
+   execution::Guard guard;
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (!req->hasParam("line", true)) {
+@@ -596,6 +649,9 @@
+   if (type != WS_EVT_DATA) return;
+   AwsFrameInfo *info = reinterpret_cast<AwsFrameInfo *>(arg);
+   if (!info || info->opcode != WS_TEXT || !info->final || info->index != 0) return;
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  if(!data||len>128){if(client)client->text("Invalid or oversized command");return;}
++#endif
+   String cmd;
+   cmd.reserve(len + 1);
+   for (size_t i = 0; i < len; ++i) cmd += static_cast<char>(data[i]);
+@@ -659,6 +715,9 @@
+ static bool controlledNetworkReady = false;
+ 
+ bool prepareControlledNetwork() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation mutation;if(!mutation)return false;
++#endif
+   if (!deployment::controlledStart() || !settings::ready()) return false;
+   controlledNetworkReady = false;
+   if (!WiFi.mode(WIFI_AP) ||
+@@ -672,6 +731,9 @@
+ }
+ 
+ void begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation mutation;if(!mutation)return;
++#endif
+   if (deployment::controlledStart() && !controlledNetworkReady) return;
+   if (!deployment::controlledStart()) {
+     WiFi.mode(WIFI_AP);
+@@ -695,26 +757,18 @@
+   server.on("/delete", HTTP_GET, handleDeleteScript);
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  server.on("/stop", HTTP_POST, handleStop);
++#endif
+   server.on("/led", HTTP_POST, handleSetLed);
+   server.on("/settings", HTTP_GET, handleGetSettings);
+   server.on("/settings", HTTP_POST, handleSaveSettings);
+   server.on("/send", HTTP_POST, handleSendLine);
+   server.on("/upload", HTTP_POST,
+-            [](AsyncWebServerRequest *request) { /* handled in onUpload */ },
++            handleUploadComplete,
+             onUpload);
+   server.on("/update", HTTP_POST,
+-            [](AsyncWebServerRequest *request) {
+-              if (fwUpdateOk) {
+-#ifdef EVILDUCK_PORTABLE_ROUTE_B
+-                request->send(503,"text/plain","Offline candidate: restart disabled");return;
+-#endif
+-                request->send(200, "text/plain", "OK");
+-                delay(100);
+-                ESP.restart();
+-              } else {
+-                request->send(500, "text/plain", "FAIL");
+-              }
+-            },
++            handleFirmwareComplete,
+             onFirmwareUpload);
+ 
+   ws.onEvent(onWsEvent);

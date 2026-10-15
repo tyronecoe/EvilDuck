@@ -1,0 +1,471 @@
+{
+  "parent": "967596476dfe0dde5e824c8f6d1b2ba543502443",
+  "inputs": [
+    {
+      "file": "EvilDuckS3/settings.cpp",
+      "sha256": "1ca2614c44a7457e29816b2705bc61680ed9a60aa4d42454eb464d1c7517a9f5"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.cpp",
+      "sha256": "924573433bb5a76725932ea22ec2c61f8b11fa5c0599bf727847f70c34ba2300"
+    },
+    {
+      "file": "EvilDuckS3/sd_card.cpp",
+      "sha256": "050d31ba667e68f4c4d54e45d3a7e24737c287da0b2566564fa93ee87a63dccd"
+    },
+    {
+      "file": "EvilDuckS3/usb_msc.cpp",
+      "sha256": "80fcd96cd18e4863df6eb7017d5e0046c58d9b0ad7f421d6a67f95495606000d"
+    },
+    {
+      "file": "EvilDuckS3/led.cpp",
+      "sha256": "8d17a3a4f572119d90e77b7a7bd524ed4a45d84ed98b4600a883fc057a36442a"
+    },
+    {
+      "file": "EvilDuckS3/script_library.cpp",
+      "sha256": "5a5453d2b20d6c48caa8bf507d3bc790b2eda14bea5ea2087c36659212c7ecac"
+    }
+  ],
+  "patch": {
+    "file": "tests/stage28v/services.patch",
+    "sha256": "5c87b70c0910957d7961cdbef79ba537bd4021c2fe8a8c037bf61eb1b0faca84"
+  },
+  "outputs": [
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "c36370cd210cc9153789f5b9641d0df35d659732a9ca2d1c208bfbeec9c21816"
+    },
+    {
+      "file": "attackmode.cpp",
+      "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "01a894bf2b2ee67146ded0cb88d56ab619fe48a45ba4f334689d3f125f1c5ed2"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c576d65b8de42c6c91016eaeec2392fed952f83eaa2aa4f91376967afca36166"
+    },
+    {
+      "file": "com.h",
+      "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "9a31d1cbdece96e097f075a38ef0088f30c115acab9dc2e7f63afdaf5fe06e1a"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fca398639a0e1d516fe0e403881052b6ad93abb5891fd74a73c34d0136aa6441"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "3ffdf955452b366f33c44821423c5ecb98711cba358c4386293665232209e13e"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+    },
+    {
+      "file": "led.cpp",
+      "sha256": "2c0bce17312132821c66a21d537cff3180385005dd8f533fcd787ac637da01aa"
+    },
+    {
+      "file": "platform.cpp",
+      "sha256": "cb817562c171452a67e37fb1d661ceb973498e37ace8e27630a2e8a5ec4d87d2"
+    },
+    {
+      "file": "script_library.cpp",
+      "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769"
+    },
+    {
+      "file": "sd_card.cpp",
+      "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8"
+    },
+    {
+      "file": "settings.cpp",
+      "sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3"
+    },
+    {
+      "file": "spiffs.cpp",
+      "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da"
+    },
+    {
+      "file": "storage.cpp",
+      "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "77cdb0714910ddecfe972dc6ecbf52d74f29d8f13a75aa058c01bd33ff1888e7"
+    }
+  ],
+  "candidate_files": [
+    {
+      "file": "tests/stage28v/adapter.cpp",
+      "sha256": "a96e5f0b697ca84b085f660ef48817649d56a4ab9c10549d5da1c50cbfc03f5b"
+    },
+    {
+      "file": "tests/stage28v/adapter.h",
+      "sha256": "cc175a5f8ada846bac3a9ce0c7146adb9cff5249d76bb7a09c76874d02d6e624"
+    },
+    {
+      "file": "tests/stage28v/allocations.cpp",
+      "sha256": "2a2d3dee4d011c96060ab7c72ae959f5b376604901bdcebd48136fa7646560cc"
+    },
+    {
+      "file": "tests/stage28v/allocations.h",
+      "sha256": "1096526237a81fb5b7de68868d09d579c138ca323c77732d9acf0dada06a467b"
+    },
+    {
+      "file": "tests/stage28v/backend_lease.h",
+      "sha256": "41b2adf0770c32d6b71e60543ad812b1d6125403a2d350d49dd99181c510c83a"
+    },
+    {
+      "file": "tests/stage28v/backend_lease.inc",
+      "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+    },
+    {
+      "file": "tests/stage28v/coordinator.cpp",
+      "sha256": "bd0c6eb92a8b8de9974714895a744722abcb2938ab7817adab202878905fdf61"
+    },
+    {
+      "file": "tests/stage28v/coordinator.h",
+      "sha256": "988623d963b7016e70a44e83514c00d0b5d37068d6a7bffe844b164f684c39cf"
+    },
+    {
+      "file": "tests/stage28v/file_source.cpp",
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+    },
+    {
+      "file": "tests/stage28v/file_source.h",
+      "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+    },
+    {
+      "file": "tests/stage28v/lower.cpp",
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28v/lower.h",
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28v/mocks/Adafruit_NeoPixel.h",
+      "sha256": "4ec24cad59267a3ebd6f7750a6729600935f196a035aeb74b578706a9dce8b28"
+    },
+    {
+      "file": "tests/stage28v/mocks/Arduino.h",
+      "sha256": "9a51e45145b2a0c5f5fd04951bf0cbe8e1320316011547f0e1b51c4f11e1256e"
+    },
+    {
+      "file": "tests/stage28v/mocks/ESPAsyncWebServer.h",
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/stage28v/mocks/FS.h",
+      "sha256": "26b1f2d55714c2dd304b5edbd1ebc90fd41f74d2e0e38f2618721174813f88cd"
+    },
+    {
+      "file": "tests/stage28v/mocks/SD.h",
+      "sha256": "d23e3224723569eadaff1ada94da5f136af33ecab294e29dd031e98cf0f1a955"
+    },
+    {
+      "file": "tests/stage28v/mocks/SPI.h",
+      "sha256": "e5ee9a11c7d9abecac2478af38bff076c7b09af159840ffde4cbaeaa058c8951"
+    },
+    {
+      "file": "tests/stage28v/mocks/SPIFFS.h",
+      "sha256": "9d29cacdf55609fea6410c773bebe11abce3874f3bd6f412b6408a689b36390a"
+    },
+    {
+      "file": "tests/stage28v/mocks/USBHID.h",
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28v/mocks/USBHIDKeyboard.h",
+      "sha256": "8c2c92a2ac244ffd178da9cfb79c0785a6317e77bac8c373d32ddd5451096311"
+    },
+    {
+      "file": "tests/stage28v/mocks/USBMSC.h",
+      "sha256": "22e3c2c7925e56cc17913658625f5b05e86104e5d774326df0fa1862d05bc811"
+    },
+    {
+      "file": "tests/stage28v/mocks/Update.h",
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/stage28v/mocks/WiFi.h",
+      "sha256": "833c7b27c723ce348409589bd66524ce1ed4e8c770f4c3bb361d640777dcf4f2"
+    },
+    {
+      "file": "tests/stage28v/mocks/host.h",
+      "sha256": "3a0ee6c74fe57356212c1285600704073a2f9aa18a7a89abf9cfad8f9a7a0b3c"
+    },
+    {
+      "file": "tests/stage28v/mocks/network.h",
+      "sha256": "620010a45982054022fa08d17266f4d4cf98bdbf5549d6cf54b616090ddb09c8"
+    },
+    {
+      "file": "tests/stage28v/mutation_guard.h",
+      "sha256": "c69fd2486daf20df562d11a2fe63e79297fc81c37868cb935d176b3885e9f464"
+    },
+    {
+      "file": "tests/stage28v/nvs_fixture.cpp",
+      "sha256": "a6a8204ddfd01136fb67d26ff7d33dbc1b43199b90bb8e6848061716255bafcf"
+    },
+    {
+      "file": "tests/stage28v/scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28v/seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28v/task_platform.h",
+      "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+    },
+    {
+      "file": "tests/stage28v/test_main.cpp",
+      "sha256": "7a0508f3a5da857992e215326186fc7c22c289da6877f976e87eb93b42142b05"
+    }
+  ],
+  "patch_hunks": [
+    {
+      "file": "cli.cpp",
+      "hunk": "@@ -321,10 +321,21 @@"
+    },
+    {
+      "file": "led.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "led.cpp",
+      "hunk": "@@ -33,11 +36,19 @@"
+    },
+    {
+      "file": "led.cpp",
+      "hunk": "@@ -51,11 +62,19 @@"
+    },
+    {
+      "file": "led.cpp",
+      "hunk": "@@ -70,8 +89,16 @@"
+    },
+    {
+      "file": "script_library.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "script_library.cpp",
+      "hunk": "@@ -59,6 +62,10 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -27,6 +30,10 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -72,18 +79,30 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -106,6 +125,10 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -116,6 +139,10 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -181,6 +208,10 @@"
+    },
+    {
+      "file": "sd_card.cpp",
+      "hunk": "@@ -193,16 +224,36 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -50,6 +53,10 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -123,6 +130,10 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -178,6 +189,10 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -208,6 +223,10 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -218,33 +237,65 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -264,6 +315,10 @@"
+    },
+    {
+      "file": "settings.cpp",
+      "hunk": "@@ -271,6 +326,10 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -18,6 +21,10 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -50,6 +57,10 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -57,14 +68,26 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -80,9 +103,17 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -91,6 +122,10 @@"
+    },
+    {
+      "file": "spiffs.cpp",
+      "hunk": "@@ -101,11 +136,19 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -75,8 +78,11 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -155,8 +161,11 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -184,8 +193,11 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -210,8 +222,11 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -371,6 +386,10 @@"
+    },
+    {
+      "file": "storage.cpp",
+      "hunk": "@@ -387,8 +406,11 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -47,6 +50,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -59,6 +66,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -72,6 +83,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -86,6 +101,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -98,6 +117,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -140,6 +163,10 @@"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "hunk": "@@ -157,9 +184,21 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -1,3 +1,6 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -141,6 +144,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -164,8 +170,20 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -219,7 +237,7 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -404,10 +422,39 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -444,7 +491,7 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -531,6 +578,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -567,6 +617,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -596,6 +649,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -659,6 +715,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -672,6 +731,9 @@"
+    },
+    {
+      "file": "webserver.cpp",
+      "hunk": "@@ -695,26 +757,18 @@"
+    }
+  ],
+  "selector": "EVILDUCK_PORTABLE_ROUTE_B",
+  "original_chain": "immutable Stage28S/T/U preparers and manifests",
+  "target_profile": "object declarations from Stage26 final controlled compile_commands; no final candidate profile/link verified",
+  "legacy_default": true
+}
