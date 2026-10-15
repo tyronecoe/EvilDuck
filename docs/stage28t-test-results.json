@@ -1,0 +1,2645 @@
+{
+  "primary": {
+    "counts": {
+      "PASS": 47,
+      "FAIL": 0
+    },
+    "assertions": 467,
+    "results": [
+      {
+        "id": "T01",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 63,
+        "stdout": "PASS T01 (63 assertions)\nTRACE {\"programs\":[\"STRING aa\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":309,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T02",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 63,
+        "stdout": "PASS T02 (63 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":309,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T03",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 9,
+        "stdout": "PASS T03 (9 assertions)\nTRACE {\"programs\":[\"STRINGLN\\n\\t !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\\t\\nEND_STRINGLN\\n\"],\"session\":1,\"admissions\":97,\"local_acks\":97,\"retries\":1064,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":31,\"cpp_new_bytes_with_fixture\":11119,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,44,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":19,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,30,0,0,0,0,0]},{\"at\":25,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":31,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,52,0,0,0,0,0]},{\"at\":37,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":43,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,32,0,0,0,0,0]},{\"at\":49,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":55,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,33,0,0,0,0,0]},{\"at\":61,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":67,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,34,0,0,0,0,0]},{\"at\":73,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":79,\"session\":1,\"operation\":7,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,36,0,0,0,0,0]},{\"at\":85,\"session\":1,\"operation\":7,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":91,\"session\":1,\"operation\":8,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,52,0,0,0,0,0]},{\"at\":97,\"session\":1,\"operation\":8,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":103,\"session\":1,\"operation\":9,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,38,0,0,0,0,0]},{\"at\":109,\"session\":1,\"operation\":9,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":115,\"session\":1,\"operation\":10,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,39,0,0,0,0,0]},{\"at\":121,\"session\":1,\"operation\":10,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":127,\"session\":1,\"operation\":11,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,37,0,0,0,0,0]},{\"at\":133,\"session\":1,\"operation\":11,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":139,\"session\":1,\"operation\":12,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,46,0,0,0,0,0]},{\"at\":145,\"session\":1,\"operation\":12,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":151,\"session\":1,\"operation\":13,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,54,0,0,0,0,0]},{\"at\":157,\"session\":1,\"operation\":13,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":163,\"session\":1,\"operation\":14,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,45,0,0,0,0,0]},{\"at\":169,\"session\":1,\"operation\":14,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":175,\"session\":1,\"operation\":15,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,55,0,0,0,0,0]},{\"at\":181,\"session\":1,\"operation\":15,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":187,\"session\":1,\"operation\":16,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,56,0,0,0,0,0]},{\"at\":193,\"session\":1,\"operation\":16,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":199,\"session\":1,\"operation\":17,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,39,0,0,0,0,0]},{\"at\":205,\"session\":1,\"operation\":17,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":211,\"session\":1,\"operation\":18,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,30,0,0,0,0,0]},{\"at\":217,\"session\":1,\"operation\":18,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":223,\"session\":1,\"operation\":19,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,31,0,0,0,0,0]},{\"at\":229,\"session\":1,\"operation\":19,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":235,\"session\":1,\"operation\":20,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,32,0,0,0,0,0]},{\"at\":241,\"session\":1,\"operation\":20,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":247,\"session\":1,\"operation\":21,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,33,0,0,0,0,0]},{\"at\":253,\"session\":1,\"operation\":21,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":259,\"session\":1,\"operation\":22,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,34,0,0,0,0,0]},{\"at\":265,\"session\":1,\"operation\":22,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":271,\"session\":1,\"operation\":23,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,35,0,0,0,0,0]},{\"at\":277,\"session\":1,\"operation\":23,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":283,\"session\":1,\"operation\":24,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,36,0,0,0,0,0]},{\"at\":289,\"session\":1,\"operation\":24,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":295,\"session\":1,\"operation\":25,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,37,0,0,0,0,0]},{\"at\":301,\"session\":1,\"operation\":25,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":307,\"session\":1,\"operation\":26,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,38,0,0,0,0,0]},{\"at\":313,\"session\":1,\"operation\":26,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":319,\"session\":1,\"operation\":27,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,51,0,0,0,0,0]},{\"at\":325,\"session\":1,\"operation\":27,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":331,\"session\":1,\"operation\":28,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,51,0,0,0,0,0]},{\"at\":337,\"session\":1,\"operation\":28,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":343,\"session\":1,\"operation\":29,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,54,0,0,0,0,0]},{\"at\":349,\"session\":1,\"operation\":29,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":355,\"session\":1,\"operation\":30,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,46,0,0,0,0,0]},{\"at\":361,\"session\":1,\"operation\":30,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":367,\"session\":1,\"operation\":31,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,55,0,0,0,0,0]},{\"at\":373,\"session\":1,\"operation\":31,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":379,\"session\":1,\"operation\":32,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,56,0,0,0,0,0]},{\"at\":385,\"session\":1,\"operation\":32,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":391,\"session\":1,\"operation\":33,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,31,0,0,0,0,0]},{\"at\":397,\"session\":1,\"operation\":33,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":403,\"session\":1,\"operation\":34,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,4,0,0,0,0,0]},{\"at\":409,\"session\":1,\"operation\":34,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":415,\"session\":1,\"operation\":35,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,5,0,0,0,0,0]},{\"at\":421,\"session\":1,\"operation\":35,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":427,\"session\":1,\"operation\":36,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,6,0,0,0,0,0]},{\"at\":433,\"session\":1,\"operation\":36,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":439,\"session\":1,\"operation\":37,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,7,0,0,0,0,0]},{\"at\":445,\"session\":1,\"operation\":37,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":451,\"session\":1,\"operation\":38,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,8,0,0,0,0,0]},{\"at\":457,\"session\":1,\"operation\":38,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":463,\"session\":1,\"operation\":39,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,9,0,0,0,0,0]},{\"at\":469,\"session\":1,\"operation\":39,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":475,\"session\":1,\"operation\":40,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,10,0,0,0,0,0]},{\"at\":481,\"session\":1,\"operation\":40,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":487,\"session\":1,\"operation\":41,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,11,0,0,0,0,0]},{\"at\":493,\"session\":1,\"operation\":41,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":499,\"session\":1,\"operation\":42,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,12,0,0,0,0,0]},{\"at\":505,\"session\":1,\"operation\":42,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":511,\"session\":1,\"operation\":43,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,13,0,0,0,0,0]},{\"at\":517,\"session\":1,\"operation\":43,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":523,\"session\":1,\"operation\":44,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,14,0,0,0,0,0]},{\"at\":529,\"session\":1,\"operation\":44,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":535,\"session\":1,\"operation\":45,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,15,0,0,0,0,0]},{\"at\":541,\"session\":1,\"operation\":45,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":547,\"session\":1,\"operation\":46,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,16,0,0,0,0,0]},{\"at\":553,\"session\":1,\"operation\":46,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":559,\"session\":1,\"operation\":47,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,17,0,0,0,0,0]},{\"at\":565,\"session\":1,\"operation\":47,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":571,\"session\":1,\"operation\":48,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,18,0,0,0,0,0]},{\"at\":577,\"session\":1,\"operation\":48,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":583,\"session\":1,\"operation\":49,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,19,0,0,0,0,0]},{\"at\":589,\"session\":1,\"operation\":49,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":595,\"session\":1,\"operation\":50,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,20,0,0,0,0,0]},{\"at\":601,\"session\":1,\"operation\":50,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":607,\"session\":1,\"operation\":51,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,21,0,0,0,0,0]},{\"at\":613,\"session\":1,\"operation\":51,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":619,\"session\":1,\"operation\":52,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,22,0,0,0,0,0]},{\"at\":625,\"session\":1,\"operation\":52,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":631,\"session\":1,\"operation\":53,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,23,0,0,0,0,0]},{\"at\":637,\"session\":1,\"operation\":53,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":643,\"session\":1,\"operation\":54,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,24,0,0,0,0,0]},{\"at\":649,\"session\":1,\"operation\":54,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":655,\"session\":1,\"operation\":55,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,25,0,0,0,0,0]},{\"at\":661,\"session\":1,\"operation\":55,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":667,\"session\":1,\"operation\":56,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,26,0,0,0,0,0]},{\"at\":673,\"session\":1,\"operation\":56,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":679,\"session\":1,\"operation\":57,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,27,0,0,0,0,0]},{\"at\":685,\"session\":1,\"operation\":57,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":691,\"session\":1,\"operation\":58,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,28,0,0,0,0,0]},{\"at\":697,\"session\":1,\"operation\":58,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":703,\"session\":1,\"operation\":59,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,29,0,0,0,0,0]},{\"at\":709,\"session\":1,\"operation\":59,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":715,\"session\":1,\"operation\":60,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,47,0,0,0,0,0]},{\"at\":721,\"session\":1,\"operation\":60,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":727,\"session\":1,\"operation\":61,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,49,0,0,0,0,0]},{\"at\":733,\"session\":1,\"operation\":61,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":739,\"session\":1,\"operation\":62,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,48,0,0,0,0,0]},{\"at\":745,\"session\":1,\"operation\":62,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":751,\"session\":1,\"operation\":63,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,35,0,0,0,0,0]},{\"at\":757,\"session\":1,\"operation\":63,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":763,\"session\":1,\"operation\":64,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,45,0,0,0,0,0]},{\"at\":769,\"session\":1,\"operation\":64,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":775,\"session\":1,\"operation\":65,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,53,0,0,0,0,0]},{\"at\":781,\"session\":1,\"operation\":65,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":787,\"session\":1,\"operation\":66,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":793,\"session\":1,\"operation\":66,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":799,\"session\":1,\"operation\":67,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":805,\"session\":1,\"operation\":67,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":811,\"session\":1,\"operation\":68,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,6,0,0,0,0,0]},{\"at\":817,\"session\":1,\"operation\":68,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":823,\"session\":1,\"operation\":69,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,7,0,0,0,0,0]},{\"at\":829,\"session\":1,\"operation\":69,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":835,\"session\":1,\"operation\":70,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,8,0,0,0,0,0]},{\"at\":841,\"session\":1,\"operation\":70,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":847,\"session\":1,\"operation\":71,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,9,0,0,0,0,0]},{\"at\":853,\"session\":1,\"operation\":71,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":859,\"session\":1,\"operation\":72,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,10,0,0,0,0,0]},{\"at\":865,\"session\":1,\"operation\":72,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":871,\"session\":1,\"operation\":73,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,11,0,0,0,0,0]},{\"at\":877,\"session\":1,\"operation\":73,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":883,\"session\":1,\"operation\":74,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,12,0,0,0,0,0]},{\"at\":889,\"session\":1,\"operation\":74,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":895,\"session\":1,\"operation\":75,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,13,0,0,0,0,0]},{\"at\":901,\"session\":1,\"operation\":75,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":907,\"session\":1,\"operation\":76,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,14,0,0,0,0,0]},{\"at\":913,\"session\":1,\"operation\":76,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":919,\"session\":1,\"operation\":77,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,15,0,0,0,0,0]},{\"at\":925,\"session\":1,\"operation\":77,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":931,\"session\":1,\"operation\":78,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,16,0,0,0,0,0]},{\"at\":937,\"session\":1,\"operation\":78,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":943,\"session\":1,\"operation\":79,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,17,0,0,0,0,0]},{\"at\":949,\"session\":1,\"operation\":79,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":955,\"session\":1,\"operation\":80,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,18,0,0,0,0,0]},{\"at\":961,\"session\":1,\"operation\":80,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":967,\"session\":1,\"operation\":81,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,19,0,0,0,0,0]},{\"at\":973,\"session\":1,\"operation\":81,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":979,\"session\":1,\"operation\":82,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,20,0,0,0,0,0]},{\"at\":985,\"session\":1,\"operation\":82,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":991,\"session\":1,\"operation\":83,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,21,0,0,0,0,0]},{\"at\":997,\"session\":1,\"operation\":83,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1003,\"session\":1,\"operation\":84,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,22,0,0,0,0,0]},{\"at\":1009,\"session\":1,\"operation\":84,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1015,\"session\":1,\"operation\":85,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,23,0,0,0,0,0]},{\"at\":1021,\"session\":1,\"operation\":85,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1027,\"session\":1,\"operation\":86,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,24,0,0,0,0,0]},{\"at\":1033,\"session\":1,\"operation\":86,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1039,\"session\":1,\"operation\":87,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,25,0,0,0,0,0]},{\"at\":1045,\"session\":1,\"operation\":87,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1051,\"session\":1,\"operation\":88,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,26,0,0,0,0,0]},{\"at\":1057,\"session\":1,\"operation\":88,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1063,\"session\":1,\"operation\":89,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,27,0,0,0,0,0]},{\"at\":1069,\"session\":1,\"operation\":89,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1075,\"session\":1,\"operation\":90,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,28,0,0,0,0,0]},{\"at\":1081,\"session\":1,\"operation\":90,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1087,\"session\":1,\"operation\":91,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,29,0,0,0,0,0]},{\"at\":1093,\"session\":1,\"operation\":91,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1099,\"session\":1,\"operation\":92,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,47,0,0,0,0,0]},{\"at\":1105,\"session\":1,\"operation\":92,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1111,\"session\":1,\"operation\":93,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,49,0,0,0,0,0]},{\"at\":1117,\"session\":1,\"operation\":93,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1123,\"session\":1,\"operation\":94,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,48,0,0,0,0,0]},{\"at\":1129,\"session\":1,\"operation\":94,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1135,\"session\":1,\"operation\":95,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,53,0,0,0,0,0]},{\"at\":1141,\"session\":1,\"operation\":95,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1147,\"session\":1,\"operation\":96,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,43,0,0,0,0,0]},{\"at\":1153,\"session\":1,\"operation\":96,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1157,\"session\":1,\"operation\":97,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,40,0,0,0,0,0]},{\"at\":1163,\"session\":1,\"operation\":97,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1166,\"session\":1,\"operation\":97,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T04",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 18,
+        "stdout": "PASS T04 (18 assertions)\nTRACE {\"programs\":[\"ENTER\\nTAB\\nSPACE\\nESCAPE\\nBACKSPACE\\nDELETE\\nUPARROW\\nDOWNARROW\\nLEFTARROW\\nRIGHTARROW\\n\"],\"session\":1,\"admissions\":10,\"local_acks\":10,\"retries\":80,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":16,\"cpp_new_bytes_with_fixture\":1461,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":3,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,40,0,0,0,0,0]},{\"at\":9,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,43,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,44,0,0,0,0,0]},{\"at\":27,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":30,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,41,0,0,0,0,0]},{\"at\":36,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":39,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,42,0,0,0,0,0]},{\"at\":45,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":48,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,76,0,0,0,0,0]},{\"at\":54,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":57,\"session\":1,\"operation\":7,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,82,0,0,0,0,0]},{\"at\":63,\"session\":1,\"operation\":7,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":66,\"session\":1,\"operation\":8,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,81,0,0,0,0,0]},{\"at\":72,\"session\":1,\"operation\":8,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":75,\"session\":1,\"operation\":9,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,80,0,0,0,0,0]},{\"at\":81,\"session\":1,\"operation\":9,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":84,\"session\":1,\"operation\":10,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,79,0,0,0,0,0]},{\"at\":90,\"session\":1,\"operation\":10,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":92,\"session\":1,\"operation\":10,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T05",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T05 (8 assertions)\nTRACE {\"programs\":[\"VAR $n = 0\\nFUNCTION f()\\nSTRING a\\nRETURN 1\\nEND_FUNCTION\\nWHILE $n < 3\\nIF f() == 1 THEN\\nSTRING b\\nEND_IF\\n$n = $n + 1\\nEND_WHILE\\n\"],\"session\":1,\"admissions\":6,\"local_acks\":6,\"retries\":66,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":14,\"cpp_new_bytes_with_fixture\":909,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":23,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":37,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":43,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":64,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":70,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":84,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":90,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":111,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":117,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":131,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":137,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":152,\"session\":1,\"operation\":6,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T06",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T06 (3 assertions)\nTRACE {\"programs\":[\"STRING X\\nVAR $n = (1 + )\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":3,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":4,\"cpp_new_bytes_with_fixture\":96,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T07",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T07 (3 assertions)\nTRACE {\"programs\":[\"IF FALSE THEN\\nHOLD a\\nEND_IF\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":5,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":4,\"cpp_new_bytes_with_fixture\":102,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T08",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T08 (3 assertions)\nTRACE {\"programs\":[\"STRING ??\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":5,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":2,\"cpp_new_bytes_with_fixture\":44,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T09",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T09 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":2,\"cpp_new_bytes_with_fixture\":44,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T10",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T10 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":2,\"cpp_new_bytes_with_fixture\":44,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T11",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T11 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":16,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":11,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T12",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T12 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":12,\"cpp_new_bytes_with_fixture\":497,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T13",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T13 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":15,\"cpp_new_bytes_with_fixture\":538,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":2,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T14",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T14 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":15,\"cpp_new_bytes_with_fixture\":538,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T15",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T15 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":16,\"cpp_new_bytes_with_fixture\":602,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":2,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T16",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T16 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":16,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T17",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T17 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":4,\"cpp_new_bytes_with_fixture\":92,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":5,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T18",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T18 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T19",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T19 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":11,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T20",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T20 (7 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":11,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T21",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T21 (6 assertions)\nTRACE {\"programs\":[\"DELAY 50\\nSTRING BAD\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":1,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":134,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":4,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T22",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T22 (6 assertions)\nTRACE {\"programs\":[\"STRING a\\nSTOP_PAYLOAD\\nSTRING BAD\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":233,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T23",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T23 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":4,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":15,\"cpp_new_bytes_with_fixture\":538,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T24",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T24 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":4,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":24,\"cpp_new_bytes_with_fixture\":905,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T25",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 15,
+        "stdout": "PASS T25 (15 assertions)\nTRACE {\"programs\":[\"STRING a\\n\",\"STRING b\\n\"],\"session\":2,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":4,\"clear_submitted\":4,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":10,\"cpp_new_bytes_with_fixture\":373,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":2,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":23,\"session\":2,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":29,\"session\":2,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":33,\"session\":2,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T26",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 6,
+        "stdout": "PASS T26 (6 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":12,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":2,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":101,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T27",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 9,
+        "stdout": "PASS T27 (9 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T28",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T28 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":9,\"fault\":10,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":22,\"cpp_new_bytes_with_fixture\":896,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T29",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T29 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":293,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T30",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T30 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":20,\"cpp_new_bytes_with_fixture\":623,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":0,\"operation\":0,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":27,\"session\":0,\"operation\":0,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T31",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T31 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":16,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T32",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 12,
+        "stdout": "PASS T32 (12 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":4,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T33",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T33 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T34",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T34 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":1,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":197,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T35",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T35 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":9,\"fault\":7,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T36",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T36 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":9,\"fault\":7,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":165,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T37",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T37 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":9,\"fault\":11,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":4,\"cpp_new_bytes_with_fixture\":92,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1006,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T38",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 5,
+        "stdout": "PASS T38 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":12,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":101,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T39",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T39 (8 assertions)\nTRACE {\"programs\":[\"DELAY 20\\nSTRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":1,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":203,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":4294967285,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T40",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 3,
+        "stdout": "PASS T40 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":2,\"cpp_new_bytes_with_fixture\":44,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T41",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 5,
+        "stdout": "PASS T41 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":8,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":4,\"cpp_new_bytes_with_fixture\":92,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":3,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T42",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 5,
+        "stdout": "PASS T42 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":6,\"first_operation\":0,\"clear_request\":1,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":20,\"cpp_new_bytes_with_fixture\":848,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T43",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 7,
+        "stdout": "PASS T43 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":309,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,4,0,0,0,0,0]},{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T44",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T44 (11 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":73,\"cpp_new_bytes_with_fixture\":1645,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":1,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":29,\"session\":0,\"operation\":0,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":35,\"session\":0,\"operation\":0,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T45",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 9,
+        "stdout": "PASS T45 (9 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":1,\"cpp_new_calls_with_fixture\":12,\"cpp_new_bytes_with_fixture\":497,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T46",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 11,
+        "stdout": "PASS T46 (11 assertions)\nTRACE {\"programs\":[\"STRING aa\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":1,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":309,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      },
+      {
+        "id": "T47",
+        "status": "PASS",
+        "exit": 0,
+        "assertions": 8,
+        "stdout": "PASS T47 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":309,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22592,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "negative_control": {
+    "expected_exit": 1,
+    "observed": {
+      "id": "T01",
+      "status": "FAIL",
+      "exit": 1,
+      "assertions": 0,
+      "stdout": "",
+      "stderr": "FAIL T01: deliberate negative control (64)\n"
+    },
+    "classification": "intentional assertion negative control, not unexpected FAIL"
+  },
+  "unchanged_stage28s": {
+    "primary": {
+      "counts": {
+        "PASS": 56,
+        "FAIL": 0
+      },
+      "assertions": 512,
+      "results": [
+        {
+          "id": "S01",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 59,
+          "stderr": "",
+          "stdout_sha256": "733a9eae9c98c0dc74c69d054a8c3526337cb624a1455c8c1cb79ad5900e2673",
+          "stdout_first_line": "PASS S01 (59 assertions)"
+        },
+        {
+          "id": "S02",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 59,
+          "stderr": "",
+          "stdout_sha256": "ce07383071a6c178840a806fc715fdf39b74c6cea1b214eaaa87567ada0c0db9",
+          "stdout_first_line": "PASS S02 (59 assertions)"
+        },
+        {
+          "id": "S03",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 10,
+          "stderr": "",
+          "stdout_sha256": "a865bb9c2a5560d93208b5989dc7166f83489cf4d0cece2cf28c0398ae1568a9",
+          "stdout_first_line": "PASS S03 (10 assertions)"
+        },
+        {
+          "id": "S04",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 10,
+          "stderr": "",
+          "stdout_sha256": "fa1124918c9725809d96ec6bdc9a1439b740db033a8de756e625f3e50be53d8e",
+          "stdout_first_line": "PASS S04 (10 assertions)"
+        },
+        {
+          "id": "S05",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 19,
+          "stderr": "",
+          "stdout_sha256": "c26cc42547540ff01d0f4376a3c2cb9e143179b7987d6b2c841423b4b78a1955",
+          "stdout_first_line": "PASS S05 (19 assertions)"
+        },
+        {
+          "id": "S06",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "c6deb0439bf06da94e138e5e4f6513f00c1008bfd8d041b0860e4703fc92bf13",
+          "stdout_first_line": "PASS S06 (4 assertions)"
+        },
+        {
+          "id": "S07",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "6b2028af453a4854db025fa157ad7b270976cfb67d7dafcb5448f5825a591790",
+          "stdout_first_line": "PASS S07 (4 assertions)"
+        },
+        {
+          "id": "S08",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "5251055d397eb2b2e523c1dd7c0d0f895491f343d9a94ce0ee655466c0f0ca36",
+          "stdout_first_line": "PASS S08 (4 assertions)"
+        },
+        {
+          "id": "S09",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "455357a55b1df2eaa9d1bef618701eeaa77929761c556aea723029f4d2019b06",
+          "stdout_first_line": "PASS S09 (4 assertions)"
+        },
+        {
+          "id": "S10",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "60bb1a12e9c5e0cd2e4b5d12a36b0b333450d64c472cbcfa0835f8bbf63f2b0f",
+          "stdout_first_line": "PASS S10 (4 assertions)"
+        },
+        {
+          "id": "S11",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "649d61713b0bf336428e9c015430b063f78e6bf28e682a8a9e74f73f73594ba3",
+          "stdout_first_line": "PASS S11 (3 assertions)"
+        },
+        {
+          "id": "S12",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "67a506eb2cc8759775e433869591bfc9a3334f0f2892c674b81e54a8ac0e9b8a",
+          "stdout_first_line": "PASS S12 (7 assertions)"
+        },
+        {
+          "id": "S13",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "68f8d1f075ab3839be1c3890015b776c32be5626b73458aa4de1dc439d97c7d8",
+          "stdout_first_line": "PASS S13 (7 assertions)"
+        },
+        {
+          "id": "S14",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "a17c8f0f8bef3803e85100b43dbb633b1de55ae6576aa581de56d4f8e10541f8",
+          "stdout_first_line": "PASS S14 (7 assertions)"
+        },
+        {
+          "id": "S15",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "9532c62830d49a003e7e6afa56465fbcdd032de9e037ca165005d58d5d884454",
+          "stdout_first_line": "PASS S15 (7 assertions)"
+        },
+        {
+          "id": "S16",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "a2db0eb2f712f2e59e0faeb28ea7ae9ed09869d35f09f8bb22f53f3a5ae7c27d",
+          "stdout_first_line": "PASS S16 (7 assertions)"
+        },
+        {
+          "id": "S17",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "38acdb778bfe919103d1caa0029cd58eb75fd2d797a4b723a85bb1662017637e",
+          "stdout_first_line": "PASS S17 (7 assertions)"
+        },
+        {
+          "id": "S18",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "a55cbaed317cedae8964239955a17527a72c78a591d9256266faded2d4d05810",
+          "stdout_first_line": "PASS S18 (7 assertions)"
+        },
+        {
+          "id": "S19",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "5f325e1cda81161ee0c6443d030ae06e0407eb6d54d93219152d67a43f758b88",
+          "stdout_first_line": "PASS S19 (7 assertions)"
+        },
+        {
+          "id": "S20",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "74019f3ccfd68490a9c14dbf0954c0316c1d9775b58f98ac102fa882ce63d556",
+          "stdout_first_line": "PASS S20 (7 assertions)"
+        },
+        {
+          "id": "S21",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "3af7f2830ae1cdc4c794d9a28a9c91f84e339db54d9c2c917380af67072a8f9d",
+          "stdout_first_line": "PASS S21 (7 assertions)"
+        },
+        {
+          "id": "S22",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 8,
+          "stderr": "",
+          "stdout_sha256": "4c44ede126e9c4e679b4e04766b756a6a2e9efed0e5295e1e757f7c679d9db05",
+          "stdout_first_line": "PASS S22 (8 assertions)"
+        },
+        {
+          "id": "S23",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 5,
+          "stderr": "",
+          "stdout_sha256": "3ef2b076d3b0151a6483a70f8c33632f1a0642b37929c4fd092beff4819d99be",
+          "stdout_first_line": "PASS S23 (5 assertions)"
+        },
+        {
+          "id": "S24",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 5,
+          "stderr": "",
+          "stdout_sha256": "08d1da159a570badc199794a8a66b7ae4a6197fa2b9ccd292f23b1a6e280d824",
+          "stdout_first_line": "PASS S24 (5 assertions)"
+        },
+        {
+          "id": "S25",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "b85674854dc397e81bfbeec3e541b07bdde9bab0d8626ee28c65b99c1e628673",
+          "stdout_first_line": "PASS S25 (7 assertions)"
+        },
+        {
+          "id": "S26",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "c06f5dbd61f32613686bb5c3fa5b9f55c223850f952ab5c2028bf990c46a6b6a",
+          "stdout_first_line": "PASS S26 (7 assertions)"
+        },
+        {
+          "id": "S27",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "d4200b4472e3d962874754324775045d8441c8332826cae70573715f129506ad",
+          "stdout_first_line": "PASS S27 (7 assertions)"
+        },
+        {
+          "id": "S28",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 16,
+          "stderr": "",
+          "stdout_sha256": "7131b03e03b6b479fbae0d2e5c9809cca86047c3b1638909ae0e40067e16b4a7",
+          "stdout_first_line": "PASS S28 (16 assertions)"
+        },
+        {
+          "id": "S29",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 6,
+          "stderr": "",
+          "stdout_sha256": "60d0e67f5a65189bd52619a32d1d4f8fb23ae47c2c8f743b8bc363fa673d2636",
+          "stdout_first_line": "PASS S29 (6 assertions)"
+        },
+        {
+          "id": "S30",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 10,
+          "stderr": "",
+          "stdout_sha256": "48e94dd405f927b1457ea454494a39651ea9b583c437b8bed957435fd39977d7",
+          "stdout_first_line": "PASS S30 (10 assertions)"
+        },
+        {
+          "id": "S31",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 9,
+          "stderr": "",
+          "stdout_sha256": "d9a93456ebef9014c1d6c02d9e0289c4e8a6a18a844193919c489a2856f3715c",
+          "stdout_first_line": "PASS S31 (9 assertions)"
+        },
+        {
+          "id": "S32",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 6,
+          "stderr": "",
+          "stdout_sha256": "a3b2abe376dbe023345588d4f775f6dad8cc42fbac69f7dc462a1059133bfc28",
+          "stdout_first_line": "PASS S32 (6 assertions)"
+        },
+        {
+          "id": "S33",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 8,
+          "stderr": "",
+          "stdout_sha256": "86cbcf140323cd87eb76e5251f98a2dcebd85f1f60aabedf7ae3ccbcf804d659",
+          "stdout_first_line": "PASS S33 (8 assertions)"
+        },
+        {
+          "id": "S34",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 11,
+          "stderr": "",
+          "stdout_sha256": "e3d37aadcf9eea7d6a0e9e4ac51e79d0ca083bdfe1f7b138818440f9efcaa589",
+          "stdout_first_line": "PASS S34 (11 assertions)"
+        },
+        {
+          "id": "S35",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 6,
+          "stderr": "",
+          "stdout_sha256": "99bc3d782dcd7c9824d9ff3ba5dd06568d62abe90c8e96f213cc6d6972c8d82a",
+          "stdout_first_line": "PASS S35 (6 assertions)"
+        },
+        {
+          "id": "S36",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 10,
+          "stderr": "",
+          "stdout_sha256": "16bd2d56e12fbc3fb7184289de652f2f6ea0738b8551f02ffa83753f43134d12",
+          "stdout_first_line": "PASS S36 (10 assertions)"
+        },
+        {
+          "id": "S37",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 6,
+          "stderr": "",
+          "stdout_sha256": "52cf92b65f571e55bafe89d2955a61243f58f1af0998719635ce40c7ef23f5f1",
+          "stdout_first_line": "PASS S37 (6 assertions)"
+        },
+        {
+          "id": "S38",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "69f4ceb0aae252c45712e22b9cef008c07f6c5b76bcef324c6eac577e0ddc507",
+          "stdout_first_line": "PASS S38 (3 assertions)"
+        },
+        {
+          "id": "S39",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "cd7a37aecebe516173757aa67793303b4380fa6743db1e52b300be617b681b3c",
+          "stdout_first_line": "PASS S39 (3 assertions)"
+        },
+        {
+          "id": "S40",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "855b6a17816e9e51ed54ffdf58609a361d58c3aed5bb7630a814ecc5aadfc551",
+          "stdout_first_line": "PASS S40 (3 assertions)"
+        },
+        {
+          "id": "S41",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 12,
+          "stderr": "",
+          "stdout_sha256": "70bc8e090fad37a28934010fc21e9c93cbd928df02d5e256fd27b381727113e9",
+          "stdout_first_line": "PASS S41 (12 assertions)"
+        },
+        {
+          "id": "S42",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "f6b2f42da3c9f3efea2333871cec9c799ffe5fd443d3cc9e94d7bfe95a03bc29",
+          "stdout_first_line": "PASS S42 (3 assertions)"
+        },
+        {
+          "id": "S43",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 5,
+          "stderr": "",
+          "stdout_sha256": "51b23df45d65c985ac90e081d03ac9fb8fe01aaca6ef53fc8e39420562b3584a",
+          "stdout_first_line": "PASS S43 (5 assertions)"
+        },
+        {
+          "id": "S44",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 10,
+          "stderr": "",
+          "stdout_sha256": "534565203609abae9e9e4d7bc24cba39c5bcc6479978eafbc5f8e1e61f938e2e",
+          "stdout_first_line": "PASS S44 (10 assertions)"
+        },
+        {
+          "id": "S45",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "386aba424fb7b1bcec24a736a5c277d6c627939e01a6bd45340ca6dc346ca353",
+          "stdout_first_line": "PASS S45 (7 assertions)"
+        },
+        {
+          "id": "S46",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 17,
+          "stderr": "",
+          "stdout_sha256": "c542a1aa4d21909ae76eed751ccfa9bb4fe4724fb011e26cb165ca11b8a69d57",
+          "stdout_first_line": "PASS S46 (17 assertions)"
+        },
+        {
+          "id": "S47",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 19,
+          "stderr": "",
+          "stdout_sha256": "252b7a661b1ddc279857b965b0e1ae9a5157c5b73e2d1d3db69512c3c41678e7",
+          "stdout_first_line": "PASS S47 (19 assertions)"
+        },
+        {
+          "id": "S48",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 7,
+          "stderr": "",
+          "stdout_sha256": "c43a62f2b3ebcf045bfa13405d7e04ee2d693bdb490e9193b57de1e547a96189",
+          "stdout_first_line": "PASS S48 (7 assertions)"
+        },
+        {
+          "id": "S49",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 12,
+          "stderr": "",
+          "stdout_sha256": "abef5667736c2a6649040527c4b37494a78aeb26b0ea12e6b74e42f56957d8ce",
+          "stdout_first_line": "PASS S49 (12 assertions)"
+        },
+        {
+          "id": "S50",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 4,
+          "stderr": "",
+          "stdout_sha256": "063b0e4bf0c92c7a1159023000e1aaa0303d30e2d4532c036b2f52f72fbc57c7",
+          "stdout_first_line": "PASS S50 (4 assertions)"
+        },
+        {
+          "id": "S51",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 3,
+          "stderr": "",
+          "stdout_sha256": "5e9551ddb28795e2e836c731f8381de30362445b7eab159633eea107ed2ae508",
+          "stdout_first_line": "PASS S51 (3 assertions)"
+        },
+        {
+          "id": "S52",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 5,
+          "stderr": "",
+          "stdout_sha256": "e271dce4274466d2488e67796bffe78ea49c17a4c95aef1f91a3ae0262ffe75d",
+          "stdout_first_line": "PASS S52 (5 assertions)"
+        },
+        {
+          "id": "S53",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 6,
+          "stderr": "",
+          "stdout_sha256": "1b1ffbe30f35c4564c63b6ac8b037f8eff5eb4ca08e2638fab70c3f7cf05ad36",
+          "stdout_first_line": "PASS S53 (6 assertions)"
+        },
+        {
+          "id": "S54",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 2,
+          "stderr": "",
+          "stdout_sha256": "7b648debda3e4e002d7d467b7025f56661fd18e8657f46c23d245b6fa886f54a",
+          "stdout_first_line": "PASS S54 (2 assertions)"
+        },
+        {
+          "id": "S55",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 5,
+          "stderr": "",
+          "stdout_sha256": "b96a60d493626c45f0c1a74c02d3789b20a095d68368476dce21297fa4a2faa2",
+          "stdout_first_line": "PASS S55 (5 assertions)"
+        },
+        {
+          "id": "S56",
+          "exit": 0,
+          "status": "PASS",
+          "assertions": 9,
+          "stderr": "",
+          "stdout_sha256": "76ef9001803ad37721fa0074f4ddcd982c69de90df829c1b73a9c60f16c8faeb",
+          "stdout_first_line": "PASS S56 (9 assertions)"
+        }
+      ]
+    },
+    "negative_control": {
+      "id": "S01",
+      "exit": 1,
+      "status": "FAIL",
+      "assertions": 0,
+      "stdout": "",
+      "stderr": "FAIL S01: deliberate negative control (59)\n",
+      "traces": []
+    },
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-g",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/EvilDuck-stage6/tests/stage28s",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28s/test_main.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage1/mocks/host.cpp",
+      "/workspace/tooling/stage28t-regression-s/scheduler/com.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/backend.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28t-regression-s/native"
+    ],
+    "negative_command": [
+      "g++",
+      "-DSTAGE28S_NEGATIVE_CONTROL",
+      "-std=c++17",
+      "-g",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/EvilDuck-stage6/tests/stage28s",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28s/test_main.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage1/mocks/host.cpp",
+      "/workspace/tooling/stage28t-regression-s/scheduler/com.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/backend.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28t-regression-s/negative"
+    ],
+    "sanitizers": "ASan/UBSan/detect_leaks=1 for completed cases",
+    "hardware": false,
+    "target_build": false,
+    "route": "B selected for native only; LOCAL_SCHEDULER_DONE",
+    "fixtures": [
+      {
+        "file": "tests/stage28s/adapter.cpp",
+        "sha256": "e3b16261b6ff9e5f425477a3660c21d34685dea9271efe8e19a4e4ec26a11c38"
+      },
+      {
+        "file": "tests/stage28s/adapter.h",
+        "sha256": "005442ea809585ce7bf296c8cdf4d033d0ead67c9d3d88001281f15acc4d9061"
+      },
+      {
+        "file": "tests/stage28s/backend.cpp",
+        "sha256": "818ad7e4af21e027d57dc165145b0b2620d9a330d56409b2d190c1d5ed6fb93d"
+      },
+      {
+        "file": "tests/stage28s/backend.h",
+        "sha256": "edf458ae3b65b2a138963369f48086d2adaa6289c79fe275fc1f7b57998f93a3"
+      },
+      {
+        "file": "tests/stage28s/prepare_sources.py",
+        "sha256": "93cb0667f829f4f4c5ab485b8c72e5b4562fc73cadf404cbf606a5ec1136b4ff"
+      },
+      {
+        "file": "tests/stage28s/run_regressions.py",
+        "sha256": "b43946cef57933a9173df28a952c077bd9c3b086f679d25c438920267d8dc1f5"
+      },
+      {
+        "file": "tests/stage28s/run_tests.py",
+        "sha256": "6eee275ea5c1cbb97448ddc0a27c561e513a373705d496ad271b17eeb245d170"
+      },
+      {
+        "file": "tests/stage28s/scheduler.patch",
+        "sha256": "9007fec29d9ab3505630d6b3b088ecd5d46ba3236a3d2960b9feff9f79b60882"
+      },
+      {
+        "file": "tests/stage28s/scheduler_seam.h",
+        "sha256": "77a82a0a97b3f994dd98bad35e614a0eaf0a0991ef69e251d68a888e53e8f03f"
+      },
+      {
+        "file": "tests/stage28s/seam.inc",
+        "sha256": "e15edb0d43c42612108dc644bee0bee33554dc362d357ed431233b17a86f1a6a"
+      },
+      {
+        "file": "tests/stage28s/test_main.cpp",
+        "sha256": "559b32e0962582662b71365dd9e78567c64982ec1ee90c903d9c05d062b97d21"
+      },
+      {
+        "file": "tests/stage28s/test_preparation.py",
+        "sha256": "a9874bafcd459d367dc60cca8fa03909ab8f9be36872507c5c3d0a73c065e6fe"
+      },
+      {
+        "file": "tests/stage28s/verify_scope.py",
+        "sha256": "2a8987cfb9c658c0dffe291b4690692c2d92289a6193ff517357035014d512a1"
+      }
+    ],
+    "receipt_representation": "Per-case status/assertions/stderr plus stdout digest and first line; raw full receipt SHA recorded separately. Prior S traces not duplicated as new T evidence."
+  },
+  "affected_actual_production_regressions": {
+    "suites": {
+      "unchanged_production": {
+        "counts": {
+          "PASS": 77,
+          "FAIL": 0
+        },
+        "assertions": 67371,
+        "results": [
+          {
+            "id": "checked_in_random_jitter_fixture",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS checked_in_random_jitter_fixture (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "default_registry_values",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS default_registry_values (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inclusive_minimum_maximum",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 3,
+            "stdout": "PASS inclusive_minimum_maximum (3 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "equal_bounds_no_entropy",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 4,
+            "stdout": "PASS equal_bounds_no_entropy (4 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "full_uint16_range",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 3,
+            "stdout": "PASS full_uint16_range (3 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_range_atomic_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS reversed_range_atomic_failure (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unbiased_rejection_then_acceptance",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS unbiased_rejection_then_acceptance (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "rejection_budget_exhaustion",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS rejection_budget_exhaustion (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "all_range_residues_balanced",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 1010,
+            "stdout": "PASS all_range_residues_balanced (1010 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "every_uint16_singleton_boundary",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 65537,
+            "stdout": "PASS every_uint16_singleton_boundary (65537 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "seeded_host_replay",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 200,
+            "stdout": "PASS seeded_host_replay (200 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "invalid_literal_range_preflight",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS invalid_literal_range_preflight (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "negative_literal_range_preflight",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS negative_literal_range_preflight (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_boolean_validation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_boolean_validation (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "atomic_internal_write_validation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS atomic_internal_write_validation (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "numeric_bounds_follow_uint16_arithmetic",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 14,
+            "stdout": "PASS numeric_bounds_follow_uint16_arithmetic (14 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_int_readonly",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_int_readonly (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_reserved_declaration",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_reserved_declaration (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unsupported_seed_and_encoding",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS unsupported_seed_and_encoding (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unsupported_scancode_variable",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS unsupported_scancode_variable (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inject_var_still_deferred",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS inject_var_still_deferred (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "restart_still_deferred",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS restart_still_deferred (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_character_prose_alias_unconfirmed",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_character_prose_alias_unconfirmed (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_string_syntax_not_invented",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_string_syntax_not_invented (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_arguments_rejected",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_arguments_rejected (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_prefix_rejected",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_prefix_rejected (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_function_collision",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_function_collision (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "syntax_evaluator_never_draws",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS syntax_evaluator_never_draws (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "compiled_program_never_draws",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS compiled_program_never_draws (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "preflight_invalid_after_random",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS preflight_invalid_after_random (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_expression_each_reference_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_expression_each_reference_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_boolean_eager_expression",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_boolean_eager_expression (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "canonical_random_condition",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS canonical_random_condition (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "legacy_random_condition_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS legacy_random_condition_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "legacy_mixed_numeric_text_preserved",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS legacy_mixed_numeric_text_preserved (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_while_each_header_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_while_each_header_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "function_suspension_preserves_random_operand",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS function_suspension_preserves_random_operand (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "function_return_random_bounds",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS function_return_random_bounds (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "excluded_preprocessing_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS excluded_preprocessing_no_rng (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inactive_runtime_branch_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS inactive_runtime_branch_no_rng (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_bounds_runtime_safe_stop",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS reversed_bounds_runtime_safe_stop (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_bounds_repaired_before_draw",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS reversed_bounds_repaired_before_draw (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "raw_failure_releases_ownership",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS raw_failure_releases_ownership (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "runtime_jitter_boolean_invalid",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS runtime_jitter_boolean_invalid (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "settings_reset_between_runs",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 14,
+            "stdout": "PASS settings_reset_between_runs (14 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_all_sets_us",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 42,
+            "stdout": "PASS random_command_all_sets_us (42 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_special_all_de_locale",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 28,
+            "stdout": "PASS random_special_all_de_locale (28 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_letters_all_de_report_bytes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 58,
+            "stdout": "PASS random_letters_all_de_report_bytes (58 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_repeat_resamples",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_repeat_resamples (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_interpolation_compatibility",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_interpolation_compatibility (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_numeric_delay_consumer",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS random_numeric_delay_consumer (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_function_argument_setting",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_function_argument_setting (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_live_settings_persist_until_reset",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS random_live_settings_persist_until_reset (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_disabled_exact_existing_timing",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 17,
+            "stdout": "PASS jitter_disabled_exact_existing_timing (17 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_zero_max_no_entropy",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_zero_max_no_entropy (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_additive_per_press_timing",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 24,
+            "stdout": "PASS jitter_additive_per_press_timing (24 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_default_and_explicit_delay_independent",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 12,
+            "stdout": "PASS jitter_default_and_explicit_delay_independent (12 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_multiline_enter_and_blank",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_multiline_enter_and_blank (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_named_chord_report_bytes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS jitter_named_chord_report_bytes (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_persistent_modifier_text",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_persistent_modifier_text (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_german_deadkey_strokes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_german_deadkey_strokes (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_backpressure_no_redraw",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_backpressure_no_redraw (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_random_command_backpressure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_random_command_backpressure (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_cancel_pending_interval",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_cancel_pending_interval (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_runtime_source_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_runtime_source_failure (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_release_refusal_safe_retry",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_release_refusal_safe_retry (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_disconnect_reconnect",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 9,
+            "stdout": "PASS jitter_disconnect_reconnect (9 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_clock_wrap_safe",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS jitter_clock_wrap_safe (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_hold_release_idempotence",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_hold_release_idempotence (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_maximum_bound",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_maximum_bound (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "script_storage_read_fault_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS script_storage_read_fault_no_rng (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "script_seek_fault_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS script_seek_fault_no_rng (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_loop_runtime_seek_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS jitter_loop_runtime_seek_failure (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_live_ownership_isolation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_live_ownership_isolation (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "long_seeded_randomized_loop",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS long_seeded_randomized_loop (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_numeric_no_hid",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 9,
+            "stdout": "PASS random_numeric_no_hid (9 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_source_null_default_adapter",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 1,
+            "stdout": "PASS random_source_null_default_adapter (1 assertions)\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "candidate_optin_disabled": {
+        "counts": {
+          "PASS": 77,
+          "FAIL": 0
+        },
+        "assertions": 67371,
+        "results": [
+          {
+            "id": "checked_in_random_jitter_fixture",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS checked_in_random_jitter_fixture (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "default_registry_values",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS default_registry_values (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inclusive_minimum_maximum",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 3,
+            "stdout": "PASS inclusive_minimum_maximum (3 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "equal_bounds_no_entropy",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 4,
+            "stdout": "PASS equal_bounds_no_entropy (4 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "full_uint16_range",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 3,
+            "stdout": "PASS full_uint16_range (3 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_range_atomic_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS reversed_range_atomic_failure (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unbiased_rejection_then_acceptance",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS unbiased_rejection_then_acceptance (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "rejection_budget_exhaustion",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS rejection_budget_exhaustion (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "all_range_residues_balanced",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 1010,
+            "stdout": "PASS all_range_residues_balanced (1010 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "every_uint16_singleton_boundary",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 65537,
+            "stdout": "PASS every_uint16_singleton_boundary (65537 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "seeded_host_replay",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 200,
+            "stdout": "PASS seeded_host_replay (200 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "invalid_literal_range_preflight",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS invalid_literal_range_preflight (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "negative_literal_range_preflight",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS negative_literal_range_preflight (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_boolean_validation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_boolean_validation (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "atomic_internal_write_validation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS atomic_internal_write_validation (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "numeric_bounds_follow_uint16_arithmetic",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 14,
+            "stdout": "PASS numeric_bounds_follow_uint16_arithmetic (14 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_int_readonly",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_int_readonly (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_reserved_declaration",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_reserved_declaration (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unsupported_seed_and_encoding",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS unsupported_seed_and_encoding (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "unsupported_scancode_variable",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS unsupported_scancode_variable (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inject_var_still_deferred",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS inject_var_still_deferred (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "restart_still_deferred",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS restart_still_deferred (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_character_prose_alias_unconfirmed",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_character_prose_alias_unconfirmed (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_string_syntax_not_invented",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_string_syntax_not_invented (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_arguments_rejected",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_arguments_rejected (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_prefix_rejected",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_prefix_rejected (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_function_collision",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_function_collision (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "syntax_evaluator_never_draws",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS syntax_evaluator_never_draws (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "compiled_program_never_draws",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 2,
+            "stdout": "PASS compiled_program_never_draws (2 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "preflight_invalid_after_random",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS preflight_invalid_after_random (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_expression_each_reference_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_expression_each_reference_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_boolean_eager_expression",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_boolean_eager_expression (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "canonical_random_condition",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS canonical_random_condition (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "legacy_random_condition_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS legacy_random_condition_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "legacy_mixed_numeric_text_preserved",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS legacy_mixed_numeric_text_preserved (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_while_each_header_once",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_while_each_header_once (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "function_suspension_preserves_random_operand",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS function_suspension_preserves_random_operand (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "function_return_random_bounds",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS function_return_random_bounds (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "excluded_preprocessing_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS excluded_preprocessing_no_rng (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "inactive_runtime_branch_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS inactive_runtime_branch_no_rng (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_bounds_runtime_safe_stop",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS reversed_bounds_runtime_safe_stop (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "reversed_bounds_repaired_before_draw",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS reversed_bounds_repaired_before_draw (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "raw_failure_releases_ownership",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS raw_failure_releases_ownership (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "runtime_jitter_boolean_invalid",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS runtime_jitter_boolean_invalid (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "settings_reset_between_runs",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 14,
+            "stdout": "PASS settings_reset_between_runs (14 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_all_sets_us",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 42,
+            "stdout": "PASS random_command_all_sets_us (42 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_special_all_de_locale",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 28,
+            "stdout": "PASS random_special_all_de_locale (28 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_letters_all_de_report_bytes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 58,
+            "stdout": "PASS random_letters_all_de_report_bytes (58 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_command_repeat_resamples",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_command_repeat_resamples (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_interpolation_compatibility",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_interpolation_compatibility (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_numeric_delay_consumer",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS random_numeric_delay_consumer (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_function_argument_setting",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS random_function_argument_setting (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_live_settings_persist_until_reset",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS random_live_settings_persist_until_reset (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_disabled_exact_existing_timing",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 17,
+            "stdout": "PASS jitter_disabled_exact_existing_timing (17 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_zero_max_no_entropy",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_zero_max_no_entropy (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_additive_per_press_timing",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 24,
+            "stdout": "PASS jitter_additive_per_press_timing (24 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_default_and_explicit_delay_independent",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 12,
+            "stdout": "PASS jitter_default_and_explicit_delay_independent (12 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_multiline_enter_and_blank",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_multiline_enter_and_blank (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_named_chord_report_bytes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS jitter_named_chord_report_bytes (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_persistent_modifier_text",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_persistent_modifier_text (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_german_deadkey_strokes",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_german_deadkey_strokes (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_backpressure_no_redraw",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_backpressure_no_redraw (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_random_command_backpressure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_random_command_backpressure (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_cancel_pending_interval",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_cancel_pending_interval (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_runtime_source_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_runtime_source_failure (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_release_refusal_safe_retry",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_release_refusal_safe_retry (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_disconnect_reconnect",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 9,
+            "stdout": "PASS jitter_disconnect_reconnect (9 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_clock_wrap_safe",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 6,
+            "stdout": "PASS jitter_clock_wrap_safe (6 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_hold_release_idempotence",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_hold_release_idempotence (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_maximum_bound",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_maximum_bound (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "script_storage_read_fault_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS script_storage_read_fault_no_rng (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "script_seek_fault_no_rng",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 5,
+            "stdout": "PASS script_seek_fault_no_rng (5 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_loop_runtime_seek_failure",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 8,
+            "stdout": "PASS jitter_loop_runtime_seek_failure (8 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "jitter_live_ownership_isolation",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS jitter_live_ownership_isolation (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "long_seeded_randomized_loop",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 7,
+            "stdout": "PASS long_seeded_randomized_loop (7 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_numeric_no_hid",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 9,
+            "stdout": "PASS random_numeric_no_hid (9 assertions)\n",
+            "stderr": ""
+          },
+          {
+            "id": "random_source_null_default_adapter",
+            "status": "PASS",
+            "exit": 0,
+            "assertions": 1,
+            "stdout": "PASS random_source_null_default_adapter (1 assertions)\n",
+            "stderr": ""
+          }
+        ]
+      }
+    },
+    "commands": {
+      "unchanged_production": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-pthread",
+        "-DEVILDUCK_HOST_TEST",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "--coverage",
+        "-I/workspace/tooling/stage28t-regressions/original",
+        "-I/workspace/EvilDuck-stage6/tests/stage28t",
+        "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+        "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+        "-I/workspace/EvilDuck-stage6/language_preview",
+        "/workspace/EvilDuck-stage6/tests/stage14/test_main.cpp",
+        "/workspace/tooling/stage28t-regressions/original/platform.cpp",
+        "/workspace/tooling/stage28t-regressions/original/com.cpp",
+        "/workspace/tooling/stage28t-regressions/original/hid_backend.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+        "-o",
+        "/workspace/tooling/stage28t-regressions/unchanged_production"
+      ],
+      "candidate_optin_disabled": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-pthread",
+        "-DEVILDUCK_HOST_TEST",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "--coverage",
+        "-I/workspace/tooling/stage28t-final-default-off/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28t",
+        "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+        "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+        "-I/workspace/EvilDuck-stage6/language_preview",
+        "/workspace/EvilDuck-stage6/tests/stage14/test_main.cpp",
+        "/workspace/tooling/stage28t-final-default-off/sources/platform.cpp",
+        "/workspace/tooling/stage28t-final-default-off/sources/com.cpp",
+        "/workspace/tooling/stage28t-final-default-off/sources/hid_backend.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+        "-o",
+        "/workspace/tooling/stage28t-final-default-off/default-off"
+      ]
+    },
+    "default_off": "PASS exact output/exit for all cases",
+    "hardware": false,
+    "earlier_default_off": "superseded after final legacy-software-ownership guard; not counted twice"
+  },
+  "preparation_controls": {
+    "PASS": 6,
+    "FAIL": 0,
+    "results": [
+      {
+        "case": "healthy",
+        "status": "PASS"
+      },
+      {
+        "case": "wrong_input",
+        "status": "PASS"
+      },
+      {
+        "case": "wrong_patch",
+        "status": "PASS"
+      },
+      {
+        "case": "wrong_output",
+        "status": "PASS"
+      },
+      {
+        "case": "reused_destination",
+        "status": "PASS"
+      },
+      {
+        "case": "combined_review_patch",
+        "status": "PASS"
+      }
+    ],
+    "hardware": false
+  },
+  "commands": {
+    "primary": [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-DEVILDUCK_NATIVE_REAL_BACKEND_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/tooling/stage28t-final-verified/sources",
+      "-I/workspace/EvilDuck-stage6/tests/stage28t",
+      "-I/workspace/EvilDuck-stage6/tests/stage28t/mocks",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28t/test_main.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/platform.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/com.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/hid_backend.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/lower.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/allocations.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28t-final-verified/native"
+    ],
+    "negative": [
+      "g++",
+      "-DSTAGE28T_NEGATIVE_CONTROL",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-DEVILDUCK_NATIVE_REAL_BACKEND_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/tooling/stage28t-final-verified/sources",
+      "-I/workspace/EvilDuck-stage6/tests/stage28t",
+      "-I/workspace/EvilDuck-stage6/tests/stage28t/mocks",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28t/test_main.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/platform.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/com.cpp",
+      "/workspace/tooling/stage28t-final-verified/sources/hid_backend.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/lower.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28t/allocations.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28t-final-verified/negative"
+    ]
+  },
+  "versions": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "python": "Python 3.12.14",
+    "git": "git version 2.52.0",
+    "patch": "GNU patch 2.8",
+    "gcov": "gcov (Debian 14.2.0-19) 14.2.0"
+  },
+  "sanitizers": "ASan/UBSan/detect_leaks=1 for completed cases",
+  "tested_runtime_fixtures": [
+    {
+      "file": "tests/stage28t/adapter.cpp",
+      "sha256": "ecbcce624f8b2a99d9a7aa7d7919f65e6da32b6435c972d66fea3abb7b643248"
+    },
+    {
+      "file": "tests/stage28t/adapter.h",
+      "sha256": "005442ea809585ce7bf296c8cdf4d033d0ead67c9d3d88001281f15acc4d9061"
+    },
+    {
+      "file": "tests/stage28t/allocations.cpp",
+      "sha256": "1d47e29794562d85c057e2b5859f643c75a89ed6887a0f9c091ad681182f273a"
+    },
+    {
+      "file": "tests/stage28t/allocations.h",
+      "sha256": "1096526237a81fb5b7de68868d09d579c138ca323c77732d9acf0dada06a467b"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.h",
+      "sha256": "e6866293d751caa47367adf7784054da799dd4cc0ada519f969bfbacc80053f8"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.inc",
+      "sha256": "4febe2880e4f89dbfec20d1654f7241ac289b9b0e327b20afcada52937a15a7b"
+    },
+    {
+      "file": "tests/stage28t/candidate.patch",
+      "sha256": "8f6a4a750412958926d19d93c5a0de116f708b463357812432196e3c425be551"
+    },
+    {
+      "file": "tests/stage28t/lower.cpp",
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28t/lower.h",
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28t/mocks/USBHID.h",
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28t/prepare_sources.py",
+      "sha256": "604322a94c5b0ee301a7da5680aef8056d3d8ef81fccfa17aab94df7f3957a21"
+    },
+    {
+      "file": "tests/stage28t/resource_probe.cpp",
+      "sha256": "ef0e44dcdf0465f9dba3774cceadca418806d54af94e582ac2c8d6515c4f26c6"
+    },
+    {
+      "file": "tests/stage28t/run_regressions.py",
+      "sha256": "e0ee115260843ec4d8b4e46756cc5090094b0e542c68090da8cef6a78a2bccf9"
+    },
+    {
+      "file": "tests/stage28t/run_tests.py",
+      "sha256": "cd56ccb2aa3a00e67f92f9d49109242d93cd019e4b884db736883bdbb21d7ab8"
+    },
+    {
+      "file": "tests/stage28t/scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28t/seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28t/test_main.cpp",
+      "sha256": "a7c174a25c3d1291a562f3187efcdbf2afad4e9133d9fa3987b127cf3efeeffc"
+    }
+  ],
+  "raw_receipts": [
+    {
+      "name": "final-verified.json",
+      "sha256": "25e041adfbc219e18ab403db33fdf654446f70c94b85f1cb7829cf5d9ab8225e"
+    },
+    {
+      "name": "regression-s.json",
+      "sha256": "6ebb52c341205fb16234697c4715118a7970a9fe6395f6b5cc68c927d3871941"
+    },
+    {
+      "name": "final-regressions.json",
+      "sha256": "a813fc0283906e4f813f0b0ac0d12dc1cad04efebc6e0041f0dd3d0adbb04081"
+    },
+    {
+      "name": "preparation.json",
+      "sha256": "5ab0ea9ca873249cf95890ecec5847e518a29930874b3f08866964fa994d22f1"
+    }
+  ],
+  "hardware": false,
+  "firmware": false,
+  "accounting": "Primary47/467; S56/512; actual production77/67371; same77/67371 default-off comparison separately. Six preparation controls are static, not runtime groups. Development and superseded runs excluded."
+}

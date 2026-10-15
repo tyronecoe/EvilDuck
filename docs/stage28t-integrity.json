@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "baseline": "5355b4dd76fe57884fb9036348f218dd28634958",
+  "historical_files_paths_modes": 1186,
+  "frozen_stage26_files": 235,
+  "tested_inputs": "PASS",
+  "remote": "NOT REQUESTED",
+  "new_files": [
+    {
+      "file": "docs/stage28t-backend-outcome-contract.md",
+      "bytes": 3968,
+      "sha256": "f60cacf1e2d1e135be75f39e2b6f5f912ebcb9eb5cb5a091e4e4ff5fa469329c"
+    },
+    {
+      "file": "docs/stage28t-coverage.json",
+      "bytes": 29030,
+      "sha256": "77a37c2ad80593f3dd2981193cd4cb97af577df5a915d1062175144b9c47af1e"
+    },
+    {
+      "file": "docs/stage28t-owner-scope.md",
+      "bytes": 1615,
+      "sha256": "c84a43fab0204b6da051150e03f468492e93418af7b5605b42fa096ccba41298"
+    },
+    {
+      "file": "docs/stage28t-producer-inventory.md",
+      "bytes": 4804,
+      "sha256": "9916cde7b724011c23fd557184889fd82afa4337546ff91236be48150465b42c"
+    },
+    {
+      "file": "docs/stage28t-production-integration-proposal.md",
+      "bytes": 2852,
+      "sha256": "9938bd6d638d8681b4def812ca92ad8d37ed83db883f37e02562d74365cbf939"
+    },
+    {
+      "file": "docs/stage28t-report.md",
+      "bytes": 7069,
+      "sha256": "96a0cf9a95b2269216b63a305410a026b174c3d77b591415f3eaf7ee65ce454d"
+    },
+    {
+      "file": "docs/stage28t-resource-and-lifetime-ledger.md",
+      "bytes": 2913,
+      "sha256": "5625955bd3b419652f1dc7c59d00fda6bc51b1813526e7b304a155d26390e5c8"
+    },
+    {
+      "file": "docs/stage28t-source-and-patch-manifest.json",
+      "bytes": 7405,
+      "sha256": "4f28b220a90ed54ead165fba1c493f23fe706ec95c925bc57bba6b944b832fdc"
+    },
+    {
+      "file": "docs/stage28t-test-report.md",
+      "bytes": 5409,
+      "sha256": "8f6252ba356417ba21d01853f45310460d5afe934e142e2b8fe1396212264bfb"
+    },
+    {
+      "file": "docs/stage28t-test-results.json",
+      "bytes": 160268,
+      "sha256": "8c42feb194cabced176b70a1a31554c845cbf641c9381d2c0c585e4342633cd5"
+    },
+    {
+      "file": "tests/stage28t/adapter.cpp",
+      "bytes": 6145,
+      "sha256": "ecbcce624f8b2a99d9a7aa7d7919f65e6da32b6435c972d66fea3abb7b643248"
+    },
+    {
+      "file": "tests/stage28t/adapter.h",
+      "bytes": 2022,
+      "sha256": "005442ea809585ce7bf296c8cdf4d033d0ead67c9d3d88001281f15acc4d9061"
+    },
+    {
+      "file": "tests/stage28t/allocations.cpp",
+      "bytes": 784,
+      "sha256": "1d47e29794562d85c057e2b5859f643c75a89ed6887a0f9c091ad681182f273a"
+    },
+    {
+      "file": "tests/stage28t/allocations.h",
+      "bytes": 93,
+      "sha256": "1096526237a81fb5b7de68868d09d579c138ca323c77732d9acf0dada06a467b"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.h",
+      "bytes": 1045,
+      "sha256": "e6866293d751caa47367adf7784054da799dd4cc0ada519f969bfbacc80053f8"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.inc",
+      "bytes": 3978,
+      "sha256": "4febe2880e4f89dbfec20d1654f7241ac289b9b0e327b20afcada52937a15a7b"
+    },
+    {
+      "file": "tests/stage28t/candidate.patch",
+      "bytes": 12762,
+      "sha256": "8f6a4a750412958926d19d93c5a0de116f708b463357812432196e3c425be551"
+    },
+    {
+      "file": "tests/stage28t/check_preparation.py",
+      "bytes": 2065,
+      "sha256": "6b54a1ded64320d7c76c112998d74c7d4d8b40c7c3981a2b379be518bb9a0fc6"
+    },
+    {
+      "file": "tests/stage28t/lower.cpp",
+      "bytes": 1649,
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28t/lower.h",
+      "bytes": 602,
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28t/mocks/USBHID.h",
+      "bytes": 529,
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28t/prepare_sources.py",
+      "bytes": 1267,
+      "sha256": "604322a94c5b0ee301a7da5680aef8056d3d8ef81fccfa17aab94df7f3957a21"
+    },
+    {
+      "file": "tests/stage28t/production-review-only.patch",
+      "bytes": 17723,
+      "sha256": "4f9ecddf277e7299ef300e2572c6de4f0fee1d57347121e66725c941af600f4e"
+    },
+    {
+      "file": "tests/stage28t/resource_probe.cpp",
+      "bytes": 417,
+      "sha256": "ef0e44dcdf0465f9dba3774cceadca418806d54af94e582ac2c8d6515c4f26c6"
+    },
+    {
+      "file": "tests/stage28t/run_regressions.py",
+      "bytes": 1954,
+      "sha256": "e0ee115260843ec4d8b4e46756cc5090094b0e542c68090da8cef6a78a2bccf9"
+    },
+    {
+      "file": "tests/stage28t/run_tests.py",
+      "bytes": 3568,
+      "sha256": "cd56ccb2aa3a00e67f92f9d49109242d93cd019e4b884db736883bdbb21d7ab8"
+    },
+    {
+      "file": "tests/stage28t/scheduler_seam.h",
+      "bytes": 956,
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28t/seam.inc",
+      "bytes": 5018,
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28t/test_main.cpp",
+      "bytes": 19095,
+      "sha256": "a7c174a25c3d1291a562f3187efcdbf2afad4e9133d9fa3987b127cf3efeeffc"
+    },
+    {
+      "file": "tests/stage28t/verify_scope.py",
+      "bytes": 4557,
+      "sha256": "60975defaf0909531ad3f84d602f5122d8a416a803d14a82805358464bd680ad"
+    }
+  ],
+  "self_excluded": true,
+  "hardware": false,
+  "firmware": false,
+  "phase": "PRECOMMIT; final commit/publication receipt is external",
+  "remote_before": {
+    "count": 44,
+    "snapshot_sha256": "8f6d91e6ac37b9c3dfd071f444f12a8e59faa555ed8acc6f9b299f000d0af7ee",
+    "prepublish_equal": true
+  }
+}

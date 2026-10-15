@@ -1,0 +1,183 @@
+{
+  "parent": "5355b4dd76fe57884fb9036348f218dd28634958",
+  "selector": [
+    "EVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+    "EVILDUCK_NATIVE_REAL_BACKEND_B"
+  ],
+  "inputs": [
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "sha256": "9eec37e589bcc58e7b932f6c90539d96e252177be8f6480dfcea6585b2ca84c4"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072"
+    },
+    {
+      "file": "tests/stage1/mocks/host.cpp",
+      "sha256": "cb817562c171452a67e37fb1d661ceb973498e37ace8e27630a2e8a5ec4d87d2"
+    }
+  ],
+  "stage28s_patch": {
+    "file": "tests/stage28s/scheduler.patch",
+    "sha256": "9007fec29d9ab3505630d6b3b088ecd5d46ba3236a3d2960b9feff9f79b60882"
+  },
+  "patch": {
+    "file": "tests/stage28t/candidate.patch",
+    "sha256": "8f6a4a750412958926d19d93c5a0de116f708b463357812432196e3c425be551"
+  },
+  "intermediate": [
+    {
+      "file": "com.cpp",
+      "sha256": "511e0531de51e9475a765cee8e0f12dc5aa3fa79db0747ea34f4df7bb92203f3"
+    },
+    {
+      "file": "com.h",
+      "sha256": "5110b6633b4c8867db5962028a0090a681f1537afa1f986556c2b9ab42ff5ba2"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "com.cpp",
+      "sha256": "ae298b91dd1e37b1ee0b2bb207eff8b2b7a14613a322fffd480bbdbe654eaaef"
+    },
+    {
+      "file": "com.h",
+      "sha256": "5110b6633b4c8867db5962028a0090a681f1537afa1f986556c2b9ab42ff5ba2"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "a72736a883234e86017b7b9ca8a8f41939c7de9dba3cfe802cdf6e1c5d93e2f2"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "ef73b2b13807d83eff3f99e41157dbe495e98936b9f074ad6c050075f8141313"
+    }
+  ],
+  "installed_changes": false,
+  "target_build": false,
+  "versions": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "python": "Python 3.12.14",
+    "git": "git version 2.52.0",
+    "patch": "GNU patch 2.8",
+    "gcov": "gcov (Debian 14.2.0-19) 14.2.0"
+  },
+  "review_only_patch": {
+    "file": "tests/stage28t/production-review-only.patch",
+    "sha256": "4f9ecddf277e7299ef300e2572c6de4f0fee1d57347121e66725c941af600f4e",
+    "checked": "fresh original sources patched with fuzz0 yield exact final outputs"
+  },
+  "native_seam_files": [
+    {
+      "file": "tests/stage28t/adapter.cpp",
+      "sha256": "ecbcce624f8b2a99d9a7aa7d7919f65e6da32b6435c972d66fea3abb7b643248"
+    },
+    {
+      "file": "tests/stage28t/adapter.h",
+      "sha256": "005442ea809585ce7bf296c8cdf4d033d0ead67c9d3d88001281f15acc4d9061"
+    },
+    {
+      "file": "tests/stage28t/allocations.cpp",
+      "sha256": "1d47e29794562d85c057e2b5859f643c75a89ed6887a0f9c091ad681182f273a"
+    },
+    {
+      "file": "tests/stage28t/allocations.h",
+      "sha256": "1096526237a81fb5b7de68868d09d579c138ca323c77732d9acf0dada06a467b"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.h",
+      "sha256": "e6866293d751caa47367adf7784054da799dd4cc0ada519f969bfbacc80053f8"
+    },
+    {
+      "file": "tests/stage28t/backend_lease.inc",
+      "sha256": "4febe2880e4f89dbfec20d1654f7241ac289b9b0e327b20afcada52937a15a7b"
+    },
+    {
+      "file": "tests/stage28t/lower.cpp",
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28t/lower.h",
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28t/mocks/USBHID.h",
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28t/resource_probe.cpp",
+      "sha256": "ef0e44dcdf0465f9dba3774cceadca418806d54af94e582ac2c8d6515c4f26c6"
+    },
+    {
+      "file": "tests/stage28t/scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28t/seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28t/test_main.cpp",
+      "sha256": "a7c174a25c3d1291a562f3187efcdbf2afad4e9133d9fa3987b127cf3efeeffc"
+    }
+  ],
+  "native_binaries": [
+    {
+      "name": "native",
+      "sha256": "2ff98c589eb0dd41468aabc6150dd2dd599343cd7cf05b01e3020f24ce99fe28",
+      "kind": "native Linux test executable; not firmware; not committed"
+    },
+    {
+      "name": "negative",
+      "sha256": "ffaa32866837695841887f04580c09ecbdc4d1e56c5c9526503ab207c79d4664",
+      "kind": "native Linux test executable; not firmware; not committed"
+    }
+  ],
+  "protected_dependency_verification": {
+    "status": "PASS",
+    "action": "read-only check_sources(patched=True); no compilation or dependency mutation",
+    "pin": {
+      "core_version": "3.3.0",
+      "baseline": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "original_tree_sha256": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "patched_tree_sha256": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271"
+    },
+    "keyboard_source_sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64"
+  },
+  "platform_boundary": "host.cpp copied byte-identical into fresh scratch platform.cpp to enforce one USBHID header definition; lower USBHID.ready/tud_hid_n_report mocked; USB/Keyboard/Arduino/storage/attackmode/clock from existing RAM platform mocks; actual com/backend/preview execute",
+  "commands_receipt": "docs/stage28t-test-results.json",
+  "patch_origin": "Original repository license and source retained in disposable copies; no vendor source tree committed"
+}

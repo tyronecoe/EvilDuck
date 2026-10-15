@@ -1,0 +1,392 @@
+--- com.cpp
++++ com.cpp
+@@ -504,13 +504,16 @@
+ 
+ void update() {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(routeExternal()&&!backend_b::permitted())return;
++#endif
+ #ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
+   if(routeExternal()&&!route.cancelled&&!route_b::environment()){session.error="RouteB HID/layout lost";fail();return;}
+ #endif
+   attackmode::update();
+   hid_backend::update(); // Cancellation releases are serviced even when idle.
+ #ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
+-  if(routeExternal()&&!route.cancelled&&*hid_backend::reportError()){session.error=hid_backend::reportError();fail();return;}
++  if(routeExternal()&&!route.cancelled&&backend_b::fatal()){session.error="RouteB backend observation failure";fail();return;}
+ #endif
+   if (hid_backend::takeTransportLoss()) {
+     if (session.scriptOwned || session.phase != Phase::Idle) {
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -8,6 +8,10 @@
+ #include "USBHIDKeyboard.h"
+ #include "execution_guard.h"
+ #include <atomic>
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#include "backend_lease.h"
++#include <thread>
++#endif
+ 
+ static USBHID HID;
+ class FeedbackKeyboard : public USBHIDKeyboard {
+@@ -53,6 +57,10 @@
+   }
+ }
+ }
++
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#include "backend_lease.inc"
++#endif
+ 
+ namespace {
+ constexpr uint8_t HID_A = 0x04;
+@@ -121,6 +129,11 @@
+ namespace hid_backend {
+ 
+ void begin() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++#endif
++
+   invalidateLockState();
+   USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbEvent);
+   HID.begin();
+@@ -244,21 +257,57 @@
+ }
+ 
+ void pressModifier(uint8_t modMask) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   applyModifiers(modMask);
+ }
+ 
+ void pressKeyHeld(uint8_t hidKeycode) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   Keyboard.pressRaw(hidKeycode);
+ }
+ 
+-static bool queueRaw(const Owned &state) {
++static bool queueRaw(const Owned &state, [[maybe_unused]] bool clear = false) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(lease.active){
++    if(!backendAllowed()||lease.quarantined)return false;
++    if(lease.sequence==UINT64_MAX){backendObserve(backend_b::Kind::Exhausted);return false;}
++  }
++#endif
+   // A loss can arrive after update() but before this enqueue attempt.
+-  if (disconnectEvent.load() || !static_cast<bool>(USB) || !HID.ready()) return false;
++  if (disconnectEvent.load() || !static_cast<bool>(USB) || !HID.ready()) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++    backendObserve(backend_b::Kind::NoCall,false,false,clear);
++#endif
++    return false;
++  }
+   hid_keyboard_report_t report = {};
+   report.modifier = state.modifiers;
+   memcpy(report.keycode, state.keys, sizeof(state.keys));
+   // Fixed eight-byte report, report ID 1; endpoint acceptance is not host ACK.
+-  return tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(lease.active)lease.inIo=true;
++#endif
++  const bool submitted=tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(lease.active){
++    lease.inIo=false;
++    const bool lost=disconnectEvent.load()||!static_cast<bool>(USB);
++    backendObserve(lost?backend_b::Kind::Loss:submitted?backend_b::Kind::Submitted:backend_b::Kind::CalledFalse,true,submitted,clear);
++    if(clear&&submitted&&!lease.quarantined)lease.clearSubmitted=lease.clearRequest;
++    if(lease.quarantined)return false;
++  }
++#endif
++  return submitted;
+ }
+ static bool append(Owned &state, uint8_t key) {
+   if (key >= 0xE0 && key <= 0xE7) { state.modifiers |= 1 << (key - 0xE0); return true; }
+@@ -271,21 +320,41 @@
+ }
+ bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(!backendAllowed()){return false;}
++#endif
+   failure = "";
+-  if (keyCount > 6 || (keyCount && !keys)) { failure = "Invalid keyboard report"; return false; }
++  if (keyCount > 6 || (keyCount && !keys)) { failure = "Invalid keyboard report";
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  backendObserve(backend_b::Kind::Invalid);
++#endif
++  return false; }
+   Owned merged = owned;
+   merged.modifiers |= modifiers;
+-  for (uint8_t i = 0; i < keyCount; ++i) if (!append(merged, keys[i])) return false;
++  for (uint8_t i = 0; i < keyCount; ++i) if (!append(merged, keys[i])) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++    backendObserve(backend_b::Kind::Invalid);
++#endif
++    return false;
++  }
+   if (releasePending || ownershipDirty) return false;
+   return queueRaw(merged);
+ }
+ bool releaseReport() {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(!backendAllowed()){return false;}
++#endif
+   failure = "";
+   if (releasePending || ownershipDirty) return false;
+   return queueRaw(owned);
+ }
+ bool hold(uint8_t modifier, uint8_t key) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
++#endif
++
+   execution::Guard guard;
+   failure = "";
+   Owned proposed = owned;
+@@ -298,6 +367,11 @@
+   return true;
+ }
+ bool release(uint8_t modifier, uint8_t key) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
++#endif
++
+   execution::Guard guard;
+   failure = "";
+   Owned proposed = owned;
+@@ -323,14 +397,24 @@
+   for (uint8_t key : owned.keys) if (key) return true;
+   return false;
+ }
+-bool clearing() { execution::Guard guard; return releasePending; }
++bool clearing() { execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(lease.active&&lease.quarantined)return true;
++#endif
++  return releasePending; }
+ const char *reportError() { execution::Guard guard; return failure; }
+ bool takeTransportLoss() {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(!backendAllowed()){return false;}
++#endif
+   bool lost = transportLoss; transportLoss = false; return lost;
+ }
+ void update() {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(!backendAllowed()){return;}
++#endif
+   const bool mounted = static_cast<bool>(USB); // ESPUSB: started && device mounted.
+   const bool notified = disconnectEvent.exchange(false);
+   if (notified || (wasMounted && !mounted)) {
+@@ -339,21 +423,36 @@
+     ownershipDirty = false;
+     releasePending = true;
+     transportLoss = true;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++    backendObserve(backend_b::Kind::Loss);
++#endif
+   }
+   wasMounted = mounted;
+-  if (releasePending) { if (queueRaw(Owned())) releasePending = false; }
++  if (releasePending) { if (queueRaw(Owned(), true)) releasePending = false; }
+   else if (ownershipDirty && queueRaw(owned)) ownershipDirty = false;
+ }
+ void cancelReport() {
+   execution::Guard guard;
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  if(!backendAllowed()){return;}
++#endif
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  backendClearRequest(); // Quarantine suppresses lower calls, not logical clearing intent.
++#endif
+   owned = Owned();
+   ownershipDirty = false;
+   releasePending = true;
+   // Service the zero report without consuming transport-loss observations.
+-  if (queueRaw(Owned())) releasePending = false;
++  if (queueRaw(Owned(), true)) releasePending = false;
+ }
+ 
+ void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   // Preserve the legacy synchronous helper API for callers outside the
+   // scheduler. Runtime execution uses only the nonblocking methods above.
+   applyModifiers(modifiers);
+@@ -364,11 +463,23 @@
+ }
+ 
+ void pressKeycode(uint8_t hidKeycode, uint8_t modifiers) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   pressReport(modifiers, &hidKeycode, hidKeycode ? 1 : 0);
+   releaseAll();
+ }
+ 
+ bool pressNamedCombo(const String &keyName, uint8_t modifiers) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
++  lease.legacyDirty=true;
++#endif
++
+   uint8_t keycode = 0;
+   if (!keyNameToHid(keyName, keycode)) return false;
+   pressKeycode(keycode, modifiers);
+@@ -376,27 +487,107 @@
+ }
+ 
+ void releaseAll() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++#endif
++
+   Keyboard.releaseAll();
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  lease.legacyDirty=false; // known software clear only, never host acknowledgement
++#endif
+ }
+ 
+ void sendText(const String &text) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   Keyboard.print(text);
+ }
+ 
+ void sendTextLn(const String &text) {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++
+   Keyboard.print(text);
+   pressEnter();
+ }
+ 
+-void pressEnter() { pressKeycode(HID_ENTER, 0); }
+-void pressTab() { pressKeycode(HID_TAB, 0); }
+-void pressEscape() { pressKeycode(HID_ESCAPE, 0); }
+-void pressSpace() { pressKeycode(HID_SPACE, 0); }
+-void pressBackspace() { pressKeycode(HID_BACKSPACE, 0); }
+-void pressDelete() { pressKeycode(HID_DELETE, 0); }
+-void pressArrowUp() { pressKeycode(HID_UP, 0); }
+-void pressArrowDown() { pressKeycode(HID_DOWN, 0); }
+-void pressArrowLeft() { pressKeycode(HID_LEFT, 0); }
+-void pressArrowRight() { pressKeycode(HID_RIGHT, 0); }
+-
+-}
++void pressEnter() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_ENTER, 0); }
++void pressTab() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_TAB, 0); }
++void pressEscape() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_ESCAPE, 0); }
++void pressSpace() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_SPACE, 0); }
++void pressBackspace() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_BACKSPACE, 0); }
++void pressDelete() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_DELETE, 0); }
++void pressArrowUp() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_UP, 0); }
++void pressArrowDown() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_DOWN, 0); }
++void pressArrowLeft() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_LEFT, 0); }
++void pressArrowRight() {
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++  execution::Guard leaseGuard;
++  if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
++  lease.legacyDirty=true;
++#endif
++ pressKeycode(HID_RIGHT, 0); }
++
++}
+--- hid_backend.h
++++ hid_backend.h
+@@ -52,3 +52,7 @@
+   void pressArrowLeft();
+   void pressArrowRight();
+ }
++
++#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#include "backend_lease.h"
++#endif

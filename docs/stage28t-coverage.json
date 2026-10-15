@@ -1,0 +1,858 @@
+{
+  "com.cpp": {
+    "executed_functions": [
+      {
+        "symbol": "_ZN12_GLOBAL__N_18trimLineERK6String",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "94%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_116startsWithNoCaseERK6StringPKc",
+        "calls": 51,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_112equalsNoCaseERK6StringPKc",
+        "calls": 9,
+        "returned": "100%",
+        "blocks_executed": "77%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_17waitForEjNS_5PhaseE",
+        "calls": 303,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_116releaseOwnedKeysEv",
+        "calls": 147,
+        "returned": "100%",
+        "blocks_executed": "86%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_110jitterWaitENS_5PhaseE",
+        "calls": 154,
+        "returned": "100%",
+        "blocks_executed": "32%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_16reportEhPKhhNS_5PhaseE",
+        "calls": 154,
+        "returned": "100%",
+        "blocks_executed": "75%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_19startTextERK6StringbNS_5PhaseEh",
+        "calls": 143,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_19startLineEv",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "16%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_14failEv",
+        "calls": 12,
+        "returned": "100%",
+        "blocks_executed": "69%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_16submitERK6Stringb",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "93%"
+      },
+      {
+        "symbol": "_ZN3com6onDoneEPFvvE",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "94%"
+      },
+      {
+        "symbol": "_ZN3com7onErrorEPFvvE",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "72%"
+      },
+      {
+        "symbol": "_ZN3com19statusLedOverriddenEv",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "86%"
+      },
+      {
+        "symbol": "_ZN3com11beginScriptEv",
+        "calls": 44,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN3com9endScriptEv",
+        "calls": 131,
+        "returned": "100%",
+        "blocks_executed": "82%"
+      },
+      {
+        "symbol": "_ZN3com4busyEv",
+        "calls": 108,
+        "returned": "100%",
+        "blocks_executed": "93%"
+      },
+      {
+        "symbol": "_ZN3com4sendERK6String",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN3com8sendTextERK6Stringb",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "24%"
+      },
+      {
+        "symbol": "_ZN3com10executeNowERK6String",
+        "calls": 4,
+        "returned": "100%",
+        "blocks_executed": "41%"
+      },
+      {
+        "symbol": "_ZN3com6updateEv",
+        "calls": 11130,
+        "returned": "100%",
+        "blocks_executed": "22%"
+      }
+    ]
+  },
+  "hid_backend.cpp": {
+    "executed_functions": [
+      {
+        "symbol": "_ZN12_GLOBAL__N_18usbEventEPvPKciS0_",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN11hid_backend5beginEv",
+        "calls": 48,
+        "returned": "100%",
+        "blocks_executed": "67%"
+      },
+      {
+        "symbol": "_ZN11hid_backend19invalidateLockStateEv",
+        "calls": 50,
+        "returned": "100%",
+        "blocks_executed": "94%"
+      },
+      {
+        "symbol": "_ZN11hid_backend13pressModifierEh",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "58%"
+      },
+      {
+        "symbol": "_ZN11hid_backend12pressKeyHeldEh",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN11hid_backendL8queueRawERKN12_GLOBAL__N_15OwnedEb",
+        "calls": 9445,
+        "returned": "100%",
+        "blocks_executed": "86%"
+      },
+      {
+        "symbol": "_ZN11hid_backendL6appendERN12_GLOBAL__N_15OwnedEh",
+        "calls": 157,
+        "returned": "100%",
+        "blocks_executed": "72%"
+      },
+      {
+        "symbol": "_ZN11hid_backend11beginReportEhPKhh",
+        "calls": 162,
+        "returned": "100%",
+        "blocks_executed": "74%"
+      },
+      {
+        "symbol": "_ZN11hid_backend13releaseReportEv",
+        "calls": 144,
+        "returned": "100%",
+        "blocks_executed": "69%"
+      },
+      {
+        "symbol": "_ZN11hid_backend4holdEhh",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "70%"
+      },
+      {
+        "symbol": "_ZN11hid_backend7releaseEhh",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "26%"
+      },
+      {
+        "symbol": "_ZN11hid_backend13hasPersistentEv",
+        "calls": 221,
+        "returned": "100%",
+        "blocks_executed": "95%"
+      },
+      {
+        "symbol": "_ZN11hid_backend8clearingEv",
+        "calls": 9309,
+        "returned": "100%",
+        "blocks_executed": "81%"
+      },
+      {
+        "symbol": "_ZN11hid_backend11reportErrorEv",
+        "calls": 10,
+        "returned": "100%",
+        "blocks_executed": "92%"
+      },
+      {
+        "symbol": "_ZN11hid_backend17takeTransportLossEv",
+        "calls": 11127,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN11hid_backend6updateEv",
+        "calls": 11130,
+        "returned": "100%",
+        "blocks_executed": "72%"
+      },
+      {
+        "symbol": "_ZN11hid_backend12cancelReportEv",
+        "calls": 130,
+        "returned": "100%",
+        "blocks_executed": "79%"
+      },
+      {
+        "symbol": "_ZN11hid_backend11pressReportEhPKhh",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "39%"
+      },
+      {
+        "symbol": "_ZN11hid_backend12pressKeycodeEhh",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "52%"
+      },
+      {
+        "symbol": "_ZN11hid_backend15pressNamedComboERK6Stringh",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "61%"
+      },
+      {
+        "symbol": "_ZN11hid_backend10releaseAllEv",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN11hid_backend8sendTextERK6String",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "65%"
+      },
+      {
+        "symbol": "_ZN11hid_backend10sendTextLnERK6String",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "65%"
+      },
+      {
+        "symbol": "_ZN11hid_backend10pressEnterEv",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "58%"
+      }
+    ]
+  },
+  "core.cpp": {
+    "executed_functions": [
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15whiteEc",
+        "calls": 1073,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_16letterEc",
+        "calls": 85,
+        "returned": "100%",
+        "blocks_executed": "75%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15digitEc",
+        "calls": 154,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15identEPKc",
+        "calls": 4,
+        "returned": "100%",
+        "blocks_executed": "53%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_14leftEPc",
+        "calls": 167,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15rightEPc",
+        "calls": 270,
+        "returned": "100%",
+        "blocks_executed": "92%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15exactEPKcS2_",
+        "calls": 1213,
+        "returned": "100%",
+        "blocks_executed": "60%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_15wholeEPKcS2_",
+        "calls": 8,
+        "returned": "100%",
+        "blocks_executed": "79%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_17commandEPKcS2_",
+        "calls": 1209,
+        "returned": "100%",
+        "blocks_executed": "81%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_18argumentEPc",
+        "calls": 59,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_18findNameEPA24_KcmPS1_",
+        "calls": 16,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_112functionNameEPKcRA24_c",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "82%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_13keyEPKc",
+        "calls": 12,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_18ownedKeyEPKc",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "59%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12_GLOBAL__N_18reservedEPKc",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZNK10ds_preview7Program17ownershipCommandsEv",
+        "calls": 46,
+        "returned": "100%",
+        "blocks_executed": "93%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression4failENS_9ErrorCodeE",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression4nextEv",
+        "calls": 101,
+        "returned": "100%",
+        "blocks_executed": "86%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression10precedenceEPKc",
+        "calls": 34,
+        "returned": "100%",
+        "blocks_executed": "75%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression5applyEPKcNS0_5ValueES3_",
+        "calls": 27,
+        "returned": "100%",
+        "blocks_executed": "31%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression4emitENS_8ExprKindEtt",
+        "calls": 66,
+        "returned": "100%",
+        "blocks_executed": "95%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression10binaryCodeEPKc",
+        "calls": 17,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression5parseEij",
+        "calls": 51,
+        "returned": "100%",
+        "blocks_executed": "85%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10ExpressionC2ERKNS_7ProgramEPKNS_7RuntimeEPKcPNS_12ContinuationEb",
+        "calls": 43,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression8evaluateERtPb",
+        "calls": 33,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN10ds_preview10Expression7operateERKNS_7ProgramEtttRt",
+        "calls": 10,
+        "returned": "100%",
+        "blocks_executed": "80%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4failENS_9ErrorCodeEt",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4skipEPc",
+        "calls": 144,
+        "returned": "100%",
+        "blocks_executed": "28%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler9addSymbolEPKc",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler6expandEPKcRA257_c",
+        "calls": 57,
+        "returned": "100%",
+        "blocks_executed": "36%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4emitENS_2OpEPKctht",
+        "calls": 69,
+        "returned": "100%",
+        "blocks_executed": "91%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler8textLineEPcj",
+        "calls": 4,
+        "returned": "100%",
+        "blocks_executed": "96%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler8openTextEPKcj",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "97%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4exprEPKc",
+        "calls": 9,
+        "returned": "100%",
+        "blocks_executed": "84%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler2fnEPKc",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "95%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4pushENS_2OpEt",
+        "calls": 4,
+        "returned": "100%",
+        "blocks_executed": "91%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler9conditionEPcRA257_cb",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "84%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler9statementEPc",
+        "calls": 72,
+        "returned": "100%",
+        "blocks_executed": "71%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler7enqueueEt",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "97%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4lineEv",
+        "calls": 150,
+        "returned": "100%",
+        "blocks_executed": "82%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4byteEh",
+        "calls": 1616,
+        "returned": "100%",
+        "blocks_executed": "49%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8CompilerC2ERNS_7ProgramENS_6ReaderE",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler6detachEv",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview8Compiler4stepERNS_11CompileWorkE",
+        "calls": 967,
+        "returned": "100%",
+        "blocks_executed": "80%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12MemoryReader4readEPvPcm",
+        "calls": 309,
+        "returned": "100%",
+        "blocks_executed": "91%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12MemoryReader4seekEPvm",
+        "calls": 142,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview12MemoryReader6readerEv",
+        "calls": 95,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview14CompileSessionD2Ev",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview14CompileSession6finishENS_12CompileStateE",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview14CompileSession5startERNS_7ProgramENS_6ReaderEPKcj",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "86%"
+      },
+      {
+        "symbol": "_ZN10ds_preview14CompileSession4stepEv",
+        "calls": 967,
+        "returned": "100%",
+        "blocks_executed": "64%"
+      },
+      {
+        "symbol": "_ZZN10ds_preview14CompileSession4stepEvEN5GuardD2Ev",
+        "calls": 967,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview14CompileSession6cancelEv",
+        "calls": 92,
+        "returned": "100%",
+        "blocks_executed": "33%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime14releaseProgramEv",
+        "calls": 82,
+        "returned": "100%",
+        "blocks_executed": "94%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime5startERKNS_7ProgramEPFNS_6AcceptEPvRKNS_5EventEES5_jjj",
+        "calls": 41,
+        "returned": "100%",
+        "blocks_executed": "90%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime6cancelEv",
+        "calls": 93,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime18clearContinuationsEv",
+        "calls": 63,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime9enterCallEhbt",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "92%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime14returnFromCallEbt",
+        "calls": 3,
+        "returned": "100%",
+        "blocks_executed": "90%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime14evaluationStepEj",
+        "calls": 52,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime7deliverEj",
+        "calls": 1674,
+        "returned": "100%",
+        "blocks_executed": "82%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime4tickEj",
+        "calls": 1853,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZZN10ds_preview7Runtime4tickEjEN9TickGuardD2Ev",
+        "calls": 1853,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN10ds_preview7Runtime19completeInstructionEjt",
+        "calls": 75,
+        "returned": "100%",
+        "blocks_executed": "84%"
+      }
+    ]
+  },
+  "seam.inc": {
+    "executed_functions": [
+      {
+        "symbol": "_ZN12_GLOBAL__N_111routeFinishEN7route_b10ResultKindE",
+        "calls": 188,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_113routeExternalEv",
+        "calls": 33998,
+        "returned": "100%",
+        "blocks_executed": "75%"
+      },
+      {
+        "symbol": "_ZN7route_b5driveEm",
+        "calls": 10980,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN7route_b11environmentEv",
+        "calls": 5670,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN7route_b7acquireERm",
+        "calls": 50,
+        "returned": "100%",
+        "blocks_executed": "81%"
+      },
+      {
+        "symbol": "_ZN7route_bL5admitEmtbRNS_2IdE",
+        "calls": 153,
+        "returned": "100%",
+        "blocks_executed": "78%"
+      },
+      {
+        "symbol": "_ZN7route_b9characterEmtRNS_2IdE",
+        "calls": 142,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN7route_b3keyEmtRNS_2IdE",
+        "calls": 11,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN7route_b6resultEm",
+        "calls": 1562,
+        "returned": "100%",
+        "blocks_executed": "83%"
+      },
+      {
+        "symbol": "_ZN7route_b7consumeENS_6ResultE",
+        "calls": 133,
+        "returned": "100%",
+        "blocks_executed": "92%"
+      },
+      {
+        "symbol": "_ZN7route_b6cancelEm",
+        "calls": 42,
+        "returned": "100%",
+        "blocks_executed": "69%"
+      },
+      {
+        "symbol": "_ZN7route_b8clearingEm",
+        "calls": 9074,
+        "returned": "100%",
+        "blocks_executed": "71%"
+      },
+      {
+        "symbol": "_ZN7route_b6detachEm",
+        "calls": 32,
+        "returned": "100%",
+        "blocks_executed": "76%"
+      },
+      {
+        "symbol": "_ZN7route_b5phaseEv",
+        "calls": 522,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN7route_b14exhaustForTestEbb",
+        "calls": 2,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      }
+    ]
+  },
+  "backend_lease.inc": {
+    "executed_functions": [
+      {
+        "symbol": "_ZN12_GLOBAL__N_114backendAllowedEv",
+        "calls": 43111,
+        "returned": "100%",
+        "blocks_executed": "83%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_114backendObserveEN9backend_b4KindEbbb",
+        "calls": 388,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      },
+      {
+        "symbol": "_ZN12_GLOBAL__N_119backendClearRequestEv",
+        "calls": 89,
+        "returned": "100%",
+        "blocks_executed": "70%"
+      },
+      {
+        "symbol": "_ZN9backend_b9permittedEv",
+        "calls": 10981,
+        "returned": "100%",
+        "blocks_executed": "92%"
+      },
+      {
+        "symbol": "_ZN9backend_b6statusEv",
+        "calls": 429,
+        "returned": "100%",
+        "blocks_executed": "77%"
+      },
+      {
+        "symbol": "_ZN9backend_b5fatalEv",
+        "calls": 12869,
+        "returned": "100%",
+        "blocks_executed": "85%"
+      },
+      {
+        "symbol": "_ZN9backend_b5ScopeC2Emm",
+        "calls": 11067,
+        "returned": "100%",
+        "blocks_executed": "90%"
+      },
+      {
+        "symbol": "_ZN9backend_b5ScopeD2Ev",
+        "calls": 11067,
+        "returned": "100%",
+        "blocks_executed": "94%"
+      },
+      {
+        "symbol": "_ZN9backend_b7acquireEm",
+        "calls": 45,
+        "returned": "100%",
+        "blocks_executed": "87%"
+      },
+      {
+        "symbol": "_ZN9backend_b4bindEmm",
+        "calls": 152,
+        "returned": "100%",
+        "blocks_executed": "82%"
+      },
+      {
+        "symbol": "_ZN9backend_b7cleanupEm",
+        "calls": 42,
+        "returned": "100%",
+        "blocks_executed": "81%"
+      },
+      {
+        "symbol": "_ZN9backend_b7releaseEm",
+        "calls": 32,
+        "returned": "100%",
+        "blocks_executed": "83%"
+      },
+      {
+        "symbol": "_ZN9backend_b18sharedStorageBytesEv",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN9backend_b21perThreadStorageBytesEv",
+        "calls": 47,
+        "returned": "100%",
+        "blocks_executed": "100%"
+      },
+      {
+        "symbol": "_ZN9backend_b14exhaustForTestEv",
+        "calls": 1,
+        "returned": "100%",
+        "blocks_executed": "88%"
+      }
+    ]
+  },
+  "summary": "File '/workspace/tooling/stage28t-final-verified/sources/com.cpp'\nLines executed:47.07% of 478\nBranches executed:40.51% of 1069\nTaken at least once:22.73% of 1069\nCalls executed:31.09% of 920\nCreating 'com.cpp.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage1/mocks/Arduino.h'\nLines executed:35.56% of 45\nBranches executed:32.81% of 128\nTaken at least once:17.97% of 128\nCalls executed:17.19% of 2112\nCreating 'Arduino.h.gcov'\n\nFile '/usr/include/c++/14/bits/stl_iterator.h'\nLines executed:68.97% of 29\nNo branches\nCalls executed:50.00% of 54\nCreating 'stl_iterator.h.gcov'\n\nFile '/usr/include/c++/14/bits/basic_string.tcc'\nLines executed:0.00% of 65\nBranches executed:0.00% of 32\nTaken at least once:0.00% of 32\nCalls executed:0.00% of 88\nCreating 'basic_string.tcc.gcov'\n\nFile '/usr/include/c++/14/bits/stl_iterator_base_funcs.h'\nLines executed:0.00% of 4\nBranches executed:0.00% of 8\nTaken at least once:0.00% of 8\nNo calls\nCreating 'stl_iterator_base_funcs.h.gcov'\n\nFile '/usr/include/c++/14/bits/basic_string.h'\nLines executed:27.94% of 68\nBranches executed:31.37% of 102\nTaken at least once:16.67% of 102\nCalls executed:12.73% of 1988\nCreating 'basic_string.h.gcov'\n\nFile '/usr/include/c++/14/bits/std_mutex.h'\nLines executed:86.96% of 23\nBranches executed:100.00% of 2\nTaken at least once:50.00% of 2\nCalls executed:79.41% of 34\nCreating 'std_mutex.h.gcov'\n\nFile '/usr/include/c++/14/mutex'\nLines executed:58.82% of 17\nBranches executed:50.00% of 4\nTaken at least once:25.00% of 4\nCalls executed:60.00% of 10\nCreating 'mutex.gcov'\n\nFile '/usr/include/x86_64-linux-gnu/c++/14/bits/gthr-default.h'\nLines executed:100.00% of 22\nBranches executed:100.00% of 8\nTaken at least once:50.00% of 8\nCalls executed:87.50% of 8\nCreating 'gthr-default.h.gcov'\n\nFile '/usr/include/c++/14/bits/move.h'\nLines executed:0.00% of 15\nNo branches\nCalls executed:0.00% of 20\nCreating 'move.h.gcov'\n\nFile '/usr/include/c++/14/bits/stl_algobase.h'\nLines executed:44.44% of 9\nBranches executed:50.00% of 4\nTaken at least once:25.00% of 4\nCalls executed:50.00% of 8\nCreating 'stl_algobase.h.gcov'\n\nFile '/usr/include/c++/14/bits/allocator.h'\nLines executed:50.00% of 4\nBranches executed:50.00% of 16\nTaken at least once:25.00% of 16\nCalls executed:13.29% of 429\nCreating 'allocator.h.gcov'\n\nFile '/usr/include/c++/14/bits/new_allocator.h'\nLines executed:66.67% of 3\nBranches executed:50.00% of 16\nTaken at least once:25.00% of 16\nCalls executed:16.03% of 156\nCreating 'new_allocator.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/EvilDuckS3/execution_guard.h'\nLines executed:100.00% of 5\nBranches executed:78.69% of 122\nTaken at least once:39.34% of 122\nCalls executed:58.90% of 725\nCreating 'execution_guard.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage28t/seam.inc'\nLines executed:98.28% of 58\nBranches executed:99.15% of 235\nTaken at least once:58.72% of 235\nCalls executed:94.62% of 130\nCreating 'seam.inc.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage28t/backend_lease.h'\nLines executed:100.00% of 1\nBranches executed:100.00% of 12\nTaken at least once:50.00% of 12\nCalls executed:100.00% of 3\nCreating 'backend_lease.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage28t/scheduler_seam.h'\nLines executed:100.00% of 1\nBranches executed:100.00% of 4\nTaken at least once:50.00% of 4\nNo calls\nCreating 'scheduler_seam.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.h'\nLines executed:100.00% of 1\nNo branches\nCalls executed:40.43% of 47\nCreating 'script_parser.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/EvilDuckS3/storage.h'\nLines executed:0.00% of 1\nNo branches\nCalls executed:0.00% of 34\nCreating 'storage.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.h'\nNo executable lines\nNo branches\nNo calls\nRemoving 'duck_keys.h.gcov'\n\nFile '/usr/include/c++/14/bits/char_traits.h'\nLines executed:35.90% of 39\nBranches executed:21.43% of 28\nTaken at least once:10.71% of 28\nCalls executed:50.00% of 8\nCreating 'char_traits.h.gcov'\n\nFile '/workspace/tooling/stage28t-final-verified/sources/hid_backend.cpp'\nLines executed:45.61% of 353\nBranches executed:29.63% of 810\nTaken at least once:18.52% of 810\nCalls executed:19.40% of 907\nCreating 'hid_backend.cpp.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage28t/backend_lease.inc'\nLines executed:100.00% of 46\nBranches executed:100.00% of 218\nTaken at least once:58.72% of 218\nCalls executed:98.81% of 84\nCreating 'backend_lease.inc.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage1/mocks/USBHIDKeyboard.h'\nLines executed:50.00% of 6\nBranches executed:50.00% of 8\nTaken at least once:25.00% of 8\nCalls executed:35.00% of 20\nCreating 'USBHIDKeyboard.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage1/mocks/USB.h'\nLines executed:100.00% of 2\nBranches executed:53.85% of 26\nTaken at least once:26.92% of 26\nCalls executed:100.00% of 3\nCreating 'USB.h.gcov'\n\nFile '/usr/include/c++/14/atomic'\nLines executed:100.00% of 6\nBranches executed:50.00% of 16\nTaken at least once:43.75% of 16\nCalls executed:54.29% of 35\nCreating 'atomic.gcov'\n\nFile '/usr/include/c++/14/bits/atomic_base.h'\nLines executed:100.00% of 13\nBranches executed:50.00% of 16\nTaken at least once:43.75% of 16\nCalls executed:60.00% of 10\nCreating 'atomic_base.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/tests/stage28t/mocks/USBHID.h'\nLines executed:100.00% of 2\nBranches executed:100.00% of 4\nTaken at least once:50.00% of 4\nCalls executed:100.00% of 2\nCreating 'USBHID.h.gcov'\n\nFile '/usr/include/c++/14/bits/std_thread.h'\nLines executed:100.00% of 6\nBranches executed:100.00% of 10\nTaken at least once:60.00% of 10\nCalls executed:100.00% of 20\nCreating 'std_thread.h.gcov'\n\nFile '/usr/include/c++/14/thread'\nLines executed:100.00% of 2\nBranches executed:100.00% of 8\nTaken at least once:62.50% of 8\nNo calls\nCreating 'thread.gcov'\n\nFile '/workspace/tooling/stage28t-final-verified/sources/hid_backend.h'\nNo executable lines\nNo branches\nNo calls\nRemoving 'hid_backend.h.gcov'\n\nFile '/workspace/EvilDuck-stage6/language_preview/core.cpp'\nLines executed:84.51% of 426\nBranches executed:76.57% of 1357\nTaken at least once:49.01% of 1357\nCalls executed:80.05% of 3970\nCreating 'core.cpp.gcov'\n\nFile '/workspace/EvilDuck-stage6/language_preview/core.h'\nLines executed:33.33% of 3\nBranches executed:0.00% of 2\nTaken at least once:0.00% of 2\nCalls executed:28.12% of 64\nCreating 'core.h.gcov'\n\nFile '/usr/include/string.h'\nLines executed:100.00% of 2\nBranches executed:100.00% of 2\nTaken at least once:50.00% of 2\nNo calls\nCreating 'string.h.gcov'\n\nLines executed:58.29% of 1755\n",
+  "scope": "47 primary cases; partial source coverage, no full USB/core coverage"
+}
