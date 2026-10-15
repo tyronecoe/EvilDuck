@@ -1,0 +1,1028 @@
+{
+  "parent": "606098b1158c216f7c5e205cd81debcb9661e04d",
+  "patch": {
+    "file": "tests/stage28x/instrumentation.patch",
+    "sha256": "5064570801eaa97857ae2e34623b106aaed58d00e791b69f871dec23fca7d528"
+  },
+  "outputs": [
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "d876a65b36de944ac7480ff61dd7732e5454b28bfcc917f3e1ad3056b896ab91"
+    },
+    {
+      "file": "attackmode.cpp",
+      "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "8850e96a2754367def9d96ce326c98ad0f8f53da00503b33da7c3a37022f33b4"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c576d65b8de42c6c91016eaeec2392fed952f83eaa2aa4f91376967afca36166"
+    },
+    {
+      "file": "com.h",
+      "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "9a31d1cbdece96e097f075a38ef0088f30c115acab9dc2e7f63afdaf5fe06e1a"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fca398639a0e1d516fe0e403881052b6ad93abb5891fd74a73c34d0136aa6441"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "3ffdf955452b366f33c44821423c5ecb98711cba358c4386293665232209e13e"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+    },
+    {
+      "file": "led.cpp",
+      "sha256": "2c0bce17312132821c66a21d537cff3180385005dd8f533fcd787ac637da01aa"
+    },
+    {
+      "file": "platform.cpp",
+      "sha256": "cb817562c171452a67e37fb1d661ceb973498e37ace8e27630a2e8a5ec4d87d2"
+    },
+    {
+      "file": "script_library.cpp",
+      "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769"
+    },
+    {
+      "file": "sd_card.cpp",
+      "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8"
+    },
+    {
+      "file": "settings.cpp",
+      "sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3"
+    },
+    {
+      "file": "spiffs.cpp",
+      "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da"
+    },
+    {
+      "file": "storage.cpp",
+      "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c"
+    },
+    {
+      "file": "usb_msc.cpp",
+      "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "70f64cfb13315183eb28cfadb41465d8de7f71823708b6f3b3a736d5ac78ddb5"
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "4a769d7c873868800b65c4fe288ffb7bd85d842b001883ab21345d440d6a3faa"
+    },
+    {
+      "file": "coordinator.h",
+      "sha256": "988623d963b7016e70a44e83514c00d0b5d37068d6a7bffe844b164f684c39cf"
+    }
+  ],
+  "selector": "EVILDUCK_PORTABLE_ROUTE_B",
+  "runtime_inputs": [
+    {
+      "file": "tests/stage28v/adapter.cpp",
+      "sha256": "a96e5f0b697ca84b085f660ef48817649d56a4ab9c10549d5da1c50cbfc03f5b"
+    },
+    {
+      "file": "tests/stage28v/adapter.h",
+      "sha256": "cc175a5f8ada846bac3a9ce0c7146adb9cff5249d76bb7a09c76874d02d6e624"
+    },
+    {
+      "file": "tests/stage28v/file_source.cpp",
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+    },
+    {
+      "file": "tests/stage28v/file_source.h",
+      "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+    },
+    {
+      "file": "tests/stage28v/backend_lease.h",
+      "sha256": "41b2adf0770c32d6b71e60543ad812b1d6125403a2d350d49dd99181c510c83a"
+    },
+    {
+      "file": "tests/stage28v/backend_lease.inc",
+      "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+    },
+    {
+      "file": "tests/stage28v/scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28v/seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28v/task_platform.h",
+      "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+    },
+    {
+      "file": "tests/stage28v/mutation_guard.h",
+      "sha256": "c69fd2486daf20df562d11a2fe63e79297fc81c37868cb935d176b3885e9f464"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "language_preview/core.h",
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.cpp",
+      "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.h",
+      "sha256": "6755b746cde9b3d8cd7ed9f9f0574a86c9ba5fac48c84a55ca73fc6e0736fcc2"
+    },
+    {
+      "file": "tests/stage28x/diagnostic_platform.h",
+      "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858"
+    }
+  ],
+  "framework_libraries": [
+    {
+      "directory": "ESP_Async_WebServer",
+      "properties": "name=ESP Async WebServer\nincludes=ESPAsyncWebServer.h\nversion=3.12.1\nauthor=ESP32Async\nmaintainer=ESP32Async\nsentence=Asynchronous HTTP and WebSocket Server Library for ESP32, ESP8266 and RP2040\nparagraph=Supports: WebSocket, SSE, Authentication, Arduino Json 7, File Upload, Static File serving, URL Rewrite, URL Redirect, etc\ncategory=Other\nurl=https://github.com/ESP32Async/ESPAsyncWebServer\narchitectures=*\nlicense=LGPL-3.0\n",
+      "files": [
+        {
+          "file": "CMakeLists.txt",
+          "sha256": "e806b96c41ed3d7c3d0da8d3c091328033e356b849c86a895e3111d87d766feb",
+          "size": 99
+        },
+        {
+          "file": "CODE_OF_CONDUCT.md",
+          "sha256": "9ca9f791855587431a0493b330b453ba199940a5faa95ec06f2ac96ade31de2c",
+          "size": 5235
+        },
+        {
+          "file": "LICENSE",
+          "sha256": "a5681bf9b05db14d86776930017c647ad9e6e56ff6bbcfdf21e5848288dfaf1b",
+          "size": 7651
+        },
+        {
+          "file": "README.md",
+          "sha256": "c9be3281b919d39480293ce6f90dd282df14c9667d2c1016f159787af631388a",
+          "size": 2105
+        },
+        {
+          "file": "data/README.md",
+          "sha256": "3abc0380230c5fde231ca21e2f5ab0fc771ad917ea88073c4ed756563c0d396f",
+          "size": 3953
+        },
+        {
+          "file": "docs/backup/README.md",
+          "sha256": "4d4a2d01e2f78cc00a844a6d01229482a2da3e424f1b56b5e65d5fdac5adb319",
+          "size": 7021
+        },
+        {
+          "file": "docs/backup/wiki.md",
+          "sha256": "2235376051c52010e780c8242596eb1341d71cf82803dd718d043a261d10f9fa",
+          "size": 82786
+        },
+        {
+          "file": "docs/code_of_conduct.md",
+          "sha256": "048d2cd5e19f6c7bde2a4c60a66088524706104fc72ec26a0099193141c807d3",
+          "size": 5233
+        },
+        {
+          "file": "docs/concepts.md",
+          "sha256": "ecdad2537713783ac7b87dcbae7d101d1fe64d262f15f9abc68586c0d5cebce1",
+          "size": 6392
+        },
+        {
+          "file": "docs/configuration.md",
+          "sha256": "ed7aa8c758031d96a9f6378ed3372521835748ced1d1e6f7549a155e038c544d",
+          "size": 3011
+        },
+        {
+          "file": "docs/eventsource.md",
+          "sha256": "d941e51b2119acd0b5180c48e5e947d1f3bc026fda3031b9b0fa9fca0a5213a0",
+          "size": 2223
+        },
+        {
+          "file": "docs/filters.md",
+          "sha256": "aca4d1136e1be98cc6bbc514d0e7377ea7962cbede7c1ce6a39ce2c852522f65",
+          "size": 2433
+        },
+        {
+          "file": "docs/help_and_issues.md",
+          "sha256": "8b67e1fe49711c0ebf5ddda49f5ffcad0a5f1b59e4772a2516bc1696fba07d2d",
+          "size": 1043
+        },
+        {
+          "file": "docs/hosted-build.md",
+          "sha256": "a4a1a76de19816b7a04782840f60ac385996f9358d63567e2a476750819e5948",
+          "size": 5343
+        },
+        {
+          "file": "docs/index.md",
+          "sha256": "4a94cbf1ab470558e90118fc7b40627057512354e630e3e8784048034efb0aa3",
+          "size": 4472
+        },
+        {
+          "file": "docs/installation.md",
+          "sha256": "8f71f9b46862e1219bb150b84bd016685fd4cb596b959a6a133b6495dbf876f2",
+          "size": 2722
+        },
+        {
+          "file": "docs/logo.png",
+          "sha256": "2a46bfd560069cffc164d8789941d6056ea071f57f69ec7ebfdfd0923dd66b85",
+          "size": 490217
+        },
+        {
+          "file": "docs/logo.webp",
+          "sha256": "bf3c86f312b11bf2d3a5bbf5771446f2a979922b2b6732808d07387593528ffb",
+          "size": 133742
+        },
+        {
+          "file": "docs/middleware.md",
+          "sha256": "a7cc244f30b07d11063cebbbb4db067210a4bd54d1e21bf2a333a64703167d91",
+          "size": 5411
+        },
+        {
+          "file": "docs/requests.md",
+          "sha256": "8dd17a580ef1d675b64cd071f58ecad40f943daf9140b1a90211be6e74337aba",
+          "size": 6685
+        },
+        {
+          "file": "docs/responses.md",
+          "sha256": "33cbbe11a6b6870780222ae8e7abb1bb7dcaa19b59262cafa389c32077c92eaf",
+          "size": 25570
+        },
+        {
+          "file": "docs/routing.md",
+          "sha256": "061a866f024a600183f9de1d8aead20847d07059dcb3c0521535980194593ef5",
+          "size": 4701
+        },
+        {
+          "file": "docs/setup.md",
+          "sha256": "20ee2e599b2371341b0ef81543f1143c5384efa1046ceb89160e268b1a109bfc",
+          "size": 5632
+        },
+        {
+          "file": "docs/static-files.md",
+          "sha256": "1fc2cffc687b477f074b614dc42b233a78829ce79278f5029333419b8bd3ae38",
+          "size": 7203
+        },
+        {
+          "file": "docs/websockets.md",
+          "sha256": "81fbde0ff18a6021adbb25b13aab4d9246b69a07cc6e48cec93fd693a11b68bb",
+          "size": 9312
+        },
+        {
+          "file": "examples/arduino/AsyncResponseStream/AsyncResponseStream.ino",
+          "sha256": "c685ecf8fc9a009f27ce833c5b167ccd238e9b9419aa3c1bf329d592cbfe13b1",
+          "size": 1218
+        },
+        {
+          "file": "examples/arduino/AsyncTunnel/AsyncTunnel.ino",
+          "sha256": "0a178cc6b6751a7ed165b5481b98f8fc11cdbab01ffea155f1430cc48a040e85",
+          "size": 6683
+        },
+        {
+          "file": "examples/arduino/Auth/Auth.ino",
+          "sha256": "b965a7b968dcc97d9af51be582db84a9f88f023228b0a9e4b68f4986d1344b94",
+          "size": 7291
+        },
+        {
+          "file": "examples/arduino/CORS/CORS.ino",
+          "sha256": "764dbfa8b6f84a2836a5e7c969819d2e2e97ca33ccc4b5f47c746c2d396e35f8",
+          "size": 1423
+        },
+        {
+          "file": "examples/arduino/CaptivePortal/CaptivePortal.ino",
+          "sha256": "ceec295e8370422e960b088525a3cb7dce662cda6bb837434a39b6810a6dabd7",
+          "size": 1875
+        },
+        {
+          "file": "examples/arduino/CatchAllHandler/CatchAllHandler.ino",
+          "sha256": "41532b0c428c5ad7d9d42aa9040ccfe55edfbe01b8f2c45097ea90bb7655e301",
+          "size": 6579
+        },
+        {
+          "file": "examples/arduino/ChunkRequest/ChunkRequest.ino",
+          "sha256": "338b8ef12dd68b206e0279e3a4878aba68c000925a35829904c779b8c0b76b55",
+          "size": 7500
+        },
+        {
+          "file": "examples/arduino/ChunkResponse/ChunkResponse.ino",
+          "sha256": "27cfbef2ca49676e6a2e457333f31153f030c30608cd2adb206b13dbd5d7a676",
+          "size": 6671
+        },
+        {
+          "file": "examples/arduino/ChunkRetryResponse/ChunkRetryResponse.ino",
+          "sha256": "2a80c190c7ebd66d8f592ce37394a924193de928338c47737bb2fd60da4e3069",
+          "size": 8953
+        },
+        {
+          "file": "examples/arduino/EndBegin/EndBegin.ino",
+          "sha256": "39489a839ca56987bcdf4c642aad15294179d25593d5dfd5a04f19e45af7b76a",
+          "size": 1234
+        },
+        {
+          "file": "examples/arduino/Filters/Filters.ino",
+          "sha256": "2c61c87b23198f4eac6af8e5adb93f39e2f9f68453d40b25d131fa9345ac7cec",
+          "size": 4589
+        },
+        {
+          "file": "examples/arduino/FlashResponse/FlashResponse.ino",
+          "sha256": "f09181560d143c5fb6f2870c05c90d9cdcb3e96a39827027fa1dfe7c0eed3fd4",
+          "size": 5518
+        },
+        {
+          "file": "examples/arduino/HTTPMethodsWithArduino/HTTPMethodsWithArduino.ino",
+          "sha256": "91a57a33d10a3feab3b0979c9f830ba57fba31fae6ccc9edd94f5e18d1f045fe",
+          "size": 5053
+        },
+        {
+          "file": "examples/arduino/HTTPMethodsWithESPIDF/HTTPMethodsWithESPIDF.ino",
+          "sha256": "4154c9395383486193afb27c5111b5a1876bb0945f51cf9f52b07d27fb6254d3",
+          "size": 5085
+        },
+        {
+          "file": "examples/arduino/HeaderManipulation/HeaderManipulation.ino",
+          "sha256": "9204f452e289750d2edd2193c65d6ceb4b83777335f1fb361037add81a6bb364",
+          "size": 3159
+        },
+        {
+          "file": "examples/arduino/Headers/Headers.ino",
+          "sha256": "0b6c71cdda6d82763831d3d841c061b268a62d95b1d29ca366612a5808fc6717",
+          "size": 1849
+        },
+        {
+          "file": "examples/arduino/Json/Json.ino",
+          "sha256": "584398b617cb4b28781e384213876ca952de365d0bc193ba3bffb871f4dfd4a7",
+          "size": 4902
+        },
+        {
+          "file": "examples/arduino/LargeResponse/LargeResponse.ino",
+          "sha256": "7225f24cca9ef1ccfff1f9c334afbec2e489519e41edcdfe0f467124cf524a31",
+          "size": 5859
+        },
+        {
+          "file": "examples/arduino/Logging/Logging.ino",
+          "sha256": "f964953cbf7a5fd91ec423038e88c52297151970f813c14ac65889979c2dc0ac",
+          "size": 1136
+        },
+        {
+          "file": "examples/arduino/MessagePack/MessagePack.ino",
+          "sha256": "f6db840822a515c25cf8451dc99857c678d5a8dfb8f742525f65190434ac9371",
+          "size": 3345
+        },
+        {
+          "file": "examples/arduino/Middleware/Middleware.ino",
+          "sha256": "dd168305ad2b3925b9490112c2a761bd084763120d77779707170d976e250fa0",
+          "size": 2537
+        },
+        {
+          "file": "examples/arduino/MultiPart/MultiPart.ino",
+          "sha256": "8869585f8146cea474392da5954971620e4d7647d79edd2f56e99f3d1730cb45",
+          "size": 11487
+        },
+        {
+          "file": "examples/arduino/Params/Params.ino",
+          "sha256": "ba73bba28dbb5037ec1eff795478c1950600dc9787661a28a40714d63dcc142d",
+          "size": 4757
+        },
+        {
+          "file": "examples/arduino/PartitionDownloader/PartitionDownloader.ino",
+          "sha256": "c39d28242ffe0b43a90fb3beeddd4758952a5719b22a3c36c63684a88583e973",
+          "size": 3995
+        },
+        {
+          "file": "examples/arduino/PerfTests/PerfTests.ino",
+          "sha256": "0e76eb1045253733820e501117cbed5134661c1437bbab26374466a2079cff21",
+          "size": 10914
+        },
+        {
+          "file": "examples/arduino/RateLimit/RateLimit.ino",
+          "sha256": "6c2c152cf006ffdd91be1223a164c534f90d3e3a04ae28a230ea1ad473f84d13",
+          "size": 1495
+        },
+        {
+          "file": "examples/arduino/Redirect/Redirect.ino",
+          "sha256": "eafd31af9041f0fe0f3b271a9cb00049167f91910076695a8f8776e9b3a24ab7",
+          "size": 1071
+        },
+        {
+          "file": "examples/arduino/RequestContinuation/RequestContinuation.ino",
+          "sha256": "fe60889c8802515059ab8db59b03d873c26d8a2a5a9a97debbe4ac6f86637b33",
+          "size": 2627
+        },
+        {
+          "file": "examples/arduino/RequestContinuationComplete/RequestContinuationComplete.ino",
+          "sha256": "d0cb121c94b172ecc10ccc2358c2a3e4b0147dd3c113082e21e9b09c302c300e",
+          "size": 5566
+        },
+        {
+          "file": "examples/arduino/ResumableDownload/ResumableDownload.ino",
+          "sha256": "8ae692021940096a87369cd0e0342864154ab215ef9702c19670aa22e6a36ebd",
+          "size": 1784
+        },
+        {
+          "file": "examples/arduino/Rewrite/Rewrite.ino",
+          "sha256": "da838332968c84a1a9f6af95fc2e7bddd65ac0bb42a27b33e3b1eeba324c5e46",
+          "size": 1267
+        },
+        {
+          "file": "examples/arduino/ServerSentEvents/ServerSentEvents.ino",
+          "sha256": "1e50220d1ab5a0f01df3f7eb2cab625718c021370b9050b6ab90d63167074401",
+          "size": 2618
+        },
+        {
+          "file": "examples/arduino/ServerSentEvents_PR156/ServerSentEvents_PR156.ino",
+          "sha256": "5bc66503bdc9c4bd072f9728f22b1743349d013d1a69ad62991be216576d5049",
+          "size": 4142
+        },
+        {
+          "file": "examples/arduino/ServerState/ServerState.ino",
+          "sha256": "96397b37c89eb3d796024868d220d43c6dc9644737974cbd87255cc29dbd995b",
+          "size": 1469
+        },
+        {
+          "file": "examples/arduino/SkipServerMiddleware/SkipServerMiddleware.ino",
+          "sha256": "b7e1f7f3571086d15f5cbfaf1b47f283bc8ffb1fd46a5d1cd9ac901c85ba9d3f",
+          "size": 2106
+        },
+        {
+          "file": "examples/arduino/SlowChunkResponse/SlowChunkResponse.ino",
+          "sha256": "f9efa8a188446cd65fd99f8d875be8c087c90ff7a48c1d6d3eaf485ae65b2025",
+          "size": 7404
+        },
+        {
+          "file": "examples/arduino/StaticFile/StaticFile.ino",
+          "sha256": "5deb0e2bbc12fea3b8b8c4b9ed9b5705391981be73632388748e5671de3fe611",
+          "size": 9256
+        },
+        {
+          "file": "examples/arduino/Templates/Templates.ino",
+          "sha256": "b1755f0a862d9c017d73f06255d8a991c7f48ab0bde88f8aeb3899c5a17a46ec",
+          "size": 4334
+        },
+        {
+          "file": "examples/arduino/URIMatcher/README.md",
+          "sha256": "78e5c77e4305e2260df15c2977db5e6805c0c0e832ac376a28d7271cf2dd7cb4",
+          "size": 12158
+        },
+        {
+          "file": "examples/arduino/URIMatcher/URIMatcher.ino",
+          "sha256": "412b6460727b7a6e3416a8028cbff69278ee32bffdfab658e7aabfcc5880c85d",
+          "size": 11647
+        },
+        {
+          "file": "examples/arduino/URIMatcherTest/URIMatcherTest.ino",
+          "sha256": "87899d76c44b6459156f2cb3e710506b0da7651fb8fca31cf409788ae128cc2d",
+          "size": 5816
+        },
+        {
+          "file": "examples/arduino/URIMatcherTest/test_routes.sh",
+          "sha256": "88b7266e2164456cc4a6816974c81a45175a6d7e92b82c62c5e83fbf94732c7b",
+          "size": 8382
+        },
+        {
+          "file": "examples/arduino/Upload/Upload.ino",
+          "sha256": "c84f3da6c501cc46cf9a9d2393c52dadd5c8a3c1e7668af7a82d355b72dd34db",
+          "size": 5026
+        },
+        {
+          "file": "examples/arduino/UploadFlash/UploadFlash.ino",
+          "sha256": "152b183ba93c79ee15292cbf9e01baeb35f0970b4bb9160dfbefc2785c252d84",
+          "size": 4978
+        },
+        {
+          "file": "examples/arduino/WebDAVMethods/WebDAVMethods.ino",
+          "sha256": "1548de77efb904c803078e1bc2012c59952394278b882f0c87b26e5594fe4688",
+          "size": 1545
+        },
+        {
+          "file": "examples/arduino/WebSocket/WebSocket.ino",
+          "sha256": "7a779ca195e7f50078bdf2e3a815c7c97381c065a87d82cdf630362de9607280",
+          "size": 10107
+        },
+        {
+          "file": "examples/arduino/WebSocketEasy/WebSocketEasy.ino",
+          "sha256": "9604c0721f0a1359bd50c2337d6bf70744a6c4fddd5446c68d273f9cce6427c7",
+          "size": 3774
+        },
+        {
+          "file": "examples/arduino/WebSocketTest/WebSocketTest.ino",
+          "sha256": "5071b517b80d536b35e08c7bab603e9d4f31882fcc0a67585514f17d8602bcec",
+          "size": 28534
+        },
+        {
+          "file": "examples/arduino_emulator/CMakeLists.txt",
+          "sha256": "26f1c246618ae1a286484aaac969f09583da90392ab7caad12122692de4509d3",
+          "size": 1151
+        },
+        {
+          "file": "examples/arduino_emulator/FS.cpp",
+          "sha256": "01c1bee579ffd14c051c6653b667ee4e9d8c0cec5b1f508da7a9e029e7780438",
+          "size": 10226
+        },
+        {
+          "file": "examples/arduino_emulator/FS.h",
+          "sha256": "bd61dbe0212b60e22e1e7e6a2976c5b6ba91b6eb38a5603dcd57b9164c2bcfde",
+          "size": 6195
+        },
+        {
+          "file": "examples/arduino_emulator/FSImpl.h",
+          "sha256": "d901e85324476580edc227e03494db6f9295578dcc81a096ea1f4a4eea8d9771",
+          "size": 5167
+        },
+        {
+          "file": "examples/arduino_emulator/README_FS.md",
+          "sha256": "ba7fbe4aaf88793a9c4738acfdbf92d3ab7355b9c0b5ddfa30886bca5bc3e356",
+          "size": 525
+        },
+        {
+          "file": "examples/arduino_emulator/main.cpp",
+          "sha256": "7015ed1095e2a7db7d15387066927453996070518b67209a00d1aec4a9bf8f68",
+          "size": 508
+        },
+        {
+          "file": "examples/idf_component/catchall/CMakeLists.txt",
+          "sha256": "1a01bd760851b695e6dd74bd3686f0933828d784f68776d20ccf4704f68aa24b",
+          "size": 365
+        },
+        {
+          "file": "examples/idf_component/catchall/README.md",
+          "sha256": "e80018d73f990fb37d93b6fd32a127af30142aeb63d4f96dc8442abed3a1815f",
+          "size": 86
+        },
+        {
+          "file": "examples/idf_component/catchall/main/CMakeLists.txt",
+          "sha256": "d25fbb5be99c3bab427b634c5b1e0f1dd83d1bc74606eb18658036340fd60a04",
+          "size": 77
+        },
+        {
+          "file": "examples/idf_component/catchall/main/idf_component.yml",
+          "sha256": "219a9d0c686f776c85848372501dfb40e5a11b9573f59f855c0a71961897e886",
+          "size": 158
+        },
+        {
+          "file": "examples/idf_component/catchall/main/main.cpp",
+          "sha256": "d9fe2f968a20f2f2b10b83303665fb443016a95a46d1d310aca4380f3a6a4732",
+          "size": 6384
+        },
+        {
+          "file": "examples/idf_component/catchall/sdkconfig.defaults",
+          "sha256": "0dd67d810ad20e66f549af83ab0a3222ea4d9f6223df52041c5e0c9a04701edf",
+          "size": 154
+        },
+        {
+          "file": "examples/idf_component/serversentevents/CMakeLists.txt",
+          "sha256": "1a01bd760851b695e6dd74bd3686f0933828d784f68776d20ccf4704f68aa24b",
+          "size": 365
+        },
+        {
+          "file": "examples/idf_component/serversentevents/README.md",
+          "sha256": "1a1c49ec6c91ea3e66b6f9b48d5043272a8be3d964e100a7ceccc812d7e3d424",
+          "size": 54
+        },
+        {
+          "file": "examples/idf_component/serversentevents/main/CMakeLists.txt",
+          "sha256": "d25fbb5be99c3bab427b634c5b1e0f1dd83d1bc74606eb18658036340fd60a04",
+          "size": 77
+        },
+        {
+          "file": "examples/idf_component/serversentevents/main/idf_component.yml",
+          "sha256": "219a9d0c686f776c85848372501dfb40e5a11b9573f59f855c0a71961897e886",
+          "size": 158
+        },
+        {
+          "file": "examples/idf_component/serversentevents/main/main.cpp",
+          "sha256": "bb92bf8f77dbe11674f743c15006f799e2e025a16d76b5fad9c211d6b5214f1e",
+          "size": 2475
+        },
+        {
+          "file": "examples/idf_component/serversentevents/sdkconfig.defaults",
+          "sha256": "0dd67d810ad20e66f549af83ab0a3222ea4d9f6223df52041c5e0c9a04701edf",
+          "size": 154
+        },
+        {
+          "file": "examples/idf_component/websocket/CMakeLists.txt",
+          "sha256": "1a01bd760851b695e6dd74bd3686f0933828d784f68776d20ccf4704f68aa24b",
+          "size": 365
+        },
+        {
+          "file": "examples/idf_component/websocket/README.md",
+          "sha256": "cc729191254bff930104b39a11b1b2e6a75368a52e3df157180f0305f0917632",
+          "size": 48
+        },
+        {
+          "file": "examples/idf_component/websocket/main/CMakeLists.txt",
+          "sha256": "d25fbb5be99c3bab427b634c5b1e0f1dd83d1bc74606eb18658036340fd60a04",
+          "size": 77
+        },
+        {
+          "file": "examples/idf_component/websocket/main/idf_component.yml",
+          "sha256": "219a9d0c686f776c85848372501dfb40e5a11b9573f59f855c0a71961897e886",
+          "size": 158
+        },
+        {
+          "file": "examples/idf_component/websocket/main/main.cpp",
+          "sha256": "b01eb6624564d36ff7b89c1b35fc52e5d4da15c854313823fd5d267fa4efdb6b",
+          "size": 2721
+        },
+        {
+          "file": "examples/idf_component/websocket/sdkconfig.defaults",
+          "sha256": "0dd67d810ad20e66f549af83ab0a3222ea4d9f6223df52041c5e0c9a04701edf",
+          "size": 154
+        },
+        {
+          "file": "examples/pioarduino/IncreaseMaxSockets/platformio.ini",
+          "sha256": "423c351a032a8b3d638a709716bc78c26b165fdcc6ea7b1a6f129ef30ab74533",
+          "size": 1097
+        },
+        {
+          "file": "examples/pioarduino/IncreaseMaxSockets/src/main.cpp",
+          "sha256": "967260c669950601f434cd6e85240483b19cdd2b5c8c3c331644b3558a55778a",
+          "size": 6531
+        },
+        {
+          "file": "idf_component.yml",
+          "sha256": "482d51849925ca84bd18d171461448c4d2b7d1805a0a69318d21af362c71da6b",
+          "size": 929
+        },
+        {
+          "file": "library.json",
+          "sha256": "f25654e7dcbf06b8218c9713461edecb17e6228ce96b2aaaba49ab369f17c595",
+          "size": 1445
+        },
+        {
+          "file": "library.properties",
+          "sha256": "e686c2e4343d6c6a766e68627ba3fe0ff4c38cd853626558592e3cbf9ad0a8be",
+          "size": 428
+        },
+        {
+          "file": "mkdocs.yml",
+          "sha256": "0386b2919cca3e00232415229944d8a326a249ee5398c5e1ca186511e897e330",
+          "size": 1640
+        },
+        {
+          "file": "partitions-4MB.csv",
+          "sha256": "fcdf00028d691fd0b9cbf1fe35b13c4f67e311e91182a82a8f205826a7d7b968",
+          "size": 301
+        },
+        {
+          "file": "platformio.ini",
+          "sha256": "6de9e717866fb3545f182f4a13a5b9682d108b395103ad47d317b89bdd44d28c",
+          "size": 6311
+        },
+        {
+          "file": "pre-commit.requirements.txt",
+          "sha256": "07bbe195b32d5687831e7d0443aff6a3511590b6324fca66ae4fdcbe1e4a8bd8",
+          "size": 18
+        },
+        {
+          "file": "src/AsyncEventSource.cpp",
+          "sha256": "87bc58fb1439f751dc9fd4344d7015cd1642baa78035de9d5b4ea4cba996b934",
+          "size": 13894
+        },
+        {
+          "file": "src/AsyncEventSource.h",
+          "sha256": "3466e69d948043dfc42e1b62a3846db8507a0e2b61466f8382f895448906432a",
+          "size": 10949
+        },
+        {
+          "file": "src/AsyncJson.cpp",
+          "sha256": "dd83d769778eb23438e6669985aad41eae478c7d5b57c2d988d2eecb1b391f37",
+          "size": 7247
+        },
+        {
+          "file": "src/AsyncJson.h",
+          "sha256": "173395025538798dbcb1d957c53143865e2026e54300884281ade1c90fcfc0d3",
+          "size": 3783
+        },
+        {
+          "file": "src/AsyncMessagePack.h",
+          "sha256": "a5b7193ed9375dfab9206147f029f65ebbdf3e0ae9203508f6a1ef72637a85ac",
+          "size": 254
+        },
+        {
+          "file": "src/AsyncWebHeader.cpp",
+          "sha256": "820dc02429e0de56b72a1a7a91a603b87819a18e2501c4a83041a0e69ea39190",
+          "size": 1294
+        },
+        {
+          "file": "src/AsyncWebServerLogging.h",
+          "sha256": "f168a69855b300b62430541a76b3406fb09f3b646292630f22ddc1f494959d16",
+          "size": 10438
+        },
+        {
+          "file": "src/AsyncWebServerRequest.cpp",
+          "sha256": "1fd05f95ad72f42855654cc8b0f9c710c7e26dae6d519cdae054fda871f32d24",
+          "size": 3747
+        },
+        {
+          "file": "src/AsyncWebServerVersion.h",
+          "sha256": "4bb11fd2550ac5ef061097502fd4169993a31714db1b20a0fef0e401b6536ff0",
+          "size": 1263
+        },
+        {
+          "file": "src/AsyncWebSocket.cpp",
+          "sha256": "7d44f6c010db6394bea728d708fb0a06ede222c57c037f25ee06a1d9a277c1bd",
+          "size": 47246
+        },
+        {
+          "file": "src/AsyncWebSocket.h",
+          "sha256": "d769838f7502f1269572290f35ee543cc2ae8ea7a78c1b07a9859530071db783",
+          "size": 19329
+        },
+        {
+          "file": "src/BackPort_SHA1Builder.cpp",
+          "sha256": "6e1d591c4e0b80a1a63235ae1d4e520e8625a21e54fb23fadd45bb2001a2ce8a",
+          "size": 7861
+        },
+        {
+          "file": "src/BackPort_SHA1Builder.h",
+          "sha256": "9e6c332a48f29ee000dd2fd2c255bd50f118bb165a12788ad0f7b10e2fb0edd7",
+          "size": 1241
+        },
+        {
+          "file": "src/ChunkPrint.cpp",
+          "sha256": "3ee09f634f88690add6a2196a850c04cbe6265b85ad3eea04d76835067ab88f7",
+          "size": 567
+        },
+        {
+          "file": "src/ChunkPrint.h",
+          "sha256": "399fb551e6f7d1202b4cedcd7f6934ddd418f3f95622b64c39f0d1e25d72ea14",
+          "size": 594
+        },
+        {
+          "file": "src/ESPAsyncWebServer.h",
+          "sha256": "25db7c8fb30943307b28b181722187a65576f6ee778eeb99e29b1ef8db7915ba",
+          "size": 63079
+        },
+        {
+          "file": "src/Middleware.cpp",
+          "sha256": "c59543b4cdf8f3ee5ff3e0d15a0e71eb62a02148000423083227519e98bd9d0c",
+          "size": 8927
+        },
+        {
+          "file": "src/WebAuthentication.cpp",
+          "sha256": "92bae4a3083bf7556ccbf5015c64aca724cf1ccdec8c06bd4d909630073692d0",
+          "size": 6603
+        },
+        {
+          "file": "src/WebAuthentication.h",
+          "sha256": "c57a43a3c15e418ed3fd0cda680b8d6b5552afa6f346e2305e4965f370e0603b",
+          "size": 742
+        },
+        {
+          "file": "src/WebHandlerImpl.h",
+          "sha256": "e2ab3f7b6af3544934bea31a06c803240a3d8a6c3bbeda9669854cf5d840a006",
+          "size": 2872
+        },
+        {
+          "file": "src/WebHandlers.cpp",
+          "sha256": "43c01d2fb1208552bc940b44678086d0fae62a8756fa2db6ff68df0506ef9755",
+          "size": 10603
+        },
+        {
+          "file": "src/WebRequest.cpp",
+          "sha256": "3ca1c44ffef44e4fd7d8e900857e797469cd336bf846f2a9af61e02a0956e7ad",
+          "size": 54803
+        },
+        {
+          "file": "src/WebResponseImpl.h",
+          "sha256": "b90de8322a97af18e8cd6817b7a5c27999c6a5e0097f23ecd77a4e167d9ced75",
+          "size": 8834
+        },
+        {
+          "file": "src/WebResponses.cpp",
+          "sha256": "12055aa687cd0f6f719b65057c7a1d203baf6f0ef88e96b3fb4909ac68d0e6f8",
+          "size": 35488
+        },
+        {
+          "file": "src/WebServer.cpp",
+          "sha256": "4ed4725bf35e3392eb75bffb86ae47220d069783032840d935136faa0fad1e60",
+          "size": 10060
+        },
+        {
+          "file": "src/literals.h",
+          "sha256": "2df08b5947a05fdb6b890a486708b046cc2bc903aa9c7d7a227c0a4a49b51fb3",
+          "size": 13955
+        }
+      ],
+      "tree_sha256": "da63cc5538f50e090687a8110649b5723f10d54733dced39c487cac51c2d33e9",
+      "revision": "Publisher version in library.properties; no Git commit attestation inferred"
+    },
+    {
+      "directory": "Async_TCP",
+      "properties": "name=Async TCP\nincludes=AsyncTCP.h\nversion=3.5.0\nauthor=ESP32Async\nmaintainer=ESP32Async\nsentence=Async TCP Library for ESP32\nparagraph=Async TCP Library for ESP32\ncategory=Other\nurl=https://github.com/ESP32Async/AsyncTCP.git\narchitectures=*\nlicense=LGPL-3.0\n",
+      "files": [
+        {
+          "file": "CMakeLists.txt",
+          "sha256": "44d02448a9165baaa22af385c82deed6c83a1f49627902117a7e3104c7be76f1",
+          "size": 168
+        },
+        {
+          "file": "CODE_OF_CONDUCT.md",
+          "sha256": "9ca9f791855587431a0493b330b453ba199940a5faa95ec06f2ac96ade31de2c",
+          "size": 5235
+        },
+        {
+          "file": "Kconfig.projbuild",
+          "sha256": "6081cf95ee275884ea6d40bd789954b7243419e51105abea0c37b896b82bf38d",
+          "size": 1528
+        },
+        {
+          "file": "LICENSE",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+          "size": 7651
+        },
+        {
+          "file": "README.md",
+          "sha256": "1510dfcc685282443c3569855c78ada316d938aa27bdfa72b1dac2d1fea245ef",
+          "size": 2706
+        },
+        {
+          "file": "arduino-cli-dev.yaml",
+          "sha256": "30a2a7a0e055654519a957627c13a18d0a936fc89b91abdae4525c016a922405",
+          "size": 468
+        },
+        {
+          "file": "arduino-cli.yaml",
+          "sha256": "da6edac13e3aedfac4312089d94a6caf942155f963f16247d85f9a8c407439db",
+          "size": 464
+        },
+        {
+          "file": "component.mk",
+          "sha256": "dbd511ea103272644c47eea6c963e537ea02eab3d504bfcfeced1cade4cc67e5",
+          "size": 80
+        },
+        {
+          "file": "examples/AsyncSend/AsyncSend.ino",
+          "sha256": "34a59d771db864b771c24cb07a8759fa1225f77877a0f080c3add06ca29a5433",
+          "size": 4103
+        },
+        {
+          "file": "examples/ChargenServer/ChargenServer.ino",
+          "sha256": "8fd85d2b5e206740f986935fd80643b9faa6fd46e15466038d4313b6abda4d3a",
+          "size": 6710
+        },
+        {
+          "file": "examples/Client/Client.ino",
+          "sha256": "9b02e9d7ac2a37155b70c5801cc5de7b37e0d24064f2bfb7c3b34448a6e45ca4",
+          "size": 2264
+        },
+        {
+          "file": "examples/FetchWebsite/FetchWebsite.ino",
+          "sha256": "3b83d23dddf540c4321874520d63c69936d14fc8c7eaf67d218849e41d0a23ee",
+          "size": 3031
+        },
+        {
+          "file": "idf_component.yml",
+          "sha256": "d1bff9a50cacd3b1044fe962f2f4dc12ebdeff7f01ef8bf72b7c02c5d3d95ba7",
+          "size": 676
+        },
+        {
+          "file": "idf_component_examples/client/CMakeLists.txt",
+          "sha256": "1a01bd760851b695e6dd74bd3686f0933828d784f68776d20ccf4704f68aa24b",
+          "size": 365
+        },
+        {
+          "file": "idf_component_examples/client/README.md",
+          "sha256": "40349b0c3ba66f1359cb714c28382842292edb8cdb47e6f8711b0d5379b46cfe",
+          "size": 52
+        },
+        {
+          "file": "idf_component_examples/client/main/CMakeLists.txt",
+          "sha256": "293ce4b349ace9568d02d8013fdabf98e9b84cf458069990c43e7a4e2540b2f2",
+          "size": 80
+        },
+        {
+          "file": "idf_component_examples/client/main/idf_component.yml",
+          "sha256": "5e083f2f91024037b804eaa8e50a221e0b8cc152986bf867051dad5625fdab2b",
+          "size": 216
+        },
+        {
+          "file": "idf_component_examples/client/main/main.cpp",
+          "sha256": "2afd7f5addde4bce15d8b0a740f400acff0e0855fa8f3247100ceb5dce181862",
+          "size": 2275
+        },
+        {
+          "file": "idf_component_examples/client/sdkconfig.defaults",
+          "sha256": "0dd67d810ad20e66f549af83ab0a3222ea4d9f6223df52041c5e0c9a04701edf",
+          "size": 154
+        },
+        {
+          "file": "library.json",
+          "sha256": "661c0327f7294743922bfcb038a3b6ba3b5d1719b1aecedfbd808a0b451aca92",
+          "size": 565
+        },
+        {
+          "file": "library.properties",
+          "sha256": "d6050a3abe924ddaa0792bbc14f088e8e0e9f5829be4a5761d145139f64177b5",
+          "size": 259
+        },
+        {
+          "file": "platformio.ini",
+          "sha256": "eb04b751e80e59e6c1a85813bd867c8700405948436732e4756da0f0f522b174",
+          "size": 2391
+        },
+        {
+          "file": "pre-commit.requirements.txt",
+          "sha256": "07bbe195b32d5687831e7d0443aff6a3511590b6324fca66ae4fdcbe1e4a8bd8",
+          "size": 18
+        },
+        {
+          "file": "src/AsyncTCP.cpp",
+          "sha256": "27e3e22a6030cc5c9c9f32f28d0a3a36189b1ea6a5fa270777b2d2790a89c365",
+          "size": 43837
+        },
+        {
+          "file": "src/AsyncTCP.h",
+          "sha256": "2fdb5fab17644618bcef381a8d7c4f0330d6f9150d77b96ed5fa8d562ed0d434",
+          "size": 9279
+        },
+        {
+          "file": "src/AsyncTCPLogging.h",
+          "sha256": "55228b9fdd1625c18b61d183cb41eac9af6db45d3a09ba536f3f173d13860c1c",
+          "size": 3365
+        },
+        {
+          "file": "src/AsyncTCPSimpleIntrusiveList.h",
+          "sha256": "6d3f3ee38bcee1f10dcaa4a7f542f0c0ce87b7ce91def465e014ab5df673ad51",
+          "size": 3149
+        },
+        {
+          "file": "src/AsyncTCPVersion.h",
+          "sha256": "8b3f935251371d927ff15c9b814955e98991a5bc1cde3eed1ed816673512ae92",
+          "size": 1148
+        }
+      ],
+      "tree_sha256": "9d66fc7133f679351d73e812f4cd62f6e078ce3b8084c28652aaa04a729789e5",
+      "revision": "Publisher version in library.properties; no Git commit attestation inferred"
+    }
+  ],
+  "audit_inputs": [
+    {
+      "file": "tests/stage28x/allocation_fault.h",
+      "sha256": "10f58f18e40895bce87a880476de538a258936b612969467cd45673ffd6b8b9c"
+    },
+    {
+      "file": "tests/stage28x/allocations.cpp",
+      "sha256": "8637b35936d1ad3cd895ebdb44c1f7e9fb174ddbb91ac1dd8674f20cdcb11d8c"
+    },
+    {
+      "file": "tests/stage28x/audit.py",
+      "sha256": "aac87e4589b285e45fba738ab8347d89b04d6dc4a748c6d51dc7b82c7d87b7ea"
+    },
+    {
+      "file": "tests/stage28x/build_candidate.py",
+      "sha256": "c448ad4e03e2a28a98b8ae3b0b701689c6c8e2a4970c0a4a548819d1be41eebe"
+    },
+    {
+      "file": "tests/stage28x/collect_results.py",
+      "sha256": "0c359caa4f14cd7c402202ddd9562e081345a5a8c9501d8bb7c35384bf921e9c"
+    },
+    {
+      "file": "tests/stage28x/diagnostic_platform.h",
+      "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.cpp",
+      "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.h",
+      "sha256": "6755b746cde9b3d8cd7ed9f9f0574a86c9ba5fac48c84a55ca73fc6e0736fcc2"
+    },
+    {
+      "file": "tests/stage28x/instrumentation.patch",
+      "sha256": "5064570801eaa97857ae2e34623b106aaed58d00e791b69f871dec23fca7d528"
+    },
+    {
+      "file": "tests/stage28x/prepare_sources.py",
+      "sha256": "6f0d21b6106cbb4c717ab11830f1705b6cc411f4827bf1a8e217d67a078f654f"
+    },
+    {
+      "file": "tests/stage28x/run_tests.py",
+      "sha256": "9809cff45d0264ebc26a79b459f89f89fa442e42de1f9f0a5d7e69c74d15cdc3"
+    },
+    {
+      "file": "tests/stage28x/test_main.cpp",
+      "sha256": "ad5e8fb57736e8fbe124c21e916b4b10e34c0e3848854f21548d50d97d9feab4"
+    },
+    {
+      "file": "tests/stage28x/verify_link.py",
+      "sha256": "8e9fe64c8aa8f9fcd9b1bcd37504efaef2a82181ebdceaa81dfb43053e7ff4e9"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+    "-x",
+    "c++",
+    "-fsyntax-only",
+    "-include",
+    "tests/stage28x/diagnostics.h",
+    "/dev/null"
+  ],
+  "exit": 1,
+  "stderr": "In file included from <command-line>:\n./tests/stage28x/diagnostics.h:6:2: error: #error Diagnostics require the controlled Route B selector\n    6 | #error Diagnostics require the controlled Route B selector\n      |  ^~~~~\n",
+  "classification": "EXPECTED REJECTION: diagnostics without Route B",
+  "hardware": false
+}

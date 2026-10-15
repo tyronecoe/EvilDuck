@@ -1,0 +1,33 @@
+#define main historical_w_main
+#include "../stage28w/test_main.cpp"
+#undef main
+#include "diagnostics.h"
+#include "diagnostic_platform.h"
+#include "allocations.h"
+#include "allocation_fault.h"
+#include <atomic>
+static void turn(uint32_t ms,int64_t us){mock::now=ms;x_mock::nowUs=us;duckscript::update();com::update();}
+int main(int argc,char**argv){if(argc!=2)return 2;try{
+ mscMock::reset();mock::reset();setup();check(startupControlledReady&&settings::ready(),"actual controlled setup");check(!route_u::selected()&&!route_u::owned()&&!settings::autorunEnabled(),"no boot selection/autorun");check(route_u::bindOwner(),"owner");lower::reset();lower::count=0;put("/x.txt","DELAY 40\nSTRING a\n");auto r=req();std::string id=argv[1];
+ if(id=="X01"){x_mock::clockStep=17;turn(0,100);auto d=route_x::snapshot();check(d.ticks==1&&d.maxWorkUs==17&&d.samples==1&&d.resources.heapKnown&&d.resources.loopFreeMinimum==4096,"copied known measurements");check(d.resources.loopAllocated==8192&&d.resources.free8==100000,"allocation distinct from remaining/heap");}
+ else if(id=="X02"){for(unsigned i=0;i<1000;++i)turn(i,i*1000);check(x_mock::probes==1,"sparse probe bound before1000ms");turn(1000,1000000);check(x_mock::probes==2&&route_x::snapshot().ticks==1001,"sparse one per eligible turn");}
+ else if(id=="X03"){turn(UINT32_MAX-499,1000);turn(499,1001000);check(x_mock::probes==1,"sampling modular wrap999");turn(500,1002000);check(x_mock::probes==2,"sampling wrap1000");}
+ else if(id=="X04"){turn(0,100);turn(1,500);turn(2,300);turn(3,-1);auto d=route_x::snapshot();check(d.maxIntervalUs==400&&d.clockErrors>=2,"clock rollback/invalid explicit");}
+ else if(id=="X05"){turn(0,0);turn(1,int64_t(UINT32_MAX)+900);check(route_x::snapshot().maxIntervalUs==UINT32_MAX,"duration saturates never wraps");}
+ else if(id=="X06"){route_x::saturateForTest();start();route_u::stop();turn(0,0);auto d=route_x::snapshot();check(d.ticks==UINT32_MAX&&d.accepted==UINT32_MAX&&d.stopPublished==UINT32_MAX&&d.stopObserved==UINT32_MAX&&d.samples==UINT32_MAX,"counter saturation");}
+ else if(id=="X07"){x_mock::values={};turn(0,0);auto d=route_x::snapshot();check(!d.resources.heapKnown&&!d.resources.stackKnown&&d.samples==1,"missing measurement unknown");check(!route_u::owned(),"missing telemetry cannot start engine");}
+ else if(id=="X08"){x_mock::values={0,0,0,8192,0,true,true};turn(0,0);auto d=route_x::snapshot();check(d.resources.heapKnown&&d.resources.free8==0&&d.resources.stackKnown&&d.resources.loopFreeMinimum==0,"zero not hidden as missing/OOM");}
+ else if(id=="X09"){auto before=native_alloc::calls();x_fault::rejectAllocations=true;for(unsigned i=0;i<2000;++i){turn(i,i*1000);auto d=route_x::snapshot();check(d.ticks==i+1,"progress");}x_fault::rejectAllocations=false;check(native_alloc::calls()==before,"diagnostics hot path zero C++ allocations in lower mocks");}
+ else if(id=="X10"){std::atomic<bool> entered{false},finished{false};route_x::Snapshot copy;std::thread observer;bool blocked=false;{u_platform::Critical held;observer=std::thread([&]{entered=true;copy=route_x::snapshot();finished=true;});while(!entered.load())std::this_thread::yield();blocked=!finished.load();}observer.join();check(blocked&&finished.load()&&copy.ticks==0,"snapshot cannot finish while publisher holds lock; copied after release");}
+ else if(id=="X11"){check(route_u::requestStart(nullptr)==route_u::Reply::Invalid,"bad start");start();check(route_u::requestStart("x.txt")==route_u::Reply::Busy,"busy");for(unsigned i=0;i<3;++i)check(route_u::requestSnapshot(i)==route_u::Reply::Accepted,"queued");check(route_u::requestSnapshot(9)==route_u::Reply::QueueFull,"full");route_u::stop();turn(1,1000);auto d=route_x::snapshot();check(d.accepted==1&&d.refused==2&&d.queuePeak==4&&d.stopPublished==1&&d.stopObserved==1,"admission/pressure/STOP counters");check(!route_u::owned()&&lower::count==0,"STOP no payload");}
+ else if(id=="X12"){start();serialMock::continuous=true;for(unsigned i=0;i<2000&&route_u::owned();++i){x_mock::nowUs=i*1000;actualLoop();}serialMock::continuous=false;check(!route_u::owned()&&route_x::snapshot().ticks>0&&mock::text=="a","owner progress under serial pressure");}
+ else if(id=="X13"){r.headers.clear();server.dispatch("/routeb/diagnostics",HTTP_GET,&r);check(r.code==401,"telemetry authentication");r=req();server.dispatch("/routeb/diagnostics",HTTP_GET,&r);check(r.code==200&&r.response.indexOf("asyncStackKnown")>=0&&r.response.length()<1024,"bounded authenticated copied telemetry");}
+ else if(id=="X14"){std::atomic<bool> ready{false},finish{false};std::thread worker([&]{execution::Guard guard;ready=true;while(!finish.load())std::this_thread::yield();});while(!ready.load())std::this_thread::yield();server.dispatch("/routeb/diagnostics",HTTP_GET,&r);finish=true;worker.join();check(r.code==409,"nonblocking diagnostic auth/snapshot admission");}
+ else if(id=="X15"){char tiny[4];check(route_x::format(tiny,sizeof(tiny))==0&&tiny[0]==0,"truncation fail closed");check(route_x::format(nullptr,0)==0,"invalid buffer");char large[1024];route_x::saturateForTest();check(route_x::format(large,sizeof(large))>0&&std::strlen(large)<sizeof(large),"worst counters bounded");}
+ else if(id=="X16"){check(duckscript::runRouteB("missing.txt"),"file queued");done();turn(1000,1000000);auto d=route_x::snapshot();check(d.firstFault==unsigned(route_u::Reason::File)&&!route_u::owned()&&lower::count==0,"first source error no payload");}
+ else if(id=="X17"){lower::next=lower::Outcome::FalseAfterPossibleAcceptance;start();done();auto before=backend_b::status();check(before.quarantined,"ambiguous local submission quarantine");turn(1000,1000000);r=req();server.dispatch("/routeb/diagnostics",HTTP_GET,&r);char buf[1024];route_x::format(buf,sizeof(buf));auto after=backend_b::status();check(after.quarantined&&after.first.sequence==before.first.sequence&&route_u::owned(),"diagnostics cannot clear quarantine or first fault");check(route_x::snapshot().quarantined,"quarantine observed");}
+ else if(id=="X18"){start();for(unsigned i=0;i<10;++i){r=req();server.dispatch("/routeb/diagnostics",HTTP_GET,&r);check(r.code==200,"status pressure");turn(i,i*1000);}route_u::stop();done();check(!route_u::owned(),"STOP under simulated network pressure");}
+ else if(id=="X19"){cli::parse("diagnostics",printLine,false);check(mock::output.indexOf("observational")>=0&&!route_u::owned(),"bounded local CLI without selection");start();cli::parse("diagnostics",printLine,false);check(route_u::owned(),"CLI observation never cancels");route_u::stop();done();}
+ else throw std::runtime_error("unknown X case");
+ std::cout<<"PASS "<<id<<" ("<<assertions<<" assertions)\n";return 0;
+ }catch(const std::exception&e){std::cerr<<e.what()<<"\n";return 1;}}

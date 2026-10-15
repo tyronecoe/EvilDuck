@@ -1,0 +1,109 @@
+--- EvilDuckS3.ino
++++ EvilDuckS3.ino
+@@ -74,6 +74,9 @@
+     debug::info("CONTROLLED NORMAL START: strict credentials, no format, no examples, no autorun");
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+     debug::info("STAGE28W CONTROLLED ROUTE B REVIEW ONLY; explicit selection required");
++#ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
++    debug::info("STAGE28X OBSERVATIONAL DIAGNOSTICS REVIEW ONLY; no deployment authorization");
++#endif
+ #endif
+     if (!storage::begin()) {
+       startupStorageFailed = true;
+--- cli.cpp
++++ cli.cpp
+@@ -1,3 +1,4 @@
++#include "diagnostics.h"
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -333,6 +334,10 @@
+ }
+ 
+ void parse(const char *input, PrintFunction printfunc, bool echo) {
++#ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
++  if(input&&strcmp(input,"diagnostics")==0){char record[1024];if(route_x::format(record,sizeof(record))&&printfunc)printfunc(record);return;}
++#endif
++
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   if(input&&strncmp(input,"routeb ",7)==0){
+     auto reply=route_u::requestStart(input+7);
+--- coordinator.cpp
++++ coordinator.cpp
+@@ -1,4 +1,5 @@
+ #include "coordinator.h"
++#include "diagnostics.h"
+ #include "task_platform.h"
+ #include "adapter.h"
+ #include "file_source.h"
+@@ -42,7 +43,7 @@
+ bool legacyAllowed(){u_platform::Critical lock;return !pub.status.owned&&!pub.transaction;}
+ bool selected(){u_platform::Critical lock;return pub.selected;}
+ void legacySelected(){u_platform::Critical lock;if(!pub.status.owned)pub.selected=false;}
+-Reply requestStart(const char* path,Mode mode){
++static Reply requestStartImpl(const char* path,Mode mode){
+  if(!path||mode!=Mode::RouteB)return Reply::Invalid;
+  size_t n=0;while(n<96&&path[n]){unsigned char c=path[n];if(c<32||c>126)return Reply::Invalid;++n;}
+  if(!n||n==96)return Reply::Invalid;
+@@ -53,12 +54,13 @@
+  if(pub.status.owned||pub.transaction||pub.mutationDepth)return Reply::Busy;
+  if(pub.count==4)return Reply::QueueFull;
+  if(pub.next==UINT64_MAX)return Reply::Exhausted;
+- Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=true;q.id=++pub.next;memcpy(q.path,path,n+1);++pub.count;
++ Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=true;q.id=++pub.next;memcpy(q.path,path,n+1);++pub.count;route_x::queueLocked(pub.count);
+  pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.stop=pub.loss=false;pub.selected=true;
+  u_platform::gate={pub.owner,true,false,false};return Reply::Accepted;
+ }
+-Reply requestSnapshot(uint32_t tag){u_platform::Critical lock;if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.id=++pub.next;q.tag=tag;++pub.count;return Reply::Accepted;}
+-void stop(){u_platform::Critical lock;if(pub.status.owned)pub.stop=true;}
++Reply requestStart(const char* path,Mode mode){auto reply=requestStartImpl(path,mode);{u_platform::Critical lock;route_x::admissionLocked(reply==Reply::Accepted);}return reply;}
++Reply requestSnapshot(uint32_t tag){u_platform::Critical lock;if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.id=++pub.next;q.tag=tag;++pub.count;route_x::queueLocked(pub.count);return Reply::Accepted;}
++void stop(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}}
+ void loss(){u_platform::Critical lock;if(pub.status.owned)pub.loss=true;}
+ bool begin(Service s,Token& out){
+  if(out.id)return false;execution::TryGuard executionLock;if(!executionLock)return false;
+@@ -80,9 +82,9 @@
+ bool end(Token t){u_platform::Critical lock;if(!t.id||t.id!=pub.transaction)return false;if(pub.transactionBusy){pub.transactionClosing=true;return false;}pub.transaction=0;pub.transactionClosing=false;return true;}
+ void tick(uint32_t now){
+  if(!ownerTask()||stepping)return;
+- stepping=true;struct Exit{~Exit(){stepping=false;}}exit;
++ stepping=true;route_x::beginTurn();struct Exit{uint32_t now;~Exit(){route_x::endTurn(now);stepping=false;}}exit{now};
+  bool stopping,lost;Request request;bool have=false;
+- {u_platform::Critical lock;stopping=pub.stop;lost=pub.loss;pub.stop=pub.loss=false;
++ {u_platform::Critical lock;stopping=pub.stop;lost=pub.loss;pub.stop=pub.loss=false;if(stopping)route_x::observedLocked();
+   if(!stopping&&!lost&&pub.count){request=pub.queue[pub.head];pub.head=(pub.head+1)%4;--pub.count;have=true;}}
+  if(!owned())return;
+  if(stopping||lost){
+--- webserver.cpp
++++ webserver.cpp
+@@ -1,3 +1,4 @@
++#include "diagnostics.h"
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+ #include "mutation_guard.h"
+ #endif
+@@ -463,6 +464,15 @@
+   else request->send(500,"text/plain","FAIL");
+ #endif
+ }
++#ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
++static void handleDiagnostics(AsyncWebServerRequest* req){
++ execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
++ if(!checkAuth(req)){sendAuthRequired(req);return;}
++ char record[1024];
++ if(!route_x::format(record,sizeof(record))){req->send(503,"text/plain","Measurement unavailable");return;}
++ req->send(200,"application/json",record);
++}
++#endif
+ static void handleStatus(AsyncWebServerRequest *req) {
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
+@@ -798,6 +808,9 @@
+   server.on("/delete", HTTP_GET, handleDeleteScript);
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
++#ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
++  server.on("/routeb/diagnostics", HTTP_GET, handleDiagnostics);
++#endif
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   server.on("/stop", HTTP_POST, handleStop);
+ #endif

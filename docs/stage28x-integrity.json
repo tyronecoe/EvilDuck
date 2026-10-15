@@ -1,0 +1,527 @@
+{
+  "parent": "606098b1158c216f7c5e205cd81debcb9661e04d",
+  "head": "606098b1158c216f7c5e205cd81debcb9661e04d",
+  "historical_files_bytes_modes": 1349,
+  "frozen_stage26": 235,
+  "new_files": [
+    {
+      "file": "docs/stage28x-artifact-plan.json",
+      "size": 4311,
+      "sha256": "909195ced108b0e803127db362a3778fa3d1a528df02715232f5b06ff1bdb997"
+    },
+    {
+      "file": "docs/stage28x-device-test-plan.md",
+      "size": 6277,
+      "sha256": "a8723f013cab36a345ca9b32c216749bc5f268142e0b7115349f8014d8be37b1"
+    },
+    {
+      "file": "docs/stage28x-instrumentation.md",
+      "size": 5196,
+      "sha256": "48e85719ba2ab192a00921d98cf85c80acab93d7624516bb4ef41df1604a81d0"
+    },
+    {
+      "file": "docs/stage28x-linked-diagnostics-off.json",
+      "size": 1362126,
+      "sha256": "92ae19753c9592dcc586014029ef10d637874793f2c6a62dc8bd15dda670950c"
+    },
+    {
+      "file": "docs/stage28x-linked-enabled.json",
+      "size": 1398055,
+      "sha256": "693c2fa1e3887d92471b372314d71b69328ca48513b0c09cf18b0afe2649a6f8"
+    },
+    {
+      "file": "docs/stage28x-partition-recovery.md",
+      "size": 5442,
+      "sha256": "3b9d551088db993815fe7e53f6b0c76aee0923f19574909771e6d1598ce9bcdb"
+    },
+    {
+      "file": "docs/stage28x-protected-refs.json",
+      "size": 4546,
+      "sha256": "d96c4995883c8d40dc7aeb99d9a906bb4927a554190ece9c32289fd55e909957"
+    },
+    {
+      "file": "docs/stage28x-report.md",
+      "size": 7021,
+      "sha256": "91319d18bb95b0f54bba37d669951b829d5b76aff1ce8ddaf316ce4432138782"
+    },
+    {
+      "file": "docs/stage28x-reproduction.md",
+      "size": 4733,
+      "sha256": "f4d315aa1a4399c6a201b78b60e2f62a9d2118d1ab9c6b2c8654233cc114315c"
+    },
+    {
+      "file": "docs/stage28x-resources.md",
+      "size": 3797,
+      "sha256": "22aca5f1c090bd701e5cecd8e5254d99b62a3c2bd41910717dad4cddcb227393"
+    },
+    {
+      "file": "docs/stage28x-selector-negative.json",
+      "size": 547,
+      "sha256": "1befe5d8ea2c8bb78b25922576510a9a4248bccae6669bda476346e4cd0b8642"
+    },
+    {
+      "file": "docs/stage28x-source-evidence.json",
+      "size": 8876,
+      "sha256": "9d7074f0f7282d56f06bcc8fd71c993ffd07cc8a2cc6f818ac0d25c205875e6e"
+    },
+    {
+      "file": "docs/stage28x-source-manifest.json",
+      "size": 38181,
+      "sha256": "b038d114152c083b00650bb68fc7cc63c51608860f166594c7dfefb925797512"
+    },
+    {
+      "file": "docs/stage28x-task-map.md",
+      "size": 5870,
+      "sha256": "00c500ece6c7f11e6237f14bf431ec0c5fb9015e395c04fd0f771f4dfd49958a"
+    },
+    {
+      "file": "docs/stage28x-test-results.json",
+      "size": 260273,
+      "sha256": "08e3fe1d1b840a6800f96c6f0bd7b8fd3b83a5f18cd43263334dadd3d61c5191"
+    },
+    {
+      "file": "docs/stage28x-tests.md",
+      "size": 3238,
+      "sha256": "e9cf344d7af24395081c5719ec353da9310d2d01855f053a44f35afcd4bb3577"
+    },
+    {
+      "file": "tests/stage28x/allocation_fault.h",
+      "size": 64,
+      "sha256": "10f58f18e40895bce87a880476de538a258936b612969467cd45673ffd6b8b9c"
+    },
+    {
+      "file": "tests/stage28x/allocations.cpp",
+      "size": 1336,
+      "sha256": "8637b35936d1ad3cd895ebdb44c1f7e9fb174ddbb91ac1dd8674f20cdcb11d8c"
+    },
+    {
+      "file": "tests/stage28x/audit.py",
+      "size": 7538,
+      "sha256": "aac87e4589b285e45fba738ab8347d89b04d6dc4a748c6d51dc7b82c7d87b7ea"
+    },
+    {
+      "file": "tests/stage28x/build_candidate.py",
+      "size": 8670,
+      "sha256": "c448ad4e03e2a28a98b8ae3b0b701689c6c8e2a4970c0a4a548819d1be41eebe"
+    },
+    {
+      "file": "tests/stage28x/collect_results.py",
+      "size": 2863,
+      "sha256": "0c359caa4f14cd7c402202ddd9562e081345a5a8c9501d8bb7c35384bf921e9c"
+    },
+    {
+      "file": "tests/stage28x/diagnostic_platform.h",
+      "size": 1292,
+      "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.cpp",
+      "size": 4076,
+      "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b"
+    },
+    {
+      "file": "tests/stage28x/diagnostics.h",
+      "size": 1355,
+      "sha256": "6755b746cde9b3d8cd7ed9f9f0574a86c9ba5fac48c84a55ca73fc6e0736fcc2"
+    },
+    {
+      "file": "tests/stage28x/instrumentation.patch",
+      "size": 5703,
+      "sha256": "5064570801eaa97857ae2e34623b106aaed58d00e791b69f871dec23fca7d528"
+    },
+    {
+      "file": "tests/stage28x/prepare_sources.py",
+      "size": 1088,
+      "sha256": "6f0d21b6106cbb4c717ab11830f1705b6cc411f4827bf1a8e217d67a078f654f"
+    },
+    {
+      "file": "tests/stage28x/run_tests.py",
+      "size": 3279,
+      "sha256": "9809cff45d0264ebc26a79b459f89f89fa442e42de1f9f0a5d7e69c74d15cdc3"
+    },
+    {
+      "file": "tests/stage28x/test_main.cpp",
+      "size": 6721,
+      "sha256": "ad5e8fb57736e8fbe124c21e916b4b10e34c0e3848854f21548d50d97d9feab4"
+    },
+    {
+      "file": "tests/stage28x/verify_link.py",
+      "size": 8808,
+      "sha256": "8e9fe64c8aa8f9fcd9b1bcd37504efaef2a82181ebdceaa81dfb43053e7ff4e9"
+    }
+  ],
+  "source_evidence": [
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/coordinator.cpp",
+      "sha256": "4a769d7c873868800b65c4fe288ffb7bd85d842b001883ab21345d440d6a3faa",
+      "anchors": [
+        {
+          "line": 46,
+          "text": "static Reply requestStartImpl(const char* path,Mode mode){"
+        },
+        {
+          "line": 61,
+          "text": "Reply requestStart(const char* path,Mode mode){auto reply=requestStartImpl(path,mode);{u_platform::Critical lock;route_x::admissionLocked(reply==Reply::Accepted);}return reply;}"
+        },
+        {
+          "line": 61,
+          "text": "Reply requestStart(const char* path,Mode mode){auto reply=requestStartImpl(path,mode);{u_platform::Critical lock;route_x::admissionLocked(reply==Reply::Accepted);}return reply;}"
+        },
+        {
+          "line": 63,
+          "text": "void stop(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}}"
+        },
+        {
+          "line": 83,
+          "text": "void tick(uint32_t now){"
+        },
+        {
+          "line": 85,
+          "text": "stepping=true;route_x::beginTurn();struct Exit{uint32_t now;~Exit(){route_x::endTurn(now);stepping=false;}}exit{now};"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/diagnostics.cpp",
+      "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b",
+      "anchors": [
+        {
+          "line": 19,
+          "text": "void beginTurn(){"
+        },
+        {
+          "line": 27,
+          "text": "void endTurn(uint32_t now){"
+        },
+        {
+          "line": 41,
+          "text": "Snapshot snapshot(){u_platform::Critical lock;return state.published;}"
+        },
+        {
+          "line": 42,
+          "text": "size_t format(char* out,size_t n){"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/diagnostic_platform.h",
+      "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "r.free8=heap_caps_get_free_size(MALLOC_CAP_8BIT);"
+        },
+        {
+          "line": 20,
+          "text": "static_assert(sizeof(StackType_t)==1,\"Pinned ESP-IDF Xtensa stack units changed\");"
+        },
+        {
+          "line": 23,
+          "text": "if(task){r.loopFreeMinimum=uxTaskGetStackHighWaterMark(task)*sizeof(StackType_t);r.stackKnown=true;}"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/webserver.cpp",
+      "sha256": "70f64cfb13315183eb28cfadb41465d8de7f71823708b6f3b3a736d5ac78ddb5",
+      "anchors": [
+        {
+          "line": 40,
+          "text": "static bool checkAuth(AsyncWebServerRequest *req) {"
+        },
+        {
+          "line": 468,
+          "text": "static void handleDiagnostics(AsyncWebServerRequest* req){"
+        },
+        {
+          "line": 476,
+          "text": "static void handleStatus(AsyncWebServerRequest *req) {"
+        },
+        {
+          "line": 684,
+          "text": "static void onWsEvent(AsyncWebSocket *serverPtr, AsyncWebSocketClient *client,"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/cli.cpp",
+      "sha256": "8850e96a2754367def9d96ce326c98ad0f8f53da00503b33da7c3a37022f33b4",
+      "anchors": [
+        {
+          "line": 336,
+          "text": "void parse(const char *input, PrintFunction printfunc, bool echo) {"
+        },
+        {
+          "line": 369,
+          "text": "void update() {"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage28x-linked-enabled-final/candidate/EvilDuckS3/EvilDuckS3.ino",
+      "sha256": "d876a65b36de944ac7480ff61dd7732e5454b28bfcc917f3e1ad3056b896ab91",
+      "anchors": [
+        {
+          "line": 41,
+          "text": "void setup() {"
+        },
+        {
+          "line": 124,
+          "text": "void loop() {"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/main.cpp",
+      "sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d",
+      "anchors": [
+        {
+          "line": 39,
+          "text": "__attribute__((weak)) size_t getArduinoLoopTaskStackSize(void) {"
+        },
+        {
+          "line": 47,
+          "text": "void loopTask(void *pvParameters) {"
+        },
+        {
+          "line": 105,
+          "text": "xTaskCreateUniversal(loopTask, \"loopTask\", getArduinoLoopTaskStackSize(), NULL, 1, &loopTaskHandle, ARDUINO_RUNNING_CORE);"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h",
+      "sha256": "80ff24959d8a900b7896d4fd3991344a2e100f3b8aacfbc787fe31df7bef8f77",
+      "anchors": [
+        {
+          "line": 88,
+          "text": "#define portSTACK_TYPE              uint8_t"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/freertos/FreeRTOS-Kernel/include/freertos/task.h",
+      "sha256": "ac666bcbe4acb21c44cc820631f8c579d089698967015054c5ab42d092dddc2d",
+      "anchors": [
+        {
+          "line": 1513,
+          "text": "UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/heap/include/esp_heap_caps.h",
+      "sha256": "9df86c59e2ffcaa1b4f8246fea3cdbe59411f41f92e063bd303c4b2ef9ea2968",
+      "anchors": [
+        {
+          "line": 216,
+          "text": "size_t heap_caps_get_free_size( uint32_t caps );"
+        },
+        {
+          "line": 234,
+          "text": "size_t heap_caps_get_minimum_free_size( uint32_t caps );"
+        },
+        {
+          "line": 246,
+          "text": "size_t heap_caps_get_largest_free_block( uint32_t caps );"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/esp_timer/include/esp_timer.h",
+      "sha256": "9ef47843590090f5ffccdc956c924e650cfb479ad4d7b2553bf0453ffac492fd",
+      "anchors": [
+        {
+          "line": 223,
+          "text": "int64_t esp_timer_get_time(void);"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/arduino/user/libraries/Async_TCP/src/AsyncTCP.cpp",
+      "sha256": "27e3e22a6030cc5c9c9f32f28d0a3a36189b1ea6a5fa270777b2d2790a89c365",
+      "anchors": [
+        {
+          "line": 185,
+          "text": "class queue_mutex_guard {"
+        },
+        {
+          "line": 202,
+          "text": "static TaskHandle_t _async_service_task_handle = NULL;"
+        },
+        {
+          "line": 331,
+          "text": "static void _async_service_task(void *pvParameters) {"
+        },
+        {
+          "line": 384,
+          "text": "static bool _start_async_task() {"
+        },
+        {
+          "line": 298,
+          "text": "void AsyncTCP_detail::handle_async_event(lwip_tcp_event_packet_t *e) {"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebResponses.cpp",
+      "sha256": "12055aa687cd0f6f719b65057c7a1d203baf6f0ef88e96b3fb4909ac68d0e6f8",
+      "anchors": [
+        {
+          "line": 260,
+          "text": "AsyncBasicResponse::AsyncBasicResponse(int code, const char *contentType, const char *content) {"
+        },
+        {
+          "line": 722,
+          "text": "AsyncFileResponse::AsyncFileResponse(FS &fs, const String &path, const char *contentType, bool download, AwsTemplateProcessor callback)"
+        },
+        {
+          "line": 781,
+          "text": "AsyncFileResponse::AsyncFileResponse(File content, const String &path, const char *contentType, bool download, AwsTemplateProcessor callback)"
+        },
+        {
+          "line": 893,
+          "text": "AsyncProgmemResponse::AsyncProgmemResponse(int code, const char *contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback)"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebRequest.cpp",
+      "sha256": "3ca1c44ffef44e4fd7d8e900857e797469cd336bf846f2a9af61e02a0956e7ad",
+      "anchors": [
+        {
+          "line": 95,
+          "text": "AsyncWebServerRequest::~AsyncWebServerRequest() {"
+        },
+        {
+          "line": 283,
+          "text": "void AsyncWebServerRequest::_onDisconnect() {"
+        },
+        {
+          "line": 1208,
+          "text": "AsyncWebServerResponse *AsyncWebServerRequest::beginResponse(int code, const char *contentType, const char *content, AwsTemplateProcessor callback) {"
+        },
+        {
+          "line": 1216,
+          "text": "AsyncWebServerRequest::beginResponse(int code, const char *contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback) {"
+        }
+      ]
+    }
+  ],
+  "artifact_plan": {
+    "label": "REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+    "migration_authorized": false,
+    "hardware": false,
+    "rows": [
+      {
+        "role": "bootloader",
+        "file": "/workspace/tooling/stage28x-linked-enabled-final/build/EvilDuckS3.ino.bootloader.bin",
+        "offset": 0,
+        "bytes": 20256,
+        "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+        "erase_start": 0,
+        "erase_end_exclusive": 20480,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 32768,
+        "purpose": "Pinned ESP32-S3 startup loader"
+      },
+      {
+        "role": "partitions",
+        "file": "/workspace/tooling/stage28x-linked-enabled-final/build/EvilDuckS3.ino.partitions.bin",
+        "offset": 32768,
+        "bytes": 3072,
+        "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+        "erase_start": 32768,
+        "erase_end_exclusive": 36864,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 36864,
+        "purpose": "Approved writable 16 MiB layout with MD5"
+      },
+      {
+        "role": "otadata",
+        "file": "/workspace/EvilDuck-stage6/review/stage26-installation/ota-app0.bin",
+        "offset": 57344,
+        "bytes": 8192,
+        "sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+        "erase_start": 57344,
+        "erase_end_exclusive": 65536,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 65536,
+        "purpose": "Deterministic initial app0 selection"
+      },
+      {
+        "role": "app0",
+        "file": "/workspace/tooling/stage28x-linked-enabled-final/build/EvilDuckS3.ino.bin",
+        "offset": 65536,
+        "bytes": 1358224,
+        "sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "erase_start": 65536,
+        "erase_end_exclusive": 1425408,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 7667712,
+        "purpose": "Identical Stage28X instrumented controlled application; explicit Route B selection only"
+      },
+      {
+        "role": "app1",
+        "file": "/workspace/tooling/stage28x-linked-enabled-final/build/EvilDuckS3.ino.bin",
+        "offset": 7667712,
+        "bytes": 1358224,
+        "sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "erase_start": 7667712,
+        "erase_end_exclusive": 9027584,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 15269888,
+        "purpose": "Identical Stage28X instrumented controlled application; explicit Route B selection only"
+      },
+      {
+        "role": "spiffs",
+        "file": "/workspace/EvilDuck-stage6/review/stage26-installation/empty-spiffs.bin",
+        "offset": 15269888,
+        "bytes": 1441792,
+        "sha256": "f19dc5da480ce1eff46d82376f45a8c1c425148016f9a8c34acef7a330552233",
+        "erase_start": 15269888,
+        "erase_end_exclusive": 16711680,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 16711680,
+        "purpose": "Empty filesystem; zero scripts"
+      },
+      {
+        "role": "coredump",
+        "file": "/workspace/EvilDuck-stage6/review/stage26-installation/coredump-erased.bin",
+        "offset": 16711680,
+        "bytes": 65536,
+        "sha256": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063",
+        "erase_start": 16711680,
+        "erase_end_exclusive": 16777216,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "region_end_exclusive": 16777216,
+        "purpose": "New coredump region in erased state"
+      },
+      {
+        "role": "nvs",
+        "file": "OWNER-LOCAL fresh-nvs.bin NOT SUPPLIED",
+        "offset": 36864,
+        "bytes": 20480,
+        "sha256": null,
+        "erase_start": 36864,
+        "erase_end_exclusive": 57344,
+        "region_end_exclusive": 57344,
+        "initial_write_planned": true,
+        "authorized_for_flashing": false,
+        "purpose": "Explicit fresh private credentials; later separately approved provisioning"
+      }
+    ],
+    "original_firmware_availability": "OWNER CONFIRMED: AVAILABLE EXTERNALLY",
+    "private_nvs_verified": false,
+    "complete_x_installation_package_verified": false
+  },
+  "status": "PASS",
+  "physical": false
+}
