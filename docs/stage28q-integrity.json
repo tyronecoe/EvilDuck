@@ -1,0 +1,297 @@
+{
+  "status": "PASS",
+  "baseline": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25",
+  "historical_paths_files_modes": 1139,
+  "frozen_stage26_files": 235,
+  "references_verified": 11,
+  "core_sdk": "PASS unchanged pinned protected core/SDK",
+  "receipt": "PASS unique cases, tested model/manifest hashes and separate P counts",
+  "remote": "NOT REQUESTED",
+  "source_order_and_bit_crosscheck": "PASS; establishes source syntax/order, NOT silicon handshake semantics",
+  "new_file_count": 15,
+  "new_files": [
+    {
+      "file": "docs/stage28q-owner-scope.md",
+      "size": 1231,
+      "sha256": "45b190df59c97703c441c220be470b4be0ea1a9d9291aabf44d38f96dfcd8776"
+    },
+    {
+      "file": "docs/stage28q-premise-ledger.md",
+      "size": 6797,
+      "sha256": "5884c0d59e3c7cf42d3815256cd2ec2a43f2004a71dd17a982c598b604fad94e"
+    },
+    {
+      "file": "docs/stage28q-producer-fence.md",
+      "size": 3373,
+      "sha256": "797193689424182408807cede61ae2ff11be13bef82f039413dade659abc0cde"
+    },
+    {
+      "file": "docs/stage28q-report.md",
+      "size": 6162,
+      "sha256": "d7fc86c5e709323cd2bf7ddd1dedadab84ecad4b0f7cfc2e1de6cb7df200d583"
+    },
+    {
+      "file": "docs/stage28q-retirement-sequence.md",
+      "size": 5069,
+      "sha256": "eeb5e4005d7a350af02fb5362dc4b4719e495fd4623cc59aee2354613ddcdac4"
+    },
+    {
+      "file": "docs/stage28q-source-and-model-manifest.json",
+      "size": 6646,
+      "sha256": "deb55763f54dfa0976132d160e350f3e028064136ce61b39cf6f964170b3a83b"
+    },
+    {
+      "file": "docs/stage28q-test-report.md",
+      "size": 5763,
+      "sha256": "710765bad84829adf34d5720117d0be40483aa418b52e1a4053d50971ea781aa"
+    },
+    {
+      "file": "docs/stage28q-test-results.json",
+      "size": 564279,
+      "sha256": "ce3f89cbc1076d2cce45c1b7109dfcf4bf7a697349acca0e778c1ea51768af2f"
+    },
+    {
+      "file": "tests/stage28q/model.cpp",
+      "size": 4386,
+      "sha256": "e54cb1cc6d3e5490fc337ff392300afc1b9374926fb4bfb6af88c091ac6dea86"
+    },
+    {
+      "file": "tests/stage28q/model.h",
+      "size": 3428,
+      "sha256": "7d9ad90cba54f8f6d7a01d4d547cd0a56ed3635518ca2625c2b84171d81ce94a"
+    },
+    {
+      "file": "tests/stage28q/receipt_reproducer.cpp",
+      "size": 539,
+      "sha256": "7ab218fefed8226992cdfe19c75ff3170cc3a7a218e9d0f62bad3c0747d1ded4"
+    },
+    {
+      "file": "tests/stage28q/retrieve_references.py",
+      "size": 828,
+      "sha256": "bd954a9af6d50bf9b503a1f0818a49d3fded722029f45b1f1f77f68498f6195b"
+    },
+    {
+      "file": "tests/stage28q/run_tests.py",
+      "size": 4292,
+      "sha256": "903b58a21eda2362a17abd5ffa1c82d6466f71127a23ce40dbd049f5305bd518"
+    },
+    {
+      "file": "tests/stage28q/test_model.cpp",
+      "size": 7805,
+      "sha256": "24a11473b3d4952f46ea48655d0d4b359b5194864bac928c39631fac018ef74e"
+    },
+    {
+      "file": "tests/stage28q/verify_scope.py",
+      "size": 4692,
+      "sha256": "1ace6f8bb5a95801a5305a55d23cdf91fe021e29c526679aa7e2fba0c8d0178b"
+    }
+  ],
+  "integrity_self_excluded": true,
+  "runtime_assertions": 0,
+  "new_file_count_including_integrity": 16,
+  "receipt_phase": "PRECOMMIT; own hash excluded; final commit/push checked separately",
+  "initial_state": {
+    "head": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25",
+    "branch": "stage28p-builder-dcd-lifecycle",
+    "clean": true
+  },
+  "previous_remote_refs": [
+    {
+      "ref": "refs/heads/main",
+      "sha": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "sha": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "sha": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "sha": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "sha": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "sha": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "sha": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "sha": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "sha": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "sha": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "sha": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "sha": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "sha": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "sha": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "sha": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "sha": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "sha": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "sha": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "sha": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "sha": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "sha": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "sha": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "sha": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "sha": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "sha": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "sha": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "sha": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "sha": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "sha": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "sha": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "sha": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "sha": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "sha": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "sha": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "sha": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "sha": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "sha": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "sha": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "sha": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "sha": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "sha": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "counts": {
+    "Q_model_PASS": 37,
+    "Q_unexpected_final_FAIL": 0,
+    "Q_assertions": 419,
+    "separate_P_observation_PASS": 33,
+    "separate_P_assertions": 167,
+    "separate_P_watchdogs": 3,
+    "new_Q_negative_control_exit": 1,
+    "fixed_development_reproducer_exit": 0,
+    "pre_fix_development_reproducer_exit": 1,
+    "O_baseline_disabled": "historical only; not rerun by Q"
+  },
+  "reference_retrieval_helper": "Executed successfully into second fresh directory; all11 hashes match",
+  "native_binary_hashes": [
+    {
+      "name": "model",
+      "size": 358576,
+      "sha256": "d854341d51070d75c7bc4679878008c55a0d2552a8d3718715324a985af2f669"
+    },
+    {
+      "name": "negative",
+      "size": 350992,
+      "sha256": "1c7d33245cb30165d1164156102e7767b6b74dfe278453f34a74c23fe77956eb"
+    },
+    {
+      "name": "receipt-reproducer",
+      "size": 213016,
+      "sha256": "534a1f65fd0b868c0ae32341d15f999cb821449ff9a463f842ba7b0b2a3013a4"
+    }
+  ],
+  "hardware": false,
+  "firmware_build": false,
+  "real_reuse": "UNRESOLVED / gate closed"
+}
