@@ -1,0 +1,243 @@
+{
+  "status": "PASS PRECOMMIT / NOT A PUBLICATION RECEIPT",
+  "created_utc": "2026-10-15T01:43:24.084926+00:00",
+  "baseline": "9afdeabffae32186e56fe7012cf5f639bb88dec9",
+  "branch": "stage28r-transport-decision-language-roadmap",
+  "frozen_baseline": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+  "historical_files": 1155,
+  "historical_bytes_paths_modes": "PASS directly compared with Git blobs and filesystem modes",
+  "historical_inventory_sha256": "dc6d5217ccaac9507da0083f82ba685d73eae68a90c490c6fc3292cd905e9bf8",
+  "baseline_git_tree": "fbb30a151f53d114877c141fb371bb319417deec",
+  "frozen_files": 235,
+  "frozen_verification": "PASS independently derived frozen inventory and direct235-file byte/hash comparison",
+  "frozen_reference_manifest": {
+    "file": "docs/stage28d-stage26-freeze.json",
+    "sha256": "d5aa27fabde647fa26b6d28b01c0133ea74a29cf0bccd5c3e239bfd62ceb4e36"
+  },
+  "core_sdk": "PASS existing pinned protected-core check_sources(patched=True); no dependency change",
+  "evidence": "PASS44 whole-source/span hashes,18 prior report hashes,4 cached official Hak5 hashes and TRM hash",
+  "document_scope": "PASS only new docs/stage28r-* files; no old edits",
+  "document_consistency": "PASS recommendation vs owner selection, unsent status, blocked strict route, Mac pending, K01/cap conservation, zero runtime claims",
+  "runtime_groups": 0,
+  "runtime_assertions": 0,
+  "runtime_regression_sanitizer_reruns": false,
+  "builds": false,
+  "hardware": false,
+  "support_sent": false,
+  "contract_adopted": false,
+  "remote_before": [
+    {
+      "ref": "refs/heads/main",
+      "commit": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "commit": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "commit": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "commit": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "commit": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "commit": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "commit": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "commit": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "commit": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "commit": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "commit": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "commit": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "commit": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "commit": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "commit": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "commit": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "commit": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "commit": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "commit": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "commit": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "commit": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "commit": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "commit": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "commit": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "commit": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "commit": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "commit": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "commit": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "commit": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "commit": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "commit": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "commit": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "commit": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "commit": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "commit": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence",
+      "commit": "9afdeabffae32186e56fe7012cf5f639bb88dec9"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "commit": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "commit": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "commit": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "commit": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "commit": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "commit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "remote_before_sha256": "20dbf97be121ac14ca6a280ea35b0cf83603489cc8eeb378eaa24b647f6b14bf",
+  "remote_after": "PENDING PUBLICATION; final receipt external",
+  "self_hash_excluded": true,
+  "source_files": [
+    {
+      "file": "docs/stage28r-blocker-summary.md",
+      "size": 2772,
+      "sha256": "f54463f39b218d6ccb9697905d2a2099ca8c020acc8a62481f4b5137e79b5e78"
+    },
+    {
+      "file": "docs/stage28r-decision-report.md",
+      "size": 8644,
+      "sha256": "9923d371b04c76fa036b84dcf1e8ba7140253a3feb545039e12123acb0b854a9"
+    },
+    {
+      "file": "docs/stage28r-espressif-support-draft.txt",
+      "size": 5977,
+      "sha256": "b4ca09006d3b2de591f95298117deaab2352fc1899f34deebb5eaddff8ee8bbe"
+    },
+    {
+      "file": "docs/stage28r-implementation-roadmap.md",
+      "size": 7513,
+      "sha256": "4a066155f1f131501ef22668701f918054f2863772c32d32a263b122f3c7b71b"
+    },
+    {
+      "file": "docs/stage28r-language-capability-map.md",
+      "size": 7254,
+      "sha256": "6c1b0ebe0c0e267615043f973d90e85766adb69887fb2acb711a1318c6ee8b11"
+    },
+    {
+      "file": "docs/stage28r-owner-scope.md",
+      "size": 1681,
+      "sha256": "dbaab70eae8c21dc5428710fb618e70a33b0aab9b93eae39db056e9b6aedc97c"
+    },
+    {
+      "file": "docs/stage28r-source-evidence.json",
+      "size": 22744,
+      "sha256": "179b0f939fc604a9f5efe03cbda56e78545aad89510850d4d03f1ff5f4766530"
+    },
+    {
+      "file": "docs/stage28r-transport-options.md",
+      "size": 10161,
+      "sha256": "b3c17e52cec880c9544aa1486cb23a4f057269fc38a2c5dcde50f58da148c4dc"
+    }
+  ]
+}

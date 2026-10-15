@@ -1,0 +1,42 @@
+UNSENT DRAFT — review artifact only; no ticket, forum post or email sent.
+
+Route verification (2026-10-15 UTC): official current ESP-IDF Resources page
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/resources.html
+was retrieved HTTP200 and identifies https://esp32.com/ as a question/community route, and https://github.com/espressif/esp-idf/issues for established bugs/feature requests. Its current page identifies v6.1; this is route evidence only, NOT our SDK version. The pinned TRM v1.8 Contact Us page1517 identifies Technical Enquiries via https://espressif.com/en/contact-us/sales-questions and its tabs. Technical-inquiry URL variants returned403 here; the live form, login and entitlement were not verified. Owner may manually select the official Technical Enquiries route; community forum is a publicly documented alternative. Do not treat this as an established bug ticket or assume private support entitlement. No NDA/terms accepted, account requested or contact details included.
+
+Subject: ESP32-S3 device IN endpoint buffer retirement and interrupt publication guarantees
+
+We are reviewing ESP32-S3 USB-OTG device-mode HID IN on Arduino ESP32 3.3.0, SDK idf-release_v5.5-b66b5448-v1. This is a source/native-simulation investigation; we have NOT reproduced a silicon failure. We need to decide whether a stricter, application-correlated completion and safe-buffer-reuse contract is supported.
+
+Public pins:
+ESP-IDF b66b5448e0dfac6be135e6f0ac21010aba231180
+esp32-arduino-lib-builder afa5cdd0d41d7e465d2e39867b24aef48b1c7b84
+TinyUSB publisher pin 8a78804ff91271fb32008288777fad9fe73f5735
+Builder-selected dcd_dwc2.c SHA256 d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a
+Package records abbreviations; full clean shipped-source-to-object equivalence remains unproven. Do not infer an upstream standard DCD is identical to the builder-selected file.
+
+Configuration: ESP32-S3 full-speed USB-OTG device, existing report-ID1 keyboard input payload8 bytes (9 framed bytes in report protocol), slave/FIFO DCD path; CDC and potential MSC share the controller. No USB identity or descriptors changed for this investigation. Exact host negotiated protocol, target core affinity and physical behavior have not been measured.
+
+Relevant public evidence:
+https://github.com/espressif/esp32-arduino-lib-builder/blob/afa5cdd0d41d7e465d2e39867b24aef48b1c7b84/components/arduino_tinyusb/src/dcd_dwc2.c
+https://github.com/tyronecoe/EvilDuck/blob/9afdeabffae32186e56fe7012cf5f639bb88dec9/docs/stage28q-premise-ledger.md
+https://github.com/tyronecoe/EvilDuck/blob/f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25/docs/stage28p-source-and-boundary-manifest.json
+https://github.com/tyronecoe/EvilDuck/blob/f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25/docs/stage28p-controller-ownership.md
+https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf (reviewed v1.8, §32.5 page1242)
+https://github.com/espressif/esp-idf/blob/b66b5448e0dfac6be135e6f0ac21010aba231180/components/hal/esp32s3/include/hal/usb_dwc_ll.h
+
+The selected driver writes current xfer->buffer/total_len at dcd_dwc2.c:601–628 and reads the current transfer descriptor in IN handling:876–923. Its disable path:307–345 requests SNAK, waits INEPNE, requests EPDIS, waits EPDISD, acknowledges and flushes TX using epnum. TX FIFO allocation/control selection is at261–302. In a controlled native injection, submit old work, replace the current descriptor through direct raw DCD submission, then dispatch a completion; the handler reads current metadata. Normal stack busy protection is a different boundary. Adding an application token only to that reusable descriptor cannot authenticate old IRQ-origin work. This is a lifetime concern, not a claim the hardware generates impossible duplicate interrupts.
+
+Questions that would change the decision:
+1. What exact supported device IN NAK/disable/ack sequence establishes that old FIFO/buffer readers have stopped? Which status bits and applicable errata govern it? How should timeouts be handled without unsafe reuse?
+2. Must flushing select the endpoint's allocated TX_FIFO_NUM rather than endpoint number? What is the mapping for nonidentity allocations, and which operations disturb EP0/CDC/MSC or other endpoints?
+3. Which DIEPINT bits are W1C/read-only, what happens on simultaneous set/ack, and how must raw endpoint status, masks and already-pending CPU interrupts be ordered/drained?
+4. At what documented point can no older controller/FIFO/IRQ work reference an old buffer or descriptor? Does transfer complete alone establish that, or is another fence required?
+5. Which device/inter-core barriers and interrupt-affinity rules apply to this sequence? Does masking exclude an ISR already entered on the allocated core?
+6. What supported method fences ISR publication already in progress and queued observers without deadlock or unbounded cross-core waits? Which guarantees belong to the application/stack rather than hardware?
+7. Is there a supported public API or recommended stack/controller architecture providing bounded submission plus safe retirement, or a simpler documented ownership contract we should use?
+8. Is the applicable material publicly available, available through support, or subject to separate terms? Please identify versions and applicability; this draft makes no agreement to those terms.
+
+Answer checklist for review: applicable chip/mode/revision; complete ordered sequence; endpoint/FIFO scope; late-status exclusion; memory visibility; CPU/ISR/publisher fence; error/timeout retained ownership; supported API and exact limitations. Partial answers may narrow A's blocker but do not certify all eight Q premises. A vendor reply is not required to complete this decision package or proceed with separately approved B native work.
+
+Minimal references only; no private backup, credentials, owner payloads, personal contact details or large raw test receipts attached.

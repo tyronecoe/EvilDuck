@@ -1,0 +1,556 @@
+{
+  "baseline": "9afdeabffae32186e56fe7012cf5f639bb88dec9",
+  "frozen_stage26": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+  "observed_utc": "2026-10-15T01:41:57.871833+00:00",
+  "source_spans": [
+    {
+      "file": "language_preview/core.h",
+      "first": 6,
+      "last": 16,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "0fd9d9a70c7a12177a9fb1d554a89fef3b15293ae4b768a773a225a2bec3be45",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.h",
+      "first": 37,
+      "last": 97,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "ccb6525c3f354e7add7e1db8277186117206a5a5b5ce23354991eb8932511680",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.h",
+      "first": 98,
+      "last": 132,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f",
+      "span_sha256": "4e8d2391d6839af4b33da3399beaf43bb5f112c21034f78ef218bc713e2db6aa",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "first": 68,
+      "last": 165,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "aa1b3425e59bebb2e094ac7af73e37d0d4e585da0ceb6f291092e7b920e14c53",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "first": 167,
+      "last": 222,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "b386752e280ccdfd80f75685e7030fd57c7a4b4c45611f57dba661a373e27774",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "first": 231,
+      "last": 307,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "0f8f614602c606fe83963471ac9f734cc8ef9fcfffdaaecc7822a669160ddc0d",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "first": 382,
+      "last": 426,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "13aaa8b60fc7d2aad9a9b78e743a99282d7b36518ba1d44a6fcc9c6c597efd24",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "first": 462,
+      "last": 515,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7",
+      "span_sha256": "9141975b3693faf71ffe2af9c1c4842df2319724d8cbd102c0c91a5cafe89cde",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/keyboard.h",
+      "first": 5,
+      "last": 48,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3",
+      "span_sha256": "8269d79b28e61d13c0276b36d32cc5dbe8e1877188e9cfc5db1fcc015ea71df6",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "first": 29,
+      "last": 48,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "span_sha256": "dbfe77f86c008121c4fed9bc530a3e46a22264acf3b61affde04e92d9585c238",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/keyboard.cpp",
+      "first": 55,
+      "last": 82,
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae",
+      "span_sha256": "477ef2a3102507f252d55b02a741d375df0b8ebfad12220569fb8faa88d8a864",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/bridge.h",
+      "first": 14,
+      "last": 46,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5",
+      "span_sha256": "2d5c236efe4c12bbfc878aa14b1cb84a972ed90eede8f84d55e4f16082923efc",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "language_preview/bridge.cpp",
+      "first": 15,
+      "last": 92,
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1",
+      "span_sha256": "601467317e281b3b881a47c96e3eaa4140ae095f1a7cbbaa7e57b0d21e7aac3d",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "first": 27,
+      "last": 52,
+      "sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072",
+      "span_sha256": "4f6a1c523009cf9b192b3ee2a9848c9a322f946ac813c868d1000dc48430f1ba",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "first": 254,
+      "last": 353,
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "8692a198206e5a557fa70d4fc7339ec56e79d39614ae57e223d0cdf6a1d86c6f",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "first": 356,
+      "last": 379,
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "span_sha256": "6acca7257c916fa156521e7802b020eb120d361fd7ef1e1852079c121e95ce48",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "first": 5,
+      "last": 26,
+      "sha256": "9eec37e589bcc58e7b932f6c90539d96e252177be8f6480dfcea6585b2ca84c4",
+      "span_sha256": "5cbcf7bd68af1b266e309caf6305af6a33333c69c972f1189fe64a8a8ea5d325",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "first": 105,
+      "last": 154,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "d8eb9247ae73a85482f09afc13cf62501ec811229e6bf25d2f814711fc65de45",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "first": 184,
+      "last": 225,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "eff72921855e5d4a3560e0d02a39c1f7e8ccf8f4692c0683938ab7e481dd1193",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "first": 366,
+      "last": 451,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "38645ac1a5c05e9df369e3b52502cb395c4c5ab3d5edf297876929db883278d9",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "first": 454,
+      "last": 624,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc",
+      "span_sha256": "a7855da4deb4d7616b24e7dd02103b478fef6c3fb029a0ee1cae3532ed94f097",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "first": 276,
+      "last": 310,
+      "sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846",
+      "span_sha256": "7967fc72ffe0c6f382abef090c23ed6063a04db3998142130465009b99933672",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "first": 318,
+      "last": 400,
+      "sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846",
+      "span_sha256": "7a920a8b799221b11c6e12ebce2a2fed4adbf73f03e3e34ec57169d227d458e6",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "first": 1,
+      "last": 54,
+      "sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6",
+      "span_sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "first": 37,
+      "last": 123,
+      "sha256": "2efcf7720b4026130a359567797f7e66bdb5639f334caf786d294f3e14ccb115",
+      "span_sha256": "872469745c6c5e68097f2677c39f4ea6233cee33c25a68c665d9cd34b1f19d31",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "first": 236,
+      "last": 283,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47",
+      "span_sha256": "4b29273e60a540217854a65ad6391165db4fce803a49a629391db8395d165a41",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "first": 330,
+      "last": 498,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47",
+      "span_sha256": "31d44ee39ffbd94de75584787396e4720d5f3d5a755aaf3593f97634ca03fc71",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "first": 509,
+      "last": 605,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47",
+      "span_sha256": "af933dfd6b370b8332210e2c8c49cf8fa34ff93799cd49a93e3bc1bd4de17177",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.cpp",
+      "first": 10,
+      "last": 79,
+      "sha256": "fc09ef1124ac9a6a4f47f6fd1ad543cafda814e927d05cf148e6d86089c52d79",
+      "span_sha256": "543a4b71c930bf2995c40320ed88bd1766ceda4cd611692cac684315ec5d8f3b",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.cpp",
+      "first": 135,
+      "last": 165,
+      "sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330",
+      "span_sha256": "ef9423acff1c6a252c0ec8b5e2a3e3a5e58e328d18d5f1a25ff17b2f001a458a",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.cpp",
+      "first": 115,
+      "last": 141,
+      "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293",
+      "span_sha256": "a420d5961a2442274464a76e22ba81ce7d8d59143c81f257da61ac6e6beae235",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.cpp",
+      "first": 159,
+      "last": 235,
+      "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293",
+      "span_sha256": "e8db2beb39cf3b4994613449727ccb21bc1957afad303dccc0146a8b1539dc92",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.h",
+      "first": 5,
+      "last": 26,
+      "sha256": "e6dc9b5c3fb2edb329d088f57ce4d314cc4ef5cb62afc16b500085d0936e0d06",
+      "span_sha256": "5eb5d8ac5fa2f79ad3dab51b9f7cb2ddedeec932846d065e5db891788c31eb6a",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "first": 28,
+      "last": 105,
+      "sha256": "54e30399e0f5280ec01a7e51372b97a280f60aa5678dd43dc8c94c5c6e4e86ea",
+      "span_sha256": "cf9fcf546f46c2a90a28e6b73c02d8ac3b837c109906d48381318964575fd67c",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/config.h",
+      "first": 12,
+      "last": 53,
+      "sha256": "8e52a6f2d284efb28d17c74a83f01f818ce2eeb307c6b3c387f959af0a7fcdcf",
+      "span_sha256": "3363a777a4d9ca46bfc79bf8cbbbf33fe20d3ee536d66b4b32ee66fcf44b48c2",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "EvilDuckS3/partitions.csv",
+      "first": 1,
+      "last": 8,
+      "sha256": "29f1c8956b5b68b26a1eb79ea46c68cb110d2510b40091e4bebfb89f06f511ef",
+      "span_sha256": "29f1c8956b5b68b26a1eb79ea46c68cb110d2510b40091e4bebfb89f06f511ef",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "tools/s3_validation.py",
+      "first": 14,
+      "last": 43,
+      "sha256": "ab8c368a73c9f231b0110915c4b2022134c9415136ab94214cd6d38d885ed31e",
+      "span_sha256": "6c5b5ab3c0bdb8229b5c3c9e41fe919192099807a399a014754b1a427c91cb1c",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "tools/build_s3_patched.py",
+      "first": 18,
+      "last": 31,
+      "sha256": "2ea9b1db0e8189c875038545a68ce53ae11153f2427e41c6c349983cd8ff52aa",
+      "span_sha256": "d72e3d361a3447342a22b2bcc9954aa28db43b7d976eab66bc170079e4f713f5",
+      "evidence": "inspected repository source; no execution"
+    },
+    {
+      "file": "tinyusb/src/class/hid/hid_device.c",
+      "first": 107,
+      "last": 131,
+      "sha256": "e12cd2ea98d60d3ebe2741f3b2156c1d53e6fce4d4f48d603deda58324240a99",
+      "span_sha256": "fe0ca21b017fdc4fdeae9882a82bf99d489383fc91450e1b77a59f83c7b397c2",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    },
+    {
+      "file": "tinyusb/src/device/usbd.c",
+      "first": 1366,
+      "last": 1421,
+      "sha256": "4d72aff35f4559540ad3f5d429c70063f1196ab21556fc56d34eadd278ba5192",
+      "span_sha256": "086a3878979f54268b55607e49d5a1f715d602d8e13d3e522550211be5c8f48f",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    },
+    {
+      "file": "builder/dcd_dwc2.c",
+      "first": 261,
+      "last": 345,
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "4e19465f2b1cd2bbd7c231542e81af604f0c8d662ba62adff8daa473d10b8a2e",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    },
+    {
+      "file": "builder/dcd_dwc2.c",
+      "first": 601,
+      "last": 628,
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "9b7147ee23285d3afa253df2b81484bde17d91e4d7974f7fa3d29eac070fde89",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    },
+    {
+      "file": "builder/dcd_dwc2.c",
+      "first": 876,
+      "last": 923,
+      "sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+      "span_sha256": "c4aad2b2bd3013b0233c5559c6003258e8207576ac92e22cf97bb90129a8d875",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    },
+    {
+      "file": "protected-core/libraries/USB/src/USBHID.cpp",
+      "first": 331,
+      "last": 374,
+      "sha256": "b1c7130634f385d537184e9f52ec11b3a311ba4a449ae6812015eb04a0d0a0aa",
+      "span_sha256": "4f53fb0c593c3cbf3f74c2bdfffcab45d341ccd76e18443feb6b0621069f43db",
+      "evidence": "inspected cached pinned dependency source; no execution"
+    }
+  ],
+  "prior_reports": [
+    {
+      "file": "docs/stage28q-report.md",
+      "sha256": "d7fc86c5e709323cd2bf7ddd1dedadab84ecad4b0f7cfc2e1de6cb7df200d583",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28q-premise-ledger.md",
+      "sha256": "5884c0d59e3c7cf42d3815256cd2ec2a43f2004a71dd17a982c598b604fad94e",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28q-retirement-sequence.md",
+      "sha256": "eeb5e4005d7a350af02fb5362dc4b4719e495fd4623cc59aee2354613ddcdac4",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28q-producer-fence.md",
+      "sha256": "797193689424182408807cede61ae2ff11be13bef82f039413dade659abc0cde",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28p-report.md",
+      "sha256": "e5ad2d905ae8e48b6da118485fc36628cf2691387e6f0d1aa7e46114a8e05569",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28p-controller-ownership.md",
+      "sha256": "b9d390171093acc84f99e6324c9380b3152f1b3ddfd93d2f4180f1c0485e9c9d",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28o-report.md",
+      "sha256": "cc01edf7c567b13f7fe26782340f659dc04e37971a9d93962eaf3b4cb853ca6c",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28l-transport-contract.md",
+      "sha256": "12dc21b2ed95c1b423fb06f667bfdb00720538d5c8587ab152b39cf4ead230af",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28l-usb-source-evidence.md",
+      "sha256": "aa220aa6a2998c088d62026ec56f4a16991801d40d2c6341133980d83f5e7f14",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28l-memory-and-capacity.md",
+      "sha256": "d20b10b4a1aaaa1c2fe192ee5d9ebbd75f4aad1acaf08db97f16518643f8126d",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28m-k01-regression.md",
+      "sha256": "f23d3f6d7dff72f3b1d6b9d7592fa763c08154a982420376be858d071fba5b04",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28m-report.md",
+      "sha256": "fdf58bc79fb0b3b8b9078870b8d7f70c9258bb7bf91df089ee105ffe0cc67d0d",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28f-command-contract.md",
+      "sha256": "cbd2319dad8045b52b6fcbb616449b435366a96bb4b2e9b094c1505e4a384171",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28g-reference-contract.md",
+      "sha256": "14708ecfee06efb6e46aa757e98bacaa8c396130c3df35d8e199e866ac157530",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28h-report.md",
+      "sha256": "9bfcefe9c6e0ad2e8c97d8bd76d027ac7001444587887794aff9f542379c5dc2",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28j-report.md",
+      "sha256": "b8e57936cddc771cfc30e9f1eb1a70bb5928740e2f63ce5ec09af76955ea81b8",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage28i-readiness-matrix.md",
+      "sha256": "7664e25f60f815dd958043b30d7712c7c2bddfc303671ce7eafcc5ee27f5bd79",
+      "classification": "inherited report/source; not rerun"
+    },
+    {
+      "file": "docs/stage26-report.md",
+      "sha256": "5489db5dd11e406cacbe60369c4c5b5e2bfd3d1fff8ef44b5ceedc33e3c003aa",
+      "classification": "inherited report/source; not rerun"
+    }
+  ],
+  "pins": {
+    "arduino": "3.3.0",
+    "idf": "b66b5448e0dfac6be135e6f0ac21010aba231180",
+    "tinyusb": "8a78804ff91271fb32008288777fad9fe73f5735",
+    "builder": "afa5cdd0d41d7e465d2e39867b24aef48b1c7b84",
+    "selected_dcd_sha256": "d12ef24b093d542a5e42d7cdf10d4170b1d139c5eb061db26df3b26cb1eee81a",
+    "shipped_source_to_object_complete": false
+  },
+  "official_trm": {
+    "file": "esp32-s3-trm.pdf",
+    "url": "https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf",
+    "size": 15215232,
+    "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+  },
+  "official_hak5": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+      "snapshot": "duckyscript-tm-quick-reference.md",
+      "bytes": 40486,
+      "sha256": "38bd8dd4a3721feb73f1a32b957ee73a2ea8662056fd566360bc75ef1aa754d7",
+      "retrieved_utc": "2026-10-11T18:01:06.298030+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true,
+      "stage28f_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true,
+      "stage28f_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+      "snapshot": "advanced-features__holding-keys.md",
+      "bytes": 7034,
+      "sha256": "c57852d2f4dad7b64b104c98da910c2a61d229875b9e02b121a1c259920372a3",
+      "retrieved_utc": "2026-10-11T18:01:07.767125+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true,
+      "stage28f_hash_rechecked": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+      "snapshot": "advanced-features__payload-control.md",
+      "bytes": 3409,
+      "sha256": "3f2e1c1431d294a8cb2812a7d6f0a297542690319552feff6e1198079522085a",
+      "retrieved_utc": "2026-10-11T18:01:08.696077+00:00",
+      "consulted_in_stage11": true,
+      "fresh_retrieval": "HTTP 403; verified cached Stage9 official snapshot",
+      "stage28d_hash_rechecked": true,
+      "stage28f_hash_rechecked": true
+    }
+  ],
+  "fresh_http": [
+    {
+      "name": "support",
+      "url": "https://www.espressif.com/en/company/contact/technical-inquiries",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "hak5",
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/resources.html",
+      "final_url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/resources.html",
+      "status": 200,
+      "size": 20296,
+      "sha256": "8cd12bb43e54e59c5366ac1e3c8b4ab93320cc9b6ba2b27131b9f4cb4ffe1311"
+    },
+    {
+      "url": "https://www.espressif.com/en/contact-us/technical-inquiries",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.espressif.com/en/support",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/functions",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "runtime_groups": 0,
+  "runtime_assertions": 0,
+  "tests_rerun": false,
+  "target_builds": false,
+  "firmware_builds": false,
+  "hardware": false,
+  "support_sent": false,
+  "contract_adopted": false,
+  "strict_retirement": "UNRESOLVED",
+  "recommendation": "B; pending explicit owner selection",
+  "tools": {
+    "python": "Python 3.12.14",
+    "git": "git version 2.52.0"
+  }
+}

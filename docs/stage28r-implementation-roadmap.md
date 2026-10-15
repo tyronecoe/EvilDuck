@@ -1,0 +1,37 @@
+# Concrete route back to language work — proposals, not authorization
+
+## Owner decision first
+
+Choose A (strict transfer-success+retirement, still blocked) or B (recommended explicit opt-in local scheduler contract). C is not recommended. Review `stage28r-transport-options.md`; B is a different contract, not a successful implementation of L. No approval cell/settings/source selection changes here. Vendor answers may improve A but are not necessary for B native development.
+
+## Next recommended implementation milestone: optional Runtime-to-scheduler native seam
+
+Exact starting point: the final published Stage28R commit, whose parent is `9afdeabffae32186e56fe7012cf5f639bb88dec9`; use the delivered full SHA, not a moving branch. Only after separate owner approval of B and the following files/scope. This package does not begin Stage28S.
+
+Allowed future first work: new isolated native test/adapter files and docs. Reuse unchanged `language_preview/core.*` Runtime and actual `EvilDuckS3/com.cpp/.h` compiled in host tests with mocks, without enabling an Arduino integration. If current com APIs/global callbacks cannot supply deterministic exclusive admission/result, STOP and propose a narrow additive scheduler seam for review; frozen Stage26 edits are not implicitly authorized. No Bridge/Planner contract rewrite or new USB/DCD/core hook.
+
+Behavior: compile complete harmless opt-in subset before output; reject HOLD/RELEASE and nonselected locales/commands; require exclusive idle script owner; store one pending Event and local command identity; schedule once, return Retry until matching done/error, then one local ack. Distinct identical characters are distinct operations. Delay stays entirely with Runtime, caller supplies uint32 clock. Use bounded ASCII-to-existing literal text/key dispatch, not arbitrary script-line concatenation or interpreting text as commands. Abort if global callbacks cannot be assigned without stealing current engine ownership. Provide explicit local result labels rather than pretending correlated USB completion.
+
+Meaningful acceptance tests: actual production scheduler with fake backend and unchanged Runtime; a/a and a/b press/restoration journal; false-before-queue readiness and error/ambiguous outcomes; no duplicate submission on Runtime Retry; delayed done/error and simultaneous cancellation; restoration refusal; STOP mid-text/dwell/Delay; disconnect before/after local submit; clearing pending prevents restart; stale callback cannot ack new command; queued setup blocks start (K01); no reentrant Runtime tick in callbacks; no competing script/live/web owner; rejected syntax yields zero output; wrap-time Delay, default-delay/jitter policy; every supported named key/ASCII whitespace and literal dollar path, disabled HID must reject rather than silently skip; lifetime/namespace exhaustion and source read/seek error. Test exact local call/report sequences, NOT host delivery. Sanitizers/allocation probes then affected published regressions, preserving historical classifications.
+
+Stop conditions: unexplained backend false cannot be classified without retry after possible submission; callbacks cannot be uniquely owned or correlated locally; mock requires guessed controller semantics; unsafe source/context reuse; text gets reinterpreted as commands; needs silent frozen firmware/core changes; tests disclose API-lifetime or resource failure. Record smallest missing API/decision, do not build another general controller model.
+
+Deliverable: working memory-only adapter proof against actual scheduler and an explicit integration diff proposal if necessary, not a deployed firmware. It may proceed independently of vendor reply once authorized. Retain production engine as default; no claim this expands every command or removes existing numeric/capacity differences.
+
+## Subsequent engineering gates, each only when separately authorized
+
+| Gate | Concrete deliverable / GO evidence | NO-GO or rollback | Establishes / does not establish |
+|---|---|---|---|
+| 1. Owner selects contract/subset | B local acknowledgment and limits, or A strict prerequisites, reviewed explicitly | No owner selection: no adapter implementation | Policy decision only; no firmware or hardware readiness |
+| 2. Native implementation above | Exact single-admission/terminal/cancel tests and source/lifetime/ownership diff | Any failed predicate; isolate branch/remove opt-in, preserve production default | Local integration semantics under mocks, not real USB delivery |
+| 3. Coordinated integration design/build | Separately authorize file adapter, optional mode selection, additive command-result seam; pinned protected core/source-to-object/ABI/resource/ELF checks and full affected regressions | Frozen guard or profile/ABI/hash mismatch; do not overwrite old refs/artifacts | Actual linked firmware/provenance and budgets; not physical timing/host acceptance |
+| 4. Controlled installation review | Approved artifacts, exact installed-vs-proposed layout, credentials/provisioning, compatible recovery verified, ROM route and explicit flash approval | Any disagreement: preserve device/recovery; no upload | Permission and recovery preparation, not successful boot |
+| 5. Benign supervised manual smoke | Separate physical authorization; owner-selected opt-in/manual start, autorun disabled, no concurrent live/OTA/MSC writers; harmless local TextEdit fixture | STOP on unexpected key/USB loss/held modifier; approved ROM recovery route separately reviewed, no automatic resume | Observed specific host text/release/reconnect behavior, not universal correctness or strict retirement |
+
+Physical plan concept only: blank disposable TextEdit document on owner's High Sierra host, supervised short US ASCII text plus Enter, one explicit delay, STOP and reconnect/neutral observation with no shell, shortcuts to commands, passwords, private files, stealth, persistence, exfiltration or destructive tests. Layout selected manually, expected bytes/text reviewed. No owner machine automation, device enumeration or physical commands are included. Recovery firmware availability remains owner-confirmed externally; compatibility/access must be checked at deployment review. No need to recover exact old settings/scripts.
+
+Existing controlled-start profile (`EvilDuckS3.ino:37–80,101–118`) retains settings/layout/storage gates, no examples/autorun; safe and read-only candidates stay separate and never auto-arm. Future mode must not introduce boot output or new automatic transitions. Existing writable application OTA is not a partition migration method. Installed old map app slots0x140000 and SPIFFS0x290000/0x170000 differs from proposed dual0x740000 and SPIFFS0xE90000/0x160000; future artifact review remains mandatory. Do not reinstall an old NVS-preservation requirement contrary to owner policy.
+
+## Work to stop/reuse now
+
+Stop expanding synthetic retirement models absent a new authoritative premise. Reuse L contract, M K01/lifetime tests, O/P actual-stack observations, Q conditional boundary, H Mac kit and frozen source inventories. No broad regression reruns for this documentation stage, no repeated full SDK retrieval, no redundant stock-firmware search, no new compatibility percentage. An unsent vendor draft can be reviewed in parallel without consuming a new design-only milestone. If A remains mandatory, obtain the specific missing device/IRQ guarantee before implementation; if B selected, native scheduler proof is the next concrete work.
