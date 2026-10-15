@@ -1,0 +1,340 @@
+{
+  "status": "PASS PRECOMMIT / NOT FINAL PUBLICATION",
+  "created_utc": "2026-10-15T02:41:05.684114+00:00",
+  "baseline": "6c186219c9ef7037f3ecab9bae44179421fd1278",
+  "branch": "stage28s-native-runtime-scheduler",
+  "historical_tracked_bytes_paths_modes": 1164,
+  "frozen_stage26_files": 235,
+  "scope": "PASS directly compared Git blobs/modes; original source and new native fixture/patched-output hashes checked",
+  "native_primary": {
+    "PASS": 56,
+    "FAIL": 0,
+    "assertions": 512
+  },
+  "separate_regressions": {
+    "unchanged_production": {
+      "counts": {
+        "PASS": 77,
+        "FAIL": 0
+      },
+      "assertions": 67371
+    },
+    "patched_optin_disabled": {
+      "counts": {
+        "PASS": 77,
+        "FAIL": 0
+      },
+      "assertions": 67371
+    },
+    "stage28a": {
+      "counts": {
+        "PASS": 23,
+        "FAIL": 0
+      },
+      "assertions": 526
+    },
+    "stage28b": {
+      "counts": {
+        "PASS": 26,
+        "FAIL": 0
+      },
+      "assertions": 4733
+    }
+  },
+  "default_off": "PASS every stdout/stderr/exit matched; repeated coverage classified separately",
+  "negative_control": "expected exit1; excluded",
+  "preparation_static_checks": 5,
+  "core_sdk_guard": "PASS unchanged installed protected core/SDK check_sources(patched=True), read-only",
+  "source_execution": "actual scratch-patched com and unchanged preview core confirmed by gcov",
+  "runtime_hardware": false,
+  "firmware_build": false,
+  "support_sent": false,
+  "production_integration": false,
+  "strict_A": "UNRESOLVED",
+  "owner_B_selection": "native only",
+  "old_remote_refs": [
+    {
+      "ref": "refs/heads/main",
+      "commit": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "commit": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "commit": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "commit": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "commit": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "commit": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "commit": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "commit": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "commit": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "commit": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "commit": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "commit": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "commit": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "commit": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "commit": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "commit": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "commit": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "commit": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "commit": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "commit": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "commit": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "commit": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "commit": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "commit": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "commit": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "commit": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "commit": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "commit": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "commit": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "commit": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "commit": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "commit": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "commit": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "commit": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "commit": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence",
+      "commit": "9afdeabffae32186e56fe7012cf5f639bb88dec9"
+    },
+    {
+      "ref": "refs/heads/stage28r-transport-decision-language-roadmap",
+      "commit": "6c186219c9ef7037f3ecab9bae44179421fd1278"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "commit": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "commit": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "commit": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "commit": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "commit": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "commit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "remote_before_sha256": "8eff277ba16a8847d06cad74a15e40e75fe37b3627c32613c23ef043a30a64e7",
+  "publication": "PENDING; final exact SHA and post-push ref check external to this self-referential receipt",
+  "self_hash_excluded": true,
+  "new_files": [
+    {
+      "file": "docs/stage28s-capability-subset.md",
+      "size": 3648,
+      "sha256": "fa878d5777cd40500c32ce56f3c7572b74f89e4f01f503917a3995e664fbde1e"
+    },
+    {
+      "file": "docs/stage28s-integration-proposal.md",
+      "size": 4820,
+      "sha256": "9b9471321257026a95330563dc3c41ed07dc45588259d2a4745c83f3509b2cf5"
+    },
+    {
+      "file": "docs/stage28s-local-scheduler-contract.md",
+      "size": 7169,
+      "sha256": "b92d7b90df7ebafd424a4c58d6470d2180c7ceab4107b6cd6f673cd6334130b6"
+    },
+    {
+      "file": "docs/stage28s-owner-selection.md",
+      "size": 1643,
+      "sha256": "a84ce3fb41e7e1bf76a318c6d0963deec5a52e933b790112d779ef8e46a96249"
+    },
+    {
+      "file": "docs/stage28s-report.md",
+      "size": 6314,
+      "sha256": "3133f88f621c5450d32fd550b8cf392d1845cdcc87442d4b6725759dc36af5be"
+    },
+    {
+      "file": "docs/stage28s-source-and-patch-manifest.json",
+      "size": 9997,
+      "sha256": "93c4ef24f3bc7ef7405f1d72d74f302d07ee56b68cabd0eff2997f931ca3225d"
+    },
+    {
+      "file": "docs/stage28s-test-report.md",
+      "size": 8155,
+      "sha256": "9348393ec37116881fe513691d960a021f24ec0c1f12302128bda72a41076a9e"
+    },
+    {
+      "file": "docs/stage28s-test-results.json",
+      "size": 374661,
+      "sha256": "3165071895455073c954bf5e6b0b163717ebd896941459fc3f5eb1d52b3f47b3"
+    },
+    {
+      "file": "tests/stage28s/adapter.cpp",
+      "size": 6044,
+      "sha256": "e3b16261b6ff9e5f425477a3660c21d34685dea9271efe8e19a4e4ec26a11c38"
+    },
+    {
+      "file": "tests/stage28s/adapter.h",
+      "size": 2022,
+      "sha256": "005442ea809585ce7bf296c8cdf4d033d0ead67c9d3d88001281f15acc4d9061"
+    },
+    {
+      "file": "tests/stage28s/backend.cpp",
+      "size": 3834,
+      "sha256": "818ad7e4af21e027d57dc165145b0b2620d9a330d56409b2d190c1d5ed6fb93d"
+    },
+    {
+      "file": "tests/stage28s/backend.h",
+      "size": 583,
+      "sha256": "edf458ae3b65b2a138963369f48086d2adaa6289c79fe275fc1f7b57998f93a3"
+    },
+    {
+      "file": "tests/stage28s/prepare_sources.py",
+      "size": 1065,
+      "sha256": "93cb0667f829f4f4c5ab485b8c72e5b4562fc73cadf404cbf606a5ec1136b4ff"
+    },
+    {
+      "file": "tests/stage28s/run_regressions.py",
+      "size": 2239,
+      "sha256": "b43946cef57933a9173df28a952c077bd9c3b086f679d25c438920267d8dc1f5"
+    },
+    {
+      "file": "tests/stage28s/run_tests.py",
+      "size": 3861,
+      "sha256": "6eee275ea5c1cbb97448ddc0a27c561e513a373705d496ad271b17eeb245d170"
+    },
+    {
+      "file": "tests/stage28s/scheduler.patch",
+      "size": 5740,
+      "sha256": "9007fec29d9ab3505630d6b3b088ecd5d46ba3236a3d2960b9feff9f79b60882"
+    },
+    {
+      "file": "tests/stage28s/scheduler_seam.h",
+      "size": 926,
+      "sha256": "77a82a0a97b3f994dd98bad35e614a0eaf0a0991ef69e251d68a888e53e8f03f"
+    },
+    {
+      "file": "tests/stage28s/seam.inc",
+      "size": 4200,
+      "sha256": "e15edb0d43c42612108dc644bee0bee33554dc362d357ed431233b17a86f1a6a"
+    },
+    {
+      "file": "tests/stage28s/test_main.cpp",
+      "size": 20009,
+      "sha256": "559b32e0962582662b71365dd9e78567c64982ec1ee90c903d9c05d062b97d21"
+    },
+    {
+      "file": "tests/stage28s/test_preparation.py",
+      "size": 1748,
+      "sha256": "a9874bafcd459d367dc60cca8fa03909ab8f9be36872507c5c3d0a73c065e6fe"
+    },
+    {
+      "file": "tests/stage28s/verify_scope.py",
+      "size": 3828,
+      "sha256": "2a8987cfb9c658c0dffe291b4690692c2d92289a6193ff517357035014d512a1"
+    }
+  ],
+  "patch_format": "PASS14 required unified-diff single-space blank context markers; exception is restricted to that syntax; all other staged/unstaged whitespace checks enabled"
+}

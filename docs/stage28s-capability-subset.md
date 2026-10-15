@@ -1,0 +1,18 @@
+# Stage28S capability subset and proof boundary
+
+All compilation/capability validation completes before fake backend sync/output. Exact source is cooperatively copied into owned bounded storage and compiled there; external Reader/context must stay stable/alive until capture finishes. After capture external mutation cannot affect owned Program/source. No private Program introspection or second parser/evaluator. Loader accepts only TAB9, LF10, CR13 and printable ASCII32..126 throughout the **entire source**, including comments; this intentionally rejects otherwise harmless non-ASCII comments. Existing compiler validates CRLF/line endings/grammar.
+
+After ready, public Program::ownershipCommands() scans bounded emitted IR, including inactive/function code, and rejects any HOLD/RELEASE before output. Remaining existing compiler output opcodes can produce only literal/DEFINE-expanded ASCII bytes or the fixed ten named keys below; numeric/boolean variables and expressions cannot fabricate a keyboard usage. Compiler/Runtime grammar and public limits are unchanged. This is a conservative structural argument backed by actual all-character/key tests, not an unbounded dynamic dry run. Future grammar/output changes would require re-review of this whitelist argument.
+
+| Event | Exactly allowed | Actual scheduler path |
+|---|---|---|
+| Character | TAB9, LF10, space through tilde32..126 (95 printables) | literal one-character startText; no duck_vars expansion/trim/command construction; production US translator/stroke scheduler |
+| KeyTap | ENTER28, TAB2B, SPACE2C, ESCAPE29, BACKSPACE2A, DELETE4C, UP52, DOWN51, LEFT50, RIGHT4F (hex usages) | validated fixed usage to real report/press/dwell/restoration |
+| Delay | existing unsigned16 expression result | unchanged Runtime clock only; no com Delay |
+| Terminal | natural EOF, STOP_PAYLOAD, cancel/error | local end and fresh clearing policy |
+
+Preview variables/booleans/hex/expressions, IF/ELSE IF, WHILE and functions/returns remain available within published limits; tests execute real examples. No added grammar, external Prepared owners, raw reports, source modifiers, INJECT_MOD, RESET, device commands, Unicode, DE/dead-key extension, preview runtime text interpolation or hidden aliases. Runtime numeric policy remains preview's checked arithmetic, which differs from production wrapping arithmetic; not a drop-in replacement for all old scripts. `$` in literal text remains a literal dollar; a variable name written in a block is not interpolated by production duck_vars.
+
+US locale identity is the actual production `getLocale()==&locale_us`, with HID mode enabled. This is not proof the host chose US or that physical reports negotiated the expected protocol. Source cap8192B, line256B, code128, arena4096B, symbols32, functions16, block16, calls8, expression64 tokens/depth16 remain unchanged. Large-file streaming production engine is not replaced. Reader Retry/read/seek/truncated EOF/cancel and stable capture are exercised; existing unchanged A/B tests cover evaluator/text boundaries, no-heap core paths and runtime budgets separately.
+
+All95 printables plus tab/line Enter and ten named keys are executed through actual com against fake backend. US fixture text decoding is independent of production translator; exact8-byte a/a and a/b report vectors are additionally asserted. Invalid source, non-ASCII and ownership reject without even a neutral submission. Layout/HID/foreign persistent-owner acquisition rejects before synchronization. Runtime-only error may have synchronization/clearing zeros, but cannot pretend those are application text or zero backend calls.

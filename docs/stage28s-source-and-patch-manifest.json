@@ -1,0 +1,279 @@
+{
+  "parent": "6c186219c9ef7037f3ecab9bae44179421fd1278",
+  "selector": "EVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+  "inputs": [
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "size": 11111,
+      "sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "size": 25137,
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "size": 823,
+      "sha256": "9eec37e589bcc58e7b932f6c90539d96e252177be8f6480dfcea6585b2ca84c4"
+    },
+    {
+      "file": "EvilDuckS3/duck_constants.cpp",
+      "size": 4932,
+      "sha256": "058c6d6fcde39de3f4fbcce6f0aa407cec62babd59fc658948779716f5ebbff5"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.cpp",
+      "size": 13040,
+      "sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330"
+    },
+    {
+      "file": "EvilDuckS3/duck_keys.cpp",
+      "size": 3567,
+      "sha256": "2817becad1c4cca4bd29d5d1b6cc3866ddb35ba535f03cb531cafed692c6b62a"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.cpp",
+      "size": 2775,
+      "sha256": "d4ffe176ee222bb4add3aebdf7aa4a70801572893f0d88940d7443449f63b170"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.cpp",
+      "size": 12206,
+      "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "size": 21927,
+      "sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "size": 1545,
+      "sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "size": 4005,
+      "sha256": "54e30399e0f5280ec01a7e51372b97a280f60aa5678dd43dc8c94c5c6e4e86ea"
+    },
+    {
+      "file": "EvilDuckS3/locales.cpp",
+      "size": 419,
+      "sha256": "3fe13d85fd47f64c584f720fa860d7d72e09d36b68e40443fde7fb1ea53315b2"
+    },
+    {
+      "file": "EvilDuckS3/script_functions.cpp",
+      "size": 2949,
+      "sha256": "ed9ab30624a5ad4687d5d9b822634204cdf5a49e7e3b22c8e47622b69d8dcb47"
+    },
+    {
+      "file": "EvilDuckS3/script_log.cpp",
+      "size": 1778,
+      "sha256": "9a269ef95b6ec0d8c22ea7ce24687339b8c08471a134b807a669846972f7434a"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "size": 35558,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.cpp",
+      "size": 4276,
+      "sha256": "fc09ef1124ac9a6a4f47f6fd1ad543cafda814e927d05cf148e6d86089c52d79"
+    },
+    {
+      "file": "EvilDuckS3/script_source.cpp",
+      "size": 3043,
+      "sha256": "7ea73e3b9e773448c317b8e24176381f52768bc64f175191088284c0310463f3"
+    },
+    {
+      "file": "language_preview/core.cpp",
+      "size": 39765,
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "language_preview/core.h",
+      "size": 7084,
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    {
+      "file": "tests/stage1/mocks/Arduino.h",
+      "size": 2837,
+      "sha256": "ba8d58d95d057d0107ca93960ff03d2b41fc50e12df701ae6fbbded7e68c1f4a"
+    },
+    {
+      "file": "tests/stage1/mocks/FS.h",
+      "size": 1901,
+      "sha256": "677b5ef776a960cbd7f88b9766ace97ab310e8dd6155f126deeac99f0678a9fc"
+    },
+    {
+      "file": "tests/stage1/mocks/USB.h",
+      "size": 439,
+      "sha256": "f06b8c4c26ff90c9a15bb64ca700a440fc6f0d1196e1a4a19b3135b2bfb6ca43"
+    },
+    {
+      "file": "tests/stage1/mocks/USBHID.h",
+      "size": 547,
+      "sha256": "8a8fe84b221aaf2af9b4d9f74f7b0b853d0e32403f11b8e074608cb22d069f17"
+    },
+    {
+      "file": "tests/stage1/mocks/USBHIDKeyboard.h",
+      "size": 590,
+      "sha256": "8c2c92a2ac244ffd178da9cfb79c0785a6317e77bac8c373d32ddd5451096311"
+    },
+    {
+      "file": "tests/stage1/mocks/host.cpp",
+      "size": 8820,
+      "sha256": "cb817562c171452a67e37fb1d661ceb973498e37ace8e27630a2e8a5ec4d87d2"
+    },
+    {
+      "file": "tests/stage1/mocks/host.h",
+      "size": 865,
+      "sha256": "3a0ee6c74fe57356212c1285600704073a2f9aa18a7a89abf9cfad8f9a7a0b3c"
+    },
+    {
+      "file": "tests/stage1/mocks/pgmspace.h",
+      "size": 121,
+      "sha256": "da74fa9e354afaf730af8e20a5590180cf9aeeb1c0f8be8f8adcfa4551c51468"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "com.cpp",
+      "sha256": "511e0531de51e9475a765cee8e0f12dc5aa3fa79db0747ea34f4df7bb92203f3"
+    },
+    {
+      "file": "com.h",
+      "sha256": "5110b6633b4c8867db5962028a0090a681f1537afa1f986556c2b9ab42ff5ba2"
+    }
+  ],
+  "patch": {
+    "file": "tests/stage28s/scheduler.patch",
+    "sha256": "9007fec29d9ab3505630d6b3b088ecd5d46ba3236a3d2960b9feff9f79b60882"
+  },
+  "native_only": true,
+  "firmware_authorized": false,
+  "native_seam_files": [
+    {
+      "file": "tests/stage28s/seam.inc",
+      "sha256": "e15edb0d43c42612108dc644bee0bee33554dc362d357ed431233b17a86f1a6a"
+    },
+    {
+      "file": "tests/stage28s/scheduler_seam.h",
+      "sha256": "77a82a0a97b3f994dd98bad35e614a0eaf0a0991ef69e251d68a888e53e8f03f"
+    }
+  ],
+  "source_boundary": "Real current com body scratch-patched only; unchanged production dependencies and preview core; new fake hid_backend replaces production backend in primary; original backend runs only separately in default-off regression.",
+  "toolchain": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "python": "Python 3.12.14",
+    "gcov": "gcov (Debian 14.2.0-19) 14.2.0"
+  },
+  "firmware_or_target_build": false,
+  "binaries_native_only": [
+    {
+      "name": "native",
+      "bytes": 10236672,
+      "sha256": "56967e1f2d47b2727f3cea7072dd621df08cf9bb41d3613729a64b1106582303"
+    },
+    {
+      "name": "negative",
+      "bytes": 10236640,
+      "sha256": "9f2bea92982e4c00345634f71f6071f6b68b9b4a8b4e87ae45345df0e3d01bcd"
+    }
+  ],
+  "commands": {
+    "primary": [
+      "g++",
+      "-std=c++17",
+      "-g",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/EvilDuck-stage6/tests/stage28s",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28s/test_main.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage1/mocks/host.cpp",
+      "/workspace/tooling/stage28s-final-verified/scheduler/com.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/backend.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28s-final-verified/native"
+    ],
+    "negative": [
+      "g++",
+      "-DSTAGE28S_NEGATIVE_CONTROL",
+      "-std=c++17",
+      "-g",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-DEVILDUCK_NATIVE_SCHEDULER_ROUTE_B",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/EvilDuck-stage6/tests/stage28s",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/EvilDuck-stage6/language_preview",
+      "/workspace/EvilDuck-stage6/tests/stage28s/test_main.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage1/mocks/host.cpp",
+      "/workspace/tooling/stage28s-final-verified/scheduler/com.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/adapter.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28s/backend.cpp",
+      "/workspace/EvilDuck-stage6/language_preview/core.cpp",
+      "-o",
+      "/workspace/tooling/stage28s-final-verified/negative"
+    ]
+  },
+  "local_acceptance": "LOCAL_SCHEDULER_DONE",
+  "strict_transport": "UNRESOLVED"
+}
