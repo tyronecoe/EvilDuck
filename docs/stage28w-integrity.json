@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "baseline": "3144c9bdf7b78a4f75d6861fdffa0707c755fffc",
+  "head": "3144c9bdf7b78a4f75d6861fdffa0707c755fffc",
+  "historical_paths_bytes_modes": 1307,
+  "frozen_stage26": 235,
+  "publication": "NOT REQUESTED",
+  "phase": "precommit unless publication compared; own receipt excluded",
+  "new_files": [
+    {
+      "file": "docs/stage28w-caller-matrix.md",
+      "size": 7165,
+      "sha256": "31cbffed5588afb2f9f414d9bc68068f3134a2214087c3a3d915e8d3b682048b"
+    },
+    {
+      "file": "docs/stage28w-framework-boundary.md",
+      "size": 5280,
+      "sha256": "90a8e0c5222e7096a0fc972d976477f7bdb784631aa68d41c45261e620c90880"
+    },
+    {
+      "file": "docs/stage28w-linked-enabled.json",
+      "size": 1356479,
+      "sha256": "ad06a7c680d7edb4f2f0dcf1718c09782b2c2b1eaff0f10361eb69250e316faf"
+    },
+    {
+      "file": "docs/stage28w-linked-selector-off.json",
+      "size": 1312961,
+      "sha256": "9a726cc1f9044150177e1d6ea449420349f7fb70d268226c506c766d40d76d16"
+    },
+    {
+      "file": "docs/stage28w-protected-refs.json",
+      "size": 6694,
+      "sha256": "a6648ef77a165c6345b47f7bc6fb1873332988d7b708cd3983f7a384b2c94e68"
+    },
+    {
+      "file": "docs/stage28w-report.md",
+      "size": 7091,
+      "sha256": "410d9175d5cbd023ac522e82c0da85958189f2d2602a9b6db3498ff94e1b76bc"
+    },
+    {
+      "file": "docs/stage28w-reproduction.md",
+      "size": 4453,
+      "sha256": "229422e8b8e52d358ea0f160fcad13ad427b46f931b8ba7cf9f39f6cd677627f"
+    },
+    {
+      "file": "docs/stage28w-resources.md",
+      "size": 4564,
+      "sha256": "68fb33e0e9d0d9d73714a177938217f54ef782aa96632a303c6206b033afafaf"
+    },
+    {
+      "file": "docs/stage28w-serial-contract.md",
+      "size": 2810,
+      "sha256": "f85b8207ac6f020415ea5e3b0783ee8fa6870448434c8d71c191ea0bcddbad37"
+    },
+    {
+      "file": "docs/stage28w-source-manifest.json",
+      "size": 39839,
+      "sha256": "c3beca07a5e2db6fd13dca753b52528d9629562b78bab388f4377997be5c1906"
+    },
+    {
+      "file": "docs/stage28w-test-results.json",
+      "size": 235563,
+      "sha256": "cb934cab10a34b64d33264ffe47897a73f9789432c1a872e6e435e8823372581"
+    },
+    {
+      "file": "docs/stage28w-tests.md",
+      "size": 3620,
+      "sha256": "119a3610f92856bb1fa8a7dc46554ba116e3b8843e1e36001995b9d38c4f594c"
+    },
+    {
+      "file": "tests/stage28w/boot_fixture.cpp",
+      "size": 1132,
+      "sha256": "ee0302c709ea6d44a431422d90b50d36d6acc4ec43052833c558369da6fcaf84"
+    },
+    {
+      "file": "tests/stage28w/boundary.patch",
+      "size": 6986,
+      "sha256": "cfdf4c166fa5bd0bb06a8b22140af2505ad94a77a7984b15db6acf56960dc0c7"
+    },
+    {
+      "file": "tests/stage28w/build_candidate.py",
+      "size": 8319,
+      "sha256": "45656833489d001b4f563fdb250ba9cd4b17e402e2cb69bfefc81bbcbd01a2e5"
+    },
+    {
+      "file": "tests/stage28w/collect_results.py",
+      "size": 2128,
+      "sha256": "e2328753ca5df39ad8106a8cbbff257bd532840550d2369dd4aa01df6690d9f5"
+    },
+    {
+      "file": "tests/stage28w/framework_test.cpp",
+      "size": 3207,
+      "sha256": "e54c19b38599774e04b347cc8c0e3a113860e19fdde573d28ad4cb334a74ea7f"
+    },
+    {
+      "file": "tests/stage28w/mocks/Adafruit_NeoPixel.h",
+      "size": 454,
+      "sha256": "4ec24cad59267a3ebd6f7750a6729600935f196a035aeb74b578706a9dce8b28"
+    },
+    {
+      "file": "tests/stage28w/mocks/Arduino.h",
+      "size": 3517,
+      "sha256": "01afd2b39213cc6abc92db9d26f4ebf7f774360c3e352c69f36a116698c962cb"
+    },
+    {
+      "file": "tests/stage28w/mocks/ESPAsyncWebServer.h",
+      "size": 34,
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/stage28w/mocks/FS.h",
+      "size": 3626,
+      "sha256": "26b1f2d55714c2dd304b5edbd1ebc90fd41f74d2e0e38f2618721174813f88cd"
+    },
+    {
+      "file": "tests/stage28w/mocks/SD.h",
+      "size": 2094,
+      "sha256": "d23e3224723569eadaff1ada94da5f136af33ecab294e29dd031e98cf0f1a955"
+    },
+    {
+      "file": "tests/stage28w/mocks/SPI.h",
+      "size": 90,
+      "sha256": "e5ee9a11c7d9abecac2478af38bff076c7b09af159840ffde4cbaeaa058c8951"
+    },
+    {
+      "file": "tests/stage28w/mocks/SPIFFS.h",
+      "size": 688,
+      "sha256": "9d29cacdf55609fea6410c773bebe11abce3874f3bd6f412b6408a689b36390a"
+    },
+    {
+      "file": "tests/stage28w/mocks/USBHID.h",
+      "size": 529,
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28w/mocks/USBHIDKeyboard.h",
+      "size": 590,
+      "sha256": "8c2c92a2ac244ffd178da9cfb79c0785a6317e77bac8c373d32ddd5451096311"
+    },
+    {
+      "file": "tests/stage28w/mocks/USBMSC.h",
+      "size": 1229,
+      "sha256": "22e3c2c7925e56cc17913658625f5b05e86104e5d774326df0fa1862d05bc811"
+    },
+    {
+      "file": "tests/stage28w/mocks/Update.h",
+      "size": 34,
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/stage28w/mocks/WiFi.h",
+      "size": 326,
+      "sha256": "833c7b27c723ce348409589bd66524ce1ed4e8c770f4c3bb361d640777dcf4f2"
+    },
+    {
+      "file": "tests/stage28w/mocks/esp_flash.h",
+      "size": 80,
+      "sha256": "f84dd3d42193e43221da9daa93183da851f025550ed5e90b13c90d39eb8a3ff2"
+    },
+    {
+      "file": "tests/stage28w/mocks/esp_partition.h",
+      "size": 591,
+      "sha256": "77a47189dfbb3b49231a0515871ac1917efa99e6ebe4e9173f86bb2c702552e1"
+    },
+    {
+      "file": "tests/stage28w/mocks/host.h",
+      "size": 865,
+      "sha256": "3a0ee6c74fe57356212c1285600704073a2f9aa18a7a89abf9cfad8f9a7a0b3c"
+    },
+    {
+      "file": "tests/stage28w/mocks/network.h",
+      "size": 2376,
+      "sha256": "983f467f20874aaf2c718bb38176f25483487fc25877ef467ffe7f6c5a61ba16"
+    },
+    {
+      "file": "tests/stage28w/prepare_sources.py",
+      "size": 1642,
+      "sha256": "7f85fceab8e5d556480a482245616ccbf2dbbcb4bd086ff1da8e2a26b4d5ddae"
+    },
+    {
+      "file": "tests/stage28w/run_framework.py",
+      "size": 2783,
+      "sha256": "ff8b73ce00bad4d0fcb26dad08e03ec49dc26dc8d35e71299f697847442c2d82"
+    },
+    {
+      "file": "tests/stage28w/run_regressions.py",
+      "size": 2017,
+      "sha256": "259a08ba251f9ec2a0804f5a46b4c0df6d891de2cf6f86d2c36c88ccef306f19"
+    },
+    {
+      "file": "tests/stage28w/run_startup.py",
+      "size": 2556,
+      "sha256": "1522e549c5c45b79869bd7d0d9d09ae6a62f17ba854a49b89bfe209717603a92"
+    },
+    {
+      "file": "tests/stage28w/run_tests.py",
+      "size": 2339,
+      "sha256": "497d06fee6a25e4a824c7f070bca01f827384c1e72f54ebe40d965b501be902e"
+    },
+    {
+      "file": "tests/stage28w/test_main.cpp",
+      "size": 12171,
+      "sha256": "31a41ced280b5eabf834f413a82c86e86eb119c6f83148e15f62ab1df6bc9a6e"
+    },
+    {
+      "file": "tests/stage28w/verify_link.py",
+      "size": 6337,
+      "sha256": "142fa9bf884f410832c14098203b8839d8df0024a6dfecf4f02239a641482455"
+    },
+    {
+      "file": "tests/stage28w/verify_scope.py",
+      "size": 4511,
+      "sha256": "2dbb8f66fce590f3874ba12538625863e53d5373fcc94624038fa61160edf82f"
+    }
+  ],
+  "hardware": false
+}

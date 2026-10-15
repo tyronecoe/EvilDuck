@@ -1,0 +1,210 @@
+--- cli.cpp
++++ cli.cpp
+@@ -16,7 +16,14 @@
+ #include "script_parser.h"
+ 
+ namespace {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++constexpr size_t SerialWorkBudget=64,SerialLineLimit=512;
++char serialBuffer[SerialLineLimit+1]{};
++size_t serialUsed=0;
++bool serialDiscard=false,serialUpdating=false;
++#else
+ String lineBuffer;
++#endif
+ PrintFunction activePrint = nullptr;
+ 
+ String trimLine(const String &in) {
+@@ -316,7 +323,12 @@
+ 
+ namespace cli {
+ void begin() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  if(!route_u::legacyAllowed())return;
++  serialUsed=0;serialDiscard=false;
++#else
+   lineBuffer.reserve(256);
++#endif
+   debug::info("CLI ready: type 'help'");
+ }
+ 
+@@ -350,6 +362,26 @@
+ }
+ 
+ void update() {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  if(!route_u::ownerTask()||serialUpdating)return;
++  serialUpdating=true;struct Retire{~Retire(){serialUpdating=false;}} retire;
++  for(size_t work=0;work<SerialWorkBudget&&Serial.available()>0;++work){
++    int value=Serial.read();if(value<0)break;
++    char c=static_cast<char>(value);
++    if(c=='\r')continue;
++    if(c=='\n'){
++      if(serialDiscard)serialOut("Serial line rejected: overlong or invalid");
++      else{serialBuffer[serialUsed]=0;parse(serialBuffer,serialOut,false);}
++      serialUsed=0;serialDiscard=false;continue;
++    }
++    // Embedded NUL cannot turn a longer line into an executable prefix.
++    if(c==0){serialDiscard=true;serialUsed=0;continue;}
++    if(serialDiscard)continue;
++    if(serialUsed==SerialLineLimit){serialDiscard=true;serialUsed=0;continue;}
++    serialBuffer[serialUsed++]=c;
++  }
++#else
++
+   while (Serial.available() > 0) {
+     char c = static_cast<char>(Serial.read());
+     if (c == '\r') continue;
+@@ -360,5 +392,6 @@
+       lineBuffer += c;
+     }
+   }
+-}
+-}
++#endif
++}
++}
+--- webserver.cpp
++++ webserver.cpp
+@@ -32,9 +32,14 @@
+ static File uploadFile;
+ static bool uploadRejected = false;
+ static bool fwUpdateOk = false;
++#if !defined(EVILDUCK_PORTABLE_ROUTE_B)
+ static AsyncWebSocketClient *activeWsClient = nullptr;
++#endif
+ 
+ static bool checkAuth(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  execution::TryGuard authSnapshot;if(!authSnapshot)return false;
++#endif
+   String pw = settings::getWebPassword();
+   if (!pw.length()) return true;
+   if (req->hasHeader("X-Duck-Password")) {
+@@ -107,11 +112,17 @@
+ static bool loadScriptBody(const String &filename, String &body, String &err, int &httpCode);
+ 
+ static void handleListScripts(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   req->send(200, "application/json", storage::listAllScriptsJson());
+ }
+ 
+ static void handleLibrary(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (req->hasParam("s")) {
+     String body, err;
+@@ -131,6 +142,9 @@
+ }
+ 
+ static void handleExecLog(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  execution::TryGuard snapshot;if(!snapshot){req->send(409,"text/plain","Execution busy");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (req->hasParam("format") && req->getParam("format")->value() == "text") {
+     req->send(200, "text/plain", script_log::getText());
+@@ -140,6 +154,9 @@
+ }
+ 
+ static void handleStorageInfo(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
++#endif
+   req->send(200, "application/json", storage::infoJson());
+ }
+ 
+@@ -324,6 +341,9 @@
+ }
+ 
+ static void handleGetSettings(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  execution::TryGuard snapshot;if(!snapshot){req->send(409,"text/plain","Execution busy");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   String json = "{";
+   json += "\"ssid\":\"" + settings::getSSID() + "\",";
+@@ -548,6 +568,9 @@
+ }
+ 
+ static void handleGetScript(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (!req->hasParam("s")) {
+     req->send(400, "text/plain", "Missing parameter s");
+@@ -563,6 +586,9 @@
+ }
+ 
+ static void handleLoadScriptPost(AsyncWebServerRequest *req) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
++#endif
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   if (!req->hasParam("name", true)) {
+     req->send(400, "text/plain", "Missing name");
+@@ -639,12 +665,20 @@
+   req->send(200, "text/plain", "Accepted");
+ }
+ 
++#if !defined(EVILDUCK_PORTABLE_ROUTE_B)
+ static void wsOut(const char *s) {
+   if (activeWsClient) activeWsClient->text(s);
+ }
++#endif
+ 
+ static void onWsEvent(AsyncWebSocket *serverPtr, AsyncWebSocketClient *client,
+                       AwsEventType type, void *arg, uint8_t *data, size_t len) {
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  (void)serverPtr;(void)arg;(void)data;(void)len;
++  if(type==WS_EVT_DATA&&client)client->text("503: WebSocket CLI disabled; use authenticated HTTP or local CLI");
++  return; // No frame decode, mutation, borrowed client or disconnect cleanup token.
++#else
++
+   (void)serverPtr;
+   if (type != WS_EVT_DATA) return;
+   AwsFrameInfo *info = reinterpret_cast<AwsFrameInfo *>(arg);
+@@ -659,6 +693,8 @@
+   activeWsClient = client;
+   cli::parse(cmd.c_str(), wsOut, true);
+   activeWsClient = nullptr;
++
++#endif
+ }
+ 
+ static void handleStatic(AsyncWebServerRequest *req) {
+@@ -703,11 +739,16 @@
+     req->send_P(200, "application/javascript", TERMINAL_JS);
+     return;
+   }
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++  req->send(503,"text/plain","Dynamic filesystem responses disabled in Route B candidate");
++  return; // No async File accepted in this profile, even while Route B is idle.
++#else
+   if (SPIFFS.exists(path)) {
+     req->send(SPIFFS, path, getContentType(path));
+   } else {
+     req->send_P(404, "text/html", ERROR404_HTML);
+   }
++#endif
+ }
+ 
+ namespace webserver {
+--- EvilDuckS3.ino
++++ EvilDuckS3.ino
+@@ -72,6 +72,9 @@
+ 
+   if (deployment::controlledStart()) {
+     debug::info("CONTROLLED NORMAL START: strict credentials, no format, no examples, no autorun");
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++    debug::info("STAGE28W CONTROLLED ROUTE B REVIEW ONLY; explicit selection required");
++#endif
+     if (!storage::begin()) {
+       startupStorageFailed = true;
+       debug::info("Required SPIFFS mount failed; application disabled without formatting");
