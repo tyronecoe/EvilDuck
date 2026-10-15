@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "baseline": "134b295deaebcb93f94beb63f2d46f102a7d6555",
+  "head": "134b295deaebcb93f94beb63f2d46f102a7d6555",
+  "historical_files_bytes_modes": 1379,
+  "frozen_stage26": 235,
+  "hardware": false,
+  "new_files": [
+    {
+      "file": "docs/stage28y-owner-checklist.md",
+      "bytes": 6335,
+      "sha256": "a0725dd20a9131dc64c36531325b81c87832137ab860f01f1277426357653541"
+    },
+    {
+      "file": "docs/stage28y-package-readme.md",
+      "bytes": 4896,
+      "sha256": "2256fa37f83614e50889628f52ebef23a9ae0f7ddb4a0edf0f15d459f864651a"
+    },
+    {
+      "file": "docs/stage28y-protected-refs.json",
+      "bytes": 4649,
+      "sha256": "fff835235deb2908addfaf260232f23f59a8466bd8c713b695a915d64ccb8d54"
+    },
+    {
+      "file": "docs/stage28y-public-manifest.json",
+      "bytes": 156365,
+      "sha256": "1990a890e22795978db33763137ca20b8c49ad3919d98cb630decb950e184aa0"
+    },
+    {
+      "file": "docs/stage28y-report.md",
+      "bytes": 7706,
+      "sha256": "7b2c8adf77e91ae6029a95407943a7cf0faa3f83ae77e3778d59de6ddb92f72c"
+    },
+    {
+      "file": "docs/stage28y-reproduction.md",
+      "bytes": 4929,
+      "sha256": "ade600fe19819c73cd4834e78224ca5d1a5ad22f3c0585b90d956fc568d34dff"
+    },
+    {
+      "file": "docs/stage28y-results.json",
+      "bytes": 10772,
+      "sha256": "65c14209d20d009e2c418fa837563f8ff324cc82bf69996e8924f69083130b37"
+    },
+    {
+      "file": "tests/stage28y/audit.py",
+      "bytes": 2802,
+      "sha256": "b763a7397a32d08c6796a4ec99d0a9ce2e8228c6e84b9ec7427091d60dd873a7"
+    },
+    {
+      "file": "tests/stage28y/host_preflight.py",
+      "bytes": 798,
+      "sha256": "18745aa6f47f0fa872410efe65eb73847b63f1cf890d8f4e6b5d8dcf995898cc"
+    },
+    {
+      "file": "tests/stage28y/package.py",
+      "bytes": 9347,
+      "sha256": "96fe686bb994564fd60982f72c35fc5e7be626e897427c8497383959a163e4fd"
+    },
+    {
+      "file": "tests/stage28y/private.py",
+      "bytes": 4575,
+      "sha256": "d74b69004201af77e28229a15307893638b6fb2ce399172e49b0c7d0f722c64f"
+    },
+    {
+      "file": "tests/stage28y/run_tests.py",
+      "bytes": 10135,
+      "sha256": "2dbe07abed57570141fdba88aeb635c7482f561860c959d5b8a9bb8e46df1e14"
+    }
+  ],
+  "archive": {
+    "file": "evilduck-stage28y-public.zip",
+    "bytes": 4837000,
+    "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+  }
+}

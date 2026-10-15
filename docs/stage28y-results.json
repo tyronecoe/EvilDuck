@@ -1,0 +1,388 @@
+{
+  "tests": {
+    "counts": {
+      "PASS": 41,
+      "FAIL": 0
+    },
+    "assertions": 41,
+    "results": [
+      {
+        "id": "actual_public_images_table_ota_fs",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "byte_tamper",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "missing_app",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "wrong_profile",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "missing_role",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "mixed_app",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "historical_manifest_app_swap",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "overlap",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "whole_slot_erase",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "wrong_ota",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "bad_coredump",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "readonly_table_even_rehashed_fixture",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "wrong_chip_even_rehashed_fixture",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "deterministic_zip_creation",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "repeat_zip_identical",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "safe_extract_validate",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "extracted_validator_executes",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "reject_traversal",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "reject_absolute",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "reject_backslash",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "reject_symlink",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_missing",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_short",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_shortweb",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_type",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_autorun_input",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "config_path_input",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "legacy_password",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "private_inside_public_rejected",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "real_fresh_generation_and_finalization",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "recheck_complete_plan",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "private_modes",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "wrong_binding",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "wrong_size",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "valid_nvs_wrong_autorun",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "valid_nvs_wrong_path",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "valid_nvs_wrong_type",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "valid_nvs_wrong_missing",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "nonempty_private_filesystem",
+        "status": "PASS",
+        "classification": "EXPECTED REJECTION",
+        "assertions": 1
+      },
+      {
+        "id": "public_archive_excludes_private_inputs",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      },
+      {
+        "id": "sanitized_cli_error",
+        "status": "PASS",
+        "classification": "POSITIVE",
+        "assertions": 1
+      }
+    ],
+    "fixtures": "SYNTHETIC NON-OWNER; temporary files removed",
+    "asan_ubsan": "NOT APPLICABLE: Python packaging; X native evidence unchanged and not rerun",
+    "physical": false
+  },
+  "public_validation": {
+    "status": "PASS",
+    "package_id": "evilduck-stage28y-x134b295-public-v1",
+    "manifest_sha256": "1990a890e22795978db33763137ca20b8c49ad3919d98cb630decb950e184aa0",
+    "image_headers": {
+      "bootloader": {
+        "image_bytes": 20256,
+        "image_sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077708984,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      },
+      "app0": {
+        "image_bytes": 1358224,
+        "image_sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077370020,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      },
+      "app1": {
+        "image_bytes": 1358224,
+        "image_sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077370020,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      }
+    },
+    "spiffs": "DECODED EMPTY; 4096 block/256 page/0x160000",
+    "private_nvs_ready": false,
+    "migration_authorized": false,
+    "hardware": false
+  },
+  "extracted_validation": {
+    "status": "PASS",
+    "package_id": "evilduck-stage28y-x134b295-public-v1",
+    "manifest_sha256": "1990a890e22795978db33763137ca20b8c49ad3919d98cb630decb950e184aa0",
+    "image_headers": {
+      "bootloader": {
+        "image_bytes": 20256,
+        "image_sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077708984,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      },
+      "app0": {
+        "image_bytes": 1358224,
+        "image_sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077370020,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      },
+      "app1": {
+        "image_bytes": 1358224,
+        "image_sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4",
+        "flash_size_code": 4,
+        "chip_id": 9,
+        "appended_hash": true,
+        "entry": 1077370020,
+        "flash_mode_code": 2,
+        "flash_mhz": 80
+      }
+    },
+    "spiffs": "PINNED EMPTY IMAGE BYTE IDENTITY",
+    "private_nvs_ready": false,
+    "migration_authorized": false,
+    "hardware": false
+  },
+  "linux_host": {
+    "status": "PASS",
+    "python": "3.12.14",
+    "system": "Linux",
+    "machine": "x86_64",
+    "public_integrity": "PASS",
+    "cryptography_importable": true,
+    "private_finalization_dependencies_verified": false,
+    "native_mkspiffs_compatibility": "NOT TESTED",
+    "hardware": "NOT TESTED",
+    "migration_authorized": false
+  },
+  "bundled_validator": {
+    "status": "PASS",
+    "python": "3.12.14",
+    "system": "Linux",
+    "machine": "x86_64",
+    "public_integrity": "PASS",
+    "cryptography_importable": true,
+    "private_finalization_dependencies_verified": false,
+    "native_mkspiffs_compatibility": "NOT TESTED",
+    "hardware": "NOT TESTED",
+    "migration_authorized": false
+  },
+  "archive": {
+    "file": "evilduck-stage28y-public.zip",
+    "bytes": 4837000,
+    "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+  },
+  "classifications": {
+    "firmware": "Exact X artifact materialization, no new build or semantics; X tests not rerun or counted as new",
+    "physical": "NOT AUTHORIZED / NOT EXECUTED",
+    "High_Sierra": "PENDING OWNER RUN",
+    "owner_private_finalization": "PENDING",
+    "development": "Initial40-case run passed; added private/public separation guard and focused regression; final41-case run supersedes it"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "system": "Linux",
+    "machine": "x86_64",
+    "zlib": "1.3.2",
+    "cryptography": "50.0.0",
+    "git": "git version 2.52.0",
+    "generator": "pinned esp_idf_nvs_partition_gen 0.1.9",
+    "mkspiffs": "pinned0.2.3 executable/geometry validated and executed on Linux"
+  }
+}
