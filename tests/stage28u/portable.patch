@@ -1,0 +1,1115 @@
+--- com.cpp
++++ com.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "com.h"
+ #include "hid_backend.h"
+ #include "keyboard_locale.h"
+@@ -15,7 +19,7 @@
+ #include "internal_vars.h"
+ #include "duck_random.h"
+ #include <cstdlib>
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "scheduler_seam.h"
+ #include "locale/locales.h"
+ #endif
+@@ -106,7 +110,7 @@
+   return ok;
+ }
+ 
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ bool routeExternal();
+ void routeFinish(route_b::ResultKind);
+ #endif
+@@ -123,7 +127,7 @@
+ }
+ 
+ bool jitterWait(Phase next) {
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){waitFor(0,next);return true;}
+ #endif
+   uint16_t milliseconds;
+@@ -375,7 +379,7 @@
+ }
+ 
+ void fail() {
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())routeFinish(route_b::ResultKind::Error);
+ #endif
+   releaseOwnedKeys();
+@@ -384,7 +388,7 @@
+   session.repeating = false;
+   session.repeatsRemaining = 0;
+   script_log::error(session.error);
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!routeExternal())
+ #endif
+   if (session.scriptOwned && cbError) cbError();
+@@ -399,22 +403,34 @@
+ }
+ }
+ 
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "seam.inc"
+ #endif
+ namespace com {
+-void onDone(cb_t cb) { execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++void onDone(cb_t cb) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++ execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+  cbDone = cb; }
+-void onRepeat(cb_t cb) { execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++void onRepeat(cb_t cb) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++ execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+  cbRepeat = cb; }
+-void onError(cb_t cb) { execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++void onError(cb_t cb) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++ execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+  cbError = cb; }
+@@ -422,8 +438,12 @@
+ bool statusLedOverridden() { execution::Guard guard; return session.manualLed; }
+ 
+ void beginScript() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+   releaseOwnedKeys();
+@@ -436,8 +456,12 @@
+ }
+ 
+ void endScript() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+   attackmode::cancelPendingStorage();
+@@ -449,8 +473,12 @@
+   duck_constants::clear();
+ }
+ 
+-bool busy() { execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++bool busy() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return true;
++#endif
++ execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return true;
+ #endif
+   return session.phase != Phase::Idle; }
+@@ -458,16 +486,24 @@
+ String submissionError() { execution::Guard guard; return rejected; }
+ 
+ void send(const String &line) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+   if (session.scriptOwned && session.phase == Phase::Idle) submit(line, true);
+ }
+ 
+ void sendText(const String &text, bool enter) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+   if (!session.scriptOwned || session.phase != Phase::Idle) return;
+@@ -480,8 +516,12 @@
+ }
+ 
+ bool executeNow(const String &line) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return false; }
+ #endif
+   if (session.scriptOwned || session.phase != Phase::Idle) {
+@@ -503,16 +543,20 @@
+ }
+ 
+ void update() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()&&!backend_b::permitted())return;
+ #endif
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()&&!route.cancelled&&!route_b::environment()){session.error="RouteB HID/layout lost";fail();return;}
+ #endif
+   attackmode::update();
+   hid_backend::update(); // Cancellation releases are serviced even when idle.
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()&&!route.cancelled&&backend_b::fatal()){session.error="RouteB backend observation failure";fail();return;}
+ #endif
+   if (hid_backend::takeTransportLoss()) {
+@@ -667,7 +711,7 @@
+           session.historyEnter = session.textEnter;
+         }
+         session.remember = false;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+         waitFor(routeExternal()?0:session.defaultDelay, Phase::Finish);
+ #else
+         waitFor(session.defaultDelay, Phase::Finish);
+@@ -684,7 +728,7 @@
+       }
+       session.repeating = false;
+       session.phase = Phase::Idle;
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+       if(routeExternal())routeFinish(route_b::ResultKind::Done);
+       else
+ #endif
+--- com.h
++++ com.h
+@@ -25,6 +25,6 @@
+   String submissionError();
+ }
+ 
+-#ifdef EVILDUCK_NATIVE_SCHEDULER_ROUTE_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "scheduler_seam.h"
+ #endif
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #if !defined(EVILDUCK_HOST_TEST) && !defined(EVILDUCK_VERIFIED_HID_ROUTING)
+ #error "Use tools/build_s3_patched.py: the Stage16 paired HID routing dependency is required"
+ #endif
+@@ -8,9 +12,9 @@
+ #include "USBHIDKeyboard.h"
+ #include "execution_guard.h"
+ #include <atomic>
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "backend_lease.h"
+-#include <thread>
++
+ #endif
+ 
+ static USBHID HID;
+@@ -53,12 +57,15 @@
+ void usbEvent(void *, esp_event_base_t, int32_t event, void *) {
+   if (event == ARDUINO_USB_STOPPED_EVENT) {
+     disconnectEvent.store(true);
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++    route_u::loss();
++#endif
+     hid_backend::invalidateLockState();
+   }
+ }
+ }
+ 
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "backend_lease.inc"
+ #endif
+ 
+@@ -129,7 +136,11 @@
+ namespace hid_backend {
+ 
+ void begin() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+ #endif
+@@ -257,7 +268,11 @@
+ }
+ 
+ void pressModifier(uint8_t modMask) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -267,7 +282,11 @@
+ }
+ 
+ void pressKeyHeld(uint8_t hidKeycode) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -277,7 +296,7 @@
+ }
+ 
+ static bool queueRaw(const Owned &state, [[maybe_unused]] bool clear = false) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active){
+     if(!backendAllowed()||lease.quarantined)return false;
+     if(lease.sequence==UINT64_MAX){backendObserve(backend_b::Kind::Exhausted);return false;}
+@@ -285,7 +304,7 @@
+ #endif
+   // A loss can arrive after update() but before this enqueue attempt.
+   if (disconnectEvent.load() || !static_cast<bool>(USB) || !HID.ready()) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+     backendObserve(backend_b::Kind::NoCall,false,false,clear);
+ #endif
+     return false;
+@@ -294,13 +313,13 @@
+   report.modifier = state.modifiers;
+   memcpy(report.keycode, state.keys, sizeof(state.keys));
+   // Fixed eight-byte report, report ID 1; endpoint acceptance is not host ACK.
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
+-  if(lease.active)lease.inIo=true;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(lease.active){lease.inIo=true;u_platform::io(true);}
+ #endif
+   const bool submitted=tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active){
+-    lease.inIo=false;
++    lease.inIo=false;u_platform::io(false);
+     const bool lost=disconnectEvent.load()||!static_cast<bool>(USB);
+     backendObserve(lost?backend_b::Kind::Loss:submitted?backend_b::Kind::Submitted:backend_b::Kind::CalledFalse,true,submitted,clear);
+     if(clear&&submitted&&!lease.quarantined)lease.clearSubmitted=lease.clearRequest;
+@@ -319,20 +338,24 @@
+   return false;
+ }
+ bool beginReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return false;}
+ #endif
+   failure = "";
+   if (keyCount > 6 || (keyCount && !keys)) { failure = "Invalid keyboard report";
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   backendObserve(backend_b::Kind::Invalid);
+ #endif
+   return false; }
+   Owned merged = owned;
+   merged.modifiers |= modifiers;
+   for (uint8_t i = 0; i < keyCount; ++i) if (!append(merged, keys[i])) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+     backendObserve(backend_b::Kind::Invalid);
+ #endif
+     return false;
+@@ -341,8 +364,12 @@
+   return queueRaw(merged);
+ }
+ bool releaseReport() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return false;}
+ #endif
+   failure = "";
+@@ -350,7 +377,11 @@
+   return queueRaw(owned);
+ }
+ bool hold(uint8_t modifier, uint8_t key) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
+ #endif
+@@ -367,7 +398,11 @@
+   return true;
+ }
+ bool release(uint8_t modifier, uint8_t key) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
+ #endif
+@@ -398,21 +433,29 @@
+   return false;
+ }
+ bool clearing() { execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active&&lease.quarantined)return true;
+ #endif
+   return releasePending; }
+ const char *reportError() { execution::Guard guard; return failure; }
+ bool takeTransportLoss() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return false;}
+ #endif
+   bool lost = transportLoss; transportLoss = false; return lost;
+ }
+ void update() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return;}
+ #endif
+   const bool mounted = static_cast<bool>(USB); // ESPUSB: started && device mounted.
+@@ -423,7 +466,7 @@
+     ownershipDirty = false;
+     releasePending = true;
+     transportLoss = true;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+     backendObserve(backend_b::Kind::Loss);
+ #endif
+   }
+@@ -432,11 +475,15 @@
+   else if (ownershipDirty && queueRaw(owned)) ownershipDirty = false;
+ }
+ void cancelReport() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
+   execution::Guard guard;
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return;}
+ #endif
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   backendClearRequest(); // Quarantine suppresses lower calls, not logical clearing intent.
+ #endif
+   owned = Owned();
+@@ -447,7 +494,11 @@
+ }
+ 
+ void pressReport(uint8_t modifiers, const uint8_t *keys, uint8_t keyCount) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -463,7 +514,11 @@
+ }
+ 
+ void pressKeycode(uint8_t hidKeycode, uint8_t modifiers) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -474,7 +529,11 @@
+ }
+ 
+ bool pressNamedCombo(const String &keyName, uint8_t modifiers) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return false;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return false;}
+   lease.legacyDirty=true;
+@@ -487,19 +546,27 @@
+ }
+ 
+ void releaseAll() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+ #endif
+ 
+   Keyboard.releaseAll();
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   lease.legacyDirty=false; // known software clear only, never host acknowledgement
+ #endif
+ }
+ 
+ void sendText(const String &text) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -509,7 +576,11 @@
+ }
+ 
+ void sendTextLn(const String &text) {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+@@ -520,70 +591,110 @@
+ }
+ 
+ void pressEnter() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_ENTER, 0); }
+ void pressTab() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_TAB, 0); }
+ void pressEscape() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_ESCAPE, 0); }
+ void pressSpace() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_SPACE, 0); }
+ void pressBackspace() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_BACKSPACE, 0); }
+ void pressDelete() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_DELETE, 0); }
+ void pressArrowUp() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_UP, 0); }
+ void pressArrowDown() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_DOWN, 0); }
+ void pressArrowLeft() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+ #endif
+  pressKeycode(HID_LEFT, 0); }
+ void pressArrowRight() {
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!u_platform::allowed()){return;}
++#endif
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+   execution::Guard leaseGuard;
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+   lease.legacyDirty=true;
+--- hid_backend.h
++++ hid_backend.h
+@@ -53,6 +53,6 @@
+   void pressArrowRight();
+ }
+ 
+-#ifdef EVILDUCK_NATIVE_REAL_BACKEND_B
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "backend_lease.h"
+ #endif
+--- duckscript.cpp
++++ duckscript.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "duckscript.h"
+ #include "com.h"
+ #include "debug.h"
+@@ -274,8 +278,17 @@
+ namespace duckscript {
+ 
+ bool run(const String &filename) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!route_u::legacyAllowed())return false;
++#endif
+   execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!route_u::legacyAllowed())return false;
++#endif
+   if (state.active || com::busy()) return false;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  route_u::legacySelected();
++#endif
+   // Construct directly in place: the bounded call storage is deliberately too
+   // large for an aggregate temporary on the ESP32 main-loop task stack.
+   state.~RunState();new (&state) RunState();
+@@ -315,6 +328,9 @@
+ }
+ 
+ void stop() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(route_u::owned()){route_u::stop();return;}
++#endif
+   execution::Guard guard;
+   bool wasActive = state.active || com::busy();
+   state.active = false;
+@@ -331,6 +347,9 @@
+ }
+ 
+ void update() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  const bool routeWasOwned=route_u::owned();route_u::tick(millis());if(routeWasOwned||route_u::owned())return;
++#endif
+   execution::Guard guard;
+   if(state.active && !com::busy()) {
+     if(state.evaluation.consumer!=script_functions::Consumer::None)advanceEvaluation();
+@@ -338,10 +357,26 @@
+   }
+ }
+ 
+-bool running() { execution::Guard guard; return state.active; }
+-String runningScript() { execution::Guard guard; return state.active ? state.scriptRef.display : String(); }
+-uint32_t currentLine() { execution::Guard guard; return state.lineNumber; }
+-String lastError() { execution::Guard guard; return state.lastErr; }
++bool running() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return true;
++#endif
++ execution::Guard guard; return state.active; }
++String runningScript() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::selected()){return route_u::owned()?String("RouteB"):String();}
++#endif
++ execution::Guard guard; return state.active ? state.scriptRef.display : String(); }
++uint32_t currentLine() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::selected()){return route_u::status().line;}
++#endif
++ execution::Guard guard; return state.lineNumber; }
++String lastError() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::selected()){auto r=route_u::status().reason;return r==route_u::Reason::None||r==route_u::Reason::Completed||r==route_u::Reason::Cancelled?String():String("RouteB error; inspect typed status");}
++#endif
++ execution::Guard guard; return state.lastErr; }
+ 
+ }
+ 
+@@ -447,3 +482,7 @@
+ static void comError() {
+   fail(com::lastError(), state.lineNumber);
+ }
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++namespace duckscript {bool runRouteB(const char* path){return route_u::requestStart(path)==route_u::Reply::Accepted;}}
++#endif
+--- duckscript.h
++++ duckscript.h
+@@ -10,3 +10,7 @@
+   uint32_t currentLine();
+   String lastError();
+ }
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++namespace duckscript {bool runRouteB(const char* path);}
++#endif
+--- cli.cpp
++++ cli.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "cli.h"
+ #include "duckscript.h"
+ #include "settings.h"
+@@ -317,7 +321,17 @@
+ }
+ 
+ void parse(const char *input, PrintFunction printfunc, bool echo) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!route_u::legacyAllowed()){
++    if(input&&strcmp(input,"stop")==0){route_u::stop();if(printfunc)printfunc("Stop requested");return;}
++    if(input&&strcmp(input,"status")==0){if(printfunc)printfunc("Execution or service owns admission");return;}
++    if(printfunc)printfunc("Busy: RouteB ownership");return;
++  }
++#endif
+   execution::Guard guard;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(!route_u::legacyAllowed()){if(printfunc)printfunc("Busy: admission changed");return;}
++#endif
+   activePrint = printfunc;
+   if (echo) out(String("# ") + input);
+   executeCommand(String(input));
+--- storage.cpp
++++ storage.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "storage.h"
+ #include "spiffs.h"
+ #include "sd_card.h"
+@@ -71,6 +75,10 @@
+ }
+ 
+ bool begin() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#endif
++
+   bool ok = spiffs::begin();
+   if (deployment::controlledStart() && !ok) return false;
+ #if SD_ENABLED
+@@ -147,6 +155,10 @@
+ }
+ 
+ bool remove(const Ref &ref) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#endif
++
+   if (ref.volume == Volume::SD) {
+ #if SD_ENABLED
+     return sd_card::ready() && sd_card::remove(ref.path);
+@@ -172,6 +184,10 @@
+ }
+ 
+ bool writeFile(const Ref &ref, const String &content) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#endif
++
+   if (ref.volume == Volume::SD) {
+ #if SD_ENABLED
+     if (!sd_card::ready()) return false;
+@@ -194,6 +210,10 @@
+ }
+ 
+ bool appendFile(const Ref &ref, const String &content) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#endif
++
+   if (ref.volume == Volume::SD) {
+ #if SD_ENABLED
+     if (!sd_card::ready()) return false;
+@@ -367,6 +387,10 @@
+ }
+ 
+ bool copyToSd(const String &spiffsName, const Ref &toSd) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Files);if(!transaction)return false;
++#endif
++
+ #if !SD_ENABLED
+   (void)spiffsName;
+   (void)toSd;
+--- keyboard_locale.cpp
++++ keyboard_locale.cpp
+@@ -1,3 +1,10 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "execution_guard.h"
++#endif
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "keyboard_locale.h"
+ #include "hid_backend.h"
+ #include "locale/locales.h"
+@@ -8,10 +15,22 @@
+ namespace keyboard_locale {
+ 
+ void begin() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++
+   activeLocale = &locale_us;
+ }
+ 
+ void setLocale(hid_locale_t *locale) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++
+   if (locale) activeLocale = locale;
+ }
+ 
+@@ -45,6 +64,12 @@
+ 
+ bool supportsLocale(const String &name) { return findLocale(name) != nullptr; }
+ bool setLocaleByName(const String &name) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return false;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return false;
++#endif
++
+   auto locale = findLocale(name);
+   if (!locale) return false;
+   setLocale(locale);
+--- attackmode.cpp
++++ attackmode.cpp
+@@ -1,3 +1,10 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "execution_guard.h"
++#endif
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "attackmode.h"
+ #include "usb_msc.h"
+ #include "script_log.h"
+@@ -7,7 +14,13 @@
+ bool hidOn = true, storageWanted = false;
+ }
+ namespace attackmode {
+-void begin() { execution::Guard guard; usb_msc::end(); hidOn = true; storageWanted = false; }
++void begin() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; usb_msc::end(); hidOn = true; storageWanted = false; }
+ bool hidEnabled() { execution::Guard guard; return hidOn; }
+ bool storageEnabled() { execution::Guard guard; return usb_msc::active(); }
+ bool storageRequested() { execution::Guard guard; return storageWanted; }
+@@ -16,21 +29,69 @@
+ const char *storageError() { return usb_msc::lastError(); }
+ void update() { usb_msc::update(); }
+ void cancelPendingStorage() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++
+   execution::Guard guard;
+   if (usb_msc::preparing()) { usb_msc::end(); storageWanted = false; }
+ }
+-void setHid(bool on) { execution::Guard guard; hidOn = on; }
++void setHid(bool on) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; hidOn = on; }
+ void setStorage(bool on) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++
+   execution::Guard guard;
+   storageWanted = on;
+   if (!on) usb_msc::end();
+   else if (!usb_msc::begin()) script_log::warn(usb_msc::lastError());
+ }
+-void setOff() { execution::Guard guard; setStorage(false); hidOn = false; }
+-void setHidOnly() { execution::Guard guard; setStorage(false); hidOn = true; }
+-void setStorageOnly() { execution::Guard guard; hidOn = false; setStorage(true); }
+-void setHidStorage() { execution::Guard guard; hidOn = true; setStorage(true); }
++void setOff() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; setStorage(false); hidOn = false; }
++void setHidOnly() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; setStorage(false); hidOn = true; }
++void setStorageOnly() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; hidOn = false; setStorage(true); }
++void setHidStorage() {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return;
++#endif
++ execution::Guard guard; hidOn = true; setStorage(true); }
+ bool applyFromString(const String &modes) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ if(route_u::owned())return false;
++ execution::Guard modeMutationGuard;
++ if(route_u::owned())return false;
++#endif
++
+   execution::Guard guard;
+   String m = modes; m.toUpperCase();
+   if (m.indexOf("OFF") >= 0) { setOff(); return true; }
+--- webserver.cpp
++++ webserver.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include "webserver.h"
+ #include "debug.h"
+ #include "duckscript.h"
+@@ -214,6 +218,10 @@
+ }
+ 
+ static void handleSaveSettings(AsyncWebServerRequest *req) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Settings);if(!transaction){req->send(409,"text/plain","Busy");return;}
++#endif
++
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   execution::TryGuard settingsGuard;
+   if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
+@@ -317,6 +325,10 @@
+ 
+ static void onUpload(AsyncWebServerRequest *request, String filename, size_t index,
+                      uint8_t *data, size_t len, bool final) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ request->send(503,"text/plain","Offline candidate: upload disabled");return;
++#endif
++
+   execution::Guard guard;
+   if (!index) {
+     if (!checkAuth(request)) {
+@@ -368,6 +380,10 @@
+ 
+ static void onFirmwareUpload(AsyncWebServerRequest *request, String filename, size_t index,
+                              uint8_t *data, size_t len, bool final) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ request->send(503,"text/plain","Offline candidate: upload disabled");return;
++#endif
++
+   (void)filename;
+   if (!index) {
+     fwUpdateOk = false;
+@@ -427,6 +443,10 @@
+ }
+ 
+ static void handleSetLed(AsyncWebServerRequest *req) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++ route_u::Transaction transaction(route_u::Service::Settings);if(!transaction){req->send(409,"text/plain","Busy");return;}
++#endif
++
+   if (!checkAuth(req)) { sendAuthRequired(req); return; }
+   execution::TryGuard settingsGuard;
+   if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
+@@ -685,6 +705,9 @@
+   server.on("/update", HTTP_POST,
+             [](AsyncWebServerRequest *request) {
+               if (fwUpdateOk) {
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++                request->send(503,"text/plain","Offline candidate: restart disabled");return;
++#endif
+                 request->send(200, "text/plain", "OK");
+                 delay(100);
+                 ESP.restart();
+--- EvilDuckS3.ino
++++ EvilDuckS3.ino
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++#include "task_platform.h"
++#include "coordinator.h"
++#endif
+ #include <Arduino.h>
+ #include <WiFi.h>
+ 
+@@ -117,6 +121,9 @@
+     delay(1);
+     return; // Intentionally no web/CLI arming path or execution scheduler in this profile.
+   }
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  route_u::bindOwner(); // loop task registration only, never arms execution
++#endif
+   duckscript::update();
+   com::update();
+   cli::update();

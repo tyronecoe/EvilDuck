@@ -1,0 +1,224 @@
+{
+  "parent": "3e450127f7e6e1664a97be1107a18253844bfe35",
+  "selector": "EVILDUCK_PORTABLE_ROUTE_B",
+  "inputs": [
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "sha256": "86190613050217d7f2c8b24fd773303fccec3ef473a100588d5b261dc95f68dc"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "sha256": "9eec37e589bcc58e7b932f6c90539d96e252177be8f6480dfcea6585b2ca84c4"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "sha256": "bba277addb9dbd91b3021c2df54d672dd55b9d4d9353e6be0cb767f327a3c072"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "sha256": "ccbd48f96bfd9da9ac712fce903907d9a3e750da54f9adaf1f3bb3b3a3013846"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.h",
+      "sha256": "745a86898e98f242df28840b87f30cd16c5ad9e2cfc62fdefd8a88843252437e"
+    },
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "sha256": "8359462e3e8cb712ddfddea4ea0ed9facdb2cbc8ef972514a35053d89588ddad"
+    },
+    {
+      "file": "EvilDuckS3/storage.cpp",
+      "sha256": "b84b75beef87999d7392832c3e186f24c60580b4a61233b9fe5a82da2c462419"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "sha256": "54e30399e0f5280ec01a7e51372b97a280f60aa5678dd43dc8c94c5c6e4e86ea"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.cpp",
+      "sha256": "ad6aab13b9868fe026b5543c53b5d631ed3e63f2caabc79d99a84baeaa075093"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "sha256": "0abfb53416a54d5d28e6516403ca4b3d7ef4e70f5b6f1d50e1b0354384d289e0"
+    },
+    {
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "sha256": "2efcf7720b4026130a359567797f7e66bdb5639f334caf786d294f3e14ccb115"
+    }
+  ],
+  "t_outputs": [
+    {
+      "file": "com.cpp",
+      "sha256": "ae298b91dd1e37b1ee0b2bb207eff8b2b7a14613a322fffd480bbdbe654eaaef"
+    },
+    {
+      "file": "com.h",
+      "sha256": "5110b6633b4c8867db5962028a0090a681f1537afa1f986556c2b9ab42ff5ba2"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "a72736a883234e86017b7b9ca8a8f41939c7de9dba3cfe802cdf6e1c5d93e2f2"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "ef73b2b13807d83eff3f99e41157dbe495e98936b9f074ad6c050075f8141313"
+    }
+  ],
+  "patch": {
+    "file": "tests/stage28u/portable.patch",
+    "sha256": "a7f3261fbdaae152dc70da01fdcb2eb0495fe428ba65a552cdabed9849e6aba0"
+  },
+  "outputs": [
+    {
+      "file": "com.cpp",
+      "sha256": "c576d65b8de42c6c91016eaeec2392fed952f83eaa2aa4f91376967afca36166"
+    },
+    {
+      "file": "com.h",
+      "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fca398639a0e1d516fe0e403881052b6ad93abb5891fd74a73c34d0136aa6441"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "3ffdf955452b366f33c44821423c5ecb98711cba358c4386293665232209e13e"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "9a31d1cbdece96e097f075a38ef0088f30c115acab9dc2e7f63afdaf5fe06e1a"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "73b244314480c1e79438a6b6e94f7f0bd9625f304ac1b42b95b32229181aaef4"
+    },
+    {
+      "file": "storage.cpp",
+      "sha256": "c04911c3bae70f111a142762a2bec13d67865a9811b728f35b82fe25c9b4c877"
+    },
+    {
+      "file": "keyboard_locale.cpp",
+      "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+    },
+    {
+      "file": "attackmode.cpp",
+      "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "3b625c33b643a04a4debe2dfd2722356185c13a3b97df6398a66aaecafe9cd8b"
+    },
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "c36370cd210cc9153789f5b9641d0df35d659732a9ca2d1c208bfbeec9c21816"
+    }
+  ],
+  "candidate_files": [
+    {
+      "file": "tests/stage28u/adapter.cpp",
+      "sha256": "a96e5f0b697ca84b085f660ef48817649d56a4ab9c10549d5da1c50cbfc03f5b"
+    },
+    {
+      "file": "tests/stage28u/adapter.h",
+      "sha256": "cc175a5f8ada846bac3a9ce0c7146adb9cff5249d76bb7a09c76874d02d6e624"
+    },
+    {
+      "file": "tests/stage28u/backend_lease.h",
+      "sha256": "41b2adf0770c32d6b71e60543ad812b1d6125403a2d350d49dd99181c510c83a"
+    },
+    {
+      "file": "tests/stage28u/backend_lease.inc",
+      "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+    },
+    {
+      "file": "tests/stage28u/coordinator.cpp",
+      "sha256": "456435a2ce907da2bdd5b379540962d0b7783f2530fd85cffa79b6a7b915c56f"
+    },
+    {
+      "file": "tests/stage28u/coordinator.h",
+      "sha256": "6a7e67a25369d6bb6a8cfeb6db8ba9df994e72124a945743a03afd6dcf722a07"
+    },
+    {
+      "file": "tests/stage28u/file_source.cpp",
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+    },
+    {
+      "file": "tests/stage28u/file_source.h",
+      "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+    },
+    {
+      "file": "tests/stage28u/lower.cpp",
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28u/lower.h",
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28u/mocks/FS.h",
+      "sha256": "a1cb1481d6857527aa5b18f6d54bf8c89bd710b04080207f56a787e5b978e7c1"
+    },
+    {
+      "file": "tests/stage28u/mocks/USBHID.h",
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28u/msc_platform.cpp",
+      "sha256": "e2bed5e90736772238796cee0a00ace6306ee29e30d6debe79cfa43ec4952f8a"
+    },
+    {
+      "file": "tests/stage28u/scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28u/seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28u/task_platform.h",
+      "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+    },
+    {
+      "file": "tests/stage28u/test_main.cpp",
+      "sha256": "36e8f010e34cd669809c56bea9ff71f1b83e925975af80d688f3c348be946a98"
+    }
+  ],
+  "lineage": {
+    "stage28t_manifest_sha256": "4f28b220a90ed54ead165fba1c493f23fe706ec95c925bc57bba6b944b832fdc",
+    "preparation_script_sha256": "c58c718ad585a9b98cc32d30a0bde4361a86cd7aadffd8a93919ec31b2b9fe1a",
+    "stage28t_source_preparer_sha256": "604322a94c5b0ee301a7da5680aef8056d3d8ef81fccfa17aab94df7f3957a21"
+  },
+  "native_runtime_binaries": [
+    {
+      "name": "native",
+      "sha256": "d76bca0b81f493b2e0733af35f7271c8eef2830f7ba192e84f0e688c70f2d3d0",
+      "kind": "Linux native test executable; external only"
+    },
+    {
+      "name": "negative",
+      "sha256": "b32d40bb4d8bf016f3eba54207640276a282e0cee7b4e32153fc27eb60f1518b",
+      "kind": "Linux native test executable; external only"
+    }
+  ],
+  "target_objects_receipt": "docs/stage28u-target-object-results.json",
+  "versions": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "python": "Python 3.12.14",
+    "git": "git version 2.52.0",
+    "patch": "GNU patch 2.8",
+    "gcov": "gcov (Debian 14.2.0-19) 14.2.0"
+  },
+  "source_changed_in_place": false,
+  "firmware_linked": false,
+  "selector_default_off": true
+}

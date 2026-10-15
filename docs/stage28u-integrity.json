@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "phase": "PRECOMMIT; final commit and publication receipt external",
+  "baseline": "3e450127f7e6e1664a97be1107a18253844bfe35",
+  "historical_files_paths_modes": 1217,
+  "frozen_stage26_files": 235,
+  "remote": "NOT REQUESTED",
+  "new_files": [
+    {
+      "file": "docs/stage28u-coverage.json",
+      "size": 42765,
+      "sha256": "b8d45df940faab4a1efb192bb9fba691aaeb8efcf5b8a89633cd1a44d5afbfbd"
+    },
+    {
+      "file": "docs/stage28u-dispatch-and-file-lifetime.md",
+      "size": 3734,
+      "sha256": "d11b9a320f0b2ffd55ce756df13b06b33ae6fe8f3a732e695f38476caef58d09"
+    },
+    {
+      "file": "docs/stage28u-integration-review.md",
+      "size": 2502,
+      "sha256": "ea16c85ce7b9e39110012b9a9af574ef141adedbeb2cb6b8a5709bd9e8710e51"
+    },
+    {
+      "file": "docs/stage28u-native-results.json",
+      "size": 120461,
+      "sha256": "4f4044a3c5662fe5196defe785dd55ee14d813f568a22ed77b2c514d536be369"
+    },
+    {
+      "file": "docs/stage28u-owner-scope.md",
+      "size": 1344,
+      "sha256": "8f3b6b1a5c9f7ec89c2ed0a9b1d39f08b156f097e866082182f55fcaed9b31dd"
+    },
+    {
+      "file": "docs/stage28u-producer-transaction-matrix.md",
+      "size": 4305,
+      "sha256": "7b212468640998998d909239ab408e9c5c2e497bbde056df4f3db7f79535520e"
+    },
+    {
+      "file": "docs/stage28u-report.md",
+      "size": 7702,
+      "sha256": "6070e307ccca62b5eee233d76d6cf6380da5dcb9c6ab5f52a9a227786446bedb"
+    },
+    {
+      "file": "docs/stage28u-resource-ledger.md",
+      "size": 2879,
+      "sha256": "d01d95859236fd63a701af328650b655c84dd88b45fdad5674b13f8988c553ad"
+    },
+    {
+      "file": "docs/stage28u-source-and-patch-manifest.json",
+      "size": 7496,
+      "sha256": "02a2f292f089cf795964f6d24b755c56d4fabb1cb332a2ee596ae149cf456f48"
+    },
+    {
+      "file": "docs/stage28u-target-object-results.json",
+      "size": 439836,
+      "sha256": "5571db6c0fe066202246f7f35ac7ed66d49cfa93a463cdc56f6e80c5151a0533"
+    },
+    {
+      "file": "docs/stage28u-task-and-service-contract.md",
+      "size": 4364,
+      "sha256": "3d91ed164d077a1739ba5d98cc589e9cbb5f60043b5a6b49346879e9ba0d8ffc"
+    },
+    {
+      "file": "docs/stage28u-test-report.md",
+      "size": 5994,
+      "sha256": "b5883d5d99854235a59aeddb476b11afbaeb8f0d4d59c137de288f0d85ea4e77"
+    },
+    {
+      "file": "tests/stage28u/adapter.cpp",
+      "size": 6274,
+      "sha256": "a96e5f0b697ca84b085f660ef48817649d56a4ab9c10549d5da1c50cbfc03f5b"
+    },
+    {
+      "file": "tests/stage28u/adapter.h",
+      "size": 2311,
+      "sha256": "cc175a5f8ada846bac3a9ce0c7146adb9cff5249d76bb7a09c76874d02d6e624"
+    },
+    {
+      "file": "tests/stage28u/backend_lease.h",
+      "size": 1083,
+      "sha256": "41b2adf0770c32d6b71e60543ad812b1d6125403a2d350d49dd99181c510c83a"
+    },
+    {
+      "file": "tests/stage28u/backend_lease.inc",
+      "size": 4395,
+      "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+    },
+    {
+      "file": "tests/stage28u/check_preparation.py",
+      "size": 1842,
+      "sha256": "d9bbc2dd09f122a5f80020921617ac3ab4298a93a3ca50b135cfbd36ea246dd1"
+    },
+    {
+      "file": "tests/stage28u/coordinator.cpp",
+      "size": 7894,
+      "sha256": "456435a2ce907da2bdd5b379540962d0b7783f2530fd85cffa79b6a7b915c56f"
+    },
+    {
+      "file": "tests/stage28u/coordinator.h",
+      "size": 1443,
+      "sha256": "6a7e67a25369d6bb6a8cfeb6db8ba9df994e72124a945743a03afd6dcf722a07"
+    },
+    {
+      "file": "tests/stage28u/file_source.cpp",
+      "size": 2028,
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+    },
+    {
+      "file": "tests/stage28u/file_source.h",
+      "size": 613,
+      "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+    },
+    {
+      "file": "tests/stage28u/lower.cpp",
+      "size": 1649,
+      "sha256": "fd315f65bb68f4f54346ab23534461713afa0d9c926048b1a19c6af33242d689"
+    },
+    {
+      "file": "tests/stage28u/lower.h",
+      "size": 602,
+      "sha256": "dc1e82bac9f7fbd9cfeb1f5985bf95d7c5891833009c715e1d28c1565c522255"
+    },
+    {
+      "file": "tests/stage28u/mocks/FS.h",
+      "size": 2258,
+      "sha256": "a1cb1481d6857527aa5b18f6d54bf8c89bd710b04080207f56a787e5b978e7c1"
+    },
+    {
+      "file": "tests/stage28u/mocks/USBHID.h",
+      "size": 529,
+      "sha256": "4bd571a6ab89d7d59cc7cf2ca41825556a2b6e34bf27bb6cd9414a72f03c61f1"
+    },
+    {
+      "file": "tests/stage28u/msc_platform.cpp",
+      "size": 533,
+      "sha256": "e2bed5e90736772238796cee0a00ace6306ee29e30d6debe79cfa43ec4952f8a"
+    },
+    {
+      "file": "tests/stage28u/portable.patch",
+      "size": 32688,
+      "sha256": "a7f3261fbdaae152dc70da01fdcb2eb0495fe428ba65a552cdabed9849e6aba0"
+    },
+    {
+      "file": "tests/stage28u/prepare_sources.py",
+      "size": 1178,
+      "sha256": "c58c718ad585a9b98cc32d30a0bde4361a86cd7aadffd8a93919ec31b2b9fe1a"
+    },
+    {
+      "file": "tests/stage28u/run_regressions.py",
+      "size": 2009,
+      "sha256": "c939a763e60a69e49a27f4fd94d863fe83bbe854068d2038a5b2171d11d28b4b"
+    },
+    {
+      "file": "tests/stage28u/run_tests.py",
+      "size": 2801,
+      "sha256": "3aa2840eaf2d6ad076b384781e087f31d0f38b77f2f65c95a328a4d928cd1f2d"
+    },
+    {
+      "file": "tests/stage28u/scheduler_seam.h",
+      "size": 956,
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "tests/stage28u/seam.inc",
+      "size": 5018,
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "tests/stage28u/target_check.py",
+      "size": 4486,
+      "sha256": "67141922dbb038ba8dada94d652c63c542572fe556221b4279e1001d4f0d7e0f"
+    },
+    {
+      "file": "tests/stage28u/task_platform.h",
+      "size": 1203,
+      "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+    },
+    {
+      "file": "tests/stage28u/test_main.cpp",
+      "size": 18845,
+      "sha256": "36e8f010e34cd669809c56bea9ff71f1b83e925975af80d688f3c348be946a98"
+    },
+    {
+      "file": "tests/stage28u/verify_scope.py",
+      "size": 4055,
+      "sha256": "73d1cc25a4777b35a4816b00580b544fbeb4a3575fa9597c01e16d096908ac87"
+    }
+  ],
+  "self_excluded": true,
+  "hardware": false,
+  "firmware": false,
+  "remote_before": {
+    "count": 45,
+    "sha256": "7f239b07d3f5bd8a4271a9f0e76d8ea3b1d864d6fd390dbf50e0c4c55f16aa78",
+    "prepublish_equal": true
+  }
+}
