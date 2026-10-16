@@ -1,0 +1,55 @@
+{
+  "references": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00",
+      "local_hash_verified": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/constants.md",
+      "snapshot": "attack-modes-constants-and-variables__constants.md",
+      "bytes": 11150,
+      "sha256": "26362406a2a196e91ca82af494c50c9d45315cfe021925a8a8c9654adfa35869",
+      "retrieved_utc": "2026-10-11T18:01:06.992448+00:00",
+      "local_hash_verified": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+      "snapshot": "attack-modes-constants-and-variables__variables.md",
+      "bytes": 4358,
+      "sha256": "46a9c7de2faba3776a129081f7cd21995b30853466beb8567948dad523332b02",
+      "retrieved_utc": "2026-10-11T18:01:07.244496+00:00",
+      "local_hash_verified": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/conditional-statements.md",
+      "snapshot": "operators-conditions-loops-and-functions__conditional-statements.md",
+      "bytes": 6793,
+      "sha256": "ff8534cb66e8fd0a987e7b65932a9c5ac32a4ee1e0ba95fd6b3a6bbdd38f09f9",
+      "retrieved_utc": "2026-10-11T18:01:07.410742+00:00",
+      "local_hash_verified": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/loops.md",
+      "snapshot": "operators-conditions-loops-and-functions__loops.md",
+      "bytes": 5771,
+      "sha256": "57a344a03b83d9077d7d18726f90feb6addde2ffae3b06eb34f3041ebfc98f7d",
+      "retrieved_utc": "2026-10-11T18:01:07.612475+00:00",
+      "local_hash_verified": true
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/operators-conditions-loops-and-functions/functions.md",
+      "snapshot": "operators-conditions-loops-and-functions__functions.md",
+      "bytes": 6106,
+      "sha256": "8ec237904c974397ac9e631c1f17668638638ef4025e48106debb1173a38e965",
+      "retrieved_utc": "2026-10-11T18:01:07.775064+00:00",
+      "local_hash_verified": true
+    }
+  ],
+  "current_retrieval": "2026-10-16 HTML URLs returned HTTP403; exact saved Markdown hashes verified against Stage9 pins",
+  "runtime_oracle": false,
+  "pico_source_copied": false
+}

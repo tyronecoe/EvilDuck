@@ -1,0 +1,10 @@
+VAR $n = 1
+VAR $nn = 10
+VAR $n_1 = 100
+$n = ($nn + $n_1)
+$nn = ($n + 1)
+IF ($n == 110) && ($nn == 111) && ($n_1 == 100) THEN
+STRINGLN variables-ok
+ELSE
+STRINGLN wrong
+END_IF

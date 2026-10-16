@@ -1,15 +1,48 @@
-# Independent DuckyScript preview — offline only
+# Portable interpreter and the two execution paths
 
-Not included by any Arduino sketch/build profile. NOT FLASH-AUTHORIZED.
+The portable engine is independent C++ in core.h/core.cpp. It is not included by
+the ordinary Arduino sketch automatically. The reviewed X candidate composes it
+with a cooperative output adapter in a separately built scratch sketch; a source
+parser feature is not proof that this adapter accepts it. No complete DuckyScript
+3.0 conformance or physical USB validation is claimed.
 
-core.h/core.cpp contain original fixed-storage parser/evaluator/runtime code. There are no
-Arduino, filesystem, USB, HID, network or SDK calls. Program compile/preflight produces
-bounded IR; Runtime consumes it cooperatively through a caller-supplied mock event sink.
-See docs/stage28b-design.md and docs/stage28a-design.md (current) and docs/stage27b-design.md (historical) for limits and deliberately partial language semantics.
+| Contract | Upgraded legacy interpreter | X Route B candidate |
+| --- | --- | --- |
+| Implementation | EvilDuckS3/duckscript.cpp + script_parser/duck_expr + com/hid_backend | core Program/CompileSession/Runtime + reviewed adapter/coordinator/FileSource and existing scheduler/backend |
+| Default/selection | Ordinary CLI `run <script>` or authenticated `/run?s=<script>`; default path even with Route B compiled | Only when EVILDUCK_PORTABLE_ROUTE_B is compiled: explicit CLI `routeb <script>` or authenticated `/run?engine=routeb&s=<script>` |
+| Main language | Global numeric/boolean variables, DEFINE, IF/WHILE, functions/returns, streamed text, keyboard commands | Bounded numeric/boolean variables, DEFINE, IF/WHILE, functions/returns, text, DELAY, restricted key taps, STOP_PAYLOAD |
+| Extensions | Text interpolation, US/DE LOCALE, REPEAT/REPLAY, preprocessing/aliases, supported internal/RNG/jitter/LED/file commands and ownership operations | ASCII-only candidate input; explicit `sd:`/SPIFFS source selection; no implicit legacy features |
+| Bounds | Source256KiB/8192 lines;16 ordinary variables; combined control depth8,16 functions/call depth8; other config.h limits | Source8192B,128 instructions,4096B text arena,32 symbols,16 functions/call depth8, nesting16; core.h runtime budgets |
+| Unsupported input | Full preflight rejects detectable syntax/type/structure/unknown-command errors before script HID; runtime-only errors stop safely | Compile/capability failure before execution, no silent retry through legacy; actual X adapter rejects ownership IR even where standalone preview parses it |
+| Output meaning | Cooperative local scheduling and persistent ownership with existing cleanup | Copied requests, one owner, capture/verify/preflight, backpressure, first-fault/permanent loss-or-ambiguity quarantine; no replay |
 
-No proprietary compiler code was copied. This is an independent compatibility effort, not
-Hak5 firmware, endorsement or complete DuckyScript3.0 compatibility. Stage27A hardware work
-remains separate and must retain Stage26 reviewed binaries, hashes and authorization gates.
+Boot does not select/arm Route B. Ordinary run never switches engines by content;
+a failed explicit Route B request does not fall back. Competing work can be refused.
+W/X restrictions remain: disabled mutating WebSocket CLI, asynchronous filesystem
+responses and uploads/update/restart. These are candidate policies, not changes to
+all historical production profiles. Controlled-start package has strict credentials,
+no autoformat/examples/autorun; nothing in this comparison changes startup policy.
+
+INJECT_MOD modifier-source semantics and RESET/release-all remain deliberately
+blocked in the portable source contract. The legacy implementation has its documented
+behavior; its success is not portable support. The four spellings RGUI, RWINDOWS,
+RCOMMAND and ROPTION remain unsupported after audit; legacy RIGHTGUI/RIGHTWINDOWS
+and RIGHTALT/RALT already provide the corresponding right-side functionality.
+No canonical status was established for those extra spellings; no aliases are added
+merely to match Pico-Ducky. See [the compatibility pass](../docs/compatibility-pass.md) for evidence and tests.
+
+Mock/native tests establish specified source behavior and exact mocked reports;
+target-linked receipts establish build identity. Neither establishes actual task
+latency, physical media/heap/stack, USB delivery, endpoint retirement or host release.
+LOCAL_SCHEDULER_DONE and LOCAL_CLEARING_SUBMITTED remain local observations. Existing
+prepared X/Y images retain their published identity and remain subject to separate
+owner authorization; this documentation/test pass adds no deployment prerequisite.
+
+## Historical stage notes
+
+The entries below describe each stage when originally delivered, including earlier
+unlinked/mock-only status. The current X composition described above supersedes those
+historical deployment statements without changing their source or feature contracts.
 
 Stage28A adds cooperative numeric expression function calls in fixed continuations.
 The runtime is still mock-only, unlinked and NOT FLASH-AUTHORIZED.

@@ -1,0 +1,17 @@
+VAR $n = 0
+FUNCTION count()
+$n = ($n + 1)
+RETURN 1
+END_FUNCTION
+FUNCTION counts()
+RETURN count() + 1
+END_FUNCTION
+FUNCTION count_1()
+RETURN counts() + count()
+END_FUNCTION
+VAR $result = count_1()
+IF ($result == 3) && ($n == 2) THEN
+STRINGLN functions-ok
+ELSE
+STRINGLN wrong
+END_IF
