@@ -17,8 +17,14 @@ public static class EvilDuckLedSender {
   if(Console.ReadLine()!="SEND")return 2;
   bool caps=Read(0x14),num=Read(0x90);var elapsed=System.Diagnostics.Stopwatch.StartNew();cancelled=false;
   ConsoleCancelEventHandler stop=(s,e)=>{e.Cancel=true;cancelled=true;};Console.CancelKeyPress+=stop;
-  try{Set(0x14,false);Set(0x90,false);bool clock=false;foreach(byte b in Frame())for(int i=7;i>=0;i--){if(cancelled||elapsed.Elapsed.TotalSeconds>=90)throw new Exception("Stopped/timed out.");Set(0x90,((b>>i)&1)!=0);Thread.Sleep(60);clock=!clock;Set(0x14,clock);Thread.Sleep(60);}Console.WriteLine("Host API send finished: 17 payload bytes. Verify device integrity and byte-exact text separately; no delivery claimed.");return 0;}
-  catch(Exception e){Console.Error.WriteLine(e.Message);return 1;}
-  finally{try{Set(0x14,caps);Set(0x90,num);}catch(Exception e){Console.Error.WriteLine("Lock restore unconfirmed: "+e.Message);}Console.CancelKeyPress-=stop;}
+  int result=0;
+  try{Set(0x14,false);Set(0x90,false);bool clock=false;foreach(byte b in Frame())for(int i=7;i>=0;i--){if(cancelled||elapsed.Elapsed.TotalSeconds>=90)throw new Exception("Stopped/timed out.");Set(0x90,((b>>i)&1)!=0);Thread.Sleep(60);clock=!clock;Set(0x14,clock);Thread.Sleep(60);}Console.WriteLine("Host API send finished: 17 payload bytes. Verify device integrity and byte-exact text separately; no delivery claimed.");}
+  catch(Exception e){Console.Error.WriteLine(e.Message);result=1;}
+  finally{
+   try{Set(0x14,caps);}catch(Exception e){Console.Error.WriteLine("Caps restore unconfirmed: "+e.Message);result=1;}
+   try{Set(0x90,num);}catch(Exception e){Console.Error.WriteLine("Num restore unconfirmed: "+e.Message);result=1;}
+   Console.CancelKeyPress-=stop;
+  }
+  return result;
  }
 }

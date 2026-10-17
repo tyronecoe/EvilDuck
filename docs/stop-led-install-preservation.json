@@ -1,0 +1,262 @@
+{
+  "base_commit": "d18b7fddedaecef27be9fd7e486ad2d092a513c6",
+  "baseline_remote_refs": [
+    {
+      "sha": "6280b1d7b465f5d29800fa230ab60f3b04bf77c4",
+      "ref": "refs/heads/compatibility-boundaries-and-engine-docs"
+    },
+    {
+      "sha": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf",
+      "ref": "refs/heads/main"
+    },
+    {
+      "sha": "400b25dd1eb401eb9ab08eae2bf8c9c4289c4098",
+      "ref": "refs/heads/routeb-http-snapshot-contention"
+    },
+    {
+      "sha": "fb1c43c5de28cc9887368f9bd016be0b3fd04763",
+      "ref": "refs/heads/routeb-shortcuts-installation-package"
+    },
+    {
+      "sha": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+      "ref": "refs/heads/routeb-transient-keyboard-shortcuts"
+    },
+    {
+      "sha": "5ac88388635ac2d6e464eb17006aea2e8819dae4",
+      "ref": "refs/heads/stage10-usb-storage-reliability"
+    },
+    {
+      "sha": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7",
+      "ref": "refs/heads/stage11-duckyscript-hold-release"
+    },
+    {
+      "sha": "f3841747fee7ff79c381723d1e578e5d65410011",
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback"
+    },
+    {
+      "sha": "cd0cf0ea94e751d6e10bed3820484c1228abccd6",
+      "ref": "refs/heads/stage13-duckyscript-preprocessing"
+    },
+    {
+      "sha": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d",
+      "ref": "refs/heads/stage14-duckyscript-random-jitter"
+    },
+    {
+      "sha": "7a8229f9c04d2a5423c179fe8daa42e048554560",
+      "ref": "refs/heads/stage15-usb-readiness-hardening"
+    },
+    {
+      "sha": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f",
+      "ref": "refs/heads/stage16-usb-routing-integration"
+    },
+    {
+      "sha": "bb2ea299e667225e7d9f30f535496df2afcffafb",
+      "ref": "refs/heads/stage17-deployment-safety-preflight"
+    },
+    {
+      "sha": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b",
+      "ref": "refs/heads/stage18-nvs-preservation-hardening"
+    },
+    {
+      "sha": "524d643a12af05e4efd9da509eae274ec43959a6",
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility"
+    },
+    {
+      "sha": "7c4559132251340b03bcb68a3d66d04d1659e503",
+      "ref": "refs/heads/stage20-nvs-preservation-contract"
+    },
+    {
+      "sha": "516fb642b1126af55db909fcff856943935b7111",
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation"
+    },
+    {
+      "sha": "89006f886fa30058a965e8e1883fb743d1683b70",
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate"
+    },
+    {
+      "sha": "9af270f01d455e0bd282a14449ee941751938b1a",
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit"
+    },
+    {
+      "sha": "54b3ee184f98308783e7b78c253b15fce2b30a87",
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning"
+    },
+    {
+      "sha": "f929bdf2353e0022f10c164d2c09cb3db2564a5a",
+      "ref": "refs/heads/stage25-controlled-first-boot"
+    },
+    {
+      "sha": "968c8e0aaf459b0b8b652cc57fe88225894ab64b",
+      "ref": "refs/heads/stage26-installation-readiness"
+    },
+    {
+      "sha": "a570786a932bdf2312061d9a2e6105c0dcb89f3b",
+      "ref": "refs/heads/stage27b-duckyscript3-offline"
+    },
+    {
+      "sha": "9422ac34c3c7954c0be07076ee2ee719378b783d",
+      "ref": "refs/heads/stage28a-expression-function-continuations"
+    },
+    {
+      "sha": "e184f2837d008d2d732b97dcd5aab839bec3f502",
+      "ref": "refs/heads/stage28b-bounded-multiline-strings"
+    },
+    {
+      "sha": "aff427ab6346433729487e5359d101ea764e5357",
+      "ref": "refs/heads/stage28c-cooperative-source-preflight"
+    },
+    {
+      "sha": "d44582884da33c4028612fa595e07384a08f9c84",
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning"
+    },
+    {
+      "sha": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5",
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge"
+    },
+    {
+      "sha": "3650caf7c66d5742d39a939fa0c8495be11d3b1b",
+      "ref": "refs/heads/stage28f-mock-ownership-commands"
+    },
+    {
+      "sha": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1",
+      "ref": "refs/heads/stage28g-modifier-contract-mock"
+    },
+    {
+      "sha": "28857c2b1895f96a8e29c5fd69a69495237a1347",
+      "ref": "refs/heads/stage28h-host-validation-kit"
+    },
+    {
+      "sha": "220970bc633d969e76d1d8c91750b5939377df0a",
+      "ref": "refs/heads/stage28i-integration-readiness-audit"
+    },
+    {
+      "sha": "dce42b8664c2964019cf4b488388d08b2b7fc2d0",
+      "ref": "refs/heads/stage28j-integration-contract-review"
+    },
+    {
+      "sha": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b",
+      "ref": "refs/heads/stage28k-synthetic-report-journal"
+    },
+    {
+      "sha": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669",
+      "ref": "refs/heads/stage28l-transport-ownership-design"
+    },
+    {
+      "sha": "50ec41349136bfaddbac6a44622c3c25e2ce42e3",
+      "ref": "refs/heads/stage28m-synthetic-transport-state"
+    },
+    {
+      "sha": "300c8dc649efce448d931d0b7bbfdba2a46d4e97",
+      "ref": "refs/heads/stage28n-pinned-usb-components"
+    },
+    {
+      "sha": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871",
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype"
+    },
+    {
+      "sha": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25",
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle"
+    },
+    {
+      "sha": "9afdeabffae32186e56fe7012cf5f639bb88dec9",
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence"
+    },
+    {
+      "sha": "6c186219c9ef7037f3ecab9bae44179421fd1278",
+      "ref": "refs/heads/stage28r-transport-decision-language-roadmap"
+    },
+    {
+      "sha": "5355b4dd76fe57884fb9036348f218dd28634958",
+      "ref": "refs/heads/stage28s-native-runtime-scheduler"
+    },
+    {
+      "sha": "3e450127f7e6e1664a97be1107a18253844bfe35",
+      "ref": "refs/heads/stage28t-native-real-backend-route-b"
+    },
+    {
+      "sha": "967596476dfe0dde5e824c8f6d1b2ba543502443",
+      "ref": "refs/heads/stage28u-portable-coordinator-file-dispatch"
+    },
+    {
+      "sha": "3144c9bdf7b78a4f75d6861fdffa0707c755fffc",
+      "ref": "refs/heads/stage28v-service-ownership-controlled-candidate"
+    },
+    {
+      "sha": "606098b1158c216f7c5e205cd81debcb9661e04d",
+      "ref": "refs/heads/stage28w-framework-boundary-controlled-link"
+    },
+    {
+      "sha": "134b295deaebcb93f94beb63f2d46f102a7d6555",
+      "ref": "refs/heads/stage28x-instrumented-validation-candidate"
+    },
+    {
+      "sha": "79c964d4f32a41f1295f2f96ebce8a42a8061c05",
+      "ref": "refs/heads/stage28y-public-download"
+    },
+    {
+      "sha": "ebf6668e6b105e5c6b188f46fe6ec73007aa3804",
+      "ref": "refs/heads/stage28y-verified-artifact-package"
+    },
+    {
+      "sha": "c3e9c34f887015a6c8bcc3146835ebac54432b58",
+      "ref": "refs/heads/stage4-duckyscript-migration"
+    },
+    {
+      "sha": "1222fc6fb9307dd9680493b189b595cdd0c91b2f",
+      "ref": "refs/heads/stage5-duckyscript-while"
+    },
+    {
+      "sha": "b636495a786554afdf3512bee788c6faaa26b229",
+      "ref": "refs/heads/stage6-duckyscript-functions"
+    },
+    {
+      "sha": "68f44b7a7bd1478064b32316fa49a62f68d8527b",
+      "ref": "refs/heads/stage7-duckyscript-multiline"
+    },
+    {
+      "sha": "d59562b7d08ff7833cbe1eddb07c32359138faac",
+      "ref": "refs/heads/stage8-duckyscript-hid-locale"
+    },
+    {
+      "sha": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2",
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit"
+    },
+    {
+      "sha": "d18b7fddedaecef27be9fd7e486ad2d092a513c6",
+      "ref": "refs/heads/stop-lock-led-diagnostics"
+    }
+  ],
+  "unchanged_public_artifacts": [
+    {
+      "file": "downloads/evilduck-stop-led-review.bin",
+      "bytes": 1376576,
+      "sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4"
+    },
+    {
+      "file": "downloads/evilduck-shortcuts-5c19f0d-review.zip",
+      "bytes": 1087506,
+      "sha256": "466edeac41cf33182136d5b4d02809a1f641fff5c17ae79e1a8fd3f46b314e0f"
+    },
+    {
+      "file": "downloads/evilduck-http-snapshot-review.bin",
+      "bytes": 1366848,
+      "sha256": "706d215f5cc8e7c318bd7677dc3758c1fd95603061d71ada1dbe440e450c2d4b"
+    },
+    {
+      "file": "downloads/evilduck-stage28y-public.zip",
+      "bytes": 4837000,
+      "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+    },
+    {
+      "file": "docs/stop-led-build.json",
+      "bytes": 1434658,
+      "sha256": "0888c74abb1d759c0ccd6476b37c2ae1e569068ed997b6a3b0642a7505564ed9"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-build.json",
+      "bytes": 1412437,
+      "sha256": "21621eaa8aec0da125c479ab79f6aaebabf6cc55bfd2818fbc5483c8727de20a"
+    }
+  ],
+  "private_owner_files_accessed": false
+}

@@ -1,0 +1,133 @@
+{
+  "file": "downloads/evilduck-stop-led-install-v1.zip",
+  "bytes": 2133598,
+  "sha256": "d7fe3e6400deb689dc807b0a08285dcb06f5682caf134c90aba38e986b83c255",
+  "firmware_source_commit": "d18b7fddedaecef27be9fd7e486ad2d092a513c6",
+  "firmware_rebuilt": false,
+  "firmware_bytes": 1376576,
+  "firmware_sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4",
+  "rollback_bytes": 1359808,
+  "rollback_sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+  "members": [
+    {
+      "name": "APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "name": "README.md",
+      "bytes": 13979,
+      "sha256": "1a9c6998f24246ee1ef4b92c43023e1b4cd41099d4f3c89ed49a3160ccd84448"
+    },
+    {
+      "name": "application.bin",
+      "bytes": 1376576,
+      "sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4"
+    },
+    {
+      "name": "build-receipt.json",
+      "bytes": 1434658,
+      "sha256": "0888c74abb1d759c0ccd6476b37c2ae1e569068ed997b6a3b0642a7505564ed9"
+    },
+    {
+      "name": "expected-partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    },
+    {
+      "name": "firmware-report.md",
+      "bytes": 7897,
+      "sha256": "1b28e2956b47de25f10026a4d50b8f4354061bea19b6e17b1b48fd9af7723168"
+    },
+    {
+      "name": "gen_esp32part.py",
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+    },
+    {
+      "name": "host-cleanup-revision.json",
+      "bytes": 548,
+      "sha256": "60dfd144577a5fad7028d43cafb2fc2fe5d34caa1102d2a4a60d5c380ad03a3c"
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 4116,
+      "sha256": "27117205dfdbea6867588480afe9c3f16df591a089d254a324e0cc74bbdbfe44"
+    },
+    {
+      "name": "preflight.py",
+      "bytes": 8205,
+      "sha256": "2b90cb1ff6d440337cc7054b8940f7cfc99e2156660fd6c37c7935d3f9862a52"
+    },
+    {
+      "name": "rollback-application.bin",
+      "bytes": 1359808,
+      "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d"
+    },
+    {
+      "name": "rollback-build-receipt.json",
+      "bytes": 1412437,
+      "sha256": "21621eaa8aec0da125c479ab79f6aaebabf6cc55bfd2818fbc5483c8727de20a"
+    },
+    {
+      "name": "source-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+    },
+    {
+      "name": "tool-evidence.json",
+      "bytes": 283,
+      "sha256": "59d33378938873085fbfcf0b64c1f3429a9eff55cbd40ca9fc5e2f409d4d6143"
+    }
+  ],
+  "update_rows": [
+    {
+      "role": "app0",
+      "file": "application.bin",
+      "offset": 65536,
+      "bytes": 1376576,
+      "sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4",
+      "partition_bytes": 7602176,
+      "erase_start": 65536,
+      "erase_end_exclusive": 1445888,
+      "selected_for_execution": false
+    },
+    {
+      "role": "app1",
+      "file": "application.bin",
+      "offset": 7667712,
+      "bytes": 1376576,
+      "sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4",
+      "partition_bytes": 7602176,
+      "erase_start": 7667712,
+      "erase_end_exclusive": 9048064,
+      "selected_for_execution": false
+    }
+  ],
+  "rollback_rows": [
+    {
+      "role": "app0",
+      "file": "rollback-application.bin",
+      "offset": 65536,
+      "bytes": 1359808,
+      "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+      "partition_bytes": 7602176,
+      "erase_start": 65536,
+      "erase_end_exclusive": 1425408,
+      "selected_for_execution": false
+    },
+    {
+      "role": "app1",
+      "file": "rollback-application.bin",
+      "offset": 7667712,
+      "bytes": 1359808,
+      "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+      "partition_bytes": 7602176,
+      "erase_start": 7667712,
+      "erase_end_exclusive": 9027584,
+      "selected_for_execution": false
+    }
+  ],
+  "installation_authorized": false,
+  "physical_installation": "NOT TESTED"
+}

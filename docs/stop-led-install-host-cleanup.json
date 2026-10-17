@@ -1,0 +1,17 @@
+{
+  "firmware_source_commit": "d18b7fddedaecef27be9fd7e486ad2d092a513c6",
+  "host_tool_branch": "stop-led-installation-package",
+  "firmware_rebuilt": false,
+  "native_windows_execution": false,
+  "native_macos_execution": false,
+  "files": [
+    {
+      "file": "host_tests/led_return/send-macos.c",
+      "sha256": "e49f0a0de64b7055b5d27bd91c5b35adc66a665996ce173b0e637d8877507a8a"
+    },
+    {
+      "file": "host_tests/led_return/WindowsSender.cs",
+      "sha256": "024d9dfa1d65614d1e121cdff434ab86034791b5079166171bf5787d0d931c7e"
+    }
+  ]
+}

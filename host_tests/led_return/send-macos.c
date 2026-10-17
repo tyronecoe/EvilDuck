@@ -29,7 +29,12 @@ int main(int argc,char**argv){
  if(!value(device,caps,0)||!value(device,num,0))goto restore;
  for(size_t i=0;i<sizeof(frame);i++)for(int bit=7;bit>=0;bit--){if(clock_gettime(CLOCK_MONOTONIC,&now))goto restore;if(cancelled||now.tv_sec-began.tv_sec>=90)goto restore;if(!value(device,num,(frame[i]>>bit)&1))goto restore;usleep(100000);clock=!clock;if(!value(device,caps,clock))goto restore;usleep(100000);}
  puts("Host API writes finished (17 payload bytes); device integrity/physical delivery remains unconfirmed.");result=0;
-restore:if(!value(device,caps,oldCaps)||!value(device,num,oldNum)){fputs("LED restoration unconfirmed.\n",stderr);result=1;}CFRelease(elements);CFRelease(devices);
+restore:{
+ /* Independent attempts: a failed Caps write must not skip Num restoration. */
+ int capsRestored=value(device,caps,oldCaps);
+ int numRestored=value(device,num,oldNum);
+ if(!capsRestored||!numRestored){fputs("LED restoration unconfirmed.\n",stderr);result=1;}
+}CFRelease(elements);CFRelease(devices);
 done:IOHIDManagerClose(manager,kIOHIDOptionsTypeNone);CFRelease(manager);alarm(0);return result;
 }
 #else
