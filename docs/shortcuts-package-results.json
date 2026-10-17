@@ -1,0 +1,113 @@
+{
+  "counts": {
+    "PASS": 25,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "package_only_no_ranges_no_authorization",
+      "status": "PASS"
+    },
+    {
+      "name": "supplied_supported_metadata_app0_both_slots_no_authorization",
+      "status": "PASS"
+    },
+    {
+      "name": "table_without_ota_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy_or_changed_layout",
+      "status": "PASS"
+    },
+    {
+      "name": "truncated_table",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_table_flag",
+      "status": "PASS"
+    },
+    {
+      "name": "nonerased_trailer",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_ota_record",
+      "status": "PASS"
+    },
+    {
+      "name": "unreviewed_active_slot",
+      "status": "PASS"
+    },
+    {
+      "name": "corrupt_ota_crc",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_bin_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "truncated_bin",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_chip_header",
+      "status": "PASS"
+    },
+    {
+      "name": "old_source_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "authorization_flag",
+      "status": "PASS"
+    },
+    {
+      "name": "nvs_range",
+      "status": "PASS"
+    },
+    {
+      "name": "full_slot_erase",
+      "status": "PASS"
+    },
+    {
+      "name": "only_one_slot",
+      "status": "PASS"
+    },
+    {
+      "name": "oversize_app",
+      "status": "PASS"
+    },
+    {
+      "name": "path_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "unexpected_private_member_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "fixture_integrity",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_crc_members_and_exact_bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "input_files_readonly",
+      "status": "PASS"
+    },
+    {
+      "name": "all_plan_ranges_inside_apps_no_nonapplication_overlap",
+      "status": "PASS"
+    }
+  ],
+  "fixtures": "disposable public copies and pinned OTA initializer; no actual owner metadata supplied",
+  "hardware": false,
+  "native_macos_tested": false,
+  "sanitizers": "N/A Python packaging/preflight only; no new C++",
+  "installation_authorized": false
+}

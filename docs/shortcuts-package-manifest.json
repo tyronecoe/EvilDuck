@@ -1,0 +1,95 @@
+{
+  "package_id": "evilduck-shortcuts-5c19f0d-review-v1",
+  "label": "REVIEW ONLY \u2014 NOT AUTHORIZED FOR INSTALLATION",
+  "source_commit": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+  "source_url": "https://github.com/tyronecoe/EvilDuck/tree/5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+  "application_bytes": 1359808,
+  "application_sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+  "application_elf_sha256": "fe5569b0a6d1819e266c7db3b16f7232929e87051123d7e0a4448fb57cb2f376",
+  "table_sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+  "update_method": "FUTURE_ROM_APP_ONLY_BOTH_SLOTS",
+  "installation_authorized": false,
+  "hardware": false,
+  "proposed_writes": [
+    {
+      "role": "app0",
+      "file": "application.bin",
+      "offset": 65536,
+      "bytes": 1359808,
+      "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+      "partition_bytes": 7602176,
+      "erase_start": 65536,
+      "erase_end_exclusive": 1425408,
+      "selected_for_execution": false
+    },
+    {
+      "role": "app1",
+      "file": "application.bin",
+      "offset": 7667712,
+      "bytes": 1359808,
+      "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+      "partition_bytes": 7602176,
+      "erase_start": 7667712,
+      "erase_end_exclusive": 9027584,
+      "selected_for_execution": false
+    }
+  ],
+  "support_files": {
+    "README.md": {
+      "bytes": 6622,
+      "sha256": "e304acec45f3c04999aea9acd8ce25f0410156b04b4e0d2bd1df744d3e7c1326"
+    },
+    "preflight.py": {
+      "bytes": 6949,
+      "sha256": "0c1270a5075054f8f4e5dd63a6350b76fa298d774af598cd59c201291150ed8f"
+    },
+    "gen_esp32part.py": {
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+    },
+    "APACHE-2.0.txt": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "source-LICENSE.txt": {
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+    },
+    "build-receipt.json": {
+      "bytes": 1412437,
+      "sha256": "21621eaa8aec0da125c479ab79f6aaebabf6cc55bfd2818fbc5483c8727de20a"
+    },
+    "source-manifest.json": {
+      "bytes": 2287,
+      "sha256": "d5bfbdc80e212e2ea92a7a30add9bd36d8ddfe346370d9dbb1a7fe8356ed8b4a"
+    },
+    "shortcuts.patch": {
+      "bytes": 14982,
+      "sha256": "bfe787fa352e5bf7a0a9a5e8a1c427ada4435d9f85247f02bb9b3a7f7ce05f6f"
+    },
+    "editor-only.duck": {
+      "bytes": 239,
+      "sha256": "d24395e90c439e1aac1338d572ce83e14e53b3ffa8eda571bed0dd3c891265f3"
+    },
+    "code-review.md": {
+      "bytes": 7981,
+      "sha256": "d3c35168fd050c4554685460f2066b270ab776134d4e0b6617322036437bec77"
+    },
+    "implementation-report.md": {
+      "bytes": 10350,
+      "sha256": "3a0a9a2f4d75b884c9cf65e213ebdc21998b180d9dd8d70bcdb80d09127b35b5"
+    },
+    "design.md": {
+      "bytes": 5899,
+      "sha256": "b0fca5bd58dd37bf2fd10e38d65e5b3e310c1c2be0c36f1efe9ca13e078a2997"
+    },
+    "reproduction.md": {
+      "bytes": 4604,
+      "sha256": "f195683521b55abf7eda8022412e2cb0b571a0cf38a103fe221eea19ee9eac5b"
+    }
+  },
+  "protected_nonapplication_regions": "all; bootloader/table/NVS/otadata/SPIFFS/coredump untouched by this plan",
+  "required_installed_otadata_sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+  "rollback_zip_sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f",
+  "unsigned_integrity_only": true
+}

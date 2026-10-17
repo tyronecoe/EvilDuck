@@ -1,0 +1,74 @@
+{
+  "file": "evilduck-shortcuts-5c19f0d-review.zip",
+  "bytes": 1087506,
+  "sha256": "466edeac41cf33182136d5b4d02809a1f641fff5c17ae79e1a8fd3f46b314e0f",
+  "files": [
+    "APACHE-2.0.txt",
+    "README.md",
+    "application.bin",
+    "build-receipt.json",
+    "code-review.md",
+    "design.md",
+    "editor-only.duck",
+    "expected-partitions.bin",
+    "gen_esp32part.py",
+    "implementation-report.md",
+    "manifest.json",
+    "preflight.py",
+    "reproduction.md",
+    "shortcuts.patch",
+    "source-LICENSE.txt",
+    "source-manifest.json"
+  ],
+  "reproduced_byte_identical": true,
+  "package_only_preflight": {
+    "package_integrity": "PASS",
+    "source_commit": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+    "application_sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "synthetic_cli_test": {
+    "evidence": "SYNTHETIC_PUBLIC_FIXTURE_NOT_DEVICE_READ",
+    "result": {
+      "package_integrity": "PASS",
+      "source_commit": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+      "application_sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+      "installed_metadata": "SUPPLIED_FILES_MATCH_SUPPORTED_LAYOUT_AND_APP0_INITIALIZER",
+      "selected_write_ranges": [
+        {
+          "role": "app0",
+          "file": "application.bin",
+          "offset": 65536,
+          "bytes": 1359808,
+          "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+          "partition_bytes": 7602176,
+          "erase_start": 65536,
+          "erase_end_exclusive": 1425408,
+          "selected_for_execution": false
+        },
+        {
+          "role": "app1",
+          "file": "application.bin",
+          "offset": 7667712,
+          "bytes": 1359808,
+          "sha256": "de241287b972c24e510d3e8d22d888a17f13d1e972142559ba3df19f6195b41d",
+          "partition_bytes": 7602176,
+          "erase_start": 7667712,
+          "erase_end_exclusive": 9027584,
+          "selected_for_execution": false
+        }
+      ],
+      "installation_authorized": false,
+      "hardware_access": false,
+      "device_authenticity_or_freshness_verified": false,
+      "boot_selection_from_supplied_metadata": "app0",
+      "metadata_provenance": "OWNER_LOCAL_FILES_NOT_AUTHENTICATED_DEVICE_READ"
+    }
+  },
+  "actual_installed_metadata_supplied": false,
+  "physical_authorization": false
+}

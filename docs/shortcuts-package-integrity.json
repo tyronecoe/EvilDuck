@@ -1,0 +1,54 @@
+{
+  "baseline": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7",
+  "prior_files_and_modes_unchanged": 1426,
+  "new_files": [
+    {
+      "file": "docs/shortcuts-package-manifest.json",
+      "bytes": 3564,
+      "sha256": "2261d66132cb01544d6453a0b379da95e16a73fe9e4c8a3f95a48b156757f15f"
+    },
+    {
+      "file": "docs/shortcuts-package-readme.md",
+      "bytes": 6622,
+      "sha256": "e304acec45f3c04999aea9acd8ce25f0410156b04b4e0d2bd1df744d3e7c1326"
+    },
+    {
+      "file": "docs/shortcuts-package-receipt.json",
+      "bytes": 2566,
+      "sha256": "15a8ed9aef3dea76cd5ba0fc8e2b9ceb02d5f1d332454c344fe6f6def6f6f6bf"
+    },
+    {
+      "file": "docs/shortcuts-package-report.md",
+      "bytes": 8277,
+      "sha256": "7ac386812ddb8fb4b38178ab93e4309a2136cac9ef40e658d092d68e51d3cc01"
+    },
+    {
+      "file": "docs/shortcuts-package-results.json",
+      "bytes": 2238,
+      "sha256": "857e8c9250fc7f311e293cb5992d03439f41bdd57bc1c225dc19063678a50b57"
+    },
+    {
+      "file": "downloads/evilduck-shortcuts-5c19f0d-review.zip",
+      "bytes": 1087506,
+      "sha256": "466edeac41cf33182136d5b4d02809a1f641fff5c17ae79e1a8fd3f46b314e0f"
+    },
+    {
+      "file": "tests/shortcuts_package/package.py",
+      "bytes": 4368,
+      "sha256": "81de356e581b0b02a7c41953da1d6fb43f41cc0848b3f76d70b92451bb8bf4c0"
+    },
+    {
+      "file": "tests/shortcuts_package/preflight.py",
+      "bytes": 6949,
+      "sha256": "0c1270a5075054f8f4e5dd63a6350b76fa298d774af598cd59c201291150ed8f"
+    },
+    {
+      "file": "tests/shortcuts_package/run_tests.py",
+      "bytes": 5156,
+      "sha256": "8f1e765614cbd25773b408a1007890c5a6ac866acec6142f702411b1d9a7ecbe"
+    }
+  ],
+  "python38_syntax": "PASS",
+  "hardware_access": false,
+  "owner_private_inputs": false
+}
