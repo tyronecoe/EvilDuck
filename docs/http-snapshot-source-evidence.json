@@ -1,0 +1,194 @@
+[
+  {
+    "file": "original/duckscript.cpp",
+    "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb",
+    "anchors": [
+      {
+        "line": 284,
+        "text": "execution::Guard guard;"
+      },
+      {
+        "line": 334,
+        "text": "execution::Guard guard;"
+      },
+      {
+        "line": 349,
+        "text": "void update() {"
+      },
+      {
+        "line": 353,
+        "text": "execution::Guard guard;"
+      },
+      {
+        "line": 364,
+        "text": "execution::Guard guard; return state.active; }"
+      },
+      {
+        "line": 369,
+        "text": "execution::Guard guard; return state.active ? state.scriptRef.display : String(); }"
+      },
+      {
+        "line": 374,
+        "text": "execution::Guard guard; return state.lineNumber; }"
+      },
+      {
+        "line": 379,
+        "text": "execution::Guard guard; return state.lastErr; }"
+      }
+    ]
+  },
+  {
+    "file": "original/com.cpp",
+    "sha256": "9ac01a3e9fee80ab8d3c2791579762578f3f0df14a4f8875b6f6fe97f90fc193",
+    "anchors": [
+      {
+        "line": 546,
+        "text": "void update() {"
+      },
+      {
+        "line": 558,
+        "text": "attackmode::update();"
+      },
+      {
+        "line": 575,
+        "text": "case Phase::Idle: return;"
+      }
+    ]
+  },
+  {
+    "file": "original/cli.cpp",
+    "sha256": "8850e96a2754367def9d96ce326c98ad0f8f53da00503b33da7c3a37022f33b4",
+    "anchors": [
+      {
+        "line": 359,
+        "text": "execution::Guard guard;"
+      },
+      {
+        "line": 369,
+        "text": "void update() {"
+      }
+    ]
+  },
+  {
+    "file": "original/coordinator.cpp",
+    "sha256": "4a769d7c873868800b65c4fe288ffb7bd85d842b001883ab21345d440d6a3faa",
+    "anchors": [
+      {
+        "line": 63,
+        "text": "void stop(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}}"
+      },
+      {
+        "line": 83,
+        "text": "void tick(uint32_t now){"
+      }
+    ]
+  },
+  {
+    "file": "original/webserver.cpp",
+    "sha256": "70f64cfb13315183eb28cfadb41465d8de7f71823708b6f3b3a736d5ac78ddb5",
+    "anchors": [
+      {
+        "line": 40,
+        "text": "static bool checkAuth(AsyncWebServerRequest *req) {"
+      },
+      {
+        "line": 447,
+        "text": "static void handleStop(AsyncWebServerRequest *req){"
+      },
+      {
+        "line": 468,
+        "text": "static void handleDiagnostics(AsyncWebServerRequest* req){"
+      },
+      {
+        "line": 476,
+        "text": "static void handleStatus(AsyncWebServerRequest *req) {"
+      }
+    ]
+  },
+  {
+    "file": "original/diagnostics.cpp",
+    "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b",
+    "anchors": [
+      {
+        "line": 27,
+        "text": "void endTurn(uint32_t now){"
+      },
+      {
+        "line": 29,
+        "text": "auto s=route_u::status();auto b=backend_b::status();"
+      }
+    ]
+  },
+  {
+    "file": "modified/webserver.cpp",
+    "sha256": "3c650af737116be3f3c361937c4650c5c31c521becf0876d32a80bd475a2f935",
+    "anchors": [
+      {
+        "line": 448,
+        "text": "bool denied=false;{execution::BoundedGuard guard(execution::Owner::HttpStop);if(!guard){req->send(409,\"text/plain\",\"Execution busy\");return;}denied=!checkAuth(req);}"
+      },
+      {
+        "line": 478,
+        "text": "static void handleStatus(AsyncWebServerRequest *req){"
+      },
+      {
+        "line": 481,
+        "text": "execution::BoundedGuard guard(execution::Owner::HttpStatus);if(!guard){req->send(409,\"text/plain\",\"Execution busy\");return;}"
+      },
+      {
+        "line": 483,
+        "text": "s.route=route_u::status();s.at=millis();"
+      },
+      {
+        "line": 488,
+        "text": "s.running=s.route.owned;s.script=s.running?String(\"RouteB\"):String();s.line=s.route.line;"
+      },
+      {
+        "line": 495,
+        "text": "String json=\"{\\\"snapshotKind\\\":\\\"request-capture\\\",\\\"capturedAtMs\\\":\"+String(s.at);"
+      },
+      {
+        "line": 504,
+        "text": "static void handleDiagnostics(AsyncWebServerRequest* req){"
+      },
+      {
+        "line": 506,
+        "text": "{execution::BoundedGuard guard(execution::Owner::HttpDiagnostics);if(!guard){req->send(409,\"text/plain\",\"Execution busy\");return;}"
+      },
+      {
+        "line": 514,
+        "text": "static void handleStatus(AsyncWebServerRequest *req) {"
+      }
+    ]
+  },
+  {
+    "file": "modified/execution_guard.h",
+    "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b",
+    "anchors": [
+      {
+        "line": 19,
+        "text": "constexpr uint32_t HttpWaitMs=5;"
+      },
+      {
+        "line": 40,
+        "text": "inline void enter(Owner who){if(depth++==0){start=clockUs();Critical lock;owner=uint32_t(who);increment(acquired);}}"
+      },
+      {
+        "line": 42,
+        "text": "inline void contention(){Critical lock;lastOwner=owner;increment(contentions);}"
+      },
+      {
+        "line": 49,
+        "text": "inline bool take(bool wait){if(mutex().try_lock())return true;if(!wait)return false;detail::contention();if(contendedForTest)contendedForTest();return mutex().try_lock_for(std::chrono::milliseconds(HttpWaitMs));}"
+      },
+      {
+        "line": 53,
+        "text": "inline bool take(bool wait){if(xSemaphoreTakeRecursive(mutex(),0)==pdTRUE)return true;if(!wait)return false;detail::contention();"
+      },
+      {
+        "line": 75,
+        "text": "class BoundedGuard{"
+      }
+    ]
+  }
+]

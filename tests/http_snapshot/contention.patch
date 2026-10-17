@@ -1,0 +1,387 @@
+--- execution_guard.h
++++ execution_guard.h
+@@ -1,54 +1,81 @@
+-#pragma once
++#ifndef EVILDUCK_HTTP_SNAPSHOT_EXECUTION_GUARD_H
++#define EVILDUCK_HTTP_SNAPSHOT_EXECUTION_GUARD_H
++#ifndef EVILDUCK_ROUTE_B_STATUS_HARDENING
++#error Explicit HTTP snapshot hardening selector required
++#endif
++#include <stdint.h>
+ 
+-// Serialize main-loop execution and asynchronous web/CLI requests. Recursive
+-// locking allows the existing completion/error callbacks to call stop(). Never
+-// hold this lock while deliberately waiting for a timer or typing a whole line.
+ #ifdef EVILDUCK_HOST_TEST
+ #include <mutex>
+-namespace execution {
+-inline std::recursive_mutex &mutex() {
+-  static std::recursive_mutex value;
+-  return value;
+-}
+-class Guard {
+-  std::lock_guard<std::recursive_mutex> lock;
+-public:
+-  Guard() : lock(mutex()) {}
+-};
+-// USB callbacks must not wait behind script/web filesystem work.
+-class TryGuard {
+-  std::unique_lock<std::recursive_mutex> lock;
+-public:
+-  TryGuard() : lock(mutex(), std::try_to_lock) {}
+-  explicit operator bool() const { return lock.owns_lock(); }
+-};
+-
+-}
++#include <chrono>
+ #else
+ #include <freertos/FreeRTOS.h>
+ #include <freertos/semphr.h>
++#include <esp_timer.h>
++#endif
+ namespace execution {
+-inline SemaphoreHandle_t mutex() {
+-  static SemaphoreHandle_t value = xSemaphoreCreateRecursiveMutex();
+-  configASSERT(value);
+-  return value;
++// Named outermost holder, not a task id or proof of physical root cause.
++enum class Owner:uint32_t{Other=1,DuckUpdate,ComUpdate,DiagnosticBackend,HttpStatus,HttpDiagnostics,HttpStop};
++constexpr uint32_t HttpWaitMs=5;
++struct Statistics{uint32_t acquired=0,contentions=0,timeouts=0,lastContendedOwner=0,maxHoldUs=0;};
++namespace detail {
++#ifdef EVILDUCK_HOST_TEST
++inline std::mutex statsMutex;
++struct Critical{std::lock_guard<std::mutex> held{statsMutex};};
++#else
++inline portMUX_TYPE statsMux=portMUX_INITIALIZER_UNLOCKED;
++struct Critical{Critical(){portENTER_CRITICAL(&statsMux);}~Critical(){portEXIT_CRITICAL(&statsMux);}};
++#endif
++inline uint32_t acquired=0,contentions=0,timeouts=0,lastOwner=0,owner=0,maxHold=0;
++inline void increment(uint32_t& n){if(n!=UINT32_MAX)++n;}
++// depth/start protected by the execution mutex itself; no task-local allocation.
++inline uint32_t depth=0,start=0;
++inline uint32_t clockUs(){
++#ifdef EVILDUCK_HOST_TEST
++ return uint32_t(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now().time_since_epoch()).count());
++#else
++ return uint32_t(esp_timer_get_time());
++#endif
+ }
+-class Guard {
+-public:
+-  Guard() { xSemaphoreTakeRecursive(mutex(), portMAX_DELAY); }
+-  ~Guard() { xSemaphoreGiveRecursive(mutex()); }
+-  Guard(const Guard &) = delete;
+-  Guard &operator=(const Guard &) = delete;
++inline void enter(Owner who){if(depth++==0){start=clockUs();Critical lock;owner=uint32_t(who);increment(acquired);}}
++inline void leave(){if(--depth==0){uint32_t span=clockUs()-start;Critical lock;if(span>maxHold)maxHold=span;owner=0;}}
++inline void contention(){Critical lock;lastOwner=owner;increment(contentions);}
++}
++// Independently observed counters, NOT one atomic multi-field execution snapshot.
++inline Statistics statistics(){detail::Critical lock;return {detail::acquired,detail::contentions,detail::timeouts,detail::lastOwner,detail::maxHold};}
++#ifdef EVILDUCK_HOST_TEST
++inline std::recursive_timed_mutex& mutex(){static std::recursive_timed_mutex value;return value;}
++inline void(*contendedForTest)()=nullptr;
++inline bool take(bool wait){if(mutex().try_lock())return true;if(!wait)return false;detail::contention();if(contendedForTest)contendedForTest();return mutex().try_lock_for(std::chrono::milliseconds(HttpWaitMs));}
++inline void give(){mutex().unlock();}
++#else
++inline SemaphoreHandle_t mutex(){static SemaphoreHandle_t value=xSemaphoreCreateRecursiveMutex();configASSERT(value);return value;}
++inline bool take(bool wait){if(xSemaphoreTakeRecursive(mutex(),0)==pdTRUE)return true;if(!wait)return false;detail::contention();
++ // Round UP: five milliseconds must not silently become zero ticks.
++ constexpr TickType_t ticks=TickType_t((uint64_t(HttpWaitMs)*configTICK_RATE_HZ+999)/1000);
++ static_assert(ticks>0 && ticks<portMAX_DELAY,"Bounded HTTP lock wait");
++ return xSemaphoreTakeRecursive(mutex(),ticks)==pdTRUE;}
++inline void give(){xSemaphoreGiveRecursive(mutex());}
++#endif
++class Guard{
++public:explicit Guard(Owner who=Owner::Other){
++#ifdef EVILDUCK_HOST_TEST
++ mutex().lock();
++#else
++ xSemaphoreTakeRecursive(mutex(),portMAX_DELAY);
++#endif
++ detail::enter(who);}
++ ~Guard(){detail::leave();give();}Guard(const Guard&)=delete;Guard& operator=(const Guard&)=delete;
+ };
+-class TryGuard {
+-  bool locked;
+-public:
+-  TryGuard() : locked(xSemaphoreTakeRecursive(mutex(), 0) == pdTRUE) {}
+-  ~TryGuard() { if (locked) xSemaphoreGiveRecursive(mutex()); }
+-  explicit operator bool() const { return locked; }
+-  TryGuard(const TryGuard &) = delete;
+-  TryGuard &operator=(const TryGuard &) = delete;
++class TryGuard{
++ bool locked;
++public:explicit TryGuard(Owner who=Owner::Other):locked(take(false)){if(locked)detail::enter(who);}
++ ~TryGuard(){if(locked){detail::leave();give();}}explicit operator bool()const{return locked;}TryGuard(const TryGuard&)=delete;TryGuard& operator=(const TryGuard&)=delete;
+ };
+-
++class BoundedGuard{
++ bool locked;
++public:explicit BoundedGuard(Owner who):locked(take(true)){if(locked)detail::enter(who);else {detail::Critical lock;detail::increment(detail::timeouts);}}
++ ~BoundedGuard(){if(locked){detail::leave();give();}}explicit operator bool()const{return locked;}BoundedGuard(const BoundedGuard&)=delete;BoundedGuard& operator=(const BoundedGuard&)=delete;
++};
+ }
+ #endif
+--- duckscript.cpp
++++ duckscript.cpp
+@@ -350,7 +350,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   const bool routeWasOwned=route_u::owned();route_u::tick(millis());if(routeWasOwned||route_u::owned())return;
+ #endif
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::DuckUpdate);
+   if(state.active && !com::busy()) {
+     if(state.evaluation.consumer!=script_functions::Consumer::None)advanceEvaluation();
+     else loadNextLine();
+--- com.cpp
++++ com.cpp
+@@ -412,7 +412,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!u_platform::allowed()){return;}
+ #endif
+- execution::Guard guard;
++ execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+@@ -421,7 +421,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!u_platform::allowed()){return;}
+ #endif
+- execution::Guard guard;
++ execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+@@ -430,7 +430,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!u_platform::allowed()){return;}
+ #endif
+- execution::Guard guard;
++ execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return;
+ #endif
+@@ -443,7 +443,7 @@
+   if(!u_platform::allowed()){return;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+@@ -461,7 +461,7 @@
+   if(!u_platform::allowed()){return;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+@@ -478,7 +478,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+  if(route_u::owned())return true;
+ #endif
+- execution::Guard guard;
++ execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal())return true;
+ #endif
+@@ -491,7 +491,7 @@
+   if(!u_platform::allowed()){return;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+@@ -503,7 +503,7 @@
+   if(!u_platform::allowed()){return;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return; }
+ #endif
+@@ -521,7 +521,7 @@
+   if(!u_platform::allowed()){return false;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()){ return false; }
+ #endif
+@@ -548,7 +548,7 @@
+   if(!u_platform::allowed()){return;}
+ #endif
+ 
+-  execution::Guard guard;
++  execution::Guard guard(execution::Owner::ComUpdate);
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(routeExternal()&&!backend_b::permitted())return;
+ #endif
+--- diagnostics.h
++++ diagnostics.h
+@@ -13,12 +13,13 @@
+  uint8_t phase=0,reason=0,firstFault=0,localKind=0,firstLocalFault=0;
+  bool quarantined=false;uint64_t localSequence=0,clearRequest=0,clearSubmitted=0;
+  Resources resources{};
++ uint32_t observedAtMs=0,resourcesAtMs=0,completedTurns=0;bool observationKnown=false;
+ };
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+ // Locked functions require the existing publication Critical, never call lower APIs.
+ void admissionLocked(bool);void queueLocked(unsigned);void stopLocked();void observedLocked();
+ void beginTurn();void endTurn(uint32_t now);
+-Snapshot snapshot();size_t format(char*,size_t);size_t storageBytes();
++Snapshot snapshot();size_t formatSnapshot(const Snapshot&,uint32_t,char*,size_t);size_t format(char*,size_t);size_t storageBytes();
+ #ifdef EVILDUCK_HOST_TEST
+ void saturateForTest();
+ #endif
+--- diagnostics.cpp
++++ diagnostics.cpp
+@@ -1,10 +1,12 @@
+ #include "diagnostics.h"
++#include "execution_guard.h"
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+ #include "diagnostic_platform.h"
+ #include "task_platform.h"
+ #include "coordinator.h"
+ #include "backend_lease.h"
+ #include <stdio.h>
++#include <Arduino.h>
+ namespace route_x {
+ namespace {
+ struct State {Snapshot published{};int64_t previous=0,started=0;uint32_t lastSample=0;bool havePrevious=false,haveSample=false;} state;
+@@ -26,25 +28,27 @@
+ }
+ void endTurn(uint32_t now){
+  // No publication lock while calling backend/SDK measurement APIs.
+- auto s=route_u::status();auto b=backend_b::status();
++ auto s=route_u::status();backend_b::Status b;{execution::Guard guard(execution::Owner::DiagnosticBackend);b=backend_b::status();}
+  bool sample=!state.haveSample||uint32_t(now-state.lastSample)>=1000;
+  Resources resources{};if(sample){resources=x_platform::sample();state.lastSample=now;state.haveSample=true;}
+  int64_t ended=x_platform::clockUs();
+  u_platform::Critical lock;auto& d=state.published;
+  if(state.started<0||ended<state.started)increment(d.clockErrors);else maximum(d.maxWorkUs,uint64_t(ended-state.started));
++ d.observedAtMs=now;d.observationKnown=true;increment(d.completedTurns);
+  d.phase=uint8_t(s.phase);d.reason=uint8_t(s.reason);
+  if(!d.firstFault&&s.reason!=route_u::Reason::None&&s.reason!=route_u::Reason::Completed&&s.reason!=route_u::Reason::Cancelled)d.firstFault=uint8_t(s.reason);
+  d.localKind=uint8_t(b.last.kind);d.firstLocalFault=uint8_t(b.first.kind);d.quarantined=b.quarantined;
+  d.localSequence=b.last.sequence;d.clearRequest=b.clearRequest;d.clearSubmitted=b.clearSubmitted;
+- if(sample){increment(d.samples);d.resources=resources;}
++ if(sample){increment(d.samples);d.resources=resources;d.resourcesAtMs=now;}
+ }
+ Snapshot snapshot(){u_platform::Critical lock;return state.published;}
+-size_t format(char* out,size_t n){
+- if(!out||!n)return 0;auto d=snapshot();auto r=d.resources;
+- int wrote=snprintf(out,n,"{\"observational\":true,\"ticks\":%lu,\"maxIntervalUs\":%lu,\"maxWorkUs\":%lu,\"clockErrors\":%lu,\"samples\":%lu,\"accepted\":%lu,\"refused\":%lu,\"queuePeak\":%lu,\"stopPublished\":%lu,\"stopObserved\":%lu,\"phase\":%u,\"reason\":%u,\"firstFault\":%u,\"quarantined\":%s,\"localKind\":%u,\"firstLocalFault\":%u,\"localSequence\":%llu,\"clearRequest\":%llu,\"clearSubmitted\":%llu,\"heapKnown\":%s,\"free8\":%lu,\"min8\":%lu,\"largest8\":%lu,\"loopStackKnown\":%s,\"loopAllocatedBytes\":%lu,\"loopMinimumFreeBytes\":%lu,\"asyncStackKnown\":false}",
+- (unsigned long)d.ticks,(unsigned long)d.maxIntervalUs,(unsigned long)d.maxWorkUs,(unsigned long)d.clockErrors,(unsigned long)d.samples,(unsigned long)d.accepted,(unsigned long)d.refused,(unsigned long)d.queuePeak,(unsigned long)d.stopPublished,(unsigned long)d.stopObserved,unsigned(d.phase),unsigned(d.reason),unsigned(d.firstFault),d.quarantined?"true":"false",unsigned(d.localKind),unsigned(d.firstLocalFault),(unsigned long long)d.localSequence,(unsigned long long)d.clearRequest,(unsigned long long)d.clearSubmitted,r.heapKnown?"true":"false",(unsigned long)r.free8,(unsigned long)r.min8,(unsigned long)r.largest8,r.stackKnown?"true":"false",(unsigned long)r.loopAllocated,(unsigned long)r.loopFreeMinimum);
++size_t formatSnapshot(const Snapshot& d,uint32_t captured,char* out,size_t n){
++ if(!out||!n)return 0;auto r=d.resources;
++ int wrote=snprintf(out,n,"{\"snapshotKind\":\"published-observation\",\"capturedAtMs\":%lu,\"observationKnown\":%s,\"observedAtMs\":%lu,\"observationAgeMs\":%lu,\"resourcesAtMs\":%lu,\"resourcesAgeMs\":%lu,\"completedTurns\":%lu,\"observational\":true,\"ticks\":%lu,\"maxIntervalUs\":%lu,\"maxWorkUs\":%lu,\"clockErrors\":%lu,\"samples\":%lu,\"accepted\":%lu,\"refused\":%lu,\"queuePeak\":%lu,\"stopPublished\":%lu,\"stopObserved\":%lu,\"phase\":%u,\"reason\":%u,\"firstFault\":%u,\"quarantined\":%s,\"localKind\":%u,\"firstLocalFault\":%u,\"localSequence\":%llu,\"clearRequest\":%llu,\"clearSubmitted\":%llu,\"heapKnown\":%s,\"free8\":%lu,\"min8\":%lu,\"largest8\":%lu,\"loopStackKnown\":%s,\"loopAllocatedBytes\":%lu,\"loopMinimumFreeBytes\":%lu,\"asyncStackKnown\":false}",
++ (unsigned long)captured,d.observationKnown?"true":"false",(unsigned long)d.observedAtMs,(unsigned long)(captured-d.observedAtMs),(unsigned long)d.resourcesAtMs,(unsigned long)(captured-d.resourcesAtMs),(unsigned long)d.completedTurns,(unsigned long)d.ticks,(unsigned long)d.maxIntervalUs,(unsigned long)d.maxWorkUs,(unsigned long)d.clockErrors,(unsigned long)d.samples,(unsigned long)d.accepted,(unsigned long)d.refused,(unsigned long)d.queuePeak,(unsigned long)d.stopPublished,(unsigned long)d.stopObserved,unsigned(d.phase),unsigned(d.reason),unsigned(d.firstFault),d.quarantined?"true":"false",unsigned(d.localKind),unsigned(d.firstLocalFault),(unsigned long long)d.localSequence,(unsigned long long)d.clearRequest,(unsigned long long)d.clearSubmitted,r.heapKnown?"true":"false",(unsigned long)r.free8,(unsigned long)r.min8,(unsigned long)r.largest8,r.stackKnown?"true":"false",(unsigned long)r.loopAllocated,(unsigned long)r.loopFreeMinimum);
+  if(wrote<0||size_t(wrote)>=n){out[0]=0;return 0;}return size_t(wrote);
+ }
++size_t format(char* out,size_t n){return formatSnapshot(snapshot(),millis(),out,n);}
+ size_t storageBytes(){return sizeof(state);}
+ #ifdef EVILDUCK_HOST_TEST
+ void saturateForTest(){u_platform::Critical lock;auto&d=state.published;d.ticks=d.accepted=d.refused=d.stopPublished=d.stopObserved=d.samples=UINT32_MAX;}
+--- webserver.cpp
++++ webserver.cpp
+@@ -445,7 +445,8 @@
+ 
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+ static void handleStop(AsyncWebServerRequest *req){
+-  if(!checkAuth(req)){sendAuthRequired(req);return;}
++  bool denied=false;{execution::BoundedGuard guard(execution::Owner::HttpStop);if(!guard){req->send(409,"text/plain","Execution busy");return;}denied=!checkAuth(req);}
++  if(denied){sendAuthRequired(req);return;}
+   duckscript::stop();req->send(202,"text/plain","Stop requested");
+ }
+ #endif
+@@ -464,15 +465,52 @@
+   else request->send(500,"text/plain","FAIL");
+ #endif
+ }
++#if defined(EVILDUCK_PORTABLE_ROUTE_B)
++static String lockCounters(const execution::Statistics& s){
++ return String(",\"lockStatsKind\":\"independent-observations\",\"executionContentions\":")+String(s.contentions)+",\"executionTimeouts\":"+String(s.timeouts)+",\"lastContendedOwner\":"+String(s.lastContendedOwner)+",\"maxExecutionHoldUs\":"+String(s.maxHoldUs);
++}
++static String escapedStatusString(const String& s){
++ String out;for(size_t i=0;i<s.length();++i){unsigned char c=s[i];if(c=='"'||c=='\\'){out+='\\';out+=char(c);}else if(c=='\n')out+="\\n";else if(c=='\r')out+="\\r";else if(c=='\t')out+="\\t";else if(c>=32)out+=char(c);else{char x[7];snprintf(x,sizeof(x),"\\u%04x",unsigned(c));out+=x;}}return out;
++}
++#ifdef EVILDUCK_HOST_TEST
++static void(*statusCapturedForTest)()=nullptr;
++#endif
++static void handleStatus(AsyncWebServerRequest *req){
++ struct Capture{route_u::Status route{};bool running=false,autorun=false,sd=false,hid=false,storage=false,wanted=false;uint32_t line=0,channel=0,at=0;String script,autorunScript,ssid,error,storageState,storageError;execution::Statistics locks{};} s;bool denied=false;
++ {
++  execution::BoundedGuard guard(execution::Owner::HttpStatus);if(!guard){req->send(409,"text/plain","Execution busy");return;}
++  denied=!checkAuth(req);if(!denied){
++  s.route=route_u::status();s.at=millis();
++#ifdef EVILDUCK_HOST_TEST
++  if(statusCapturedForTest)statusCapturedForTest();
++#endif
++  if(route_u::selected()){
++   s.running=s.route.owned;s.script=s.running?String("RouteB"):String();s.line=s.route.line;
++   auto r=s.route.reason;s.error=r==route_u::Reason::None||r==route_u::Reason::Completed||r==route_u::Reason::Cancelled?String():String("RouteB error; inspect typed status");
++  }else{s.running=duckscript::running();s.script=duckscript::runningScript();s.line=duckscript::currentLine();s.error=duckscript::lastError();}
++  s.autorun=settings::autorunEnabled();s.autorunScript=settings::getAutorun();s.ssid=settings::getSSID();s.channel=settings::getChannel();s.sd=storage::sdReady();s.hid=attackmode::hidEnabled();s.storage=attackmode::storageEnabled();s.wanted=attackmode::storageRequested();s.storageState=attackmode::storageState();s.storageError=attackmode::storageError();s.locks=execution::statistics();}
++ }
++ if(denied){sendAuthRequired(req);return;}
++ // Authentication and state copies completed under the same mutex. No lock at send.
++ String json="{\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
++ json+=",\"routeBPhase\":"+String(unsigned(s.route.phase))+",\"routeBReason\":"+String(unsigned(s.route.reason));
++ json+=",\"running\":"+String(s.running?"true":"false")+",\"autorunEnabled\":"+String(s.autorun?"true":"false");
++ json+=",\"autorunScript\":\""+escapedStatusString(s.autorunScript)+"\",\"ssid\":\""+escapedStatusString(s.ssid)+"\",\"channel\":"+String(s.channel);
++ json+=",\"sdReady\":"+String(s.sd?"true":"false")+",\"script\":\""+escapedStatusString(s.script)+"\",\"line\":"+String(s.line)+",\"lastError\":\""+escapedStatusString(s.error)+"\"";
++ json+=",\"hid\":"+String(s.hid?"true":"false")+",\"storage\":"+String(s.storage?"true":"false")+",\"storageRequested\":"+String(s.wanted?"true":"false")+",\"storageFilesystemVerified\":false,\"storageState\":\""+escapedStatusString(s.storageState)+"\",\"storageError\":\""+escapedStatusString(s.storageError)+"\"";
++ json+=lockCounters(s.locks)+"}";req->send(200,"application/json",json);
++}
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+ static void handleDiagnostics(AsyncWebServerRequest* req){
+- execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
+- if(!checkAuth(req)){sendAuthRequired(req);return;}
+- char record[1024];
+- if(!route_x::format(record,sizeof(record))){req->send(503,"text/plain","Measurement unavailable");return;}
+- req->send(200,"application/json",record);
+-}
+-#endif
++ route_x::Snapshot s;execution::Statistics locks;uint32_t at=0;bool denied=false;
++ {execution::BoundedGuard guard(execution::Owner::HttpDiagnostics);if(!guard){req->send(409,"text/plain","Execution busy");return;}
++  denied=!checkAuth(req);if(!denied){s=route_x::snapshot();at=millis();locks=execution::statistics();}}
++ if(denied){sendAuthRequired(req);return;}
++ char record[1536];if(!route_x::formatSnapshot(s,at,record,sizeof(record))){req->send(503,"text/plain","Measurement unavailable");return;}
++ String json=String(record).substring(0,strlen(record)-1);json+=lockCounters(locks)+"}";req->send(200,"application/json",json);
++}
++#endif
++#else
+ static void handleStatus(AsyncWebServerRequest *req) {
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
+@@ -519,6 +557,8 @@
+   req->send(200, "application/json", json);
+ }
+ 
++#endif
++
+ static void handleSetLed(AsyncWebServerRequest *req) {
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+  route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
+--- cli.cpp
++++ cli.cpp
+@@ -335,7 +335,7 @@
+ 
+ void parse(const char *input, PrintFunction printfunc, bool echo) {
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+-  if(input&&strcmp(input,"diagnostics")==0){char record[1024];if(route_x::format(record,sizeof(record))&&printfunc)printfunc(record);return;}
++  if(input&&strcmp(input,"diagnostics")==0){char record[1536];if(route_x::format(record,sizeof(record))&&printfunc)printfunc(record);return;}
+ #endif
+ 
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)

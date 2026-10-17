@@ -1,0 +1,64 @@
+{
+  "base": "fb1c43c5de28cc9887368f9bd016be0b3fd04763",
+  "patch_sha256": "c276b1eb21d625acc5fea0ef8d557e3dc715286cd081bd0682a0ffff6e360ae1",
+  "before": [
+    {
+      "file": "execution_guard.h",
+      "sha256": "08c8be44ddb2cae03f501a3c2a474300300ef4ec4ec717dadccb45fb001c38e6"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "5f60fae7f5837fdcd3962ace3c39cba08b25c043e2bc452c901df1a62aa243fb"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "9ac01a3e9fee80ab8d3c2791579762578f3f0df14a4f8875b6f6fe97f90fc193"
+    },
+    {
+      "file": "diagnostics.h",
+      "sha256": "6755b746cde9b3d8cd7ed9f9f0574a86c9ba5fac48c84a55ca73fc6e0736fcc2"
+    },
+    {
+      "file": "diagnostics.cpp",
+      "sha256": "15f3dd128422c96cf00e85b1338a0918f578f7e882091c1ed8de01622616110b"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "70f64cfb13315183eb28cfadb41465d8de7f71823708b6f3b3a736d5ac78ddb5"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "8850e96a2754367def9d96ce326c98ad0f8f53da00503b33da7c3a37022f33b4"
+    }
+  ],
+  "after": [
+    {
+      "file": "execution_guard.h",
+      "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "3d9f346754069ed048dc5b9ede9015bbee8e8966bbef77136802f8814ed4b5b7"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c7aea14ced4c1d11fad8a4f828ac1b5dbc675c942b5f54a0c8fdebbc8555a76e"
+    },
+    {
+      "file": "diagnostics.h",
+      "sha256": "7c47d35f2aa009778c362d6832a989c5be9e7f4377b3d28be0c03f13c8f17f1f"
+    },
+    {
+      "file": "diagnostics.cpp",
+      "sha256": "a2dc6ea2cc4d5cc559bba3d8271d91967bfa8b098f7b6a9328cd9a9ecc8a471c"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "3c650af737116be3f3c361937c4650c5c31c521becf0876d32a80bd475a2f935"
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "9b7ff75d3e2caac0c0502cc6d674c6509e475e16d235a90dec350a483ddccee9"
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "status": "PASS",
+  "base": "fb1c43c5de28cc9887368f9bd016be0b3fd04763",
+  "historical_files_unchanged_bytes_modes": 1436,
+  "frozen_stage26": 235,
+  "previous_remote_refs": 54,
+  "archives_unchanged": [
+    {
+      "file": "downloads/evilduck-shortcuts-5c19f0d-review.zip",
+      "size": 1087506,
+      "sha256": "466edeac41cf33182136d5b4d02809a1f641fff5c17ae79e1a8fd3f46b314e0f"
+    },
+    {
+      "file": "downloads/evilduck-stage28y-public.zip",
+      "size": 4837000,
+      "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+    }
+  ],
+  "review_artifact": {
+    "file": "downloads/evilduck-http-snapshot-review.bin",
+    "size": 1366848,
+    "sha256": "706d215f5cc8e7c318bd7677dc3758c1fd95603061d71ada1dbe440e450c2d4b"
+  },
+  "hardware": false,
+  "previous_remote_ref_snapshot": [
+    {
+      "ref": "refs/heads/compatibility-boundaries-and-engine-docs",
+      "sha": "6280b1d7b465f5d29800fa230ab60f3b04bf77c4"
+    },
+    {
+      "ref": "refs/heads/main",
+      "sha": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/routeb-shortcuts-installation-package",
+      "sha": "fb1c43c5de28cc9887368f9bd016be0b3fd04763"
+    },
+    {
+      "ref": "refs/heads/routeb-transient-keyboard-shortcuts",
+      "sha": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "sha": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "sha": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "sha": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "sha": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "sha": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "sha": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "sha": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "sha": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "sha": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "sha": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "sha": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "sha": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "sha": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "sha": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "sha": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "sha": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "sha": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "sha": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "sha": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "sha": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "sha": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "sha": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "sha": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "sha": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "sha": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "sha": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "sha": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "sha": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "sha": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "sha": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "sha": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "sha": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "sha": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "sha": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence",
+      "sha": "9afdeabffae32186e56fe7012cf5f639bb88dec9"
+    },
+    {
+      "ref": "refs/heads/stage28r-transport-decision-language-roadmap",
+      "sha": "6c186219c9ef7037f3ecab9bae44179421fd1278"
+    },
+    {
+      "ref": "refs/heads/stage28s-native-runtime-scheduler",
+      "sha": "5355b4dd76fe57884fb9036348f218dd28634958"
+    },
+    {
+      "ref": "refs/heads/stage28t-native-real-backend-route-b",
+      "sha": "3e450127f7e6e1664a97be1107a18253844bfe35"
+    },
+    {
+      "ref": "refs/heads/stage28u-portable-coordinator-file-dispatch",
+      "sha": "967596476dfe0dde5e824c8f6d1b2ba543502443"
+    },
+    {
+      "ref": "refs/heads/stage28v-service-ownership-controlled-candidate",
+      "sha": "3144c9bdf7b78a4f75d6861fdffa0707c755fffc"
+    },
+    {
+      "ref": "refs/heads/stage28w-framework-boundary-controlled-link",
+      "sha": "606098b1158c216f7c5e205cd81debcb9661e04d"
+    },
+    {
+      "ref": "refs/heads/stage28x-instrumented-validation-candidate",
+      "sha": "134b295deaebcb93f94beb63f2d46f102a7d6555"
+    },
+    {
+      "ref": "refs/heads/stage28y-public-download",
+      "sha": "79c964d4f32a41f1295f2f96ebce8a42a8061c05"
+    },
+    {
+      "ref": "refs/heads/stage28y-verified-artifact-package",
+      "sha": "ebf6668e6b105e5c6b188f46fe6ec73007aa3804"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "sha": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "sha": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "sha": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "sha": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "sha": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "sha": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "new_files": [
+    {
+      "file": "docs/http-snapshot-analysis.md",
+      "size": 8323,
+      "sha256": "43e2d5d6ae0d884b9f291479ce060ef20b2deec96f3c74ab90f0dc6ce15f7b8e"
+    },
+    {
+      "file": "docs/http-snapshot-build.json",
+      "size": 1424550,
+      "sha256": "b85d084f425eae91e0d0ea1cfabc8f3997aef65cf95ab64bbada8a1746a2685a"
+    },
+    {
+      "file": "docs/http-snapshot-report.md",
+      "size": 12674,
+      "sha256": "e349ab541b89f64cccde41592881bf4298c9c390eb8a050132deb1d5f52b36fb"
+    },
+    {
+      "file": "docs/http-snapshot-reproduction.md",
+      "size": 3502,
+      "sha256": "ea2b01e6482957351b4df0a1204fbbad49ebe07395e8d0d5cdf390b65fe6f7c6"
+    },
+    {
+      "file": "docs/http-snapshot-results.json",
+      "size": 117362,
+      "sha256": "e8039b626860321a7ada0bd557ca29a2eca6a652f6208a9a4617c93d8797ec12"
+    },
+    {
+      "file": "docs/http-snapshot-source-evidence.json",
+      "size": 5483,
+      "sha256": "fe15b0797f9bcfd941200a1dd50829faaf5a77eb27d146359abf201e866ec4b5"
+    },
+    {
+      "file": "docs/http-snapshot-source-manifest.json",
+      "size": 1946,
+      "sha256": "beafb9eaf22aefd7915843e303508764c4c3441640539981fa01a611e3ee7821"
+    },
+    {
+      "file": "downloads/evilduck-http-snapshot-review.bin",
+      "size": 1366848,
+      "sha256": "706d215f5cc8e7c318bd7677dc3758c1fd95603061d71ada1dbe440e450c2d4b"
+    },
+    {
+      "file": "tests/http_snapshot/build_candidate.py",
+      "size": 9987,
+      "sha256": "8e2afbc25d75d837f0527c57a26d3736b6a6803aa3b833dab068d9f43c7918c1"
+    },
+    {
+      "file": "tests/http_snapshot/contention.patch",
+      "size": 21007,
+      "sha256": "c276b1eb21d625acc5fea0ef8d557e3dc715286cd081bd0682a0ffff6e360ae1"
+    },
+    {
+      "file": "tests/http_snapshot/execution_guard.h",
+      "size": 4112,
+      "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b"
+    },
+    {
+      "file": "tests/http_snapshot/mocks/ESPAsyncWebServer.h",
+      "size": 34,
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/http_snapshot/mocks/Update.h",
+      "size": 34,
+      "sha256": "112993ab97fa5396e90dfaf5e952ae421aa71f9e89c009beea617d0fb25dc41a"
+    },
+    {
+      "file": "tests/http_snapshot/mocks/WiFi.h",
+      "size": 326,
+      "sha256": "833c7b27c723ce348409589bd66524ce1ed4e8c770f4c3bb361d640777dcf4f2"
+    },
+    {
+      "file": "tests/http_snapshot/mocks/network.h",
+      "size": 2473,
+      "sha256": "71d508d344d820f288160924e64c801b98c4b2d17ee4ba1f9bd77f6d715aa591"
+    },
+    {
+      "file": "tests/http_snapshot/prepare_sources.py",
+      "size": 1055,
+      "sha256": "4334045cbdc056d2bfbc173c6b07030cce3a320000418b3c4fdb04bc70fc873b"
+    },
+    {
+      "file": "tests/http_snapshot/run_negative.py",
+      "size": 1820,
+      "sha256": "c9c67b2f9ac53209547eafae9a67eaebf0146547057cded2c0a652319854b812"
+    },
+    {
+      "file": "tests/http_snapshot/run_related.py",
+      "size": 2049,
+      "sha256": "d58f7652078f64a1d4f713b97f9b943cc64561bc5c5a00cfca325b7b133625cd"
+    },
+    {
+      "file": "tests/http_snapshot/run_tests.py",
+      "size": 2736,
+      "sha256": "51793128da8dc12026e65ad88a610b2f691a7791e6b31a08ab7f730685f4b70b"
+    },
+    {
+      "file": "tests/http_snapshot/startup_decode.py",
+      "size": 4166,
+      "sha256": "41a7ff490b3cb62feae5c85749685f82d5b0055ff961abbeb3732241b3a33cf8"
+    },
+    {
+      "file": "tests/http_snapshot/test_main.cpp",
+      "size": 6499,
+      "sha256": "094b543f443230f11dff6a8f801cf5f0f6df3516e6372a2a4e418a626d3e2d19"
+    },
+    {
+      "file": "tests/http_snapshot/test_verifier_controls.py",
+      "size": 2659,
+      "sha256": "669666c7b6cd5aed6280a14f1cf9541946715803970ff5498b20356e987f5850"
+    },
+    {
+      "file": "tests/http_snapshot/verify_link.py",
+      "size": 10111,
+      "sha256": "27b8fd513d81749a481f4402a9e6eb18c3d3ae65d6dbc1b93f6468d8443a09f5"
+    }
+  ]
+}

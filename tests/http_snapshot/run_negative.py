@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""Restore immediate-fail acquisition in disposable sources; real HTTP test rejects it."""
+import pathlib,sys,json,argparse,shutil,subprocess,os,hashlib
+sys.dont_write_bytecode=True
+p=argparse.ArgumentParser();p.add_argument('--native-results',type=pathlib.Path,required=True);p.add_argument('--build-dir',type=pathlib.Path,required=True);p.add_argument('--results',type=pathlib.Path,required=True);a=p.parse_args();assert not a.build_dir.exists() and not a.results.exists();a.build_dir.mkdir();r=json.loads(a.native_results.read_text());cmd=r['command'];src=next(pathlib.Path(x).parent for x in cmd if x.endswith('/core.cpp'));dest=a.build_dir/'sources';shutil.copytree(src,dest)
+f=dest/'execution_guard.h';before=f.read_bytes();s=before.decode();assert s.count('BoundedGuard(Owner who):locked(take(true))')==1;f.write_text(s.replace('BoundedGuard(Owner who):locked(take(true))','BoundedGuard(Owner who):locked(take(false))'))
+cmd=[x.replace(str(src),str(dest)) for x in cmd];cmd[cmd.index('-o')+1]=str(a.build_dir/'negative');subprocess.run(cmd,check=True)
+v=subprocess.run([str(a.build_dir/'negative'),'H01'],capture_output=True,text=True,timeout=30,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=1:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1'));assert v.returncode==1 and 'short contention yields then captures' in v.stderr,(v.returncode,v.stderr)
+a.results.write_text(json.dumps(dict(status='EXPECTED_FAILURE',change='BoundedGuard reverts to zero-wait try-lock; H01 sees real HTTP409 instead of200',exit=v.returncode,stdout=v.stdout,stderr=v.stderr,before_sha256=hashlib.sha256(before).hexdigest(),after_sha256=hashlib.sha256(f.read_bytes()).hexdigest(),command=cmd,hardware=False),indent=2)+'\n');print('PASS original immediate-fail symptom reproduced by real handler negative control')
