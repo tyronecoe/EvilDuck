@@ -1,0 +1,56 @@
+{
+  "base": "400b25dd1eb401eb9ab08eae2bf8c9c4289c4098",
+  "patch_sha256": "26f32e91510ef62b2f451c54c3a2482cd3ecc505749c92b5da956d7507a46246",
+  "before": [
+    {
+      "file": "coordinator.cpp",
+      "sha256": "4a769d7c873868800b65c4fe288ffb7bd85d842b001883ab21345d440d6a3faa"
+    },
+    {
+      "file": "coordinator.h",
+      "sha256": "988623d963b7016e70a44e83514c00d0b5d37068d6a7bffe844b164f684c39cf"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "3d9f346754069ed048dc5b9ede9015bbee8e8966bbef77136802f8814ed4b5b7"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "9a31d1cbdece96e097f075a38ef0088f30c115acab9dc2e7f63afdaf5fe06e1a"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "ba67e8550607a69c3c2c93b0ae089bf64527321c2f3814a4c71bf2f656bf7892"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "3c650af737116be3f3c361937c4650c5c31c521becf0876d32a80bd475a2f935"
+    }
+  ],
+  "after": [
+    {
+      "file": "coordinator.cpp",
+      "sha256": "2568095060252845e04d3fa4e88f113bea708a3daa836f17f7ab310cc01cc2c9"
+    },
+    {
+      "file": "coordinator.h",
+      "sha256": "b035da07ab2adc653e93bf3bd3b8abddaa3b8b35198a97001a5c65ff6048939a"
+    },
+    {
+      "file": "duckscript.cpp",
+      "sha256": "b47475a4070b38be5dd71bdfb0adc66fb0324a7b0b6e9aa3ec371c59ddfd4851"
+    },
+    {
+      "file": "duckscript.h",
+      "sha256": "cb477305bb9af8554542395eeca56f451a9134a4bcec926fa723d8b66c45bc34"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "265e7618a128dd01e70e95bc7aaa4241a86b83d8280a7e685d3faefd7e7af1a8"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "c5039c858e6b308c9c04ece99f451ed97c4975b46bc12501d26ffefd4a8826f3"
+    }
+  ]
+}

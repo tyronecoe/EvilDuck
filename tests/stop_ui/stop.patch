@@ -1,0 +1,165 @@
+--- coordinator.cpp
++++ coordinator.cpp
+@@ -60,7 +60,8 @@
+ }
+ Reply requestStart(const char* path,Mode mode){auto reply=requestStartImpl(path,mode);{u_platform::Critical lock;route_x::admissionLocked(reply==Reply::Accepted);}return reply;}
+ Reply requestSnapshot(uint32_t tag){u_platform::Critical lock;if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.id=++pub.next;q.tag=tag;++pub.count;route_x::queueLocked(pub.count);return Reply::Accepted;}
+-void stop(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}}
++Status stopWithStatus(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}return pub.status;}
++void stop(){(void)stopWithStatus();}
+ void loss(){u_platform::Critical lock;if(pub.status.owned)pub.loss=true;}
+ bool begin(Service s,Token& out){
+  if(out.id)return false;execution::TryGuard executionLock;if(!executionLock)return false;
+--- coordinator.h
++++ coordinator.h
+@@ -10,7 +10,7 @@
+ struct Status{Phase phase=Phase::Idle;Reason reason=Reason::None;uint64_t request=0;uint32_t line=0;uint16_t errorCode=0;bool owned=false;};
+ bool bindOwner();bool ownerTask();bool owned();Status status();
+ Reply requestStart(const char*,Mode=Mode::RouteB);Reply requestSnapshot(uint32_t tag);
+-void stop();void loss();void tick(uint32_t now);
++Status stopWithStatus();void stop();void loss();void tick(uint32_t now);
+ struct Token{uint64_t id=0;};
+ bool begin(Service,Token&);bool valid(Token);bool end(Token); // explicit multi-callback lifetime
+ bool enterChunk(Token);bool leaveChunk(Token); // end/abort cannot retire an in-flight chunk
+--- duckscript.cpp
++++ duckscript.cpp
+@@ -1,3 +1,4 @@
++#include <atomic>
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -327,6 +328,8 @@
+   return true;
+ }
+ 
++namespace {std::atomic<bool> serviceStop{false};}
++void requestStop(){serviceStop.store(true);}
+ void stop() {
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(route_u::owned()){route_u::stop();return;}
+@@ -347,6 +350,7 @@
+ }
+ 
+ void update() {
++  if(serviceStop.exchange(false))stop();
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   const bool routeWasOwned=route_u::owned();route_u::tick(millis());if(routeWasOwned||route_u::owned())return;
+ #endif
+--- duckscript.h
++++ duckscript.h
+@@ -4,6 +4,7 @@
+ namespace duckscript {
+   bool run(const String &filename);
+   void stop();
++  void requestStop(); // service ingress: no HID cleanup in callback
+   void update();
+   bool running();
+   String runningScript();
+--- webfiles.h
++++ webfiles.h
+@@ -28,6 +28,14 @@
+     </nav>
+   </header>
+ 
++
++  <aside id="emergencyStop" role="region" aria-label="Script stop" style="position:sticky;top:0;z-index:50;background:#240909;padding:12px;border:2px solid #ff5555">
++    <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;font-size:20px;font-weight:bold;min-height:48px;padding:8px 24px">STOP script</button>
++    <button type="button" onclick="refreshStatus()">Check status</button>
++    <div id="stopResult" role="status" aria-live="polite">STOP remains available when status is stale or offline.</div>
++    <div>Stops EvilDuck script execution. Programs already launched on the computer may keep running.</div>
++    <div>Run buttons explicitly use the reviewed Route B engine. No automatic replay.</div>
++  </aside>
+   <main class="tabshell">
+     <div class="tabbar" role="tablist" aria-label="Home sections">
+       <button class="tabbtn active" type="button" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="dashboard">Dashboard</button>
+@@ -879,7 +887,8 @@
+ async function refreshStatus(){
+   try{
+     const r=await fetch('/status',{headers:duckHeaders()});
+-    const s=await r.json();
++    if(!r.ok)throw new Error('HTTP '+r.status);
++    const s=await r.json();observeStop(s);
+     document.getElementById('ssidVal').textContent=s.ssid||'—';
+     document.getElementById('chVal').textContent=(s.channel??'—');
+     document.getElementById('autorunVal').textContent=s.autorunEnabled ? (s.autorunScript||'') : 'disabled';
+@@ -928,20 +937,46 @@
+   }catch(e){el.textContent=String(e);}
+ }
+ 
+-async function runScript(s){
+-  try{
+-    const r=await fetch('/run?s='+encodeURIComponent(s),{headers:duckHeaders()});
+-    const t=await r.text();
+-    if(!r.ok){
+-      log(`Run failed (${r.status}): ${t}`);
+-      return;
+-    }
+-    log(t);
++// BEGIN STOP CONTROLS
++let stopInFlight=false, stopReceipt=null, runInFlight=false;
++function stopMessage(text){document.getElementById('stopResult').textContent=text;}
++async function controlFetch(url,options){
++  const controller=typeof AbortController==='undefined'?null:new AbortController();
++  if(controller)options.signal=controller.signal;
++  let timer;try{return await Promise.race([fetch(url,options),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
++  finally{clearTimeout(timer);}
++}
++async function stopScript(){
++  if(stopInFlight)return;
++  stopInFlight=true;stopReceipt=null;stopMessage('Requesting STOP…');
++  try{const r=await controlFetch('/stop',{method:'POST',headers:duckHeaders()});
++    if(r.status!==202)throw new Error('HTTP '+r.status+': '+await r.text());
++    const receipt=await r.json();stopReceipt=receipt;
++    stopMessage(receipt.wasOwned===false?'No active Route B execution at admission. This does not prove host key release.':'Stop requested — waiting for owner confirmation.');
+     refreshStatus();
+-  }catch(e){
+-    log('Run error: '+(e?.message||String(e)));
++  }catch(e){stopMessage('STOP not confirmed: '+e.message+' Deliberate retry available.');}
++  finally{stopInFlight=false;}
++}
++function observeStop(s){
++  if(!stopReceipt)return;
++  if(stopReceipt.engine==='legacy'){if(!s.running)stopMessage('Legacy idle observed; cancellation correlation and host release are not proven.');return;}
++  if(!stopReceipt.wasOwned)return;
++  if(s.snapshotKind!=='request-capture'||s.routeBRequestId!==stopReceipt.requestId)return;
++  if(s.routeBPhase===8){stopMessage('STOP unresolved: execution quarantined. Inspect diagnostics.');return;}
++  if(s.routeBPhase===0&&s.routeBOwned===false){
++    stopMessage(s.routeBReason===2?'Stopped / Cancelled — local owner terminal. Host key release is not proven.':'Execution ended with reason '+s.routeBReason+'; cancellation was not confirmed.');
+   }
+ }
++async function runScript(name){
++  if(runInFlight){log('Run already pending; duplicate not submitted.');return;}
++  runInFlight=true;
++  try{const r=await controlFetch('/run?engine=routeb&s='+encodeURIComponent(name),{headers:duckHeaders()});
++    const text=await r.text();if(r.status!==202)throw new Error('HTTP '+r.status+': '+text);
++    log(text);refreshStatus();
++  }catch(e){log('Run not confirmed: '+e.message+' No automatic retry.');}
++  finally{runInFlight=false;}
++}
++// END STOP CONTROLS
+ 
+ async function delScript(s){
+   if(!confirm(`Delete ${s}?`)) return;
+--- webserver.cpp
++++ webserver.cpp
+@@ -447,7 +447,9 @@
+ static void handleStop(AsyncWebServerRequest *req){
+   bool denied=false;{execution::BoundedGuard guard(execution::Owner::HttpStop);if(!guard){req->send(409,"text/plain","Execution busy");return;}denied=!checkAuth(req);}
+   if(denied){sendAuthRequired(req);return;}
+-  duckscript::stop();req->send(202,"text/plain","Stop requested");
++  if(route_u::selected()){auto receipt=route_u::stopWithStatus();char id[24];snprintf(id,sizeof(id),"%llu",(unsigned long long)receipt.request);
++   req->send(202,"application/json",String("{\"message\":\"Stop requested\",\"engine\":\"routeb\",\"requestId\":\"")+id+"\",\"wasOwned\":"+(receipt.owned?"true":"false")+"}");
++  }else{duckscript::requestStop();req->send(202,"application/json","{\"message\":\"Stop requested\",\"engine\":\"legacy\"}");}
+ }
+ #endif
+ static void handleUploadComplete(AsyncWebServerRequest *request){
+@@ -492,7 +494,8 @@
+  }
+  if(denied){sendAuthRequired(req);return;}
+  // Authentication and state copies completed under the same mutex. No lock at send.
+- String json="{\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
++ char requestId[24];snprintf(requestId,sizeof(requestId),"%llu",(unsigned long long)s.route.request);
++ String json=String("{\"routeBRequestId\":\"")+requestId+"\",\"routeBOwned\":"+(s.route.owned?"true":"false")+",\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
+  json+=",\"routeBPhase\":"+String(unsigned(s.route.phase))+",\"routeBReason\":"+String(unsigned(s.route.reason));
+  json+=",\"running\":"+String(s.running?"true":"false")+",\"autorunEnabled\":"+String(s.autorun?"true":"false");
+  json+=",\"autorunScript\":\""+escapedStatusString(s.autorunScript)+"\",\"ssid\":\""+escapedStatusString(s.ssid)+"\",\"channel\":"+String(s.channel);
