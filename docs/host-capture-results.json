@@ -1,0 +1,54 @@
+{
+  "python_tests": {
+    "PASS": 11,
+    "FAIL": 0,
+    "stdout": "",
+    "stderr": "test_exact_phrase (__main__.CaptureTests.test_exact_phrase) ... ok\ntest_fixed_result_only (__main__.CaptureTests.test_fixed_result_only) ... ok\ntest_metadata_failure_closes_fd (__main__.CaptureTests.test_metadata_failure_closes_fd) ... ok\ntest_no_start_no_device (__main__.CaptureTests.test_no_start_no_device) ... ok\ntest_noise_then_phrase (__main__.CaptureTests.test_noise_then_phrase) ... ok\ntest_other_text_not_retained (__main__.CaptureTests.test_other_text_not_retained) ... ok\ntest_partial (__main__.CaptureTests.test_partial) ... ok\ntest_permission_denial (__main__.CaptureTests.test_permission_denial) ... ok\ntest_repeat_release (__main__.CaptureTests.test_repeat_release) ... ok\ntest_timeout_closes_mock_fd (__main__.CaptureTests.test_timeout_closes_mock_fd) ... ok\ntest_wrong_device_path (__main__.CaptureTests.test_wrong_device_path) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.003s\n\nOK\n"
+  },
+  "launcher_simulations": {
+    "PASS": 4,
+    "FAIL": 0,
+    "stdout": "PASS public launcher compile + mock sink execution 1 events=87; no HID/host API\nPASS public launcher compile + mock sink execution 2 events=49; no HID/host API\nPASS public launcher compile + mock sink execution 3 events=87; no HID/host API\nPASS public launcher compile + mock sink execution 4 events=86; no HID/host API\n",
+    "stderr": "",
+    "sanitizers": "ASan/UBSan/leaks"
+  },
+  "commands": [
+    [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/EvilDuck-stage6/tests/host_capture/test_capture.py"
+    ],
+    [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-I/workspace/tooling/stop-led/linked-final/candidate/EvilDuckS3",
+      "/workspace/EvilDuck-stage6/tests/host_capture/compile_launchers.cpp",
+      "/workspace/tooling/stop-led/linked-final/candidate/EvilDuckS3/core.cpp",
+      "-o",
+      "/workspace/tooling/stop-led/c-checks-delivery/launcher-mock"
+    ],
+    [
+      "/workspace/tooling/stop-led/c-checks-delivery/launcher-mock",
+      "/workspace/EvilDuck-stage6/host_tests/capture/launchers/windows.duck",
+      "/workspace/EvilDuck-stage6/host_tests/capture/launchers/macos.duck",
+      "/workspace/EvilDuck-stage6/host_tests/led_return/launchers/windows.duck",
+      "/workspace/EvilDuck-stage6/host_tests/led_return/launchers/macos.duck"
+    ]
+  ],
+  "host_runtime": {
+    "Windows11": "NOT COMPILED/NOT TESTED",
+    "macOS10.13.6": "NOT COMPILED/NOT TESTED",
+    "Linux evdev device": "NOT TESTED; unit mocks only"
+  },
+  "no_host_commands_or_device_access": true
+}

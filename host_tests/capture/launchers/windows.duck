@@ -1,0 +1,7 @@
+REM SOURCE ONLY. No automatic execution. Owner must review local helpers first.
+REM Put the reviewed capture directory at Desktop\EvilDuckTest. Normal PowerShell policy applies.
+REM This opens a visible helper; the owner must still click Start. Never auto-type the phrase.
+GUI r
+DELAY 1000
+STRING powershell -NoProfile -File "%USERPROFILE%\Desktop\EvilDuckTest\capture-windows.ps1"
+ENTER

@@ -1,0 +1,10 @@
+REM SOURCE ONLY. Requires separate owner approval and prebuilt reviewed local helper.
+REM macOS10.13.6, Spotlight configured normally; no download or privilege changes.
+REM Owner must type START in the visible Terminal before capture begins.
+GUI SPACE
+DELAY 1000
+STRING Terminal
+ENTER
+DELAY 1500
+STRING ~/Desktop/EvilDuckTest/capture-macos
+ENTER

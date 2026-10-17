@@ -1,0 +1,484 @@
+{
+  "status": "PASS",
+  "base": "400b25dd1eb401eb9ab08eae2bf8c9c4289c4098",
+  "historical_files_bytes_modes_unchanged": 1460,
+  "frozen_stage26": 235,
+  "old_public_packages": [
+    {
+      "file": "downloads/evilduck-shortcuts-5c19f0d-review.zip",
+      "bytes": 1087506,
+      "sha256": "466edeac41cf33182136d5b4d02809a1f641fff5c17ae79e1a8fd3f46b314e0f"
+    },
+    {
+      "file": "downloads/evilduck-stage28y-public.zip",
+      "bytes": 4837000,
+      "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+    }
+  ],
+  "new_public_files": [
+    {
+      "file": "docs/host-capture-report.md",
+      "bytes": 5509,
+      "sha256": "2bdb6e521ccde6cffce06bb4412785ab6d19bdef55aa575c7e1f278f238db550"
+    },
+    {
+      "file": "docs/host-capture-results.json",
+      "bytes": 2943,
+      "sha256": "15038ea7e1a4043d9b90e5e2d639bd924951b9c813ab7f5dca9998e07ce35cce"
+    },
+    {
+      "file": "docs/led-return-report.md",
+      "bytes": 9415,
+      "sha256": "521eb5ef0438eec26dd26f4937d8a8c3e406b7e515a79cf68489b7a5c0d84b3d"
+    },
+    {
+      "file": "docs/led-return-results.json",
+      "bytes": 118128,
+      "sha256": "669b3cac39118c32f35950feda4c08731e94b05cfc6d24e27217f4758f9ba55b"
+    },
+    {
+      "file": "docs/led-return-source-manifest.json",
+      "bytes": 1419,
+      "sha256": "3ce6f808318078d282cdc72cf6448803b58cb0d2c3527453c345c81a91819727"
+    },
+    {
+      "file": "docs/stop-led-build.json",
+      "bytes": 1434658,
+      "sha256": "0888c74abb1d759c0ccd6476b37c2ae1e569068ed997b6a3b0642a7505564ed9"
+    },
+    {
+      "file": "docs/stop-led-references.json",
+      "bytes": 6871,
+      "sha256": "054cabed78707eba23974ea38422272ba065a0011398c3895fab4bb0dd400bcf"
+    },
+    {
+      "file": "docs/stop-led-report.md",
+      "bytes": 7897,
+      "sha256": "1b28e2956b47de25f10026a4d50b8f4354061bea19b6e17b1b48fd9af7723168"
+    },
+    {
+      "file": "docs/stop-led-reproduction.md",
+      "bytes": 4513,
+      "sha256": "10a217ab11826b7821a21dec64ffbb3436c42c77cca168c9fdea6973502811e9"
+    },
+    {
+      "file": "docs/stop-ui-report.md",
+      "bytes": 3941,
+      "sha256": "40c72f18f47031de5861c16577f0e3b52d13111ca34ceee707f84d359e57e9f9"
+    },
+    {
+      "file": "docs/stop-ui-results.json",
+      "bytes": 19377,
+      "sha256": "a186d2a27ea661e27fcf9ce00eb10a94a8fcddd04e2208e7654e8cdd9a630580"
+    },
+    {
+      "file": "docs/stop-ui-source-manifest.json",
+      "bytes": 1700,
+      "sha256": "5498b2ee1753b4d7c7f8e89d694a687c92a301b8a6d327066402b8ff7b155ad7"
+    },
+    {
+      "file": "downloads/evilduck-stop-led-review.bin",
+      "bytes": 1376576,
+      "sha256": "c20dc3991a72b3411c506c107300e57ea96156d3ca233caa682f6a0c6a7a07d4"
+    },
+    {
+      "file": "host_tests/capture/README.md",
+      "bytes": 4913,
+      "sha256": "e564fc370ad7fb257dede7827c0faa215459e67155fb5bc436a63dddb45b0101"
+    },
+    {
+      "file": "host_tests/capture/WindowsCapture.cs",
+      "bytes": 3816,
+      "sha256": "77ceae548108fc4a5bcb0081889348631e32a1a25d989299b91f301af198dac8"
+    },
+    {
+      "file": "host_tests/capture/capture-macos.c",
+      "bytes": 3492,
+      "sha256": "3e0aa1357226a72f7a19706cdae155edc99c1c68141650b0e1f35173dbb169ba"
+    },
+    {
+      "file": "host_tests/capture/capture-windows.ps1",
+      "bytes": 265,
+      "sha256": "817320534245e3816235130d1f56c01d00c807354aa075898b0c4e40f63814aa"
+    },
+    {
+      "file": "host_tests/capture/capture_linux.py",
+      "bytes": 2487,
+      "sha256": "1838bd34e04b89175c42c130ed4e52d3e7f4555b24de7e61a573cc24c889c1ba"
+    },
+    {
+      "file": "host_tests/capture/launchers/macos.duck",
+      "bytes": 346,
+      "sha256": "9c5181fce690853fa7e73261048f346136547bef5aed29bbfadbacb3db866fd8"
+    },
+    {
+      "file": "host_tests/capture/launchers/windows.duck",
+      "bytes": 388,
+      "sha256": "7b5e56e9a79d209d9476a8654087ecc9dac88dae4f25ddb02a59f30504f9687a"
+    },
+    {
+      "file": "host_tests/defensive-record-template.json",
+      "bytes": 1057,
+      "sha256": "019131286723fc020c6e6e0e6bfb967896fdbe05a539caa21eba94eb1a8f4c30"
+    },
+    {
+      "file": "host_tests/led_return/README.md",
+      "bytes": 5131,
+      "sha256": "4ee19bad03fb261cee7d8a3aaab2c0fc30d80fd6b2fc5ece60a6e1b30e246615"
+    },
+    {
+      "file": "host_tests/led_return/WindowsSender.cs",
+      "bytes": 3192,
+      "sha256": "183748585d229e1b3f0a0b789eff4299e97955722ebb5f7abaf37fb9da3d4881"
+    },
+    {
+      "file": "host_tests/led_return/launchers/macos.duck",
+      "bytes": 320,
+      "sha256": "dd2456ac0d04b7aa72b4c7b653c6f932d1434b05b9ba17d0a228a8ca3d2e7054"
+    },
+    {
+      "file": "host_tests/led_return/launchers/windows.duck",
+      "bytes": 371,
+      "sha256": "1ae479079ca20ce677750e648e1902068a6e84dd23d7795c26c8c653f49d9ecb"
+    },
+    {
+      "file": "host_tests/led_return/protocol_vectors.py",
+      "bytes": 456,
+      "sha256": "7c2e5edda9564e29884d7000ec72fcef496237a46449a71507ceb7e69bc075cd"
+    },
+    {
+      "file": "host_tests/led_return/send-macos.c",
+      "bytes": 4817,
+      "sha256": "fc959f08b728f52b1dc3a13c5db605e5b334b7b7299e712586f6371886e5263b"
+    },
+    {
+      "file": "host_tests/led_return/send-windows.ps1",
+      "bytes": 209,
+      "sha256": "5044f1e26ae4e3fb0f19827feb380792983b92e210caaae633fd6d48f32c29c9"
+    },
+    {
+      "file": "tests/host_capture/compile_launchers.cpp",
+      "bytes": 1003,
+      "sha256": "83c8070c384d4dde233c57c66c751a2475aef718f886faad9ef361a8f449e410"
+    },
+    {
+      "file": "tests/host_capture/run_checks.py",
+      "bytes": 2393,
+      "sha256": "fd2cb90e246cf7b09ef6cff14a214ffb06a9943f8e0e45848e322df0fffc9776"
+    },
+    {
+      "file": "tests/host_capture/test_capture.py",
+      "bytes": 3028,
+      "sha256": "04cfd060a31510fd5ac97add883c875a7a436cb718051a27f888694fed7c12d8"
+    },
+    {
+      "file": "tests/led_return/build_candidate.py",
+      "bytes": 10053,
+      "sha256": "22c3a643d19cac73c7e78652f760ceb65ec36bd7eae01d9f3f8dc3be5a338218"
+    },
+    {
+      "file": "tests/led_return/led_receiver.cpp",
+      "bytes": 3986,
+      "sha256": "e86159dd88d0fd3f691bb0176675d0187130b708000385f2448396db5f8fc5cf"
+    },
+    {
+      "file": "tests/led_return/led_receiver.h",
+      "bytes": 934,
+      "sha256": "c1dfe10ac05a368123e54da387a2f3adf77ceff5bbee41a3da9dc1acd1d4af9e"
+    },
+    {
+      "file": "tests/led_return/mocks/esp_timer.h",
+      "bytes": 138,
+      "sha256": "8299fbae24347d26e79b6e4ed3ac7cc9d0990549f2d7d3e4d52a0b8fecd79e17"
+    },
+    {
+      "file": "tests/led_return/prepare_sources.py",
+      "bytes": 1040,
+      "sha256": "00093da25b8ae221b2360c0fc0c49e983feffa321c907d9967357f5b4f9027e1"
+    },
+    {
+      "file": "tests/led_return/receiver.patch",
+      "bytes": 8896,
+      "sha256": "0e2390c34854f0af703c53e7a6d9ecee5ec33b6b4d6ea3c7592fb6c5d4181490"
+    },
+    {
+      "file": "tests/led_return/run_related.py",
+      "bytes": 2211,
+      "sha256": "fd0fac988e19e1f069384463502c72fb48e50f295d7de57066d162b1ae656384"
+    },
+    {
+      "file": "tests/led_return/run_tests.py",
+      "bytes": 1693,
+      "sha256": "ef282254f549db1dbb3136831ea3df7286eec2475f24e41fab776b043d342d32"
+    },
+    {
+      "file": "tests/led_return/test_main.cpp",
+      "bytes": 6221,
+      "sha256": "25f8c28b4a81825471219dc4c6d142d3d5b665725f9c4af2b1198446c19a81a8"
+    },
+    {
+      "file": "tests/led_return/test_stop_ui.cjs",
+      "bytes": 3778,
+      "sha256": "c6b24a487fc6bcca1accc2a09671afebedb699fabe101c1292684209473fb59b"
+    },
+    {
+      "file": "tests/led_return/test_ui.cjs",
+      "bytes": 1611,
+      "sha256": "5a6b5d844a9c1fb1ab74fdabd3a64197c8515cbe2a0feeba213ca32941ba8aa2"
+    },
+    {
+      "file": "tests/led_return/verify_link.py",
+      "bytes": 10691,
+      "sha256": "1abb43c00e7ec8debd25b9ead4a5e79ba2547f386498d2f977f049c596889442"
+    },
+    {
+      "file": "tests/stop_ui/prepare_sources.py",
+      "bytes": 1046,
+      "sha256": "a14577da00f52f99db82a3d6b35eeaf883b99a1436e8389affbee523b1ad125a"
+    },
+    {
+      "file": "tests/stop_ui/run_tests.py",
+      "bytes": 1456,
+      "sha256": "bccf53157f336b599eac6b39fa63d619ceb5a1bd9cabbeafc2b29f844a4327ff"
+    },
+    {
+      "file": "tests/stop_ui/stop.patch",
+      "bytes": 8974,
+      "sha256": "26f32e91510ef62b2f451c54c3a2482cd3ecc505749c92b5da956d7507a46246"
+    },
+    {
+      "file": "tests/stop_ui/test_main.cpp",
+      "bytes": 3018,
+      "sha256": "514e9d71fc04d024c7ba13bed9b967812f75973d2b04c6a3a7332e61b2c05c20"
+    },
+    {
+      "file": "tests/stop_ui/test_ui.cjs",
+      "bytes": 3471,
+      "sha256": "31d316f6754f5da2eb7e8df3ddd889cdd4a251c272b47eda26bf608d21e808e4"
+    }
+  ],
+  "prior_remote_refs": [
+    {
+      "ref": "refs/heads/compatibility-boundaries-and-engine-docs",
+      "commit": "6280b1d7b465f5d29800fa230ab60f3b04bf77c4"
+    },
+    {
+      "ref": "refs/heads/main",
+      "commit": "bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf"
+    },
+    {
+      "ref": "refs/heads/routeb-http-snapshot-contention",
+      "commit": "400b25dd1eb401eb9ab08eae2bf8c9c4289c4098"
+    },
+    {
+      "ref": "refs/heads/routeb-shortcuts-installation-package",
+      "commit": "fb1c43c5de28cc9887368f9bd016be0b3fd04763"
+    },
+    {
+      "ref": "refs/heads/routeb-transient-keyboard-shortcuts",
+      "commit": "5c19f0dacb25960bda36a97f4ff871937a3cc9e7"
+    },
+    {
+      "ref": "refs/heads/stage10-usb-storage-reliability",
+      "commit": "5ac88388635ac2d6e464eb17006aea2e8819dae4"
+    },
+    {
+      "ref": "refs/heads/stage11-duckyscript-hold-release",
+      "commit": "3714866f88ac8a42cbfffc93bf2ba7572bd3a7b7"
+    },
+    {
+      "ref": "refs/heads/stage12-internal-variables-lock-feedback",
+      "commit": "f3841747fee7ff79c381723d1e578e5d65410011"
+    },
+    {
+      "ref": "refs/heads/stage13-duckyscript-preprocessing",
+      "commit": "cd0cf0ea94e751d6e10bed3820484c1228abccd6"
+    },
+    {
+      "ref": "refs/heads/stage14-duckyscript-random-jitter",
+      "commit": "3a0e3037dea0b7fd5641e2d15b79b26c6041232d"
+    },
+    {
+      "ref": "refs/heads/stage15-usb-readiness-hardening",
+      "commit": "7a8229f9c04d2a5423c179fe8daa42e048554560"
+    },
+    {
+      "ref": "refs/heads/stage16-usb-routing-integration",
+      "commit": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f"
+    },
+    {
+      "ref": "refs/heads/stage17-deployment-safety-preflight",
+      "commit": "bb2ea299e667225e7d9f30f535496df2afcffafb"
+    },
+    {
+      "ref": "refs/heads/stage18-nvs-preservation-hardening",
+      "commit": "07864bb151ed4b38cc22b02ea1ea9569cc78c78b"
+    },
+    {
+      "ref": "refs/heads/stage19-nvs-sdk-compatibility",
+      "commit": "524d643a12af05e4efd9da509eae274ec43959a6"
+    },
+    {
+      "ref": "refs/heads/stage20-nvs-preservation-contract",
+      "commit": "7c4559132251340b03bcb68a3d66d04d1659e503"
+    },
+    {
+      "ref": "refs/heads/stage21-readonly-nvs-quiescent-validation",
+      "commit": "516fb642b1126af55db909fcff856943935b7111"
+    },
+    {
+      "ref": "refs/heads/stage22-readonly-nvs-preinit-gate",
+      "commit": "89006f886fa30058a965e8e1883fb743d1683b70"
+    },
+    {
+      "ref": "refs/heads/stage23-nvs-iterator-early-writer-audit",
+      "commit": "9af270f01d455e0bd282a14449ee941751938b1a"
+    },
+    {
+      "ref": "refs/heads/stage24-nvs-hardening-fresh-provisioning",
+      "commit": "54b3ee184f98308783e7b78c253b15fce2b30a87"
+    },
+    {
+      "ref": "refs/heads/stage25-controlled-first-boot",
+      "commit": "f929bdf2353e0022f10c164d2c09cb3db2564a5a"
+    },
+    {
+      "ref": "refs/heads/stage26-installation-readiness",
+      "commit": "968c8e0aaf459b0b8b652cc57fe88225894ab64b"
+    },
+    {
+      "ref": "refs/heads/stage27b-duckyscript3-offline",
+      "commit": "a570786a932bdf2312061d9a2e6105c0dcb89f3b"
+    },
+    {
+      "ref": "refs/heads/stage28a-expression-function-continuations",
+      "commit": "9422ac34c3c7954c0be07076ee2ee719378b783d"
+    },
+    {
+      "ref": "refs/heads/stage28b-bounded-multiline-strings",
+      "commit": "e184f2837d008d2d732b97dcd5aab839bec3f502"
+    },
+    {
+      "ref": "refs/heads/stage28c-cooperative-source-preflight",
+      "commit": "aff427ab6346433729487e5359d101ea764e5357"
+    },
+    {
+      "ref": "refs/heads/stage28d-mock-keyboard-report-planning",
+      "commit": "d44582884da33c4028612fa595e07384a08f9c84"
+    },
+    {
+      "ref": "refs/heads/stage28e-mock-runtime-planner-bridge",
+      "commit": "b23fc8b6bf8f5ff1deb5f0eb83abe7058d29eaa5"
+    },
+    {
+      "ref": "refs/heads/stage28f-mock-ownership-commands",
+      "commit": "3650caf7c66d5742d39a939fa0c8495be11d3b1b"
+    },
+    {
+      "ref": "refs/heads/stage28g-modifier-contract-mock",
+      "commit": "7d391c0900eb4c5eba730abc3143008dcdeb1ae1"
+    },
+    {
+      "ref": "refs/heads/stage28h-host-validation-kit",
+      "commit": "28857c2b1895f96a8e29c5fd69a69495237a1347"
+    },
+    {
+      "ref": "refs/heads/stage28i-integration-readiness-audit",
+      "commit": "220970bc633d969e76d1d8c91750b5939377df0a"
+    },
+    {
+      "ref": "refs/heads/stage28j-integration-contract-review",
+      "commit": "dce42b8664c2964019cf4b488388d08b2b7fc2d0"
+    },
+    {
+      "ref": "refs/heads/stage28k-synthetic-report-journal",
+      "commit": "4532c9c5d386aa0d4a1c83cd7eeaef495f0c6e8b"
+    },
+    {
+      "ref": "refs/heads/stage28l-transport-ownership-design",
+      "commit": "9b8c2b0e76ac37c63f86a51f1a573a8466ca5669"
+    },
+    {
+      "ref": "refs/heads/stage28m-synthetic-transport-state",
+      "commit": "50ec41349136bfaddbac6a44622c3c25e2ce42e3"
+    },
+    {
+      "ref": "refs/heads/stage28n-pinned-usb-components",
+      "commit": "300c8dc649efce448d931d0b7bbfdba2a46d4e97"
+    },
+    {
+      "ref": "refs/heads/stage28o-native-tagged-transfer-prototype",
+      "commit": "d57e9d1a2b7280f0b5f415d93ae9e7d23db54871"
+    },
+    {
+      "ref": "refs/heads/stage28p-builder-dcd-lifecycle",
+      "commit": "f1ca7ffdfc5499a1ffd7dff4b126b0024e022c25"
+    },
+    {
+      "ref": "refs/heads/stage28q-endpoint-retirement-fence",
+      "commit": "9afdeabffae32186e56fe7012cf5f639bb88dec9"
+    },
+    {
+      "ref": "refs/heads/stage28r-transport-decision-language-roadmap",
+      "commit": "6c186219c9ef7037f3ecab9bae44179421fd1278"
+    },
+    {
+      "ref": "refs/heads/stage28s-native-runtime-scheduler",
+      "commit": "5355b4dd76fe57884fb9036348f218dd28634958"
+    },
+    {
+      "ref": "refs/heads/stage28t-native-real-backend-route-b",
+      "commit": "3e450127f7e6e1664a97be1107a18253844bfe35"
+    },
+    {
+      "ref": "refs/heads/stage28u-portable-coordinator-file-dispatch",
+      "commit": "967596476dfe0dde5e824c8f6d1b2ba543502443"
+    },
+    {
+      "ref": "refs/heads/stage28v-service-ownership-controlled-candidate",
+      "commit": "3144c9bdf7b78a4f75d6861fdffa0707c755fffc"
+    },
+    {
+      "ref": "refs/heads/stage28w-framework-boundary-controlled-link",
+      "commit": "606098b1158c216f7c5e205cd81debcb9661e04d"
+    },
+    {
+      "ref": "refs/heads/stage28x-instrumented-validation-candidate",
+      "commit": "134b295deaebcb93f94beb63f2d46f102a7d6555"
+    },
+    {
+      "ref": "refs/heads/stage28y-public-download",
+      "commit": "79c964d4f32a41f1295f2f96ebce8a42a8061c05"
+    },
+    {
+      "ref": "refs/heads/stage28y-verified-artifact-package",
+      "commit": "ebf6668e6b105e5c6b188f46fe6ec73007aa3804"
+    },
+    {
+      "ref": "refs/heads/stage4-duckyscript-migration",
+      "commit": "c3e9c34f887015a6c8bcc3146835ebac54432b58"
+    },
+    {
+      "ref": "refs/heads/stage5-duckyscript-while",
+      "commit": "1222fc6fb9307dd9680493b189b595cdd0c91b2f"
+    },
+    {
+      "ref": "refs/heads/stage6-duckyscript-functions",
+      "commit": "b636495a786554afdf3512bee788c6faaa26b229"
+    },
+    {
+      "ref": "refs/heads/stage7-duckyscript-multiline",
+      "commit": "68f44b7a7bd1478064b32316fa49a62f68d8527b"
+    },
+    {
+      "ref": "refs/heads/stage8-duckyscript-hid-locale",
+      "commit": "d59562b7d08ff7833cbe1eddb07c32359138faac"
+    },
+    {
+      "ref": "refs/heads/stage9-duckyscript-compatibility-audit",
+      "commit": "24e8a88f56dd4445d7d69924220f7dc2d66f0fa2"
+    }
+  ],
+  "no_hardware_or_owner_files": true,
+  "self_hash_excluded": true
+}

@@ -1,0 +1,30 @@
+{
+  "run_id": "OWNER TO ASSIGN",
+  "status": "NOT TESTED",
+  "os_build": null,
+  "security_product_and_version": null,
+  "enabled_policy": null,
+  "controls_kept_enabled": null,
+  "firmware_source_commit": null,
+  "firmware_sha256": null,
+  "helper_source_sha256": null,
+  "helper_binary_sha256": null,
+  "permissions_and_denials": null,
+  "transport": null,
+  "expected_fake_message": "EVILDUCK TEST 123",
+  "started_utc": null,
+  "ended_utc": null,
+  "sent_payload_bytes": null,
+  "received_payload_bytes": null,
+  "integrity_result": "NOT TESTED",
+  "capture_result": "NOT TESTED",
+  "delivery_result": "NOT TESTED",
+  "defense_observation": "NOT TESTED",
+  "outcome_choices": [
+    "helper failed to start", "permission denied", "capture unavailable",
+    "reflection unsupported", "receiver error/overflow",
+    "delivered with no observed alert", "observed alert with delivery",
+    "confirmed prevention with supporting evidence"
+  ],
+  "privacy": "Do not include credentials, unrelated input, private paths or private files. No automatic upload."
+}
