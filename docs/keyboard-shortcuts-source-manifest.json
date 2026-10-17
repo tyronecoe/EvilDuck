@@ -1,0 +1,76 @@
+{
+  "base": "6280b1d7b465f5d29800fa230ab60f3b04bf77c4",
+  "patch_sha256": "bfe787fa352e5bf7a0a9a5e8a1c427ada4435d9f85247f02bb9b3a7f7ce05f6f",
+  "before": [
+    {
+      "file": "core.h",
+      "sha256": "568c46ae2c349494b0b1c506949bd82607aa8eecadd399fcfbd05f0aff791b8f"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "13ae21bce856910ce1ea1f33a1f840ee7a5597062667fb58bfe2489c9b664dc7"
+    },
+    {
+      "file": "adapter.cpp",
+      "sha256": "a96e5f0b697ca84b085f660ef48817649d56a4ab9c10549d5da1c50cbfc03f5b"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "6c742b17945446d6ecf9f1c9b0a193b36deabea873279eb63edee08fb94e331e"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "3bd0d0557e72dfa37c86f699f779b279639fff450e109689a9d4971666c64a4b"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c576d65b8de42c6c91016eaeec2392fed952f83eaa2aa4f91376967afca36166"
+    },
+    {
+      "file": "bridge.cpp",
+      "sha256": "1bb2d70060fae1d210092ce650436664fe3d01f2cb9cbb918877cb64368d82e1"
+    },
+    {
+      "file": "keyboard.cpp",
+      "sha256": "28b828f7da5b36f4ce6a9977df1fa41277b197fbfb43cee6a3f21d4e5b3b09ae"
+    }
+  ],
+  "after": [
+    {
+      "file": "core.h",
+      "sha256": "e8257707fc3b684b1c6f04a633e08135baf33319fbe12e62a6b632f8383a3349"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "6af6469b224bfc5c494333becd0e00442fbc3a58643206b21fe7555af212c198"
+    },
+    {
+      "file": "adapter.cpp",
+      "sha256": "af95747ed5974a33ab55a6416c348c43f7a094186194aeec605c2c486c692f96"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "e11d860b97d7398181102b5b816154ae17a369cf75819d79c4fab78bcf586e7c"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "76ebc7bf175bb88ded67e509a37901f42325eca590b0ec0f41eb107afaff323f"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "9ac01a3e9fee80ab8d3c2791579762578f3f0df14a4f8875b6f6fe97f90fc193"
+    },
+    {
+      "file": "bridge.cpp",
+      "sha256": "6a74cb7367bb0827dc0af03267f0fde1e74b7de104b401c3b44a6f9e1a8ceff1"
+    },
+    {
+      "file": "keyboard.cpp",
+      "sha256": "0d61a025ce174a6f940a77fbb56e83195507da10d640432a2621b9e597b3bcf9"
+    },
+    {
+      "file": "shortcut_keys.h",
+      "sha256": "af11e3d20251747062ffc8415d81c600bc023e604d9b54acfa488c0128711707"
+    }
+  ]
+}

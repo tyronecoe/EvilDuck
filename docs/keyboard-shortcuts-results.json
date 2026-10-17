@@ -1,0 +1,2379 @@
+{
+  "counts": {
+    "PASS": 202,
+    "FAIL": 0
+  },
+  "assertions": 398016,
+  "suites": {
+    "native_composed": {
+      "counts": {
+        "PASS": 105,
+        "FAIL": 0
+      },
+      "assertions": 2500,
+      "results": [
+        {
+          "id": "K01",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS K01 (24 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K02",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS K02 (24 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K03",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 126,
+          "stdout": "PASS K03 (126 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K04",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 75,
+          "stdout": "PASS K04 (75 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K05",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 415,
+          "stdout": "PASS K05 (415 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K06",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 381,
+          "stdout": "PASS K06 (381 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K07",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 92,
+          "stdout": "PASS K07 (92 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K08",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 75,
+          "stdout": "PASS K08 (75 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K09",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 19,
+          "stdout": "PASS K09 (19 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K10",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 43,
+          "stdout": "PASS K10 (43 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K11",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS K11 (11 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K12",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 75,
+          "stdout": "PASS K12 (75 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K13",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 41,
+          "stdout": "PASS K13 (41 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K14",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 25,
+          "stdout": "PASS K14 (25 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K15",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 25,
+          "stdout": "PASS K15 (25 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K16",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS K16 (24 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K17",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS K17 (24 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K18",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS K18 (24 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K19",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS K19 (6 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K20",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS K20 (6 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K21",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS K21 (6 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K22",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 28,
+          "stdout": "PASS K22 (28 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K23",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 30,
+          "stdout": "PASS K23 (30 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "K24",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 36,
+          "stdout": "PASS K24 (36 assertions)\n",
+          "stderr": "",
+          "group": "new_shortcuts"
+        },
+        {
+          "id": "W01",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS W01 (6 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W02",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W02 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W03",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W03 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W04",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W04 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W05",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS W05 (12 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W06",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS W06 (7 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W07",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W07 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W08",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W08 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W09",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS W09 (6 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W10",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS W10 (6 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W11",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 94,
+          "stdout": "PASS W11 (94 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W12",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 14,
+          "stdout": "PASS W12 (14 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W13",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W13 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W14",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS W14 (7 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W15",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 13,
+          "stdout": "PASS W15 (13 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W16",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS W16 (12 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W17",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W17 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W18",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W18 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W19",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS W19 (6 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W20",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W20 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W21",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS W21 (12 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W22",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W22 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W23",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W23 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W24",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W24 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W25",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 10,
+          "stdout": "PASS W25 (10 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W26",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS W26 (7 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W27",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W27 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W28",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W28 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W29",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W29 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W30",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W30 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W31",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W31 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W32",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS W32 (8 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W33",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS W33 (7 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "W34",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS W34 (9 assertions)\n",
+          "stderr": "",
+          "group": "unchanged_w"
+        },
+        {
+          "id": "T01",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 63,
+          "stdout": "PASS T01 (63 assertions)\nTRACE {\"programs\":[\"STRING aa\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":297,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T02",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 63,
+          "stdout": "PASS T02 (63 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":297,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T03",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS T03 (9 assertions)\nTRACE {\"programs\":[\"STRINGLN\\n\\t !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\\t\\nEND_STRINGLN\\n\"],\"session\":1,\"admissions\":97,\"local_acks\":97,\"retries\":1064,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":30,\"cpp_new_bytes_with_fixture\":11107,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,44,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":19,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,30,0,0,0,0,0]},{\"at\":25,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":31,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,52,0,0,0,0,0]},{\"at\":37,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":43,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,32,0,0,0,0,0]},{\"at\":49,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":55,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,33,0,0,0,0,0]},{\"at\":61,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":67,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,34,0,0,0,0,0]},{\"at\":73,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":79,\"session\":1,\"operation\":7,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,36,0,0,0,0,0]},{\"at\":85,\"session\":1,\"operation\":7,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":91,\"session\":1,\"operation\":8,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,52,0,0,0,0,0]},{\"at\":97,\"session\":1,\"operation\":8,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":103,\"session\":1,\"operation\":9,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,38,0,0,0,0,0]},{\"at\":109,\"session\":1,\"operation\":9,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":115,\"session\":1,\"operation\":10,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,39,0,0,0,0,0]},{\"at\":121,\"session\":1,\"operation\":10,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":127,\"session\":1,\"operation\":11,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,37,0,0,0,0,0]},{\"at\":133,\"session\":1,\"operation\":11,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":139,\"session\":1,\"operation\":12,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,46,0,0,0,0,0]},{\"at\":145,\"session\":1,\"operation\":12,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":151,\"session\":1,\"operation\":13,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,54,0,0,0,0,0]},{\"at\":157,\"session\":1,\"operation\":13,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":163,\"session\":1,\"operation\":14,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,45,0,0,0,0,0]},{\"at\":169,\"session\":1,\"operation\":14,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":175,\"session\":1,\"operation\":15,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,55,0,0,0,0,0]},{\"at\":181,\"session\":1,\"operation\":15,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":187,\"session\":1,\"operation\":16,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,56,0,0,0,0,0]},{\"at\":193,\"session\":1,\"operation\":16,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":199,\"session\":1,\"operation\":17,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,39,0,0,0,0,0]},{\"at\":205,\"session\":1,\"operation\":17,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":211,\"session\":1,\"operation\":18,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,30,0,0,0,0,0]},{\"at\":217,\"session\":1,\"operation\":18,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":223,\"session\":1,\"operation\":19,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,31,0,0,0,0,0]},{\"at\":229,\"session\":1,\"operation\":19,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":235,\"session\":1,\"operation\":20,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,32,0,0,0,0,0]},{\"at\":241,\"session\":1,\"operation\":20,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":247,\"session\":1,\"operation\":21,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,33,0,0,0,0,0]},{\"at\":253,\"session\":1,\"operation\":21,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":259,\"session\":1,\"operation\":22,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,34,0,0,0,0,0]},{\"at\":265,\"session\":1,\"operation\":22,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":271,\"session\":1,\"operation\":23,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,35,0,0,0,0,0]},{\"at\":277,\"session\":1,\"operation\":23,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":283,\"session\":1,\"operation\":24,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,36,0,0,0,0,0]},{\"at\":289,\"session\":1,\"operation\":24,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":295,\"session\":1,\"operation\":25,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,37,0,0,0,0,0]},{\"at\":301,\"session\":1,\"operation\":25,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":307,\"session\":1,\"operation\":26,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,38,0,0,0,0,0]},{\"at\":313,\"session\":1,\"operation\":26,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":319,\"session\":1,\"operation\":27,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,51,0,0,0,0,0]},{\"at\":325,\"session\":1,\"operation\":27,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":331,\"session\":1,\"operation\":28,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,51,0,0,0,0,0]},{\"at\":337,\"session\":1,\"operation\":28,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":343,\"session\":1,\"operation\":29,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,54,0,0,0,0,0]},{\"at\":349,\"session\":1,\"operation\":29,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":355,\"session\":1,\"operation\":30,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,46,0,0,0,0,0]},{\"at\":361,\"session\":1,\"operation\":30,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":367,\"session\":1,\"operation\":31,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,55,0,0,0,0,0]},{\"at\":373,\"session\":1,\"operation\":31,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":379,\"session\":1,\"operation\":32,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,56,0,0,0,0,0]},{\"at\":385,\"session\":1,\"operation\":32,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":391,\"session\":1,\"operation\":33,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,31,0,0,0,0,0]},{\"at\":397,\"session\":1,\"operation\":33,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":403,\"session\":1,\"operation\":34,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,4,0,0,0,0,0]},{\"at\":409,\"session\":1,\"operation\":34,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":415,\"session\":1,\"operation\":35,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,5,0,0,0,0,0]},{\"at\":421,\"session\":1,\"operation\":35,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":427,\"session\":1,\"operation\":36,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,6,0,0,0,0,0]},{\"at\":433,\"session\":1,\"operation\":36,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":439,\"session\":1,\"operation\":37,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,7,0,0,0,0,0]},{\"at\":445,\"session\":1,\"operation\":37,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":451,\"session\":1,\"operation\":38,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,8,0,0,0,0,0]},{\"at\":457,\"session\":1,\"operation\":38,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":463,\"session\":1,\"operation\":39,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,9,0,0,0,0,0]},{\"at\":469,\"session\":1,\"operation\":39,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":475,\"session\":1,\"operation\":40,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,10,0,0,0,0,0]},{\"at\":481,\"session\":1,\"operation\":40,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":487,\"session\":1,\"operation\":41,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,11,0,0,0,0,0]},{\"at\":493,\"session\":1,\"operation\":41,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":499,\"session\":1,\"operation\":42,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,12,0,0,0,0,0]},{\"at\":505,\"session\":1,\"operation\":42,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":511,\"session\":1,\"operation\":43,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,13,0,0,0,0,0]},{\"at\":517,\"session\":1,\"operation\":43,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":523,\"session\":1,\"operation\":44,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,14,0,0,0,0,0]},{\"at\":529,\"session\":1,\"operation\":44,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":535,\"session\":1,\"operation\":45,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,15,0,0,0,0,0]},{\"at\":541,\"session\":1,\"operation\":45,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":547,\"session\":1,\"operation\":46,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,16,0,0,0,0,0]},{\"at\":553,\"session\":1,\"operation\":46,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":559,\"session\":1,\"operation\":47,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,17,0,0,0,0,0]},{\"at\":565,\"session\":1,\"operation\":47,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":571,\"session\":1,\"operation\":48,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,18,0,0,0,0,0]},{\"at\":577,\"session\":1,\"operation\":48,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":583,\"session\":1,\"operation\":49,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,19,0,0,0,0,0]},{\"at\":589,\"session\":1,\"operation\":49,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":595,\"session\":1,\"operation\":50,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,20,0,0,0,0,0]},{\"at\":601,\"session\":1,\"operation\":50,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":607,\"session\":1,\"operation\":51,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,21,0,0,0,0,0]},{\"at\":613,\"session\":1,\"operation\":51,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":619,\"session\":1,\"operation\":52,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,22,0,0,0,0,0]},{\"at\":625,\"session\":1,\"operation\":52,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":631,\"session\":1,\"operation\":53,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,23,0,0,0,0,0]},{\"at\":637,\"session\":1,\"operation\":53,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":643,\"session\":1,\"operation\":54,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,24,0,0,0,0,0]},{\"at\":649,\"session\":1,\"operation\":54,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":655,\"session\":1,\"operation\":55,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,25,0,0,0,0,0]},{\"at\":661,\"session\":1,\"operation\":55,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":667,\"session\":1,\"operation\":56,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,26,0,0,0,0,0]},{\"at\":673,\"session\":1,\"operation\":56,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":679,\"session\":1,\"operation\":57,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,27,0,0,0,0,0]},{\"at\":685,\"session\":1,\"operation\":57,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":691,\"session\":1,\"operation\":58,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,28,0,0,0,0,0]},{\"at\":697,\"session\":1,\"operation\":58,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":703,\"session\":1,\"operation\":59,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,29,0,0,0,0,0]},{\"at\":709,\"session\":1,\"operation\":59,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":715,\"session\":1,\"operation\":60,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,47,0,0,0,0,0]},{\"at\":721,\"session\":1,\"operation\":60,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":727,\"session\":1,\"operation\":61,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,49,0,0,0,0,0]},{\"at\":733,\"session\":1,\"operation\":61,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":739,\"session\":1,\"operation\":62,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,48,0,0,0,0,0]},{\"at\":745,\"session\":1,\"operation\":62,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":751,\"session\":1,\"operation\":63,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,35,0,0,0,0,0]},{\"at\":757,\"session\":1,\"operation\":63,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":763,\"session\":1,\"operation\":64,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,45,0,0,0,0,0]},{\"at\":769,\"session\":1,\"operation\":64,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":775,\"session\":1,\"operation\":65,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,53,0,0,0,0,0]},{\"at\":781,\"session\":1,\"operation\":65,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":787,\"session\":1,\"operation\":66,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":793,\"session\":1,\"operation\":66,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":799,\"session\":1,\"operation\":67,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":805,\"session\":1,\"operation\":67,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":811,\"session\":1,\"operation\":68,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,6,0,0,0,0,0]},{\"at\":817,\"session\":1,\"operation\":68,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":823,\"session\":1,\"operation\":69,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,7,0,0,0,0,0]},{\"at\":829,\"session\":1,\"operation\":69,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":835,\"session\":1,\"operation\":70,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,8,0,0,0,0,0]},{\"at\":841,\"session\":1,\"operation\":70,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":847,\"session\":1,\"operation\":71,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,9,0,0,0,0,0]},{\"at\":853,\"session\":1,\"operation\":71,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":859,\"session\":1,\"operation\":72,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,10,0,0,0,0,0]},{\"at\":865,\"session\":1,\"operation\":72,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":871,\"session\":1,\"operation\":73,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,11,0,0,0,0,0]},{\"at\":877,\"session\":1,\"operation\":73,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":883,\"session\":1,\"operation\":74,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,12,0,0,0,0,0]},{\"at\":889,\"session\":1,\"operation\":74,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":895,\"session\":1,\"operation\":75,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,13,0,0,0,0,0]},{\"at\":901,\"session\":1,\"operation\":75,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":907,\"session\":1,\"operation\":76,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,14,0,0,0,0,0]},{\"at\":913,\"session\":1,\"operation\":76,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":919,\"session\":1,\"operation\":77,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,15,0,0,0,0,0]},{\"at\":925,\"session\":1,\"operation\":77,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":931,\"session\":1,\"operation\":78,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,16,0,0,0,0,0]},{\"at\":937,\"session\":1,\"operation\":78,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":943,\"session\":1,\"operation\":79,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,17,0,0,0,0,0]},{\"at\":949,\"session\":1,\"operation\":79,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":955,\"session\":1,\"operation\":80,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,18,0,0,0,0,0]},{\"at\":961,\"session\":1,\"operation\":80,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":967,\"session\":1,\"operation\":81,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,19,0,0,0,0,0]},{\"at\":973,\"session\":1,\"operation\":81,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":979,\"session\":1,\"operation\":82,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,20,0,0,0,0,0]},{\"at\":985,\"session\":1,\"operation\":82,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":991,\"session\":1,\"operation\":83,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,21,0,0,0,0,0]},{\"at\":997,\"session\":1,\"operation\":83,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1003,\"session\":1,\"operation\":84,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,22,0,0,0,0,0]},{\"at\":1009,\"session\":1,\"operation\":84,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1015,\"session\":1,\"operation\":85,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,23,0,0,0,0,0]},{\"at\":1021,\"session\":1,\"operation\":85,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1027,\"session\":1,\"operation\":86,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,24,0,0,0,0,0]},{\"at\":1033,\"session\":1,\"operation\":86,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1039,\"session\":1,\"operation\":87,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,25,0,0,0,0,0]},{\"at\":1045,\"session\":1,\"operation\":87,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1051,\"session\":1,\"operation\":88,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,26,0,0,0,0,0]},{\"at\":1057,\"session\":1,\"operation\":88,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1063,\"session\":1,\"operation\":89,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,27,0,0,0,0,0]},{\"at\":1069,\"session\":1,\"operation\":89,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1075,\"session\":1,\"operation\":90,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,28,0,0,0,0,0]},{\"at\":1081,\"session\":1,\"operation\":90,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1087,\"session\":1,\"operation\":91,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,29,0,0,0,0,0]},{\"at\":1093,\"session\":1,\"operation\":91,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1099,\"session\":1,\"operation\":92,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,47,0,0,0,0,0]},{\"at\":1105,\"session\":1,\"operation\":92,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1111,\"session\":1,\"operation\":93,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,49,0,0,0,0,0]},{\"at\":1117,\"session\":1,\"operation\":93,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1123,\"session\":1,\"operation\":94,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,48,0,0,0,0,0]},{\"at\":1129,\"session\":1,\"operation\":94,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1135,\"session\":1,\"operation\":95,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,53,0,0,0,0,0]},{\"at\":1141,\"session\":1,\"operation\":95,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1147,\"session\":1,\"operation\":96,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,43,0,0,0,0,0]},{\"at\":1153,\"session\":1,\"operation\":96,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1157,\"session\":1,\"operation\":97,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,40,0,0,0,0,0]},{\"at\":1163,\"session\":1,\"operation\":97,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1166,\"session\":1,\"operation\":97,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T04",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS T04 (18 assertions)\nTRACE {\"programs\":[\"ENTER\\nTAB\\nSPACE\\nESCAPE\\nBACKSPACE\\nDELETE\\nUPARROW\\nDOWNARROW\\nLEFTARROW\\nRIGHTARROW\\n\"],\"session\":1,\"admissions\":10,\"local_acks\":10,\"retries\":80,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":15,\"cpp_new_bytes_with_fixture\":1449,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":3,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,40,0,0,0,0,0]},{\"at\":9,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,43,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,44,0,0,0,0,0]},{\"at\":27,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":30,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,41,0,0,0,0,0]},{\"at\":36,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":39,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,42,0,0,0,0,0]},{\"at\":45,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":48,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,76,0,0,0,0,0]},{\"at\":54,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":57,\"session\":1,\"operation\":7,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,82,0,0,0,0,0]},{\"at\":63,\"session\":1,\"operation\":7,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":66,\"session\":1,\"operation\":8,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,81,0,0,0,0,0]},{\"at\":72,\"session\":1,\"operation\":8,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":75,\"session\":1,\"operation\":9,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,80,0,0,0,0,0]},{\"at\":81,\"session\":1,\"operation\":9,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":84,\"session\":1,\"operation\":10,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,79,0,0,0,0,0]},{\"at\":90,\"session\":1,\"operation\":10,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":92,\"session\":1,\"operation\":10,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T05",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T05 (8 assertions)\nTRACE {\"programs\":[\"VAR $n = 0\\nFUNCTION f()\\nSTRING a\\nRETURN 1\\nEND_FUNCTION\\nWHILE $n < 3\\nIF f() == 1 THEN\\nSTRING b\\nEND_IF\\n$n = $n + 1\\nEND_WHILE\\n\"],\"session\":1,\"admissions\":6,\"local_acks\":6,\"retries\":66,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":13,\"cpp_new_bytes_with_fixture\":897,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":23,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":37,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":43,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":64,\"session\":1,\"operation\":3,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":70,\"session\":1,\"operation\":3,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":84,\"session\":1,\"operation\":4,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":90,\"session\":1,\"operation\":4,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":111,\"session\":1,\"operation\":5,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":117,\"session\":1,\"operation\":5,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":131,\"session\":1,\"operation\":6,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":137,\"session\":1,\"operation\":6,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":152,\"session\":1,\"operation\":6,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T06",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T06 (3 assertions)\nTRACE {\"programs\":[\"STRING X\\nVAR $n = (1 + )\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":3,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":3,\"cpp_new_bytes_with_fixture\":84,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T07",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T07 (3 assertions)\nTRACE {\"programs\":[\"IF FALSE THEN\\nHOLD a\\nEND_IF\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":5,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":3,\"cpp_new_bytes_with_fixture\":90,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T08",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T08 (3 assertions)\nTRACE {\"programs\":[\"STRING ??\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":5,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":1,\"cpp_new_bytes_with_fixture\":32,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T09",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T09 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":1,\"cpp_new_bytes_with_fixture\":32,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T10",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T10 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":1,\"cpp_new_bytes_with_fixture\":32,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T11",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T11 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":16,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":11,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T12",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T12 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":11,\"cpp_new_bytes_with_fixture\":485,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T13",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T13 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":14,\"cpp_new_bytes_with_fixture\":526,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":2,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T14",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T14 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":14,\"cpp_new_bytes_with_fixture\":526,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T15",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T15 (11 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":10,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":15,\"cpp_new_bytes_with_fixture\":590,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":2,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T16",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T16 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":16,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T17",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T17 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":3,\"cpp_new_bytes_with_fixture\":80,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":5,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T18",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T18 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T19",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T19 (6 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":9,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":11,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T20",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T20 (7 assertions)\nTRACE {\"programs\":[\"STRING ab\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":11,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T21",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T21 (6 assertions)\nTRACE {\"programs\":[\"DELAY 50\\nSTRING BAD\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":1,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":5,\"cpp_new_bytes_with_fixture\":122,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":4,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T22",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T22 (6 assertions)\nTRACE {\"programs\":[\"STRING a\\nSTOP_PAYLOAD\\nSTRING BAD\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":221,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T23",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T23 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":4,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":14,\"cpp_new_bytes_with_fixture\":526,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T24",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T24 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":4,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":23,\"cpp_new_bytes_with_fixture\":893,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T25",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 15,
+          "stdout": "PASS T25 (15 assertions)\nTRACE {\"programs\":[\"STRING a\\n\",\"STRING b\\n\"],\"session\":2,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":4,\"clear_submitted\":4,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":9,\"cpp_new_bytes_with_fixture\":361,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":2,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":23,\"session\":2,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":29,\"session\":2,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":33,\"session\":2,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T26",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS T26 (6 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":12,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":2,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":5,\"cpp_new_bytes_with_fixture\":89,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":1,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T27",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS T27 (9 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T28",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T28 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":9,\"fault\":10,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":21,\"cpp_new_bytes_with_fixture\":884,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T29",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T29 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":7,\"cpp_new_bytes_with_fixture\":281,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T30",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T30 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":19,\"cpp_new_bytes_with_fixture\":611,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":21,\"session\":0,\"operation\":0,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":27,\"session\":0,\"operation\":0,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T31",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T31 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":16,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T32",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS T32 (12 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":4,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T33",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T33 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":8,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T35",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T35 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":9,\"fault\":7,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T36",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T36 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":9,\"fault\":7,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":6,\"cpp_new_bytes_with_fixture\":153,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Wait\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T37",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T37 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":9,\"fault\":11,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":3,\"cpp_new_bytes_with_fixture\":80,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":1006,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T38",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS T38 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":4,\"delay_acks\":0,\"state\":10,\"fault\":12,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":5,\"cpp_new_bytes_with_fixture\":89,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T39",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T39 (8 assertions)\nTRACE {\"programs\":[\"DELAY 20\\nSTRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":1,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":191,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":4294967285,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T40",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS T40 (3 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":0,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":3,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":0,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":1,\"cpp_new_bytes_with_fixture\":32,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T41",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS T41 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":9,\"fault\":8,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":3,\"cpp_new_bytes_with_fixture\":80,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":3,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T42",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS T42 (5 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":0,\"local_acks\":0,\"retries\":0,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":6,\"first_operation\":0,\"clear_request\":1,\"clear_submitted\":0,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":19,\"cpp_new_bytes_with_fixture\":836,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T43",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS T43 (7 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":297,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[2,0,4,0,0,0,0,0]},{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T44",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T44 (11 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":72,\"cpp_new_bytes_with_fixture\":1633,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":1,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":7,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":13,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":17,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":29,\"session\":0,\"operation\":0,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,5,0,0,0,0,0]},{\"at\":35,\"session\":0,\"operation\":0,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T45",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS T45 (9 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":0,\"retries\":3,\"delay_acks\":0,\"state\":10,\"fault\":10,\"quarantined\":true,\"first_kind\":3,\"first_operation\":1,\"clear_request\":1,\"clear_submitted\":1,\"denied\":0,\"overflow_attempts\":1,\"cpp_new_calls_with_fixture\":11,\"cpp_new_bytes_with_fixture\":485,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T46",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 11,
+          "stdout": "PASS T46 (11 assertions)\nTRACE {\"programs\":[\"STRING aa\\n\"],\"session\":1,\"admissions\":2,\"local_acks\":2,\"retries\":22,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":1,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":297,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":18,\"session\":1,\"operation\":2,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":24,\"session\":1,\"operation\":2,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":28,\"session\":1,\"operation\":2,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "T47",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS T47 (8 assertions)\nTRACE {\"programs\":[\"STRING a\\n\"],\"session\":1,\"admissions\":1,\"local_acks\":1,\"retries\":11,\"delay_acks\":0,\"state\":7,\"fault\":0,\"quarantined\":false,\"first_kind\":0,\"first_operation\":0,\"clear_request\":2,\"clear_submitted\":2,\"denied\":0,\"overflow_attempts\":0,\"cpp_new_calls_with_fixture\":8,\"cpp_new_bytes_with_fixture\":297,\"backend_shared_bytes\":136,\"backend_thread_bytes\":24,\"adapter_bytes\":22608,\"calls\":[{\"at\":0,\"session\":0,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":0,\"session\":1,\"operation\":0,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":6,\"session\":1,\"operation\":1,\"phase\":\"Press\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,4,0,0,0,0,0]},{\"at\":12,\"session\":1,\"operation\":1,\"phase\":\"Release\",\"clear\":false,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]},{\"at\":16,\"session\":1,\"operation\":1,\"phase\":\"Idle\",\"clear\":true,\"outcome\":0,\"id\":1,\"instance\":0,\"bytes\":[0,0,0,0,0,0,0,0]}]}\n",
+          "stderr": "",
+          "group": "unchanged_t"
+        },
+        {
+          "id": "K25",
+          "group": "new_shortcuts",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 25,
+          "stdout": "PASS K25 (25 assertions)\n",
+          "stderr": "",
+          "command": [
+            "g++",
+            "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+            "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+            "-I/workspace/EvilDuck-stage6/tests/stage28x",
+            "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+            "-I/workspace/EvilDuck-stage6/tests/stage28w/mocks",
+            "-DEVILDUCK_CONTROLLED_START=1",
+            "-DCONFIG_TINYUSB_MSC_ENABLED=1",
+            "-DCONFIG_TINYUSB_MSC_BUFSIZE=512",
+            "-Wno-unused-function",
+            "-Wno-unused-variable",
+            "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+            "-I/workspace/tooling/stage19-sdk-source/components/nvs_flash/include",
+            "-I/workspace/tooling/stage19-sdk-source/components/esp_common/include",
+            "-I/workspace/EvilDuck-stage6/tests/stage19/mocks",
+            "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+            "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+            "-DEVILDUCK_PRODUCTION_STORAGE",
+            "-DEVILDUCK_PORTABLE_ROUTE_B",
+            "-std=c++17",
+            "-O1",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-Wno-misleading-indentation",
+            "-pthread",
+            "-DEVILDUCK_HOST_TEST",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-fno-pie",
+            "-no-pie",
+            "--coverage",
+            "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+            "-I/workspace/EvilDuck-stage6/tests/stage28t",
+            "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+            "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+            "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+            "/workspace/EvilDuck-stage6/tests/keyboard_shortcuts/test_main.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/platform.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/com.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/hid_backend.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/duckscript.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/keyboard_locale.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/cli.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+            "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/adapter.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/file_source.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/coordinator.cpp",
+            "/workspace/EvilDuck-stage6/tests/stage28v/lower.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/attackmode.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+            "/workspace/EvilDuck-stage6/tests/stage28x/allocations.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/settings.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/storage.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/spiffs.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/sd_card.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/usb_msc.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/led.cpp",
+            "/workspace/tooling/shortcuts-dev/native-complete/sources/script_library.cpp",
+            "/workspace/EvilDuck-stage6/tests/stage28v/nvs_fixture.cpp",
+            "/workspace/EvilDuck-stage6/tests/stage28w/boot_fixture.cpp",
+            "/workspace/EvilDuck-stage6/tests/stage28x/diagnostics.cpp",
+            "-o",
+            "/workspace/tooling/shortcuts-dev/k25-final"
+          ]
+        }
+      ]
+    },
+    "bridge": {
+      "counts": {
+        "PASS": 8,
+        "FAIL": 0
+      },
+      "assertions": 166,
+      "results": [
+        {
+          "id": "B01",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 31,
+          "stdout": "PASS B01 (31 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B02",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS B02 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B03",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS B03 (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B04",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS B04 (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B05",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 4,
+          "stdout": "PASS B05 (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B06",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS B06 (7 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B07",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS B07 (9 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "B08",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 99,
+          "stdout": "SIZES Program=6936 Runtime=4888 Bridge=5064 Planner=96\nPASS B08 (99 assertions)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "new_core": {
+      "counts": {
+        "PASS": 3,
+        "FAIL": 0
+      },
+      "assertions": 126,
+      "results": [
+        {
+          "id": "C01",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 36,
+          "stdout": "PASS C01 (36 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "C02",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 75,
+          "stdout": "PASS C02 (75 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "id": "C03",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 15,
+          "stdout": "PASS C03 (15 assertions)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "selected_unchanged_core": {
+      "counts": {
+        "PASS": 86,
+        "FAIL": 0
+      },
+      "assertions": 395224,
+      "results": [
+        {
+          "stage": "stage27b",
+          "id": "harmless_fixture_files",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 13,
+          "stdout": "PASS harmless_fixture_files (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "empty_comments",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 30,
+          "stdout": "PASS empty_comments (30 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "line_endings_whitespace",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS line_endings_whitespace (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "all_numeric_operators",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 168,
+          "stdout": "PASS all_numeric_operators (168 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "precedence_and_grouping",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 88,
+          "stdout": "PASS precedence_and_grouping (88 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "variables_global_redeclaration",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 43,
+          "stdout": "PASS variables_global_redeclaration (43 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "constants_replacement",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 48,
+          "stdout": "PASS constants_replacement (48 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "if_else_chains",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 30,
+          "stdout": "PASS if_else_chains (30 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "while_and_mixed_flow",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 16,
+          "stdout": "PASS while_and_mixed_flow (16 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "inactive_side_effects",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS inactive_side_effects (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "functions_and_returns",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 29,
+          "stdout": "PASS functions_and_returns (29 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "named_key_event_order",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS named_key_event_order (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "delay_clock_and_wrap",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 13,
+          "stdout": "PASS delay_clock_and_wrap (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "retry_does_not_duplicate",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 9,
+          "stdout": "PASS retry_does_not_duplicate (9 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "cancellation_and_sink_errors",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 32,
+          "stdout": "PASS cancellation_and_sink_errors (32 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "budgets_and_no_progress",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 21,
+          "stdout": "PASS budgets_and_no_progress (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "clean_sessions_and_borrowing",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS clean_sessions_and_borrowing (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "reentrant_callbacks",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 10,
+          "stdout": "PASS reentrant_callbacks (10 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "malformed_structure_zero_events",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 64,
+          "stdout": "PASS malformed_structure_zero_events (64 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "arithmetic_and_syntax_failures",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 139,
+          "stdout": "PASS arithmetic_and_syntax_failures (139 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "deterministic_source_mutations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 1500,
+          "stdout": "PASS deterministic_source_mutations (1500 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage27b",
+          "id": "no_core_heap_allocations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 4,
+          "stdout": "PASS no_core_heap_allocations (4 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "required_fixture",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS required_fixture (7 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "assignment_forward_nested_arithmetic",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS assignment_forward_nested_arithmetic (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "return_of_call_and_boolean",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS return_of_call_and_boolean (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "if_else_if_selected_calls_only",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 6,
+          "stdout": "PASS if_else_if_selected_calls_only (6 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "while_reevaluation_zero_iteration",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS while_reevaluation_zero_iteration (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "left_to_right_capture_eager_power",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 14,
+          "stdout": "PASS left_to_right_capture_eager_power (14 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "delay_call_single_timing_owner",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS delay_call_single_timing_owner (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "static_void_unknown_arity_zero_output",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 52,
+          "stdout": "PASS static_void_unknown_arity_zero_output (52 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "runtime_void_no_stale_return",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 19,
+          "stdout": "PASS runtime_void_no_stale_return (19 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "arithmetic_results_and_source_mapping",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 31,
+          "stdout": "PASS arithmetic_results_and_source_mapping (31 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "cancellation_stop_suspended_and_restart",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 21,
+          "stdout": "PASS cancellation_stop_suspended_and_restart (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "retry_failure_timeout_and_budget_during_call",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 26,
+          "stdout": "PASS retry_failure_timeout_and_budget_during_call (26 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "bounded_work_cooperative_and_reentrant",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 27,
+          "stdout": "PASS bounded_work_cooperative_and_reentrant (27 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "expression_function_token_limits",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 21,
+          "stdout": "PASS expression_function_token_limits (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "operators_with_function_operands",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 144,
+          "stdout": "PASS operators_with_function_operands (144 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "standalone_inside_value_call_no_leak",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 8,
+          "stdout": "PASS standalone_inside_value_call_no_leak (8 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "cancel_called_delay_and_restart_same_program",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 17,
+          "stdout": "PASS cancel_called_delay_and_restart_same_program (17 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "static_invalid_inactive_and_void_control_flow",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS static_invalid_inactive_and_void_control_flow (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "define_call_and_mixed_function_control",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 10,
+          "stdout": "PASS define_call_and_mixed_function_control (10 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "suspended_clock_timeout_and_sink_exception",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 14,
+          "stdout": "PASS suspended_clock_timeout_and_sink_exception (14 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "static_truth_facts_preserve_eager_calls",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS static_truth_facts_preserve_eager_calls (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28a",
+          "id": "no_heap_multiple_continuations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS no_heap_multiple_continuations (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "official_fixture_files",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 14,
+          "stdout": "PASS official_fixture_files (14 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "inline_commands_unchanged",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS inline_commands_unchanged (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "empty_blank_adjacent",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS empty_blank_adjacent (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "whitespace_preservation",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS whitespace_preservation (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "source_endings_bom_eof",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 33,
+          "stdout": "PASS source_endings_bom_eof (33 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "raw_commands_not_declarations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS raw_commands_not_declarations (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "terminator_lookalikes_literal",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS terminator_lookalikes_literal (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "malformed_structure_zero_events",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 69,
+          "stdout": "PASS malformed_structure_zero_events (69 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "forward_constants_boundaries_literal_hash",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 24,
+          "stdout": "PASS forward_constants_boundaries_literal_hash (24 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "if_else_selection_and_inactive",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS if_else_selection_and_inactive (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "while_zero_one_many",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 18,
+          "stdout": "PASS while_zero_one_many (18 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "forward_nested_expression_function_blocks",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 26,
+          "stdout": "PASS forward_nested_expression_function_blocks (26 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "source_line_arena_code_exact_limits",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 46,
+          "stdout": "PASS source_line_arena_code_exact_limits (46 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "constant_expansion_exact_overflow_locations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 21,
+          "stdout": "PASS constant_expansion_exact_overflow_locations (21 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "compact_instruction_and_blank_metadata_limits",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 13,
+          "stdout": "PASS compact_instruction_and_blank_metadata_limits (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "retry_character_and_enter_exactly_once",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 7,
+          "stdout": "PASS retry_character_and_enter_exactly_once (7 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "cancellation_at_every_output_boundary",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 54,
+          "stdout": "PASS cancellation_at_every_output_boundary (54 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "stop_after_block_and_inactive_stop",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 12,
+          "stdout": "PASS stop_after_block_and_inactive_stop (12 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "sink_failure_exception_body_locations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 28,
+          "stdout": "PASS sink_failure_exception_body_locations (28 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "reentrant_and_cancel_inside_callback",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 13,
+          "stdout": "PASS reentrant_and_cancel_inside_callback (13 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "borrow_simultaneous_restart_revision",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 17,
+          "stdout": "PASS borrow_simultaneous_restart_revision (17 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "clock_wrap_stuck_tick_timeout_steps",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 22,
+          "stdout": "PASS clock_wrap_stuck_tick_timeout_steps (22 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "one_attempt_per_tick_large_loop_text",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3274,
+          "stdout": "PASS one_attempt_per_tick_large_loop_text (3274 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "bounded_seeded_block_mutations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 911,
+          "stdout": "PASS bounded_seeded_block_mutations (911 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28b",
+          "id": "no_heap_block_and_suspended_expressions",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 5,
+          "stdout": "PASS no_heap_block_and_suspended_expressions (5 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "memory_mock_chunk_equivalence",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 4250,
+          "stdout": "PASS memory_mock_chunk_equivalence (4250 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "empty_eof_bom_crlf_boundaries",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 859,
+          "stdout": "PASS empty_eof_bom_crlf_boundaries (859 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "source_line_expansion_boundaries",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 168494,
+          "stdout": "PASS source_line_expansion_boundaries (168494 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "table_and_arena_boundaries",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 37068,
+          "stdout": "PASS table_and_arena_boundaries (37068 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "read_errors_pass_one_two_seek_exception",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 1510,
+          "stdout": "PASS read_errors_pass_one_two_seek_exception (1510 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "zero_progress_retry_invalid_counts",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 177,
+          "stdout": "PASS zero_progress_retry_invalid_counts (177 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "cancel_every_phase_and_restart",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 2552,
+          "stdout": "PASS cancel_every_phase_and_restart (2552 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "partial_line_block_cancel_boundaries",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 800,
+          "stdout": "PASS partial_line_block_cancel_boundaries (800 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "incremental_inventory_validation_work",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 670,
+          "stdout": "PASS incremental_inventory_validation_work (670 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "reentrancy_and_callback_cancellation",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 140,
+          "stdout": "PASS reentrancy_and_callback_cancellation (140 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "runtime_borrow_multiple_sessions_destructor",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 106,
+          "stdout": "PASS runtime_borrow_multiple_sessions_destructor (106 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "stable_source_contract_and_failed_reuse",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 397,
+          "stdout": "PASS stable_source_contract_and_failed_reuse (397 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "reader_lifetime_release_after_terminal",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 95,
+          "stdout": "PASS reader_lifetime_release_after_terminal (95 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "invalid_api_budgets_and_full_retry_limit",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 131087,
+          "stdout": "PASS invalid_api_budgets_and_full_retry_limit (131087 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "seeded_chunk_mutations",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 39169,
+          "stdout": "PASS seeded_chunk_mutations (39169 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "atomic_line_and_expression_worst_bounds",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 313,
+          "stdout": "PASS atomic_line_and_expression_worst_bounds (313 assertions)\n",
+          "stderr": ""
+        },
+        {
+          "stage": "stage28c",
+          "id": "no_heap_compiler_read_and_inventory",
+          "status": "PASS",
+          "exit": 0,
+          "assertions": 3,
+          "stdout": "PASS no_heap_compiler_read_and_inventory (3 assertions)\n",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "separate_harness_diagnostics": [
+    {
+      "id": "T34",
+      "status": "FAIL",
+      "exit": 1,
+      "assertions": 0,
+      "stdout": "",
+      "stderr": "FAIL T34: different host thread cannot borrow owner scope (4)\n",
+      "group": "unchanged_t"
+    }
+  ],
+  "diagnostic_explanation": "T34 assumes Linux thread identity, whereas full composition uses explicit RTOS task identity; reproduced separately, K25 validates foreign task2 instead. Not relabeled as a compatibility PASS.",
+  "not_run_core": [
+    {
+      "stage": "stage27b",
+      "id": "unsupported_explicit_rejection",
+      "status": "NOT_RUN_CHANGED_VOCABULARY",
+      "reason": "Historical test expects CTRL rejection or uses newly reserved function-key identifiers; unchanged historical source retained"
+    },
+    {
+      "stage": "stage27b",
+      "id": "source_and_table_limits",
+      "status": "NOT_RUN_CHANGED_VOCABULARY",
+      "reason": "Historical test expects CTRL rejection or uses newly reserved function-key identifiers; unchanged historical source retained"
+    },
+    {
+      "stage": "stage27b",
+      "id": "nesting_and_expression_boundaries",
+      "status": "NOT_RUN_CHANGED_VOCABULARY",
+      "reason": "Historical test expects CTRL rejection or uses newly reserved function-key identifiers; unchanged historical source retained"
+    },
+    {
+      "stage": "stage28a",
+      "id": "depth_limit_cycles_and_frames",
+      "status": "NOT_RUN_CHANGED_VOCABULARY",
+      "reason": "Historical test expects CTRL rejection or uses newly reserved function-key identifiers; unchanged historical source retained"
+    },
+    {
+      "stage": "stage28b",
+      "id": "nested_structure_and_call_boundaries",
+      "status": "NOT_RUN_CHANGED_VOCABULARY",
+      "reason": "Historical test expects CTRL rejection or uses newly reserved function-key identifiers; unchanged historical source retained"
+    }
+  ],
+  "negative_control": {
+    "status": "EXPECTED_REJECTION",
+    "fault": "real compiler drops modifier field",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "FAIL B01: command report\n",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-I/workspace/tooling/shortcuts-dev/native-verified/sources",
+      "/workspace/EvilDuck-stage6/tests/keyboard_shortcuts/bridge_tests.cpp",
+      "/workspace/tooling/shortcuts-dev/negative/core.cpp",
+      "/workspace/tooling/shortcuts-dev/native-verified/sources/keyboard.cpp",
+      "/workspace/tooling/shortcuts-dev/native-verified/sources/bridge.cpp",
+      "-o",
+      "/workspace/tooling/shortcuts-dev/negative/native"
+    ],
+    "original_sha256": "6af6469b224bfc5c494333becd0e00442fbc3a58643206b21fe7555af212c198",
+    "mutated_sha256": "85cd1ec6c1c0ed897aaa9c34adc800d0d6b1a1e63dc27689a5a6e1399b851632",
+    "hardware": false
+  },
+  "commands": {
+    "native": [
+      [
+        "g++",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+        "-I/workspace/EvilDuck-stage6/tests/stage28x",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28w/mocks",
+        "-DEVILDUCK_CONTROLLED_START=1",
+        "-DCONFIG_TINYUSB_MSC_ENABLED=1",
+        "-DCONFIG_TINYUSB_MSC_BUFSIZE=512",
+        "-Wno-unused-function",
+        "-Wno-unused-variable",
+        "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+        "-I/workspace/tooling/stage19-sdk-source/components/nvs_flash/include",
+        "-I/workspace/tooling/stage19-sdk-source/components/esp_common/include",
+        "-I/workspace/EvilDuck-stage6/tests/stage19/mocks",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+        "-DEVILDUCK_PRODUCTION_STORAGE",
+        "-DEVILDUCK_PORTABLE_ROUTE_B",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-pthread",
+        "-DEVILDUCK_HOST_TEST",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "--coverage",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28t",
+        "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+        "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "/workspace/EvilDuck-stage6/tests/keyboard_shortcuts/test_main.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/platform.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/com.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/hid_backend.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/duckscript.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/keyboard_locale.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/cli.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/adapter.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/file_source.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/coordinator.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28v/lower.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/attackmode.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28x/allocations.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/settings.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/storage.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/spiffs.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/sd_card.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/usb_msc.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/led.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/script_library.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28v/nvs_fixture.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28w/boot_fixture.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28x/diagnostics.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/native-complete/native"
+      ],
+      [
+        "g++",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+        "-I/workspace/EvilDuck-stage6/tests/stage28x",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28w/mocks",
+        "-DEVILDUCK_CONTROLLED_START=1",
+        "-DCONFIG_TINYUSB_MSC_ENABLED=1",
+        "-DCONFIG_TINYUSB_MSC_BUFSIZE=512",
+        "-Wno-unused-function",
+        "-Wno-unused-variable",
+        "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+        "-I/workspace/tooling/stage19-sdk-source/components/nvs_flash/include",
+        "-I/workspace/tooling/stage19-sdk-source/components/esp_common/include",
+        "-I/workspace/EvilDuck-stage6/tests/stage19/mocks",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+        "-DEVILDUCK_PRODUCTION_STORAGE",
+        "-DEVILDUCK_PORTABLE_ROUTE_B",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-pthread",
+        "-DEVILDUCK_HOST_TEST",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "--coverage",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-I/workspace/EvilDuck-stage6/tests/stage28t",
+        "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+        "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/test_main.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/platform.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/com.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/hid_backend.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/duckscript.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/keyboard_locale.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/cli.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+        "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/adapter.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/file_source.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/coordinator.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28v/lower.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/attackmode.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28x/allocations.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/settings.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/storage.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/spiffs.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/sd_card.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/usb_msc.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/led.cpp",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/script_library.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28v/nvs_fixture.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28w/boot_fixture.cpp",
+        "/workspace/EvilDuck-stage6/tests/stage28x/diagnostics.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/native-complete/t-regression"
+      ]
+    ],
+    "k25": [
+      "g++",
+      "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+      "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+      "-I/workspace/EvilDuck-stage6/tests/stage28x",
+      "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+      "-I/workspace/EvilDuck-stage6/tests/stage28w/mocks",
+      "-DEVILDUCK_CONTROLLED_START=1",
+      "-DCONFIG_TINYUSB_MSC_ENABLED=1",
+      "-DCONFIG_TINYUSB_MSC_BUFSIZE=512",
+      "-Wno-unused-function",
+      "-Wno-unused-variable",
+      "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+      "-I/workspace/tooling/stage19-sdk-source/components/nvs_flash/include",
+      "-I/workspace/tooling/stage19-sdk-source/components/esp_common/include",
+      "-I/workspace/EvilDuck-stage6/tests/stage19/mocks",
+      "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+      "-I/workspace/EvilDuck-stage6/tests/stage28v/mocks",
+      "-DEVILDUCK_PRODUCTION_STORAGE",
+      "-DEVILDUCK_PORTABLE_ROUTE_B",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-pthread",
+      "-DEVILDUCK_HOST_TEST",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "--coverage",
+      "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+      "-I/workspace/EvilDuck-stage6/tests/stage28t",
+      "-I/workspace/EvilDuck-stage6/tests/stage1/mocks",
+      "-I/workspace/EvilDuck-stage6/EvilDuckS3",
+      "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+      "/workspace/EvilDuck-stage6/tests/keyboard_shortcuts/test_main.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/platform.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/com.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/hid_backend.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/duckscript.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_vars.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_keys.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/keyboard_locale.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/locales.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_log.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/cli.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_source.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_parser.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_expr.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_constants.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_functions.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/script_preprocessor.cpp",
+      "/workspace/EvilDuck-stage6/EvilDuckS3/duck_random.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/adapter.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/file_source.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/coordinator.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28v/lower.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/attackmode.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28x/allocations.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/settings.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/storage.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/spiffs.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/sd_card.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/usb_msc.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/led.cpp",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/script_library.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28v/nvs_fixture.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28w/boot_fixture.cpp",
+      "/workspace/EvilDuck-stage6/tests/stage28x/diagnostics.cpp",
+      "-o",
+      "/workspace/tooling/shortcuts-dev/k25-final"
+    ],
+    "bridge": [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-I/workspace/tooling/shortcuts-dev/native-verified/sources",
+      "/workspace/EvilDuck-stage6/tests/keyboard_shortcuts/bridge_tests.cpp",
+      "/workspace/tooling/shortcuts-dev/native-verified/sources/core.cpp",
+      "/workspace/tooling/shortcuts-dev/native-verified/sources/keyboard.cpp",
+      "/workspace/tooling/shortcuts-dev/native-verified/sources/bridge.cpp",
+      "-o",
+      "/workspace/tooling/shortcuts-dev/bridge-final/native"
+    ],
+    "core": [
+      [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-DPREVIEW_CALL_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28a/fixtures\"",
+        "-DPREVIEW_BLOCK_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28b/fixtures\"",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/tooling/shortcuts-dev/core-final/source/tests/stage27b/test_core.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/core-final/stage27b"
+      ],
+      [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-DPREVIEW_CALL_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28a/fixtures\"",
+        "-DPREVIEW_BLOCK_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28b/fixtures\"",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/tooling/shortcuts-dev/core-final/source/tests/stage28a/test_calls.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/core-final/stage28a"
+      ],
+      [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-DPREVIEW_CALL_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28a/fixtures\"",
+        "-DPREVIEW_BLOCK_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28b/fixtures\"",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/tooling/shortcuts-dev/core-final/source/tests/stage28b/test_blocks.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/core-final/stage28b"
+      ],
+      [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+        "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+        "-DPREVIEW_CALL_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28a/fixtures\"",
+        "-DPREVIEW_BLOCK_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage28b/fixtures\"",
+        "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+        "/workspace/tooling/shortcuts-dev/core-final/source/tests/stage28c/test_compile.cpp",
+        "-o",
+        "/workspace/tooling/shortcuts-dev/core-final/stage28c"
+      ]
+    ],
+    "new_core": [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+      "-DPREVIEW_FIXTURES=\"/workspace/EvilDuck-stage6/tests/stage27b/fixtures\"",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-I/workspace/tooling/shortcuts-dev/native-complete/sources",
+      "/workspace/tooling/shortcuts-dev/native-complete/sources/core.cpp",
+      "/workspace/tooling/shortcuts-dev/core-new/main.cpp",
+      "-o",
+      "/workspace/tooling/shortcuts-dev/core-new/native"
+    ]
+  },
+  "sanitizers": "ASan/UBSan/leak detection enabled on completed final native runs; initial development faults separately described in report",
+  "hardware": false
+}

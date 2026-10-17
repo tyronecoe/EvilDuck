@@ -1,0 +1,256 @@
+--- core.h
++++ core.h
+@@ -92,7 +92,7 @@
+     static size_t compilerBytes();
+ };
+ enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release };
+-struct Event { EventType type; uint16_t value; }; // ASCII byte, HID page07 usage, or milliseconds.
++struct Event { EventType type; uint16_t value; uint8_t modifiers=0; }; // ASCII byte, HID page07 usage, or milliseconds.
+ enum class Accept : uint8_t { Accepted, Retry, Failed };
+ using Sink = Accept(*)(void*, const Event&);
+ enum class State : uint8_t { Idle, Running, Completed, Cancelled, Error };
+--- core.cpp
++++ core.cpp
+@@ -1,4 +1,5 @@
+ #include "core.h"
++#include "shortcut_keys.h"
+ #include <string.h>
+ #include <new>
+ namespace ds_preview {
+@@ -15,11 +16,7 @@
+ char* argument(char* p){while(*p&&!white(*p))++p;return *p?p+1:p;}
+ int findName(const char names[][24],size_t n,const char* name){for(size_t i=0;i<n;++i)if(exact(names[i],name))return static_cast<int>(i);return -1;}
+ bool functionName(const char* p,char (&name)[24]){size_t n=strlen(p);if(n<3||n>25||p[n-2]!='('||p[n-1]!=')')return false;memcpy(name,p,n-2);name[n-2]=0;return ident(name);}
+-uint8_t key(const char* p){
+- const char* names[]={"ENTER","TAB","SPACE","ESCAPE","BACKSPACE","DELETE","UPARROW","DOWNARROW","LEFTARROW","RIGHTARROW"};
+- const uint8_t codes[]={0x28,0x2b,0x2c,0x29,0x2a,0x4c,0x52,0x51,0x50,0x4f};
+- for(size_t i=0;i<10;++i)if(exact(p,names[i]))return codes[i];return 0;
+-}
++uint8_t key(const char* p){return ds_shortcut::named(p);}
+ // Deliberately narrow reference-backed ownership operand domain. No modifier prefix guesses.
+ uint8_t ownedKey(const char* p){
+  if(uint8_t named=key(p))return named;
+@@ -30,7 +27,7 @@
+ }
+ bool reserved(const char* p){
+  const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR"};
+- if(key(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
++ if(key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ const char* message(ErrorCode c){
+@@ -282,6 +279,28 @@
+    return emit(acquire?Op::Hold:Op::Release,"",usage);
+   }
+   if(uint8_t k=key(text))return emit(Op::Key,"",k);
++  // Structural syntax is already consumed. Expand only the terminal key operand,
++  // never manufacture commands or modifier prefixes from constants.
++  char* split=text;while(*split&&!white(*split)&&*split!='-')++split;
++  char saved=*split;*split=0;bool shortcut=ds_shortcut::modifier(text)!=0;*split=saved;
++  if(shortcut){
++   uint8_t mods=0,usage=0;char* cursor=text;
++   for(;;){
++    char* end=cursor;while(*end&&!white(*end)&&*end!='-')++end;
++    char delim=*end;*end=0;uint8_t bit=ds_shortcut::modifier(cursor);*end=delim;
++    if(!bit)return fail(ErrorCode::Syntax);
++    if(mods&bit)return fail(ErrorCode::Syntax);mods|=bit;
++    if(!delim)return fail(ErrorCode::Syntax);
++    cursor=end+1;if(delim!='-')cursor=left(cursor);
++    if(!*cursor||white(*cursor)||(delim=='-'&&*cursor=='-'))return fail(ErrorCode::Syntax);
++    char* next=cursor;while(*next&&!white(*next)&&*next!='-')++next;
++    char nextDelim=*next;*next=0;bool more=ds_shortcut::modifier(cursor)!=0;*next=nextDelim;
++    if(more)continue;
++    if(!expand(cursor,expanded))return false;right(expanded);
++    uint8_t implicit=0;if(!ds_shortcut::operand(expanded,usage,implicit))return fail(ErrorCode::Syntax);
++    return emit(Op::Key,"",usage,static_cast<uint8_t>(mods|implicit));
++   }
++  }
+   if(functionName(text,name)){int id=fn(name);if(id<0)return fail(ErrorCode::UndefinedFunction);return emit(Op::Call,"",0,static_cast<uint8_t>(id));}
+   return fail(ErrorCode::UnknownStatement);
+  }
+@@ -509,7 +528,7 @@
+   if(ins.offset>program_->used_||ins.length>program_->used_-ins.offset){fail(ErrorCode::Structure);return;}
+   block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
+  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
+- case Op::Key:event_={EventType::KeyTap,ins.target};pending_=true;deliver(now);break;
++ case Op::Key:event_={EventType::KeyTap,ins.target,ins.symbol};pending_=true;deliver(now);break;
+  case Op::Hold:case Op::Release:event_={ins.op==Op::Hold?EventType::Hold:EventType::Release,ins.target};pending_=true;deliver(now);break;
+  case Op::If:pc_=value?pc_+1:ins.target;break;
+  case Op::Jump:case Op::Function:pc_=ins.target;break;
+--- adapter.cpp
++++ adapter.cpp
+@@ -40,7 +40,7 @@
+  if(!route_b::environment()){fail(Fault::Environment);return Accept::Failed;}
+  if(e.type==EventType::Delay){if(pending_){fail(Fault::Result);return Accept::Failed;}++delayAcks_;return Accept::Accepted;}
+  if(pending_){
+-  if(e.type!=event_.type||e.value!=event_.value){fail(Fault::Result);return Accept::Failed;}
++  if(e.type!=event_.type||e.value!=event_.value||e.modifiers!=event_.modifiers){fail(Fault::Result);return Accept::Failed;}
+   auto r=route_b::result(session_);
+   if(!route_b::equal(r.id,id_)){fail(Fault::Result);return Accept::Failed;}
+   if(r.kind==route_b::ResultKind::Pending){++retries_;return Accept::Retry;}
+@@ -49,7 +49,7 @@
+  }
+  route_b::Admission a=route_b::Admission::Rejected;
+  if(e.type==EventType::Character)a=route_b::character(session_,e.value,id_);
+- else if(e.type==EventType::KeyTap)a=route_b::key(session_,e.value,id_);
++ else if(e.type==EventType::KeyTap)a=route_b::key(session_,e.value,id_,e.modifiers);
+  if(a!=route_b::Admission::Admitted){fail(Fault::Admission);return Accept::Failed;}
+  event_=e;pending_=true;since_=now_;turns_=0;++admissions_;++retries_;return Accept::Retry;
+ }
+--- scheduler_seam.h
++++ scheduler_seam.h
+@@ -9,7 +9,7 @@
+ enum class Admission { Rejected, Admitted };
+ bool acquire(uint64_t &session);
+ Admission character(uint64_t session,uint16_t value,Id &id);
+-Admission key(uint64_t session,uint16_t usage,Id &id);
++Admission key(uint64_t session,uint16_t usage,Id &id,uint8_t modifiers=0);
+ Result result(uint64_t session);
+ bool consume(Result);
+ bool cancel(uint64_t session);
+--- seam.inc
++++ seam.inc
+@@ -34,20 +34,20 @@
+  duck_random::setMinimum(route.low);duck_random::setMaximum(route.high);duck_random::setJitterMaximum(route.jitter);duck_random::setJitterEnabled(route.jitterOn);
+  out=route.session;hid_backend::cancelReport();return true;
+ }
+-static Admission admit(uint64_t owner,uint16_t v,bool text,Id &id){
++static Admission admit(uint64_t owner,uint16_t v,bool text,Id &id,uint8_t modifiers=0){
+  execution::Guard guard;
+  if(!route.active||owner!=route.session||route.cancelled||route.result.kind!=ResultKind::None||session.phase!=Phase::Idle||hid_backend::clearing()||!environment()||route.nextOperation==UINT64_MAX)return Admission::Rejected;
+- bool valid=text?(v==9||v==10||(v>=32&&v<=126)):(v==0x28||v==0x2b||v==0x2c||v==0x29||v==0x2a||v==0x4c||(v>=0x4f&&v<=0x52));
++ bool valid=text?(v==9||v==10||(v>=32&&v<=126)):ds_shortcut::validUsage(v);
+  if(!valid)return Admission::Rejected;
+  if(!backend_b::bind(owner,route.nextOperation+1))return Admission::Rejected;
+  id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};
+  session.error="";session.remember=false;session.lockCommand=-1;
+  if(text)startText(String(static_cast<char>(v)),false,Phase::Finish); // literal: no interpolation/trim/parser
+- else{const uint8_t k=static_cast<uint8_t>(v);report(0,&k,1,Phase::Finish);}
++ else{const uint8_t k=static_cast<uint8_t>(v);report(modifiers,&k,1,Phase::Finish);}
+  return Admission::Admitted;
+ }
+ Admission character(uint64_t s,uint16_t v,Id &id){return admit(s,v,true,id);}
+-Admission key(uint64_t s,uint16_t v,Id &id){return admit(s,v,false,id);}
++Admission key(uint64_t s,uint16_t v,Id &id,uint8_t modifiers){return admit(s,v,false,id,modifiers);}
+ Result result(uint64_t owner){execution::Guard guard;return route.active&&owner==route.session?route.result:Result{};}
+ bool consume(Result r){
+  execution::Guard guard;
+--- com.cpp
++++ com.cpp
+@@ -3,6 +3,7 @@
+ #include "coordinator.h"
+ #endif
+ #include "com.h"
++#include "shortcut_keys.h"
+ #include "hid_backend.h"
+ #include "keyboard_locale.h"
+ #include "duck_keys.h"
+--- bridge.cpp
++++ bridge.cpp
+@@ -4,6 +4,7 @@
+ using ds_preview::Accept;using ds_preview::EventType;
+ bool Bridge::reject(Reason reason){rejection_=reason;return false;}
+ bool Bridge::validEvent(const ds_preview::Event& event){
++ if(event.type!=EventType::KeyTap&&event.modifiers)return false;
+  if(event.type==EventType::Delay)return true;
+  if(event.type==EventType::KeyTap)return ds_keyboard::Planner::validUsage(event.value);
+  if(event.type==EventType::Hold||event.type==EventType::Release)return event.value>=4&&event.value<=0x73;
+@@ -44,7 +45,7 @@
+  if(state_==State::Failing||error_.reason!=Reason::None)return Accept::Failed;
+  if(state_!=State::Running)return Accept::Failed;
+  if(intent_!=Intent::None){
+-  if(event.type!=event_.type||event.value!=event_.value){latch(Reason::Protocol);planner_.cancel();return Accept::Failed;}
++  if(event.type!=event_.type||event.value!=event_.value||event.modifiers!=event_.modifiers){latch(Reason::Protocol);planner_.cancel();return Accept::Failed;}
+   if(intent_==Intent::Waiting)return Accept::Retry;
+   ++keyboardAcks_;lastAckAt_=now_;intent_=Intent::None;return Accept::Accepted;
+  }
+@@ -56,7 +57,7 @@
+  if(event.type==EventType::Hold)ok=planner_.holdConfirmed(ScriptOwner,event.value,now_);
+  else if(event.type==EventType::Release)ok=planner_.releaseConfirmed(ScriptOwner,event.value,now_);
+  else if(event.type==EventType::Character)ok=planner_.character(event.value,now_);
+- else ok=planner_.tap(event.value,0,now_);
++ else ok=planner_.tap(event.value,event.modifiers,now_);
+  if(!ok){latch(Reason::PlannerRejected);planner_.cancel();return Accept::Failed;}
+  ++admitted_;intent_=Intent::Waiting;return Accept::Retry;
+ }
+--- keyboard.cpp
++++ keyboard.cpp
+@@ -1,4 +1,5 @@
+ #include "keyboard.h"
++#include "shortcut_keys.h"
+ #include <string.h>
+ namespace ds_keyboard {
+ bool Planner::equal(const Report& a,const Report& b){return memcmp(a.bytes,b.bytes,8)==0;}
+@@ -52,17 +53,7 @@
+  else{if(!ordinary(usage))return reject(Reason::InvalidUsage);key=static_cast<uint8_t>(usage);for(unsigned i=2;i<8;++i)if(desired_.bytes[i]==key)return reject(Reason::HeldTap);}
+  Report report;if(!snapshot(owners_,report,key,modifiers))return reject(Reason::Rollover);queue(report,Phase::Press,now);return true;
+ }
+-bool Planner::mapUS(uint16_t c,uint8_t& usage,uint8_t& modifiers){
+- usage=modifiers=0;if(c>126)return false;
+- if(c>='a'&&c<='z'){usage=static_cast<uint8_t>(4+c-'a');return true;}
+- if(c>='A'&&c<='Z'){usage=static_cast<uint8_t>(4+c-'A');modifiers=2;return true;}
+- if(c>='1'&&c<='9'){usage=static_cast<uint8_t>(0x1e + c-'1');return true;}if(c=='0'){usage=0x27;return true;}
+- if(c==' '){usage=0x2c;return true;}if(c=='\t'){usage=0x2b;return true;}if(c=='\n'){usage=0x28;return true;}
+- const char* plain="-=[]\\;'`,./";const char* shifted="_+{}|:\"~<>?";
+- const uint8_t usages[]={0x2d,0x2e,0x2f,0x30,0x31,0x33,0x34,0x35,0x36,0x37,0x38};
+- for(unsigned i=0;i<11;++i){if(c==static_cast<uint8_t>(plain[i])){usage=usages[i];return true;}if(c==static_cast<uint8_t>(shifted[i])){usage=usages[i];modifiers=2;return true;}}
+- const char* digits="!@#$%^&*()";for(unsigned i=0;i<10;++i)if(c==static_cast<uint8_t>(digits[i])){usage=static_cast<uint8_t>(i==9?0x27:0x1e + i);modifiers=2;return true;}return false;
+-}
++bool Planner::mapUS(uint16_t c,uint8_t& usage,uint8_t& modifiers){return ds_shortcut::mapUS(c,usage,modifiers);}
+ bool Planner::character(uint16_t ascii,uint32_t now){if(!available())return false;uint8_t key,mods;if(!mapUS(ascii,key,mods))return reject(Reason::UnsupportedCharacter);return tap(key,mods,now);}
+ void Planner::failure(Reason reason,Phase phase){reason_=reason;diagnostic_=phase;owners_=OwnerTable{};desired_=Report{};state_=State::Failed;phase_=Phase::None;uncertain_=true;}
+ void Planner::step(uint32_t now){
+--- /dev/null
++++ shortcut_keys.h
+@@ -0,0 +1,51 @@
++#ifndef EVILDUCK_TRANSIENT_SHORTCUT_KEYS_H
++#define EVILDUCK_TRANSIENT_SHORTCUT_KEYS_H
++#ifndef EVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS
++#error Explicit shortcut candidate selector required
++#endif
++// Bounded page-07 key vocabulary. US character mapping; no device or transport calls.
++#include <stdint.h>
++#include <string.h>
++namespace ds_shortcut {
++struct Name { const char* text; uint8_t usage; };
++inline uint8_t named(const char* s){
++ static constexpr Name names[]={
++ {"ENTER",0x28},{"ESCAPE",0x29},{"BACKSPACE",0x2a},{"TAB",0x2b},{"SPACE",0x2c},
++ {"CAPSLOCK",0x39},{"PRINTSCREEN",0x46},{"SCROLLLOCK",0x47},{"PAUSE",0x48},{"BREAK",0x48},
++ {"INSERT",0x49},{"HOME",0x4a},{"PAGEUP",0x4b},{"DELETE",0x4c},{"END",0x4d},{"PAGEDOWN",0x4e},
++ {"RIGHTARROW",0x4f},{"RIGHT",0x4f},{"LEFTARROW",0x50},{"LEFT",0x50},
++ {"DOWNARROW",0x51},{"DOWN",0x51},{"UPARROW",0x52},{"UP",0x52},
++ {"NUMLOCK",0x53},{"MENU",0x65},{"APP",0x65}};
++ for(const auto& n:names)if(!strcmp(s,n.text))return n.usage;
++ if(s[0]=='F'&&s[1]>='1'&&s[1]<='9'){
++  unsigned n=s[1]-'0';if(s[2]){if(s[2]<'0'||s[2]>'9'||s[3])return 0;n=n*10+s[2]-'0';}
++  if(n<=12)return static_cast<uint8_t>(0x3a+n-1);
++  if(n<=24)return static_cast<uint8_t>(0x68+n-13);
++ }return 0;
++}
++inline uint8_t modifier(const char* s){
++ if(!strcmp(s,"CTRL")||!strcmp(s,"CONTROL"))return 1;
++ if(!strcmp(s,"SHIFT"))return 2;
++ if(!strcmp(s,"ALT")||!strcmp(s,"OPTION"))return 4;
++ if(!strcmp(s,"GUI")||!strcmp(s,"WINDOWS")||!strcmp(s,"COMMAND"))return 8;
++ return 0;
++}
++inline bool validUsage(uint16_t u){return (u>=0x28&&u<=0x53)||u==0x65||(u>=0x68&&u<=0x73)||(u>=4&&u<=0x27)||(u>=0x2d&&u<=0x38);}
++inline bool mapUS(uint16_t c,uint8_t& usage,uint8_t& modifiers){
++ usage=modifiers=0;if(c>126)return false;
++ if(c>='a'&&c<='z'){usage=static_cast<uint8_t>(4+c-'a');return true;}
++ if(c>='A'&&c<='Z'){usage=static_cast<uint8_t>(4+c-'A');modifiers=2;return true;}
++ if(c>='1'&&c<='9'){usage=static_cast<uint8_t>(0x1e + c-'1');return true;}if(c=='0'){usage=0x27;return true;}
++ if(c==' '){usage=0x2c;return true;}if(c=='\t'){usage=0x2b;return true;}if(c=='\n'){usage=0x28;return true;}
++ const char* plain="-=[]\\;'`,./";const char* shifted="_+{}|:\"~<>?";
++ const uint8_t usages[]={0x2d,0x2e,0x2f,0x30,0x31,0x33,0x34,0x35,0x36,0x37,0x38};
++ for(unsigned i=0;i<11;++i){if(c==static_cast<uint8_t>(plain[i])){usage=usages[i];return true;}if(c==static_cast<uint8_t>(shifted[i])){usage=usages[i];modifiers=2;return true;}}
++ const char* digits="!@#$%^&*()";for(unsigned i=0;i<10;++i)if(c==static_cast<uint8_t>(digits[i])){usage=static_cast<uint8_t>(i==9?0x27:0x1e + i);modifiers=2;return true;}return false;
++}
++inline bool operand(const char* s,uint8_t& usage,uint8_t& modifiers){
++ modifiers=0;if((usage=named(s)))return true;
++ return s[0]&&!s[1]&&mapUS(static_cast<unsigned char>(s[0]),usage,modifiers);
++}
++}
++
++#endif

@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "base": "6280b1d7b465f5d29800fa230ab60f3b04bf77c4",
+  "historical_files_unchanged_bytes_modes": 1403,
+  "frozen_stage26": 235,
+  "original_x_workspace_artifact": {
+    "bytes": 1358224,
+    "sha256": "a0cefdbb8ff9915e58b9142841b4c015dd738406c6861ef5f8e4c3f9105cffc4"
+  },
+  "unchanged_public_archive": {
+    "bytes": 4837000,
+    "sha256": "6cfe4b33bda853004f6af4672b553700e1756a6feeda9bd4579dd27cbf3a705f"
+  },
+  "new_files": [
+    {
+      "file": "docs/keyboard-shortcuts-build.json",
+      "bytes": 1412437,
+      "sha256": "21621eaa8aec0da125c479ab79f6aaebabf6cc55bfd2818fbc5483c8727de20a"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-design.md",
+      "bytes": 5899,
+      "sha256": "b0fca5bd58dd37bf2fd10e38d65e5b3e310c1c2be0c36f1efe9ca13e078a2997"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-owner-review.md",
+      "bytes": 2288,
+      "sha256": "69afe6d98641399cd1fb8b22f7c1e1b2747d47fb5b4601742087357cbff4d0b4"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-references.json",
+      "bytes": 1438,
+      "sha256": "418dc4ba1e5bd6137d918ffad77af11f685436369a524243d91297c19846bb71"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-report.md",
+      "bytes": 10350,
+      "sha256": "3a0a9a2f4d75b884c9cf65e213ebdc21998b180d9dd8d70bcdb80d09127b35b5"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-reproduction.md",
+      "bytes": 4604,
+      "sha256": "f195683521b55abf7eda8022412e2cb0b571a0cf38a103fe221eea19ee9eac5b"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-results.json",
+      "bytes": 150403,
+      "sha256": "394e671c68e0d9a4064847d6f9bc262b4b759b6b9f219790cac76cfb7c6f77ba"
+    },
+    {
+      "file": "docs/keyboard-shortcuts-source-manifest.json",
+      "bytes": 2287,
+      "sha256": "d5bfbdc80e212e2ea92a7a30add9bd36d8ddfe346370d9dbb1a7fe8356ed8b4a"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/audit.py",
+      "bytes": 2975,
+      "sha256": "808036095fbf803ff4b58aa231d9543e92bde0cc32bc54280769216d4333a3c5"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/bridge_tests.cpp",
+      "bytes": 4197,
+      "sha256": "58e45e9424a42d0c5cf35fa135c2a886f1607c2db687d362c108ae0d07afa723"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/build_candidate.py",
+      "bytes": 8954,
+      "sha256": "011fdb0bd591e7d5bd75abd18c8a775b716f3944ea9e46f4211f82947f64fdc8"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/core_new.inc",
+      "bytes": 2425,
+      "sha256": "8d6ce2952382962eecd513618e6afd96cee056287aa28e13bddb32cc6b26eac5"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/fixtures/editor-only.duck",
+      "bytes": 239,
+      "sha256": "d24395e90c439e1aac1338d572ce83e14e53b3ffa8eda571bed0dd3c891265f3"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/prepare_sources.py",
+      "bytes": 1005,
+      "sha256": "79ba543cf5ab7649a8e55ee75b6c5a953193314b407cbde83cb7ae7999833bf4"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/run_bridge.py",
+      "bytes": 1781,
+      "sha256": "c6cbcf251fe946a56c450e6909e51f0b4b4541b7f9cf87b8a11323b7e4c007b8"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/run_core.py",
+      "bytes": 3222,
+      "sha256": "f48dc42b38b9a389f94b8855ffda27876f165962f99f726efa0881031363325c"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/run_core_new.py",
+      "bytes": 2199,
+      "sha256": "bf382c6b4f449de61af30d7305e8ee5f180044d94592048b1a81e8e3a5373860"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/run_negative.py",
+      "bytes": 1745,
+      "sha256": "64338e1ab3b4b3d7b04657a4809758c9e5b34645a2fc3bc9dea990bccebd18eb"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/run_tests.py",
+      "bytes": 2862,
+      "sha256": "244518b1e70c40fe5b894fd6ae53facabdf9040af927710244a86c83854c5142"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/shortcuts.patch",
+      "bytes": 14982,
+      "sha256": "bfe787fa352e5bf7a0a9a5e8a1c427ada4435d9f85247f02bb9b3a7f7ce05f6f"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/test_main.cpp",
+      "bytes": 7439,
+      "sha256": "8174cf264e06ea575fa8c415e9e5ea3f46a00690d01d284cb0d2f774b0402600"
+    },
+    {
+      "file": "tests/keyboard_shortcuts/verify_link.py",
+      "bytes": 9252,
+      "sha256": "d292b58ced83ddf319ccc511e330d78235dd4da452711331e29efc39fe2cc0c8"
+    }
+  ],
+  "hardware": false
+}

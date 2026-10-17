@@ -1,0 +1,33 @@
+{
+  "fresh_requests": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.usb.org/sites/default/files/hut1_5.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "verified_saved_sources": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "snapshot": "ducky-script-basics__keystroke-injection.md",
+      "bytes": 23001,
+      "sha256": "bd13890f5d18777764ba438c9ca70c8dbb5cb29f4f64fb9fe4a8e170e181b16a",
+      "retrieved_utc": "2026-10-11T18:01:06.380681+00:00"
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md",
+      "snapshot": "advanced-features__holding-keys.md",
+      "bytes": 7034,
+      "sha256": "c57852d2f4dad7b64b104c98da910c2a61d229875b9e02b121a1c259920372a3",
+      "retrieved_utc": "2026-10-11T18:01:07.767125+00:00"
+    },
+    {
+      "file": "/workspace/tooling/stage26-final-controlled-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/arduino_tinyusb/tinyusb/src/class/hid/hid.h",
+      "sha256": "df44b1215ccce40ae12c22e3895109a6d01aa13a77115ad43f28d488351bb97c",
+      "evidence": "pinned TinyUSB page07 usage constants; source evidence, not a hardware oracle"
+    }
+  ]
+}

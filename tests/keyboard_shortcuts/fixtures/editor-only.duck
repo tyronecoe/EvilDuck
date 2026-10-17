@@ -1,0 +1,10 @@
+REM Review only. Future separately authorized trial in a NEW EMPTY editor document.
+REM This file is not executed by the build or any helper.
+DELAY 5000
+STRING shortcut-check
+COMMAND a
+STRING abc
+SHIFT LEFTARROW
+STRING Z
+ENTER
+STRING done
