@@ -1,0 +1,167 @@
+{
+  "receipt.json": [
+    {
+      "name": "hak5-reflection",
+      "url": "https://docs.hak5.org/hak5-usb-rubber-ducky/advanced-features/exfiltration",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "duckylogger-api",
+      "url": "https://api.github.com/repos/hak5/usbrubberducky-payloads/contents/payloads/library/credentials/DuckyLogger2",
+      "bytes": 3282,
+      "sha256": "61a8860c8d01021038a764a9f23d894677d44deb9228361e8aa6fb20b4886cde",
+      "status": "retrieved"
+    },
+    {
+      "name": "windows-sendinput",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput",
+      "bytes": 55397,
+      "sha256": "905db5e9f28a69869e400b07458ad36c336f0fa8bdef1324553efc7d86181bf6",
+      "status": "retrieved"
+    },
+    {
+      "name": "windows-hooks",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/winmsg/lowlevelkeyboardproc",
+      "bytes": 55235,
+      "sha256": "0464c7c8dbc4bde10b302f042b3138a9426af5b194598c93d399411724997c6d",
+      "status": "retrieved"
+    },
+    {
+      "name": "windows-keystate",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate",
+      "bytes": 55079,
+      "sha256": "894625e04cdf32c293317f93f99267cbecd8a2cac9dabc76f3d1a6d8aa0baaf4",
+      "status": "retrieved"
+    },
+    {
+      "name": "apple-taps",
+      "url": "https://developer.apple.com/documentation/coregraphics/cgevent/tapcreate(tap:place:options:eventsofinterest:callback:userinfo:)",
+      "bytes": 6583,
+      "sha256": "ca77a365d6ac9f68d3df7ef66efe4938a3978e1b44e28447df798d85d45fe48a",
+      "status": "retrieved"
+    },
+    {
+      "name": "apple-iokit",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOHIDFamily/IOHIDFamily-1035.41.2/IOHIDLib/IOHIDEventSystemClient.h",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "linux-evdev",
+      "url": "https://www.kernel.org/doc/html/latest/input/input.html",
+      "bytes": 24101,
+      "sha256": "9edd61bbc35449f119618c90ab01d506801c7016a30be4a903762889acf9493e",
+      "status": "retrieved"
+    }
+  ],
+  "api-followup.json": [
+    {
+      "name": "apple-device-header",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOHIDFamily/main/IOHIDLib/IOHIDDevice.h",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "apple-queue-header",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOHIDFamily/main/IOHIDLib/IOHIDManager.h",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "apple-eventtap-archive",
+      "url": "https://developer.apple.com/library/archive/documentation/Carbon/Conceptual/QuartzEventServicesConceptual/Tasks/CreateEventTap.html",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "windows-sethook",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa",
+      "status": "retrieved",
+      "sha256": "a2b8b0b08ff8bd6e369219dfa5040f88a175c157a9e77d80658b9ba4965ab5e3"
+    }
+  ],
+  "apple-user-api.json": [
+    {
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOKitUser/323ead896d04424f87184d8f6ff0cce811aab106/hid.subproj/IOHIDDevice.h",
+      "revision": "323ead896d04424f87184d8f6ff0cce811aab106",
+      "sha256": "64aad6babb2e4bbbf31386f54c658fd16fbaa1aa271fb8f396126c22d6f833bd"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOKitUser/323ead896d04424f87184d8f6ff0cce811aab106/hid.subproj/IOHIDElement.h",
+      "revision": "323ead896d04424f87184d8f6ff0cce811aab106",
+      "sha256": "02ebb6f9e24ade4e74240ef8ddd9acb6b5c6eea82cbf949333937af93aae323d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOKitUser/323ead896d04424f87184d8f6ff0cce811aab106/hid.subproj/IOHIDManager.h",
+      "revision": "323ead896d04424f87184d8f6ff0cce811aab106",
+      "sha256": "ffdc393a3d21f73dec8c57902622e42d34cd9fb358a1b6c07f339ad82d7b5291"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOKitUser/323ead896d04424f87184d8f6ff0cce811aab106/hid.subproj/IOHIDValue.h",
+      "revision": "323ead896d04424f87184d8f6ff0cce811aab106",
+      "sha256": "fd8e91f12872daf5948fa85af6c4979421961e509813996a75beec4ada3a7089"
+    }
+  ],
+  "apple-tap-receipt.json": {
+    "url": "https://developer.apple.com/tutorials/data/documentation/coregraphics/cgevent/tapcreate(tap:place:options:eventsofinterest:callback:userinfo:).json",
+    "sha256": "13f2d037bd4f1f59792bf14a2ecbc45d51fceb3342b951a9188c91153135ff2b",
+    "status": "retrieved",
+    "platforms": [
+      {
+        "introducedAt": "13.1",
+        "name": "Mac Catalyst"
+      },
+      {
+        "introducedAt": "10.4",
+        "name": "macOS"
+      }
+    ]
+  },
+  "duckylogger-provenance.json": {
+    "revision": "4e2254d61757acaae974ae2b2038469d1d030139",
+    "references": [
+      {
+        "name": "README.md",
+        "url": "https://raw.githubusercontent.com/hak5/usbrubberducky-payloads/4e2254d61757acaae974ae2b2038469d1d030139/payloads/library/credentials/DuckyLogger2/README.md",
+        "sha256": "c4167503f9f1de06b66be0486898f01c23153c458eb524b9ef61b63eb235f621",
+        "status": "retrieved"
+      },
+      {
+        "name": "payload.txt",
+        "url": "https://raw.githubusercontent.com/hak5/usbrubberducky-payloads/4e2254d61757acaae974ae2b2038469d1d030139/payloads/library/credentials/DuckyLogger2/payload.txt",
+        "sha256": "f457cc64af90ecf419876cd824ded906c0e81c3d1f172ba62428ef00a0006247",
+        "status": "retrieved"
+      },
+      {
+        "name": "duckyLoggerDecoder",
+        "url": "https://raw.githubusercontent.com/hak5/usbrubberducky-payloads/4e2254d61757acaae974ae2b2038469d1d030139/payloads/library/credentials/DuckyLogger2/duckyLoggerDecoder",
+        "sha256": "60659444516cd252268c43ca3fb9ff7f3f88fbdb35e2dafeb862b8ae0891db09",
+        "status": "retrieved"
+      },
+      {
+        "name": "payload-license",
+        "url": "https://raw.githubusercontent.com/hak5/usbrubberducky-payloads/4e2254d61757acaae974ae2b2038469d1d030139/LICENSE",
+        "status": "unavailable",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "name": "apple-led-example",
+        "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOHIDFamily/IOHIDFamily-1035.41.2/IOHIDLib/IOHIDDevice.h",
+        "status": "unavailable",
+        "error": "HTTP Error 404: Not Found"
+      }
+    ]
+  },
+  "license-search.json": {
+    "root_names": [
+      ".github",
+      ".gitignore",
+      "CONTRIBUTING.md",
+      "README.md",
+      "languages",
+      "payloads"
+    ],
+    "license_entries": []
+  }
+}

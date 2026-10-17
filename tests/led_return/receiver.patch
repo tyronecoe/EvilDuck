@@ -1,0 +1,165 @@
+--- EvilDuckS3.ino
++++ EvilDuckS3.ino
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_LED_RETURN_TEST
++#include "led_receiver.h"
++#include <esp_timer.h>
++#endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -130,6 +134,9 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   route_u::bindOwner(); // loop task registration only, never arms execution
+ #endif
++#ifdef EVILDUCK_LED_RETURN_TEST
++  led_return::service(uint64_t(esp_timer_get_time()));
++#endif
+   duckscript::update();
+   com::update();
+   cli::update();
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_LED_RETURN_TEST
++#include "led_receiver.h"
++#include <esp_timer.h>
++#endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -155,20 +159,29 @@
+ 
+ uint32_t lockSession() { FeedbackGuard guard; return feedback.session; }
+ void invalidateLockState() {
+-  FeedbackGuard guard;
+-  const uint32_t session = feedback.session + 1;
+-  feedback = LockState(); feedback.session = session;
++  uint32_t session;
++  {FeedbackGuard guard;session=feedback.session+1;feedback=LockState();feedback.session=session;}
++#ifdef EVILDUCK_LED_RETURN_TEST
++  led_return::invalidate(session);
++#endif
+ }
+ bool receiveLockReport(uint8_t id, const uint8_t *data, uint16_t size, uint32_t session) {
+   if (id != HID_REPORT_ID_KEYBOARD || !data || size != 1 || (data[0] & 0xE0) ||
+-      !static_cast<bool>(USB)) return false;
+-  FeedbackGuard guard;
++      !static_cast<bool>(USB)) {
++#ifdef EVILDUCK_LED_RETURN_TEST
++ led_return::rejected();
++#endif
++ return false;}
++  {FeedbackGuard guard;
+   if (disconnectEvent.load() || session != feedback.session) return false;
+   const uint8_t leds = data[0] & 7;
+   if (feedback.known) for (unsigned i = 0; i < 3; ++i)
+     if ((feedback.leds ^ leds) & (1u << i)) ++feedback.changes[i];
+   feedback.leds = leds; feedback.known = true;
+-  if (!feedback.savedKnown) { feedback.saved = leds; feedback.savedKnown = true; }
++  if (!feedback.savedKnown) { feedback.saved = leds; feedback.savedKnown = true; }}
++#ifdef EVILDUCK_LED_RETURN_TEST
++  led_return::observe(data[0]&7,session,uint64_t(esp_timer_get_time()));
++#endif
+   return true;
+ }
+ LockState lockState() {
+--- webfiles.h
++++ webfiles.h
+@@ -36,6 +36,17 @@
+     <div>Stops EvilDuck script execution. Programs already launched on the computer may keep running.</div>
+     <div>Run buttons explicitly use the reviewed Route B engine. No automatic replay.</div>
+   </aside>
++  <section class="card" aria-label="LED fixed-message test">
++   <h2>USB LED fixed-message test (RAM only)</h2>
++   <p>Custom protocol, not Hak5-compatible. Receive EVILDUCK TEST 123 only. Maximum120 seconds. STOP script does not stop receiving.</p>
++   <button type="button" onclick="ledAction('start')">Start receiving</button>
++   <button type="button" onclick="ledAction('stop')">Stop receiving</button>
++   <button type="button" onclick="ledAction('')">Observe LEDs / refresh</button>
++   <button type="button" onclick="viewLedData(false)">View test data</button>
++   <button type="button" onclick="viewLedData(true)">Download test data</button>
++   <button type="button" onclick="ledAction('clear')">Clear RAM result</button>
++   <pre id="ledTestResult" role="status">Unknown — no host LED report inferred.</pre><pre id="ledTestText"></pre>
++  </section>
+   <main class="tabshell">
+     <div class="tabbar" role="tablist" aria-label="Home sections">
+       <button class="tabbtn active" type="button" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="dashboard">Dashboard</button>
+@@ -943,7 +954,7 @@
+ async function controlFetch(url,options){
+   const controller=typeof AbortController==='undefined'?null:new AbortController();
+   if(controller)options.signal=controller.signal;
+-  let timer;try{return await Promise.race([fetch(url,options),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
++  let timer;try{return await Promise.race([(async()=>{const r=await fetch(url,options);const body=await r.text();return {status:r.status,ok:r.ok,text:async()=>body,json:async()=>JSON.parse(body)};})(),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
+   finally{clearTimeout(timer);}
+ }
+ async function stopScript(){
+@@ -977,6 +988,22 @@
+   finally{runInFlight=false;}
+ }
+ // END STOP CONTROLS
++// BEGIN LED TEST CONTROLS
++async function ledAction(action){
++ const out=document.getElementById('ledTestResult');
++ try{const r=await controlFetch('/led-test'+(action?'/'+action:''),{method:action?'POST':'GET',headers:duckHeaders()});
++  if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
++  out.textContent=JSON.stringify(s,null,2)+'\nLED bit booleans are evidence only when feedback is observed; unknown/stale is not all-off.';
++ }catch(e){out.textContent='Receiver not confirmed: '+e.message;}
++}
++async function viewLedData(download){
++ const out=document.getElementById('ledTestText');
++ try{const r=await controlFetch('/led-test/data',{headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const text=await r.text();out.textContent=text;
++  if(download){const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'text/plain'}));link.download='evilduck-fixed-test.txt';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);}
++ }catch(e){out.textContent='No verified data: '+e.message;}
++}
++// END LED TEST CONTROLS
++
+ 
+ async function delScript(s){
+   if(!confirm(`Delete ${s}?`)) return;
+--- webserver.cpp
++++ webserver.cpp
+@@ -1,3 +1,7 @@
++#ifdef EVILDUCK_LED_RETURN_TEST
++#include "led_receiver.h"
++#include <esp_timer.h>
++#endif
+ #include "diagnostics.h"
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+ #include "mutation_guard.h"
+@@ -452,6 +456,22 @@
+   }else{duckscript::requestStop();req->send(202,"application/json","{\"message\":\"Stop requested\",\"engine\":\"legacy\"}");}
+ }
+ #endif
++
++#ifdef EVILDUCK_LED_RETURN_TEST
++static void handleLedTest(AsyncWebServerRequest* req,int command){
++ bool denied=false,busy=false;led_return::Snapshot s;
++ {execution::BoundedGuard guard(execution::Owner::HttpDiagnostics);if(!guard){req->send(409,"text/plain","Execution busy");return;}
++  denied=!checkAuth(req);if(!denied){uint64_t now=uint64_t(esp_timer_get_time());
++   if(command==1)busy=!led_return::start(now);else if(command==2)led_return::stop();else if(command==3)led_return::clear();
++   s=led_return::snapshot(now);}}
++ if(denied){sendAuthRequired(req);return;}if(busy){req->send(409,"text/plain","Already receiving");return;}
++ if(command==4){if(!s.integrity){req->send(409,"text/plain","No verified fixed message");return;}req->send(200,"text/plain",s.text);return;}
++ char json[640];const char* feedback=!s.observed?(s.disconnected?"disconnected":"unknown"):s.stale?"stale":"observed";
++ int n=snprintf(json,sizeof(json),"{\"state\":%u,\"feedback\":\"%s\",\"observed\":%s,\"connected\":%s,\"mask\":%u,\"num\":%s,\"caps\":%s,\"scroll\":%s,\"lastReportUs\":\"%llu\",\"capturedAtUs\":\"%llu\",\"reports\":%lu,\"rejected\":%lu,\"overflow\":%lu,\"integrity\":%s}",unsigned(s.state),feedback,s.observed?"true":"false",s.connected?"true":"false",unsigned(s.mask),!s.observed||s.stale?"null":(s.mask&1)?"true":"false",!s.observed||s.stale?"null":(s.mask&2)?"true":"false",!s.observed||s.stale?"null":(s.mask&4)?"true":"false",(unsigned long long)s.lastReportUs,(unsigned long long)s.capturedAtUs,(unsigned long)s.reports,(unsigned long)s.rejected,(unsigned long)s.overflow,s.integrity?"true":"false");
++ if(n<0||size_t(n)>=sizeof(json)){req->send(503,"text/plain","Diagnostic overflow");return;}req->send(200,"application/json",json);
++}
++#endif
++
+ static void handleUploadComplete(AsyncWebServerRequest *request){
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   request->send(503,"text/plain","Uploads disabled");
+@@ -851,6 +871,13 @@
+   server.on("/delete", HTTP_GET, handleDeleteScript);
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
++#ifdef EVILDUCK_LED_RETURN_TEST
++  server.on("/led-test",HTTP_GET,[](AsyncWebServerRequest*r){handleLedTest(r,0);});
++  server.on("/led-test/start",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,1);});
++  server.on("/led-test/stop",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,2);});
++  server.on("/led-test/clear",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,3);});
++  server.on("/led-test/data",HTTP_GET,[](AsyncWebServerRequest*r){handleLedTest(r,4);});
++#endif
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+   server.on("/routeb/diagnostics", HTTP_GET, handleDiagnostics);
+ #endif

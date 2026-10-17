@@ -1,0 +1,7 @@
+REM SOURCE ONLY. Separate owner approval required. No sender starts until owner types SEND.
+REM First establish actual Caps+Num reports and arm the finite receiver on the device.
+REM Reviewed sender and WindowsSender.cs must be in Desktop\EvilDuckLedTest.
+GUI r
+DELAY 1000
+STRING powershell -NoProfile -File "%USERPROFILE%\Desktop\EvilDuckLedTest\send-windows.ps1"
+ENTER

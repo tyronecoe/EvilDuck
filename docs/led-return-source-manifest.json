@@ -1,0 +1,49 @@
+{
+  "patch_sha256": "0e2390c34854f0af703c53e7a6d9ecee5ec33b6b4d6ea3c7592fb6c5d4181490",
+  "before": [
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "d876a65b36de944ac7480ff61dd7732e5454b28bfcc917f3e1ad3056b896ab91"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fca398639a0e1d516fe0e403881052b6ad93abb5891fd74a73c34d0136aa6441"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "265e7618a128dd01e70e95bc7aaa4241a86b83d8280a7e685d3faefd7e7af1a8"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "c5039c858e6b308c9c04ece99f451ed97c4975b46bc12501d26ffefd4a8826f3"
+    }
+  ],
+  "after": [
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "42fdfde854f04ab67aa4abed4b6ce2b3b939491fc2e4daa5a4efff08945b8040"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "f2da56cd6c953f60461d8f3473cba122db2b1f5cc6cea9ee961161c47c37686a"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "7ac1f714beea89410682a05a8467715195452a6b023a8f45c7dc618b3d8bea95"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "7470b4eeaaa009b17d103c540d3e566778ab93e0faff73efe07b64bbaaaab7de"
+    }
+  ],
+  "additions": [
+    {
+      "file": "led_receiver.cpp",
+      "sha256": "e86159dd88d0fd3f691bb0176675d0187130b708000385f2448396db5f8fc5cf"
+    },
+    {
+      "file": "led_receiver.h",
+      "sha256": "c1dfe10ac05a368123e54da387a2f3adf77ceff5bbee41a3da9dc1acd1d4af9e"
+    }
+  ]
+}

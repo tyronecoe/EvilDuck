@@ -1,0 +1,9 @@
+REM SOURCE ONLY. First establish actual Caps+Num OUTPUT reports; replace YOUR_USB_SERIAL.
+REM Reviewed compiled sender must be in Desktop/EvilDuckLedTest. Owner still types SEND.
+GUI SPACE
+DELAY 1000
+STRING Terminal
+ENTER
+DELAY 1500
+STRING ~/Desktop/EvilDuckLedTest/send-macos --caps-num-confirmed YOUR_USB_SERIAL
+ENTER
