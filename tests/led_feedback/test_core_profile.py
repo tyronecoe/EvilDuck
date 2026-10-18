@@ -3,6 +3,7 @@ import argparse,json,pathlib,sys,shutil,tempfile
 sys.dont_write_bytecode=True
 ROOT=pathlib.Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 import feedback_core as archive_core,patched_core
+import archive_core as prior_archive_core
 p=argparse.ArgumentParser();p.add_argument('--core',type=pathlib.Path,required=True);p.add_argument('--results',type=pathlib.Path,required=True);a=p.parse_args();assert not a.results.exists();cases=[]
 def case(name,fn):
  try:fn();cases.append(dict(name=name,status='PASS'))
@@ -13,11 +14,13 @@ def reject(fn):
  except (ValueError,OSError,AssertionError):return
  raise AssertionError('unsafe dependency accepted')
 case('approved_archive_patched_tree_accepted',lambda:need(archive_core.check_sources(a.core,True)['profile']=='arduino-3.3.0-archive-feedback-boundary-v1'))
+case('prior_archive_profile_rejects_instrumented_tree',lambda:reject(lambda:prior_archive_core.check_sources(a.core,True)))
+case('prior_archive_input_still_passes_its_unchanged_guard',lambda:need(prior_archive_core.check_sources(pathlib.Path('/workspace/scratch/mac-release-core/data/packages/esp32/hardware/esp32/3.3.0'),True)['profile']=='arduino-3.3.0-publisher-archive-hid-nvs-v1'))
 case('archive_patched_tree_rejected_as_raw',lambda:reject(lambda:archive_core.check_sources(a.core,False)))
 case('historical_guard_still_rejects_new_profile',lambda:reject(lambda:patched_core.check_sources(a.core,True)))
 with tempfile.TemporaryDirectory(prefix='new-profile-') as tmp:
  t=pathlib.Path(tmp);clone=t/'data/packages/esp32/hardware/esp32/3.3.0';clone.parent.mkdir(parents=True);shutil.copytree(a.core,clone);tools=clone.parents[2]/'tools';tools.symlink_to(a.core.parents[2]/'tools',target_is_directory=True)
- for name in ['libraries/USB/src/USBHID.cpp','cores/esp32/esp32-hal-misc.c','platform.txt','cores/esp32/Arduino.h']:
+ for name in ['libraries/USB/src/USBHID.cpp','cores/esp32/esp32-hal-misc.c','cores/esp32/USB.cpp','platform.txt','cores/esp32/Arduino.h']:
   f=clone/name;old=f.read_bytes();f.write_bytes(old+b'\n/* alteration */\n');case('changed_'+name,lambda:reject(lambda:archive_core.check_sources(clone,True)));f.write_bytes(old)
  f=clone/'unknown';f.write_bytes(b'unknown');case('added_source_rejected',lambda:reject(lambda:archive_core.check_sources(clone,True)));f.unlink()
  f.symlink_to('missing');case('broken_link_rejected',lambda:reject(lambda:archive_core.check_sources(clone,True)));f.unlink()

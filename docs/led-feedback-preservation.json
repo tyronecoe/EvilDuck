@@ -1,0 +1,11 @@
+{
+  "baseline": "0d100caa120d11920341e493019e5fc016c05a4f",
+  "baseline_tree_inventory_sha256": "13657d677c291a17fcb3b43317159925008f9c296f25f0f71ebef1c3e8d2f1a5",
+  "baseline_tracked_files": 1606,
+  "prior_tracked_paths_and_modes_unchanged": true,
+  "frozen_stage26_files": 235,
+  "frozen_stage26_check": "PASS",
+  "old_archive_guard_passes_original_input": true,
+  "old_archive_guard_rejects_new_profile": true,
+  "physical": false
+}

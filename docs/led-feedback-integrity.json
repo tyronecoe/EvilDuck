@@ -1,0 +1,28 @@
+{
+  "file": "evilduck-led-feedback-macos-install-v1.zip",
+  "bytes": 2169867,
+  "sha256": "07069cafc83f1a7ad7c6a6e1646c2e3a9cc834611b490feebaf87b544a7ce55b",
+  "files": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "OWNER-CHECK.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "tool-evidence.json"
+  ]
+}
