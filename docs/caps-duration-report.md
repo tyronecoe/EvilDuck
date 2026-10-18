@@ -105,3 +105,18 @@ File inventory and final remote-ref comparison are recorded in the publication
 receipt. This task creates only new docs/caps-duration*, tests/caps_duration and
 separately named download artifacts. Historical files, toolchains and profiles
 are unchanged. No physical hardware access, flashing, OTA or real HID output occurred.
+
+## Publication verification
+
+The new branch was pushed successfully. Package commit:
+`bb9a2041f9bad6882c4fa8cf73f97ce6c9798816`.
+The actual commit-pinned public ZIP was downloaded again:2,204,946bytes, SHA256
+`9aba81efcd0a65f1f7bb97073e840786e8d48eb8cfa969ca5f7baab588cd764d`.
+All24 archive members, candidate BIN and exact installed rollback match. The
+extracted validator passed with no installed metadata, no selected write ranges
+and installation_authorized=false. Full evidence is caps-duration-publication.json.
+All61 prior remote refs and1,649 prior tracked files/modes remain unchanged.
+The final receipt commit changes only this new branch. No release/tag overwrite.
+
+Direct ZIP:
+https://raw.githubusercontent.com/tyronecoe/EvilDuck/bb9a2041f9bad6882c4fa8cf73f97ce6c9798816/downloads/evilduck-caps-duration-macos-install-v1.zip

@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/bb9a2041f9bad6882c4fa8cf73f97ce6c9798816/downloads/evilduck-caps-duration-macos-install-v1.zip",
+  "package_commit": "bb9a2041f9bad6882c4fa8cf73f97ce6c9798816",
+  "source_commit": "c868ed8ed66cac9a4bae08d4efb52c17e3d688ec",
+  "bytes": 2204946,
+  "sha256": "9aba81efcd0a65f1f7bb97073e840786e8d48eb8cfa969ca5f7baab588cd764d",
+  "every_member_identical": true,
+  "members": [
+    {
+      "file": "APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "file": "INSTALL-MAC.md",
+      "bytes": 2733,
+      "sha256": "5b4206a27f0a6a3ea3c6166349ce954aa2ddacaa34e5c5b99a295acf49442a78"
+    },
+    {
+      "file": "OWNER-CHECK.md",
+      "bytes": 3255,
+      "sha256": "514bdba638ebc61a410301d1b65fb867fa674ad27e8c19378f6f5b759b05beb3"
+    },
+    {
+      "file": "README.md",
+      "bytes": 287,
+      "sha256": "0a4dd6da4568a5b9f99f0bd298029a7960e15bf4b1b55a078fd750cc66fbea8a"
+    },
+    {
+      "file": "ROLLBACK-MAC.md",
+      "bytes": 1164,
+      "sha256": "64fbd13beed98ea2fb7e524e9546babcd1a4fd1a2d2ceaf70ee7a750101ca96d"
+    },
+    {
+      "file": "application.bin",
+      "bytes": 1392208,
+      "sha256": "58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72"
+    },
+    {
+      "file": "build-receipt.json",
+      "bytes": 1548295,
+      "sha256": "8f1673972f8449b77191febf0d4f4b180aa08fa3acbc94c412f838d5e9176f6f"
+    },
+    {
+      "file": "dependency-pin.json",
+      "bytes": 2143,
+      "sha256": "6dd126f337c56888ab66da81d30922c4eda4cfde0e268f8f713dc804d3fcfe13"
+    },
+    {
+      "file": "expected-partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    },
+    {
+      "file": "feedback-analysis.md",
+      "bytes": 5669,
+      "sha256": "f35d9f65a1b395765306793eaf664352ee2676f01446b3a1114c5ff8739e1420"
+    },
+    {
+      "file": "feedback-evidence.json",
+      "bytes": 40877,
+      "sha256": "7ab63160c337f6eb7dccf9a315b59d4ad466231dc3dcc738a0a28352fa468acf"
+    },
+    {
+      "file": "firmware-report.md",
+      "bytes": 5677,
+      "sha256": "a3cf86a769bd8017a750f503168db78c67ca07604d954e2ada622598567c764e"
+    },
+    {
+      "file": "gen_esp32part.py",
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+    },
+    {
+      "file": "install-macos.sh",
+      "bytes": 127,
+      "sha256": "541d42aa5ee7adb62954d3b1ed15846edf4a470b0806bc2862a178bc7c420a0d"
+    },
+    {
+      "file": "installer.py",
+      "bytes": 8552,
+      "sha256": "ba10cec51db671788f6df4fde9c7b7430d243f39ddaf188282b3683647c96513"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 5515,
+      "sha256": "a436abd12225afe4c4e35982c88bf12dcf04b3d825b44fe2252ef24ee99d7b9d"
+    },
+    {
+      "file": "preflight.py",
+      "bytes": 8401,
+      "sha256": "5b9f136a1480fb57c9b8b28aae1b834ae4c4e457f2c6b11070c1ebfb3594b7b1"
+    },
+    {
+      "file": "reproduction.md",
+      "bytes": 3092,
+      "sha256": "2a9e6fa2bf1d74053c0f39721df176c4b7f688f1dee9e06463ebfe691879669a"
+    },
+    {
+      "file": "rollback-application.bin",
+      "bytes": 1386176,
+      "sha256": "2c657f0c74f1d12c88aa1e6fa6daf5cc76de36e8e68bc41a325f39b19c9045a7"
+    },
+    {
+      "file": "rollback-build-receipt.json",
+      "bytes": 1468083,
+      "sha256": "92d7a5f11d474c6f9615081e2cdff8786fbb0a6ee5f5414b949b1a74bd4bd04b"
+    },
+    {
+      "file": "rollback-macos.sh",
+      "bytes": 299,
+      "sha256": "e5e0fb00654919be96df7814883e6b69ca9864d0c0bb4ebe7df0ee4f8cd8f96d"
+    },
+    {
+      "file": "source-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+    },
+    {
+      "file": "test-results.json",
+      "bytes": 1855,
+      "sha256": "545bc4b28a95788be828ffad24c46d27e3ac9f9f0326b21eb0549824550bf5b5"
+    },
+    {
+      "file": "tool-evidence.json",
+      "bytes": 352,
+      "sha256": "8e19f5176f4fef74bfa7852fafb4bbab3fda9077edad11296ac75d036598eed2"
+    }
+  ],
+  "downloaded_preflight": {
+    "selected_image": "application",
+    "plan_ready": false,
+    "package_integrity": "PASS",
+    "source_commit": "c868ed8ed66cac9a4bae08d4efb52c17e3d688ec",
+    "application_sha256": "58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "previous_remote_refs_unchanged": 61,
+  "new_remote_refs": [
+    "refs/heads/caps-duration-feedback-trial"
+  ],
+  "baseline_files_unchanged": 1649,
+  "frozen_stage26_files": 235,
+  "physical_hardware": false,
+  "installation_executed": false,
+  "host_caps_or_led_tested": false,
+  "changed_files": [
+    "docs/caps-duration-allocation.json",
+    "docs/caps-duration-build.json",
+    "docs/caps-duration-core-tests.json",
+    "docs/caps-duration-dependency-pin.json",
+    "docs/caps-duration-design.md",
+    "docs/caps-duration-feedback-analysis.md",
+    "docs/caps-duration-feedback-evidence.json",
+    "docs/caps-duration-install.md",
+    "docs/caps-duration-installer-tests.json",
+    "docs/caps-duration-integrity.json",
+    "docs/caps-duration-native-tests.json",
+    "docs/caps-duration-owner-check.md",
+    "docs/caps-duration-package-tests.json",
+    "docs/caps-duration-preservation.json",
+    "docs/caps-duration-publication.json",
+    "docs/caps-duration-related-tests.json",
+    "docs/caps-duration-report.md",
+    "docs/caps-duration-reproduction.md",
+    "docs/caps-duration-rollback.md",
+    "docs/caps-duration-software-tests.json",
+    "docs/caps-duration-source-manifest.json",
+    "docs/caps-duration-tool-parser.json",
+    "docs/caps-duration-ui-tests.json",
+    "downloads/evilduck-caps-duration-macos-install-v1.zip",
+    "downloads/evilduck-caps-duration-review.bin",
+    "tests/caps_duration/allocation_probe.cpp",
+    "tests/caps_duration/application.patch",
+    "tests/caps_duration/build_candidate.py",
+    "tests/caps_duration/caps_trial.cpp",
+    "tests/caps_duration/caps_trial.h",
+    "tests/caps_duration/inspect_feedback.py",
+    "tests/caps_duration/package.py",
+    "tests/caps_duration/preflight.py",
+    "tests/caps_duration/prepare_sources.py",
+    "tests/caps_duration/run_related.py",
+    "tests/caps_duration/run_tests.py",
+    "tests/caps_duration/startup_decode.py",
+    "tests/caps_duration/test_bound_installer.py",
+    "tests/caps_duration/test_main.cpp",
+    "tests/caps_duration/test_package.py",
+    "tests/caps_duration/test_ui.cjs",
+    "tests/caps_duration/tool_parser_tests.py",
+    "tests/caps_duration/verify_download.py",
+    "tests/caps_duration/verify_link.py"
+  ]
+}
