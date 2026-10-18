@@ -1,0 +1,53 @@
+{
+  "counts": {
+    "PASS": 11,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "approved_archive_patched_tree_accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_patched_tree_rejected_as_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_guard_still_rejects_new_profile",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_libraries/USB/src/USBHID.cpp",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_cores/esp32/esp32-hal-misc.c",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_platform.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_cores/esp32/Arduino.h",
+      "status": "PASS"
+    },
+    {
+      "name": "added_source_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "broken_link_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_core_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "adapted_verifier_retains_base_identity",
+      "status": "PASS"
+    }
+  ],
+  "hardware": false
+}
