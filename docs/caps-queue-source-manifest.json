@@ -1,0 +1,48 @@
+{
+  "base_commit": "3dd4a083aa6634cf413ac7a43c36baaa749b7540",
+  "patch_sha256": "88656cef6a2448616e3145ba65fba2df271086243c018a1936ddaa276428d490",
+  "before": [
+    {
+      "file": "webserver.cpp",
+      "sha256": "7470b4eeaaa009b17d103c540d3e566778ab93e0faff73efe07b64bbaaaab7de"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "7ac1f714beea89410682a05a8467715195452a6b023a8f45c7dc618b3d8bea95"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "f2da56cd6c953f60461d8f3473cba122db2b1f5cc6cea9ee961161c47c37686a"
+    },
+    {
+      "file": "led_receiver.cpp",
+      "sha256": "e86159dd88d0fd3f691bb0176675d0187130b708000385f2448396db5f8fc5cf"
+    },
+    {
+      "file": "led_receiver.h",
+      "sha256": "c1dfe10ac05a368123e54da387a2f3adf77ceff5bbee41a3da9dc1acd1d4af9e"
+    }
+  ],
+  "after": [
+    {
+      "file": "webserver.cpp",
+      "sha256": "5ac8dd0359fd17ba5ccf9e2fe9a25fdaf6a528a5ed8aba3713e8382e4d28caf6"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "9afd19261514ac5535c82cfc6719dba4206886fd58363ed37b6f40f6ba8fc68c"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fc5cab5349fedce40e73f7af967d123656052354cd0eed3eb37e78a8daebecb4"
+    },
+    {
+      "file": "led_receiver.cpp",
+      "sha256": "7b8743a007487db970c8a777aa95dc60bee35c86b0fa96d9ac62ec473ec6916e"
+    },
+    {
+      "file": "led_receiver.h",
+      "sha256": "a6a2a9970e4f0515987ae527a4ed20731153e97fc87d1066b82576a6895ef42a"
+    }
+  ]
+}

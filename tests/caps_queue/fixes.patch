@@ -1,0 +1,426 @@
+--- webserver.cpp
++++ webserver.cpp
+@@ -60,6 +60,16 @@
+   req->send(401, "text/plain", "Unauthorized — set X-Duck-Password header or ?pw=");
+ }
+ 
++// Authentication contention is not an invalid password. No storage/response under this lock.
++static bool authorize(AsyncWebServerRequest* req) {
++ bool denied=false;
++ { execution::BoundedGuard guard(execution::Owner::HttpStatus);
++   if(!guard){req->send(409,"text/plain","Authentication snapshot busy");return false;}
++   denied=!checkAuth(req);
++ }
++ if(denied){sendAuthRequired(req);return false;}return true;
++}
++
+ static bool isScriptFile(const String &filename) {
+   return filename.endsWith(".txt") || filename.endsWith(".duck");
+ }
+@@ -120,7 +130,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   req->send(200, "application/json", storage::listAllScriptsJson());
+ }
+ 
+@@ -128,7 +138,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (req->hasParam("s")) {
+     String body, err;
+     int code = 500;
+@@ -150,7 +160,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   execution::TryGuard snapshot;if(!snapshot){req->send(409,"text/plain","Execution busy");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (req->hasParam("format") && req->getParam("format")->value() == "text") {
+     req->send(200, "text/plain", script_log::getText());
+     return;
+@@ -169,12 +179,12 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
+-  if (!req->hasParam("s")) {
++  if (!authorize(req)) return;
++  if (!req->hasParam("s", true)) {
+     req->send(400, "text/plain", "Missing parameter s");
+     return;
+   }
+-  String filename = req->getParam("s")->value();
++  String filename = req->getParam("s", true)->value();
+   storage::Ref ref;
+   if (!parseScriptParam(filename, ref)) {
+     req->send(400, "text/plain", "Invalid script name");
+@@ -193,16 +203,18 @@
+ 
+ static void handleRunScript(AsyncWebServerRequest *req) {
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+-  execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
++  execution::BoundedGuard guard(execution::Owner::HttpStatus);if(!guard){req->send(409,"text/plain","Execution busy");return;}
+ #else
+   execution::Guard guard;
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   if(req->hasParam("engine")){
+     if(req->getParam("engine")->value()!="routeb"||!req->hasParam("s")){req->send(400,"text/plain","Invalid engine request");return;}
+     auto reply=route_u::requestStart(req->getParam("s")->value().c_str());
+-    req->send(reply==route_u::Reply::Accepted?202:409,"text/plain",reply==route_u::Reply::Accepted?"Queued Route B":"Route B refused");return;
++    if(reply!=route_u::Reply::Accepted){req->send(reply==route_u::Reply::Invalid?400:409,"text/plain","Route B refused; no run queued");return;}
++    auto accepted=route_u::status();char id[24];snprintf(id,sizeof(id),"%llu",(unsigned long long)accepted.request);
++    req->send(202,"application/json",String("{\"engine\":\"routeb\",\"state\":\"queued\",\"requestId\":\"")+id+"\"}");return;
+   }
+   if(!route_u::legacyAllowed()){req->send(409,"text/plain","Route B busy");return;}
+ #endif
+@@ -262,7 +274,7 @@
+  route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
+ #endif
+ 
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   execution::TryGuard settingsGuard;
+   if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
+   if (req->hasParam("ssid", true)) {
+@@ -349,7 +361,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   execution::TryGuard snapshot;if(!snapshot){req->send(409,"text/plain","Execution busy");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   String json = "{";
+   json += "\"ssid\":\"" + settings::getSSID() + "\",";
+   json += "\"password\":\"" + settings::getPassword() + "\",";
+@@ -466,8 +478,8 @@
+    s=led_return::snapshot(now);}}
+  if(denied){sendAuthRequired(req);return;}if(busy){req->send(409,"text/plain","Already receiving");return;}
+  if(command==4){if(!s.integrity){req->send(409,"text/plain","No verified fixed message");return;}req->send(200,"text/plain",s.text);return;}
+- char json[640];const char* feedback=!s.observed?(s.disconnected?"disconnected":"unknown"):s.stale?"stale":"observed";
+- int n=snprintf(json,sizeof(json),"{\"state\":%u,\"feedback\":\"%s\",\"observed\":%s,\"connected\":%s,\"mask\":%u,\"num\":%s,\"caps\":%s,\"scroll\":%s,\"lastReportUs\":\"%llu\",\"capturedAtUs\":\"%llu\",\"reports\":%lu,\"rejected\":%lu,\"overflow\":%lu,\"integrity\":%s}",unsigned(s.state),feedback,s.observed?"true":"false",s.connected?"true":"false",unsigned(s.mask),!s.observed||s.stale?"null":(s.mask&1)?"true":"false",!s.observed||s.stale?"null":(s.mask&2)?"true":"false",!s.observed||s.stale?"null":(s.mask&4)?"true":"false",(unsigned long long)s.lastReportUs,(unsigned long long)s.capturedAtUs,(unsigned long)s.reports,(unsigned long)s.rejected,(unsigned long)s.overflow,s.integrity?"true":"false");
++ char json[768];const char* feedback=!s.observed?(s.disconnected?"disconnected":"unknown"):s.stale?"stale":"observed";
++ int n=snprintf(json,sizeof(json),"{\"state\":%u,\"feedback\":\"%s\",\"observed\":%s,\"connected\":%s,\"mask\":%u,\"num\":%s,\"caps\":%s,\"scroll\":%s,\"lastReportUs\":\"%llu\",\"capturedAtUs\":\"%llu\",\"callbacks\":%lu,\"lastCallbackId\":%u,\"lastCallbackSize\":%u,\"reports\":%lu,\"rejected\":%lu,\"overflow\":%lu,\"integrity\":%s}",unsigned(s.state),feedback,s.observed?"true":"false",s.connected?"true":"false",unsigned(s.mask),!s.observed||s.stale?"null":(s.mask&1)?"true":"false",!s.observed||s.stale?"null":(s.mask&2)?"true":"false",!s.observed||s.stale?"null":(s.mask&4)?"true":"false",(unsigned long long)s.lastReportUs,(unsigned long long)s.capturedAtUs,(unsigned long)s.callbacks,unsigned(s.lastCallbackId),unsigned(s.lastCallbackSize),(unsigned long)s.reports,(unsigned long)s.rejected,(unsigned long)s.overflow,s.integrity?"true":"false");
+  if(n<0||size_t(n)>=sizeof(json)){req->send(503,"text/plain","Diagnostic overflow");return;}req->send(200,"application/json",json);
+ }
+ #endif
+@@ -516,6 +528,7 @@
+  // Authentication and state copies completed under the same mutex. No lock at send.
+  char requestId[24];snprintf(requestId,sizeof(requestId),"%llu",(unsigned long long)s.route.request);
+  String json=String("{\"routeBRequestId\":\"")+requestId+"\",\"routeBOwned\":"+(s.route.owned?"true":"false")+",\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
++ json+=",\"routeBLine\":"+String(s.route.line)+",\"routeBErrorCode\":"+String(s.route.errorCode);
+  json+=",\"routeBPhase\":"+String(unsigned(s.route.phase))+",\"routeBReason\":"+String(unsigned(s.route.reason));
+  json+=",\"running\":"+String(s.running?"true":"false")+",\"autorunEnabled\":"+String(s.autorun?"true":"false");
+  json+=",\"autorunScript\":\""+escapedStatusString(s.autorunScript)+"\",\"ssid\":\""+escapedStatusString(s.ssid)+"\",\"channel\":"+String(s.channel);
+@@ -540,7 +553,7 @@
+ #else
+   execution::Guard guard;
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   String json = "{";
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   auto routeStatus=route_u::status();
+@@ -587,7 +600,7 @@
+  route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
+ #endif
+ 
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   execution::TryGuard settingsGuard;
+   if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
+   if (!req->hasParam("color", true)) {
+@@ -644,7 +657,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (!req->hasParam("s")) {
+     req->send(400, "text/plain", "Missing parameter s");
+     return;
+@@ -662,7 +675,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (!req->hasParam("name", true)) {
+     req->send(400, "text/plain", "Missing name");
+     return;
+@@ -680,7 +693,7 @@
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+   route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
+ #endif
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (!req->hasParam("name", true) || !req->hasParam("content", true)) {
+     req->send(400, "text/plain", "Missing name or content");
+     return;
+@@ -720,7 +733,7 @@
+   route_u::Mutation mutation;if(!mutation){req->send(409,"text/plain","Route B busy");return;}
+ #endif
+   execution::Guard guard;
+-  if (!checkAuth(req)) { sendAuthRequired(req); return; }
++  if (!authorize(req)) return;
+   if (!req->hasParam("line", true)) {
+     req->send(400, "text/plain", "Missing line");
+     return;
+@@ -868,15 +881,16 @@
+   server.on("/script", HTTP_GET, handleGetScript);
+   server.on("/script/load", HTTP_POST, handleLoadScriptPost);
+   server.on("/script", HTTP_POST, handleSaveScript);
+-  server.on("/delete", HTTP_GET, handleDeleteScript);
++  server.on("/delete", HTTP_POST, handleDeleteScript);
++  server.on("/delete",HTTP_GET,[](AsyncWebServerRequest*r){if(authorize(r))r->send(405,"text/plain","Use confirmed POST deletion");});
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
+ #ifdef EVILDUCK_LED_RETURN_TEST
+-  server.on("/led-test",HTTP_GET,[](AsyncWebServerRequest*r){handleLedTest(r,0);});
++  server.on("/led-test/data",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/led-test/data")handleLedTest(r,4);else r->send(404,"text/plain","Not found");});
++  server.on("/led-test",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/led-test")handleLedTest(r,0);else r->send(404,"text/plain","Not found");});
+   server.on("/led-test/start",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,1);});
+   server.on("/led-test/stop",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,2);});
+   server.on("/led-test/clear",HTTP_POST,[](AsyncWebServerRequest*r){handleLedTest(r,3);});
+-  server.on("/led-test/data",HTTP_GET,[](AsyncWebServerRequest*r){handleLedTest(r,4);});
+ #endif
+ #ifdef EVILDUCK_ROUTE_B_DIAGNOSTICS
+   server.on("/routeb/diagnostics", HTTP_GET, handleDiagnostics);
+--- webfiles.h
++++ webfiles.h
+@@ -29,13 +29,16 @@
+   </header>
+ 
+ 
+-  <aside id="emergencyStop" role="region" aria-label="Script stop" style="position:sticky;top:0;z-index:50;background:#240909;padding:12px;border:2px solid #ff5555">
+-    <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;font-size:20px;font-weight:bold;min-height:48px;padding:8px 24px">STOP script</button>
+-    <button type="button" onclick="refreshStatus()">Check status</button>
+-    <div id="stopResult" role="status" aria-live="polite">STOP remains available when status is stale or offline.</div>
+-    <div>Stops EvilDuck script execution. Programs already launched on the computer may keep running.</div>
+-    <div>Run buttons explicitly use the reviewed Route B engine. No automatic replay.</div>
++  <aside id="emergencyStop" hidden role="region" aria-label="Script stop" style="position:sticky;top:0;z-index:50;background:#240909;padding:4px 8px;border:1px solid #ff5555">
++    <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;min-height:44px">STOP script</button>
++    <span id="runState" role="status">Checking execution</span>
++    <details id="stopDetails"><summary>Details / status</summary>
++      <button type="button" onclick="refreshStatus()">Check status</button>
++      <div id="stopResult" role="status" aria-live="polite"></div>
++      <div>Stops EvilDuck script execution. Programs already launched on the computer may keep running. Host key release is not proven.</div>
++    </details>
+   </aside>
++  <div style="padding:4px 8px"><button type="button" onclick="stopScript()">STOP / check execution</button> <span id="runResult" role="status" aria-live="polite">Checking execution</span></div>
+   <section class="card" aria-label="LED fixed-message test">
+    <h2>USB LED fixed-message test (RAM only)</h2>
+    <p>Custom protocol, not Hak5-compatible. Receive EVILDUCK TEST 123 only. Maximum120 seconds. STOP script does not stop receiving.</p>
+@@ -808,9 +811,11 @@
+   let r=await fetch('/script/load',{method:'POST',body:fd,headers:duckHeaders()});
+   let text=await r.text();
+   if(r.ok) return text;
++  if(r.status!==404)throw new Error(httpFailure(r,text));
+   r=await fetch('/script?s='+encodeURIComponent(name),{headers:duckHeaders()});
+   text=await r.text();
+   if(r.ok) return text;
++  if(r.status!==404)throw new Error(httpFailure(r,text));
+   r=await fetch('/library?s='+encodeURIComponent(name),{headers:duckHeaders()});
+   text=await r.text();
+   if(r.ok) return text;
+@@ -865,8 +870,8 @@
+   fd.append('content',content);
+   fd.append('storage', storage);
+   const r=await fetch('/script',{method:'POST',body:fd,headers:duckHeaders()});
+-  log(await r.text());
+-  await loadList();
++  const result=await r.text();if(!r.ok){log('Save failed: '+httpFailure(r,result));return false;}
++  log(result);await loadList();return true;
+ }
+ 
+ async function runEditorScript(){
+@@ -874,8 +879,7 @@
+   const storage=document.getElementById('editorStorage').value;
+   const name=scriptRefName(raw, storage);
+   if(!name){log('Enter a filename');return;}
+-  await saveScript();
+-  await runScript(name);
++  if(await saveScript())await runScript(name);
+ }
+ 
+ function setChip(el, text, cls){
+@@ -895,11 +899,13 @@
+   return h;
+ }
+ 
++let statusPollInFlight=false;
+ async function refreshStatus(){
++  if(statusPollInFlight)return;statusPollInFlight=true;
+   try{
+-    const r=await fetch('/status',{headers:duckHeaders()});
++    const r=await controlFetch('/status',{headers:duckHeaders()});
+     if(!r.ok)throw new Error('HTTP '+r.status);
+-    const s=await r.json();observeStop(s);
++    const s=await r.json();observeStop(s);observeExecution(s);
+     document.getElementById('ssidVal').textContent=s.ssid||'—';
+     document.getElementById('chVal').textContent=(s.channel??'—');
+     document.getElementById('autorunVal').textContent=s.autorunEnabled ? (s.autorunScript||'') : 'disabled';
+@@ -914,8 +920,9 @@
+     const chipSt=document.getElementById('chipStorage');
+     if(chipSt) setChip(chipSt, s.storage?'MSC on':'MSC off', s.storage?'good':'subtle');
+   }catch(e){
++    executionUncertain('Status unavailable — execution unknown; STOP available');
+     setChip(document.getElementById('chipRunning'), 'Offline', 'bad');
+-  }
++  }finally{statusPollInFlight=false;}
+ }
+ 
+ async function loadLibraryList(){
+@@ -930,11 +937,15 @@
+     if(!items.length){
+       const empty=document.createElement('li');
+       empty.className='muted';
+-      empty.textContent='No scripts. Flash SPIFFS data or use built-in examples after reboot.';
++      empty.textContent='No stored scripts.';
+       ul.appendChild(empty);
+       return;
+     }
+-    items.forEach(p=>appendScriptRow(ul,p,{showRun:true,showDelete:false}));
++    // Only actual stored files are deletable; firmware-only examples stay read-only.
++    const storedResponse=await controlFetch('/list',{headers:duckHeaders()});
++    if(!storedResponse.ok)throw new Error(httpFailure(storedResponse,await storedResponse.text()));
++    const stored=new Set(await storedResponse.json());
++    items.forEach(p=>appendScriptRow(ul,p,{showRun:true,showDelete:stored.has(p)}));
+   }catch(e){log('Library: '+e);}
+ }
+ 
+@@ -942,19 +953,19 @@
+   const el=document.getElementById('execLog');
+   if(!el) return;
+   try{
+-    const r=await fetch('/exec/log?format=text',{headers:duckHeaders()});
+-    el.textContent=await r.text();
++    const r=await controlFetch('/exec/log?format=text',{headers:duckHeaders()});
++    const body=await r.text();el.textContent=r.ok&&!/^\s*</.test(body)?(body||'No legacy log entries; see request execution status above.'):httpFailure(r,body);
+     el.scrollTop=el.scrollHeight;
+   }catch(e){el.textContent=String(e);}
+ }
+ 
+ // BEGIN STOP CONTROLS
+ let stopInFlight=false, stopReceipt=null, runInFlight=false;
+-function stopMessage(text){document.getElementById('stopResult').textContent=text;}
++function stopMessage(text){executionUncertain('STOP status');const details=document.getElementById('stopDetails');if(details)details.open=true;document.getElementById('stopResult').textContent=text;}
+ async function controlFetch(url,options){
+   const controller=typeof AbortController==='undefined'?null:new AbortController();
+   if(controller)options.signal=controller.signal;
+-  let timer;try{return await Promise.race([(async()=>{const r=await fetch(url,options);const body=await r.text();return {status:r.status,ok:r.ok,text:async()=>body,json:async()=>JSON.parse(body)};})(),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
++  let timer;try{return await Promise.race([(async()=>{const r=await fetch(url,options);const body=await r.text();return {status:r.status,ok:r.ok,contentType:r.headers?r.headers.get('Content-Type')||'':'',text:async()=>body,json:async()=>JSON.parse(body)};})(),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
+   finally{clearTimeout(timer);}
+ }
+ async function stopScript(){
+@@ -979,13 +990,35 @@
+   }
+ }
+ async function runScript(name){
+-  if(runInFlight){log('Run already pending; duplicate not submitted.');return;}
+-  runInFlight=true;
+-  try{const r=await controlFetch('/run?engine=routeb&s='+encodeURIComponent(name),{headers:duckHeaders()});
+-    const text=await r.text();if(r.status!==202)throw new Error('HTTP '+r.status+': '+text);
+-    log(text);refreshStatus();
+-  }catch(e){log('Run not confirmed: '+e.message+' No automatic retry.');}
+-  finally{runInFlight=false;}
++ if(runInFlight){log('Run already pending; duplicate not submitted.');return;}
++ runInFlight=true;executionUncertain('Submitting once — awaiting admission');
++ try{const r=await controlFetch('/run?engine=routeb&s='+encodeURIComponent(name),{headers:duckHeaders()});
++  if(r.status!==202)throw new Error(httpFailure(r,await r.text()));
++  const receipt=await r.json();if(receipt.engine!=='routeb'||!/^\d+$/.test(receipt.requestId))throw new Error('Invalid admission receipt');
++  currentRunId=receipt.requestId;log('Request '+currentRunId+' accepted / queued — execution not yet observed');
++  executionUncertain('Request '+currentRunId+' queued');refreshStatus();
++ }catch(e){executionUncertain('Run outcome unknown / refused; check status');log('Run not confirmed: '+e.message+' No automatic retry.');}
++ finally{runInFlight=false;}
++}
++let currentRunId=null;
++function httpFailure(r,body){return 'HTTP '+r.status+(/^\s*</.test(body)?' (non-text error response)':': '+String(body).slice(0,180));}
++function executionUncertain(message){
++ const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=false;
++ const state=document.getElementById('runState');if(state)state.textContent=message;
++}
++function observeExecution(s){
++ if(s.snapshotKind!=='request-capture'){executionUncertain('Execution freshness unknown');return;}
++ if(currentRunId&&s.routeBRequestId!==currentRunId){executionUncertain('Current request differs; prior result unconfirmed');return;}
++ const names=['Idle','Queued','Capturing','Verifying','Compiling','Ready','Running','Stopping','Quarantined'];
++ const reasons=['None','Completed','Cancelled','File failure','Compile failure','Unsupported capability','Runtime failure','Backend failure','USB loss','Deadline'];
++ const phase=s.routeBPhase;const terminal=phase===0&&s.routeBOwned===false;
++ const message='Request '+s.routeBRequestId+': '+(terminal?(reasons[s.routeBReason]||'Unknown terminal reason'):(names[phase]||'Unknown phase'))+
++   (s.routeBLine?' at line '+s.routeBLine:'')+(s.routeBErrorCode?' (code '+s.routeBErrorCode+')':'');
++ const result=document.getElementById('runResult');if(result)result.textContent=message;
++ const state=document.getElementById('runState');if(state)state.textContent=message;
++ const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=terminal;
++ // Terminal evidence stays visible outside the collapsed active control.
++ if(terminal)currentRunId=null;
+ }
+ // END STOP CONTROLS
+ // BEGIN LED TEST CONTROLS
+@@ -998,7 +1031,7 @@
+ }
+ async function viewLedData(download){
+  const out=document.getElementById('ledTestText');
+- try{const r=await controlFetch('/led-test/data',{headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const text=await r.text();out.textContent=text;
++ try{const r=await controlFetch('/led-test/data',{headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const text=await r.text();if(!r.contentType.toLowerCase().startsWith('text/plain')||text!=='EVILDUCK TEST 123')throw new Error('Wrong response type or unverified fixed message');out.textContent=text;
+   if(download){const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'text/plain'}));link.download='evilduck-fixed-test.txt';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);}
+  }catch(e){out.textContent='No verified data: '+e.message;}
+ }
+@@ -1006,11 +1039,11 @@
+ 
+ 
+ async function delScript(s){
+-  if(!confirm(`Delete ${s}?`)) return;
+-  const r=await fetch('/delete?s='+encodeURIComponent(s),{headers:duckHeaders()});
+-  log(await r.text());
+-  await loadList();
+-  refreshStatus();
++ if(String(s).startsWith('fw:')){log('Bundled read-only entry cannot be deleted.');return;}
++ if(!confirm('Delete exactly '+s+' from '+(/^sd:/i.test(s)?'SD':'SPIFFS')+'?'))return;
++ try{const fd=new FormData();fd.append('s',s);const r=await controlFetch('/delete',{method:'POST',body:fd,headers:duckHeaders()});
++  const body=await r.text();if(!r.ok)throw new Error(httpFailure(r,body));log(body);await loadList();await loadLibraryList();
++ }catch(e){log('Delete not confirmed: '+e.message+' No automatic retry.');}
+ }
+ 
+ document.getElementById('uploadForm').addEventListener('submit',async(e)=>{
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -24,6 +24,9 @@
+ static USBHID HID;
+ class FeedbackKeyboard : public USBHIDKeyboard {
+   void observe(uint8_t id, const uint8_t *data, uint16_t size) {
++#ifdef EVILDUCK_LED_RETURN_TEST
++    led_return::callback(id,size);
++#endif
+     const auto session = hid_backend::lockSession();
+     hid_backend::receiveLockReport(id, data, size, session);
+   }
+--- led_receiver.cpp
++++ led_receiver.cpp
+@@ -32,6 +32,7 @@
+  if(data.count==64){inc(data.s.overflow);data.s.state=State::Overflow;data.count=0;return;}
+  data.ring[(data.head+data.count)%64]={at,session,uint8_t(mask&7)};++data.count;
+ }
++void callback(uint8_t id,uint16_t size){Lock l;inc(data.s.callbacks);data.s.lastCallbackId=id;data.s.lastCallbackSize=size;}
+ void rejected(){Lock l;inc(data.s.rejected);}
+ void invalidate(uint32_t session){Lock l;data.s.session=session;data.s.disconnected=data.s.disconnected||data.s.connected;data.s.connected=data.s.observed=false;data.count=data.head=0;if(data.s.state==State::Receiving)data.s.state=State::Disconnected;resetDecoder();}
+ bool start(uint64_t now){Lock l;if(data.s.state==State::Receiving)return false;data.s.state=State::Receiving;data.s.text[0]=0;data.s.integrity=false;data.started=data.lastService=now;data.count=data.head=0;resetDecoder();return true;}
+--- led_receiver.h
++++ led_receiver.h
+@@ -5,8 +5,9 @@
+ constexpr char Message[]="EVILDUCK TEST 123";
+ constexpr uint64_t TimeoutUs=120000000,StaleUs=5000000;
+ enum class State:uint8_t{Idle,Receiving,Complete,Stopped,Timeout,Overflow,Disconnected,InvalidFrame,ClockError};
+-struct Snapshot{State state=State::Idle;bool observed=false,connected=false,disconnected=false,stale=false,integrity=false;uint8_t mask=0;uint32_t session=0,reports=0,rejected=0,overflow=0,queued=0;uint64_t lastReportUs=0,capturedAtUs=0;char text[sizeof(Message)]={};};
++struct Snapshot{State state=State::Idle;bool observed=false,connected=false,disconnected=false,stale=false,integrity=false;uint8_t mask=0;uint32_t callbacks=0;uint8_t lastCallbackId=0;uint16_t lastCallbackSize=0;uint32_t session=0,reports=0,rejected=0,overflow=0,queued=0;uint64_t lastReportUs=0,capturedAtUs=0;char text[sizeof(Message)]={};};
+ // Callback ingress: fixed copies only; never execution mutex, I/O, USB or allocation.
++void callback(uint8_t id,uint16_t size);
+ void observe(uint8_t mask,uint32_t session,uint64_t at);
+ void invalidate(uint32_t session);void rejected();
+ void service(uint64_t now);bool start(uint64_t now);void stop();void clear();
