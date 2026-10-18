@@ -156,3 +156,52 @@ Owner next step: download/hash-check/fresh-extract, inspect the guides, and only
 then perform separately authorized read-only ROM checks. Physical installation
 and boot still require separate owner authorization. No physical access, flash,
 erase, OTA, HID output, owner script or host sender execution occurred here.
+
+## Published result and file inventory
+
+Package commit30310d08b6b833af146b46548ecb4141554180c0 was pushed, fetched over its
+commit-pinned raw GitHub URL, size/SHA-checked, CRC/member checked, compared
+byte-for-byte across all20 extracted files, and passed extracted package preflight.
+ZIP2,155,369 bytes; SHA-256:
+b5b238c04e4fb40cb19f41fcf22c7a072a26b605176e3ea52077de693e3fab71
+The first download inspection imported its helper without suppressing Python's
+cache output, correctly triggering the strict unexpected-file rejection. A fresh
+extraction with bytecode disabled passed; the ZIP never contained that cache.
+The released CLI already disables bytecode before importing its helper.
+The publication receipt retains the actual downloaded file identities and prior
+ref inventory. All59 prior refs remain unchanged; only the new branch was added.
+
+Every file added in this follow-up (no existing file modified):
+- `docs/mac-release-bound-tests.json`
+- `docs/mac-release-build.json`
+- `docs/mac-release-core-receipt.json`
+- `docs/mac-release-dependency-pin.json`
+- `docs/mac-release-firmware-notes.md`
+- `docs/mac-release-historical-profile-tests.json`
+- `docs/mac-release-install.md`
+- `docs/mac-release-installer-engine-tests.json`
+- `docs/mac-release-integrity.json`
+- `docs/mac-release-native.json`
+- `docs/mac-release-neopixel-pin.json`
+- `docs/mac-release-package-tests.json`
+- `docs/mac-release-profile-tests.json`
+- `docs/mac-release-publication.json`
+- `docs/mac-release-related.json`
+- `docs/mac-release-report.md`
+- `docs/mac-release-reproduction.md`
+- `docs/mac-release-rollback.md`
+- `docs/mac-release-tool-parser.json`
+- `docs/mac-release-ui.json`
+- `downloads/evilduck-caps-queue-macos-install-v1.zip`
+- `downloads/evilduck-caps-queue-review.bin`
+- `tests/mac_release/build_candidate.py`
+- `tests/mac_release/package.py`
+- `tests/mac_release/preflight.py`
+- `tests/mac_release/prepare_core.py`
+- `tests/mac_release/run_tests.py`
+- `tests/mac_release/startup_decode.py`
+- `tests/mac_release/test_archive_profile.py`
+- `tests/mac_release/test_bound_installer.py`
+- `tests/mac_release/tool_parser_tests.py`
+- `tests/mac_release/verify_link.py`
+- `tools/archive_core.py`
