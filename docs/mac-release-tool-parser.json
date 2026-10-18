@@ -1,0 +1,9 @@
+{
+  "parser_cases_pass": 14,
+  "unexpected_fail": 0,
+  "scope": "real esptool4.12.0 parser AST only; no connection or operation dispatcher included",
+  "esptool_source_sha256": "96513abe8944836630610465e5fab03c4da9a4bc9d27f177413f6547f859430e",
+  "hardware_access": false,
+  "flash_operation_executed": false,
+  "native_high_sierra": "PENDING OWNER"
+}

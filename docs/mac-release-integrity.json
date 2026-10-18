@@ -1,0 +1,27 @@
+{
+  "file": "evilduck-caps-queue-macos-install-v1.zip",
+  "bytes": 2155369,
+  "sha256": "b5b238c04e4fb40cb19f41fcf22c7a072a26b605176e3ea52077de693e3fab71",
+  "files": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "tool-evidence.json"
+  ]
+}

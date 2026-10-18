@@ -1,0 +1,155 @@
+{
+  "counts": {
+    "PASS": 36,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "release_binding_matches_exact_preflight",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_release_default_check_no_write_no_full_backup",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_release_install_fresh_gates_and_two_compares",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_release_rollback_fresh_gates_and_two_compares",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_bad_package",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_wrong_tool",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_wrong_chip",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_small_flash",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_secure_boot",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_encrypted",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_crypt_count",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_missing_security",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_duplicate_security",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_wrong_layout",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_wrong_ota",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_short_table",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_missing_readback",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_backup_failure",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_short_backup",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_wrong_backup",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_changed_chip",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_changed_metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_changed_image",
+      "status": "PASS"
+    },
+    {
+      "name": "real_validator_denies_interrupt",
+      "status": "PASS"
+    },
+    {
+      "name": "deliberate_cancellation_before_write",
+      "status": "PASS"
+    },
+    {
+      "name": "real_release_write_failure_no_retry_or_reboot",
+      "status": "PASS"
+    },
+    {
+      "name": "real_release_verify_failure_no_retry_or_reboot",
+      "status": "PASS"
+    },
+    {
+      "name": "real_release_second_verify_failure_no_retry_or_reboot",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_helper_rejected_before_import_or_device_access",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_default_launcher_requires_explicit_fresh_port",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_rollback_cannot_be_overridden",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_python38_preflight.py",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_python38_installer.py",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_python38_gen_esp32part.py",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_shell_install-macos.sh",
+      "status": "PASS"
+    },
+    {
+      "name": "bound_shell_rollback-macos.sh",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Actual public ELF-derived images, exact release preflight and bound installer with injected esptool responses. All device contents synthetic.",
+  "hardware": false,
+  "native_macos_tested": false
+}
