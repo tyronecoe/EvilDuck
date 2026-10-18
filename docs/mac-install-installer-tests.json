@@ -1,0 +1,180 @@
+{
+  "counts": {
+    "PASS": 42,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "default_check_only_reads_no_flash_mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "bad_package",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_tool",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_chip",
+      "status": "PASS"
+    },
+    {
+      "name": "small_flash",
+      "status": "PASS"
+    },
+    {
+      "name": "secure_boot",
+      "status": "PASS"
+    },
+    {
+      "name": "encrypted",
+      "status": "PASS"
+    },
+    {
+      "name": "crypt_count",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_security",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_security",
+      "status": "PASS"
+    },
+    {
+      "name": "short_table",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_readback",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_layout",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_ota",
+      "status": "PASS"
+    },
+    {
+      "name": "unsafe_range",
+      "status": "PASS"
+    },
+    {
+      "name": "one_slot",
+      "status": "PASS"
+    },
+    {
+      "name": "backup_failure",
+      "status": "PASS"
+    },
+    {
+      "name": "short_backup",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_backup",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_chip",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "changed_image",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_port_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_before_write",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit_install_and_two_independent_compares",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback_is_current_c20_not_old_shortcuts",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_rollback_bytes_fail_before_write",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_image_prevents_even_tool_invocation",
+      "status": "PASS"
+    },
+    {
+      "name": "write_failure",
+      "status": "PASS"
+    },
+    {
+      "name": "verify_failure",
+      "status": "PASS"
+    },
+    {
+      "name": "second_verify_failure",
+      "status": "PASS"
+    },
+    {
+      "name": "unbound_cli_check_cannot_access_device",
+      "status": "PASS"
+    },
+    {
+      "name": "unbound_cli_install_cannot_access_device",
+      "status": "PASS"
+    },
+    {
+      "name": "unbound_cli_rollback_cannot_access_device",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback_launcher_rejects_action_override",
+      "status": "PASS"
+    },
+    {
+      "name": "bash_launchers_work_in_spaced_path_without_execute_bits",
+      "status": "PASS"
+    },
+    {
+      "name": "python38_proposed_profile.py",
+      "status": "PASS"
+    },
+    {
+      "name": "python38_installer.py",
+      "status": "PASS"
+    },
+    {
+      "name": "python38_test_installer.py",
+      "status": "PASS"
+    },
+    {
+      "name": "python38_test_profile.py",
+      "status": "PASS"
+    },
+    {
+      "name": "python38_core_inventory.py",
+      "status": "PASS"
+    },
+    {
+      "name": "launcher_bash_syntax",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Injected esptool/package-check mocks, public rollback fixture and synthetic non-firmware application; no real device or hardware command executed",
+  "release_binding": null,
+  "native_high_sierra": "NOT TESTED",
+  "hardware": false
+}

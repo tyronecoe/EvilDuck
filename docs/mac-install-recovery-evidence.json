@@ -1,0 +1,75 @@
+{
+  "status": "HISTORICAL_RECONSTRUCTION_UNRESOLVED",
+  "source_baseline": "d32a60bd3fef73e38293f95905f5905eb41b32fd",
+  "historical_creation_commit": "fcffe4a1bb01d72a3a0176a2d8e738f3641db34f",
+  "history_observation": "Original pin first committed as a value; no complete source-file inventory or pin-generation transcript found in accessible Git history. It describes a measured installed tree, not a demonstrated pristine archive extraction.",
+  "archive_sha256": "c8525462e47b37b726c211b71afada0fca5859ba748963e4d967131355716ba2",
+  "comparisons": {
+    "original": {
+      "expected": "27c2bae8bee6e4f8089417c048f41bfd255d7a80fab5e889bf74fb258112cb51",
+      "actual": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8"
+    },
+    "hid_only": {
+      "expected": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "actual": "18557597a548be2b70f6683c135de194da7aae8d9067f9c422e68eff58af1671"
+    },
+    "hid_and_nvs": {
+      "expected": "81c11f59e01c1e6263d387a008d3f3211319d94feb4751ddfa11af35a2a57ed3",
+      "actual": "edfa1c99cdb73dca1da7d2f0a9d1153e40a2ce196c7470872c9654f03093f530"
+    }
+  },
+  "raw_vs_manual": {
+    "added": [],
+    "removed": [],
+    "content_changed": [],
+    "links_before": [],
+    "links_after": []
+  },
+  "raw_vs_clean_cli": {
+    "added": [],
+    "removed": [],
+    "content_changed": [],
+    "links_before": [],
+    "links_after": []
+  },
+  "cli_only_unhashed_file": {
+    "path": "installed.json",
+    "bytes": 819791,
+    "sha256": "fd268e23f10970121b30013e90849e32109004d8426a11175bd9c3d1faf69712",
+    "excluded_by_historical_algorithm": true
+  },
+  "historical_full_inventory_available": false,
+  "source_fingerprints_explained": false,
+  "metadata_not_part_of_hash": true,
+  "guard_bypassed": false,
+  "actual_clean_build_retry": {
+    "exit": 1,
+    "diagnostic": "FAIL: Core tree mismatch",
+    "compilation_started": false
+  },
+  "proposed_profile_approved": false,
+  "new_installable_zip": null,
+  "historical_file_diff": {
+    "added": null,
+    "removed": null,
+    "content_changed": null,
+    "reason": "No historical complete file inventory or matching tree; not inferred from two fresh trees"
+  },
+  "partial_historical_file_evidence_count": 13,
+  "partial_inventory_is_not_complete": true,
+  "historical_inventory_warning": "Known paths/variants and public parser bytes do not identify all original tree records.",
+  "observed_trees": {
+    "fresh_release": {
+      "hash": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+      "records": 1683
+    },
+    "clean_cli_install": {
+      "hash": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+      "records": 1683
+    },
+    "preceding_manual_install": {
+      "hash": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+      "records": 1683
+    }
+  }
+}

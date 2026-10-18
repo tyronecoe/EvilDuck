@@ -1,0 +1,96 @@
+{
+  "counts": {
+    "PASS": 21,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "verified_input_profile_still_requires_review",
+      "status": "PASS"
+    },
+    {
+      "name": "all_177_linked_sdk_archives_match_working_build",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_raw_guard_still_rejects_new_tree",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_patched_guard_still_rejects_new_tree",
+      "status": "PASS"
+    },
+    {
+      "name": "raw_core_cannot_be_patched_profile",
+      "status": "PASS"
+    },
+    {
+      "name": "patched_core_cannot_be_raw_profile",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_archive_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_compiler_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_sdk_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "same_order_and_json_as_historical_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "path_component_order_not_string_sort",
+      "status": "PASS"
+    },
+    {
+      "name": "only_root_installed_json_is_excluded",
+      "status": "PASS"
+    },
+    {
+      "name": "nested_catalog_name_is_not_ignored",
+      "status": "PASS"
+    },
+    {
+      "name": "modes_not_hashed",
+      "status": "PASS"
+    },
+    {
+      "name": "mtimes_not_hashed",
+      "status": "PASS"
+    },
+    {
+      "name": "links_are_recorded_separately_and_file_links_followed",
+      "status": "PASS"
+    },
+    {
+      "name": "undeclared_generated_file_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_core_version_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "unhashed_broken_symlink_is_still_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "patched_source_tamper_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "patches_only_modify_two_declared_source_files",
+      "status": "PASS"
+    }
+  ],
+  "hardware": false,
+  "source_images_modified": false,
+  "approved_for_build": false,
+  "approved_for_install": false
+}

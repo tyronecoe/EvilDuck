@@ -1,0 +1,29 @@
+{
+  "added": [
+    "docs/mac-install-build-profile-proposal.md",
+    "docs/mac-install-core-inventory.json",
+    "docs/mac-install-files.json",
+    "docs/mac-install-installer-tests.json",
+    "docs/mac-install-partial-history.json",
+    "docs/mac-install-preparation.md",
+    "docs/mac-install-preservation.json",
+    "docs/mac-install-profile-tests.json",
+    "docs/mac-install-proposed-profile.json",
+    "docs/mac-install-recovery-evidence.json",
+    "docs/mac-install-regression-results.json",
+    "docs/mac-install-report.md",
+    "docs/mac-install-reproduction.md",
+    "docs/mac-install-tool-parser-results.json",
+    "docs/mac-install-ui-results.json",
+    "tests/mac_install/core_inventory.py",
+    "tests/mac_install/install-macos.sh",
+    "tests/mac_install/installer.py",
+    "tests/mac_install/proposed_profile.py",
+    "tests/mac_install/rollback-macos.sh",
+    "tests/mac_install/test_installer.py",
+    "tests/mac_install/test_profile.py"
+  ],
+  "modified_existing": [],
+  "new_firmware_binary": null,
+  "new_installation_zip": null
+}

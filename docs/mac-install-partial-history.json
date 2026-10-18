@@ -1,0 +1,168 @@
+[
+  {
+    "path": "cores/esp32/USB.cpp",
+    "fresh_sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "984d14d2819235bc1f523856668d8c8cc8c989592c969b8fa03dccb98ba5a33e",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "cores/esp32/USBMSC.cpp",
+    "fresh_sha256": "f7a3679e2dc99451467a3869a2fc4a8c36f9f74843ccae30cdcf5c079b12ca14",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "f7a3679e2dc99451467a3869a2fc4a8c36f9f74843ccae30cdcf5c079b12ca14",
+        "document": "docs/stage10-results.json"
+      }
+    ]
+  },
+  {
+    "path": "cores/esp32/USBMSC.h",
+    "fresh_sha256": "c1bd242dff09564eb3c22eea162167235d6c5e160ff3f2b6c169110eb5987bde",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "c1bd242dff09564eb3c22eea162167235d6c5e160ff3f2b6c169110eb5987bde",
+        "document": "docs/stage10-results.json"
+      }
+    ]
+  },
+  {
+    "path": "cores/esp32/esp32-hal-tinyusb.c",
+    "fresh_sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "8cd0eceb29a5a7a3c8c85e91727160753e04675555a2da09fa727de88f8421ba",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "cores/esp32/main.cpp",
+    "fresh_sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d",
+        "document": "docs/stage28x-integrity.json"
+      },
+      {
+        "sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d",
+        "document": "docs/stage28x-source-evidence.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/FS/src/FS.h",
+    "fresh_sha256": "b0f42cd30763dbcd70d1a465f407a8b257749459b8169f603d92df4a8ef9100f",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "b0f42cd30763dbcd70d1a465f407a8b257749459b8169f603d92df4a8ef9100f",
+        "document": "docs/stage10-results.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/FS/src/vfs_api.cpp",
+    "fresh_sha256": "b879998d67c5c6fc36845831af60b03338365031b4ca15d638d5ff6389a5c155",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "b879998d67c5c6fc36845831af60b03338365031b4ca15d638d5ff6389a5c155",
+        "document": "docs/stage10-results.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/SD/src/SD.cpp",
+    "fresh_sha256": "9728e9fd4abe200048291384b7ffbf12d2e8fe182f3685171442767565bc4fe0",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "9728e9fd4abe200048291384b7ffbf12d2e8fe182f3685171442767565bc4fe0",
+        "document": "docs/stage10-results.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/USB/src/USBHID.cpp",
+    "fresh_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/USB/src/USBHID.h",
+    "fresh_sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "1630de2ba9c471472bf8010526bfc0b48dc71b7935ab5d7a7eaf9dbc8398485f",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/USB/src/USBHIDKeyboard.cpp",
+    "fresh_sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "a212749daa8ede661388b56ea1284fddc1329b71d0fc959cbd0c3e065f011d64",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "libraries/USB/src/USBHIDKeyboard.h",
+    "fresh_sha256": "8739ca6da849985c28d48743cfd3549fc4ee57a7d661fb4cdb046941d819d596",
+    "matches_at_least_one_recorded_variant": true,
+    "historical_records": [
+      {
+        "sha256": "8739ca6da849985c28d48743cfd3549fc4ee57a7d661fb4cdb046941d819d596",
+        "document": "docs/caps-queue-build-blocker.json"
+      },
+      {
+        "sha256": "8739ca6da849985c28d48743cfd3549fc4ee57a7d661fb4cdb046941d819d596",
+        "document": "docs/stage15-upstream-sources.json"
+      }
+    ]
+  },
+  {
+    "path": "tools/gen_esp32part.py",
+    "fresh_sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c",
+    "public_historical_copy_sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c",
+    "matches": true
+  }
+]
