@@ -1,0 +1,14 @@
+{
+  "mac_cleanup_combinations_pass": 8,
+  "mac_executed_scope": "extracted production cleanup block only; fake value API, not IOKit",
+  "windows_source_contract_checks_pass": 3,
+  "windows_native_compilation": "NOT TESTED; compiler unavailable",
+  "mac_native_compilation": "NOT TESTED; Apple SDK unavailable",
+  "sanitizers": "ASan/UBSan/leak detection PASS for cleanup block harness",
+  "hardware_access": false,
+  "host_sender_executed": false,
+  "source_sha256": {
+    "host_tests/led_return/send-macos.c": "e49f0a0de64b7055b5d27bd91c5b35adc66a665996ce173b0e637d8877507a8a",
+    "host_tests/led_return/WindowsSender.cs": "024d9dfa1d65614d1e121cdff434ab86034791b5079166171bf5787d0d931c7e"
+  }
+}

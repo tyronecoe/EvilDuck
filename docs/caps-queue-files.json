@@ -1,0 +1,40 @@
+{
+  "added": [
+    "docs/caps-queue-build-blocker.json",
+    "docs/caps-queue-files.json",
+    "docs/caps-queue-owner-checklist.md",
+    "docs/caps-queue-preservation.json",
+    "docs/caps-queue-related-results.json",
+    "docs/caps-queue-report.md",
+    "docs/caps-queue-reproduction.md",
+    "docs/caps-queue-resource-results.json",
+    "docs/caps-queue-results.json",
+    "docs/caps-queue-sender-results.json",
+    "docs/caps-queue-source-manifest.json",
+    "docs/caps-queue-ui-results.json",
+    "tests/caps_queue/build_candidate.py",
+    "tests/caps_queue/check_resources.py",
+    "tests/caps_queue/fixes.patch",
+    "tests/caps_queue/mocks/ESPAsyncWebServer.h",
+    "tests/caps_queue/mocks/Update.h",
+    "tests/caps_queue/mocks/WiFi.h",
+    "tests/caps_queue/mocks/network.h",
+    "tests/caps_queue/prepare_sources.py",
+    "tests/caps_queue/receiver_resources.cpp",
+    "tests/caps_queue/run_related.py",
+    "tests/caps_queue/run_tests.py",
+    "tests/caps_queue/test_main.cpp",
+    "tests/caps_queue/test_ui.cjs",
+    "tests/caps_queue/verify_link.py"
+  ],
+  "modified_existing_files": [],
+  "composed_production_changes": [
+    "webserver.cpp",
+    "webfiles.h",
+    "hid_backend.cpp",
+    "led_receiver.cpp",
+    "led_receiver.h"
+  ],
+  "new_firmware_binary": null,
+  "new_installation_archive": null
+}

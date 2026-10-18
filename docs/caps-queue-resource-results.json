@@ -1,0 +1,66 @@
+{
+  "PASS": 2,
+  "FAIL": 0,
+  "measurements": {
+    "before": {
+      "Snapshot_native_bytes": 72,
+      "receiver_native_bytes": 1152,
+      "loop_allocations": 0
+    },
+    "after": {
+      "Snapshot_native_bytes": 80,
+      "receiver_native_bytes": 1160,
+      "loop_allocations": 0
+    }
+  },
+  "commands": [
+    [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-DEVILDUCK_HOST_TEST",
+      "-I/workspace/scratch/caps-queue/base",
+      "-I/workspace/EvilDuck/tests/stage28x",
+      "-I/workspace/EvilDuck/tests/stage28t",
+      "/workspace/EvilDuck/tests/caps_queue/receiver_resources.cpp",
+      "/workspace/scratch/caps-queue/base/led_receiver.cpp",
+      "/workspace/EvilDuck/tests/stage28x/allocations.cpp",
+      "-o",
+      "/workspace/scratch/caps-queue/resources/before"
+    ],
+    [
+      "g++",
+      "-DNEW_RECEIVER",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-DEVILDUCK_HOST_TEST",
+      "-I/workspace/scratch/caps-queue/changed",
+      "-I/workspace/EvilDuck/tests/stage28x",
+      "-I/workspace/EvilDuck/tests/stage28t",
+      "/workspace/EvilDuck/tests/caps_queue/receiver_resources.cpp",
+      "/workspace/scratch/caps-queue/changed/led_receiver.cpp",
+      "/workspace/EvilDuck/tests/stage28x/allocations.cpp",
+      "-o",
+      "/workspace/scratch/caps-queue/resources/after"
+    ]
+  ],
+  "scope": "Linux native receiver module only; not Xtensa static RAM, hardware heap or task stack",
+  "sanitizers": "ASan/UBSan/leak detection PASS",
+  "hardware": false
+}
