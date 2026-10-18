@@ -1,0 +1,135 @@
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -1,5 +1,10 @@
+ #ifdef EVILDUCK_LED_RETURN_TEST
+ #include "led_receiver.h"
++#include "feedback_diag.h"
++#ifndef EVILDUCK_HOST_TEST
++#include <esp_system.h>
++#include "tusb.h"
++#endif
+ #include <esp_timer.h>
+ #endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+@@ -35,6 +40,26 @@
+   // Verified Stage16 core routes OUTPUT here; FEATURE is not keyboard LED feedback.
+ };
+ static FeedbackKeyboard Keyboard;
++extern "C" void* evilduck_hid_keyboard_identity(){
++#ifdef EVILDUCK_HOST_TEST
++ return &Keyboard;
++#else
++ return static_cast<USBHIDDevice*>(&Keyboard);
++#endif
++}
++namespace feedback_diag {
++#ifdef EVILDUCK_HOST_TEST
++bool mockSuspended=false;
++#endif
++Transport transport(){
++#ifdef EVILDUCK_HOST_TEST
++ return {bool(USB),bool(USB),mockSuspended,HID.ready(),1};
++#else
++ return {tud_connected(),tud_mounted(),tud_suspended(),HID.ready(),tud_hid_n_get_protocol(0)};
++#endif
++}
++}
++
+ static bool releasePending = false;
+ namespace {
+ struct Owned { uint8_t modifiers = 0, keys[6] = {}; };
+@@ -152,6 +177,11 @@
+   if(lease.active){if(lease.denied!=UINT32_MAX)++lease.denied;return;}
+ #endif
+ 
++#ifndef EVILDUCK_HOST_TEST
++  feedback_diag::initialize((uint64_t(esp_random())<<32)|esp_random());
++#else
++  feedback_diag::initialize(0x1122334455667788ULL);
++#endif
+   invalidateLockState();
+   USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbEvent);
+   HID.begin();
+@@ -166,24 +196,25 @@
+   {FeedbackGuard guard;session=feedback.session+1;feedback=LockState();feedback.session=session;}
+ #ifdef EVILDUCK_LED_RETURN_TEST
+   led_return::invalidate(session);
++  feedback_diag::invalidate(session);
+ #endif
+ }
+ bool receiveLockReport(uint8_t id, const uint8_t *data, uint16_t size, uint32_t session) {
+-  if (id != HID_REPORT_ID_KEYBOARD || !data || size != 1 || (data[0] & 0xE0) ||
+-      !static_cast<bool>(USB)) {
+-#ifdef EVILDUCK_LED_RETURN_TEST
+- led_return::rejected();
+-#endif
+- return false;}
+-  {FeedbackGuard guard;
+-  if (disconnectEvent.load() || session != feedback.session) return false;
++  const auto transport=feedback_diag::transport();
++  uint8_t reason=id!=HID_REPORT_ID_KEYBOARD?1:!data||size!=1?2:(data[0]&0xE0)?3:(!transport.configured||!static_cast<bool>(USB))?4:transport.suspended?6:0;
++  if(reason){feedback_diag::receiver(reason,session);led_return::rejected();return false;}
++  bool stale=false;
++  {FeedbackGuard guard;stale=disconnectEvent.load()||session!=feedback.session;
++  if(!stale){
+   const uint8_t leds = data[0] & 7;
+   if (feedback.known) for (unsigned i = 0; i < 3; ++i)
+     if ((feedback.leds ^ leds) & (1u << i)) ++feedback.changes[i];
+   feedback.leds = leds; feedback.known = true;
+-  if (!feedback.savedKnown) { feedback.saved = leds; feedback.savedKnown = true; }}
++  if (!feedback.savedKnown) { feedback.saved = leds; feedback.savedKnown = true; }}}
++  if(stale){feedback_diag::receiver(5,session);led_return::rejected();return false;}
+ #ifdef EVILDUCK_LED_RETURN_TEST
+   led_return::observe(data[0]&7,session,uint64_t(esp_timer_get_time()));
++  feedback_diag::receiver(0,session);
+ #endif
+   return true;
+ }
+@@ -333,6 +364,7 @@
+   if(lease.active){lease.inIo=true;u_platform::io(true);}
+ #endif
+   const bool submitted=tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
++  bool caps=false;for(uint8_t k:report.keycode)caps|=k==0x39;feedback_diag::submitted(caps,submitted,uint64_t(esp_timer_get_time()));
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active){
+     lease.inIo=false;u_platform::io(false);
+--- webserver.cpp
++++ webserver.cpp
+@@ -1,3 +1,4 @@
++#include "feedback_diag.h"
+ #ifdef EVILDUCK_LED_RETURN_TEST
+ #include "led_receiver.h"
+ #include <esp_timer.h>
+@@ -478,8 +479,20 @@
+    s=led_return::snapshot(now);}}
+  if(denied){sendAuthRequired(req);return;}if(busy){req->send(409,"text/plain","Already receiving");return;}
+  if(command==4){if(!s.integrity){req->send(409,"text/plain","No verified fixed message");return;}req->send(200,"text/plain",s.text);return;}
+- char json[768];const char* feedback=!s.observed?(s.disconnected?"disconnected":"unknown"):s.stale?"stale":"observed";
++ char json[3072];const char* feedback=!s.observed?(s.disconnected?"disconnected":"unknown"):s.stale?"stale":"observed";
+  int n=snprintf(json,sizeof(json),"{\"state\":%u,\"feedback\":\"%s\",\"observed\":%s,\"connected\":%s,\"mask\":%u,\"num\":%s,\"caps\":%s,\"scroll\":%s,\"lastReportUs\":\"%llu\",\"capturedAtUs\":\"%llu\",\"callbacks\":%lu,\"lastCallbackId\":%u,\"lastCallbackSize\":%u,\"reports\":%lu,\"rejected\":%lu,\"overflow\":%lu,\"integrity\":%s}",unsigned(s.state),feedback,s.observed?"true":"false",s.connected?"true":"false",unsigned(s.mask),!s.observed||s.stale?"null":(s.mask&1)?"true":"false",!s.observed||s.stale?"null":(s.mask&2)?"true":"false",!s.observed||s.stale?"null":(s.mask&4)?"true":"false",(unsigned long long)s.lastReportUs,(unsigned long long)s.capturedAtUs,(unsigned long)s.callbacks,unsigned(s.lastCallbackId),unsigned(s.lastCallbackSize),(unsigned long)s.reports,(unsigned long)s.rejected,(unsigned long)s.overflow,s.integrity?"true":"false");
++ // Separate atomic metadata snapshot and explicitly sampled live stack state.
++ const auto d=feedback_diag::snapshot();const auto link=feedback_diag::transport();
++ const bool current=s.session==d.session&&s.observed&&!s.stale&&link.configured&&!link.suspended;
++ if(n>=0&&size_t(n)<sizeof(json)){
++  --n; // Extend JSON without changing any legacy field's historical meaning.
++  int extra=snprintf(json+n,sizeof(json)-size_t(n),",\"buildId\":\"%s\",\"bootMarker\":\"%016llx\",\"uptimeUs\":\"%llu\",\"feedbackSession\":%lu,\"snapshotSessionCoherent\":%s,\"connectedMeaning\":\"deprecated: accepted LED feedback in session, not USB link\",\"ledEvidenceValid\":%s,\"freshnessWindowUs\":5000000,\"usbBusConnectedSample\":%s,\"usbConfiguredSample\":%s,\"usbSuspendedSample\":%s,\"hidInReadySample\":%s,\"activeProtocolSample\":%u,\"keyboardReportId\":1,\"registeredKeyboardAtLastRaw\":%s,\"rawArrivals\":%lu,\"rawLastInstance\":%u,\"rawLastType\":%u,\"rawLastId\":%u,\"rawLastLength\":%u,\"rawLastProtocol\":%u,\"interfaceProtocol\":%u,\"lastEffectiveId\":%u,\"outputAttempts\":%lu,\"outputDispatches\":%lu,\"keyboardDispatches\":%lu,\"featureArrivals\":%lu,\"routeReject\":{\"instance\":%lu,\"nullBuffer\":%lu,\"emptyOutput\":%lu,\"type\":%lu,\"missingRoute\":%lu,\"idZeroUnprefixed\":%lu,\"reserved6\":%lu,\"reserved7\":%lu,\"reserved8\":%lu},\"receiverOutcome\":{\"accepted\":%lu,\"id\":%lu,\"lengthOrNull\":%lu,\"padding\":%lu,\"notConfigured\":%lu,\"staleSession\":%lu,\"suspended\":%lu},\"lifecycle\":{\"mount\":%lu,\"unmount\":%lu,\"suspend\":%lu,\"resume\":%lu},\"capsDownQueued\":%lu,\"capsUpQueued\":%lu,\"capsDownCompleted\":%lu,\"capsUpCompleted\":%lu,\"capsDownReturnUs\":\"%llu\",\"capsUpReturnUs\":\"%llu\",\"capsDownCompleteUs\":\"%llu\",\"capsUpCompleteUs\":\"%llu\"}",
++ feedback_diag::BuildId,(unsigned long long)d.boot,(unsigned long long)s.capturedAtUs,(unsigned long)d.session,s.session==d.session?"true":"false",current?"true":"false",link.busConnected?"true":"false",link.configured?"true":"false",link.suspended?"true":"false",link.hidReady?"true":"false",unsigned(link.protocol),!d.rawInSession?"null":d.registeredKeyboard?"true":"false",(unsigned long)d.raw,unsigned(d.instance),unsigned(d.type),unsigned(d.id),unsigned(d.length),unsigned(d.protocol),unsigned(d.interfaceProtocol),unsigned(d.effectiveId),(unsigned long)d.attempts,(unsigned long)d.dispatches,(unsigned long)d.keyboardDispatches,(unsigned long)d.features,
++ (unsigned long)d.reasons[0],(unsigned long)d.reasons[1],(unsigned long)d.reasons[2],(unsigned long)d.reasons[3],(unsigned long)d.reasons[4],(unsigned long)d.reasons[5],(unsigned long)d.reasons[6],(unsigned long)d.reasons[7],(unsigned long)d.reasons[8],
++ (unsigned long)d.receiver[0],(unsigned long)d.receiver[1],(unsigned long)d.receiver[2],(unsigned long)d.receiver[3],(unsigned long)d.receiver[4],(unsigned long)d.receiver[5],(unsigned long)d.receiver[6],
++ (unsigned long)d.lifecycle[0],(unsigned long)d.lifecycle[1],(unsigned long)d.lifecycle[2],(unsigned long)d.lifecycle[3],(unsigned long)d.capsDownQueued,(unsigned long)d.capsUpQueued,(unsigned long)d.capsDownCompleted,(unsigned long)d.capsUpCompleted,(unsigned long long)d.capsDownReturnUs,(unsigned long long)d.capsUpReturnUs,(unsigned long long)d.capsDownCompleteUs,(unsigned long long)d.capsUpCompleteUs);
++  if(extra<0||size_t(extra)>=sizeof(json)-size_t(n)){req->send(503,"text/plain","Diagnostic overflow");return;}n+=extra;
++ }
+  if(n<0||size_t(n)>=sizeof(json)){req->send(503,"text/plain","Diagnostic overflow");return;}req->send(200,"application/json",json);
+ }
+ #endif
+--- webfiles.h
++++ webfiles.h
+@@ -1026,7 +1026,7 @@
+  const out=document.getElementById('ledTestResult');
+  try{const r=await controlFetch('/led-test'+(action?'/'+action:''),{method:action?'POST':'GET',headers:duckHeaders()});
+   if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
+-  out.textContent=JSON.stringify(s,null,2)+'\nLED bit booleans are evidence only when feedback is observed; unknown/stale is not all-off.';
++  out.textContent=JSON.stringify(s,null,2)+'\nUse ledEvidenceValid for current LED evidence (5-second freshness). connected is deprecated feedback history, NOT the USB link. Stack fields are separate samples; hidInReady may be false while IN is busy. callbacks is keyboard-handler-only; rawArrivals is the SET_REPORT boundary. Compare buildId + bootMarker + uptime before comparing counters.';
+  }catch(e){out.textContent='Receiver not confirmed: '+e.message;}
+ }
+ async function viewLedData(download){

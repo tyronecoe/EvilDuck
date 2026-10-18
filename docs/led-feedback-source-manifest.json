@@ -1,0 +1,42 @@
+{
+  "baseline": "0d100caa120d11920341e493019e5fc016c05a4f",
+  "patch_sha256": "36cf32c2077ba265bfe477c3b51d873f7fbfff486c242978a13156f2a422c7da",
+  "before": [
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "fc5cab5349fedce40e73f7af967d123656052354cd0eed3eb37e78a8daebecb4"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "5ac8dd0359fd17ba5ccf9e2fe9a25fdaf6a528a5ed8aba3713e8382e4d28caf6"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "9afd19261514ac5535c82cfc6719dba4206886fd58363ed37b6f40f6ba8fc68c"
+    }
+  ],
+  "after": [
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "2ca71078394b3d8638014928f3fac9f8618112c8858f194db4925f4f91eb60cd"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "c40e9bd3eb06749e420408181baa28b66dae77ac1c897cf7bfaaf10bc4589043"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "a02bd66246ac9bd63d11e187d027fc20637988f6911fb18397930e99d9764686"
+    }
+  ],
+  "additions": [
+    {
+      "file": "feedback_diag.cpp",
+      "sha256": "162863e68890a31da63e97152230109c3261d440b35b16a2066c0b81e2589915"
+    },
+    {
+      "file": "feedback_diag.h",
+      "sha256": "8882eee63e2440577ea6ebe8be5251f70580f0be511bb9b3ac70f1193f966f3f"
+    }
+  ]
+}
