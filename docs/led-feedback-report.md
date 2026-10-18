@@ -243,3 +243,13 @@ actual download check.
 - `tests/led_feedback/tool_parser_tests.py`
 - `tests/led_feedback/verify_link.py`
 - `tools/feedback_core.py`
+
+## Publication verified
+
+Package commit `75e50b5856f6df5974e4e663fb0e51546ff81dc2` was pushed only on the new branch.
+The exact commit-pinned ZIP was downloaded over HTTPS, matched size/SHA and
+local archive bytes, passed CRC/member checks and extracted strict preflight.
+Both new and rollback application identities passed. All60 prior remote refs
+remained unchanged. The work resumed from saved successful build/tests after
+the usage interruption; no completed build was repeated merely to publish it.
+Actual URL and receipts: `docs/led-feedback-publication.json`.
