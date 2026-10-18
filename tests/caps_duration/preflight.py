@@ -2,7 +2,7 @@
 """Read-only, Python3.8+ package/layout checks. No device, serial, network or write API."""
 import argparse, hashlib, importlib.util, json, pathlib, struct, sys, zlib
 sys.dont_write_bytecode=True
-SOURCE='43aa0c7a2fe0fc8a571ea856d511ae70494ce2ae'
+SOURCE='c868ed8ed66cac9a4bae08d4efb52c17e3d688ec'
 APP_BYTES=1392208
 APP_SHA='58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72'
 ROLLBACK_BYTES=1386176

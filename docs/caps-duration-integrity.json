@@ -1,0 +1,47 @@
+{
+  "file": "evilduck-caps-duration-macos-install-v1.zip",
+  "bytes": 2204946,
+  "sha256": "9aba81efcd0a65f1f7bb97073e840786e8d48eb8cfa969ca5f7baab588cd764d",
+  "files": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "OWNER-CHECK.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "feedback-analysis.md",
+    "feedback-evidence.json",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "test-results.json",
+    "tool-evidence.json"
+  ],
+  "source_commit": "c868ed8ed66cac9a4bae08d4efb52c17e3d688ec",
+  "application_sha256": "58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72",
+  "application_bytes": 1392208,
+  "rollback_sha256": "2c657f0c74f1d12c88aa1e6fa6daf5cc76de36e8e68bc41a325f39b19c9045a7",
+  "rollback_bytes": 1386176,
+  "package_integrity": "PASS",
+  "package_tests": {
+    "PASS": 37,
+    "FAIL": 0
+  },
+  "bound_installer_tests": {
+    "PASS": 38,
+    "FAIL": 0
+  },
+  "physical_operations_executed": false,
+  "download_verification": "Pending publication; recorded separately"
+}

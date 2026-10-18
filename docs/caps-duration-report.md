@@ -46,8 +46,10 @@ executes the actual new helper with stubbed feedback, not a full firmware heap
 measurement. Core tests preserve old guard rejection; historical test files and
 expectations are not rewritten. The new runner adapts only copied D12's buildId
 literal to this candidate. T34/X13/X15 exclusions retain documented prior reasons.
-The235-file Stage26 freeze check passed. Package and bound-installer checks are
-reported separately after archive creation. No historical XFAIL/XPASS is reclassified.
+The235-file Stage26 freeze check passed. Package fault-injection37/37 and bound-installer38/38 also passed after archive
+creation; esptool parser14/14 remains dispatcher-free. There are368 case-accounted
+PASS cases/groups across the listed suites, zero unexpected failures, plus separate
+linked descriptor and freeze checks. No physical tests are counted. No historical XFAIL/XPASS is reclassified.
 
 ## Clean target build and resources
 
@@ -81,8 +83,10 @@ Caps output and LED feedback are not measured by this task.
 
 ## Package and owner boundary
 
-New package name: `evilduck-caps-duration-macos-install-v1.zip`. Release receipts
-provide the final immutable source and ZIP commits and download verification.
+New package name: `evilduck-caps-duration-macos-install-v1.zip`. Source/build commit:
+`c868ed8ed66cac9a4bae08d4efb52c17e3d688ec`. ZIP2,204,946bytes, SHA256
+`9aba81efcd0a65f1f7bb97073e840786e8d48eb8cfa969ca5f7baab588cd764d`.
+Release receipts provide the immutable ZIP commit and actual download verification.
 Strict default read-only checks, fresh chip/security/table/OTA checks, NEW private
 full backup, typed INSTALL/ROLLBACK, repeat validation and two independent app
 comparisons remain. Only0x10000/0x750000 applications are in any proposed write
