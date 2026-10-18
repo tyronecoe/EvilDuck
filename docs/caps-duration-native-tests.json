@@ -1,0 +1,1497 @@
+{
+  "counts": {
+    "PASS": 175,
+    "FAIL": 0
+  },
+  "assertions": 7097,
+  "results": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E01 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E02 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E03 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E04 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E05 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS E06 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E07 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS E08 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS E09 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E10 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E11 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS E12 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS E13 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E14 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 2,
+      "stdout": "PASS E15 (2 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E16 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS E17 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E18 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E19 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E20",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 104,
+      "stdout": "PASS E20 (104 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E21",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E21 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E22",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS E22 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E23",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E23 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E24",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E24 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E25",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS E25 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E26",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E26 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E27",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 2,
+      "stdout": "PASS E27 (2 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "E28",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS E28 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D01 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D02 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D03 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D04 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D05 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D06 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D07 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D08 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D09 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS D10 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS D11 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS D12 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D13 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS D14 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D15 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D16 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D17 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS D18 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D19 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D20",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS D20 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D21",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 203,
+      "stdout": "PASS D21 (203 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "D22",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS D22 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS C01 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C02 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C03 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C04 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C05 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C06 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C07 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C08 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C09 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS C10 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C11 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C12 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C13 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C14 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C15 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS C16 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C17 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 605,
+      "stdout": "PASS C18 (605 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C19 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C20",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS C20 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C21",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS C21 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "C22",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS C22 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS L01 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 606,
+      "stdout": "PASS L02 (606 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS L03 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS L04 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 604,
+      "stdout": "PASS L05 (604 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 604,
+      "stdout": "PASS L06 (604 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 604,
+      "stdout": "PASS L07 (604 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 68,
+      "stdout": "PASS L08 (68 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS L09 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS L10 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 604,
+      "stdout": "PASS L11 (604 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS L12 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS L13 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS L14 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS L15 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS L16 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS L17 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS L18 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "L19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS L19 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS S01 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS S02 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 16,
+      "stdout": "PASS S03 (16 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS S04 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS S05 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS S06 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS S07 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "S08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS S08 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS H01 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS H02 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS H03 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 5,
+      "stdout": "PASS H04 (5 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H05 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H06 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H07 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H08 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS H09 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS H10 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 23,
+      "stdout": "PASS H11 (23 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 564,
+      "stdout": "PASS H12 (564 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H13 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H14 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 4,
+      "stdout": "PASS H15 (4 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H16 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS H17 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "H18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 3,
+      "stdout": "PASS H18 (3 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 24,
+      "stdout": "PASS K01 (24 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 24,
+      "stdout": "PASS K02 (24 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 126,
+      "stdout": "PASS K03 (126 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 75,
+      "stdout": "PASS K04 (75 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 415,
+      "stdout": "PASS K05 (415 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 381,
+      "stdout": "PASS K06 (381 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 92,
+      "stdout": "PASS K07 (92 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 75,
+      "stdout": "PASS K08 (75 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 19,
+      "stdout": "PASS K09 (19 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 43,
+      "stdout": "PASS K10 (43 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 11,
+      "stdout": "PASS K11 (11 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 75,
+      "stdout": "PASS K12 (75 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 41,
+      "stdout": "PASS K13 (41 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 25,
+      "stdout": "PASS K14 (25 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 25,
+      "stdout": "PASS K15 (25 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 24,
+      "stdout": "PASS K16 (24 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 24,
+      "stdout": "PASS K17 (24 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 24,
+      "stdout": "PASS K18 (24 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS K19 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K20",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS K20 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K21",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS K21 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K22",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 28,
+      "stdout": "PASS K22 (28 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K23",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 30,
+      "stdout": "PASS K23 (30 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K24",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 36,
+      "stdout": "PASS K24 (36 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "K25",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 25,
+      "stdout": "PASS K25 (25 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W01",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS W01 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W02",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W02 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W03",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W03 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W04",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W04 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W05",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 12,
+      "stdout": "PASS W05 (12 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W06",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS W06 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W07",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W07 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W08",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W08 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W09",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS W09 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W10",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS W10 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W11",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 94,
+      "stdout": "PASS W11 (94 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W12",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 14,
+      "stdout": "PASS W12 (14 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W13",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W13 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W14",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS W14 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W15",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 13,
+      "stdout": "PASS W15 (13 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W16",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 12,
+      "stdout": "PASS W16 (12 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W17",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W17 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W18",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W18 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W19",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 6,
+      "stdout": "PASS W19 (6 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W20",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W20 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W21",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 12,
+      "stdout": "PASS W21 (12 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W22",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W22 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W23",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W23 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W24",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W24 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W25",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 10,
+      "stdout": "PASS W25 (10 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W26",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS W26 (7 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W27",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W27 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W28",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W28 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W29",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 9,
+      "stdout": "PASS W29 (9 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W30",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W30 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W31",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W31 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W32",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 8,
+      "stdout": "PASS W32 (8 assertions)\n",
+      "stderr": ""
+    },
+    {
+      "id": "W33",
+      "status": "PASS",
+      "exit": 0,
+      "assertions": 7,
+      "stdout": "PASS W33 (7 assertions)\n",
+      "stderr": ""
+    }
+  ],
+  "command": [
+    "g++",
+    "-I/workspace/EvilDuck/tests/caps_queue/mocks",
+    "-DEVILDUCK_LED_RETURN_TEST=1",
+    "-I/workspace/EvilDuck/tests/led_return/mocks",
+    "-I/workspace/EvilDuck/tests/http_snapshot/mocks",
+    "-DEVILDUCK_ROUTE_B_STATUS_HARDENING=1",
+    "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+    "-DEVILDUCK_ROUTE_B_DIAGNOSTICS",
+    "-I/workspace/EvilDuck/tests/stage28x",
+    "-I/workspace/scratch/caps-duration-native-final/sources",
+    "-I/workspace/EvilDuck/tests/stage28w/mocks",
+    "-DEVILDUCK_CONTROLLED_START=1",
+    "-DCONFIG_TINYUSB_MSC_ENABLED=1",
+    "-DCONFIG_TINYUSB_MSC_BUFSIZE=512",
+    "-Wno-unused-function",
+    "-Wno-unused-variable",
+    "-I/workspace/EvilDuck/tests/stage28v/mocks",
+    "-I/workspace/tooling/stage19-sdk-source/components/nvs_flash/include",
+    "-I/workspace/tooling/stage19-sdk-source/components/esp_common/include",
+    "-I/workspace/EvilDuck/tests/stage19/mocks",
+    "-I/workspace/scratch/caps-duration-native-final/sources",
+    "-I/workspace/EvilDuck/tests/stage28v/mocks",
+    "-DEVILDUCK_PRODUCTION_STORAGE",
+    "-DEVILDUCK_PORTABLE_ROUTE_B",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-misleading-indentation",
+    "-pthread",
+    "-DEVILDUCK_HOST_TEST",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-fno-pie",
+    "-no-pie",
+    "--coverage",
+    "-I/workspace/scratch/caps-duration-native-final/sources",
+    "-I/workspace/EvilDuck/tests/stage28t",
+    "-I/workspace/EvilDuck/tests/stage1/mocks",
+    "-I/workspace/EvilDuck/EvilDuckS3",
+    "-I/workspace/scratch/caps-duration-native-final/sources",
+    "/workspace/EvilDuck/tests/caps_duration/test_main.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/platform.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/com.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/hid_backend.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/duckscript.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/duck_vars.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/duck_keys.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/keyboard_locale.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/locales.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/script_log.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/cli.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/script_source.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/script_parser.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/duck_expr.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/duck_constants.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/script_functions.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/script_preprocessor.cpp",
+    "/workspace/EvilDuck/EvilDuckS3/duck_random.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/adapter.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/file_source.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/coordinator.cpp",
+    "/workspace/EvilDuck/tests/stage28v/lower.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/attackmode.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/core.cpp",
+    "/workspace/EvilDuck/tests/stage28x/allocations.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/settings.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/storage.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/spiffs.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/sd_card.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/usb_msc.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/led.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/script_library.cpp",
+    "/workspace/EvilDuck/tests/stage28v/nvs_fixture.cpp",
+    "/workspace/EvilDuck/tests/stage28w/boot_fixture.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/diagnostics.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/led_receiver.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/feedback_diag.cpp",
+    "/workspace/scratch/caps-duration-native-final/sources/caps_trial.cpp",
+    "-o",
+    "/workspace/scratch/caps-duration-native-final/native"
+  ],
+  "sanitizers": "ASan/UBSan/leak detection",
+  "hardware": false,
+  "target_firmware_built": false
+}

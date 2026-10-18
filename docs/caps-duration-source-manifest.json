@@ -1,0 +1,65 @@
+{
+  "patch_sha256": "be299dfedacdf3130c01af87903e809da6109a26195dfe5b26c0075177c2be9f",
+  "before": [
+    {
+      "file": "coordinator.h",
+      "sha256": "b035da07ab2adc653e93bf3bd3b8abddaa3b8b35198a97001a5c65ff6048939a"
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "2568095060252845e04d3fa4e88f113bea708a3daa836f17f7ab310cc01cc2c9"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "c7aea14ced4c1d11fad8a4f828ac1b5dbc675c942b5f54a0c8fdebbc8555a76e"
+    },
+    {
+      "file": "feedback_diag.cpp",
+      "sha256": "162863e68890a31da63e97152230109c3261d440b35b16a2066c0b81e2589915"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "c40e9bd3eb06749e420408181baa28b66dae77ac1c897cf7bfaaf10bc4589043"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "a02bd66246ac9bd63d11e187d027fc20637988f6911fb18397930e99d9764686"
+    }
+  ],
+  "after": [
+    {
+      "file": "coordinator.h",
+      "sha256": "bf30eef431e96b96094b028b38767f5f83d2a6f10120affc1909fbdaf4c57b55"
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "089dafb5019618ca4ebbee8a8e9558d4a2698afe573677a8df3773e587bc86b1"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "17458be5186a3e8bd42e0ddce0e55a7e162047500f33068c18a777fb3f2eea5b"
+    },
+    {
+      "file": "feedback_diag.cpp",
+      "sha256": "03f98140172c3f39b6bd1bc7b1c774769e6430e1fb53fc7d4dac3a4fe985e1bc"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "dd9cd4d30f70a51a09106c38d8abf197ced34e4c935294dd278fb432aec22f85"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "872674a87a427b9747d93bd60d624cc27b5e519cc70d8d1f70ddbd0fec76fa5d"
+    }
+  ],
+  "additions": [
+    {
+      "file": "caps_trial.h",
+      "sha256": "0c928007c6f1085d7222d1f0c4e7884d118003139e10193f5bcae8d900ef9280"
+    },
+    {
+      "file": "caps_trial.cpp",
+      "sha256": "07636d1d22806ac6bf8a1624135ea6df632967b2b91ae1b4dfb4ae4b3b73fe59"
+    }
+  ]
+}

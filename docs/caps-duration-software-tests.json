@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "hardware": false,
+  "native_macos": false,
+  "native": {
+    "PASS": 175,
+    "FAIL": 0
+  },
+  "new_caps_cases": 28,
+  "inherited_native_cases": 147,
+  "native_assertions": 7097,
+  "related": {
+    "PASS": 63,
+    "FAIL": 0
+  },
+  "related_assertions": 2650,
+  "ui": {
+    "PASS": 26,
+    "FAIL": 0,
+    "assertions": 44,
+    "scope": "actual embedded JS in Node VM; not physical iPhone/macOS/USB"
+  },
+  "core": {
+    "PASS": 14,
+    "FAIL": 0
+  },
+  "allocation": {
+    "PASS": 1,
+    "FAIL": 0,
+    "iterations": 10000,
+    "nativeCppAllocations": 0,
+    "scope": "actual new helper with stubbed feedback state; not full firmware heap"
+  },
+  "esptool_parser": {
+    "parser_cases_pass": 14,
+    "unexpected_fail": 0,
+    "scope": "real esptool4.12.0 parser AST only; no connection or operation dispatcher included",
+    "esptool_source_sha256": "96513abe8944836630610465e5fab03c4da9a4bc9d27f177413f6547f859430e",
+    "hardware_access": false,
+    "flash_operation_executed": false,
+    "native_high_sierra": "PENDING OWNER"
+  },
+  "linked_verification": "PASS: ELF, regenerated BIN, 177 SDK archives and existing startup/HID/NVS guards",
+  "descriptor_investigation": "PASS offline source/object evidence, no physical capture",
+  "sanitizers": "ASan detect_leaks=1:halt_on_error=1; UBSan halt_on_error=1 for native/related/helper",
+  "physical_caps_toggle": "PENDING OWNER",
+  "physical_led_feedback": "PENDING OWNER",
+  "package_tests": "Published separately after archive construction; not claimed here",
+  "receipt_files": {
+    "native": "caps-duration-native-tests.json",
+    "related": "caps-duration-related-tests.json",
+    "ui": "caps-duration-ui-tests.json",
+    "core": "caps-duration-core-tests.json",
+    "allocation": "caps-duration-allocation.json",
+    "esptool_parser": "caps-duration-tool-parser.json"
+  }
+}
