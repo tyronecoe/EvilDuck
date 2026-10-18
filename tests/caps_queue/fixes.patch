@@ -3,7 +3,7 @@
 @@ -60,6 +60,16 @@
    req->send(401, "text/plain", "Unauthorized — set X-Duck-Password header or ?pw=");
  }
- 
+
 +// Authentication contention is not an invalid password. No storage/response under this lock.
 +static bool authorize(AsyncWebServerRequest* req) {
 + bool denied=false;
@@ -25,7 +25,7 @@
 +  if (!authorize(req)) return;
    req->send(200, "application/json", storage::listAllScriptsJson());
  }
- 
+
 @@ -128,7 +138,7 @@
  #if defined(EVILDUCK_PORTABLE_ROUTE_B)
    route_u::Mutation admission;if(!admission){req->send(409,"text/plain","Route B owns storage");return;}
@@ -61,7 +61,7 @@
    if (!parseScriptParam(filename, ref)) {
      req->send(400, "text/plain", "Invalid script name");
 @@ -193,16 +203,18 @@
- 
+
  static void handleRunScript(AsyncWebServerRequest *req) {
  #if defined(EVILDUCK_PORTABLE_ROUTE_B)
 -  execution::TryGuard guard;if(!guard){req->send(409,"text/plain","Execution busy");return;}
@@ -85,7 +85,7 @@
 @@ -262,7 +274,7 @@
   route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
  #endif
- 
+
 -  if (!checkAuth(req)) { sendAuthRequired(req); return; }
 +  if (!authorize(req)) return;
    execution::TryGuard settingsGuard;
@@ -131,7 +131,7 @@
 @@ -587,7 +600,7 @@
   route_u::Mutation transaction;if(!transaction){req->send(409,"text/plain","Busy");return;}
  #endif
- 
+
 -  if (!checkAuth(req)) { sendAuthRequired(req); return; }
 +  if (!authorize(req)) return;
    execution::TryGuard settingsGuard;
@@ -197,8 +197,8 @@
 +++ webfiles.h
 @@ -29,13 +29,16 @@
    </header>
- 
- 
+
+
 -  <aside id="emergencyStop" role="region" aria-label="Script stop" style="position:sticky;top:0;z-index:50;background:#240909;padding:12px;border:2px solid #ff5555">
 -    <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;font-size:20px;font-weight:bold;min-height:48px;padding:8px 24px">STOP script</button>
 -    <button type="button" onclick="refreshStatus()">Check status</button>
@@ -239,7 +239,7 @@
 +  const result=await r.text();if(!r.ok){log('Save failed: '+httpFailure(r,result));return false;}
 +  log(result);await loadList();return true;
  }
- 
+
  async function runEditorScript(){
 @@ -874,8 +879,7 @@
    const storage=document.getElementById('editorStorage').value;
@@ -249,12 +249,12 @@
 -  await runScript(name);
 +  if(await saveScript())await runScript(name);
  }
- 
+
  function setChip(el, text, cls){
 @@ -895,11 +899,13 @@
    return h;
  }
- 
+
 +let statusPollInFlight=false;
  async function refreshStatus(){
 +  if(statusPollInFlight)return;statusPollInFlight=true;
@@ -276,7 +276,7 @@
 -  }
 +  }finally{statusPollInFlight=false;}
  }
- 
+
  async function loadLibraryList(){
 @@ -930,11 +937,15 @@
      if(!items.length){
@@ -295,7 +295,7 @@
 +    items.forEach(p=>appendScriptRow(ul,p,{showRun:true,showDelete:stored.has(p)}));
    }catch(e){log('Library: '+e);}
  }
- 
+
 @@ -942,19 +953,19 @@
    const el=document.getElementById('execLog');
    if(!el) return;
@@ -307,7 +307,7 @@
      el.scrollTop=el.scrollHeight;
    }catch(e){el.textContent=String(e);}
  }
- 
+
  // BEGIN STOP CONTROLS
  let stopInFlight=false, stopReceipt=null, runInFlight=false;
 -function stopMessage(text){document.getElementById('stopResult').textContent=text;}
@@ -373,8 +373,8 @@
   }catch(e){out.textContent='No verified data: '+e.message;}
  }
 @@ -1006,11 +1039,11 @@
- 
- 
+
+
  async function delScript(s){
 -  if(!confirm(`Delete ${s}?`)) return;
 -  const r=await fetch('/delete?s='+encodeURIComponent(s),{headers:duckHeaders()});
@@ -387,7 +387,7 @@
 +  const body=await r.text();if(!r.ok)throw new Error(httpFailure(r,body));log(body);await loadList();await loadLibraryList();
 + }catch(e){log('Delete not confirmed: '+e.message+' No automatic retry.');}
  }
- 
+
  document.getElementById('uploadForm').addEventListener('submit',async(e)=>{
 --- hid_backend.cpp
 +++ hid_backend.cpp
