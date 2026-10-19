@@ -137,3 +137,23 @@ The public download verification receipt will record the immutable package commi
 all25 member hashes, candidate and exact prior-working rollback verification.
 Serialized unified-diff patch context includes required blank-line space markers;
 whitespace review excludes that serialization, not the actual source checks.
+
+## Publication verification
+
+Package commit:c18fff39e672164121783808e82420557bf9dc36.
+The actual immutable public ZIP was downloaded again and verified:2,226,536bytes,
+SHA2562f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f.
+All25 extracted members, candidate and exact58b0fb93 rollback match. The downloaded
+validator passes with no installed metadata, no write plan selected and no physical
+authorization. See mac-caps-publication.json for complete member hashes/file inventory.
+All62 prior remote refs and1,693 prior files/modes remain unchanged; work is confined
+to the new branch. Previous packages and private owner files are untouched.
+
+Direct ZIP:
+https://raw.githubusercontent.com/tyronecoe/EvilDuck/c18fff39e672164121783808e82420557bf9dc36/downloads/evilduck-mac-caps-macos-install-v1.zip
+
+Additional audit precision:the legacy internal registry checks session-known/saved-
+known state, not this UI's5-second freshness predicate. Its values must not be
+represented as a current physical sensor reading. That registry is not wired into
+Route B; this patch neither changes it nor claims its variables gained fresh-state
+semantics. Route B lock waits/variables remain deferred.
