@@ -1,0 +1,167 @@
+{
+  "status": "PASS",
+  "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/4a2d6b622dc4873c98930db3bb495fa699014fc6/downloads/evilduck-caps-stop-macos-install-v1.zip",
+  "package_commit": "4a2d6b622dc4873c98930db3bb495fa699014fc6",
+  "source_commit": "79581baf8b5461399c302df7c7a3bbd0ab062404",
+  "bytes": 2238783,
+  "sha256": "40a646b389345b1aadfc3845507642ad676fbab6fc28d2bf8f95ca469b0cb7f3",
+  "every_member_identical": true,
+  "members": [
+    {
+      "file": "APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "file": "HOST-OBSERVER.md",
+      "bytes": 1889,
+      "sha256": "940e516de5a878e695387709063f8bed124ba4ac5d0a485debbb2a5d45fd259d"
+    },
+    {
+      "file": "INSTALL-MAC.md",
+      "bytes": 2828,
+      "sha256": "12c8f9fb11b5f634012a85a45525f473d7983a4c5178121ecb49b19bb5cc3bf5"
+    },
+    {
+      "file": "OWNER-CHECK.md",
+      "bytes": 3633,
+      "sha256": "a1e43eb20b92f09d36b653e6cdb7d7dc8f718aa3236fda853ebecb4e83f72b17"
+    },
+    {
+      "file": "README.md",
+      "bytes": 307,
+      "sha256": "1607ba285d9a609875acf5142106cab6c384bc6725dee7ff74bbbeed5a2897bc"
+    },
+    {
+      "file": "ROLLBACK-MAC.md",
+      "bytes": 1326,
+      "sha256": "64d0ff1b21105fe48cc380e43c94ff121c96c1dbd9e46ad0574687a08330175b"
+    },
+    {
+      "file": "application.bin",
+      "bytes": 1404640,
+      "sha256": "25e17cadacf3b2ab5eb5ece32fc94f4bf36fb71eb90e91814dca7f7320bd5178"
+    },
+    {
+      "file": "build-receipt.json",
+      "bytes": 1564575,
+      "sha256": "7605b7f298b52d7182ab4de9a9f0dbf649a340180fad12024082db34163ccaa4"
+    },
+    {
+      "file": "dependency-pin.json",
+      "bytes": 2298,
+      "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475"
+    },
+    {
+      "file": "expected-partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    },
+    {
+      "file": "feedback-analysis.md",
+      "bytes": 3224,
+      "sha256": "cbfcff9baa378d47dcd29d8b41d3e4ffde18be4cb5f0163a8b57e7bf00cc016f"
+    },
+    {
+      "file": "feedback-evidence.json",
+      "bytes": 40873,
+      "sha256": "acf46a37ccc8c0e43e41d0007fd573c3c47c7f91d3e1b105370e5366a8f94f84"
+    },
+    {
+      "file": "firmware-report.md",
+      "bytes": 5930,
+      "sha256": "9d8bd433b487c4bf9048037b10f2ded51b4da6b0e278538e2284e62bd69395b4"
+    },
+    {
+      "file": "gen_esp32part.py",
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+    },
+    {
+      "file": "install-macos.sh",
+      "bytes": 127,
+      "sha256": "541d42aa5ee7adb62954d3b1ed15846edf4a470b0806bc2862a178bc7c420a0d"
+    },
+    {
+      "file": "installer.py",
+      "bytes": 8552,
+      "sha256": "6be247d172ff33e6c37a5f511ec8d95b559d1db97f6a089f7e8b41698da257de"
+    },
+    {
+      "file": "mac_caps_observer.c",
+      "bytes": 4628,
+      "sha256": "474d02a81b9da112f956d143a24ecfd82acca33dd70472fb7175a170737ac5d9"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 5926,
+      "sha256": "1280e35b8c5f41d5c8d210646b9f2de8c9d3e47f6082785bf39938d3865e8381"
+    },
+    {
+      "file": "owner-evidence.md",
+      "bytes": 1472,
+      "sha256": "3e8a643c6530e3cbeb129a01002465fa35ca862763e20a5ccc64708fe39dd28e"
+    },
+    {
+      "file": "preflight.py",
+      "bytes": 8458,
+      "sha256": "0c6c3c12ac8d3d1834d2bcc62f3b4d5862581b8adfb33f2c47e7ecbf0b40dbbb"
+    },
+    {
+      "file": "reproduction.md",
+      "bytes": 4747,
+      "sha256": "f3ca015d68cea2761759c5bd087a37224e5f3750bd4d1254e36063fc7820f2c0"
+    },
+    {
+      "file": "rollback-application.bin",
+      "bytes": 1397968,
+      "sha256": "5e10009fd3e5a0a862b4f7bed1f7f28ba8464f7bb1066fd8091c6e01b2ed4a59"
+    },
+    {
+      "file": "rollback-build-receipt.json",
+      "bytes": 1547513,
+      "sha256": "c226b1f35f39bc2d9519df8698ce8f73bdb6b294cb324018bbd4f5df83e24d5f"
+    },
+    {
+      "file": "rollback-macos.sh",
+      "bytes": 299,
+      "sha256": "e5e0fb00654919be96df7814883e6b69ca9864d0c0bb4ebe7df0ee4f8cd8f96d"
+    },
+    {
+      "file": "source-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+    },
+    {
+      "file": "test-results.json",
+      "bytes": 1665,
+      "sha256": "a3db5c54e696c8744bc8e45ec8432ef58d247ba91321401fadb99e0bb5bc23ce"
+    },
+    {
+      "file": "tool-evidence.json",
+      "bytes": 352,
+      "sha256": "8e19f5176f4fef74bfa7852fafb4bbab3fda9077edad11296ac75d036598eed2"
+    }
+  ],
+  "downloaded_preflight": {
+    "selected_image": "application",
+    "plan_ready": false,
+    "package_integrity": "PASS",
+    "source_commit": "79581baf8b5461399c302df7c7a3bbd0ab062404",
+    "application_sha256": "25e17cadacf3b2ab5eb5ece32fc94f4bf36fb71eb90e91814dca7f7320bd5178",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "previous_remote_refs_unchanged": 63,
+  "new_remote_refs": [
+    "refs/heads/caps-stop-hid-trace"
+  ],
+  "baseline_files_unchanged": 1735,
+  "frozen_stage26_files": 235,
+  "physical_hardware": false,
+  "installation_executed": false,
+  "host_caps_or_led_tested": false
+}

@@ -154,3 +154,10 @@ commit-pinned public download matches ZIP size/hash and every member, including 
 application hashes and downloaded preflight PASS. Review the receipt for URL/commit,
 previous63refs and unchanged1,735baseline files. Successful publication is software
 delivery, not approval to flash, boot, type or claim physical behavior.
+
+Published ZIP download verification PASS:27members,2,238,783bytes, SHA-256
+40a646b389345b1aadfc3845507642ad676fbab6fc28d2bf8f95ca469b0cb7f3.
+Package commit4a2d6b622dc4873c98930db3bb495fa699014fc6; genuine download URL:
+https://raw.githubusercontent.com/tyronecoe/EvilDuck/4a2d6b622dc4873c98930db3bb495fa699014fc6/downloads/evilduck-caps-stop-macos-install-v1.zip
+Downloaded preflight PASS with no authorized or selected physical writes; candidate
+and exact rollback match;63priorrefs unchanged. See caps-stop-publication.json.
