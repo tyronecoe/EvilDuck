@@ -1,0 +1,21 @@
+{
+  "apple": {
+    "url": "https://raw.githubusercontent.com/apple-oss-distributions/IOHIDFamily/IOHIDFamily-1446.140.2/IOHIDEventSystemPlugIns/IOHIDKeyboardFilter.mm",
+    "bytes": 97318,
+    "sha256": "8025012b790ee619a6c839ded944e7a27d35069b0bd05e4f14bb9be31981634a",
+    "evidence": "Fresh source retrieval; not an owner OS binary/capture"
+  },
+  "hak5": {
+    "url": "https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference",
+    "fresh_retrieval": "HTTP403",
+    "macos_caveat": "Owner-provided reference statement; not independently fetched in this run"
+  },
+  "prior_package": {
+    "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/bb9a2041f9bad6882c4fa8cf73f97ce6c9798816/downloads/evilduck-caps-duration-macos-install-v1.zip",
+    "bytes": 2204946,
+    "sha256": "9aba81efcd0a65f1f7bb97073e840786e8d48eb8cfa969ca5f7baab588cd764d",
+    "fresh_download_verified": true,
+    "rollback_bytes": 1392208,
+    "rollback_sha256": "58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72"
+  }
+}

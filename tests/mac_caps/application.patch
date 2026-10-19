@@ -1,0 +1,213 @@
+--- coordinator.h
++++ coordinator.h
+@@ -7,8 +7,10 @@
+ enum class Reason{None,Completed,Cancelled,File,Compiler,Capability,Runtime,Backend,Lost,Deadline};
+ enum class Reply{Accepted,Busy,QueueFull,Invalid,Unbound,Exhausted};
+ enum class Service{Settings,Files,Layout,Hid,Storage,Upload,Ota,Restart,Manual};
+-struct Status{Phase phase=Phase::Idle;Reason reason=Reason::None;uint64_t request=0;uint32_t line=0;uint16_t errorCode=0;bool owned=false;};
++struct Status{Phase phase=Phase::Idle;Reason reason=Reason::None;uint64_t request=0;uint32_t line=0;uint16_t errorCode=0;bool owned=false;uint16_t capsMs=5;};
+ bool bindOwner();bool ownerTask();bool owned();Status status();
++// RAM-only opt-in. Every admission captures its own effective value.
++bool selectCapsTiming(uint16_t);uint16_t selectedCapsTiming();uint16_t capsDwellMs();
+ Reply requestCapsTrial(uint16_t milliseconds);
+ Reply requestStart(const char*,Mode=Mode::RouteB);Reply requestSnapshot(uint32_t tag);
+ Status stopWithStatus();void stop();void loss();void tick(uint32_t now);
+--- coordinator.cpp
++++ coordinator.cpp
+@@ -13,12 +13,12 @@
+ #include <cstring>
+ namespace route_u {
+ namespace {
+-struct Request{bool trial=false;uint16_t dwell=0;bool start=false;uint64_t id=0;char path[96]{};uint32_t tag=0;};
++struct Request{uint16_t capsMs=5;bool trial=false;uint16_t dwell=0;bool start=false;uint64_t id=0;char path[96]{};uint32_t tag=0;};
+ struct Publication{
+  u_platform::Task owner{};Status status{};uint64_t next=0,transaction=0;Service service{};
+  Request queue[4]{};unsigned head=0,count=0;bool stop=false,loss=false;
+  bool transactionBusy=false,transactionClosing=false;
+- bool selected=false;unsigned mutationDepth=0;u_platform::Task mutationTask{},chunkTask{};
++ uint16_t selectedCapsMs=5;bool selected=false;unsigned mutationDepth=0;u_platform::Task mutationTask{},chunkTask{};
+ } pub;
+ static native_b::Adapter adapter;
+ static FileSource file;
+@@ -55,10 +55,13 @@
+  if(pub.status.owned||pub.transaction||pub.mutationDepth)return Reply::Busy;
+  if(pub.count==4)return Reply::QueueFull;
+  if(pub.next==UINT64_MAX)return Reply::Exhausted;
+- Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=true;q.id=++pub.next;memcpy(q.path,path,n+1);++pub.count;route_x::queueLocked(pub.count);
+- pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.stop=pub.loss=false;pub.selected=true;
++ Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=true;q.capsMs=pub.selectedCapsMs;q.id=++pub.next;memcpy(q.path,path,n+1);++pub.count;route_x::queueLocked(pub.count);
++ pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;pub.stop=pub.loss=false;pub.selected=true;
+  u_platform::gate={pub.owner,true,false,false};return Reply::Accepted;
+ }
++bool selectCapsTiming(uint16_t ms){if(ms!=5&&ms!=500)return false;u_platform::Critical lock;pub.selectedCapsMs=ms;return true;}
++uint16_t selectedCapsTiming(){u_platform::Critical lock;return pub.selectedCapsMs;}
++uint16_t capsDwellMs(){u_platform::Critical lock;return pub.status.owned?pub.status.capsMs:5;}
+ Reply requestStart(const char* path,Mode mode){auto reply=requestStartImpl(path,mode);{u_platform::Critical lock;route_x::admissionLocked(reply==Reply::Accepted);}return reply;}
+ Reply requestCapsTrial(uint16_t milliseconds){
+  if(!caps_trial::valid(milliseconds))return Reply::Invalid;
+@@ -66,8 +69,8 @@
+  u_platform::Critical lock;if(!pub.owner)return Reply::Unbound;
+  if(pub.status.owned||pub.transaction||pub.mutationDepth)return Reply::Busy;
+  if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;
+- Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=q.trial=true;q.dwell=milliseconds;q.id=++pub.next;++pub.count;route_x::queueLocked(pub.count);
+- pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.stop=pub.loss=false;pub.selected=true;
++ Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=q.trial=true;q.dwell=milliseconds;q.capsMs=milliseconds?milliseconds:5;q.id=++pub.next;++pub.count;route_x::queueLocked(pub.count);
++ pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;pub.stop=pub.loss=false;pub.selected=true;
+  u_platform::gate={pub.owner,true,false,false};return Reply::Accepted;
+ }
+ Reply requestSnapshot(uint32_t tag){u_platform::Critical lock;if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.id=++pub.next;q.tag=tag;++pub.count;route_x::queueLocked(pub.count);return Reply::Accepted;}
+--- com.cpp
++++ com.cpp
+@@ -658,8 +658,8 @@
+         return;
+       }
+       session.ownsKeys = true;
+-      // Only the owner-selected one-shot diagnostic changes this Caps dwell.
+-      waitFor(routeExternal()&&session.reportCount==1&&session.reportKeys[0]==0x39&&caps_trial::dwell()?caps_trial::dwell():5, Phase::Release);
++      // Captured per admission, standalone usage 0x39 only. Chords and other keys stay 5ms.
++      waitFor(routeExternal()&&session.reportModifiers==0&&session.reportCount==1&&session.reportKeys[0]==0x39?route_u::capsDwellMs():5, Phase::Release);
+       return;
+     case Phase::Release:
+       if (!hid_backend::releaseReport()) return;
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="CAPS-DURATION-20261018-v1";
++constexpr const char* BuildId="MAC-CAPS-TIMING-20261019-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
+--- webserver.cpp
++++ webserver.cpp
+@@ -216,7 +216,7 @@
+     auto reply=route_u::requestStart(req->getParam("s")->value().c_str());
+     if(reply!=route_u::Reply::Accepted){req->send(reply==route_u::Reply::Invalid?400:409,"text/plain","Route B refused; no run queued");return;}
+     auto accepted=route_u::status();char id[24];snprintf(id,sizeof(id),"%llu",(unsigned long long)accepted.request);
+-    req->send(202,"application/json",String("{\"engine\":\"routeb\",\"state\":\"queued\",\"requestId\":\"")+id+"\"}");return;
++    req->send(202,"application/json",String("{\"engine\":\"routeb\",\"state\":\"queued\",\"requestId\":\"")+id+"\",\"effectiveCapsMs\":"+String(accepted.capsMs)+"}");return;
+   }
+   if(!route_u::legacyAllowed()){req->send(409,"text/plain","Route B busy");return;}
+ #endif
+@@ -470,6 +470,18 @@
+   }else{duckscript::requestStop();req->send(202,"application/json","{\"message\":\"Stop requested\",\"engine\":\"legacy\"}");}
+ }
+ #endif
++
++// Authenticated RAM-only selection: no NVS/settings mutation or execution.
++static void handleCapsTiming(AsyncWebServerRequest* req,bool set){
++ bool denied=false,invalid=false;uint16_t selected=5;route_u::Status status;
++ {execution::BoundedGuard guard(execution::Owner::HttpDiagnostics);if(!guard){req->send(409,"text/plain","Execution busy");return;}
++  denied=!checkAuth(req);if(!denied){if(set){const String value=req->hasParam("mode",true)?req->getParam("mode",true)->value():String();
++   if(value=="standard")route_u::selectCapsTiming(5);else if(value=="mac")route_u::selectCapsTiming(500);else invalid=true;}
++   selected=route_u::selectedCapsTiming();status=route_u::status();}}
++ if(denied){sendAuthRequired(req);return;}if(invalid){req->send(400,"text/plain","Select standard or mac");return;}
++ char json[512];int n=snprintf(json,sizeof(json),"{\"buildId\":\"%s\",\"selectedMs\":%u,\"lifetime\":\"RAM until reboot; future admissions only\",\"requestId\":\"%llu\",\"requestCapsMs\":%u,\"owned\":%s,\"snapshotKind\":\"request-capture\"}",caps_trial::BuildId,unsigned(selected),(unsigned long long)status.request,unsigned(status.capsMs),status.owned?"true":"false");
++ if(n<0||size_t(n)>=sizeof(json)){req->send(503,"text/plain","Diagnostic overflow");return;}req->send(200,"application/json",json);
++}
+ 
+ // Narrow diagnostic, not a new scripting command or arbitrary keyboard API.
+ static void handleCapsTrial(AsyncWebServerRequest* req,bool start){
+@@ -511,6 +523,11 @@
+  (unsigned long)d.lifecycle[0],(unsigned long)d.lifecycle[1],(unsigned long)d.lifecycle[2],(unsigned long)d.lifecycle[3],(unsigned long)d.capsDownQueued,(unsigned long)d.capsUpQueued,(unsigned long)d.capsDownCompleted,(unsigned long)d.capsUpCompleted,(unsigned long long)d.capsDownReturnUs,(unsigned long long)d.capsUpReturnUs,(unsigned long long)d.capsDownCompleteUs,(unsigned long long)d.capsUpCompleteUs);
+   if(extra<0||size_t(extra)>=sizeof(json)-size_t(n)){req->send(503,"text/plain","Diagnostic overflow");return;}n+=extra;
+  }
++ if(n>=0&&size_t(n)<sizeof(json)){
++  char age[32]="null";if(s.observed&&s.capturedAtUs>=s.lastReportUs)snprintf(age,sizeof(age),"\"%llu\"",(unsigned long long)(s.capturedAtUs-s.lastReportUs));
++  --n;int extra=snprintf(json+n,sizeof(json)-size_t(n),",\"reportAgeUs\":%s,\"lastKnownCaps\":%s,\"lastKnownNum\":%s,\"feedbackScope\":\"host-selected LED state for this interface only\"}",age,!s.observed?"null":(s.mask&2)?"true":"false",!s.observed?"null":(s.mask&1)?"true":"false");
++  if(extra<0||size_t(extra)>=sizeof(json)-size_t(n)){req->send(503,"text/plain","Diagnostic overflow");return;}n+=extra;
++ }
+  if(n<0||size_t(n)>=sizeof(json)){req->send(503,"text/plain","Diagnostic overflow");return;}req->send(200,"application/json",json);
+ }
+ #endif
+@@ -559,6 +576,7 @@
+  // Authentication and state copies completed under the same mutex. No lock at send.
+  char requestId[24];snprintf(requestId,sizeof(requestId),"%llu",(unsigned long long)s.route.request);
+  String json=String("{\"routeBRequestId\":\"")+requestId+"\",\"routeBOwned\":"+(s.route.owned?"true":"false")+",\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
++ json+=",\"routeBCapsMs\":"+String(s.route.capsMs);
+  json+=",\"routeBLine\":"+String(s.route.line)+",\"routeBErrorCode\":"+String(s.route.errorCode);
+  json+=",\"routeBPhase\":"+String(unsigned(s.route.phase))+",\"routeBReason\":"+String(unsigned(s.route.reason));
+  json+=",\"running\":"+String(s.running?"true":"false")+",\"autorunEnabled\":"+String(s.autorun?"true":"false");
+@@ -917,6 +935,8 @@
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
+ #ifdef EVILDUCK_LED_RETURN_TEST
++  server.on("/caps-timing",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/caps-timing")handleCapsTiming(r,false);else r->send(404,"text/plain","Not found");});
++  server.on("/caps-timing",HTTP_POST,[](AsyncWebServerRequest*r){if(r->url()=="/caps-timing")handleCapsTiming(r,true);else r->send(404,"text/plain","Not found");});
+   server.on("/caps-trial",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/caps-trial")handleCapsTrial(r,false);else r->send(404,"text/plain","Not found");});
+   server.on("/caps-trial/start",HTTP_POST,[](AsyncWebServerRequest*r){handleCapsTrial(r,true);});
+   server.on("/led-test/data",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/led-test/data")handleLedTest(r,4);else r->send(404,"text/plain","Not found");});
+--- webfiles.h
++++ webfiles.h
+@@ -50,7 +50,9 @@
+    <button type="button" onclick="ledAction('clear')">Clear RAM result</button>
+    <pre id="ledTestResult" role="status">Unknown — no host LED report inferred.</pre><pre id="ledTestText"></pre>
+   </section>
+-  <section class="card"><h2>One Caps-duration trial</h2><p>Experimental: physical Caps OFF, focus TextEdit within five seconds. One invocation only; no automatic replay. STOP remains available. Normal CAPSLOCK timing unchanged.</p>
++  <section class="card"><h2>Ordinary Route B Caps timing (opt-in)</h2><p>Default 5ms. Mac mode uses the owner-confirmed 500ms interval only for standalone CAPSLOCK. RAM only until reboot. Each run captures its setting; changing this does not alter an active run.</p>
++   <select id="capsTimingMode"><option value="standard">Standard: 5ms</option><option value="mac">Mac Caps: 500ms</option></select><button type="button" onclick="capsTiming(true)">Apply for future runs</button><button type="button" onclick="capsTiming(false)">Refresh setting</button><pre id="capsTimingResult">Not yet observed.</pre></section>
++  <section class="card"><h2>One Caps-duration trial</h2><p>Experimental: known EvilDuck-generated starting case, focus TextEdit within five seconds. One invocation only; no automatic replay. STOP remains available. Ordinary CAPSLOCK uses the separately captured timing setting; this diagnostic keeps its own selected duration.</p>
+    <select id="capsDuration"><option value="0">Baseline (5 ms scheduled wait)</option><option value="100">100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select>
+    <button type="button" onclick="capsTrial(true)">Start ONE trial (5-second focus delay)</button><button type="button" onclick="capsTrial(false)">Refresh trial evidence</button><pre id="capsTrialResult">No trial requested.</pre></section>
+   <main class="tabshell">
+@@ -1016,7 +1018,7 @@
+  const reasons=['None','Completed','Cancelled','File failure','Compile failure','Unsupported capability','Runtime failure','Backend failure','USB loss','Deadline'];
+  const phase=s.routeBPhase;const terminal=phase===0&&s.routeBOwned===false;
+  const message='Request '+s.routeBRequestId+': '+(terminal?(reasons[s.routeBReason]||'Unknown terminal reason'):(names[phase]||'Unknown phase'))+
+-   (s.routeBLine?' at line '+s.routeBLine:'')+(s.routeBErrorCode?' (code '+s.routeBErrorCode+')':'');
++   (typeof s.routeBCapsMs==='number'?' [Caps '+s.routeBCapsMs+'ms captured]':'')+(s.routeBLine?' at line '+s.routeBLine:'')+(s.routeBErrorCode?' (code '+s.routeBErrorCode+')':'');
+  const result=document.getElementById('runResult');if(result)result.textContent=message;
+  const state=document.getElementById('runState');if(state)state.textContent=message;
+  const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=terminal;
+@@ -1029,7 +1031,7 @@
+  const out=document.getElementById('ledTestResult');
+  try{const r=await controlFetch('/led-test'+(action?'/'+action:''),{method:action?'POST':'GET',headers:duckHeaders()});
+   if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
+-  out.textContent=JSON.stringify(s,null,2)+'\nUse ledEvidenceValid for current LED evidence (5-second freshness). connected is deprecated feedback history, NOT the USB link. Stack fields are separate samples; hidInReady may be false while IN is busy. callbacks is keyboard-handler-only; rawArrivals is the SET_REPORT boundary. Compare buildId + bootMarker + uptime before comparing counters.';
++  out.textContent=JSON.stringify(s,null,2)+'\nUse ledEvidenceValid for current LED evidence (5-second freshness). connected is deprecated feedback history, NOT the USB link. Stack fields are separate samples; hidInReady may be false while IN is busy. callbacks is keyboard-handler-only; rawArrivals includes successful control and interrupt OUT callback arrivals. MissingRoute may precede successful prefixed-ID routing. Stale is last-known, not no report. Reports describe this interface, not another keyboard. Compare buildId + bootMarker + uptime before comparing counters.';
+  }catch(e){out.textContent='Receiver not confirmed: '+e.message;}
+ }
+ async function viewLedData(download){
+@@ -1043,15 +1045,30 @@
+  if(capsTrialPending)return;
+  const out=document.getElementById('capsTrialResult');const ms=document.getElementById('capsDuration').value;
+  if(start&&!['0','100','250','500'].includes(ms)){out.textContent='Select a supported duration';return;}
+- if(start&&!confirm('Run ONE Caps trial from physical Caps OFF? Focus the Mac editor within five seconds.'))return;
++ if(start&&!confirm('Run ONE Caps trial from known EvilDuck-generated starting case? Focus the Mac editor within five seconds.'))return;
+  capsTrialPending=true;
+  try{const fd=new FormData();if(start)fd.append('ms',ms);
+   const r=await controlFetch('/caps-trial'+(start?'/start':''),{method:start?'POST':'GET',headers:duckHeaders(),...(start?{body:fd}:{})});
+   if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
+-  out.textContent=JSON.stringify(s,null,2)+'\nLocal timestamps only. Manually type abc without Shift and observe case/light. Host release and LED return remain unproven.';
++  out.textContent=JSON.stringify(s,null,2)+'\nLocal timestamps only. Check EvilDuck-generated typing, not a different keyboard light. Host release and LED return remain unproven by this local trial record alone.';
+   if(start){currentRunId=s.requestId;executionUncertain('Caps trial admitted; focus editor now. No replay.');}
+  }catch(e){out.textContent='Trial not confirmed: '+e.message+'; do not replay automatically. Use STOP / check execution.';if(start)executionUncertain('Caps trial result unknown');}
+  finally{capsTrialPending=false;}
++}
++let capsTimingPending=false;
++async function capsTiming(set){
++ if(capsTimingPending)return;
++ const out=document.getElementById('capsTimingResult');const mode=document.getElementById('capsTimingMode').value;
++ if(set&&!['standard','mac'].includes(mode)){out.textContent='Select standard or mac';return;}
++ capsTimingPending=true;
++ try{const fd=new FormData();if(set)fd.append('mode',mode);
++  const r=await controlFetch('/caps-timing',{method:set?'POST':'GET',headers:duckHeaders(),...(set?{body:fd}:{})});
++  if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
++  if(![5,500].includes(s.selectedMs)||typeof s.requestCapsMs!=='number')throw new Error('Invalid timing snapshot');
++  document.getElementById('capsTimingMode').value=s.selectedMs===500?'mac':'standard';
++  out.textContent='Future runs: '+s.selectedMs+'ms. RAM until reboot. Request '+s.requestId+' captured '+s.requestCapsMs+'ms'+(s.owned?' (active, unchanged)':' (last/idle)')+'. No execution requested.';
++ }catch(e){out.textContent='Setting not confirmed: '+e.message+'; no automatic retry.';}
++ finally{capsTimingPending=false;}
+ }
+ // END LED TEST CONTROLS
+ 
+@@ -1113,6 +1130,7 @@
+ loadList();
+ loadLibraryList();
+ refreshStatus();
++capsTiming(false);
+ refreshExecLog();
+ setInterval(refreshStatus, 1500);
+ setInterval(refreshExecLog, 2000);

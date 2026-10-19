@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "new_native_cases": 32,
+  "inherited_native_cases": 175,
+  "native": {
+    "PASS": 207,
+    "FAIL": 0
+  },
+  "native_assertions": 7257,
+  "related": {
+    "PASS": 63,
+    "FAIL": 0
+  },
+  "related_assertions": 2650,
+  "ui": {
+    "PASS": 34,
+    "FAIL": 0,
+    "assertions": 57,
+    "scope": "actual embedded JS in Node VM; not physical iPhone/macOS/USB"
+  },
+  "core_guards": {
+    "PASS": 14,
+    "FAIL": 0
+  },
+  "tool_parser": {
+    "PASS": 14,
+    "FAIL": 0,
+    "dispatcher_executed": false
+  },
+  "sanitizers": "ASan detect_leaks=1:halt_on_error=1; UBSan halt_on_error=1, native and related production-source modules",
+  "linked_firmware_verification": "PASS; 177 unchanged SDK archives; candidate source, USB/NVS safeguards, actual Caps admitted-value call edge and regenerated BIN",
+  "owner_physical_evidence": "Prior500ms diagnostic Caps activation and genuine Caps OUTPUT confirmed by owner handoff only",
+  "new_ordinary_caps_hardware_test": "PENDING OWNER",
+  "num_feedback": "UNVERIFIED",
+  "scroll_feedback": "UNVERIFIED, not required by EDR1",
+  "fixed_message_delivery": "UNVERIFIED",
+  "package_tests": "Separately published after archive construction",
+  "hardware_access": false,
+  "credentials_or_private_files_accessed": false
+}
