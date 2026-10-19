@@ -131,3 +131,26 @@ flags, physical LED/case and STOP phase. No further feature work started.
 All changes are additions under tests/caps_stop/, docs/caps-stop-*, and the new
 public candidate BIN/ZIP in downloads/. Exact paths and hashes are recorded in
 caps-stop-files.json at final publication; historical paths/modes are unchanged.
+
+## Package verification and publication
+
+Package-only fault tests:37PASS/0FAIL; actual bound installer with
+injected tool/device responses:38PASS/0FAIL. These execute no esptool
+operation dispatcher or physical device I/O. Aggregate current counted groups:
+438PASS/0FAIL, including six privacy vectors as one filter case. Recorded assertion
+total for instrumented native/related/UI suites:10,184; filter adds six Boolean
+vectors. Python package/guard case assertions are not separately counted, so no
+invented grand assertion total is given.
+
+Source/build commit:79581baf8b5461399c302df7c7a3bbd0ab062404.
+ZIP:`evilduck-caps-stop-macos-install-v1.zip`, 2,238,783bytes.
+SHA-256:`40a646b389345b1aadfc3845507642ad676fbab6fc28d2bf8f95ca469b0cb7f3`. Exact members and source binding:caps-stop-integrity.json.
+Package includes candidate, exact rollback, table, manifest, read-only preflight,
+reviewed bound installer/launchers, pinned partition tool, build/dependency/test
+evidence, human guides and optional observer source. No private owner data.
+
+Publication is separately recorded in caps-stop-publication.json only after an actual
+commit-pinned public download matches ZIP size/hash and every member, including both
+application hashes and downloaded preflight PASS. Review the receipt for URL/commit,
+previous63refs and unchanged1,735baseline files. Successful publication is software
+delivery, not approval to flash, boot, type or claim physical behavior.
