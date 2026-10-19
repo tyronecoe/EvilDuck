@@ -1,0 +1,50 @@
+{
+  "file": "evilduck-mac-caps-macos-install-v1.zip",
+  "bytes": 2226536,
+  "sha256": "2f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f",
+  "files": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "OWNER-CHECK.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "feedback-analysis.md",
+    "feedback-evidence.json",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "owner-evidence.md",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "test-results.json",
+    "tool-evidence.json"
+  ],
+  "source_commit": "9e4b7f763d9096b46d2d7edcf3e0dc5c377eaf85",
+  "application_sha256": "5e10009fd3e5a0a862b4f7bed1f7f28ba8464f7bb1066fd8091c6e01b2ed4a59",
+  "application_bytes": 1397968,
+  "rollback_sha256": "58b0fb93cd39f614109fd3c0079d9e364597c8eb79ee4850955542b8d54caf72",
+  "rollback_bytes": 1392208,
+  "package_integrity": "PASS",
+  "package_tests": {
+    "PASS": 37,
+    "FAIL": 0
+  },
+  "bound_installer_tests": {
+    "PASS": 38,
+    "FAIL": 0
+  },
+  "physical_operations_executed": false,
+  "prior_diagnostic_caps_evidence": "OWNER CONFIRMED",
+  "new_ordinary_caps_hardware": "PENDING OWNER",
+  "download_verification": "Pending publication; recorded separately"
+}

@@ -53,8 +53,10 @@ Historical sources are unchanged; only copied buildId literals follow this relea
 T34/X13/X15 exclusions retain documented previous reasons. No historical XFAIL or
 XPASS is relabeled. Protected235-file Stage26 freeze and actual linked descriptor
 checks pass separately. No unrelated regression suites were added to inflate totals.
-Package/installer tests and actual public download verification are recorded after
-archive construction. Software results are not a new physical acceptance pass.
+Package fault-injection37/37 and bound-installer38/38 also passed after archive
+construction. There are407 case-accounted PASS cases/groups, zero unexpected
+failures, plus separately reported linked-descriptor and freeze checks. Actual
+public download verification is recorded in the publication receipt. Software results are not a new physical acceptance pass.
 
 ## Clean build and resource comparison
 
@@ -125,3 +127,13 @@ claim of new physical acceptance or completed reflection/logger. Num-channel
 observation is optional and finite. Stop on ambiguous output; do not blindly toggle.
 Final publication receipt records exact commits, downloads, all changed files and
 comparison of every prior remote ref. No further feature stage starts automatically.
+
+## Release artifact identity
+
+Source/build commit:9e4b7f763d9096b46d2d7edcf3e0dc5c377eaf85.
+Package:evilduck-mac-caps-macos-install-v1.zip,2,226,536bytes,
+SHA2562f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f.
+The public download verification receipt will record the immutable package commit,
+all25 member hashes, candidate and exact prior-working rollback verification.
+Serialized unified-diff patch context includes required blank-line space markers;
+whitespace review excludes that serialization, not the actual source checks.
