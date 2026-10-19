@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/c18fff39e672164121783808e82420557bf9dc36/downloads/evilduck-mac-caps-macos-install-v1.zip",
+  "package_bytes": 2226536,
+  "package_sha256": "2f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f",
+  "application_bytes": 1397968,
+  "application_sha256": "5e10009fd3e5a0a862b4f7bed1f7f28ba8464f7bb1066fd8091c6e01b2ed4a59",
+  "exact_prior_public_download_verified": true,
+  "owner_confirmed_installed_build_id": "MAC-CAPS-TIMING-20261019-v1",
+  "board_read_by_codex": false
+}

@@ -1,0 +1,21 @@
+{
+  "first_attempt": {
+    "counts": {
+      "PASS": 226,
+      "FAIL": 1
+    },
+    "assertions": 7333,
+    "failed_cases": [
+      {
+        "id": "G08",
+        "status": "FAIL",
+        "exit": 1,
+        "assertions": 0,
+        "stdout": "",
+        "stderr": "FAIL G08: host output separate from firmware input (2)\n"
+      }
+    ]
+  },
+  "diagnosis": "G08 called actual pinned routing without registering the mock keyboard. Existing raw callback arrived, accepted receiver did not. Registered tinyusb_hid_devices[0]={mockKeyboard,1,ids}, preserving the same two-event assertion. Final rerun uses corrected setup; not a firmware bug or waived expectation.",
+  "current_result": "caps-stop-native-tests.json"
+}

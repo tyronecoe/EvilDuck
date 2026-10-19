@@ -1,0 +1,10 @@
+{
+  "baseline": "5e22569709f44bd4a6c429beb43a055d94d39257",
+  "existing_files_byte_identical": 1735,
+  "historical_paths_modified": [],
+  "previous_remote_refs": 63,
+  "remote_snapshot_sha256": "73187cd65b3b8112239fed035f638726c3de3c05118491af9839b160a31daba1",
+  "frozen_stage26_files": 235,
+  "physical_hardware": false,
+  "scope": "Git baseline blobs plus current working file bytes; final publication also compares remote refs"
+}

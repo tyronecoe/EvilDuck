@@ -1,0 +1,81 @@
+{
+  "patch_sha256": "ea61f7f42183f7b3392b2f76bd8a44b965359cecf4589402e94fe9be1d8527b4",
+  "before": [
+    {
+      "file": "coordinator.cpp",
+      "sha256": "d472e10751a0932be83002c1511af07497728792836dd1537bb512a66f7fd8c1"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "2ca71078394b3d8638014928f3fac9f8618112c8858f194db4925f4f91eb60cd"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "76ebc7bf175bb88ded67e509a37901f42325eca590b0ec0f41eb107afaff323f"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "839a496da398977a29e43894fc9d149c538d778756d42d042416e4e2caab6f68"
+    },
+    {
+      "file": "feedback_diag.cpp",
+      "sha256": "03f98140172c3f39b6bd1bc7b1c774769e6430e1fb53fc7d4dac3a4fe985e1bc"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "44ec78a9d6b00b7bece30fb35021f9cde9b22bdf30c15e4e0422b24b98dc7be1"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "bdf09a51a9d2a7c537ec2f7c1def4fa7bb68565ef755a0384a90ca2250151cf1"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "5df72e370b93248b06ee23f9508e78e28b9b7e53021e4fc434829dd847f18612"
+    }
+  ],
+  "after": [
+    {
+      "file": "coordinator.cpp",
+      "sha256": "4ed01f4689a50dad7d7a7ed38340fb8969cc63630bbd2bba65381d0ff63ea21d"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "e9c904a85b2fccaa7acbc56f4ce992fb97de5af44064b90ceb3ea1c3a47ff0a8"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "4e791b04158236055f4bcfe28756a09286a6f6066b234fe8c38f804eb6473aa6"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "e32628d249614457d829252814e6fe31c9366d92c5749162dca81621c6163e97"
+    },
+    {
+      "file": "feedback_diag.cpp",
+      "sha256": "fb3343fab32358e10579beb53bfa47d21bde71ba03ed349c228dba1ff3176aff"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "0e844bd11cc65988209e84497e839ebda0fb2979e17f64636729375ea4fb0840"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "a661c53184da1f09be76bb1bca594c0e2ff112a3d6a7ffec7a070b8257b9d94d"
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "2774ff015739423be2959cc22a745816f0b6bc4c38eccd3d3dfc697ebcd3606d"
+    }
+  ],
+  "additions": [
+    {
+      "file": "hid_trace.h",
+      "sha256": "9c41c5d445551ba74bb743df4f198cae952b34f27ce066d134bf5525e8905336"
+    },
+    {
+      "file": "hid_trace.cpp",
+      "sha256": "ae806e8252cc1e877e27bec742bea8488db59d99793409cf1b4511796d4b7b43"
+    }
+  ]
+}

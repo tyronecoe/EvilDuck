@@ -1,0 +1,28 @@
+{
+  "columns": [
+    "seq",
+    "deviceMockUs",
+    "ownerRun",
+    "operation",
+    "source",
+    "event",
+    "detail"
+  ],
+  "captures": [
+    {
+      "case": "G04",
+      "scope": "synthetic production-source execution, mock USB/clock; not board traffic",
+      "stdout": "TRACE 1 0 1 0 owner admitted 500\nTRACE 2 241000 1 0 owner dequeued 0\nTRACE 3 241000 1 0 owner phase 2\nTRACE 4 243000 1 0 owner phase 3\nTRACE 5 245000 1 0 owner phase 4\nTRACE 6 272000 1 0 owner phase 5\nTRACE 7 272000 1 0 backend report-attempt 20\nTRACE 8 272000 1 0 backend report-accepted 20\nTRACE 9 273000 1 0 owner phase 6\nTRACE 10 274000 1 1 owner operation-pending 1\nTRACE 11 275000 1 1 backend report-attempt 17\nTRACE 12 275000 1 1 backend report-accepted 17\nTRACE 13 275000 1 0 owner stop-published 1\nTRACE 14 275000 1 0 http http202-prepared 1\nTRACE 15 276000 1 0 owner stop-observed 0\nTRACE 16 276000 1 1 owner operation-end 4\nTRACE 17 276000 1 1 backend report-attempt 20\nTRACE 18 276000 1 1 backend report-accepted 20\nTRACE 19 276000 1 0 owner phase 7\nTRACE 20 276000 1 0 owner phase 6\nTRACE 21 276000 1 0 owner terminal 2\nPASS G04 (7 assertions)\n"
+    },
+    {
+      "case": "G06",
+      "scope": "synthetic production-source execution, mock USB/clock; not board traffic",
+      "stdout": "TRACE 1 0 1 0 owner admitted 5\nTRACE 2 241000 1 0 owner dequeued 0\nTRACE 3 241000 1 0 owner phase 2\nTRACE 4 243000 1 0 owner phase 3\nTRACE 5 245000 1 0 owner phase 4\nTRACE 6 262000 1 0 owner phase 5\nTRACE 7 262000 1 0 backend report-attempt 20\nTRACE 8 262000 1 0 backend report-accepted 20\nTRACE 9 263000 1 0 owner phase 6\nTRACE 10 264000 1 1 owner operation-pending 1\nTRACE 11 265000 1 1 backend report-attempt 17\nTRACE 12 265000 1 1 backend report-accepted 17\nTRACE 13 271000 1 1 backend report-attempt 16\nTRACE 14 271000 1 1 backend report-accepted 16\nTRACE 15 272000 1 1 owner operation-end 2\nTRACE 16 273000 1 1 backend report-attempt 20\nTRACE 17 273000 1 1 backend report-accepted 20\nTRACE 18 273000 1 0 owner phase 7\nTRACE 19 274000 1 0 owner phase 6\nTRACE 20 274000 1 0 owner terminal 1\nTRACE 21 274000 1 0 owner stop-published 0\nTRACE 22 274000 1 0 http http202-prepared 0\nPASS G06 (3 assertions)\n"
+    },
+    {
+      "case": "G18",
+      "scope": "synthetic production-source execution, mock USB/clock; not board traffic",
+      "stdout": "TRACE 1 0 1 0 owner admitted 5\nTRACE 2 241000 1 0 owner dequeued 0\nTRACE 3 241000 1 0 owner phase 2\nTRACE 4 243000 1 0 owner phase 3\nTRACE 5 245000 1 0 owner phase 4\nTRACE 6 262000 1 0 owner phase 5\nTRACE 7 262000 1 0 backend report-attempt 20\nTRACE 8 262000 1 0 backend report-accepted 20\nTRACE 9 263000 1 0 owner phase 6\nTRACE 10 264000 1 1 owner operation-pending 1\nTRACE 11 265000 1 1 backend report-attempt 17\nTRACE 12 265000 1 1 backend report-accepted 17\nTRACE 13 271000 1 1 backend report-attempt 16\nTRACE 14 271000 1 1 backend report-accepted 16\nTRACE 15 272000 1 1 owner operation-end 2\nTRACE 16 273000 1 1 backend report-attempt 20\nTRACE 17 273000 1 1 backend report-accepted 20\nTRACE 18 273000 1 0 owner phase 7\nTRACE 19 274000 1 0 owner phase 6\nTRACE 20 274000 1 0 owner terminal 1\nTRACE 21 274000 2 0 owner admitted 5\nTRACE 22 275000 2 0 owner dequeued 0\nTRACE 23 275000 2 0 owner phase 2\nTRACE 24 277000 2 0 owner phase 3\nTRACE 25 279000 2 0 owner phase 4\nTRACE 26 296000 2 0 owner phase 5\nTRACE 27 296000 2 0 backend report-attempt 20\nTRACE 28 296000 2 0 backend report-accepted 20\nTRACE 29 297000 2 0 owner phase 6\nTRACE 30 298000 2 2 owner operation-pending 1\nTRACE 31 299000 2 2 backend report-attempt 17\nTRACE 32 299000 2 2 backend report-accepted 17\nTRACE 33 305000 2 2 backend report-attempt 16\nTRACE 34 305000 2 2 backend report-accepted 16\nTRACE 35 306000 2 2 owner operation-end 2\nTRACE 36 307000 2 2 backend report-attempt 20\nTRACE 37 307000 2 2 backend report-accepted 20\nTRACE 38 307000 2 0 owner phase 7\nTRACE 39 308000 2 0 owner phase 6\nTRACE 40 308000 2 0 owner terminal 1\nPASS G18 (4 assertions)\n"
+    }
+  ]
+}

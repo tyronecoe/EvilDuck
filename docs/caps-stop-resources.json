@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "compiler_program_bytes": 1404495,
+  "application_bytes": 1404640,
+  "static_ram_bytes": 111992,
+  "free_ota_bytes": 6197536,
+  "free_ota_percent": 81.52318494073276,
+  "growth": {
+    "program_bytes": 6676,
+    "application_bytes": 6672,
+    "static_ram_bytes": 4216
+  },
+  "trace_event_bytes": 32,
+  "trace_capacity": 128,
+  "trace_event_array_bytes": 4096,
+  "stack_compiler_records": [
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/feedback_diag.cpp:59:17:void tud_hid_report_failed_cb(uint8_t, hid_report_type_t, const uint8_t*, uint16_t)\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:17:6:bool {anonymous}::current(uint64_t)\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:18:6:void {anonymous}::append(hid_trace::Source, hid_trace::Kind, uint16_t, uint64_t, uint64_t)\t48\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:27:6:bool hid_trace::enabled()\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:28:6:void hid_trace::enable()\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:29:6:void hid_trace::disable()\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:30:6:void hid_trace::admit(uint64_t, uint16_t)\t48\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:31:6:void hid_trace::note(Source, Kind, uint16_t, uint64_t)\t48\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:32:6:void hid_trace::httpReceipt(uint64_t, bool)\t48\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:33:7:hid_trace::Batch hid_trace::read(uint32_t)\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:36:13:const char* hid_trace::name(Source)\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:37:13:const char* hid_trace::name(Kind)\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/hid_trace.cpp:38:8:size_t hid_trace::storageBytes()\t32\tstatic",
+    "/workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/webserver.cpp:475:13:void handleHidTrace(AsyncWebServerRequest*, int)\t3184\tstatic"
+  ],
+  "physical_measurements": false,
+  "allocation": "Fixed ring/state. No new allocation in event hot path; existing HTTP response and browser allocation retained. Native sanitizer/leak tests not a physical heap measurement."
+}

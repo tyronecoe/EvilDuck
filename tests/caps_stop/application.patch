@@ -1,0 +1,240 @@
+--- coordinator.cpp
++++ coordinator.cpp
+@@ -1,4 +1,5 @@
+ #include "coordinator.h"
++#include "hid_trace.h"
+ #include "caps_trial.h"
+ #include "diagnostics.h"
+ #include "task_platform.h"
+@@ -23,12 +24,12 @@
+ static native_b::Adapter adapter;
+ static FileSource file;
+ static bool stepping=false,verified=false;
+-void phase(Phase p){u_platform::Critical lock;pub.status.phase=p;}
++void phase(Phase p){u_platform::Critical lock;if(pub.status.phase!=p)hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Phase,uint16_t(p));pub.status.phase=p;}
+ void reason(Reason r){u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;}
+ Reason faultReason(native_b::Fault f){
+  return f==native_b::Fault::Reader?Reason::File:f==native_b::Fault::Compiler?Reason::Compiler:f==native_b::Fault::Capability?Reason::Capability:f==native_b::Fault::Runtime?Reason::Runtime:f==native_b::Fault::Deadline||f==native_b::Fault::Clearing?Reason::Deadline:Reason::Backend;
+ }
+-void complete(Reason r){caps_trial::finish(status().request,uint8_t(status().reason==Reason::None?r:status().reason));file.close();u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;pub.status.phase=Phase::Idle;pub.status.owned=false;pub.count=pub.head=0;u_platform::gate={};}
++void complete(Reason r){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Terminal,uint16_t(status().reason==Reason::None?r:status().reason));caps_trial::finish(status().request,uint8_t(status().reason==Reason::None?r:status().reason));file.close();u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;pub.status.phase=Phase::Idle;pub.status.owned=false;pub.count=pub.head=0;u_platform::gate={};}
+ bool mediaIdle(){return !attackmode::storageRequested()&&!attackmode::storageEnabled()&&!attackmode::storagePreparing();}
+ bool safeLegacyIdle(){return !duckscript::running()&&!com::busy()&&backend_b::available()&&mediaIdle()&&!spiffs::streaming();}
+ bool priority(){
+@@ -56,7 +57,7 @@
+  if(pub.count==4)return Reply::QueueFull;
+  if(pub.next==UINT64_MAX)return Reply::Exhausted;
+  Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=true;q.capsMs=pub.selectedCapsMs;q.id=++pub.next;memcpy(q.path,path,n+1);++pub.count;route_x::queueLocked(pub.count);
+- pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;pub.stop=pub.loss=false;pub.selected=true;
++ pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;hid_trace::admit(q.id,q.capsMs);pub.stop=pub.loss=false;pub.selected=true;
+  u_platform::gate={pub.owner,true,false,false};return Reply::Accepted;
+ }
+ bool selectCapsTiming(uint16_t ms){if(ms!=5&&ms!=500)return false;u_platform::Critical lock;pub.selectedCapsMs=ms;return true;}
+@@ -70,11 +71,11 @@
+  if(pub.status.owned||pub.transaction||pub.mutationDepth)return Reply::Busy;
+  if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;
+  Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.start=q.trial=true;q.dwell=milliseconds;q.capsMs=milliseconds?milliseconds:5;q.id=++pub.next;++pub.count;route_x::queueLocked(pub.count);
+- pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;pub.stop=pub.loss=false;pub.selected=true;
++ pub.status={Phase::Queued,Reason::None,q.id,0,0,true};pub.status.capsMs=q.capsMs;hid_trace::admit(q.id,q.capsMs);pub.stop=pub.loss=false;pub.selected=true;
+  u_platform::gate={pub.owner,true,false,false};return Reply::Accepted;
+ }
+ Reply requestSnapshot(uint32_t tag){u_platform::Critical lock;if(pub.count==4)return Reply::QueueFull;if(pub.next==UINT64_MAX)return Reply::Exhausted;Request& q=pub.queue[(pub.head+pub.count)%4];q={};q.id=++pub.next;q.tag=tag;++pub.count;route_x::queueLocked(pub.count);return Reply::Accepted;}
+-Status stopWithStatus(){u_platform::Critical lock;if(pub.status.owned){pub.stop=true;route_x::stopLocked();}return pub.status;}
++Status stopWithStatus(){u_platform::Critical lock;hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::StopPublished,pub.status.owned?1:0);if(pub.status.owned){pub.stop=true;route_x::stopLocked();}return pub.status;}
+ void stop(){(void)stopWithStatus();}
+ void loss(){u_platform::Critical lock;if(pub.status.owned)pub.loss=true;}
+ bool begin(Service s,Token& out){
+@@ -99,17 +100,18 @@
+  if(!ownerTask()||stepping)return;
+  stepping=true;route_x::beginTurn();struct Exit{uint32_t now;~Exit(){route_x::endTurn(now);stepping=false;}}exit{now};
+  bool stopping,lost;Request request;bool have=false;
+- {u_platform::Critical lock;stopping=pub.stop;lost=pub.loss;pub.stop=pub.loss=false;if(stopping)route_x::observedLocked();
++ {u_platform::Critical lock;stopping=pub.stop;lost=pub.loss;pub.stop=pub.loss=false;if(stopping){route_x::observedLocked();hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::StopObserved);}
+   if(!stopping&&!lost&&pub.count){request=pub.queue[pub.head];pub.head=(pub.head+1)%4;--pub.count;have=true;}}
+  if(!owned())return;
+  if(!caps_trial::sessionValid())lost=true;
+  if(stopping||lost){
+-  if(lost)reason(Reason::Lost);
++  if(lost){reason(Reason::Lost);hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Loss);}
+   if(!adapter.leased()){adapter.cancel();complete(lost?Reason::Lost:Reason::Cancelled);return;}
+   if(lost){backend_b::Scope scope(adapter.session(),backend_b::status().operation);if(scope)backend_b::externalLoss();}
+   adapter.cancel();file.close();phase(Phase::Stopping);
+  }
+  if(have&&request.start){
++  hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Dequeued);
+   if(request.id!=status().request){complete(Reason::Backend);return;}
+   if(request.trial){caps_trial::begin(request.id,request.dwell);verified=true;static const char source[]="DELAY 5000\nCAPSLOCK\n";if(!adapter.prepare(source,sizeof(source)-1)){complete(Reason::Compiler);return;}phase(Phase::Capturing);}
+   else {if(!file.open(request.path)){complete(Reason::File);return;}
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -15,6 +15,7 @@
+ #error "Use tools/build_s3_patched.py: the Stage16 paired HID routing dependency is required"
+ #endif
+ #include "hid_backend.h"
++#include "hid_trace.h"
+ #include "debug.h"
+ #include "USB.h"
+ #include "USBHID.h"
+@@ -215,6 +216,7 @@
+ #ifdef EVILDUCK_LED_RETURN_TEST
+   led_return::observe(data[0]&7,session,uint64_t(esp_timer_get_time()));
+   feedback_diag::receiver(0,session);
++  hid_trace::note(hid_trace::Source::Led,hid_trace::Kind::LedAccepted,uint16_t(data[0]&7));
+ #endif
+   return true;
+ }
+@@ -363,7 +365,11 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active){lease.inIo=true;u_platform::io(true);}
+ #endif
++  bool hasKey=false,hasCaps=false;for(uint8_t k:report.keycode){hasKey|=k!=0;hasCaps|=k==0x39;}
++  const uint16_t traceKind=uint16_t((hasCaps?1:0)|(hasKey&&!hasCaps?2:0)|(clear?4:0)|(report.modifier?8:0)|(lease.active?16:0));
++  hid_trace::note(hid_trace::Source::Backend,hid_trace::Kind::Attempt,traceKind,lease.active?lease.operation:0);
+   const bool submitted=tud_hid_n_report(0, HID_REPORT_ID_KEYBOARD, &report, sizeof(report));
++  hid_trace::note(hid_trace::Source::Backend,submitted?hid_trace::Kind::Accepted:hid_trace::Kind::Refused,traceKind,lease.active?lease.operation:0);
+   bool caps=false;for(uint8_t k:report.keycode)caps|=k==0x39;feedback_diag::submitted(caps,submitted,uint64_t(esp_timer_get_time()));
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(lease.active){
+--- seam.inc
++++ seam.inc
+@@ -7,7 +7,7 @@
+  uint32_t priorDefaultDelay=0;uint16_t low=0,high=0,jitter=0;bool jitterOn=false;
+ } route;
+ void routeFinish(route_b::ResultKind k){
+- if(route.result.kind==route_b::ResultKind::Pending)route.result.kind=k;
++ if(route.result.kind==route_b::ResultKind::Pending){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::OperationEnd,uint16_t(k),route.result.id.operation);route.result.kind=k;}
+ }
+ bool routeExternal(){return route.active&&!route.internal;}
+ }
+@@ -40,7 +40,7 @@
+  bool valid=text?(v==9||v==10||(v>=32&&v<=126)):ds_shortcut::validUsage(v);
+  if(!valid)return Admission::Rejected;
+  if(!backend_b::bind(owner,route.nextOperation+1))return Admission::Rejected;
+- id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};
++ id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Pending,!text&&v==0x39?1:2,id.operation);
+  session.error="";session.remember=false;session.lockCommand=-1;
+  if(text)startText(String(static_cast<char>(v)),false,Phase::Finish); // literal: no interpolation/trim/parser
+  else{const uint8_t k=static_cast<uint8_t>(v);report(modifiers,&k,1,Phase::Finish);}
+--- com.cpp
++++ com.cpp
+@@ -3,6 +3,7 @@
+ #include "coordinator.h"
+ #endif
+ #include "com.h"
++#include "hid_trace.h"
+ #include "caps_trial.h"
+ #include "shortcut_keys.h"
+ #include "hid_backend.h"
+--- feedback_diag.cpp
++++ feedback_diag.cpp
+@@ -1,4 +1,5 @@
+ #include "feedback_diag.h"
++#include "hid_trace.h"
+ #include "caps_trial.h"
+ #include "hid_backend.h"
+ #include <esp_timer.h>
+@@ -24,7 +25,7 @@
+ // Stage0 raw,1 route attempt,2 dispatch,3 FEATURE,4..12 rejection by reason.
+ extern "C" void evilduck_hid_route_diagnostic(uint8_t stage,uint8_t instance,uint8_t id,uint8_t type,uint16_t length,uint8_t effective,uint8_t protocol,uint8_t interfaceProtocol,bool registered){
+  const uint64_t now=uint64_t(esp_timer_get_time());Guard l;
+- if(stage==0){inc(state.raw);state.rawInSession=true;state.instance=instance;state.id=id;state.type=type;state.length=length;state.protocol=protocol;state.interfaceProtocol=interfaceProtocol;state.registeredKeyboard=registered;state.rawUs=now;}
++ if(stage==0){hid_trace::note(hid_trace::Source::Usb,hid_trace::Kind::RawOutput,uint16_t(uint16_t(type)<<8|id));inc(state.raw);state.rawInSession=true;state.instance=instance;state.id=id;state.type=type;state.length=length;state.protocol=protocol;state.interfaceProtocol=interfaceProtocol;state.registeredKeyboard=registered;state.rawUs=now;}
+  else if(stage==1){inc(state.attempts);state.effectiveId=effective;}
+  else if(stage==2){inc(state.dispatches);if(effective==1&&registered)inc(state.keyboardDispatches);}
+  else if(stage==3)inc(state.features);
+@@ -43,7 +44,18 @@
+  if(length==9&&report[0]==1&&protocol==1)p=report+1;
+  else if(length==8&&protocol==0&&interfaceProtocol==1)p=report;
+  if(!p)return;bool caps=false;for(unsigned i=2;i<8;++i)caps|=p[i]==0x39;
++ hid_trace::note(hid_trace::Source::Usb,hid_trace::Kind::Completed,caps?1:0);
+  const uint64_t now=uint64_t(esp_timer_get_time());caps_trial::completed(caps,now);Guard l;
+  if(caps){inc(state.capsDownCompleted);state.capsDownCompleteUs=now;capsCompletedPending=true;}
+  else if(capsCompletedPending){capsCompletedPending=false;inc(state.capsUpCompleted);state.capsUpCompleteUs=now;}
+ }
++
++#ifndef EVILDUCK_HOST_TEST
++#include "tusb.h"
++#else
++using hid_report_type_t=uint8_t;
++#endif
++// Pinned SDK default is weak/no-op. Observe failure only; never retry or inject.
++extern "C" void tud_hid_report_failed_cb(uint8_t instance,hid_report_type_t type,const uint8_t*,uint16_t){
++ if(instance==0)hid_trace::note(hid_trace::Source::Usb,hid_trace::Kind::TransferFailed,uint16_t(type));
++}
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="MAC-CAPS-TIMING-20261019-v1";
++constexpr const char* BuildId="CAPS-STOP-TRACE-20261019-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
+--- webserver.cpp
++++ webserver.cpp
+@@ -12,6 +12,7 @@
+ #include "coordinator.h"
+ #endif
+ #include "webserver.h"
++#include "hid_trace.h"
+ #include "caps_trial.h"
+ #include "debug.h"
+ #include "duckscript.h"
+@@ -465,11 +466,23 @@
+ static void handleStop(AsyncWebServerRequest *req){
+   bool denied=false;{execution::BoundedGuard guard(execution::Owner::HttpStop);if(!guard){req->send(409,"text/plain","Execution busy");return;}denied=!checkAuth(req);}
+   if(denied){sendAuthRequired(req);return;}
+-  if(route_u::selected()){auto receipt=route_u::stopWithStatus();char id[24];snprintf(id,sizeof(id),"%llu",(unsigned long long)receipt.request);
++  if(route_u::selected()){auto receipt=route_u::stopWithStatus();hid_trace::httpReceipt(receipt.request,receipt.owned);char id[24];snprintf(id,sizeof(id),"%llu",(unsigned long long)receipt.request);
+    req->send(202,"application/json",String("{\"message\":\"Stop requested\",\"engine\":\"routeb\",\"requestId\":\"")+id+"\",\"wasOwned\":"+(receipt.owned?"true":"false")+"}");
+   }else{duckscript::requestStop();req->send(202,"application/json","{\"message\":\"Stop requested\",\"engine\":\"legacy\"}");}
+ }
+ #endif
++
++static void handleHidTrace(AsyncWebServerRequest* req,int action){
++ bool denied=false,busy=false,invalid=false;uint32_t after=0;hid_trace::Batch batch;
++ {execution::BoundedGuard g(execution::Owner::HttpDiagnostics);if(!g){req->send(409,"text/plain","Execution busy");return;}
++ denied=!checkAuth(req);if(!denied){
++  if(req->hasParam("after")){const String v=req->getParam("after")->value();if(!v.length()||v.length()>10)invalid=true;uint64_t n=0;for(size_t i=0;!invalid&&i<v.length();++i){if(v[i]<'0'||v[i]>'9'){invalid=true;break;}n=n*10+unsigned(v[i]-'0');if(n>UINT32_MAX)invalid=true;}after=uint32_t(n);}
++  if(!invalid){if(action==1){if(route_u::owned())busy=true;else hid_trace::enable();}else if(action==2)hid_trace::disable();batch=hid_trace::read(after);}}}
++ if(denied){sendAuthRequired(req);return;}if(invalid){req->send(400,"text/plain","Invalid sequence");return;}if(busy){req->send(409,"text/plain","Enable trace while execution is idle");return;}
++ const auto d=feedback_diag::snapshot();char json[2304];int n=snprintf(json,sizeof(json),"{\"buildId\":\"%s\",\"bootMarker\":\"%016llx\",\"feedbackSessionSample\":%lu,\"enabled\":%s,\"windowUs\":120000000,\"first\":%lu,\"latest\":%lu,\"overwritten\":%lu,\"clockErrors\":%lu,\"more\":%s,\"callbackRunCorrelation\":false,\"events\":[",caps_trial::BuildId,(unsigned long long)d.boot,(unsigned long)d.session,batch.enabled?"true":"false",(unsigned long)batch.first,(unsigned long)batch.latest,(unsigned long)batch.overwritten,(unsigned long)batch.clockErrors,batch.more?"true":"false");
++ for(unsigned i=0;i<batch.count&&n>=0&&size_t(n)<sizeof(json);++i){const auto& e=batch.events[i];int added=snprintf(json+n,sizeof(json)-size_t(n),"%s{\"seq\":%lu,\"atUs\":\"%llu\",\"run\":\"%llu\",\"op\":\"%llu\",\"source\":\"%s\",\"event\":\"%s\",\"detail\":%u}",i?",":"",(unsigned long)e.sequence,(unsigned long long)e.atUs,(unsigned long long)e.run,(unsigned long long)e.operation,hid_trace::name(e.source),hid_trace::name(e.kind),unsigned(e.detail));if(added<0||size_t(added)>=sizeof(json)-size_t(n)){n=-1;break;}n+=added;}
++ if(n<0||size_t(n)+3>sizeof(json)){req->send(503,"text/plain","Trace overflow");return;}memcpy(json+n,"]}",3);req->send(200,"application/json",json);
++}
+ 
+ // Authenticated RAM-only selection: no NVS/settings mutation or execution.
+ static void handleCapsTiming(AsyncWebServerRequest* req,bool set){
+@@ -935,6 +948,9 @@
+   server.on("/run", HTTP_GET, handleRunScript);
+   server.on("/status", HTTP_GET, handleStatus);
+ #ifdef EVILDUCK_LED_RETURN_TEST
++  server.on("/hid-trace",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/hid-trace")handleHidTrace(r,0);else r->send(404,"text/plain","Not found");});
++  server.on("/hid-trace/enable",HTTP_POST,[](AsyncWebServerRequest*r){handleHidTrace(r,1);});
++  server.on("/hid-trace/disable",HTTP_POST,[](AsyncWebServerRequest*r){handleHidTrace(r,2);});
+   server.on("/caps-timing",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/caps-timing")handleCapsTiming(r,false);else r->send(404,"text/plain","Not found");});
+   server.on("/caps-timing",HTTP_POST,[](AsyncWebServerRequest*r){if(r->url()=="/caps-timing")handleCapsTiming(r,true);else r->send(404,"text/plain","Not found");});
+   server.on("/caps-trial",HTTP_GET,[](AsyncWebServerRequest*r){if(r->url()=="/caps-trial")handleCapsTrial(r,false);else r->send(404,"text/plain","Not found");});
+--- webfiles.h
++++ webfiles.h
+@@ -55,6 +55,7 @@
+   <section class="card"><h2>One Caps-duration trial</h2><p>Experimental: known EvilDuck-generated starting case, focus TextEdit within five seconds. One invocation only; no automatic replay. STOP remains available. Ordinary CAPSLOCK uses the separately captured timing setting; this diagnostic keeps its own selected duration.</p>
+    <select id="capsDuration"><option value="0">Baseline (5 ms scheduled wait)</option><option value="100">100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select>
+    <button type="button" onclick="capsTrial(true)">Start ONE trial (5-second focus delay)</button><button type="button" onclick="capsTrial(false)">Refresh trial evidence</button><pre id="capsTrialResult">No trial requested.</pre></section>
++  <section class="card"><h2>Bounded HID/STOP trace (default OFF)</h2><p>Enable only while idle. Last128 source-tagged events,120seconds,8 events per refresh. No typed text/key identities. Trace does not execute anything.</p><button onclick="hidTrace('enable')">Enable / reset trace</button><button onclick="hidTrace('disable')">Disable trace</button><button onclick="hidTrace('')">Read next events</button><pre id="hidTraceResult">Trace not observed. HTTP202 STOP means requested; terminal cancellation is separate. USB callbacks are not host delivery.</pre></section>
+   <main class="tabshell">
+     <div class="tabbar" role="tablist" aria-label="Home sections">
+       <button class="tabbtn active" type="button" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="dashboard">Dashboard</button>
+@@ -1070,6 +1071,10 @@
+  }catch(e){out.textContent='Setting not confirmed: '+e.message+'; no automatic retry.';}
+  finally{capsTimingPending=false;}
+ }
++let traceAfter=0,tracePending=false;
++async function hidTrace(action){if(tracePending)return;tracePending=true;const out=document.getElementById('hidTraceResult');
++ try{const after=action==='enable'?0:traceAfter;const r=await controlFetch('/hid-trace'+(action?'/'+action:'')+'?after='+after,{method:action?'POST':'GET',headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();if(!Array.isArray(s.events))throw new Error('Invalid trace');if(action==='enable'){traceAfter=0;out.textContent='';}out.textContent+='\n'+JSON.stringify(s,null,2);if(out.textContent.length>16000)out.textContent=out.textContent.slice(-16000);if(s.events.length)traceAfter=s.events[s.events.length-1].seq;
++ }catch(e){out.textContent+='\nTrace not confirmed: '+e.message+'; no automatic retry.';}finally{tracePending=false;}}
+ // END LED TEST CONTROLS
+ 
+ 

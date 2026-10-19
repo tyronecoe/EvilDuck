@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "native": {
+    "PASS": 231,
+    "FAIL": 0
+  },
+  "new_native_cases": 24,
+  "inherited_native_cases": 207,
+  "native_assertions": 7470,
+  "related": {
+    "PASS": 63,
+    "FAIL": 0
+  },
+  "related_assertions": 2650,
+  "related_exclusions": [
+    "T34 Linux-thread identity mismatch; K25 uses RTOS identity",
+    "X13/X15 assume old 1024-byte diagnostic response/record; H15 tests new bound"
+  ],
+  "ui": {
+    "PASS": 40,
+    "FAIL": 0,
+    "assertions": 64,
+    "scope": "actual embedded JS in Node VM; not physical iPhone/macOS/USB"
+  },
+  "core_guards": {
+    "PASS": 14,
+    "FAIL": 0
+  },
+  "tool_parser": {
+    "PASS": 14,
+    "FAIL": 0,
+    "dispatcher_executed": false
+  },
+  "host_filter": {
+    "PASS": 1,
+    "FAIL": 0,
+    "vectors": 6,
+    "sanitizers": "ASan/UBSan/leak detection",
+    "source": "tests/caps_stop/mac_caps_observer.c FILTER_TEST"
+  },
+  "native_iokit": "SKIP_ENVIRONMENT; Linux has no native High Sierra IOKit; PENDING OWNER",
+  "sanitizers": "ASan detect_leaks=1:halt_on_error=1 and UBSan halt_on_error=1; native/related production-source modules; no sanitizer diagnostic in final runs",
+  "linked_firmware_verification": "PASS exact composed ELF/BIN, 177 SDK archive identities, unchanged USB/NVS guards, descriptor, new strong failure callback trace edge",
+  "root_cause": "UNRESOLVED; source instrumentation and synthetic STOP tests do not establish installed Mac traffic",
+  "physical_hardware": false,
+  "package_tests": "Recorded separately after package construction",
+  "historical_expectations": "Unchanged; no historical XPASS/XFAIL relabeled. Focused current cases all PASS, exclusions explicit."
+}

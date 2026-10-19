@@ -1,0 +1,31 @@
+{
+  "core_version": "3.3.0",
+  "baseline": "5e22569709f44bd4a6c429beb43a055d94d39257",
+  "original_tree_sha256": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+  "patched_tree_sha256": "a79b9c7e42e7ea2066815271117eeac23fe0a27e65fa00657dc268b70c22c53a",
+  "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+  "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+  "patched_routing_sha256": "aba054156d04bceee833a4708abab2de2f8dd380325fd1ab61d13ecae32d4e84",
+  "tree_hash_excludes": [
+    "installed.json (Arduino-generated package index metadata, not release source)"
+  ],
+  "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+  "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+  "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+  "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+  "nvs_source": "cores/esp32/esp32-hal-misc.c",
+  "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+  "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+  "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+  "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+  "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+  "profile": "arduino-3.3.0-archive-feedback-boundary-v1",
+  "archive_sha256": "c8525462e47b37b726c211b71afada0fca5859ba748963e4d967131355716ba2",
+  "proposal_commit": "f47e46dec2fa19ef7310ea6ffd36fed8a23aefb3",
+  "approval": "Owner approved additive archive-based software build and package preparation; no hardware authorization",
+  "historical_reproduction": false,
+  "feedback_usb_source_sha256": "8d7b8283bc3ee978de14229382d43628ae48c1f01acbbaa15837bf2ced01571f",
+  "feedback_patch_sha256": "8c96735814cead97e95ffca8accf286ac0765cfddb1273f852600d86a9a68572",
+  "application_layer": "tests/caps_stop/application.patch",
+  "dependency_changes": "NONE; inherited exact archive-feedback core and all177 SDK archives"
+}
