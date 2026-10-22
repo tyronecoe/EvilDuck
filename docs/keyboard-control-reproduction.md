@@ -15,6 +15,8 @@ Offline build and link-review commands, from the repository root:
 ```bash
 python3 tests/keyboard_control/build_candidate.py --output-dir /workspace/scratch/NEW-keyboard-build --config /workspace/scratch/led-feedback-isolated-core/arduino-cli.json --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --arduino-cli /workspace/tooling/arduino/bin/arduino-cli --jobs 4
 python3 tests/keyboard_control/verify_link.py --build-root /workspace/scratch/NEW-keyboard-build --output /workspace/scratch/NEW-keyboard-linked.json
+python3 tests/keyboard_control/run_tests.py --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --build-dir /workspace/scratch/NEW-keyboard-native --results /workspace/scratch/NEW-keyboard-native.json
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/keyboard_control -p test_host_workflow.py -v
 python3 tests/stage28h/verify_freeze.py
 ```
 
@@ -40,3 +42,21 @@ messages, fresh backup and verification requirements. It does not authorize an
 installation or automatically reboot, repair storage, reset settings or execute
 a payload. Read the package's install and rollback documents before any separately
 approved physical action. No new dependency installation is part of this work.
+
+The release is bound to source commit
+`c7eb40f20fcdab54670c6bd6dce187faf9250115`. The later publication commit adds only
+release evidence, documentation and packaged artifacts; the verified source delta
+and build remain unchanged. Package assembly uses the exact linked receipt:
+
+```bash
+python3 tests/keyboard_control/package.py --directory /workspace/scratch/NEW-keyboard-package --build-root /workspace/scratch/NEW-keyboard-build --linked-report /workspace/scratch/NEW-keyboard-linked.json --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --source-commit c7eb40f20fcdab54670c6bd6dce187faf9250115 --archive /workspace/scratch/NEW-keyboard-package.zip
+python3 tests/keyboard_control/test_package.py --directory /workspace/scratch/NEW-keyboard-package --archive /workspace/scratch/NEW-keyboard-package.zip --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/NEW-package-tests.json
+python3 tests/keyboard_control/test_bound_installer.py --directory /workspace/scratch/NEW-keyboard-package --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/NEW-installer-tests.json
+```
+
+Those two test commands inject device/tool responses; they do not call hardware.
+An optional separate LED host kit can be prepared with
+`python3 tests/keyboard_control/host_workflow.py --archive /tmp/NEW-keyboard-led-host.zip`.
+Its only algorithm-source adaptation is the expected buildId in `device.py`;
+the original sources and archive remain intact. It is not an installer or a
+requirement to repeat the already accepted LED milestone.

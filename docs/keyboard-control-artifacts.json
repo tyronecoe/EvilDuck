@@ -1,0 +1,70 @@
+{
+  "source_commit": "c7eb40f20fcdab54670c6bd6dce187faf9250115",
+  "build_id": "ROUTEB-KEYBOARD-CONTROL-20261022-v1",
+  "application": {
+    "bytes": 1406016,
+    "sha256": "de0d34d577cbaebb31bdeff825bd264d527f6c894103d6e0ed66140022016cf3"
+  },
+  "rollback": {
+    "bytes": 1404640,
+    "sha256": "25e17cadacf3b2ab5eb5ece32fc94f4bf36fb71eb90e91814dca7f7320bd5178"
+  },
+  "archives": [
+    {
+      "file": "evilduck-routeb-keyboard-control-macos-v1.zip",
+      "bytes": 2260056,
+      "sha256": "81e06b091f35fb2421ce22a6b4fdfdd867d0eacfae9204302dd48f3557fc217d",
+      "files": [
+        "APACHE-2.0.txt",
+        "INSTALL-MAC.md",
+        "OWNER-CHECK.md",
+        "README.md",
+        "ROLLBACK-MAC.md",
+        "application.bin",
+        "build-receipt.json",
+        "compatibility.md",
+        "dependency-pin.json",
+        "expected-partitions.bin",
+        "firmware-report.md",
+        "gen_esp32part.py",
+        "install-macos.sh",
+        "installer.py",
+        "manifest.json",
+        "owner-evidence.md",
+        "preflight.py",
+        "reproduction.md",
+        "rollback-application.bin",
+        "rollback-build-receipt.json",
+        "rollback-macos.sh",
+        "source-LICENSE.txt",
+        "source-manifest.json",
+        "test-results.json"
+      ]
+    },
+    {
+      "file": "evilduck-keyboard-control-led-host-v1.zip",
+      "bytes": 27066,
+      "sha256": "a5d381810ff938ed8bebe7f5fb4012ff7c11ba73299b45d4a836b408fbf8629a",
+      "expected_build": "ROUTEB-KEYBOARD-CONTROL-20261022-v1",
+      "changed_algorithm_bytes": 0,
+      "adaptation": "device.BUILD only; new profile README/manifest"
+    }
+  ],
+  "verification": {
+    "package_fault_tests": {
+      "file": "docs/keyboard-control-package-tests.json",
+      "sha256": "23a49905dcc213fb06322fc0dd80b58698dc57ac2e6c675a38db89215418dadd",
+      "PASS": 39,
+      "FAIL": 0
+    },
+    "mock_installer_tests": {
+      "file": "docs/keyboard-control-installer-tests.json",
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "host_archive_checks": "PASS inventory/hash/Linux refusal; native Apple code not executed"
+  },
+  "installation_authorized": false,
+  "physical_keyboard_acceptance": "PENDING_OWNER"
+}

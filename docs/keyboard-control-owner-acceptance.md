@@ -43,7 +43,7 @@ The associated published application artifact is
 `25e17cadacf3b2ab5eb5ece32fc94f4bf36fb71eb90e91814dca7f7320bd5178`.
 That is the known installer/build artifact identity, not a new physical board
 image readback. The receiver/host workflow are the unchanged custom EDR1
-fixed-data path described in [the host report](mac-fixed-message-report.md).
+fixed-data path described in [the host report](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/mac-fixed-message-report.md).
 
 ## Accepted boundary
 

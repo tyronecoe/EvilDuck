@@ -121,9 +121,19 @@
     "receipt": "docs/keyboard-control-build.json"
   },
   "package_checks": {
-    "status": "POST_ASSEMBLY; see separate package and installer receipts",
+    "status": "PASS",
+    "package": {
+      "PASS": 39,
+      "FAIL": 0
+    },
+    "installer": {
+      "PASS": 38,
+      "FAIL": 0
+    },
     "package_receipt": "docs/keyboard-control-package-tests.json",
-    "installer_receipt": "docs/keyboard-control-installer-tests.json"
+    "installer_receipt": "docs/keyboard-control-installer-tests.json",
+    "scope": "Actual release images and helpers; all device/tool responses injected; no hardware",
+    "final_archive_recheck": "Separate receipts accompany publication"
   },
   "hardware_access": false,
   "physical_keyboard_acceptance": "PENDING_OWNER",
@@ -141,5 +151,48 @@
     "linked": "python3 tests/keyboard_control/verify_link.py --build-root /workspace/scratch/keyboard-control-build-v1 --output /workspace/scratch/keyboard-control-linked-v1.json",
     "host_profile": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/keyboard_control -p test_host_workflow.py -v",
     "freeze": "python3 tests/stage28h/verify_freeze.py"
+  },
+  "host_workflow_regression": {
+    "PASS": 56,
+    "FAIL": 0,
+    "assertions": null,
+    "native_macos": false
+  },
+  "dashboard_regression": {
+    "PASS": 15,
+    "FAIL": 0,
+    "assertions": 195,
+    "scope": "Actual retained dashboard functions in Node VM; no browser, iPhone, native Mac, USB or hardware validation",
+    "source_path": "retained caps-stop-build-release/candidate/EvilDuckS3/webfiles.h",
+    "source_sha256": "2774ff015739423be2959cc22a745816f0b6bc4c38eccd3d3dfc697ebcd3606d",
+    "function_sha256": {
+      "duckHeaders": "db272f482b40fe5826543387dbc191021a5cf9f3503d4fb52a447c302be910cf",
+      "controlFetch": "382e79d169f638dda83c8bfa2be93e0ffa8de3aab312fc424c3316ca47ae5ee2",
+      "viewLedData": "cb43252f92b2e7c944e87ce763d28be0c2fd31c1e17cabe5e2ac9cdd3e2e4443"
+    },
+    "cases": [
+      "valid_view",
+      "valid_download",
+      "wrong_json_type",
+      "wrong_html_type",
+      "missing_type",
+      "wrong_text",
+      "newline",
+      "crlf",
+      "bom",
+      "nul",
+      "busy_even_with_exact_body",
+      "auth_failure",
+      "html_in_body",
+      "network_error",
+      "no_saved_password"
+    ]
+  },
+  "totals": {
+    "PASS_groups_or_cases": 272,
+    "unexpected_FAIL": 0,
+    "instrumented_assertions": 6487,
+    "python_assertions_not_instrumented": true,
+    "intentional_compile_refusals": 2
   }
 }

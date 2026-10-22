@@ -12,7 +12,7 @@ Branch: `routeb-keyboard-control-v1`.
 New buildId: `ROUTEB-KEYBOARD-CONTROL-20261022-v1`.
 The prior installed application is unchanged and remains the exact rollback.
 
-The [compatibility inventory](keyboard-control-compatibility.md) separates the
+The [compatibility inventory](https://github.com/tyronecoe/EvilDuck/blob/routeb-keyboard-control-v1/docs/keyboard-control-compatibility.md) separates the
 installed Route B, legacy and standalone preview implementations. The current
 dashboard Run, library Run and Save & Run select Route B explicitly; ordinary
 CLI `run` and HTTP without an engine selector still use legacy. Parser recognition
@@ -20,7 +20,7 @@ or legacy linkage is not counted as selected Route B support.
 
 The owner-operated fixed-message milestone is already accepted on the tested
 High Sierra hardware. Its original receipt and later-repeat iPhone screenshot
-remain separate evidence; see [owner acceptance](keyboard-control-owner-acceptance.md).
+remain separate evidence; see [owner acceptance](https://github.com/tyronecoe/EvilDuck/blob/routeb-keyboard-control-v1/docs/keyboard-control-owner-acceptance.md).
 It is not a new-keyboard-feature test or a general Caps-state guarantee.
 
 ## Exact implemented grammar and behavior
@@ -94,6 +94,10 @@ pass. No broad Caps/global-flag investigation was restarted.
 | New composed keyboard-control Q01–Q37 | 37 | 0 | 1,049 |
 | Selected inherited production-source regressions | 82 | 0 | 5,243 |
 | Version-bound host-workflow checks | 5 | 0 | not instrumented |
+| Existing host workflow/package regressions | 56 | 0 | not instrumented |
+| Actual unchanged dashboard view/download functions | 15 | 0 | 195 |
+| Package corruption, bounds and metadata checks | 39 | 0 | not instrumented |
+| Bound installer with simulated device/tool results | 38 | 0 | not instrumented |
 
 The119 C++ cases pass ASan, UBSan and leak detection. They exercise exact eight-byte
 reports/reportID1, alias/dedup behavior, overflow atomicity, fresh operation
@@ -113,9 +117,14 @@ observation is retained separately; current H09/H10/H18 auth/busy tests and othe
 selected HTTP progress regressions pass. No production change was made to satisfy
 W34, and no historical source or classification was rewritten.
 
-Package corruption/range checks and bound-installer fault tests are post-assembly
-checks; their separate release receipts record actual execution. The native counts
-above do not include guessed package totals or an unperformed Mac test.
+The final focused selection comprises272 passing cases/groups and zero unexpected
+failures, with6,487 instrumented C++/Node assertions; Python assertions are not
+instrumented. Package and installer tests use actual assembled release images and
+helpers with disposable public copies and simulated device/tool responses. No
+esptool hardware dispatcher or serial port is opened. Their separate receipts
+record actual execution. After incorporating these results in the review package,
+the package checks are repeated against the final archive without counting them
+twice or rerunning the unchanged target build.
 
 ## Clean build and resources
 
@@ -176,7 +185,7 @@ automatic repeat of the already accepted LED milestone.
 **GO:** source/package review and offline verification.
 **NO-GO:** installation, boot, OTA or real HID testing without separate owner
 authorization. Native High Sierra installer execution and new keyboard behavior
-remain physically unverified. The short [owner sheet](keyboard-control-owner-check.md)
+remain physically unverified. The short [owner sheet](https://github.com/tyronecoe/EvilDuck/blob/routeb-keyboard-control-v1/docs/keyboard-control-owner-check.md)
 is the proposed acceptance, not an executed test. Windows11 remains unverified;
 its temporary unavailability does not invalidate the earlier Mac milestone.
 

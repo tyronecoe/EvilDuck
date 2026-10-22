@@ -14,7 +14,7 @@ on that path; **Not yet verified** identifies missing evidence rather than an
 implementation failure. Software evidence is not physical host evidence.
 
 The installed composition was inspected from the retained candidate whose 201
-source entries are pinned in [caps-stop-build.json](caps-stop-build.json).
+source entries are pinned in [caps-stop-build.json](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/caps-stop-build.json).
 References below beginning **C:** mean paths/line numbers in that composed
 `EvilDuckS3` tree, not a claim that the frozen root file is identical. It is
 reproduced by the existing `tests/caps_stop/prepare_sources.py` overlay chain.
@@ -41,10 +41,10 @@ inspected UI code. A linked legacy module or successful preview test is not Rout
 B support. Competing execution, malformed source, unsupported capabilities and
 transport uncertainty must remain explicit refusals, without silent legacy fallback.
 
-The earlier [compatibility pass](compatibility-pass.md) supplies meaningful shared
+The earlier [compatibility pass](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/compatibility-pass.md) supplies meaningful shared
 fixtures and exact engine-specific tests. Its counts are historical, not freshly
 rerun totals for this release. New candidate results belong to the keyboard-control
-implementation report and its focused receipts. The [owner acceptance note](keyboard-control-owner-acceptance.md)
+implementation report and its focused receipts. The [owner acceptance note](https://github.com/tyronecoe/EvilDuck/blob/routeb-keyboard-control-v1/docs/keyboard-control-owner-acceptance.md)
 records the physically passed EDR1 milestone without extending it to new commands.
 
 Selected Route B bounds are C:`core.h:6`: source8192 bytes, line256 bytes,
@@ -61,10 +61,10 @@ Official categories are the Hak5 USB Rubber Ducky DuckyScript 3.0 reference,
 including [keystroke injection](https://docs.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection),
 [holding keys](https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/holding-keys.md),
 [quick reference](https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference)
-and the category URLs recorded in [Stage9 provenance](stage9-reference-sources.json).
+and the category URLs recorded in [Stage9 provenance](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/stage9-reference-sources.json).
 That metadata records saved official Markdown observations from 2026-10-11;
-[compatibility-pass references](compatibility-pass-references.json) and
-[Stage28G's contract](stage28g-reference-contract.md) record the prior checked
+[compatibility-pass references](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/compatibility-pass-references.json) and
+[Stage28G's contract](https://github.com/tyronecoe/EvilDuck/blob/cb3a147719850a0dc4a4797b401b606ea14c6571/docs/stage28g-reference-contract.md) record the prior checked
 snapshots and exact syntax ambiguity. They are not a versioned compiler oracle.
 
 On 2026-10-22 at06:02:22–23 UTC, fresh requests for Holding Keys Markdown,
@@ -143,9 +143,16 @@ whose success is not proof of real scheduler support.
 | Storage activity waits / HIDE_PAYLOAD | Unsupported | Separate backing image and plain-script files differ from Rubber Ducky shared inject.bin/media semantics | Parser/core rejection, Stage9 storage inventory; filesystem read/write extensions are not host MSC activity evidence |
 | `READ`, `SAVE`, `APPEND` file operations | Unsupported selected source | Legacy has bounded EvilDuck storage extensions, not full canonical data/reflection compatibility | C:`com.cpp:306,317,322`; no private files used in audit/tests |
 | Full keystroke reflection / exfiltration flags / loot.bin | Unsupported | Existing EDR1 receiver is not a general-purpose reflection or logging implementation; reserved flags do not implement it | C:`led_receiver.cpp`, `duck_vars.cpp:159,232`. Requires a distinct privacy/data-format/hardware design, not expansion of this release |
-| EDR1 fixed-message LED return | Supported custom protocol; owner physically passed on High Sierra | Independent authenticated receiver/host tool, not a DuckyScript command or Hak5 wire-compatible interface | [Owner acceptance](keyboard-control-owner-acceptance.md): exact17-byte message, Caps clock/Num data, CRC, RAM bounds and explicit arming. Windows and Scroll remain unverified |
+| EDR1 fixed-message LED return | Supported custom protocol; owner physically passed on High Sierra | Independent authenticated receiver/host tool, not a DuckyScript command or Hak5 wire-compatible interface | [Owner acceptance](https://github.com/tyronecoe/EvilDuck/blob/routeb-keyboard-control-v1/docs/keyboard-control-owner-acceptance.md): exact17-byte message, Caps clock/Num data, CRC, RAM bounds and explicit arming. Windows and Scroll remain unverified |
 
 ## New candidate boundary
+
+| Keyboard feature | Installed baseline | New review candidate |
+| --- | --- | --- |
+| Inline `INJECT_MOD modifier` | Unsupported on Route B | Supported within left-modifier vocabulary; production-source tested, physical acceptance pending |
+| `HOLD key` / `RELEASE key` | Adapter capability refusal before output | Real lease-bound scheduler/backend implementation;37 focused cases pass |
+| Direct modifier HOLD/RELEASE | Unsupported on Route B | Implemented as an explicitly labeled EvilDuck extension |
+| Bare `INJECT_MOD`, RESET, restart | Unsupported | Still rejected; no guessed prefix/reset contract |
 
 This release targets only inline modifier taps and real Route B HOLD/RELEASE with
 STOP/terminal cleanup. Its implementation and actual fresh verification are
