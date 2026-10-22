@@ -1,0 +1,13 @@
+{
+  "format": "EDR1",
+  "message_ascii": "EVILDUCK TEST 123",
+  "payload_bytes": 17,
+  "frame_bytes": 25,
+  "frame_hex": "0045445231114556494c4455434b205445535420313233d6cc",
+  "crc16": "CCITT-FALSE; length+payload; high byte first; 0xd6cc",
+  "bit_order": "MSB first",
+  "data_led_bit": 0,
+  "clock_led_bit": 1,
+  "settle_ms_before_and_after_clock": 100,
+  "arbitrary_input_supported": false
+}

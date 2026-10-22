@@ -1,0 +1,193 @@
+{
+  "format": "evilduck-fixed-message-offline-results-v1",
+  "baseline": "0803937b9b552fe4b6e6cb6d1dd60f80f098449c",
+  "branch": "mac-fixed-message-led-workflow",
+  "environment": {
+    "os": "Linux x86_64",
+    "python": "3.12.14",
+    "gcc": "14.2.0",
+    "node": "24.19.0",
+    "bash": "5.2.37",
+    "git": "2.52.0"
+  },
+  "suites": {
+    "engine": {
+      "PASS": 11,
+      "FAIL": 0,
+      "assertions": 517213,
+      "write_failure_boundaries": 402,
+      "cancel_wait_boundaries": 400,
+      "native_iokit": "NOT_EXECUTED",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-g",
+        "-fno-omit-frame-pointer",
+        "-fsanitize=address,undefined",
+        "-I/workspace/EvilDuck/host_tests/led_return/mac_fixed_message",
+        "/workspace/EvilDuck/host_tests/led_return/mac_fixed_message/engine.c",
+        "/workspace/EvilDuck/tests/mac_fixed_message/test_engine.c",
+        "-o",
+        "/workspace/scratch/mac-fixed-native-final/engine-tests"
+      ],
+      "sanitizers": "ASan/UBSan/leak detection",
+      "native_apple_compilation": "PENDING_OWNER",
+      "physical_device": "NOT_ACCESSED"
+    },
+    "http": {
+      "PASS": 27,
+      "FAIL": 0,
+      "assertions": null
+    },
+    "workflow": {
+      "PASS": 26,
+      "FAIL": 0,
+      "assertions": null
+    },
+    "receiver": {
+      "PASS": 19,
+      "FAIL": 0,
+      "assertions": 3151,
+      "selection": {
+        "historical_runner": "tests/caps_stop/run_tests.py",
+        "historical_runner_sha256": "52c71bcca3f7734b02b2b518fd5814efda55ef540d7b412e74ff52663301d225",
+        "historical_file_modified": false,
+        "selected_cases": [
+          "L01",
+          "L02",
+          "L03",
+          "L04",
+          "L05",
+          "L06",
+          "L07",
+          "L08",
+          "L09",
+          "L10",
+          "L11",
+          "L12",
+          "L13",
+          "L14",
+          "L15",
+          "L16",
+          "L17",
+          "L18",
+          "L19"
+        ],
+        "method": "Only top-level for-n iterable replaced in memory via AST; setup/flags/assertions unchanged",
+        "original_iterable_ast_sha256": "4ada9e12de11108f76d630c6f69c516ae1716a188263cab96e66f5da1a8975af",
+        "native_iokit_execution": false
+      },
+      "sanitizers": "ASan/UBSan/leak detection"
+    },
+    "dashboard": {
+      "PASS": 15,
+      "FAIL": 0,
+      "assertions": 195,
+      "scope": "Actual retained dashboard functions in Node VM; no browser, iPhone, native Mac, USB or hardware validation",
+      "source_path": "retained caps-stop-build-release/candidate/EvilDuckS3/webfiles.h",
+      "source_sha256": "2774ff015739423be2959cc22a745816f0b6bc4c38eccd3d3dfc697ebcd3606d",
+      "function_sha256": {
+        "duckHeaders": "db272f482b40fe5826543387dbc191021a5cf9f3503d4fb52a447c302be910cf",
+        "controlFetch": "382e79d169f638dda83c8bfa2be93e0ffa8de3aab312fc424c3316ca47ae5ee2",
+        "viewLedData": "cb43252f92b2e7c944e87ce763d28be0c2fd31c1e17cabe5e2ac9cdd3e2e4443"
+      },
+      "cases": [
+        "valid_view",
+        "valid_download",
+        "wrong_json_type",
+        "wrong_html_type",
+        "missing_type",
+        "wrong_text",
+        "newline",
+        "crlf",
+        "bom",
+        "nul",
+        "busy_even_with_exact_body",
+        "auth_failure",
+        "html_in_body",
+        "network_error",
+        "no_saved_password"
+      ]
+    },
+    "package": {
+      "PASS": 3,
+      "FAIL": 0,
+      "assertions": null
+    }
+  },
+  "totals": {
+    "PASS_groups_or_cases": 101,
+    "unexpected_FAIL": 0,
+    "instrumented_assertions": 520559,
+    "python_assertions_not_instrumented": true
+  },
+  "apple_native_compile": "PENDING_OWNER",
+  "physical_caps_num_capability": "PENDING_OWNER",
+  "physical_message_delivery": "PENDING_OWNER",
+  "iphone_view": "PENDING_OWNER",
+  "firmware_built": false,
+  "firmware_modified": false,
+  "hardware_accessed": false,
+  "real_hid_output": false,
+  "preservation": {
+    "historical_tracked_files_unchanged": 1786,
+    "retained_composed_sources_matching": 201,
+    "retained_artifacts_matching": 5,
+    "previous_remote_refs": 64,
+    "remote_before_file_sha256": "48d2ab0d2a63587368090edf2f176504e33796b07f8becc5e6e076cb458b7691"
+  },
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/mac_fixed_message -p 'test_*.py' -v",
+    "python3 tests/mac_fixed_message/run_native_tests.py --build-dir /workspace/scratch/mac-fixed-native-final",
+    "python3 tests/mac_fixed_message/run_receiver_tests.py --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --build-dir /workspace/scratch/mac-fixed-receiver-focused --results /workspace/scratch/mac-fixed-receiver-focused-results.json",
+    "node tests/mac_fixed_message/test_dashboard.js /workspace/scratch/caps-stop-build-release/candidate/EvilDuckS3/webfiles.h",
+    "bash -n host_tests/led_return/mac_fixed_message/run-mac.sh"
+  ],
+  "historical_receiver_runner_sha256": "52c71bcca3f7734b02b2b518fd5814efda55ef540d7b412e74ff52663301d225",
+  "source_hashes": [
+    {
+      "path": "host_tests/led_return/mac_fixed_message/FIXED-MESSAGE.json",
+      "size": 395,
+      "sha256": "65d850ea27dd2987fb8ab948017d5d74a9fbe2c988e3bc536ce765af91f3804b"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/README-MAC.md",
+      "size": 7978,
+      "sha256": "1e83f2480d4168ed8a0da296d999caabaf974850ad3cb6287b74818fa15ea82e"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/device.py",
+      "size": 16770,
+      "sha256": "15878dba7f2db552ebf884b90a255e21d2df8faa1d39ad8611005d1c5e050758"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/engine.c",
+      "size": 6239,
+      "sha256": "410717b68acd6756703d78baee2856f4ff9f37fc161e8291e5cf582b35196b9e"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/engine.h",
+      "size": 1615,
+      "sha256": "747568ef481136a2d1a09ac1199c98a188553742c5f98df3d3e18a241f12f364"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/native.c",
+      "size": 13793,
+      "sha256": "e8572b74289272075ab19f239c3b019150dfa191f03017f81660c57707a5d7ec"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/run-mac.sh",
+      "size": 1266,
+      "sha256": "0260a7c9d860141ad58de290d64216338641be7a5a122fc5680b3ac25eebdc4e"
+    },
+    {
+      "path": "host_tests/led_return/mac_fixed_message/workflow.py",
+      "size": 20214,
+      "sha256": "4b1bd90a884f30c11b382590a0c4819c7a3269e0918fe16a66bf22aa7391a646"
+    }
+  ]
+}
