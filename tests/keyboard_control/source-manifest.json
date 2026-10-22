@@ -1,0 +1,77 @@
+{
+  "format": "evilduck-routeb-keyboard-control-v1",
+  "baseline": "cb3a147719850a0dc4a4797b401b606ea14c6571",
+  "parent_prepare_sha256": "a93bbc434ee26546bfe16206af7466f3047609df77656d2a468cf1aed71d0198",
+  "patch_sha256": "000d87359ff5ecc7448763448fb0e79eb320cb4e925f0f5ef6019a634e2fbcb5",
+  "build_id": "ROUTEB-KEYBOARD-CONTROL-20261022-v1",
+  "required_flag": "EVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1",
+  "before": [
+    {
+      "file": "adapter.cpp",
+      "sha256": "af95747ed5974a33ab55a6416c348c43f7a094186194aeec605c2c486c692f96"
+    },
+    {
+      "file": "backend_lease.h",
+      "sha256": "41b2adf0770c32d6b71e60543ad812b1d6125403a2d350d49dd99181c510c83a"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "0e844bd11cc65988209e84497e839ebda0fb2979e17f64636729375ea4fb0840"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "e32628d249614457d829252814e6fe31c9366d92c5749162dca81621c6163e97"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "6af6469b224bfc5c494333becd0e00442fbc3a58643206b21fe7555af212c198"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "e9c904a85b2fccaa7acbc56f4ce992fb97de5af44064b90ceb3ea1c3a47ff0a8"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "e11d860b97d7398181102b5b816154ae17a369cf75819d79c4fab78bcf586e7c"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "4e791b04158236055f4bcfe28756a09286a6f6066b234fe8c38f804eb6473aa6"
+    }
+  ],
+  "after": [
+    {
+      "file": "adapter.cpp",
+      "sha256": "ce0d5fb6703b9bddd7639c286f6866583091d55024594a1da4d443277acac0e6"
+    },
+    {
+      "file": "backend_lease.h",
+      "sha256": "f3db353e1b27dc74a2d449f21869886c70ad94ddbfb8b31f247112eff9492df6"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "1f048608a26e77c44444176cff691ff423e8ed153c0cc7459d529d35cb2031eb"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "5b15e630c797696d186afb7d110e8c42b0ddbecb2554abe3d4eab8bfe5deb876"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "18ffdb9549f6cfeed13a4bdc1946fda36ad0ec902f564ac687881bc7271ce85f"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "01570f0c4a8e8186ef4732407c2818b102c3f69ef4677852839424577b4aa928"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "329b5c5531560f763b2a6b79de16bfe8a6bbfbe7da6cec4c8cec0690504b348b"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "2575f4f610c669a566bdf0a83a4c1a232588eac2a8de24ebe508569c6bef5603"
+    }
+  ],
+  "additions": []
+}

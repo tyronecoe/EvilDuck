@@ -1,0 +1,263 @@
+--- adapter.cpp
++++ adapter.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
++#error "Explicit Route B keyboard-control candidate profile required"
++#endif
+ #include "adapter.h"
+ #include "com.h"
+ #include "hid_backend.h"
+@@ -49,7 +52,8 @@
+  }
+  route_b::Admission a=route_b::Admission::Rejected;
+  if(e.type==EventType::Character)a=route_b::character(session_,e.value,id_);
+- else if(e.type==EventType::KeyTap)a=route_b::key(session_,e.value,id_,e.modifiers);
++ else if(e.type==EventType::KeyTap)a=e.value?route_b::key(session_,e.value,id_,e.modifiers):route_b::modifier(session_,e.modifiers,id_);
++ else if(e.type==EventType::Hold||e.type==EventType::Release)a=route_b::ownership(session_,e.value,e.type==EventType::Hold,id_);
+  if(a!=route_b::Admission::Admitted){fail(Fault::Admission);return Accept::Failed;}
+  event_=e;pending_=true;since_=now_;turns_=0;++admissions_;++retries_;return Accept::Retry;
+ }
+@@ -71,7 +75,7 @@
+   return;
+  }
+  if(state_==State::Compiling){compiler_.step();if(compiler_.state()==ds_preview::CompileState::Error){fail(Fault::Compiler);return;}
+-  if(compiler_.state()==ds_preview::CompileState::Complete){if(program_.ownershipCommands())fail(Fault::Capability);else state_=State::Ready;}return;
++  if(compiler_.state()==ds_preview::CompileState::Complete){state_=State::Ready;}return;
+  }
+  if(state_==State::Syncing||state_==State::Clearing){
+   if(turns_++>=ClearingTurns||uint32_t(now-since_)>=ClearingMs){if(fault_==Fault::None)fault_=Fault::Clearing;state_=State::Quarantined;return;}
+--- backend_lease.h
++++ backend_lease.h
+@@ -18,6 +18,8 @@
+ bool release(uint64_t session);
+ bool permitted();
+ bool fatal();
++// Requires current session/operation permission. Legacy ownership entrypoints stay denied.
++bool ownership(uint64_t session,uint64_t operation,uint16_t usage,bool acquire);
+ Status status();
+ void exhaustForTest();
+ size_t sharedStorageBytes();size_t perThreadStorageBytes();
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="CAPS-STOP-TRACE-20261019-v1";
++constexpr const char* BuildId="ROUTEB-KEYBOARD-CONTROL-20261022-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
+--- com.cpp
++++ com.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
++#error "Explicit Route B keyboard-control candidate profile required"
++#endif
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ #include "task_platform.h"
+ #include "coordinator.h"
+@@ -116,6 +119,7 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+ bool routeExternal();
+ void routeFinish(route_b::ResultKind);
++bool routeOwnership(uint16_t usage,bool acquire);
+ #endif
+ void waitFor(uint32_t ms, Phase next) {
+   session.waitStarted = millis();
+@@ -587,7 +591,16 @@
+       } else session.phase = Phase::Finish;
+       return;
+     case Phase::Ownership: {
+-      const bool accepted = session.holding ?
++      bool accepted;
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++      if(routeExternal()){
++        uint16_t usage=session.ownedKey;
++        if(session.ownedModifier)for(uint8_t bit=0;bit<8;++bit)
++          if(session.ownedModifier==uint8_t(1u<<bit))usage=uint16_t(0xe0+bit);
++        accepted=routeOwnership(usage,session.holding);
++      }else
++#endif
++      accepted = session.holding ?
+         hid_backend::hold(session.ownedModifier, session.ownedKey) :
+         hid_backend::release(session.ownedModifier, session.ownedKey);
+       if (!accepted) {
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
++#error "Explicit Route B keyboard-control candidate profile required"
++#endif
+ #include "core.h"
+ #include "shortcut_keys.h"
+ #include <string.h>
+@@ -17,8 +20,12 @@
+ int findName(const char names[][24],size_t n,const char* name){for(size_t i=0;i<n;++i)if(exact(names[i],name))return static_cast<int>(i);return -1;}
+ bool functionName(const char* p,char (&name)[24]){size_t n=strlen(p);if(n<3||n>25||p[n-2]!='('||p[n-1]!=')')return false;memcpy(name,p,n-2);name[n-2]=0;return ident(name);}
+ uint8_t key(const char* p){return ds_shortcut::named(p);}
+-// Deliberately narrow reference-backed ownership operand domain. No modifier prefix guesses.
++// Physical ownership names: direct modifier HOLD/RELEASE is an EvilDuck extension.
++// Bare INJECT_MOD and speculative prefix state remain unsupported.
+ uint8_t ownedKey(const char* p){
++ if(uint8_t modifier=ds_shortcut::modifier(p)){
++  for(uint8_t bit=0;bit<8;++bit)if(modifier==uint8_t(1u<<bit))return uint8_t(0xe0+bit);
++ }
+  if(uint8_t named=key(p))return named;
+  if(!p[0]||p[1])return 0;
+  if(p[0]>='a'&&p[0]<='z')return static_cast<uint8_t>(4+p[0]-'a');
+@@ -273,6 +280,13 @@
+    char* arg=left(argument(text));if(*arg&&(!expand(arg,expanded)||!expr(expanded)))return false;return emit(Op::Return,expanded);
+   }
+   if(exact(text,"STOP_PAYLOAD"))return emit(Op::Stop);
++  if(command(text,"INJECT_MOD")){
++   // Only the documented inline modifier tap. No sticky/prefix interpretation.
++   if(!expand(left(argument(text)),expanded))return false;right(expanded);
++   uint8_t modifier=ds_shortcut::modifier(expanded);
++   if(!modifier)return fail(ErrorCode::Unsupported);
++   return emit(Op::Key,"",0,modifier);
++  }
+   if(command(text,"HOLD")||command(text,"RELEASE")){
+    bool acquire=command(text,"HOLD");if(!expand(left(argument(text)),expanded))return false;
+    right(expanded);uint8_t usage=ownedKey(expanded);if(!usage)return fail(ErrorCode::Unsupported);
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
++#error "Explicit Route B keyboard-control candidate profile required"
++#endif
+ #ifdef EVILDUCK_LED_RETURN_TEST
+ #include "led_receiver.h"
+ #include "feedback_diag.h"
+@@ -406,6 +409,16 @@
+   backendObserve(backend_b::Kind::Invalid);
+ #endif
+   return false; }
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++  if(lease.active){
++    // A transient tap of an already owned usage cannot create a fresh edge.
++    // Modifier overlap in a real key chord/text stroke is intentional OR merging.
++    bool heldTap=keyCount==0&&(owned.modifiers&modifiers);
++    for(uint8_t i=0;i<keyCount;++i)for(uint8_t held:owned.keys)
++      if(keys[i]&&held==keys[i])heldTap=true;
++    if(heldTap){failure="Cannot tap an already held physical usage";backendObserve(backend_b::Kind::Invalid);return false;}
++  }
++#endif
+   Owned merged = owned;
+   merged.modifiers |= modifiers;
+   for (uint8_t i = 0; i < keyCount; ++i) if (!append(merged, keys[i])) {
+@@ -756,3 +769,37 @@
+  pressKeycode(HID_RIGHT, 0); }
+ 
+ }
++
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++namespace backend_b {
++bool ownership(uint64_t owner,uint64_t operation,uint16_t usage,bool acquire){
++ execution::Guard guard;
++ if(!u_platform::allowed()||!lease.active||owner!=lease.session||operation!=lease.operation||!operation||lease.closing||lease.quarantined||!backendAllowed()){
++  if(lease.denied!=UINT32_MAX)++lease.denied;
++  return false;
++ }
++ failure="";
++ const bool modifier=usage>=0xe0&&usage<=0xe7;
++ if(!modifier&&(usage<4||usage>=0xa5)){
++  failure="Invalid persistent keyboard usage";backendObserve(Kind::Invalid);return false;
++ }
++ if(releasePending||ownershipDirty)return false;
++ Owned proposed=owned;
++ if(acquire){
++  if(!hid_backend::append(proposed,uint8_t(usage))){backendObserve(Kind::Invalid);return false;}
++ }else if(modifier)proposed.modifiers&=uint8_t(~(1u<<(usage-0xe0)));
++ else{
++  uint8_t count=0;for(uint8_t key:owned.keys)if(key&&key!=usage)proposed.keys[count++]=key;
++  while(count<6)proposed.keys[count++]=0;
++ }
++ // Release intent is never rolled back or overtaken by a later press. The
++ // current scheduler operation retries exactly this target only after NoCall;
++ // ambiguous CalledFalse/loss retains the existing permanent quarantine.
++ if(!acquire)owned=proposed;
++ if(!hid_backend::queueRaw(proposed))return false;
++ if(acquire)owned=proposed;
++ // Even idempotent source operations acknowledge a fresh current report.
++ return true;
++}
++}
++#endif
+--- scheduler_seam.h
++++ scheduler_seam.h
+@@ -10,6 +10,8 @@
+ bool acquire(uint64_t &session);
+ Admission character(uint64_t session,uint16_t value,Id &id);
+ Admission key(uint64_t session,uint16_t usage,Id &id,uint8_t modifiers=0);
++Admission modifier(uint64_t session,uint8_t mask,Id &id);
++Admission ownership(uint64_t session,uint16_t usage,bool acquire,Id &id);
+ Result result(uint64_t session);
+ bool consume(Result);
+ bool cancel(uint64_t session);
+--- seam.inc
++++ seam.inc
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
++#error "Explicit Route B keyboard-control candidate profile required"
++#endif
+ // Included only with EVILDUCK_NATIVE_SCHEDULER_ROUTE_B in scratch com.cpp.
+ namespace {
+ struct RouteOwner {
+@@ -10,6 +13,9 @@
+  if(route.result.kind==route_b::ResultKind::Pending){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::OperationEnd,uint16_t(k),route.result.id.operation);route.result.kind=k;}
+ }
+ bool routeExternal(){return route.active&&!route.internal;}
++bool routeOwnership(uint16_t usage,bool acquire){
++ return backend_b::ownership(route.session,route.backendOperation,usage,acquire);
++}
+ }
+ namespace route_b {
+ bool active(){return route.active;}
+@@ -34,20 +40,34 @@
+  duck_random::setMinimum(route.low);duck_random::setMaximum(route.high);duck_random::setJitterMaximum(route.jitter);duck_random::setJitterEnabled(route.jitterOn);
+  out=route.session;hid_backend::cancelReport();return true;
+ }
+-static Admission admit(uint64_t owner,uint16_t v,bool text,Id &id,uint8_t modifiers=0){
++static Admission admit(uint64_t owner,uint16_t v,bool text,Id &id,uint8_t modifiers=0,bool modifierOnly=false){
+  execution::Guard guard;
+  if(!route.active||owner!=route.session||route.cancelled||route.result.kind!=ResultKind::None||session.phase!=Phase::Idle||hid_backend::clearing()||!environment()||route.nextOperation==UINT64_MAX)return Admission::Rejected;
+- bool valid=text?(v==9||v==10||(v>=32&&v<=126)):ds_shortcut::validUsage(v);
++ bool valid=modifierOnly?(!text&&!v&&modifiers&&!(modifiers&(modifiers-1))):text?(v==9||v==10||(v>=32&&v<=126)):ds_shortcut::validUsage(v);
+  if(!valid)return Admission::Rejected;
+  if(!backend_b::bind(owner,route.nextOperation+1))return Admission::Rejected;
+  id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Pending,!text&&v==0x39?1:2,id.operation);
+  session.error="";session.remember=false;session.lockCommand=-1;
+  if(text)startText(String(static_cast<char>(v)),false,Phase::Finish); // literal: no interpolation/trim/parser
+- else{const uint8_t k=static_cast<uint8_t>(v);report(modifiers,&k,1,Phase::Finish);}
++ else{const uint8_t k=static_cast<uint8_t>(v);report(modifiers,modifierOnly?nullptr:&k,modifierOnly?0:1,Phase::Finish);}
+  return Admission::Admitted;
+ }
+ Admission character(uint64_t s,uint16_t v,Id &id){return admit(s,v,true,id);}
+ Admission key(uint64_t s,uint16_t v,Id &id,uint8_t modifiers){return admit(s,v,false,id,modifiers);}
++Admission modifier(uint64_t s,uint8_t mask,Id &id){return admit(s,0,false,id,mask,true);}
++Admission ownership(uint64_t owner,uint16_t usage,bool acquire,Id &id){
++ execution::Guard guard;
++ if(!route.active||owner!=route.session||route.cancelled||route.result.kind!=ResultKind::None||session.phase!=Phase::Idle||hid_backend::clearing()||!environment()||route.nextOperation==UINT64_MAX)return Admission::Rejected;
++ const bool modifier=usage>=0xe0&&usage<=0xe7;
++ if(!modifier&&!ds_shortcut::validUsage(usage))return Admission::Rejected;
++ if(!backend_b::bind(owner,route.nextOperation+1))return Admission::Rejected;
++ id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};
++ hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Pending,modifier?8:2,id.operation);
++ session.error="";session.remember=false;session.lockCommand=-1;session.holding=acquire;
++ session.ownedModifier=modifier?uint8_t(1u<<(usage-0xe0)):0;
++ session.ownedKey=modifier?0:uint8_t(usage);session.phase=Phase::Ownership;
++ return Admission::Admitted;
++}
+ Result result(uint64_t owner){execution::Guard guard;return route.active&&owner==route.session?route.result:Result{};}
+ bool consume(Result r){
+  execution::Guard guard;
+@@ -68,7 +88,7 @@
+  session.defaultDelay=route.priorDefaultDelay;route.active=false;route.result={};return true;
+ }
+ const char* phase(){
+- switch(session.phase){case Phase::Idle:return "Idle";case Phase::Text:return "Text";case Phase::Press:return "Press";case Phase::Release:return "Release";case Phase::Wait:return "Wait";case Phase::Finish:return "Finish";default:return "Other";}
++ switch(session.phase){case Phase::Idle:return "Idle";case Phase::Text:return "Text";case Phase::Press:return "Press";case Phase::Release:return "Release";case Phase::Ownership:return "Ownership";case Phase::Wait:return "Wait";case Phase::Finish:return "Finish";default:return "Other";}
+ }
+ void exhaustForTest(bool s,bool op){if(!route.active){if(s)route.nextSession=UINT64_MAX;if(op)route.nextOperation=UINT64_MAX;}}
+ }
