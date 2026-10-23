@@ -156,3 +156,20 @@ attribution across reconnect, native Apple helper verification, global lock-stat
 meaning, and host release under loss/ambiguous transport. A platform limitation
 must not be treated as universal failure. Windows validation can follow later.
 Do not implement SAVE/RESTORE or another feature group before review.
+
+
+## Publication inventory
+
+Review application package: `downloads/evilduck-routeb-lock-feedback-macos-v1.zip`,
+2,260,208 bytes, SHA-256
+`97e64ecd165be2b05bd0610953651a923e44f74635a100baf427b84f3bf2655d`.
+The optional source-only host fixture is
+`downloads/evilduck-routeb-lock-led-action-v1.zip`, 6,947 bytes, SHA-256
+`3135e2cd8d65f2dbefdeefcf0a8f5f02edf117568de4a59f6cab7e4e729f931d`.
+Both bind source commit `7b475240d98c28fc928918da5c40df41b82ceefd`.
+The package embeds that source report; publication receipts and final file
+inventory are recorded separately in this branch. See `lock-feedback-files.json`
+for every added file and `lock-feedback-environment.json` for measured tools.
+All 1,835 baseline files/modes and 235 frozen Stage26 files were verified unchanged
+before publication. Historical remote refs are compared before/after publishing
+only the new branch; download verification is recorded after actual retrieval.

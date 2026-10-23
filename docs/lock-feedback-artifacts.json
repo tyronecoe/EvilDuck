@@ -1,0 +1,27 @@
+{
+  "review_only": true,
+  "installation_authorized": false,
+  "application_sha256": "ae079c5a1b0c10849bdf79c12a40e5f0f3a01fb50996e4499f5352b91b1c9a5d",
+  "rollback_sha256": "de0d34d577cbaebb31bdeff825bd264d527f6c894103d6e0ed66140022016cf3",
+  "archives": [
+    {
+      "file": "evilduck-routeb-lock-feedback-macos-v1.zip",
+      "bytes": 2260208,
+      "sha256": "97e64ecd165be2b05bd0610953651a923e44f74635a100baf427b84f3bf2655d",
+      "source_commit": "7b475240d98c28fc928918da5c40df41b82ceefd"
+    },
+    {
+      "file": "evilduck-routeb-lock-led-action-v1.zip",
+      "bytes": 6947,
+      "sha256": "3135e2cd8d65f2dbefdeefcf0a8f5f02edf117568de4a59f6cab7e4e729f931d",
+      "source_commit": "7b475240d98c28fc928918da5c40df41b82ceefd",
+      "members": [
+        "README.md",
+        "led_action.c",
+        "led_action.py",
+        "manifest.json"
+      ]
+    }
+  ],
+  "download_verification": "pending commit-pinned publication verification"
+}
