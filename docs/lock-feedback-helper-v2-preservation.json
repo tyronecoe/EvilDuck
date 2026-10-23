@@ -1,0 +1,15 @@
+{
+  "baseline": "e306108377a10ae3205a6db1d40cd0abe3d91b3a",
+  "unchanged_existing_files_modes": 1871,
+  "permitted_existing_changes": [
+    "tests/lock_feedback/led_action.py",
+    "tests/lock_feedback/package_led_action.py",
+    "tests/lock_feedback/test_led_action.py"
+  ],
+  "firmware_behavior_changed": false,
+  "firmware_rebuilt": false,
+  "native_c_sha256": "bf1691e838b16818eb7e7fb6d038a715ad6b90c8855f2cb066ecdd656b37f640",
+  "v1_host_archive_sha256": "3135e2cd8d65f2dbefdeefcf0a8f5f02edf117568de4a59f6cab7e4e729f931d",
+  "firmware_archive_sha256": "97e64ecd165be2b05bd0610953651a923e44f74635a100baf427b84f3bf2655d",
+  "historical_remote_refs": 67
+}
