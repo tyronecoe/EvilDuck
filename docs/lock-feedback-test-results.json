@@ -1,0 +1,40 @@
+{
+  "native": {
+    "PASS": 184,
+    "FAIL": 0,
+    "assertions": 7908,
+    "new_cases": 44,
+    "unchanged_regressions": 140,
+    "sanitizers": "ASan/UBSan/leak detection"
+  },
+  "host_fixture_policy": {
+    "PASS": 11,
+    "FAIL": 0,
+    "native_Apple_IOKit": "UNVERIFIED; no Apple SDK/native run"
+  },
+  "profile_negative_controls": "4 expected rejection controls, separately recorded in native receipt",
+  "historical_observations": "M27 old absent-feature assumption retained separately; historical earlier XPASS/XFAIL and observation records unchanged",
+  "freeze": {
+    "files": 235,
+    "status": "PASS"
+  },
+  "build": {
+    "status": "PASS",
+    "post_link": "PASS",
+    "sdk_archives": 177,
+    "linked_inputs": 284,
+    "linker_scripts": 13,
+    "response_files": 3
+  },
+  "package_validation": "Executed on assembled public review package; actual device dispatcher was never invoked. Final source-bound archive is rechecked after assembly.",
+  "hardware_access": false,
+  "flashed": false,
+  "package_fault_injection": {
+    "PASS": 39,
+    "FAIL": 0
+  },
+  "mocked_installer": {
+    "PASS": 38,
+    "FAIL": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "M27",
+  "classification": "SUPERSEDED_FEATURE_REFUSAL_OBSERVATION",
+  "historical_expectation_unchanged": true,
+  "baseline": {
+    "exit": 0,
+    "stdout": "PASS M27 (8 assertions)\n"
+  },
+  "new_candidate_original_result": {
+    "id": "M27",
+    "status": "FAIL",
+    "exit": 1,
+    "assertions": 0,
+    "stdout": "",
+    "stderr": "FAIL M27: Route B lock commands/internal registry not claimed supported (4)\n"
+  },
+  "replacement_coverage": [
+    "N02",
+    "N06",
+    "N07",
+    "N11",
+    "N12"
+  ],
+  "note": "Earlier absent-feature expectation now conflicts with the specifically authorized implementation; not relabelled PASS."
+}

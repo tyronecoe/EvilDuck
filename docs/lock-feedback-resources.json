@@ -1,0 +1,126 @@
+{
+  "baseline": {
+    "compiler_program_bytes": 1405867,
+    "application_bytes": 1406016,
+    "static_ram_bytes": 111992,
+    "free_bytes_per_slot": 6196160,
+    "free_percent_per_slot": 81.5050848599138
+  },
+  "candidate": {
+    "compiler_program_bytes": 1407859,
+    "application_bytes": 1408000,
+    "static_ram_bytes": 112120,
+    "free_bytes_per_slot": 6194176,
+    "free_percent_per_slot": 81.47898706896552
+  },
+  "delta": {
+    "compiler_program_bytes": 1992,
+    "application_bytes": 1984,
+    "static_ram_bytes": 128,
+    "free_bytes_per_slot": -1984,
+    "free_percent_per_slot": -0.026097790948270472
+  },
+  "compiler_stack_frames": [
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/hid_backend.cpp:248:14:hid_backend::LockEvidence hid_backend::lockEvidence()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/core.cpp:489:6:void ds_preview::Runtime::evaluationStep(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/adapter.cpp:49:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+      "bytes": 96,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/adapter.cpp:65:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+      "bytes": 64,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/adapter.cpp:85:6:void native_b::Adapter::step(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/EvilDuckS3.ino:128:6:void loop()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/webserver.cpp:574:9:handleStatus(AsyncWebServerRequest*)::Capture::~Capture()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/webserver.cpp:573:13:void handleStatus(AsyncWebServerRequest*)",
+      "bytes": 432,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/lock-feedback-build-v2/candidate/EvilDuckS3/coordinator.cpp:99:6:void route_u::tick(uint32_t)",
+      "bytes": 384,
+      "kind": "static"
+    }
+  ],
+  "baseline_stack_frames": [
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/core.cpp:478:6:void ds_preview::Runtime::evaluationStep(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/adapter.cpp:41:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+      "bytes": 64,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/adapter.cpp:60:6:void native_b::Adapter::step(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/EvilDuckS3.ino:128:6:void loop()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/webserver.cpp:574:9:handleStatus(AsyncWebServerRequest*)::Capture::~Capture()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/webserver.cpp:573:13:void handleStatus(AsyncWebServerRequest*)",
+      "bytes": 400,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/keyboard-control-build-v1/candidate/EvilDuckS3/coordinator.cpp:99:6:void route_u::tick(uint32_t)",
+      "bytes": 368,
+      "kind": "static"
+    }
+  ],
+  "physical_heap_or_stack_measured": false,
+  "task_stack_high_water": "NOT_MEASURED",
+  "new_evidence_storage": "fixed coherent struct under existing feedback critical section; no queue",
+  "sdk_archives": 177,
+  "native_64bit_object_sizes": {
+    "baseline": {
+      "Program": 6936,
+      "Runtime": 4888,
+      "CompileSession": 2416,
+      "Adapter": 22608
+    },
+    "candidate": {
+      "Program": 6936,
+      "Runtime": 4904,
+      "CompileSession": 2416,
+      "Adapter": 22656
+    },
+    "meaning": "sizeof from native g++17 host helper; Adapter owns the other objects, do not add twice; not target stack usage"
+  }
+}

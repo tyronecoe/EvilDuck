@@ -1,0 +1,371 @@
+--- adapter.cpp
++++ adapter.cpp
+@@ -1,5 +1,8 @@
+ #if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
+ #error "Explicit Route B keyboard-control candidate profile required"
++#endif
++#if !defined(EVILDUCK_ROUTE_B_LOCK_FEEDBACK) || EVILDUCK_ROUTE_B_LOCK_FEEDBACK != 1
++#error "Explicit Route B lock-feedback candidate profile required"
+ #endif
+ #include "adapter.h"
+ #include "com.h"
+@@ -13,7 +16,7 @@
+ }
+ bool Adapter::prepare(ds_preview::Reader r){
+  if(inStep_||leased_||!(state_==State::Idle||state_==State::Completed||state_==State::Cancelled||state_==State::Error))return false;
+- fault_=Fault::None;pending_=false;used_=0;loadTurns_=0;admissions_=acks_=retries_=delayAcks_=0;
++ fault_=Fault::None;pending_=false;waiting_=baseline_=false;used_=0;loadTurns_=0;admissions_=acks_=retries_=delayAcks_=0;
+  if(!r.read||!r.seek||r.bytes>ds_preview::MaxSource){fail(Fault::Reader);return false;}
+  inStep_=true;bool ok=r.seek(r.context,0);inStep_=false;
+  if(!ok){fail(Fault::Reader);return false;}
+@@ -27,7 +30,7 @@
+ }
+ void Adapter::fail(Fault f){if(fault_==Fault::None)fault_=f;finish(State::Error);}
+ void Adapter::finish(State terminal){
+- compiler_.cancel();runtime_.cancel();pending_=false;target_=terminal;
++ compiler_.cancel();runtime_.cancel();pending_=false;waiting_=baseline_=false;target_=terminal;
+  if(leased_){route_b::cancel(session_);state_=State::Clearing;since_=now_;turns_=0;}
+  else state_=terminal;
+ }
+@@ -37,10 +40,32 @@
+  // Only the matching immutable admission's real scheduler result can advance.
+  auto actual=route_b::result(session_);return route_b::equal(actual.id,r.id)&&actual.kind==r.kind;
+ }
++bool Adapter::internalRead(void*,uint16_t id,uint16_t& value){
++ auto s=hid_backend::lockEvidence();if(s.exhausted||id>4)return false;
++ if(id==3){value=s.received;return true;}
++ if(id==4){value=s.fresh;return true;}
++ if(!s.fresh)return false;value=(s.leds>>id)&1;return true;
++}
++Accept Adapter::wait(const ds_preview::Event& e){
++ const auto s=hid_backend::lockEvidence();
++ if(e.value>8||pending_||s.exhausted){fail(Fault::LockEvidence);return Accept::Failed;}
++ if(!waiting_){waiting_=true;baseline_=false;waitAt_=now_;waitSession_=s.session;waitBoot_=s.boot;waitCommand_=e.value;}
++ if(e.value!=waitCommand_||s.session!=waitSession_||s.boot!=waitBoot_){fail(Fault::LockEvidence);return Accept::Failed;}
++ if(uint32_t(now_-waitAt_)>=5000){fail(Fault::LockTimeout);return Accept::Failed;}
++ const unsigned bit=e.value/3,mode=e.value%3;
++ if(!s.fresh)return Accept::Retry;
++ bool done=false;
++ if(mode<2)done=bool((s.leds>>bit)&1)==(mode==0);
++ else if(!baseline_){baseline_=true;waitTransition_=s.transitions[bit];}
++ else done=s.transitions[bit]>waitTransition_;
++ if(done){waiting_=baseline_=false;return Accept::Accepted;}
++ return Accept::Retry;
++}
+ Accept Adapter::sink(void* c,const ds_preview::Event& e){return static_cast<Adapter*>(c)->receive(e);}
+ Accept Adapter::receive(const ds_preview::Event& e){
+  if(state_!=State::Running)return Accept::Failed;
+  if(!route_b::environment()){fail(Fault::Environment);return Accept::Failed;}
++ if(e.type==EventType::LockWait)return wait(e);
+  if(e.type==EventType::Delay){if(pending_){fail(Fault::Result);return Accept::Failed;}++delayAcks_;return Accept::Accepted;}
+  if(pending_){
+   if(e.type!=event_.type||e.value!=event_.value||e.modifiers!=event_.modifiers){fail(Fault::Result);return Accept::Failed;}
+@@ -85,6 +110,7 @@
+   if(cancelRequested_){cancelRequested_=false;finish(State::Cancelled);return;}
+   if(!route_b::clearing(session_)){
+    if(state_==State::Syncing){if(route_b::result(session_).kind!=route_b::ResultKind::None){fail(Fault::Ownership);return;}if(!route_b::environment()){fail(Fault::Environment);return;}
++    runtime_.internalReader=internalRead;runtime_.internalContext=this;
+     if(!runtime_.start(program_,sink,this,now)){fail(Fault::Compiler);return;}state_=State::Running;
+    }else if(route_b::detach(session_)){leased_=false;state_=target_;}
+   }return;
+--- adapter.h
++++ adapter.h
+@@ -3,7 +3,7 @@
+ #include "scheduler_seam.h"
+ namespace native_b {
+ enum class State { Idle, Loading, Compiling, Ready, Syncing, Running, Clearing, Completed, Cancelled, Error, Quarantined };
+-enum class Fault { None, Busy, Reader, Compiler, Runtime, Capability, Ownership, Environment, Admission, Result, Backend, Deadline, Clearing };
++enum class Fault { None, Busy, Reader, Compiler, Runtime, Capability, Ownership, Environment, Admission, Result, Backend, Deadline, Clearing, LockTimeout, LockEvidence };
+ class Adapter {
+  ds_preview::Program program_;ds_preview::CompileSession compiler_;ds_preview::Runtime runtime_;
+  char source_[ds_preview::MaxSource+1]{};ds_preview::MemoryReader memory_{};ds_preview::Reader reader_{};
+@@ -11,6 +11,10 @@
+  bool cancelRequested_=false,inStep_=false,pending_=false,leased_=false;uint64_t session_=0;
+  route_b::Id id_{};ds_preview::Event event_{ds_preview::EventType::Delay,0};
+  uint32_t now_=0,since_=0,turns_=0,loadTurns_=0;uint32_t admissions_=0,acks_=0,retries_=0,delayAcks_=0;
++ bool waiting_=false,baseline_=false; uint16_t waitCommand_=0;
++ uint32_t waitAt_=0,waitSession_=0; uint64_t waitTransition_=0,waitBoot_=0;
++ static bool internalRead(void*,uint16_t,uint16_t&);
++ ds_preview::Accept wait(const ds_preview::Event&);
+  static ds_preview::Accept sink(void*,const ds_preview::Event&);
+  ds_preview::Accept receive(const ds_preview::Event&);
+  void fail(Fault);void finish(State);
+@@ -19,7 +23,10 @@
+  bool(*cancellationPoll)()=nullptr; // owner calls after scheduler work, before source tick
+  const char* capturedData()const{return source_;}
+  size_t capturedSize()const{return used_;}
+- ds_preview::Error diagnostic()const{return fault_==Fault::Runtime?runtime_.error():compiler_.error();}
++ ds_preview::Error diagnostic()const{
++  if(fault_==Fault::LockTimeout||fault_==Fault::LockEvidence)return {fault_==Fault::LockTimeout?ds_preview::ErrorCode::Timeout:ds_preview::ErrorCode::FeedbackUnavailable,runtime_.line(),1};
++  return fault_==Fault::Runtime?runtime_.error():compiler_.error();
++ }
+  bool prepare(ds_preview::Reader);
+  bool prepare(const char*,size_t); // MemoryReader is owned, bytes copied cooperatively before compile
+  bool start(uint32_t now);
+@@ -29,6 +36,8 @@
+  // Real seam is polled; this API never manufactures a successful result.
+  bool inspect(route_b::Result);
+  State state()const{return state_;}Fault fault()const{return fault_;}
++ bool waiting()const{return waiting_;} uint16_t waitCommand()const{return waitCommand_;}
++ uint32_t waitStarted()const{return waitAt_;} uint32_t waitSession()const{return waitSession_;}
+  bool leased()const{return leased_;}uint64_t session()const{return session_;}
+  route_b::Id operation()const{return id_;}
+  const ds_preview::Runtime& runtime()const{return runtime_;}
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-KEYBOARD-CONTROL-20261022-v1";
++constexpr const char* BuildId="ROUTEB-LOCK-FEEDBACK-20261023-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
+--- coordinator.cpp
++++ coordinator.cpp
+@@ -27,9 +27,9 @@
+ void phase(Phase p){u_platform::Critical lock;if(pub.status.phase!=p)hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Phase,uint16_t(p));pub.status.phase=p;}
+ void reason(Reason r){u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;}
+ Reason faultReason(native_b::Fault f){
+- return f==native_b::Fault::Reader?Reason::File:f==native_b::Fault::Compiler?Reason::Compiler:f==native_b::Fault::Capability?Reason::Capability:f==native_b::Fault::Runtime?Reason::Runtime:f==native_b::Fault::Deadline||f==native_b::Fault::Clearing?Reason::Deadline:Reason::Backend;
++ return f==native_b::Fault::Reader?Reason::File:f==native_b::Fault::Compiler?Reason::Compiler:f==native_b::Fault::Capability?Reason::Capability:f==native_b::Fault::Runtime?Reason::Runtime:f==native_b::Fault::Deadline||f==native_b::Fault::Clearing||f==native_b::Fault::LockTimeout?Reason::Deadline:Reason::Backend;
+ }
+-void complete(Reason r){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Terminal,uint16_t(status().reason==Reason::None?r:status().reason));caps_trial::finish(status().request,uint8_t(status().reason==Reason::None?r:status().reason));file.close();u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;pub.status.phase=Phase::Idle;pub.status.owned=false;pub.count=pub.head=0;u_platform::gate={};}
++void complete(Reason r){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Terminal,uint16_t(status().reason==Reason::None?r:status().reason));caps_trial::finish(status().request,uint8_t(status().reason==Reason::None?r:status().reason));file.close();u_platform::Critical lock;if(pub.status.reason==Reason::None)pub.status.reason=r;pub.status.phase=Phase::Idle;pub.status.owned=false;pub.status.waiting=false;pub.count=pub.head=0;u_platform::gate={};}
+ bool mediaIdle(){return !attackmode::storageRequested()&&!attackmode::storageEnabled()&&!attackmode::storagePreparing();}
+ bool safeLegacyIdle(){return !duckscript::running()&&!com::busy()&&backend_b::available()&&mediaIdle()&&!spiffs::streaming();}
+ bool priority(){
+@@ -127,6 +127,7 @@
+  else if(state==native_b::State::Ready){phase(Phase::Ready);if(!adapter.start(now)){complete(Reason::Backend);return;}}
+  else if(state==native_b::State::Syncing||state==native_b::State::Running||state==native_b::State::Clearing){adapter.step(now);phase(adapter.state()==native_b::State::Clearing?Phase::Stopping:Phase::Running);}
+  state=adapter.state();
++ {u_platform::Critical lock;pub.status.waiting=adapter.waiting();pub.status.waitCommand=adapter.waitCommand();pub.status.waitStarted=adapter.waitStarted();pub.status.waitSession=adapter.waitSession();}
+  if(adapter.fault()!=native_b::Fault::None){reason(faultReason(adapter.fault()));auto d=adapter.diagnostic();u_platform::Critical lock;pub.status.line=d.line;pub.status.errorCode=static_cast<uint16_t>(d.code);}
+  if(state==native_b::State::Completed)complete(Reason::Completed);
+  else if(state==native_b::State::Cancelled)complete(Reason::Cancelled);
+--- coordinator.h
++++ coordinator.h
+@@ -7,7 +7,7 @@
+ enum class Reason{None,Completed,Cancelled,File,Compiler,Capability,Runtime,Backend,Lost,Deadline};
+ enum class Reply{Accepted,Busy,QueueFull,Invalid,Unbound,Exhausted};
+ enum class Service{Settings,Files,Layout,Hid,Storage,Upload,Ota,Restart,Manual};
+-struct Status{Phase phase=Phase::Idle;Reason reason=Reason::None;uint64_t request=0;uint32_t line=0;uint16_t errorCode=0;bool owned=false;uint16_t capsMs=5;};
++struct Status{Phase phase=Phase::Idle;Reason reason=Reason::None;uint64_t request=0;uint32_t line=0;uint16_t errorCode=0;bool owned=false;uint16_t capsMs=5;bool waiting=false;uint16_t waitCommand=0;uint32_t waitStarted=0,waitSession=0;};
+ bool bindOwner();bool ownerTask();bool owned();Status status();
+ // RAM-only opt-in. Every admission captures its own effective value.
+ bool selectCapsTiming(uint16_t);uint16_t selectedCapsTiming();uint16_t capsDwellMs();
+--- core.cpp
++++ core.cpp
+@@ -39,6 +39,7 @@
+ }
+ const char* message(ErrorCode c){
+  switch(c){
++ case ErrorCode::FeedbackUnavailable:return "Fresh interface-specific host lock feedback unavailable";
+  case ErrorCode::None:return "No error";case ErrorCode::InputLimit:return "Source exceeds 8192-byte bound";
+  case ErrorCode::InvalidSource:return "Invalid source byte or line ending";case ErrorCode::LineLimit:return "Physical line exceeds 256 bytes";
+  case ErrorCode::CodeLimit:return "Instruction limit exceeded";case ErrorCode::TextLimit:return "Expanded operand storage exceeded";
+@@ -70,7 +71,7 @@
+ class Expression {
+  struct Value{uint16_t v=0;bool known=false;};
+  const Program& p_;const char* input_;Continuation* output_;bool enforceValues_;size_t pos_=0,column_=0,tokens_=0,start_=0;
+- enum Token{End,Number,Variable,FunctionCall,Open,Close,Binary,Invalid};Token token_=End;
++ enum Token{End,Number,Variable,FunctionCall,Open,Close,Binary,Invalid,Internal};Token token_=End;
+  uint16_t number_=0;char name_[24]={};char op_[3]={};ErrorCode error_=ErrorCode::None;
+  void fail(ErrorCode c){if(error_==ErrorCode::None){error_=c;column_=pos_+1;}}
+  void next(){
+@@ -85,7 +86,13 @@
+   }
+   if(c=='$'||letter(c)){
+    bool var=c=='$';size_t start=pos_;if(var)++pos_;while(letter(input_[pos_])||digit(input_[pos_]))++pos_;
+-   size_t n=pos_-start;if(n>=sizeof(name_)){fail(ErrorCode::Identifier);return;}memcpy(name_,input_+start,n);name_[n]=0;
++   size_t n=pos_-start;
++   if(var&&n>1&&input_[start+1]=='_'){
++    static const char* const internal[]={"$_NUMLOCK_ON","$_CAPSLOCK_ON","$_SCROLLLOCK_ON","$_RECEIVED_HOST_LOCK_LED_REPLY","$_EVILDUCK_LOCK_KNOWN"};
++    for(uint16_t i=0;i<5;++i)if(strlen(internal[i])==n&&!memcmp(internal[i],input_+start,n)){number_=i;token_=Internal;return;}
++    fail(ErrorCode::Identifier);return;
++   }
++   if(n>=sizeof(name_)){fail(ErrorCode::Identifier);return;}memcpy(name_,input_+start,n);name_[n]=0;
+    if(var){if(n<2||!letter(name_[1])||name_[1]=='_'){fail(ErrorCode::Identifier);return;}token_=Variable;return;}
+    if(exact(name_,"TRUE")||exact(name_,"FALSE")){number_=exact(name_,"TRUE")?1:0;token_=Number;return;}
+    if(input_[pos_]=='('){
+@@ -142,6 +149,7 @@
+   if(depth>MaxExprDepth){fail(ErrorCode::ExpressionLimit);return {};}
+   Value v{};
+   if(token_==Number){v={number_,true};emit(ExprKind::Literal,number_,static_cast<uint16_t>(start_));next();}
++  else if(token_==Internal){emit(ExprKind::Internal,number_,static_cast<uint16_t>(start_));next();}
+   else if(token_==Variable){int i=findName(p_.names_,p_.symbols_,name_);if(i<0){fail(ErrorCode::UndefinedSymbol);return {};}
+    emit(ExprKind::Variable,static_cast<uint16_t>(i),static_cast<uint16_t>(start_));next();
+   }else if(token_==FunctionCall){emit(ExprKind::Call,number_,static_cast<uint16_t>(start_));next();}
+@@ -280,6 +288,9 @@
+    char* arg=left(argument(text));if(*arg&&(!expand(arg,expanded)||!expr(expanded)))return false;return emit(Op::Return,expanded);
+   }
+   if(exact(text,"STOP_PAYLOAD"))return emit(Op::Stop);
++  {static const char* const waits[]={"WAIT_FOR_NUM_ON","WAIT_FOR_NUM_OFF","WAIT_FOR_NUM_CHANGE","WAIT_FOR_CAPS_ON","WAIT_FOR_CAPS_OFF","WAIT_FOR_CAPS_CHANGE","WAIT_FOR_SCROLL_ON","WAIT_FOR_SCROLL_OFF","WAIT_FOR_SCROLL_CHANGE"};
++   for(uint16_t i=0;i<9;++i)if(exact(text,waits[i]))return emit(Op::LockWait,"",i);
++  }
+   if(command(text,"INJECT_MOD")){
+    // Only the documented inline modifier tap. No sticky/prefix interpretation.
+    if(!expand(left(argument(text)),expanded))return false;right(expanded);
+@@ -487,6 +498,7 @@
+  }
+  if(frame.size==MaxExprTokens){fail(ErrorCode::ExpressionLimit,token.column);return;}
+  uint16_t value=token.value;
++ if(token.kind==ExprKind::Internal){if(!internalReader||!internalReader(internalContext,token.value,value)){fail(ErrorCode::FeedbackUnavailable,token.column);return;}frame.values[frame.size++]=value;return;}
+  if(token.kind!=ExprKind::Literal&&token.kind!=ExprKind::Variable){fail(ErrorCode::Structure,token.column);return;}
+  if(token.kind==ExprKind::Variable){if(token.value>=program_->symbols_){fail(ErrorCode::Structure,token.column);return;}if(!initialized_[token.value]){fail(ErrorCode::Uninitialized,token.column);return;}value=values_[token.value];}
+  frame.values[frame.size++]=value;
+@@ -541,6 +553,7 @@
+  case Op::TextBlock:case Op::TextLnBlock:
+   if(ins.offset>program_->used_||ins.length>program_->used_-ins.offset){fail(ErrorCode::Structure);return;}
+   block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
++ case Op::LockWait:event_={EventType::LockWait,ins.target};pending_=true;deliver(now);break;
+  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
+  case Op::Key:event_={EventType::KeyTap,ins.target,ins.symbol};pending_=true;deliver(now);break;
+  case Op::Hold:case Op::Release:event_={ins.op==Op::Hold?EventType::Hold:EventType::Release,ins.target};pending_=true;deliver(now);break;
+--- core.h
++++ core.h
+@@ -12,13 +12,13 @@
+  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
+  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
+  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
+- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit };
++ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release };
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+-enum class ExprKind : uint8_t { Literal, Variable, Call, Binary };
++enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+ struct ExprToken { uint16_t value=0, column=0; ExprKind kind=ExprKind::Literal; };
+ struct Continuation {
+     ExprToken tokens[MaxExprTokens]={}; uint16_t values[MaxExprTokens]={};
+@@ -91,7 +91,7 @@
+     CompileWork work()const{return work_;}
+     static size_t compilerBytes();
+ };
+-enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release };
++enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release, LockWait };
+ struct Event { EventType type; uint16_t value; uint8_t modifiers=0; }; // ASCII byte, HID page07 usage, or milliseconds.
+ enum class Accept : uint8_t { Accepted, Retry, Failed };
+ using Sink = Accept(*)(void*, const Event&);
+@@ -116,6 +116,8 @@
+     void completeInstruction(uint32_t now,uint16_t value);
+     void deliver(uint32_t now);
+ public:
++    using InternalReader=bool(*)(void*,uint16_t,uint16_t&);
++    InternalReader internalReader=nullptr; void* internalContext=nullptr;
+     Runtime()=default;
+     Runtime(const Runtime&)=delete;
+     Runtime& operator=(const Runtime&)=delete;
+@@ -125,6 +127,7 @@
+     void cancel();
+     State state() const { return state_; }
+     const Error& error() const { return error_; }
++    uint16_t line()const{return program_&&pc_<program_->count_?program_->code_[pc_].line:0;}
+     uint32_t steps() const { return steps_; }
+     bool variable(const char* name,uint16_t& out) const;
+     bool returned(uint16_t& out) const { if(!hasReturn_)return false;out=lastReturn_;return true; }
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -90,6 +90,9 @@
+ };
+ #endif
+ hid_backend::LockState feedback;
++hid_backend::LockEvidence evidence;
++bool evidenceExhausted=false;
++uint64_t feedbackBoot=0;
+ void usbEvent(void *, esp_event_base_t, int32_t event, void *) {
+   if (event == ARDUINO_USB_STOPPED_EVENT) {
+     disconnectEvent.store(true);
+@@ -182,9 +185,11 @@
+ #endif
+ 
+ #ifndef EVILDUCK_HOST_TEST
+-  feedback_diag::initialize((uint64_t(esp_random())<<32)|esp_random());
++  feedbackBoot=(uint64_t(esp_random())<<32)|esp_random();
++  feedback_diag::initialize(feedbackBoot);
+ #else
+-  feedback_diag::initialize(0x1122334455667788ULL);
++  feedbackBoot=0x1122334455667788ULL;
++  feedback_diag::initialize(feedbackBoot);
+ #endif
+   invalidateLockState();
+   USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbEvent);
+@@ -197,7 +202,11 @@
+ uint32_t lockSession() { FeedbackGuard guard; return feedback.session; }
+ void invalidateLockState() {
+   uint32_t session;
+-  {FeedbackGuard guard;session=feedback.session+1;feedback=LockState();feedback.session=session;}
++  {FeedbackGuard guard;
++   if(feedback.session==UINT32_MAX)evidenceExhausted=true;
++   session=feedback.session+1;feedback=LockState();feedback.session=session;
++   evidence=LockEvidence();evidence.boot=feedbackBoot;evidence.session=session;evidence.exhausted=evidenceExhausted;
++  }
+ #ifdef EVILDUCK_LED_RETURN_TEST
+   led_return::invalidate(session);
+   feedback_diag::invalidate(session);
+@@ -211,6 +220,16 @@
+   {FeedbackGuard guard;stale=disconnectEvent.load()||session!=feedback.session;
+   if(!stale){
+   const uint8_t leds = data[0] & 7;
++  const int64_t clock=esp_timer_get_time();
++  if(clock<0||uint64_t(clock)<evidence.timeUs||evidence.report==UINT64_MAX)evidenceExhausted=true;
++  if(!evidenceExhausted){
++   if(evidence.received)for(unsigned i=0;i<3;++i)if((evidence.leds^leds)&(1u<<i)){
++    if(evidence.transitions[i]==UINT64_MAX)evidenceExhausted=true;
++    else ++evidence.transitions[i];
++   }
++   ++evidence.report;evidence.timeUs=uint64_t(clock);evidence.leds=leds;evidence.received=true;
++  }
++  evidence.exhausted=evidenceExhausted;
+   if (feedback.known) for (unsigned i = 0; i < 3; ++i)
+     if ((feedback.leds ^ leds) & (1u << i)) ++feedback.changes[i];
+   feedback.leds = leds; feedback.known = true;
+@@ -222,6 +241,16 @@
+   hid_trace::note(hid_trace::Source::Led,hid_trace::Kind::LedAccepted,uint16_t(data[0]&7));
+ #endif
+   return true;
++}
++#ifdef EVILDUCK_HOST_TEST
++void evidenceForTest(const LockEvidence& s){FeedbackGuard guard;evidence=s;evidenceExhausted=s.exhausted;feedback.session=s.session;}
++#endif
++LockEvidence lockEvidence() {
++  FeedbackGuard guard;auto out=evidence;
++  const int64_t clock=esp_timer_get_time();
++  if(clock<0||uint64_t(clock)<out.timeUs){evidenceExhausted=true;evidence.exhausted=true;out.exhausted=true;}
++  out.fresh=out.received&&!out.exhausted&&!disconnectEvent.load()&&static_cast<bool>(USB)&&uint64_t(clock)>=out.timeUs&&uint64_t(clock)-out.timeUs<=5000000ULL;
++  return out;
+ }
+ LockState lockState() {
+   LockState state;
+--- hid_backend.h
++++ hid_backend.h
+@@ -9,6 +9,15 @@
+     uint8_t leds = 0, saved = 0;
+     uint32_t changes[3] = {}; // Num/Caps/Scroll transitions, modulo2^32.
+   };
++  struct LockEvidence {
++    uint64_t boot=0, report=0, timeUs=0, transitions[3]={};
++    uint32_t session=0; uint8_t leds=0;
++    bool received=false, fresh=false, exhausted=false;
++  };
++  LockEvidence lockEvidence();
++#ifdef EVILDUCK_HOST_TEST
++  void evidenceForTest(const LockEvidence&);
++#endif
+   LockState lockState();
+   // USB callback adapter; token captured on callback entry, not a wire-level epoch.
+   uint32_t lockSession();
+--- webserver.cpp
++++ webserver.cpp
+@@ -589,6 +589,7 @@
+  // Authentication and state copies completed under the same mutex. No lock at send.
+  char requestId[24];snprintf(requestId,sizeof(requestId),"%llu",(unsigned long long)s.route.request);
+  String json=String("{\"routeBRequestId\":\"")+requestId+"\",\"routeBOwned\":"+(s.route.owned?"true":"false")+",\"snapshotKind\":\"request-capture\",\"capturedAtMs\":"+String(s.at);
++ json+=",\"routeBWaiting\":"+String(s.route.waiting?"true":"false")+",\"routeBWaitCommand\":"+String(s.route.waitCommand)+",\"routeBWaitStartedMs\":"+String(s.route.waitStarted)+",\"routeBWaitSession\":"+String(s.route.waitSession);
+  json+=",\"routeBCapsMs\":"+String(s.route.capsMs);
+  json+=",\"routeBLine\":"+String(s.route.line)+",\"routeBErrorCode\":"+String(s.route.errorCode);
+  json+=",\"routeBPhase\":"+String(unsigned(s.route.phase))+",\"routeBReason\":"+String(unsigned(s.route.reason));

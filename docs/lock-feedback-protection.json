@@ -1,0 +1,9 @@
+{
+  "baseline": "bbc83640a264c6398d396fdca564804f62ece117",
+  "files_modes_unchanged": 1835,
+  "frozen_stage26_files": 235,
+  "freeze": "PASS",
+  "prior_remote_refs": 66,
+  "remote_publication": "compare after new-branch push",
+  "hardware_access": false
+}

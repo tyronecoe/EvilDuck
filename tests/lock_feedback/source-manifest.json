@@ -1,0 +1,93 @@
+{
+  "format": "evilduck-routeb-lock-feedback-v1",
+  "baseline": "bbc83640a264c6398d396fdca564804f62ece117",
+  "parent_prepare_sha256": "a3800560b0b6e40cb06845cf9ce30c77f18980b45320fda633ce7c394fafabf3",
+  "patch_sha256": "fba52eec5c585563110c3aaf91df5df0af36ef584fffbe4c8f71415ed7e55488",
+  "build_id": "ROUTEB-LOCK-FEEDBACK-20261023-v1",
+  "required_flag": "EVILDUCK_ROUTE_B_LOCK_FEEDBACK=1",
+  "before": [
+    {
+      "file": "adapter.cpp",
+      "sha256": "ce0d5fb6703b9bddd7639c286f6866583091d55024594a1da4d443277acac0e6"
+    },
+    {
+      "file": "adapter.h",
+      "sha256": "cc175a5f8ada846bac3a9ce0c7146adb9cff5249d76bb7a09c76874d02d6e624"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "1f048608a26e77c44444176cff691ff423e8ed153c0cc7459d529d35cb2031eb"
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "4ed01f4689a50dad7d7a7ed38340fb8969cc63630bbd2bba65381d0ff63ea21d"
+    },
+    {
+      "file": "coordinator.h",
+      "sha256": "10fca5e6a471462ceb671ae86901867c181f71d967688296a663c152ad4014ba"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "18ffdb9549f6cfeed13a4bdc1946fda36ad0ec902f564ac687881bc7271ce85f"
+    },
+    {
+      "file": "core.h",
+      "sha256": "e8257707fc3b684b1c6f04a633e08135baf33319fbe12e62a6b632f8383a3349"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "01570f0c4a8e8186ef4732407c2818b102c3f69ef4677852839424577b4aa928"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "3ffdf955452b366f33c44821423c5ecb98711cba358c4386293665232209e13e"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "a661c53184da1f09be76bb1bca594c0e2ff112a3d6a7ffec7a070b8257b9d94d"
+    }
+  ],
+  "after": [
+    {
+      "file": "adapter.cpp",
+      "sha256": "9e40a4e02f6325e251cc865889327b3d4a6c568f0a9446f1fe90e4f77f42110e"
+    },
+    {
+      "file": "adapter.h",
+      "sha256": "aa80f70c088e0aa251584a024651070cfed7eb5739f356c58a4e1b37135dfddc"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "8ad34208c99bc4973b158d12ff143ce827e7c48c66ca8d65cede5ced38cadf66"
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4"
+    },
+    {
+      "file": "coordinator.h",
+      "sha256": "575dc07c65fffa133cf562afe5669c06802a974f601fd95626f9e581c2e2c680"
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "b89eb2d50a8181d054f2bd761fb61befec9a3fab8c479be87062857f655195ed"
+    },
+    {
+      "file": "core.h",
+      "sha256": "5ed2d4162802681fe81667d42d3933cd3b6184e148b904b57199a709e8d868a4"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "7925198fa38eeb5489ddd5f3dbfb47d4f00a477ba7b5ceeeb58bb5dbdaf08830"
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "cec743a698772265f8cd5fa9888a3685d083144e52b52669f5c65bb9bcf5ab94"
+    }
+  ],
+  "additions": []
+}
