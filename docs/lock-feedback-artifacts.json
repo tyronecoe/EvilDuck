@@ -23,5 +23,5 @@
       ]
     }
   ],
-  "download_verification": "pending commit-pinned publication verification"
+  "download_verification": "PASS: both actual commit-pinned downloads size/SHA verified; see lock-feedback-publication.json"
 }

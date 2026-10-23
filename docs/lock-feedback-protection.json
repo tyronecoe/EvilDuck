@@ -4,6 +4,6 @@
   "frozen_stage26_files": 235,
   "freeze": "PASS",
   "prior_remote_refs": 66,
-  "remote_publication": "compare after new-branch push",
+  "remote_publication": "PASS: all 66 prior remote refs unchanged after publishing only new branch; see lock-feedback-publication.json",
   "hardware_access": false
 }

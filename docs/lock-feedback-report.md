@@ -173,3 +173,11 @@ for every added file and `lock-feedback-environment.json` for measured tools.
 All 1,835 baseline files/modes and 235 frozen Stage26 files were verified unchanged
 before publication. Historical remote refs are compared before/after publishing
 only the new branch; download verification is recorded after actual retrieval.
+
+
+Published only the new branch. Both ZIPs were downloaded from immutable commit
+`89dda99a3449d20dc62d3ddd30b94298c2f9e2b5` and verified by exact size/SHA-256.
+The downloaded app ZIP's application and rollback were independently extracted
+and checked against their recorded hashes. All 66 prior remote refs remained
+unchanged. `lock-feedback-publication.json` contains the genuine download URLs
+and actual verification receipt; no publication or physical result is inferred.

@@ -15,6 +15,7 @@
     "docs/lock-feedback-owner-check.md",
     "docs/lock-feedback-package-tests.json",
     "docs/lock-feedback-protection.json",
+    "docs/lock-feedback-publication.json",
     "docs/lock-feedback-report.md",
     "docs/lock-feedback-reproduction.md",
     "docs/lock-feedback-resources.json",
@@ -41,5 +42,5 @@
     "tests/lock_feedback/test_package.py",
     "tests/lock_feedback/verify_link.py"
   ],
-  "note": "Final publication receipt may be added after actual download verification. Composed firmware delta is separately pinned in tests/lock_feedback/source-manifest.json."
+  "note": "All added paths; no historical file or mode changed. Composed source delta is separately pinned in tests/lock_feedback/source-manifest.json."
 }
