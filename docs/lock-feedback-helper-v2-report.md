@@ -131,3 +131,10 @@ python3 tests/lock_feedback/verify_host_package.py --archive downloads/evilduck-
 The result path must not exist. This runs only mocked launch tests, never a
 physical helper or firmware builder. The GitHub publication receipt is added only
 after downloading and checking the genuine commit-pinned ZIP.
+
+
+Published ZIP download verification: **PASS**, exact size/SHA-256 and source
+inspection. The downloaded Python source also passed the 35 current checks and
+expected v1 control. These repeated runs validate the artifact, not extra distinct
+features or physical behavior. All 67 pre-existing remote refs remain unchanged.
+See `lock-feedback-helper-v2-publication.json` for the genuine immutable URL.

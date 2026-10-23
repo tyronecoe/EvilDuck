@@ -11,6 +11,7 @@
   ],
   "label": "HOST ONLY; no firmware or hardware operation",
   "deterministic_repeat": "BYTE_IDENTICAL",
-  "published_download": "PENDING_ACTUAL_VERIFICATION",
-  "native_Apple_tested": false
+  "published_download": "PASS: actual commit-pinned bytes and extracted source tested",
+  "native_Apple_tested": false,
+  "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/6871f71a202b716f983d5f4a2aaadebbeaabc4c9/downloads/evilduck-routeb-lock-led-action-v2.zip"
 }
