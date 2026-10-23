@@ -107,3 +107,27 @@ completion, global Caps restoration or host key-release proof.
 GO: review the corrected host package and use the controlled procedure only
 under the owner's separate physical-test approval. No installation, reflashing,
 EDR1 changes or broad Caps investigation is required or authorized by this fix.
+
+
+## Final packaged-source verification
+
+The actual v2 ZIP is **9,758 bytes**, SHA-256
+`2522b09650d400e2f01eab43613525581a3d3b0f36df6bae3f7dbe16dc2c7d98`.
+Source commit: `e274a34c8213e98b6996f2679cbd009e7bc07e3d`.
+`verify_host_package.py` extracted this archive and executed 35 current-helper
+checks plus the expected historical v1 NameError control, all with zero unexpected
+failures. CRC, exact four-member inventory, committed source hashes, README Bash
+syntax and Python3.8 AST checks passed. A repeat build produced identical bytes.
+See `lock-feedback-helper-v2-tests.json`. The old invalid commit argument used in
+an initial packaging invocation was rejected before any archive was created;
+only the exact verified Git HEAD was used for this package.
+
+Reproduce the final archive check without hardware:
+
+```bash
+python3 tests/lock_feedback/verify_host_package.py --archive downloads/evilduck-routeb-lock-led-action-v2.zip --results /tmp/NEW-led-helper-v2-results.json
+```
+
+The result path must not exist. This runs only mocked launch tests, never a
+physical helper or firmware builder. The GitHub publication receipt is added only
+after downloading and checking the genuine commit-pinned ZIP.

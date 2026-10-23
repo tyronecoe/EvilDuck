@@ -1,0 +1,16 @@
+{
+  "file": "evilduck-routeb-lock-led-action-v2.zip",
+  "bytes": 9758,
+  "sha256": "2522b09650d400e2f01eab43613525581a3d3b0f36df6bae3f7dbe16dc2c7d98",
+  "source_commit": "e274a34c8213e98b6996f2679cbd009e7bc07e3d",
+  "members": [
+    "README.md",
+    "led_action.c",
+    "led_action.py",
+    "manifest.json"
+  ],
+  "label": "HOST ONLY; no firmware or hardware operation",
+  "deterministic_repeat": "BYTE_IDENTICAL",
+  "published_download": "PENDING_ACTUAL_VERIFICATION",
+  "native_Apple_tested": false
+}

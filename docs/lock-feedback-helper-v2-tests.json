@@ -1,0 +1,21 @@
+{
+  "archive": "evilduck-routeb-lock-led-action-v2.zip",
+  "bytes": 9758,
+  "sha256": "2522b09650d400e2f01eab43613525581a3d3b0f36df6bae3f7dbe16dc2c7d98",
+  "source_commit": "e274a34c8213e98b6996f2679cbd009e7bc07e3d",
+  "current_helper_checks": {
+    "PASS": 35,
+    "FAIL": 0
+  },
+  "historical_v1_control": "EXPECTED_UNDEFINED_BASE64_NAMEERROR_REPRODUCED; no network/native call",
+  "total_unittest_checks": 36,
+  "zip_crc_members_source_hashes": "PASS",
+  "python38_syntax": "PASS",
+  "guide_shell_syntax": "PASS",
+  "native_c_unchanged": true,
+  "firmware_built": false,
+  "native_Apple_compilation": "UNVERIFIED",
+  "physical_testing": false,
+  "mocks": "Darwin, password, HTTP, source time, manual ID entry and native subprocess; no hardware or real HTTP",
+  "output": "test_boot_change (test_led_action.Tests.test_boot_change) ... ok\ntest_cancel_observed_before_action (test_led_action.Tests.test_cancel_observed_before_action) ... ok\ntest_changed_wait (test_led_action.Tests.test_changed_wait) ... ok\ntest_failed_submission_not_retried (test_led_action.Tests.test_failed_submission_not_retried) ... ok\ntest_guards (test_led_action.Tests.test_guards) ... ok\ntest_identity_guards (test_led_action.Tests.test_identity_guards) ... ok\ntest_invalid_host_clock (test_led_action.Tests.test_invalid_host_clock) ... ok\ntest_missing_wait_time_fails_closed (test_led_action.Tests.test_missing_wait_time_fails_closed) ... ok\ntest_no_replay (test_led_action.Tests.test_no_replay) ... ok\ntest_no_start_write_endpoint (test_led_action.Tests.test_no_start_write_endpoint) ... ok\ntest_one_action (test_led_action.Tests.test_one_action) ... ok\ntest_prepared_identity_retained (test_led_action.Tests.test_prepared_identity_retained) ... ok\ntest_python38 (test_led_action.Tests.test_python38) ... ok\ntest_request_mismatch_not_searched (test_led_action.Tests.test_request_mismatch_not_searched) ... ok\ntest_slow_pre_action_samples_refused (test_led_action.Tests.test_slow_pre_action_samples_refused) ... ok\ntest_timeout_no_action (test_led_action.Tests.test_timeout_no_action) ... ok\ntest_wait_age_boundaries (test_led_action.Tests.test_wait_age_boundaries) ... ok\ntest_wait_age_wrap (test_led_action.Tests.test_wait_age_wrap) ... ok\ntest_wrong_action (test_led_action.Tests.test_wrong_action) ... ok\ntest_boot_change_while_entering_id (test_led_action_main.Tests.test_boot_change_while_entering_id) ... ok\ntest_consent_refusal_no_id_or_action (test_led_action_main.Tests.test_consent_refusal_no_id_or_action) ... ok\ntest_eof_and_interrupt (test_led_action_main.Tests.test_eof_and_interrupt) ... ok\ntest_existing_execution_not_prepared (test_led_action_main.Tests.test_existing_execution_not_prepared) ... ok\ntest_explicit_request_retained (test_led_action_main.Tests.test_explicit_request_retained) ... ok\ntest_http_401_and_409_not_retried (test_led_action_main.Tests.test_http_401_and_409_not_retried) ... ok\ntest_interactive_main_reaches_native_without_base64 (test_led_action_main.Tests.test_interactive_main_reaches_native_without_base64) ... ok\ntest_invalid_id_once_no_action (test_led_action_main.Tests.test_invalid_id_once_no_action) ... ok\ntest_missing_native_before_password_or_network (test_led_action_main.Tests.test_missing_native_before_password_or_network) ... ok\ntest_missing_password (test_led_action_main.Tests.test_missing_password) ... ok\ntest_native_error_one_attempt (test_led_action_main.Tests.test_native_error_one_attempt) ... ok\ntest_native_timeout_no_retry (test_led_action_main.Tests.test_native_timeout_no_retry) ... ok\ntest_old_published_main_reproduces_undefined_base64 (test_led_action_main.Tests.test_old_published_main_reproduces_undefined_base64) ... ok\ntest_receiver_active_before_ready (test_led_action_main.Tests.test_receiver_active_before_ready) ... ok\ntest_simulated_id_entry_times (test_led_action_main.Tests.test_simulated_id_entry_times) ... ok\ntest_stopping_last_capture_refuses_native (test_led_action_main.Tests.test_stopping_last_capture_refuses_native) ... ok\ntest_wrong_manual_id_not_searched (test_led_action_main.Tests.test_wrong_manual_id_not_searched) ... ok\n\n----------------------------------------------------------------------\nRan 36 tests in 0.105s\n\nOK\n"
+}
