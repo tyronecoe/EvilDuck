@@ -118,3 +118,30 @@ this update fixed the physical problem before collecting the new diagnostics.
 
 No firmware changes, reflashing, altered timing, EDR1 changes, automatic retry or
 broad Caps investigation are needed or authorized by this host-only correction.
+
+## Final source-only package verification
+
+ZIP: `evilduck-routeb-lock-led-action-v3.zip`, **12,096 bytes**.
+SHA-256: `2e67ca6e2f924793e7b2633c32d4fd0e9599942a4691939fe217df1d086a4ecd`.
+Source commit: `a3e8019c988eeac373109e5fa8ffb349294d7745`.
+The actual extracted ZIP source passed all 50 current checks and the separate
+historical v1 control. Its four members are README, Python, unchanged C and a
+source/hash manifest; there is no executable or firmware. A repeat package build
+produced identical bytes. The v2 default verifier was also rerun on the unchanged
+v2 ZIP and retains its 35 current checks plus historical control, zero failures.
+See `lock-feedback-helper-v3-tests.json` and `lock-feedback-helper-v3-artifact.json`.
+
+The preservation check independently confirmed **1,881 baseline files/modes
+unchanged**, excluding only the two explicitly modified host-helper/verifier files,
+and 235 frozen Stage26 files unchanged. These are not hardware measurements.
+
+Reproduce the v3 archive check without any device access (results path must not
+already exist):
+
+```bash
+python3 tests/lock_feedback/verify_host_package.py --archive downloads/evilduck-routeb-lock-led-action-v3.zip --guide docs/lock-feedback-helper-v3.md --results /tmp/NEW-led-helper-v3-results.json
+```
+
+GitHub download verification and previous-remote-ref comparison are recorded in
+the publication receipt after successful publication; assembly alone is not
+substituted for checking downloaded bytes.

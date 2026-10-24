@@ -1,0 +1,12 @@
+{
+  "file": "evilduck-routeb-lock-led-action-v3.zip",
+  "bytes": 12096,
+  "sha256": "2e67ca6e2f924793e7b2633c32d4fd0e9599942a4691939fe217df1d086a4ecd",
+  "source_commit": "a3e8019c988eeac373109e5fa8ffb349294d7745",
+  "members": [
+    "README.md",
+    "led_action.c",
+    "led_action.py",
+    "manifest.json"
+  ]
+}
