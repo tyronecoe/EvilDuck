@@ -18,3 +18,11 @@ Mismatch is a stop condition; this stage does not authorize migration, partition
 Package preflight without installed-layout evidence must not output an executable write plan. Installer operations remain separately owner-authorized; no serial device or real esptool execution was used in offline tests. The package includes a byte-verified rollback to the current lock-feedback application, not the older keyboard-control release. See `ROLLBACK-MAC.md`.
 
 Keep autorun off and stored scripts unchanged; preparation or installation must never execute them automatically. Only after a separate review and explicit owner approval may a controlled installation and acceptance trial occur. No recovery bypass, USB identity change, global toolchain patch or dynamic source download is needed. This package is not evidence that new firmware booted on hardware.
+
+The **new Route B preprocessing behavior is software-tested only**. Read `OWNER-CHECK.md` before considering installation. The following is the existing launcher's command shape for a *future*, separately authorized procedure. It is not permission to run it now. Replace the placeholder only with an independently confirmed device port; stop on any failed prerequisite or identity check. The bound installer requires its own explicit confirmation and performs the existing readback/security/layout checks before approved application writes.
+
+```bash
+bash install-macos.sh --action install --port OWNER_CONFIRMED_SERIAL_PORT
+```
+
+This example was syntax-checked only; no installer or port was opened in Codex. Do not add erase, format, force or partition-write options.
