@@ -1,0 +1,5 @@
+# Exact current-application rollback — review only
+
+Rollback application is `ROUTEB-LOCK-FEEDBACK-20261023-v1`, 1,408,000 bytes, SHA-256 `ae079c5a1b0c10849bdf79c12a40e5f0f3a01fb50996e4499f5352b91b1c9a5d`. It comes from the untouched public `evilduck-routeb-lock-feedback-macos-v1.zip` (SHA-256 `97e64ecd165be2b05bd0610953651a923e44f74635a100baf427b84f3bf2655d`), not from assumed owner flash contents. The older `de0d34…` keyboard-control application is not this candidate's rollback target.
+
+Package assembly checks exact size/hash/image identity, partition table, source receipts and installer binding. Future restoration requires the same independently verified installed geometry/security/ROM recovery prerequisites and separate explicit owner approval as installation. Stop on any mismatch. No flash command is executed or physical recovery newly verified in this stage. Preserve current working package and backups and do not reset NVS or format SPIFFS. A rollback of application bytes does not promise transactional restoration of settings or arbitrary files; this candidate introduces no settings schema changes.

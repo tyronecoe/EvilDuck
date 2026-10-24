@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/conditional-compilation.md",
+    "bytes": 5363,
+    "sha256": "a51516d28a5b2e64680e3e9f14d6d54f9bdacc3b660341df278b684a30d54ef0",
+    "retrieved_utc": "2026-10-24T07:50:51.906929+00:00",
+    "evidence": "official Markdown via curl; urllib default request returned403; no reference compiler execution"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions.md",
+    "bytes": 6754,
+    "sha256": "63fab1e0d2bbb013a510c551ba9cd4886e77d198e29c325c4690d1c08d355701",
+    "retrieved_utc": "2026-10-24T07:50:51.906988+00:00",
+    "evidence": "official Markdown via curl; urllib default request returned403; no reference compiler execution"
+  }
+]

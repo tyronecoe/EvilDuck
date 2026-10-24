@@ -1,0 +1,180 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_SOURCE_COMPAT) || EVILDUCK_ROUTE_B_SOURCE_COMPAT != 1
++#error "Explicit Route B source-compat candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_KEYBOARD_CONTROL) || EVILDUCK_ROUTE_B_KEYBOARD_CONTROL != 1
+ #error "Explicit Route B keyboard-control candidate profile required"
+ #endif
+@@ -33,12 +36,17 @@
+  return p[0]=='0'?0x27:0;
+ }
+ bool reserved(const char* p){
+- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR"};
++ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+  if(key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ const char* message(ErrorCode c){
+  switch(c){
++ case ErrorCode::PreprocessorSyntax:return "Malformed or unmatched conditional preprocessing directive";
++ case ErrorCode::PreprocessorLimit:return "Conditional preprocessing depth exceeds eight";
++ case ErrorCode::CompileFlag:return "Selected conditional flag must be literal TRUE or FALSE";
++ case ErrorCode::ExtensionSyntax:return "Malformed, duplicate, nested or crossing extension metadata";
++ case ErrorCode::ExtensionLimit:return "Included extension count exceeds sixteen";
+  case ErrorCode::FeedbackUnavailable:return "Fresh interface-specific host lock feedback unavailable";
+  case ErrorCode::None:return "No error";case ErrorCode::InputLimit:return "Source exceeds 8192-byte bound";
+  case ErrorCode::InvalidSource:return "Invalid source byte or line ending";case ErrorCode::LineLimit:return "Physical line exceeds 256 bytes";
+@@ -174,6 +182,13 @@
+  unsigned pass_=0;bool cr_=false,eof_=false;uint8_t bom_=0;
+  uint64_t hash_=1469598103934665603ull,firstHash_=0;
+  bool visited_[MaxCode]={};uint16_t work_[MaxCode]={};size_t workUsed_=0,function_=0,validate_=0;
++ // Freeze inclusion during pass zero. Even excluded bytes are read and hashed.
++ uint8_t included_[(MaxSource+8)/8]={};
++ struct Conditional {uint16_t line=0;bool parent=false,test=false,otherwise=false;};
++ Conditional conditional_[8]{};uint8_t conditionalDepth_=0;
++ char extensions_[16][24]={};uint8_t extensionsCount_=0;
++ bool selected_=true,extension_=false,extensionContent_=false,version_=false,textSelected_=false;
++ uint8_t extensionDepth_=0,lexicalDepth_=0;uint16_t extensionLine_=0;
+  CompilePhase phase_=CompilePhase::SeekFirst;bool comment_=false;uint8_t textMode_=0;uint16_t textInstruction_=0,textOpening_=0;
+  bool fail(ErrorCode c,uint16_t column=1){if(p_.error_.code==ErrorCode::None)p_.error_={c,line_,column};return false;}
+  bool skip(char* text){
+@@ -330,13 +345,90 @@
+   return fail(ErrorCode::UnknownStatement);
+  }
+  void enqueue(uint16_t pc){const Function& f=p_.functions_[function_];if(pc>=f.entry&&pc<=f.end&&!visited_[pc]){visited_[pc]=true;work_[workUsed_++]=pc;}}
++ void includeLine(){included_[(line_-1)/8]|=static_cast<uint8_t>(1u<<((line_-1)%8));}
++ bool includedLine()const{return included_[(line_-1)/8]&(1u<<((line_-1)%8));}
++ bool flag(char* text,bool& value){
++  const char* label=left(argument(text));
++  if(*label!='#'||strlen(label)>=24||!ident(label+1))return fail(ErrorCode::PreprocessorSyntax);
++  value=false;if(!selected_)return true;
++  for(size_t i=0;i<constantsCount_;++i)if(exact(label,constants_[i].name)){
++   char stored[64];strcpy(stored,constants_[i].value);right(stored);const char* v=left(stored);
++   if(!exact(v,"TRUE")&&!exact(v,"FALSE"))return fail(ErrorCode::CompileFlag);
++   value=exact(v,"TRUE");return true;
++  }return true;
++ }
++ bool preprocessing(char* text,bool& consumed){
++  consumed=true;
++  if(command(text,"IF_DEFINED_TRUE")||command(text,"IF_NOT_DEFINED_TRUE")){
++   bool value=false;if(!flag(text,value))return false;
++   if(conditionalDepth_==8)return fail(ErrorCode::PreprocessorLimit);
++   bool test=command(text,"IF_DEFINED_TRUE")?value:!value;
++   conditional_[conditionalDepth_++]={line_,selected_,test,false};selected_=selected_&&test;
++   if(extension_)extensionContent_=true;return true;
++  }
++  if(command(text,"ELSE_DEFINED")){
++   if(!exact(text,"ELSE_DEFINED")||!conditionalDepth_||conditional_[conditionalDepth_-1].otherwise)return fail(ErrorCode::PreprocessorSyntax);
++   if(extension_&&conditionalDepth_<=extensionDepth_)return fail(ErrorCode::ExtensionSyntax);
++   Conditional& frame=conditional_[conditionalDepth_-1];frame.otherwise=true;selected_=frame.parent&&!frame.test;return true;
++  }
++  if(command(text,"END_IF_DEFINED")){
++   if(!exact(text,"END_IF_DEFINED")||!conditionalDepth_)return fail(ErrorCode::PreprocessorSyntax);
++   if(extension_&&conditionalDepth_<=extensionDepth_)return fail(ErrorCode::ExtensionSyntax);
++   selected_=conditional_[--conditionalDepth_].parent;return true;
++  }
++  if(command(text,"EXTENSION")){
++   char* name=left(argument(text));
++   if(extension_||lexicalDepth_||strlen(name)>=24||!ident(name))return fail(ErrorCode::ExtensionSyntax);
++   if(selected_){
++    if(findName(extensions_,extensionsCount_,name)>=0)return fail(ErrorCode::ExtensionSyntax);
++    if(extensionsCount_==16)return fail(ErrorCode::ExtensionLimit);
++    strcpy(extensions_[extensionsCount_++],name);
++   }
++   extension_=true;extensionDepth_=conditionalDepth_;extensionLine_=line_;extensionContent_=version_=false;return true;
++  }
++  if(command(text,"END_EXTENSION")){
++   if(!exact(text,"END_EXTENSION")||!extension_||lexicalDepth_||conditionalDepth_!=extensionDepth_)return fail(ErrorCode::ExtensionSyntax);
++   extension_=false;return true;
++  }
++  if(command(text,"VERSION")){
++   const char* value=left(argument(text));size_t n=strlen(value);
++   if(!extension_||extensionContent_||version_||!n||n>63)return fail(ErrorCode::ExtensionSyntax);
++   bool needDigit=true;
++   for(size_t i=0;i<n;++i){if(digit(value[i]))needDigit=false;else if(value[i]=='.'&&!needDigit)needDigit=true;else return fail(ErrorCode::ExtensionSyntax);}
++   if(needDigit)return fail(ErrorCode::ExtensionSyntax);version_=true;return true;
++  }
++  consumed=false;return true;
++ }
++ void inventoryDepth(const char* text){
++  // This count only constrains wrapper boundaries. Full selected runtime
++  // syntax still uses the existing emission-pass block stack/diagnostics.
++  if(command(text,"IF")||command(text,"WHILE")||command(text,"FUNCTION")){
++   if(lexicalDepth_<=MaxNesting)++lexicalDepth_;
++  }else if(exact(text,"END_IF")||exact(text,"END_WHILE")||exact(text,"END_FUNCTION")){
++   if(lexicalDepth_)--lexicalDepth_;
++  }
++ }
+  bool line(){
+-  if(textMode_)return textLine(raw_,pass_);
++  if(pass_){
++   if(!includedLine())return true;
++   if(textMode_)return textLine(raw_,pass_);
++   char* text=left(raw_);right(text);
++   if(exact(text,"STRING")||exact(text,"STRINGLN"))return openText(text,pass_);
++   if(command(text,"END_STRING")||command(text,"END_STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
++   return statement(text);
++  }
++  if(textMode_){if(textSelected_)includeLine();return textLine(raw_,0);}
+   char* text=left(raw_);right(text);
+-  if(!comment_&&(exact(text,"STRING")||exact(text,"STRINGLN")))return openText(text,pass_);
+-  if(!comment_&&(command(text,"END_STRING")||command(text,"END_STRINGLN")))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
+-  if(pass_)return statement(text);
+   if(!*text||skip(text))return p_.error_.code==ErrorCode::None;
++  if(command(text,"END_REM"))return fail(ErrorCode::Structure);
++  bool consumed=false;if(!preprocessing(text,consumed))return false;if(consumed)return true;
++  if(extension_)extensionContent_=true;
++  if(exact(text,"STRING")||exact(text,"STRINGLN")){
++   textSelected_=selected_;if(selected_)includeLine();return openText(text,0);
++  }
++  if(command(text,"END_STRING")||command(text,"END_STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
++  if(!selected_)return true;
++  includeLine();inventoryDepth(text);
+   if(command(text,"DEFINE"))return constant(text);
+   if(command(text,"VAR")){char* name=left(argument(text));char* end=name;while(*end&&!white(*end)&&*end!='=')++end;*end=0;return addSymbol(name);}
+   if(command(text,"FUNCTION")){
+@@ -386,7 +478,10 @@
+    ++cost.lines;if(!line())return false;rawUsed_=0;raw_[0]=0;++line_;phase_=eof_?CompilePhase::EndPass:(chunkPos_==chunkUsed_?CompilePhase::Read:CompilePhase::Consume);return true;
+   case CompilePhase::EndPass:
+    if(textMode_){line_=textOpening_;return fail(ErrorCode::Structure);}if(comment_){if(line_>1)--line_;return fail(ErrorCode::Structure);}
+-   if(!pass_){firstHash_=hash_;pass_=1;phase_=CompilePhase::Rewind;}else{if(hash_!=firstHash_)return fail(ErrorCode::ReadError);phase_=CompilePhase::Structure;}return true;
++   if(!pass_){
++    if(conditionalDepth_){line_=conditional_[conditionalDepth_-1].line;return fail(ErrorCode::PreprocessorSyntax);}
++    if(extension_){line_=extensionLine_;return fail(ErrorCode::ExtensionSyntax);}
++    firstHash_=hash_;pass_=1;phase_=CompilePhase::Rewind;}else{if(hash_!=firstHash_)return fail(ErrorCode::ReadError);phase_=CompilePhase::Structure;}return true;
+   case CompilePhase::Structure:
+    if(depth_){if(line_>1)--line_;return fail(ErrorCode::Structure);}phase_=CompilePhase::InventoryStart;return true;
+   case CompilePhase::InventoryStart:
+--- core.h
++++ core.h
+@@ -12,7 +12,7 @@
+  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
+  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
+  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
+- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable };
++ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+ enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait };
+@@ -52,7 +52,7 @@
+     bool ownershipCommands() const;
+ };
+ // RAM mocks only. Exact size, stable bytes, callbacks/context alive until terminal state.
+-constexpr size_t ReadChunk=32, CompileStorage=2368;
++constexpr size_t ReadChunk=32, CompileStorage=4096;
+ constexpr uint32_t MaxCompileSteps=65536;
+ enum class ReadStatus : uint8_t { Data, Eof, Retry, Error };
+ struct ReadResult { ReadStatus status; size_t bytes; ErrorCode error=ErrorCode::ReadError; };
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-LOCK-FEEDBACK-20261023-v1";
++constexpr const char* BuildId="ROUTEB-PREPROCESS-20261024-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

@@ -1,0 +1,19 @@
+{
+  "baseline": "32e22650f98faec03ebdce71446e9f48e8d39fe5",
+  "unchanged_baseline_files_modes": 1889,
+  "only_modified_baseline_paths": [
+    "tests/lock_feedback/led_action.py",
+    "tests/lock_feedback/verify_host_package.py"
+  ],
+  "source_overlay_files": [
+    "core.cpp",
+    "core.h",
+    "caps_trial.h"
+  ],
+  "stage26_freeze_files": 235,
+  "stage26_freeze": "PASS",
+  "native_c_sha256": "bf1691e838b16818eb7e7fb6d038a715ad6b90c8855f2cb066ecdd656b37f640",
+  "working_package_sha256": "97e64ecd165be2b05bd0610953651a923e44f74635a100baf427b84f3bf2655d",
+  "previous_remote_refs_sha256": "2865565a364c530d80d10f986cc79d6376886c5dab7b167718a2940cd4e67e5f",
+  "physical_testing": false
+}

@@ -96,3 +96,7 @@ passed. A second package build produced byte-identical output. See
 `lock-feedback-helper-v4-artifact.json` and `lock-feedback-helper-v4-tests.json`.
 Publication/download verification must be recorded separately after retrieval of
 the genuine commit-pinned ZIP; these local checks do not assert publication.
+
+Published v4 download verified: the genuine commit-pinned ZIP at
+https://raw.githubusercontent.com/tyronecoe/EvilDuck/069652b65e631f0f56f3d689afd2d38f49d98d24/downloads/evilduck-routeb-lock-led-action-v4.zip
+was downloaded and its exact12,422byte size, SHA-256 and extracted source were checked. The downloaded source passed55currentchecks plus the separate historicalv1control. This repeats artifact verification, not additional distinct tests or a physical Mac trial. See lock-feedback-helper-v4-publication.json. Existing hardware evidence describes v3 with the owner's absolute-path workaround; it does not establish that v4 itself has physically run.
