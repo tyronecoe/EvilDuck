@@ -1,0 +1,15 @@
+{
+  "baseline": "ed9971a4b00cb3cf267d52f5e6e32304347b0db1",
+  "unchanged_baseline_files_modes": 1881,
+  "only_modified_baseline_paths": [
+    "tests/lock_feedback/led_action.py",
+    "tests/lock_feedback/verify_host_package.py"
+  ],
+  "stage26_frozen_files": 235,
+  "stage26_freeze": "PASS",
+  "previous_remote_ref_count": 68,
+  "previous_remote_refs_sha256": "8a6ad8ce431aadc33c03790556d115b469699d7e19b6b0c187113d5f7975dcd6",
+  "firmware_changed": false,
+  "native_c_changed": false,
+  "physical_testing": false
+}
