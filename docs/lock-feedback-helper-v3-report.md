@@ -145,3 +145,12 @@ python3 tests/lock_feedback/verify_host_package.py --archive downloads/evilduck-
 GitHub download verification and previous-remote-ref comparison are recorded in
 the publication receipt after successful publication; assembly alone is not
 substituted for checking downloaded bytes.
+
+Publication/download verification is now **PASS**: the genuine commit-pinned
+[v3 ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/546a46862c4e23458f0407a48d1c0ff3c78d5b56/downloads/evilduck-routeb-lock-led-action-v3.zip)
+was downloaded, matched byte size/SHA-256, and its extracted source passed the
+same 50 current checks plus historical control. The initial push changed only
+the new branch; all **68 prior remote refs** remained unchanged. See
+`lock-feedback-helper-v3-publication.json` for the source/ZIP identities, actual
+download results and original remote-ref map. This verifies software publication,
+not a physical Mac trial.
