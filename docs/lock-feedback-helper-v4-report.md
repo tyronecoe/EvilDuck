@@ -83,3 +83,16 @@ bound to the current lock-feedback build; it is not a helper authorization for a
 different future firmware build. Keep the working firmware, rollback, prior ZIPs,
 backups and physical evidence. No hardware access, reflash, automatic execution,
 EDR1 changes or unrelated capabilities are part of this fix.
+
+## Final packaged-source verification
+
+Source commit: `dbd6fe3fed98115e55f6c1c9e78ae0eeb153ee2d`.
+ZIP: `evilduck-routeb-lock-led-action-v4.zip`, **12,422 bytes**.
+SHA-256: `a76f2074247f4aaf702e91a73431abffb1e9f8dc353a4147602848d693abb726`.
+The actual extracted ZIP source passed all 55 current checks and the separately
+classified historical v1 control. CRC, exact four-member inventory, committed
+source hashes, unchanged native C, README Bash syntax and Python 3.8 AST checks
+passed. A second package build produced byte-identical output. See
+`lock-feedback-helper-v4-artifact.json` and `lock-feedback-helper-v4-tests.json`.
+Publication/download verification must be recorded separately after retrieval of
+the genuine commit-pinned ZIP; these local checks do not assert publication.
