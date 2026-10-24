@@ -1,0 +1,150 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_RANDOM_LOWERCASE) || EVILDUCK_ROUTE_B_RANDOM_LOWERCASE != 1
++#error "Explicit Route B random-lowercase candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_SOURCE_COMPAT) || EVILDUCK_ROUTE_B_SOURCE_COMPAT != 1
+ #error "Explicit Route B source-compat candidate profile required"
+ #endif
+@@ -36,12 +39,13 @@
+  return p[0]=='0'?0x27:0;
+ }
+ bool reserved(const char* p){
+- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
++ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","RANDOM_LOWERCASE_LETTER","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+  if(key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ const char* message(ErrorCode c){
+  switch(c){
++ case ErrorCode::RandomUnavailable:return "Bounded random source unavailable";
+  case ErrorCode::PreprocessorSyntax:return "Malformed or unmatched conditional preprocessing directive";
+  case ErrorCode::PreprocessorLimit:return "Conditional preprocessing depth exceeds eight";
+  case ErrorCode::CompileFlag:return "Selected conditional flag must be literal TRUE or FALSE";
+@@ -306,6 +310,11 @@
+   {static const char* const waits[]={"WAIT_FOR_NUM_ON","WAIT_FOR_NUM_OFF","WAIT_FOR_NUM_CHANGE","WAIT_FOR_CAPS_ON","WAIT_FOR_CAPS_OFF","WAIT_FOR_CAPS_CHANGE","WAIT_FOR_SCROLL_ON","WAIT_FOR_SCROLL_OFF","WAIT_FOR_SCROLL_CHANGE"};
+    for(uint16_t i=0;i<9;++i)if(exact(text,waits[i]))return emit(Op::LockWait,"",i);
+   }
++  if(command(text,"INJECT_VAR"))return fail(ErrorCode::Unsupported);
++  if(command(text,"RANDOM_LOWERCASE_LETTER")){
++   if(!exact(text,"RANDOM_LOWERCASE_LETTER"))return fail(ErrorCode::Syntax);
++   return emit(Op::RandomLowercase);
++  }
+   if(command(text,"INJECT_MOD")){
+    // Only the documented inline modifier tap. No sticky/prefix interpretation.
+    if(!expand(left(argument(text)),expanded))return false;right(expanded);
+@@ -552,9 +561,9 @@
+  while(session.state()==CompileState::Compiling)session.step();return session.state()==CompileState::Complete;
+ }
+ void Runtime::releaseProgram(){if(ownsProgram_&&program_)program_->borrowed_=false;ownsProgram_=false;}
+-void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
++void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
+ bool Runtime::start(const Program& p,Sink sink,void* context,uint32_t now,uint32_t steps,uint32_t elapsed){
+- if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=false;steps_=0;block_=TextCursor{};error_={};hasReturn_=false;lastReturn_=0;
++ if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=randomizing_=false;randomAttempts_=0;steps_=0;block_=TextCursor{};error_={};hasReturn_=false;lastReturn_=0;
+  memset(values_,0,sizeof(values_));memset(initialized_,0,sizeof(initialized_));for(auto& call:calls_)call=CallFrame{};clearContinuations();started_=now;ticks_=0;stepLimit_=steps;elapsedLimit_=elapsed;
+  if(!p.ready_){fail(ErrorCode::NotCompiled);return false;}
+  if(!sink){fail(ErrorCode::SinkFailure);return false;}
+@@ -562,7 +571,7 @@
+  if(p.borrowed_){fail(ErrorCode::Busy);return false;}p.borrowed_=true;ownsProgram_=true;
+  state_=State::Running;return true;
+ }
+-void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
++void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
+ bool Runtime::variable(const char* name,uint16_t& out)const{if(!program_||programRevision_!=program_->revision_||!name)return false;int id=findName(program_->names_,program_->symbols_,name);if(id<0||!initialized_[id])return false;out=values_[id];return true;}
+ void Runtime::clearContinuations(){for(auto& frame:evaluations_)frame.clear();}
+ void Runtime::enterCall(uint8_t function,bool needsValue,uint16_t column){
+@@ -614,6 +623,20 @@
+  inTick_=true;struct TickGuard{bool& flag;~TickGuard(){flag=false;}} guard{inTick_};
+  if(uint32_t(now-started_)>=elapsedLimit_){fail(ErrorCode::Timeout);return;}
+  if(pending_){deliver(now);return;}
++ if(randomizing_){
++  uint32_t raw=0;bool ok=false;
++  try{if(randomReader)ok=randomReader(randomContext,raw);}catch(...){if(state_==State::Running)fail(ErrorCode::RandomUnavailable);return;}
++  if(state_!=State::Running)return;
++  if(!ok){fail(ErrorCode::RandomUnavailable);return;}
++  // Rejection sampling removes modulo bias for a uniform uint32 provider.
++  // One draw per tick, at most eight attempts; no unbounded retry loop.
++  constexpr uint64_t range=UINT64_C(1)<<32, limit=range-(range%26);
++  ++randomAttempts_;
++  if(uint64_t(raw)>=limit){if(randomAttempts_==8)fail(ErrorCode::RandomUnavailable);return;}
++  randomizing_=false;randomAttempts_=0;
++  event_={EventType::Character,static_cast<uint16_t>('a'+raw%26)};pending_=true;deliver(now);return;
++ }
++
+  if(delayed_){if(uint32_t(now-delayAt_)<event_.value)return;delayed_=false;++pc_;return;}
+  if(block_.active){
+   if(!block_.loaded){
+@@ -648,6 +671,7 @@
+  case Op::TextBlock:case Op::TextLnBlock:
+   if(ins.offset>program_->used_||ins.length>program_->used_-ins.offset){fail(ErrorCode::Structure);return;}
+   block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
++ case Op::RandomLowercase:randomizing_=true;randomAttempts_=0;break;
+  case Op::LockWait:event_={EventType::LockWait,ins.target};pending_=true;deliver(now);break;
+  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
+  case Op::Key:event_={EventType::KeyTap,ins.target,ins.symbol};pending_=true;deliver(now);break;
+--- core.h
++++ core.h
+@@ -12,10 +12,10 @@
+  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
+  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
+  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
+- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit };
++ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait };
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+ enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+@@ -105,7 +105,7 @@
+     TextCursor block_{};
+     Event event_{EventType::Character,0}; uint32_t started_=0, delayAt_=0, steps_=0;
+     uint32_t stepLimit_=MaxSteps, elapsedLimit_=MaxElapsedMs, ticks_=0, programRevision_=0;
+-    bool ownsProgram_=false, inTick_=false;
++    bool ownsProgram_=false, inTick_=false, randomizing_=false; uint8_t randomAttempts_=0;
+     State state_=State::Idle; Error error_{}; bool hasReturn_=false; uint16_t lastReturn_=0;
+     void fail(ErrorCode code,uint16_t column=1);
+     void releaseProgram();
+@@ -116,6 +116,8 @@
+     void completeInstruction(uint32_t now,uint16_t value);
+     void deliver(uint32_t now);
+ public:
++    using RandomReader=bool(*)(void*,uint32_t&);
++    RandomReader randomReader=nullptr; void* randomContext=nullptr;
+     using InternalReader=bool(*)(void*,uint16_t,uint16_t&);
+     InternalReader internalReader=nullptr; void* internalContext=nullptr;
+     Runtime()=default;
+--- adapter.cpp
++++ adapter.cpp
+@@ -8,7 +8,9 @@
+ #include "com.h"
+ #include "hid_backend.h"
+ #include <cstring>
++#include <esp_random.h>
+ namespace native_b {
++static bool deviceRandom(void*,uint32_t& value){value=esp_random();return true;}
+ using ds_preview::Accept;using ds_preview::EventType;
+ bool Adapter::prepare(const char* s,size_t n){
+  if(inStep_||leased_||!(state_==State::Idle||state_==State::Completed||state_==State::Cancelled||state_==State::Error))return false;
+@@ -110,6 +112,7 @@
+   if(cancelRequested_){cancelRequested_=false;finish(State::Cancelled);return;}
+   if(!route_b::clearing(session_)){
+    if(state_==State::Syncing){if(route_b::result(session_).kind!=route_b::ResultKind::None){fail(Fault::Ownership);return;}if(!route_b::environment()){fail(Fault::Environment);return;}
++    runtime_.randomReader=deviceRandom;runtime_.randomContext=nullptr;
+     runtime_.internalReader=internalRead;runtime_.internalContext=this;
+     if(!runtime_.start(program_,sink,this,now)){fail(Fault::Compiler);return;}state_=State::Running;
+    }else if(route_b::detach(session_)){leased_=false;state_=target_;}
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-PREPROCESS-20261024-v1";
++constexpr const char* BuildId="ROUTEB-RANDOM-LOWER-20261024-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

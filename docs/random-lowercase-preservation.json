@@ -1,0 +1,15 @@
+{
+  "baseline": "83c1b7da9ae3aca4fda51fe96f5959a31e3ec9b4",
+  "all_baseline_files_modes_unchanged": 1930,
+  "stage26_freeze_files": 235,
+  "stage26_freeze": "PASS",
+  "new_composed_patch_files": [
+    "core.cpp",
+    "core.h",
+    "adapter.cpp",
+    "caps_trial.h"
+  ],
+  "old_stage15_numeric_vectors": "UNCHANGED_UNRESOLVED",
+  "installed_baseline_sha256": "4251f320019dd813f2f0f4810c96f084f08127fa6a35ea6c99faece336e3ad5d",
+  "physical_access": false
+}

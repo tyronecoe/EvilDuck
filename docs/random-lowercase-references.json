@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "exit": 0,
+    "bytes": 18149,
+    "sha256": "57363850e42c949fe5d51d2776425771bf997018fc8a3cd910fed9403d2dd147",
+    "retrieved_utc": "2026-10-24T19:56:38.960150+00:00",
+    "diagnostic": ""
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference.md",
+    "exit": 0,
+    "bytes": 39018,
+    "sha256": "cd38fd8410bc7833f6ae047ed0d845454e6fd75c4171245f5841f2e8595617a2",
+    "retrieved_utc": "2026-10-24T19:56:39.726584+00:00",
+    "diagnostic": ""
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+    "exit": 0,
+    "bytes": 2874,
+    "sha256": "e0c2ee898eeb701e8855b3c7425bec63e2aaa4a57537c53a9eaff14010c7278d",
+    "retrieved_utc": "2026-10-24T19:56:39.915323+00:00",
+    "diagnostic": ""
+  },
+  {
+    "url": "https://encoder.hak5.org",
+    "exit": 0,
+    "bytes": 11130,
+    "sha256": "de2685f4ee4e35c4ef4332e7576df431a8a950f92dc6b438a2c34f4e6cd5f19c",
+    "retrieved_utc": "2026-10-24T19:56:41.028306+00:00",
+    "diagnostic": ""
+  }
+]
