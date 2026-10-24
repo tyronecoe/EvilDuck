@@ -156,6 +156,15 @@ def traced(trace, phase, callback):
         return callback()
 
 
+def native_executable():
+    # Resolve the script, not the executable: preserve the sibling symlink refusal.
+    # A bare argv[0] otherwise searches PATH rather than the checked local file.
+    helper = pathlib.Path(__file__).resolve(strict=True).with_name('led-action-native')
+    if not helper.is_file() or helper.is_symlink() or not os.access(str(helper), os.X_OK):
+        raise ValueError('COMPILE_NATIVE_HELPER_FIRST')
+    return helper
+
+
 def uint(value, bits):
     return type(value) is int and 0 <= value < (1 << bits)
 
@@ -279,9 +288,7 @@ def main(trace=None):
     with trace.span('SETUP', 'FILE_CHECK'):
         if os.uname().sysname != 'Darwin':
             raise ValueError('NATIVE_MAC_REQUIRED')
-        helper = pathlib.Path(__file__).with_name('led-action-native')
-        if not helper.is_file() or helper.is_symlink() or not os.access(str(helper), os.X_OK):
-            raise ValueError('COMPILE_NATIVE_HELPER_FIRST')
+        helper = native_executable()
     with trace.span('SETUP', 'INPUT'):
         password = getpass.getpass('Dashboard password (not saved): ')
     if not password:
