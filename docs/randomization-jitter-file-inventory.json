@@ -1,0 +1,191 @@
+{
+  "baseline": "9ebdb7195910a247921a7a4e032934fbc372cdc4",
+  "only_additions": true,
+  "files": [
+    {
+      "file": "docs/randomization-jitter-acceptance.md",
+      "status": "A",
+      "bytes": 2327,
+      "sha256": "56e7ded3cc995a48419c6e2e9218bfb512b5496a2e88aedb3e6699f47f55c9e2"
+    },
+    {
+      "file": "docs/randomization-jitter-artifact.json",
+      "status": "A",
+      "bytes": 1875,
+      "sha256": "27162b87c0ea8b643a3a16a39a649138753117f2dd86f593fd4566a8e2ee87da"
+    },
+    {
+      "file": "docs/randomization-jitter-build.json",
+      "status": "A",
+      "bytes": 1753199,
+      "sha256": "6c111ecbc7c9dd12ebde62723005c87baf587db66b54e7925ce3b3a66a2b892c"
+    },
+    {
+      "file": "docs/randomization-jitter-compatibility.md",
+      "status": "A",
+      "bytes": 1723,
+      "sha256": "ad1052e08544ebed6d5ed5b0c987817227321a9783ef6452f9467bc350074cd1"
+    },
+    {
+      "file": "docs/randomization-jitter-design.md",
+      "status": "A",
+      "bytes": 5196,
+      "sha256": "b960ea527c9bf0e6953076f5260fc449fe17a659281bb94f2dbde8082d9d85fe"
+    },
+    {
+      "file": "docs/randomization-jitter-file-inventory.json",
+      "status": "A",
+      "self_hash_omitted": true
+    },
+    {
+      "file": "docs/randomization-jitter-install.md",
+      "status": "A",
+      "bytes": 2407,
+      "sha256": "43467c0d1f27f3c302e42e0c99921287f37e27b7b8037bc7bdaa5d969eb9895a"
+    },
+    {
+      "file": "docs/randomization-jitter-installer-tests.json",
+      "status": "A",
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1"
+    },
+    {
+      "file": "docs/randomization-jitter-owner-evidence.md",
+      "status": "A",
+      "bytes": 934,
+      "sha256": "238ca6f429850b1fe816480bf38829e193d1cc33a1832a803445d71114bf48b2"
+    },
+    {
+      "file": "docs/randomization-jitter-package-tests.json",
+      "status": "A",
+      "bytes": 3782,
+      "sha256": "f18f7e19888b143490e779f83f47e74a8fd8537efc1136d0008aa57fd7112e9f"
+    },
+    {
+      "file": "docs/randomization-jitter-preservation.json",
+      "status": "A",
+      "bytes": 330,
+      "sha256": "e2c28e2bb48621d663b48b7f9a3c83d9233c565d50623cf3ee8d1026923dbded"
+    },
+    {
+      "file": "docs/randomization-jitter-publication.json",
+      "status": "A",
+      "bytes": 7618,
+      "sha256": "1f1da20cb73568a7864b82004522e63e79f108c7557caefd2b63c847d81005e6"
+    },
+    {
+      "file": "docs/randomization-jitter-references.json",
+      "status": "A",
+      "bytes": 533,
+      "sha256": "2530e0202b28983deb09c40852c74ca92781ec08f8a6e9c110d69494af07ce73"
+    },
+    {
+      "file": "docs/randomization-jitter-report.md",
+      "status": "A",
+      "bytes": 7484,
+      "sha256": "610c585f274cc19b8737c5305b2549b319517eb5a505315999a934a02cbdf355"
+    },
+    {
+      "file": "docs/randomization-jitter-reproduction.md",
+      "status": "A",
+      "bytes": 2661,
+      "sha256": "d00f4b6b9791340a8c0cec96b3f127724af8005eac108ae4f4001105db185659"
+    },
+    {
+      "file": "docs/randomization-jitter-resources.json",
+      "status": "A",
+      "bytes": 7401,
+      "sha256": "41ed51e10025a19c7efdb8070e3a8e36a469287c1fce5f80aa8688ed6824dce7"
+    },
+    {
+      "file": "docs/randomization-jitter-rollback.md",
+      "status": "A",
+      "bytes": 1490,
+      "sha256": "118f5761788de5ca015a482b2886024d2e8c07ee01e783bd70c55248352899be"
+    },
+    {
+      "file": "docs/randomization-jitter-test-results.json",
+      "status": "A",
+      "bytes": 66954,
+      "sha256": "25c5470efeeb9b462665b5afa4147f1488030f7d810329ac786beaf4653e9769"
+    },
+    {
+      "file": "downloads/evilduck-routeb-randomization-jitter-macos-v1.zip",
+      "status": "A",
+      "bytes": 2306499,
+      "sha256": "a25e703dbd8198fa9dfa29f3f04a278ae0b704ae220bd377b8fad0036ac964d1"
+    },
+    {
+      "file": "tests/randomization_jitter/application.patch",
+      "status": "A",
+      "bytes": 19217,
+      "sha256": "b031ac64f49a6c8a19d89f46a7e1cc88f459cbb60a46ba1e2cfed13585287108"
+    },
+    {
+      "file": "tests/randomization_jitter/build_candidate.py",
+      "status": "A",
+      "bytes": 1836,
+      "sha256": "dc3b1c8119905db74600d106a008bf2aec220bd3447a70817e525ba9505c0714"
+    },
+    {
+      "file": "tests/randomization_jitter/package.py",
+      "status": "A",
+      "bytes": 11983,
+      "sha256": "4e570b04af54731797264c546d0fc78f583ef6422f4e2a725bfe58b6964c5565"
+    },
+    {
+      "file": "tests/randomization_jitter/preflight.py",
+      "status": "A",
+      "bytes": 9339,
+      "sha256": "440b64f0df52219c118b9fe93866998b90393ed0d326c02a8b876c445efd727f"
+    },
+    {
+      "file": "tests/randomization_jitter/prepare_sources.py",
+      "status": "A",
+      "bytes": 1441,
+      "sha256": "f38a2d9fa7d17122aa8c6803cd964fab1ad94525e54664c31166b4f5b9ea690f"
+    },
+    {
+      "file": "tests/randomization_jitter/run_tests.py",
+      "status": "A",
+      "bytes": 6716,
+      "sha256": "543eb302b05d8086deaf17cda097f892c526a87301b12a3fde4a6965754848c4"
+    },
+    {
+      "file": "tests/randomization_jitter/source-manifest.json",
+      "status": "A",
+      "bytes": 1178,
+      "sha256": "a9f549a234240751ac1c61fee68da7bc5e80c853519b0c7e994c49fc8e3398cc"
+    },
+    {
+      "file": "tests/randomization_jitter/startup_decode.py",
+      "status": "A",
+      "bytes": 535,
+      "sha256": "b3ce64a3afe26b8260a990d0018cca7e14cf4b1fd5eea489f23a5e907cac5a0f"
+    },
+    {
+      "file": "tests/randomization_jitter/test_bound_installer.py",
+      "status": "A",
+      "bytes": 8047,
+      "sha256": "1324727401de132853a5ef06df098507feecc96e19c9771f743471c1863c414a"
+    },
+    {
+      "file": "tests/randomization_jitter/test_main.cpp",
+      "status": "A",
+      "bytes": 14358,
+      "sha256": "a263a99d65eeb68bbcb006f76766a14584d07b42e4bd9483be2c0313d1abd6f9"
+    },
+    {
+      "file": "tests/randomization_jitter/test_package.py",
+      "status": "A",
+      "bytes": 11091,
+      "sha256": "c3fe1c742b33666a426fb30db7ab2c09e714c6fc1f2ec2b003278b537686349b"
+    },
+    {
+      "file": "tests/randomization_jitter/verify_link.py",
+      "status": "A",
+      "bytes": 9094,
+      "sha256": "d7ba7482d516f1debf1149c0040a188dbd7b15d536ebab3e48459414f00fe0da"
+    }
+  ]
+}

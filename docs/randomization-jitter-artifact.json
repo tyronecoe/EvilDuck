@@ -34,7 +34,7 @@
   "rollback_bytes": 1410016,
   "rollback_sha256": "2cdb3e182dbbc3f2f2be21154cc49516e74337ed5c0c52a75aa772d1ef8eb098",
   "installation_authorized": false,
-  "download_verification": "PENDING_PUBLICATION",
+  "download_verification": "PASS",
   "final_package_inventory": {
     "status": "PASS",
     "members": 24,
@@ -46,5 +46,7 @@
   "review_observations": [
     "Ad hoc count check expected25members and stopped; manifest review establishes20support plus4fixed members=24. Corrected check passed; ZIP unchanged.",
     "Unbound source preflight deliberately refuses RELEASE_NOT_BOUND; packaged bound preflight passes."
-  ]
+  ],
+  "download_url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/b82dd0c7b04f502372867b9cb74e3306df8566d9/downloads/evilduck-routeb-randomization-jitter-macos-v1.zip",
+  "published_package_commit": "b82dd0c7b04f502372867b9cb74e3306df8566d9"
 }
