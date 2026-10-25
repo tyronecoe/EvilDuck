@@ -1,0 +1,231 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_RANDOMIZATION_JITTER) || EVILDUCK_ROUTE_B_RANDOMIZATION_JITTER != 1
++#error "Explicit Route B randomization-jitter candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_RANDOM_UPPERCASE) || EVILDUCK_ROUTE_B_RANDOM_UPPERCASE != 1
+ #error "Explicit Route B random-uppercase candidate profile required"
+ #endif
+@@ -42,12 +45,14 @@
+  return p[0]=='0'?0x27:0;
+ }
+ bool reserved(const char* p){
+- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
++ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+  if(key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ const char* message(ErrorCode c){
+  switch(c){
++ case ErrorCode::RandomRange:return "Random minimum exceeds maximum at draw";
++ case ErrorCode::SettingValue:return "Internal setting requires a valid Boolean or unsigned 16-bit value";
+  case ErrorCode::RandomUnavailable:return "Bounded random source unavailable";
+  case ErrorCode::PreprocessorSyntax:return "Malformed or unmatched conditional preprocessing directive";
+  case ErrorCode::PreprocessorLimit:return "Conditional preprocessing depth exceeds eight";
+@@ -103,8 +108,8 @@
+    bool var=c=='$';size_t start=pos_;if(var)++pos_;while(letter(input_[pos_])||digit(input_[pos_]))++pos_;
+    size_t n=pos_-start;
+    if(var&&n>1&&input_[start+1]=='_'){
+-    static const char* const internal[]={"$_NUMLOCK_ON","$_CAPSLOCK_ON","$_SCROLLLOCK_ON","$_RECEIVED_HOST_LOCK_LED_REPLY","$_EVILDUCK_LOCK_KNOWN"};
+-    for(uint16_t i=0;i<5;++i)if(strlen(internal[i])==n&&!memcmp(internal[i],input_+start,n)){number_=i;token_=Internal;return;}
++    static const char* const internal[]={"$_NUMLOCK_ON","$_CAPSLOCK_ON","$_SCROLLLOCK_ON","$_RECEIVED_HOST_LOCK_LED_REPLY","$_EVILDUCK_LOCK_KNOWN","$_RANDOM_INT","$_RANDOM_MIN","$_RANDOM_MAX","$_JITTER_ENABLED","$_JITTER_MAX"};
++    for(uint16_t i=0;i<10;++i)if(strlen(internal[i])==n&&!memcmp(internal[i],input_+start,n)){number_=i;token_=Internal;return;}
+     fail(ErrorCode::Identifier);return;
+    }
+    if(n>=sizeof(name_)){fail(ErrorCode::Identifier);return;}memcpy(name_,input_+start,n);name_[n]=0;
+@@ -270,6 +275,12 @@
+   if(command(text,"VAR")||text[0]=='$'){
+    bool declare=command(text,"VAR");char* start=declare?left(argument(text)):text;char* end=start;while(*end&&!white(*end)&&*end!='=')++end;
+    if(*end=='='){*end++=0;}else{if(!*end)return fail(ErrorCode::Syntax);*end++=0;end=left(end);if(*end++!='=')return fail(ErrorCode::Syntax);}
++   static const char* const writable[]={"$_RANDOM_MIN","$_RANDOM_MAX","$_JITTER_ENABLED","$_JITTER_MAX"};
++   for(uint8_t i=0;i<4;++i)if(exact(start,writable[i])){
++    if(declare)return fail(ErrorCode::Identifier);
++    if(!expand(left(end),expanded)||!expr(expanded))return false;
++    return emit(Op::InternalSet,expanded,0,i);
++   }
+    int id=findName(p_.names_,p_.symbols_,start);if(id<0)return fail(ErrorCode::UndefinedSymbol);
+    if(!expand(left(end),expanded)||!expr(expanded))return false;
+    // target differentiates declaration from assignment: only VAR may initialize.
+@@ -313,6 +324,8 @@
+   {static const char* const waits[]={"WAIT_FOR_NUM_ON","WAIT_FOR_NUM_OFF","WAIT_FOR_NUM_CHANGE","WAIT_FOR_CAPS_ON","WAIT_FOR_CAPS_OFF","WAIT_FOR_CAPS_CHANGE","WAIT_FOR_SCROLL_ON","WAIT_FOR_SCROLL_OFF","WAIT_FOR_SCROLL_CHANGE"};
+    for(uint16_t i=0;i<9;++i)if(exact(text,waits[i]))return emit(Op::LockWait,"",i);
+   }
++  {static const char* const groups[]={"RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
++   for(uint16_t i=0;i<4;++i)if(command(text,groups[i])){if(!exact(text,groups[i]))return fail(ErrorCode::Syntax);return emit(Op::RandomGroup,"",i);}}
+   if(command(text,"INJECT_VAR"))return fail(ErrorCode::Unsupported);
+   if(command(text,"RANDOM_UPPERCASE_LETTER")){
+    if(!exact(text,"RANDOM_UPPERCASE_LETTER"))return fail(ErrorCode::Syntax);
+@@ -515,7 +528,7 @@
+   }
+   case CompilePhase::Validate:{
+    if(validate_==p_.count_){phase_=CompilePhase::Publish;return true;}const Instruction& ins=p_.code_[validate_++];line_=ins.line;
+-   if(ins.op==Op::Set||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
++   if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
+     ++cost.expressions;uint16_t ignored=0;Expression e(p_,nullptr,p_.text_+ins.offset,nullptr,true);Error error=e.evaluate(ignored);if(error.code!=ErrorCode::None)return fail(error.code,error.column);
+    }return true;
+   }
+@@ -568,9 +581,9 @@
+  while(session.state()==CompileState::Compiling)session.step();return session.state()==CompileState::Complete;
+ }
+ void Runtime::releaseProgram(){if(ownsProgram_&&program_)program_->borrowed_=false;ownsProgram_=false;}
+-void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
++void Runtime::fail(ErrorCode code,uint16_t column){error_={code,block_.active&&block_.loaded?block_.line:program_&&pc_<program_->count_?program_->code_[pc_].line:static_cast<uint16_t>(0),column};state_=State::Error;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';sampling_=jitterPrepared_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}
+ bool Runtime::start(const Program& p,Sink sink,void* context,uint32_t now,uint32_t steps,uint32_t elapsed){
+- if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';steps_=0;block_=TextCursor{};error_={};hasReturn_=false;lastReturn_=0;
++ if(state_==State::Running||inTick_)return false;releaseProgram();program_=&p;programRevision_=p.revision_;sink_=sink;context_=context;pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';sampling_=jitterPrepared_=false;randomMin_=0;randomMax_=9;jitterEnabled_=false;jitterMax_=20;steps_=0;block_=TextCursor{};error_={};hasReturn_=false;lastReturn_=0;
+  memset(values_,0,sizeof(values_));memset(initialized_,0,sizeof(initialized_));for(auto& call:calls_)call=CallFrame{};clearContinuations();started_=now;ticks_=0;stepLimit_=steps;elapsedLimit_=elapsed;
+  if(!p.ready_){fail(ErrorCode::NotCompiled);return false;}
+  if(!sink){fail(ErrorCode::SinkFailure);return false;}
+@@ -578,7 +591,7 @@
+  if(p.borrowed_){fail(ErrorCode::Busy);return false;}p.borrowed_=true;ownsProgram_=true;
+  state_=State::Running;return true;
+ }
+-void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
++void Runtime::cancel(){if(state_==State::Running){state_=State::Cancelled;pending_=typing_=delayed_=randomizing_=false;randomAttempts_=0;randomBase_='a';sampling_=jitterPrepared_=false;block_=TextCursor{};depth_=0;clearContinuations();hasReturn_=false;lastReturn_=0;releaseProgram();}}
+ bool Runtime::variable(const char* name,uint16_t& out)const{if(!program_||programRevision_!=program_->revision_||!name)return false;int id=findName(program_->names_,program_->symbols_,name);if(id<0||!initialized_[id])return false;out=values_[id];return true;}
+ void Runtime::clearContinuations(){for(auto& frame:evaluations_)frame.clear();}
+ void Runtime::enterCall(uint8_t function,bool needsValue,uint16_t column){
+@@ -609,16 +622,51 @@
+  }
+  if(frame.size==MaxExprTokens){fail(ErrorCode::ExpressionLimit,token.column);return;}
+  uint16_t value=token.value;
+- if(token.kind==ExprKind::Internal){if(!internalReader||!internalReader(internalContext,token.value,value)){fail(ErrorCode::FeedbackUnavailable,token.column);return;}frame.values[frame.size++]=value;return;}
++ if(token.kind==ExprKind::Internal){
++  if(token.value==5){int result=sample(randomMin_,randomMax_,value);if(result<=0){if(result==0)--frame.cursor;return;}}
++  else if(token.value==6)value=randomMin_;else if(token.value==7)value=randomMax_;
++  else if(token.value==8)value=jitterEnabled_;else if(token.value==9)value=jitterMax_;
++  else if(!internalReader||!internalReader(internalContext,token.value,value)){fail(ErrorCode::FeedbackUnavailable,token.column);return;}
++  frame.values[frame.size++]=value;return;
++ }
+  if(token.kind!=ExprKind::Literal&&token.kind!=ExprKind::Variable){fail(ErrorCode::Structure,token.column);return;}
+  if(token.kind==ExprKind::Variable){if(token.value>=program_->symbols_){fail(ErrorCode::Structure,token.column);return;}if(!initialized_[token.value]){fail(ErrorCode::Uninitialized,token.column);return;}value=values_[token.value];}
+  frame.values[frame.size++]=value;
+ }
+ 
++// Tri-state bounded cooperative sampler: -1 error/cancel, 0 pending, 1 selected.
++int Runtime::sample(uint16_t minimum,uint16_t maximum,uint16_t& value){
++ if(!sampling_){
++  if(minimum>maximum){fail(ErrorCode::RandomRange);return -1;}
++  sampleMin_=minimum;sampleWidth_=uint32_t(maximum)-minimum+1;randomAttempts_=0;sampling_=true;
++ }
++ if(sampleWidth_==1){value=sampleMin_;sampling_=false;return 1;}
++ if(drawUsed_)return 0;drawUsed_=true;
++ uint32_t raw=0;bool ok=false;
++ try{if(randomReader)ok=randomReader(randomContext,raw);}catch(...){if(state_==State::Running)fail(ErrorCode::RandomUnavailable);return -1;}
++ if(state_!=State::Running)return -1;
++ if(!ok){fail(ErrorCode::RandomUnavailable);return -1;}
++ constexpr uint64_t full=UINT64_C(1)<<32;
++ const uint64_t limit=full-(full%sampleWidth_);++randomAttempts_;
++ if(uint64_t(raw)>=limit){if(randomAttempts_==8){fail(ErrorCode::RandomUnavailable);return -1;}return 0;}
++ value=static_cast<uint16_t>(uint32_t(sampleMin_)+raw%sampleWidth_);sampling_=false;randomAttempts_=0;return 1;
++}
++static const char* randomAlphabet(uint8_t group){
++ switch(group){case 'a':return "abcdefghijklmnopqrstuvwxyz";case 'A':return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
++ case 0:return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";case 1:return "0123456789";
++ case 2:return "!@#$%^&*()";case 3:return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";}
++ return nullptr;
++}
+ void Runtime::deliver(uint32_t now){
++ const bool press=event_.type==EventType::Character||event_.type==EventType::KeyTap||event_.type==EventType::Hold;
++ if(press&&jitterEnabled_&&jitterMax_){
++  if(!jitterPrepared_){uint16_t delay=0;int result=sample(0,jitterMax_,delay);if(result<=0)return;jitterDelay_=delay;jitterAt_=now;jitterPrepared_=true;}
++  if(uint32_t(now-jitterAt_)<jitterDelay_)return;
++ }
++
+  Accept accepted=Accept::Failed;
+  try{accepted=sink_(context_,event_);}catch(...){if(state_==State::Running)fail(ErrorCode::SinkFailure);return;}
+- if(state_!=State::Running)return;if(accepted==Accept::Retry)return;if(accepted!=Accept::Accepted){fail(ErrorCode::SinkFailure);return;}pending_=false;
++ if(state_!=State::Running)return;if(accepted==Accept::Retry)return;if(accepted!=Accept::Accepted){fail(ErrorCode::SinkFailure);return;}pending_=false;jitterPrepared_=false;
+  if(event_.type==EventType::Delay){delayAt_=now;delayed_=true;}
+  else if(block_.active){if(block_.position<block_.length)++block_.position;else{block_.next=block_.offset+block_.length;block_.loaded=false;}}
+  else if(typing_){const Instruction& ins=program_->code_[pc_];if(textPos_<ins.length)++textPos_;else{typing_=false;++pc_;}}
+@@ -627,21 +675,13 @@
+ void Runtime::tick(uint32_t now){
+  if(state_!=State::Running||inTick_)return;
+  if(ticks_++==MaxTicks){fail(ErrorCode::TickLimit);return;}
+- inTick_=true;struct TickGuard{bool& flag;~TickGuard(){flag=false;}} guard{inTick_};
++ drawUsed_=false;inTick_=true;struct TickGuard{bool& flag;~TickGuard(){flag=false;}} guard{inTick_};
+  if(uint32_t(now-started_)>=elapsedLimit_){fail(ErrorCode::Timeout);return;}
+  if(pending_){deliver(now);return;}
+  if(randomizing_){
+-  uint32_t raw=0;bool ok=false;
+-  try{if(randomReader)ok=randomReader(randomContext,raw);}catch(...){if(state_==State::Running)fail(ErrorCode::RandomUnavailable);return;}
+-  if(state_!=State::Running)return;
+-  if(!ok){fail(ErrorCode::RandomUnavailable);return;}
+-  // Rejection sampling removes modulo bias for a uniform uint32 provider.
+-  // One draw per tick, at most eight attempts; no unbounded retry loop.
+-  constexpr uint64_t range=UINT64_C(1)<<32, limit=range-(range%26);
+-  ++randomAttempts_;
+-  if(uint64_t(raw)>=limit){if(randomAttempts_==8)fail(ErrorCode::RandomUnavailable);return;}
+-  randomizing_=false;randomAttempts_=0;
+-  event_={EventType::Character,static_cast<uint16_t>(randomBase_+raw%26)};pending_=true;deliver(now);return;
++  const char* alphabet=randomAlphabet(randomBase_);if(!alphabet){fail(ErrorCode::Structure);return;}
++  uint16_t selected=0;int result=sample(0,static_cast<uint16_t>(strlen(alphabet)-1),selected);if(result<=0)return;
++  randomizing_=false;event_={EventType::Character,static_cast<uint16_t>(alphabet[selected])};pending_=true;deliver(now);return;
+  }
+ 
+  if(delayed_){if(uint32_t(now-delayAt_)<event_.value)return;delayed_=false;++pc_;return;}
+@@ -665,7 +705,7 @@
+  if(pc_>=program_->count_){state_=State::Completed;releaseProgram();return;}
+  if(steps_==stepLimit_){fail(ErrorCode::StepLimit);return;}++steps_;
+  const Instruction& ins=program_->code_[pc_];const char* arg=program_->text_+ins.offset;uint16_t value=0;
+- if(ins.op==Op::Set||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
++ if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
+   Error e=Expression(*program_,nullptr,arg,&evaluations_[depth_],true).evaluate(value);if(e.code!=ErrorCode::None){fail(e.code,e.column);}return;
+  }
+  completeInstruction(now,value);
+@@ -673,11 +713,16 @@
+ void Runtime::completeInstruction(uint32_t now,uint16_t value){
+  const Instruction& ins=program_->code_[pc_];
+  switch(ins.op){
++ case Op::InternalSet:
++  switch(ins.symbol){case 0:randomMin_=value;break;case 1:randomMax_=value;break;
++   case 2:if(value>1){fail(ErrorCode::SettingValue);return;}jitterEnabled_=value!=0;break;
++   case 3:jitterMax_=value;break;default:fail(ErrorCode::Structure);return;}++pc_;break;
+  case Op::Set:if(!ins.target&&!initialized_[ins.symbol]){fail(ErrorCode::Uninitialized);return;}values_[ins.symbol]=value;initialized_[ins.symbol]=true;++pc_;break;
+  case Op::Text:case Op::TextLn:typing_=true;enter_=ins.op==Op::TextLn;textPos_=0;break;
+  case Op::TextBlock:case Op::TextLnBlock:
+   if(ins.offset>program_->used_||ins.length>program_->used_-ins.offset){fail(ErrorCode::Structure);return;}
+   block_={ins.offset,static_cast<uint16_t>(ins.offset+ins.length),0,0,0,ins.line,true,false};break;
++ case Op::RandomGroup:randomBase_=static_cast<uint8_t>(ins.target);randomizing_=true;randomAttempts_=0;break;
+  case Op::RandomLowercase:randomBase_='a';randomizing_=true;randomAttempts_=0;break;
+  case Op::RandomUppercase:randomBase_='A';randomizing_=true;randomAttempts_=0;break;
+  case Op::LockWait:event_={EventType::LockWait,ins.target};pending_=true;deliver(now);break;
+--- core.h
++++ core.h
+@@ -12,10 +12,10 @@
+  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
+  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
+  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
+- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable };
++ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable, RandomRange, SettingValue };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase };
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+ enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+@@ -106,6 +106,10 @@
+     Event event_{EventType::Character,0}; uint32_t started_=0, delayAt_=0, steps_=0;
+     uint32_t stepLimit_=MaxSteps, elapsedLimit_=MaxElapsedMs, ticks_=0, programRevision_=0;
+     bool ownsProgram_=false, inTick_=false, randomizing_=false; uint8_t randomAttempts_=0, randomBase_='a';
++    uint16_t randomMin_=0, randomMax_=9, jitterMax_=20; bool jitterEnabled_=false;
++    bool sampling_=false, drawUsed_=false, jitterPrepared_=false;
++    uint16_t sampleMin_=0, jitterDelay_=0; uint32_t sampleWidth_=0, jitterAt_=0;
++    int sample(uint16_t minimum,uint16_t maximum,uint16_t& value);
+     State state_=State::Idle; Error error_{}; bool hasReturn_=false; uint16_t lastReturn_=0;
+     void fail(ErrorCode code,uint16_t column=1);
+     void releaseProgram();
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-RANDOM-UPPER-20261025-v1";
++constexpr const char* BuildId="ROUTEB-RANDOMIZATION-JITTER-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+    "sha256": "57363850e42c949fe5d51d2776425771bf997018fc8a3cd910fed9403d2dd147",
+    "bytes": 18149,
+    "retrieved_utc": "2026-10-25T07:55:44.196336+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/jitter.md",
+    "sha256": "2b533c1b8b1e4e0db47e342c1b5e42e4af490935c58d03ae290fb2c8d83544e8",
+    "bytes": 1744,
+    "retrieved_utc": "2026-10-25T07:55:44.196390+00:00"
+  }
+]
