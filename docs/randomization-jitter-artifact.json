@@ -1,0 +1,50 @@
+{
+  "file": "evilduck-routeb-randomization-jitter-macos-v1.zip",
+  "bytes": 2306499,
+  "sha256": "a25e703dbd8198fa9dfa29f3f04a278ae0b704ae220bd377b8fad0036ac964d1",
+  "files": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "OWNER-CHECK.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "compatibility.md",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "owner-evidence.md",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "source-manifest.json",
+    "test-results.json"
+  ],
+  "source_commit": "913fc11d50ed8110355c4e6fe7b1ec833798fea7",
+  "application_bytes": 1411088,
+  "application_sha256": "2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496",
+  "rollback_bytes": 1410016,
+  "rollback_sha256": "2cdb3e182dbbc3f2f2be21154cc49516e74337ed5c0c52a75aa772d1ef8eb098",
+  "installation_authorized": false,
+  "download_verification": "PENDING_PUBLICATION",
+  "final_package_inventory": {
+    "status": "PASS",
+    "members": 24,
+    "support_files": 20,
+    "zip_crc": "PASS",
+    "python38_grammar": "PASS",
+    "shell_syntax": "PASS"
+  },
+  "review_observations": [
+    "Ad hoc count check expected25members and stopped; manifest review establishes20support plus4fixed members=24. Corrected check passed; ZIP unchanged.",
+    "Unbound source preflight deliberately refuses RELEASE_NOT_BOUND; packaged bound preflight passes."
+  ]
+}
