@@ -18,7 +18,7 @@ The fresh composed native run passed **285 cases, 10,853 assertions, zero final 
 
 Earlier development observations remain recorded: the first runner stopped on an escaped-string setup assertion before tests; the next run passed all 34 uppercase cases but D12 expected the old lowercase build-ID prefix (284 PASS / 1 harness-expectation FAIL). The final run corrected only generated candidate-ID substitutions and passed all cases. No production behavior was changed to make these checks pass. Historical test drivers/mock inputs are hash-pinned before generated adaptation; all 1,961 baseline files and all 235 Stage26 frozen files remain unchanged.
 
-Package and mock installer checks are recorded separately after the ZIP is bound. Python 3.8 grammar is checked; native execution here uses Python 3.12.14/Bash 5.2.37/Linux, not High Sierra. Prior capability refusals and historical HTTP-auth expectations retain their separate dispositions.
+The bound package passed **41 package checks and 38 mock installer checks**, zero failures. These exercise actual packaged images/preflight/installer with synthetic metadata and injected tool responses, never a serial device. Receipts: [package](random-uppercase-package-tests.json), [mock installer](random-uppercase-installer-tests.json). Python 3.8 grammar is checked; native execution here uses Python 3.12.14/Bash 5.2.37/Linux, not High Sierra. Prior capability refusals and historical HTTP-auth expectations retain their separate dispositions.
 
 ## Clean build and resource comparison
 
@@ -37,7 +37,7 @@ Full evidence: [linked build receipt](random-uppercase-build.json), [compact res
 
 ## Review-only delivery
 
-Package one Mac application-only ZIP with exact rollback to the accepted lowercase application, SHA-256 `0a4faafeba059c9578cd938e260eedcf03be2c34b53731e6bbfc5178799fd774`, 1,409,952 bytes. Preserve High Sierra 10.13.6, Bash 3.2, Python 3.8, esptool 4.12, installed-layout/security checks and explicit owner confirmation. No LED helper is needed. Final publication and independently downloaded-byte verification remain PENDING until executed and recorded.
+Package one Mac application-only ZIP with exact rollback to the accepted lowercase application, SHA-256 `0a4faafeba059c9578cd938e260eedcf03be2c34b53731e6bbfc5178799fd774`, 1,409,952 bytes. Preserve High Sierra 10.13.6, Bash 3.2, Python 3.8, esptool 4.12, installed-layout/security checks and explicit owner confirmation. No LED helper is needed. Source commit: `b3906f1b4131c56719ff1b8a132dea7dad41f7c7`. Package: `evilduck-routeb-random-uppercase-macos-v1.zip`, **2,228,270 bytes**, SHA-256 `f3aa611dea7ba10cc133a3e7b58d22e3747f40bc88c410cd955f6bfd8253fbae`. [Artifact inventory](random-uppercase-artifact.json). The package's bundled report reflects pre-publication state; publication/download verification is recorded separately in the repository's final publication receipt. This avoids a circular archive hash.
 
 The short TextEdit sheet covers ten uppercase random letters, mixed-case controls, STOP/Shift recovery and malformed rejection. Repeated random letters are valid. Canadian/US lowercase observations do not establish universal layout support or uppercase physical acceptance. New uppercase functionality remains physically unverified.
 
