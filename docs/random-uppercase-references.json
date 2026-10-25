@@ -1,0 +1,11 @@
+{
+  "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+  "retrieved_utc": "2026-10-25T04:44:09.621040+00:00",
+  "bytes": 18149,
+  "sha256": "57363850e42c949fe5d51d2776425771bf997018fc8a3cd910fed9403d2dd147",
+  "supported_command": "RANDOM_UPPERCASE_LETTER",
+  "arguments": "none",
+  "character_set": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "limits": "Host layout/Caps may change visible characters; no numeric scancode contract inferred",
+  "retrieval_note": "urllib HTTP403; curl public retrieval succeeded"
+}

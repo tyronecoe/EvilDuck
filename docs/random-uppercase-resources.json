@@ -1,0 +1,64 @@
+{
+  "profile": "ROUTEB-RANDOM-UPPER-20261025-v1",
+  "baseline_application_sha256": "0a4faafeba059c9578cd938e260eedcf03be2c34b53731e6bbfc5178799fd774",
+  "report": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1410016,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6192160,
+    "free_percent_per_slot": 81.45246834590517,
+    "application_sha256": "2cdb3e182dbbc3f2f2be21154cc49516e74337ed5c0c52a75aa772d1ef8eb098",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1409875,
+    "static_ram_bytes": 113856,
+    "compiler_ram_maximum_bytes": 327680,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "verified_cpp_extra_flags": "-DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3",
+    "merged_image_for_migration": false
+  },
+  "elf_sha256": "b71ba43f0639c60042f27c20b4d795e63ae5e9a7fe4eb6e1ebd7c17435a8c352",
+  "partition_sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+  "selected_frames": [
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/core.cpp:427:7:bool ds_preview::Compiler::line()",
+      "bytes": 224,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/core.cpp:554:6:void ds_preview::CompileSession::step()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/core.cpp:627:6:void ds_preview::Runtime::tick(uint32_t)",
+      "bytes": 128,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/adapter.cpp:87:6:void native_b::Adapter::step(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/EvilDuckS3.ino:45:6:void setup()",
+      "bytes": 80,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/EvilDuckS3.ino:128:6:void loop()",
+      "bytes": 32,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/random-uppercase/build-v1/candidate/EvilDuckS3/coordinator.cpp:99:6:void route_u::tick(uint32_t)",
+      "bytes": 384,
+      "kind": "static"
+    }
+  ],
+  "hardware_measured": false,
+  "sdk_archives_identical": 177
+}

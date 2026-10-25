@@ -1,0 +1,36 @@
+{
+  "format": "evilduck-routeb-random-uppercase-v1",
+  "baseline": "485d1a31c7d1ef868aef99c92c15ebd9b75994b5",
+  "parent_prepare_sha256": "f017985547af7922666be4d505981560b449b14eb583c433b182204475ad14c0",
+  "patch_sha256": "862e939f52a3097a9a0de8da005df9c385b190ddff53bd64387af57be225ab35",
+  "build_id": "ROUTEB-RANDOM-UPPER-20261025-v1",
+  "required_flag": "EVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1",
+  "before": [
+    {
+      "file": "core.cpp",
+      "sha256": "d28fca4debaa289d68a8476b6e60133febf839c301c285c80449491f2cc30df5"
+    },
+    {
+      "file": "core.h",
+      "sha256": "cafcfa8a45b9711e62efbd216ce1c8c6fd4265d5b3bf523a41a168bedfc1a6c9"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "bd210567692a110baa13572ac68879757670d65a1e7e1a6f43bb603892dc122d"
+    }
+  ],
+  "after": [
+    {
+      "file": "core.cpp",
+      "sha256": "7b1aa07492ae442eb7144daef2658f843b38a88408f0a44671393f4185873404"
+    },
+    {
+      "file": "core.h",
+      "sha256": "c73699a340a6c35c87f618540c121b79795ed6892a1037fec5888bc49b47e369"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "5b654eaef8bddd02192301ffce40e5abbf3e9001171ca319550f895ae1b3be63"
+    }
+  ]
+}
