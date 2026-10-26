@@ -1,0 +1,238 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_TEXT_KEYBOARD) || EVILDUCK_ROUTE_B_TEXT_KEYBOARD != 1
++#error "Explicit Route B text-keyboard candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_RANDOMIZATION_JITTER) || EVILDUCK_ROUTE_B_RANDOMIZATION_JITTER != 1
+ #error "Explicit Route B randomization-jitter candidate profile required"
+ #endif
+@@ -44,9 +47,18 @@
+  if(p[0]>='1'&&p[0]<='9')return static_cast<uint8_t>(0x1e + p[0]-'1');
+  return p[0]=='0'?0x27:0;
+ }
++// Only documented embedded-language aliases; these are text, never interpreters.
++uint8_t textKind(const char* text){
++ if(whole(text,"STRING"))return 1;if(whole(text,"STRINGLN"))return 2;
++ static const char* const languages[]={"POWERSHELL","BATCH","BASH","JAVASCRIPT","PYTHON","RUBY","HTML"};
++ for(const char* language:languages){
++  if(!strncmp(text,"STRING_",7)&&!white(text[7])&&whole(text+7,language))return 1;
++  if(!strncmp(text,"STRINGLN_",9)&&!white(text[9])&&whole(text+9,language))return 2;
++ }return 0;
++}
+ bool reserved(const char* p){
+- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+- if(key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
++ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","REPEAT","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
++ if(textKind(p)||key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ const char* message(ErrorCode c){
+@@ -190,6 +202,7 @@
+  struct Constant{char name[24]={},value[64]={};};Constant constants_[MaxConstants]{};size_t constantsCount_=0;
+  struct Block{Op kind;uint16_t start,lastFalse;bool otherwise=false;};Block blocks_[MaxNesting]{};size_t depth_=0;
+  Program& p_;Reader reader_;size_t received_=0,seen_=0;uint16_t line_=1;
++ Instruction repeated_{};uint16_t repeatRemaining_=0;
+  char raw_[MaxLine+1]={},chunk_[ReadChunk]={};size_t rawUsed_=0,chunkUsed_=0,chunkPos_=0;
+  unsigned pass_=0;bool cr_=false,eof_=false;uint8_t bom_=0;
+  uint64_t hash_=1469598103934665603ull,firstHash_=0;
+@@ -244,7 +257,7 @@
+   const char* close=textMode_==1?"END_STRING":"END_STRINGLN";
+   if(whole(raw,close)){if(pass)p_.code_[textInstruction_].length=p_.used_-p_.code_[textInstruction_].offset;textMode_=0;return true;}
+   char* trimmed=left(raw);
+-  if(command(trimmed,"END_STRING")||command(trimmed,"END_STRINGLN")||whole(raw,"STRING")||whole(raw,"STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(trimmed-raw+1));
++  if(command(trimmed,"END_STRING")||command(trimmed,"END_STRINGLN")||textKind(trimmed))return fail(ErrorCode::Structure,static_cast<uint16_t>(trimmed-raw+1));
+   if(!pass)return true;
+   const char* content=textMode_==1?trimmed:(raw[0]=='\t'?raw+1:raw);
+   char expanded[MaxLine+1]={};if(!expand(content,expanded))return false;
+@@ -255,7 +268,7 @@
+   p_.used_+=static_cast<uint16_t>(required);return true;
+  }
+  bool openText(const char* text,unsigned pass){
+-  textMode_=exact(text,"STRING")?1:2;textOpening_=line_;
++  textMode_=textKind(text);textOpening_=line_;
+   if(pass){if(p_.count_==MaxCode)return fail(ErrorCode::CodeLimit);textInstruction_=p_.count_++;
+    p_.code_[textInstruction_]={line_,p_.used_,0,0,0,textMode_==1?Op::TextBlock:Op::TextLnBlock,0};}
+   return true;
+@@ -272,6 +285,19 @@
+   if(command(text,"DEFINE"))return true;
+   if(exact(text,"END_REM"))return fail(ErrorCode::Structure);
+   char expanded[MaxLine+1]={};char name[24]={};
++  if(command(text,"REPEAT")){
++   char* count=left(argument(text));uint16_t n=0;if(!digit(*count))return fail(ErrorCode::Syntax);
++   while(digit(*count)){unsigned next=unsigned(n)*10+unsigned(*count++-'0');if(next>MaxCode)return fail(ErrorCode::CodeLimit);n=static_cast<uint16_t>(next);}
++   if(n<2||!white(*count))return fail(ErrorCode::Syntax);char* body=left(count);if(!*body)return fail(ErrorCode::Syntax);
++   char* end=body;while(*end&&!white(*end)&&*end!='-')++end;char saved=*end;*end=0;bool shortcut=ds_shortcut::modifier(body)!=0;*end=saved;
++   bool allowed=shortcut||key(body)||command(body,"STRING")||command(body,"STRINGLN")||command(body,"DELAY")||command(body,"INJECT_MOD");
++   static const char* const randoms[]={"RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
++   for(const char* r:randoms)allowed=allowed||command(body,r);
++   if(!allowed)return fail(ErrorCode::Unsupported);
++   uint16_t before=p_.count_;if(!statement(body))return false;
++   if(p_.count_!=before+1)return fail(ErrorCode::Structure);
++   repeated_=p_.code_[before];repeatRemaining_=n-1;return true;
++  }
+   if(command(text,"VAR")||text[0]=='$'){
+    bool declare=command(text,"VAR");char* start=declare?left(argument(text)):text;char* end=start;while(*end&&!white(*end)&&*end!='=')++end;
+    if(*end=='='){*end++=0;}else{if(!*end)return fail(ErrorCode::Syntax);*end++=0;end=left(end);if(*end++!='=')return fail(ErrorCode::Syntax);}
+@@ -320,6 +346,7 @@
+    if(!depth_||blocks_[0].kind!=Op::Function)return fail(ErrorCode::Structure);
+    char* arg=left(argument(text));if(*arg&&(!expand(arg,expanded)||!expr(expanded)))return false;return emit(Op::Return,expanded);
+   }
++  if(exact(text,"RESET"))return emit(Op::Reset);
+   if(exact(text,"STOP_PAYLOAD"))return emit(Op::Stop);
+   {static const char* const waits[]={"WAIT_FOR_NUM_ON","WAIT_FOR_NUM_OFF","WAIT_FOR_NUM_CHANGE","WAIT_FOR_CAPS_ON","WAIT_FOR_CAPS_OFF","WAIT_FOR_CAPS_CHANGE","WAIT_FOR_SCROLL_ON","WAIT_FOR_SCROLL_OFF","WAIT_FOR_SCROLL_CHANGE"};
+    for(uint16_t i=0;i<9;++i)if(exact(text,waits[i]))return emit(Op::LockWait,"",i);
+@@ -442,7 +469,7 @@
+    if(!includedLine())return true;
+    if(textMode_)return textLine(raw_,pass_);
+    char* text=left(raw_);right(text);
+-   if(exact(text,"STRING")||exact(text,"STRINGLN"))return openText(text,pass_);
++   if(textKind(text))return openText(text,pass_);
+    if(command(text,"END_STRING")||command(text,"END_STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
+    return statement(text);
+   }
+@@ -452,7 +479,7 @@
+   if(command(text,"END_REM"))return fail(ErrorCode::Structure);
+   bool consumed=false;if(!preprocessing(text,consumed))return false;if(consumed)return true;
+   if(extension_)extensionContent_=true;
+-  if(exact(text,"STRING")||exact(text,"STRINGLN")){
++  if(textKind(text)){
+    textSelected_=selected_;if(selected_)includeLine();return openText(text,0);
+   }
+   if(command(text,"END_STRING")||command(text,"END_STRINGLN"))return fail(ErrorCode::Structure,static_cast<uint16_t>(text-raw_+1));
+@@ -481,6 +508,8 @@
+  void abort(ErrorCode code){fail(code,static_cast<uint16_t>(rawUsed_+1));}
+  void detach(){reader_=Reader{};}
+  bool step(CompileWork& cost){
++  // One shared-operand IR copy per cooperative step; no source reparse/unbounded loop.
++  if(repeatRemaining_){++cost.nodes;if(p_.count_==MaxCode){line_=repeated_.line;return fail(ErrorCode::CodeLimit);}p_.code_[p_.count_++]=repeated_;--repeatRemaining_;return true;}
+   switch(phase_){
+   case CompilePhase::SeekFirst:case CompilePhase::Rewind:{
+    ++cost.callbacks;if(!reader_.seek(reader_.context,0))return fail(ErrorCode::SeekError);
+@@ -717,6 +746,7 @@
+   switch(ins.symbol){case 0:randomMin_=value;break;case 1:randomMax_=value;break;
+    case 2:if(value>1){fail(ErrorCode::SettingValue);return;}jitterEnabled_=value!=0;break;
+    case 3:jitterMax_=value;break;default:fail(ErrorCode::Structure);return;}++pc_;break;
++ case Op::Reset:event_={EventType::Reset,0};pending_=true;deliver(now);break;
+  case Op::Set:if(!ins.target&&!initialized_[ins.symbol]){fail(ErrorCode::Uninitialized);return;}values_[ins.symbol]=value;initialized_[ins.symbol]=true;++pc_;break;
+  case Op::Text:case Op::TextLn:typing_=true;enter_=ins.op==Op::TextLn;textPos_=0;break;
+  case Op::TextBlock:case Op::TextLnBlock:
+--- core.h
++++ core.h
+@@ -15,7 +15,7 @@
+  ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable, RandomRange, SettingValue };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet };
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+ enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+@@ -91,7 +91,7 @@
+     CompileWork work()const{return work_;}
+     static size_t compilerBytes();
+ };
+-enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release, LockWait };
++enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release, LockWait, Reset };
+ struct Event { EventType type; uint16_t value; uint8_t modifiers=0; }; // ASCII byte, HID page07 usage, or milliseconds.
+ enum class Accept : uint8_t { Accepted, Retry, Failed };
+ using Sink = Accept(*)(void*, const Event&);
+--- adapter.cpp
++++ adapter.cpp
+@@ -78,7 +78,8 @@
+   pending_=false;++acks_;return Accept::Accepted;
+  }
+  route_b::Admission a=route_b::Admission::Rejected;
+- if(e.type==EventType::Character)a=route_b::character(session_,e.value,id_);
++ if(e.type==EventType::Reset)a=route_b::reset(session_,id_);
++ else if(e.type==EventType::Character)a=route_b::character(session_,e.value,id_);
+  else if(e.type==EventType::KeyTap)a=e.value?route_b::key(session_,e.value,id_,e.modifiers):route_b::modifier(session_,e.modifiers,id_);
+  else if(e.type==EventType::Hold||e.type==EventType::Release)a=route_b::ownership(session_,e.value,e.type==EventType::Hold,id_);
+  if(a!=route_b::Admission::Admitted){fail(Fault::Admission);return Accept::Failed;}
+--- seam.inc
++++ seam.inc
+@@ -5,7 +5,7 @@
+ namespace {
+ struct RouteOwner {
+  bool active=false,internal=false,cancelled=false;
+- uint64_t session=0,nextSession=0,nextOperation=0,backendOperation=0;
++ uint64_t session=0,nextSession=0,nextOperation=0,backendOperation=0,resetTarget=0;
+  route_b::Result result{};
+  uint32_t priorDefaultDelay=0;uint16_t low=0,high=0,jitter=0;bool jitterOn=false;
+ } route;
+@@ -13,6 +13,13 @@
+  if(route.result.kind==route_b::ResultKind::Pending){hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::OperationEnd,uint16_t(k),route.result.id.operation);route.result.kind=k;}
+ }
+ bool routeExternal(){return route.active&&!route.internal;}
++bool routeResetReady(){
++ const auto s=backend_b::status();
++ return s.active&&!s.quarantined&&s.session==route.session&&s.operation==route.backendOperation&&
++  route.resetTarget&&s.clearRequest==route.resetTarget&&s.clearSubmitted==route.resetTarget&&
++  s.last.session==route.session&&s.last.operation==route.backendOperation&&s.last.kind==backend_b::Kind::Submitted&&s.last.clear&&
++  !hid_backend::clearing()&&!hid_backend::hasPersistent();
++}
+ bool routeOwnership(uint16_t usage,bool acquire){
+  return backend_b::ownership(route.session,route.backendOperation,usage,acquire);
+ }
+@@ -68,6 +75,19 @@
+  session.ownedKey=modifier?0:uint8_t(usage);session.phase=Phase::Ownership;
+  return Admission::Admitted;
+ }
++Admission reset(uint64_t owner,Id &id){
++ execution::Guard guard;
++ if(!route.active||owner!=route.session||route.cancelled||route.result.kind!=ResultKind::None||session.phase!=Phase::Idle||hid_backend::clearing()||!environment()||route.nextOperation==UINT64_MAX)return Admission::Rejected;
++ const auto before=backend_b::status();if(before.clearRequest==UINT64_MAX||before.quarantined)return Admission::Rejected;
++ if(!backend_b::bind(owner,route.nextOperation+1))return Admission::Rejected;
++ backend_b::Scope permissionScope(owner,route.nextOperation+1);if(!permissionScope)return Admission::Rejected;
++ id={owner,++route.nextOperation};route.backendOperation=id.operation;route.result={id,ResultKind::Pending};route.resetTarget=before.clearRequest+1;
++ hid_trace::note(hid_trace::Source::Owner,hid_trace::Kind::Pending,16,id.operation);
++ session.error="";session.remember=false;session.lockCommand=-1;
++ // A clear operation keeps the lease open; cancellation/cleanup would close it.
++ hid_backend::cancelReport();session.ownsKeys=false;session.phase=Phase::Reset;
++ return Admission::Admitted;
++}
+ Result result(uint64_t owner){execution::Guard guard;return route.active&&owner==route.session?route.result:Result{};}
+ bool consume(Result r){
+  execution::Guard guard;
+@@ -88,7 +108,7 @@
+  session.defaultDelay=route.priorDefaultDelay;route.active=false;route.result={};return true;
+ }
+ const char* phase(){
+- switch(session.phase){case Phase::Idle:return "Idle";case Phase::Text:return "Text";case Phase::Press:return "Press";case Phase::Release:return "Release";case Phase::Ownership:return "Ownership";case Phase::Wait:return "Wait";case Phase::Finish:return "Finish";default:return "Other";}
++ switch(session.phase){case Phase::Idle:return "Idle";case Phase::Text:return "Text";case Phase::Press:return "Press";case Phase::Release:return "Release";case Phase::Reset:return "Reset";case Phase::Ownership:return "Ownership";case Phase::Wait:return "Wait";case Phase::Finish:return "Finish";default:return "Other";}
+ }
+ void exhaustForTest(bool s,bool op){if(!route.active){if(s)route.nextSession=UINT64_MAX;if(op)route.nextOperation=UINT64_MAX;}}
+ }
+--- scheduler_seam.h
++++ scheduler_seam.h
+@@ -12,6 +12,7 @@
+ Admission key(uint64_t session,uint16_t usage,Id &id,uint8_t modifiers=0);
+ Admission modifier(uint64_t session,uint8_t mask,Id &id);
+ Admission ownership(uint64_t session,uint16_t usage,bool acquire,Id &id);
++Admission reset(uint64_t session,Id &id);
+ Result result(uint64_t session);
+ bool consume(Result);
+ bool cancel(uint64_t session);
+--- com.cpp
++++ com.cpp
+@@ -641,6 +641,9 @@
+       return;
+     }
+     case Phase::Reset:
++#ifdef EVILDUCK_PORTABLE_ROUTE_B
++      if(routeExternal()){if(routeResetReady())session.phase=Phase::Finish;return;}
++#endif
+       if (!hid_backend::clearing()) session.phase = Phase::Finish;
+       return;
+     case Phase::Wait: {
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-RANDOMIZATION-JITTER-v1";
++constexpr const char* BuildId="ROUTEB-TEXT-KEYBOARD-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

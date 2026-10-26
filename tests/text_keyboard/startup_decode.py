@@ -1,0 +1,11 @@
+"""Use every existing startup and NVS decoder predicate unchanged."""
+import hashlib
+import importlib.util
+import pathlib
+PARENT_SHA = '7f20325f8ce1ef17097a90f2178a84864bf7294b2b11d8be7201f506d2457fca'
+def load_verifier(root):
+    p=pathlib.Path(root)/'tests/lock_feedback/startup_decode.py'
+    assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
+    s=importlib.util.spec_from_file_location('source_compat_startup_parent',p)
+    m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+    return m.load_verifier(root)

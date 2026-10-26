@@ -1,0 +1,68 @@
+{
+  "format": "evilduck-routeb-text-keyboard-v1",
+  "baseline": "d30ec43aab0fe535afb3cbc79f80bcd2837c3129",
+  "parent_prepare_sha256": "f38a2d9fa7d17122aa8c6803cd964fab1ad94525e54664c31166b4f5b9ea690f",
+  "patch_sha256": "138b2240e20b3e352b7f9b49dd6c75eebb159828ebc34f0e4262ebe0393a4b2e",
+  "build_id": "ROUTEB-TEXT-KEYBOARD-v1",
+  "required_flag": "EVILDUCK_ROUTE_B_TEXT_KEYBOARD=1",
+  "before": [
+    {
+      "file": "core.cpp",
+      "sha256": "b0e2ec2b45efcf492f5e6fb2b653241670af85612507ee021c6e190c5a0c5c15"
+    },
+    {
+      "file": "core.h",
+      "sha256": "2b69cee90ad64ca90fdf83673b2531989b6bbe984b9c2ef98658591a64fdc773"
+    },
+    {
+      "file": "adapter.cpp",
+      "sha256": "2eec4d86228e3cfc191b6e4bf882faee57a6afd2cf9caf6546ec3f6e7d96893f"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "2575f4f610c669a566bdf0a83a4c1a232588eac2a8de24ebe508569c6bef5603"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "329b5c5531560f763b2a6b79de16bfe8a6bbfbe7da6cec4c8cec0690504b348b"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "5b15e630c797696d186afb7d110e8c42b0ddbecb2554abe3d4eab8bfe5deb876"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "50c056e36ebfcdf2e8ea96253179834e76a7c54ab03750bb031601e707b6ff51"
+    }
+  ],
+  "after": [
+    {
+      "file": "core.cpp",
+      "sha256": "337aa1bc97aa799d8f41df4aa8840ad5194bb7636f33c3148a68a535b860f6d6"
+    },
+    {
+      "file": "core.h",
+      "sha256": "7fbfb649cb7c4a14af46dbe1398be39d5571de3f14bbf4d2e45849c5ed41523a"
+    },
+    {
+      "file": "adapter.cpp",
+      "sha256": "9432283faa33d5d938793267785f9857db7a00a5fa4fd7741aa7c5892d737070"
+    },
+    {
+      "file": "seam.inc",
+      "sha256": "229a1474ebc6a13ef48d6561e1ad32ab31c453da09167065f2180e527dd7602a"
+    },
+    {
+      "file": "scheduler_seam.h",
+      "sha256": "fa25540c9e43862052c705833ab0a47988185d873ced313aa299f38075f9ecfc"
+    },
+    {
+      "file": "com.cpp",
+      "sha256": "1889918ee99ccde65036ba6c1855ee743b852999d6226a4b3004a3492f0eee40"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "3dcc79bc6fe6bc8585ef18ec03daae9c97646eb701fe53be526303fe26e66ab5"
+    }
+  ]
+}

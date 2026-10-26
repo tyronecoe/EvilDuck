@@ -1,0 +1,23 @@
+[
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+    "bytes": 21524,
+    "sha256": "e8fab69b1bf25cc271e946618edd46094fa6ac6551f2aade891d2c3bbea9f909",
+    "retrieved_utc": "2026-10-26T00:26:05.700719+00:00"
+  },
+  {
+    "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/payload-control.md",
+    "bytes": 1938,
+    "sha256": "8fde4569850a7fecb0a42c9aa95258977ebb8c7322622d9b84a379e0570bec7c",
+    "retrieved_utc": "2026-10-26T00:26:05.701014+00:00"
+  },
+  {
+    "url": "https://payloadstudio.hak5.org/community/",
+    "capture_sha256": "18efc91b48d8ada4e7aaaaebe0218e9bbc360360eb81ac182a63c4db9c10eee7",
+    "encoder": "5b4c1b5-271b6b-1690371896-STABLE",
+    "function": "handleRepeat",
+    "first_line": 7705,
+    "body_sha256": "940416ef20ff6fed50ef4cc409a0e9995ee31334bbc36bbf6257ebff12666a6d",
+    "inspection": "Static only, no compiler execution; no INJECT_VAR investigation repeated"
+  }
+]
