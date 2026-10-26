@@ -1,0 +1,188 @@
+{
+  "baseline": "d30ec43aab0fe535afb3cbc79f80bcd2837c3129",
+  "only_additions": true,
+  "files": [
+    {
+      "file": "docs/text-keyboard-acceptance.md",
+      "bytes": 2257,
+      "sha256": "96816fd67c32dcf97a88d0aea3f9114525432366f5b949249207cc1dea1dba7c",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-artifact.json",
+      "bytes": 1296,
+      "sha256": "a18dca388edae202ab3186f6b3037aad4c818fa230cffe4d58a395cb6412ee5f",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-build.json",
+      "bytes": 1830658,
+      "sha256": "329d73e1d69c5629829a4c0d2e7c864bbd4823d3f2d31c80e55f80eacac170d3",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-compatibility.md",
+      "bytes": 2771,
+      "sha256": "0096b6e9c09dcbc6bd4e3cbca73d0a5e31e8fad4ec4e744e192e89a2ae6b8b8d",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-design.md",
+      "bytes": 6083,
+      "sha256": "6bd492d3cfcf63cfd0310173d9a06752d90de468764d21547bd9df0f164fecbb",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-install.md",
+      "bytes": 2282,
+      "sha256": "fa58bb7aa097985a6bcac6f032b6482e1c8de1ee9b2eaa932c64c46e08625ca0",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-installer-tests.json",
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-owner-evidence.md",
+      "bytes": 1077,
+      "sha256": "6d1aa63c5e1a7b6577733063beb70180b6861bf6cc2987ed89450d8cb10074c1",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-package-tests.json",
+      "bytes": 3879,
+      "sha256": "5fd9ece6fca56576dcdbefcadcf1793c9f9d440a467895da269150adbdccd1e5",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-preservation.json",
+      "bytes": 330,
+      "sha256": "4ad3f4768e1ea52c96ac3f28896535b48fd0dd075c829695adb736e94fe13b23",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-publication.json",
+      "bytes": 15003,
+      "sha256": "db0c4dd783abfd71b1ff78db1575e25bd25c7be80f3715fb2b19c56973d50244",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-references.json",
+      "bytes": 992,
+      "sha256": "1ba9c11075f6ebb2c36f060583a41b26c1aef8631e9d692b1646e8bcf4cca412",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-report.md",
+      "bytes": 10072,
+      "sha256": "28145b3019906440f7e2f1caae365371e9e024c7ba8536976f1a5b09ac6796e0",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-reproduction.md",
+      "bytes": 5391,
+      "sha256": "d0a5c5acaa3e87b1a66ebe8b32e989d1f26e61057271c6840e13638408ebeb63",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-resources.json",
+      "bytes": 8224,
+      "sha256": "36b576b185faeabc1a557044d63db5d914d878240818974caa3e8416c660269a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-rollback.md",
+      "bytes": 1402,
+      "sha256": "6228dc10c3a59778e77d8cca86f807ec85888c4761cd22552ffebfcf1e6b4e15",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/text-keyboard-test-results.json",
+      "bytes": 74515,
+      "sha256": "631cdc0266e88e5665ce78f4cd1d7a0cee24b820ea33b9fb541d77c29137620a",
+      "mode": "100644"
+    },
+    {
+      "file": "downloads/evilduck-routeb-text-keyboard-macos-v1.zip",
+      "bytes": 2336378,
+      "sha256": "9a60e91e142fea74b746bef352d16139cccaf9fd45ca5e5a10549c91b846dc9e",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/application.patch",
+      "bytes": 15828,
+      "sha256": "138b2240e20b3e352b7f9b49dd6c75eebb159828ebc34f0e4262ebe0393a4b2e",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/build_candidate.py",
+      "bytes": 1836,
+      "sha256": "0f78824473b4a2cd3d0d9cc4fc18e443f2a65c9af6912f63905ffb038090d21a",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/package.py",
+      "bytes": 11910,
+      "sha256": "be755c6a8526dbf56dea5e3512c345bba6d46b423c1b5c87974154b3c18d0a72",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/preflight.py",
+      "bytes": 9414,
+      "sha256": "65afceff0e42457238c47584b5df36e0b76b2bdd58340977b3a3aff011918778",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/prepare_sources.py",
+      "bytes": 1431,
+      "sha256": "3da517a2a48af35f198a40afb276e7f07a426d66505146ab36220648b85c540e",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/run_tests.py",
+      "bytes": 7287,
+      "sha256": "69151e4341cfde41ef1967bb0040fda53483412ec76551b0f13ce1a3a5b5f0e2",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/source-manifest.json",
+      "bytes": 2153,
+      "sha256": "b98b98044e3f8ae1bc2ba1832cf11d61c5953d58455c6bf2eb0275f02cd6ae75",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/startup_decode.py",
+      "bytes": 535,
+      "sha256": "b3ce64a3afe26b8260a990d0018cca7e14cf4b1fd5eea489f23a5e907cac5a0f",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/test_bound_installer.py",
+      "bytes": 8047,
+      "sha256": "1324727401de132853a5ef06df098507feecc96e19c9771f743471c1863c414a",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/test_main.cpp",
+      "bytes": 15847,
+      "sha256": "6ccfad5a58fe6ab48062cbde684aef853fbaf0e4eb54c585203f504e7cc869a8",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/test_package.py",
+      "bytes": 11620,
+      "sha256": "188d52ac9cf504cd1223055cf7b5172169faf3daae828a285747e1be87f340ac",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/text_keyboard/verify_link.py",
+      "bytes": 10085,
+      "sha256": "dddc066dbf4e676e08e51775a0e6eef63b06251482a92fe2a3846ebb0a6dbd34",
+      "mode": "100644"
+    }
+  ],
+  "excluded_self": true,
+  "final_file_count_including_this_inventory": 31
+}
