@@ -1,0 +1,46 @@
+{
+  "file": "evilduck-routeb-text-keyboard-macos-v1.zip",
+  "bytes": 2336378,
+  "sha256": "9a60e91e142fea74b746bef352d16139cccaf9fd45ca5e5a10549c91b846dc9e",
+  "source_commit": "3780a4884bfd5eab9394b2fa5626298f62712349",
+  "profile": "ROUTEB-TEXT-KEYBOARD-v1",
+  "members": [
+    "APACHE-2.0.txt",
+    "INSTALL-MAC.md",
+    "OWNER-CHECK.md",
+    "README.md",
+    "ROLLBACK-MAC.md",
+    "application.bin",
+    "build-receipt.json",
+    "compatibility.md",
+    "dependency-pin.json",
+    "expected-partitions.bin",
+    "firmware-report.md",
+    "gen_esp32part.py",
+    "install-macos.sh",
+    "installer.py",
+    "manifest.json",
+    "owner-evidence.md",
+    "preflight.py",
+    "reproduction.md",
+    "rollback-application.bin",
+    "rollback-build-receipt.json",
+    "rollback-macos.sh",
+    "source-LICENSE.txt",
+    "source-manifest.json",
+    "test-results.json"
+  ],
+  "application": {
+    "bytes": 1412400,
+    "sha256": "53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167"
+  },
+  "rollback": {
+    "bytes": 1411088,
+    "sha256": "2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496"
+  },
+  "archive_crc_and_support_hashes_verified": true,
+  "installation_authorized": false,
+  "hardware": false,
+  "public_only": true,
+  "prepublication_report_snapshot": true
+}

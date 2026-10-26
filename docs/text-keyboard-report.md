@@ -18,7 +18,7 @@ The new cases cover all fourteen aliases and delimiters; literal command-looking
 
 RESET's barrier establishes a fresh owner-scoped neutral **submission** under the existing transport contract. It does not establish host receipt, global key release or a new USB retirement guarantee. The script cannot continue based on a stale clear counter, and ambiguously accepted transport calls remain quarantined rather than replayed.
 
-Package and mock-installer results are **PENDING separately bound package verification**. No package or publication success is inferred from native or target compilation. Native Linux verification does not establish High Sierra USB behavior or physical acceptance.
+The separately bound package passed **43 package checks and 38 mock-installer checks**, zero failures. [Package checks](text-keyboard-package-tests.json), [mock installer checks](text-keyboard-installer-tests.json). These exercise disposable public copies and synthetic chip/layout/security/tool responses; no serial endpoint is opened. No publication success is inferred from these checks. Native Linux verification does not establish High Sierra USB behavior or physical acceptance.
 
 ## Clean isolated build and resources
 
@@ -39,6 +39,12 @@ The 8-byte static RAM increase corresponds to fixed RESET owner bookkeeping; no 
 
 ## Delivery and readiness
 
-One Mac application-only review ZIP must bind exact rollback to the accepted **1,411,088-byte** application, SHA-256 `2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496`. Preserve High Sierra 10.13.6, Bash 3.2, Python 3.8 and esptool 4.12 interfaces and explicit owner confirmation. Final ZIP identity, package/mock-installer receipts, publication/download verification and exact changed-file inventory are separate forthcoming receipts. They remain **PENDING** in this pre-publication report snapshot until performed; the repository report may later record them without changing the frozen archive. No LED helper or second installation package is needed.
+One Mac application-only review ZIP must bind exact rollback to the accepted **1,411,088-byte** application, SHA-256 `2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496`. Preserve High Sierra 10.13.6, Bash 3.2, Python 3.8 and esptool 4.12 interfaces and explicit owner confirmation. Public ZIP: **2,336,378 bytes**, SHA-256 `9a60e91e142fea74b746bef352d16139cccaf9fd45ca5e5a10549c91b846dc9e`. [Artifact inventory](text-keyboard-artifact.json). All 24 members, CRC, support bindings and both application images are verified; deterministic re-archiving produces identical bytes. The bundled report is the source-commit pre-publication snapshot. Publication/download verification follows separately without regenerating the frozen archive. No LED helper or second installation package is needed.
 
 GO: software review and package preparation after required checks. NO-GO: installation, physical testing, flashing, OTA or automatic script execution without separate owner approval. No broad Caps diagnostic campaign or new INJECT_VAR investigation is required. Keep historical firmware/packages, working rollback, owner backups and previous remote refs untouched.
+
+## Source and review inventory
+
+Only new `tests/text_keyboard/*`, `docs/text-keyboard-*` and the new public ZIP are added. The composition patch changes seven generated application sources: compiler/runtime `core.cpp`/`core.h`, `adapter.cpp`, scheduler `seam.inc`/`scheduler_seam.h`/`com.cpp`, and `caps_trial.h` for build identity. Historical sources are unchanged. The complete 201-file candidate inventory and all before/after hashes are in the build receipt and source manifest. An independent read-only review rehashed all 201 source files and five build artifacts and found no release-blocking defect.
+
+One initial packaging invocation used a mistyped full source commit and was rejected by Git ancestry validation before creating an output. The corrected invocation binds actual source `3780a4884bfd5eab9394b2fa5626298f62712349`; this operator error is outside test counts and did not require a firmware change. No unexpected native/package/installer failures occurred.

@@ -27,4 +27,14 @@ The build preserves all 177 pinned SDK archive identities, startup/HID/NVS/owner
 
 ## Later package verification
 
-After successful source/native/build/link checks, inspect `python3 tests/text_keyboard/package.py --help`. Commit the reviewed source before binding the package source revision. Package/installer checks must use disposable public copies and synthetic tool responses only. Bind exact current randomization/jitter rollback. Publish only the new branch/archive, download the commit-pinned ZIP and compare size/hash, then verify prior remote refs unchanged. Package/publication results must be recorded separately after execution; this document does not claim they have happened. No LED helper is required.
+After successful source/native/build/link checks, inspect `python3 tests/text_keyboard/package.py --help`. Commit the reviewed source before binding the package source revision. Package/installer checks must use disposable public copies and synthetic tool responses only. Bind exact current randomization/jitter rollback. Publish only the new branch/archive, download the commit-pinned ZIP and compare size/hash, then verify prior remote refs unchanged. Package and mock-installer checks completed separately (43/38 PASS); publication verification is recorded only after downloading the published archive. No LED helper is required.
+
+Exact package/mock commands use the committed source and the public synthetic OTA initializer; they do not invoke an installer dispatcher:
+
+```bash
+python3 tests/text_keyboard/package.py --directory /workspace/outputs/evilduck-routeb-text-keyboard-macos-v1 --build-root /workspace/scratch/text-keyboard/build-v1 --linked-report docs/text-keyboard-build.json --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --archive /workspace/outputs/evilduck-routeb-text-keyboard-macos-v1.zip --source-commit 3780a4884bfd5eab9394b2fa5626298f62712349
+python3 tests/text_keyboard/test_package.py --directory /workspace/outputs/evilduck-routeb-text-keyboard-macos-v1 --archive /workspace/outputs/evilduck-routeb-text-keyboard-macos-v1.zip --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/text-keyboard/package-tests.json
+python3 tests/text_keyboard/test_bound_installer.py --directory /workspace/outputs/evilduck-routeb-text-keyboard-macos-v1 --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/text-keyboard/installer-tests.json
+```
+
+These paths are occupied; choose fresh output names when reproducing. To reproduce the exact ZIP, use the source-commit versions of the bundled documents/receipts (the repository report subsequently gains publication information).
