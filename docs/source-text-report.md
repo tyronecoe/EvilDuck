@@ -52,3 +52,9 @@ GO: review after required checks pass. New physical behavior remains unverified.
 ## Source and review inventory
 
 Only new `tests/source_text/*`, `docs/source-text-*` and the public ZIP are added. The pinned composition delta changes exactly three generated sources: `core.cpp`, `adapter.cpp`, `caps_trial.h` (build identity). No adapter header/state allocation, backend, scheduler, storage, HTTP handler or EDR1 source change occurs. An independent read-only review rehashed all 201 source files and five existing build artifacts, confirmed the three-file delta and found no blocker. All 2,092 historical files/modes and 235 frozen Stage26 files remain unchanged; source/artifact/preservation receipts retain exact identities.
+
+## Publication and final readiness
+
+The [commit-pinned Mac ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/89a4d45345bb722ed0cb19e20016ce4afa680af1/downloads/evilduck-routeb-source-text-portability-macos-v1.zip) was downloaded and matched **2,396,251 bytes**, SHA-256 `7e1d48b514317f1ab19a370021f5232f9af84a74568163817c514d7ad9dc003f`, repository bytes, ZIP CRC and both application identities. [Publication receipt](source-text-publication.json) records **76 previous remote refs unchanged**, only the isolated branch added. [New-file inventory](source-text-file-inventory.json) records all additions/modes/hashes; final branch tip and clean worktree are checked after the receipt commit.
+
+**GO:** review the candidate and short acceptance sheet. **Physical source/text acceptance remains unverified.** No hardware access, real HID output, flashing, OTA, automatic payload execution, formatting, settings reset or private-backup access occurred. The BOM trial needs actual byte-verified device save/readback and explicit Route B launch under separate owner authorization. INJECT_VAR remains blocked. Inline no-terminator aliases are the explicitly documented EvilDuck extension, not a new canonical grammar claim.

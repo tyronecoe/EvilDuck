@@ -1,0 +1,194 @@
+{
+  "baseline": "2bdf7e6cea7fb1a343d4ac0973a90578264ced07",
+  "only_additions": true,
+  "files": [
+    {
+      "file": "docs/source-text-acceptance.md",
+      "bytes": 6723,
+      "sha256": "2d49015792590fea394c95c9749320a06c2504a6f2dada37012816c8fe959b82",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-accepted-baseline.json",
+      "bytes": 2184,
+      "sha256": "d65cc7938d4f1c57b5e4627af58ce9822eb282ffb2e98b500f879d377ca60186",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-artifact.json",
+      "bytes": 1466,
+      "sha256": "3e7bd015772202a2b2a046df4d8e7893dcd99d5a3e6d2c1ad38dffa3c4de80fc",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-build.json",
+      "bytes": 1958452,
+      "sha256": "76669ae30e94d093e41cf056c628cc6d73ad773760c134820e15ed7d1dc48662",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-compatibility.md",
+      "bytes": 2795,
+      "sha256": "e861ef9029d28a2fb7063f6e714203a953972c208d8ed246a847e8dd47d3c027",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-design.md",
+      "bytes": 3831,
+      "sha256": "7723d5734d88bd59e487a4070870f2929449416329040e42c2dac040a9a0d52a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-install.md",
+      "bytes": 2260,
+      "sha256": "93e252c34459b8b532cea663f42c18b904c3c08ede24b2fb17fb65e06a2d12d4",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-installer-tests.json",
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-owner-evidence.md",
+      "bytes": 1329,
+      "sha256": "72284042030c0abe412fdf667fe4eb9e9ebad2ca5d047156facf0724f7a4a980",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-package-tests.json",
+      "bytes": 4053,
+      "sha256": "1a952e4b28cd0ca57be17c37ff37033218e97dcf168a8bb1154e860bea6d5b8a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-preservation.json",
+      "bytes": 319,
+      "sha256": "19b8415977a73224ac3bacda38a3b3ea9edf26ca8138adf35e2af378bfd985f9",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-publication.json",
+      "bytes": 15584,
+      "sha256": "1f2b02c8d7702bacb3e66d464bf93b1e8c91702fc046a3d4be1fd35bae084d7d",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-references.json",
+      "bytes": 1506,
+      "sha256": "43a5378d65df8f97914973a13eba74660cd81083a84302914862cdc8ae065176",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-report.md",
+      "bytes": 10411,
+      "sha256": "f803bc7256b8400463b39c5a2d6b3fdd60dee135fcb5ed69b995749b9dc06baf",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-reproduction.md",
+      "bytes": 5871,
+      "sha256": "db162dbb44d269fdbe9b92d33dd8efbbf811518c05cb076a620609435d9a2e64",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-resources.json",
+      "bytes": 8707,
+      "sha256": "162845ed69c10efc35077d97886a871ed009bb103939c9af1c78ad73c952ebf3",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-rollback.md",
+      "bytes": 1496,
+      "sha256": "d779f7fbd6c514a6f9b92c25c6c0c9466308b200f7de8b024a67a23fd85921a6",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-test-results.json",
+      "bytes": 86059,
+      "sha256": "53db7aa3c51b72b63ef65858f1f640cfd1c7be0c73cfec88eefd45502d77a7d4",
+      "mode": "100644"
+    },
+    {
+      "file": "downloads/evilduck-routeb-source-text-portability-macos-v1.zip",
+      "bytes": 2396251,
+      "sha256": "7e1d48b514317f1ab19a370021f5232f9af84a74568163817c514d7ad9dc003f",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/application.patch",
+      "bytes": 5505,
+      "sha256": "dad9786162fe5224bbf507c227d86248a38d8571202c23bd0096f7a414041ccf",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/build_candidate.py",
+      "bytes": 1930,
+      "sha256": "b788ce6f4de2a25f55fb4b5a7d1bd7932ddc725a32fd531ca8025e71fe02adc3",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/package.py",
+      "bytes": 12318,
+      "sha256": "9ddecaea12db5c05b3e0cd6f33ad19f152214bf4c2422b56678d25a323747f04",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/preflight.py",
+      "bytes": 9924,
+      "sha256": "0577bcd43192e70f11d4a3594100f0b4336857aa1b5364eaa104610abd5b2253",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/prepare_sources.py",
+      "bytes": 1410,
+      "sha256": "302ade6103d8eadbfb9c3cd5a513b1e1023c518a8240bb8c25729613b9a9b371",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/run_tests.py",
+      "bytes": 10301,
+      "sha256": "0f34aa3bed5c0bdba0a9dc5e9dd9c27bef8e438345daa7774307ff1505f1c3c5",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/source-manifest.json",
+      "bytes": 1173,
+      "sha256": "57e7c701cdde3a71b69e879bf263e0346d70e7d6d6ef061bf32e48ec3a1aa40f",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/startup_decode.py",
+      "bytes": 869,
+      "sha256": "7316ae8e5f039d53583b88ff8700a7c44b06751f96e985b399f2eff78e1a2a8c",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/test_bound_installer.py",
+      "bytes": 8393,
+      "sha256": "1ed83277621c07a17c21aa81729d735b8b1c1e3e2b3eb970150a100fb8985995",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/test_main.cpp",
+      "bytes": 12733,
+      "sha256": "621b29e3d47da5190d9bebe8ae4309f1b57ce1266116794ed981dc7ff6790006",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/test_package.py",
+      "bytes": 12978,
+      "sha256": "134f5ff302c19767afa13146b5c2b06ac9e60c59b6150f29b26e0723d3884ba4",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text/verify_link.py",
+      "bytes": 13374,
+      "sha256": "b613f6dde00bde15863ab14b549fb340d2893b094aa9807d386de322d70d670b",
+      "mode": "100644"
+    }
+  ],
+  "excluded_self": true,
+  "final_file_count_including_this_inventory": 32
+}
