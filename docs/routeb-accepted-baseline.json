@@ -1,0 +1,39 @@
+{
+  "format": "evilduck-owner-accepted-baseline-v1",
+  "build_id": "ROUTEB-TEXT-KEYBOARD-v1",
+  "release_commit": "b6d85e6da700774345c584f4f67fa5df4f0ea854",
+  "source_commit": "3780a4884bfd5eab9394b2fa5626298f62712349",
+  "application_bytes": 1412400,
+  "application_sha256": "53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167",
+  "public_archive": "downloads/evilduck-routeb-text-keyboard-macos-v1.zip",
+  "public_archive_bytes": 2336378,
+  "public_archive_sha256": "9a60e91e142fea74b746bef352d16139cccaf9fd45ca5e5a10549c91b846dc9e",
+  "accepted_application_member": "application.bin",
+  "future_rollback_application_sha256": "53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167",
+  "future_rollback_policy_enforced_in_builders": false,
+  "evidence_origin": "owner-reported physical observations; public application bytes independently hash-checked offline",
+  "host_os": "macOS High Sierra 10.13.6",
+  "owner_report_recorded_date": "2026-10-29",
+  "physical_trial_date": null,
+  "boot_id": null,
+  "session_id": null,
+  "receipt_id": null,
+  "trials": [
+    {"trial": 1, "name": "Text-block aliases", "result": "OWNER_REPORTED_PASS", "request_id": null},
+    {"trial": 2, "name": "Inline REPEAT", "result": "OWNER_REPORTED_PASS", "request_id": null},
+    {"trial": 3, "name": "RESET and continued typing", "result": "OWNER_REPORTED_PASS", "request_id": null},
+    {"trial": 4, "name": "STOP and Shift recovery", "result": "OWNER_REPORTED_PASS", "request_id": null},
+    {"trial": 5, "name": "Malformed text-block rejection", "result": "OWNER_REPORTED_PASS", "request_id": 5, "compile_line": 3, "diagnostic_code": 16, "textedit_blank": true, "unexpected_text_observed": false}
+  ],
+  "older_recovery_application": {
+    "build_id": "ROUTEB-RANDOMIZATION-JITTER-v1",
+    "application_bytes": 1411088,
+    "application_sha256": "2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496",
+    "role": "older recovery version; not the mandatory rollback for a future candidate"
+  },
+  "original_firmware_availability": "OWNER CONFIRMED: AVAILABLE EXTERNALLY",
+  "codex_physical_verification": false,
+  "new_firmware_implementation_authorized_by_this_record": false,
+  "installation_authorized_by_this_record": false,
+  "limitations": ["scoped five-trial acceptance only", "no exhaustive DuckyScript certification", "no general USB delivery or host-global key-release guarantee", "no universal layout or timing claim"]
+}

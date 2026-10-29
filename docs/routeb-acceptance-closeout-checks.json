@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "baseline": "b6d85e6da700774345c584f4f67fa5df4f0ea854",
+  "baseline_files_and_modes": 2053,
+  "baseline_inventory_sha256": "48eabcdd01f0ee8424f981e8097554ff97ad034d87cae114f79550338ebdae5d",
+  "composed_sources_rehashed": 201,
+  "existing_build_artifacts_rehashed": 5,
+  "public_archive_bytes": 2336378,
+  "public_archive_sha256": "9a60e91e142fea74b746bef352d16139cccaf9fd45ca5e5a10549c91b846dc9e",
+  "accepted_application_bytes": 1412400,
+  "accepted_application_sha256": "53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167",
+  "support_bindings_rehashed": 20,
+  "zip_crc": "PASS",
+  "stage26_freeze": "PASS 235 protected Stage26 files byte-identical",
+  "historical_receipts": {
+    "test-results": {
+      "counts": {
+        "PASS": 371,
+        "FAIL": 0
+      },
+      "executed_this_closeout": false
+    },
+    "package-tests": {
+      "counts": {
+        "PASS": 43,
+        "FAIL": 0
+      },
+      "executed_this_closeout": false
+    },
+    "installer-tests": {
+      "counts": {
+        "PASS": 38,
+        "FAIL": 0
+      },
+      "executed_this_closeout": false
+    }
+  },
+  "checks": "integrity and documentation scope; no new firmware behavior tested",
+  "allowed_changes_only": true,
+  "observed_new_paths": [
+    "docs/routeb-acceptance-closeout-report.md",
+    "docs/routeb-accepted-baseline.json",
+    "docs/routeb-accepted-baseline.md",
+    "docs/routeb-accepted-compatibility.md",
+    "docs/routeb-next-compatibility-release.md",
+    "tests/acceptance_closeout/verify.py"
+  ],
+  "python": "3.12.14",
+  "firmware_built": false,
+  "firmware_modified": false,
+  "physical_testing": false,
+  "hardware_access": false,
+  "verifier_sha256": "233eb1381c967d5607dbba7da92d1ce1511045ca76cf7868682a4a636a03a7a8",
+  "independent_design_review": "PASS; no release-blocking design ambiguity; documentation only"
+}
