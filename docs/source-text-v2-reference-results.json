@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "positive_forms": 14,
+  "edge_observations": 5,
+  "source_sha256": "18efc91b48d8ada4e7aaaaebe0218e9bbc360360eb81ac182a63c4db9c10eee7",
+  "selected_function_sha256": {
+    "splitLine": "f100adf55d057e72df21feaec84497240c12937419d9ebb8afcebe92da891b56",
+    "getArgsFromLine": "5eea397595df4211734c34a1b84c4a7ca378659f34fa7d04b412c6bb0154dceb",
+    "handleString": "e5ae1a8e95b033da65bd5442cf30f8cdc2acd095107117601dadc22cecea2c07",
+    "handleStringln": "38e03efdde87079847e212aed5fec805d8d7d3939046d0f4d9c72aa28f026320",
+    "handleInlineString": "86350adcc042824e267fb8f0f481b7d5cb98afb63fc930ed0334c67563b0c8c5",
+    "handleInlineStringln": "eae3ac6f3ee68876a5876f475207543ce4d277a09314c66e965a0564ba34c49e"
+  },
+  "regexes": [
+    "const inline_stringln_regex = /^\\s*STRINGLN(_(POWERSHELL|BASH|BATCH|PYTHON|HTML|RUBY|JAVASCRIPT))?\\s+.*\\s+END_STRINGLN$/;",
+    "const inline_string_regex = /^\\s*STRING(_(POWERSHELL|BASH|BATCH|PYTHON|HTML|RUBY|JAVASCRIPT))?\\s+.*\\s+END_STRING$/;"
+  ],
+  "results": [
+    {
+      "source": "STRING_POWERSHELL hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_BASH hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_BATCH hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_PYTHON hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_HTML hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_RUBY hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRING_JAVASCRIPT hello END_STRING",
+      "matched": true,
+      "text": "hello"
+    },
+    {
+      "source": "STRINGLN_POWERSHELL hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_BASH hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_BATCH hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_PYTHON hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_HTML hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_RUBY hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRINGLN_JAVASCRIPT hello END_STRINGLN",
+      "matched": true,
+      "text": "hello\n"
+    },
+    {
+      "source": "STRING_PYTHON hello END_STRING extra END_STRING",
+      "matched": true,
+      "text": "hello extra END_STRING"
+    },
+    {
+      "source": "STRING_PYTHON hello END_STRINGLN",
+      "matched": false
+    },
+    {
+      "source": "STRING_PYTHON\thello\tEND_STRING",
+      "matched": true,
+      "error": "TypeError"
+    },
+    {
+      "source": "STRING_PYTHON hello END_STRING ",
+      "matched": false
+    },
+    {
+      "source": "STRING_PYTHON hello END_STRINGx END_STRING",
+      "matched": true,
+      "text": "hellox END_STRING"
+    }
+  ],
+  "node_version": "v24.19.0",
+  "scope": "Actual selected compiler functions; character mapping and Enter are stand-ins, not official runtime or HID report execution",
+  "hardware": false
+}

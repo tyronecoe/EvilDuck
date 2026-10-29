@@ -1,0 +1,28 @@
+{
+  "format": "evilduck-routeb-source-text-v2",
+  "baseline": "1659544f392a0523fa6e598423001e11919370aa",
+  "parent_prepare_sha256": "302ade6103d8eadbfb9c3cd5a513b1e1023c518a8240bb8c25729613b9a9b371",
+  "patch_sha256": "79e88189378e808fede2d0ef93ef7b8147658becffa86e4f4dc80c7ed1ed4e18",
+  "build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+  "required_flag": "EVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1",
+  "before": [
+    {
+      "file": "core.cpp",
+      "sha256": "eb43662a50e30aeb1d4cb9a56ed52fccdc2f5df23b16d7e2ffa782ea1be8f528"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "ef44f59fc82f69d39b9cb4684a70620ca4ef6fda69a831ae99d1d114605defd5"
+    }
+  ],
+  "after": [
+    {
+      "file": "core.cpp",
+      "sha256": "f54eb538cdb6b66d0a4e4b67a22da982db96f1244a36620240d48118073ade20"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "8a405c5149b4533a4bf9a4f9cd07fc58657c53f781c173b7d6d25b6d40955063"
+    }
+  ]
+}

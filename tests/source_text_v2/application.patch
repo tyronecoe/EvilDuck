@@ -1,0 +1,42 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_SOURCE_TEXT_V2) || EVILDUCK_ROUTE_B_SOURCE_TEXT_V2 != 1
++#error "Explicit Route B source-text-v2 candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_SOURCE_TEXT) || EVILDUCK_ROUTE_B_SOURCE_TEXT != 1
+ #error "Explicit Route B source-text candidate profile required"
+ #endif
+@@ -329,6 +332,21 @@
+   }
+   if(uint8_t kind=textCommandKind(text)){
+    bool enter=kind==2;char* arg=argument(text);if(!*arg)return fail(ErrorCode::Unsupported);
++   // Suffixed aliases alone recognize one final matching whole delimiter.
++   // Raw grammar is resolved before DEFINE expansion; ordinary STRING stays literal.
++   if(!command(text,"STRING")&&!command(text,"STRINGLN")){
++    char* close=nullptr;bool closingLn=false;unsigned closers=0;
++    for(char* q=arg;*q;){
++     while(white(*q))++q;if(!*q)break;char* token=q;while(*q&&!white(*q))++q;size_t n=q-token;
++     if((n==10&&!memcmp(token,"END_STRING",10))||(n==12&&!memcmp(token,"END_STRINGLN",12))){
++      ++closers;close=token;closingLn=n==12;
++     }
++    }
++    if(closers){
++     if(closers!=1||closingLn!=enter||close==arg||close[-1]!=' '||close[strlen(enter?"END_STRINGLN":"END_STRING")])return fail(ErrorCode::Structure);
++     close[-1]=0;if(!*left(arg))return fail(ErrorCode::Syntax);
++    }
++   }
+    if(!expand(arg,expanded))return false;right(expanded);return emit(enter?Op::TextLn:Op::Text,expanded);
+   }
+   if(command(text,"DELAY")){if(!expand(left(argument(text)),expanded)||!expr(expanded))return false;return emit(Op::Delay,expanded);}
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-SOURCE-TEXT-PORTABILITY-v1";
++constexpr const char* BuildId="ROUTEB-SOURCE-TEXT-PORTABILITY-v2";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
