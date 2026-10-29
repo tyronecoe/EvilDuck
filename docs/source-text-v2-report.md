@@ -18,6 +18,8 @@ Application SHA-256 `cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba
 
 Only two composed files change: `core.cpp` and build identity `caps_trial.h`. BOM adapter, backend, scheduler, storage, EDR1, USB descriptors and partition sources remain unchanged. [Preservation receipt](source-text-v2-preservation.json): all2,124 historical files/modes and235 frozen files unchanged. No global core/SDK was patched.
 
-One distinct review-only `evilduck-routeb-source-text-portability-macos-v2.zip`; exact accepted restart rollback required, not unaccepted v1. Preserve High Sierra10.13.6/Bash3.2/Python3.8/esptool4.12. Package/publication/download evidence PENDING. The package report is a frozen pre-publication snapshot.
+One distinct review-only `evilduck-routeb-source-text-portability-macos-v2.zip`; exact accepted restart rollback required, not unaccepted v1. Preserve High Sierra10.13.6/Bash3.2/Python3.8/esptool4.12. All **46 package checks and 38 mock-installer checks passed**, zero failures. [Package results](source-text-v2-package-tests.json), [installer results](source-text-v2-installer-tests.json). The46th check explicitly requires the inherited v1 source/text proof as well as v2. The tests use public disposable copies and synthetic metadata/tool responses, not a real serial port.
+
+Public ZIP **2,395,166 bytes**, SHA-256 `589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0`. [Artifact inventory](source-text-v2-artifact.json). All24 members,20 support bindings, both applications and CRC checked; deterministic re-archiving is byte-identical. Publication/download verification follows separately. The package report is a frozen pre-publication snapshot.
 
 GO: candidate review after checks. Physical testing/installation/HID/flashing/OTA need separate owner authorization. No such access, private backup use, automatic payload execution, formatting, settings reset or EDR1 change occurs. INJECT_VAR remains blocked.
