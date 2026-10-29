@@ -38,6 +38,8 @@
   "checks": "integrity and documentation scope; no new firmware behavior tested",
   "allowed_changes_only": true,
   "observed_new_paths": [
+    "docs/routeb-acceptance-closeout-checks.json",
+    "docs/routeb-acceptance-closeout-publication.json",
     "docs/routeb-acceptance-closeout-report.md",
     "docs/routeb-accepted-baseline.json",
     "docs/routeb-accepted-baseline.md",
@@ -51,5 +53,9 @@
   "physical_testing": false,
   "hardware_access": false,
   "verifier_sha256": "233eb1381c967d5607dbba7da92d1ce1511045ca76cf7868682a4a636a03a7a8",
-  "independent_design_review": "PASS; no release-blocking design ambiguity; documentation only"
+  "independent_design_review": "PASS; read-only agent review, no implementation or hardware validation",
+  "additional_fresh_checks": [
+    "new audit utility Python3.8 grammar",
+    "all new Markdown relative links resolve"
+  ]
 }
