@@ -1,0 +1,110 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_PAYLOAD_RESTART) || EVILDUCK_ROUTE_B_PAYLOAD_RESTART != 1
++#error "Explicit Route B payload-restart candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_TEXT_KEYBOARD) || EVILDUCK_ROUTE_B_TEXT_KEYBOARD != 1
+ #error "Explicit Route B text-keyboard candidate profile required"
+ #endif
+@@ -57,7 +60,7 @@
+  }return 0;
+ }
+ bool reserved(const char* p){
+- const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","REPEAT","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
++ const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","RESTART_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","REPEAT","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+  if(textKind(p)||key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+@@ -347,6 +350,7 @@
+    char* arg=left(argument(text));if(*arg&&(!expand(arg,expanded)||!expr(expanded)))return false;return emit(Op::Return,expanded);
+   }
+   if(exact(text,"RESET"))return emit(Op::Reset);
++  if(exact(text,"RESTART_PAYLOAD"))return emit(Op::Restart);
+   if(exact(text,"STOP_PAYLOAD"))return emit(Op::Stop);
+   {static const char* const waits[]={"WAIT_FOR_NUM_ON","WAIT_FOR_NUM_OFF","WAIT_FOR_NUM_CHANGE","WAIT_FOR_CAPS_ON","WAIT_FOR_CAPS_OFF","WAIT_FOR_CAPS_CHANGE","WAIT_FOR_SCROLL_ON","WAIT_FOR_SCROLL_OFF","WAIT_FOR_SCROLL_CHANGE"};
+    for(uint16_t i=0;i<9;++i)if(exact(text,waits[i]))return emit(Op::LockWait,"",i);
+@@ -686,6 +690,17 @@
+  case 2:return "!@#$%^&*()";case 3:return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";}
+  return nullptr;
+ }
++// Restart is an in-lease state rewind, not a new Runtime::start().
++// Keep Program borrowing, providers, original budgets and cumulative accounting.
++void Runtime::rewindExecution(){
++ pc_=textPos_=depth_=0;typing_=enter_=pending_=delayed_=randomizing_=false;
++ randomAttempts_=0;randomBase_='a';sampling_=drawUsed_=jitterPrepared_=false;
++ randomMin_=0;randomMax_=9;jitterEnabled_=false;jitterMax_=20;
++ sampleMin_=jitterDelay_=0;sampleWidth_=jitterAt_=delayAt_=0;
++ block_=TextCursor{};event_={EventType::Character,0};hasReturn_=false;lastReturn_=0;
++ memset(values_,0,sizeof(values_));memset(initialized_,0,sizeof(initialized_));
++ for(auto& call:calls_)call=CallFrame{};clearContinuations();
++}
+ void Runtime::deliver(uint32_t now){
+  const bool press=event_.type==EventType::Character||event_.type==EventType::KeyTap||event_.type==EventType::Hold;
+  if(press&&jitterEnabled_&&jitterMax_){
+@@ -696,6 +711,7 @@
+  Accept accepted=Accept::Failed;
+  try{accepted=sink_(context_,event_);}catch(...){if(state_==State::Running)fail(ErrorCode::SinkFailure);return;}
+  if(state_!=State::Running)return;if(accepted==Accept::Retry)return;if(accepted!=Accept::Accepted){fail(ErrorCode::SinkFailure);return;}pending_=false;jitterPrepared_=false;
++ if(event_.type==EventType::Restart){rewindExecution();return;}
+  if(event_.type==EventType::Delay){delayAt_=now;delayed_=true;}
+  else if(block_.active){if(block_.position<block_.length)++block_.position;else{block_.next=block_.offset+block_.length;block_.loaded=false;}}
+  else if(typing_){const Instruction& ins=program_->code_[pc_];if(textPos_<ins.length)++textPos_;else{typing_=false;++pc_;}}
+@@ -746,6 +762,7 @@
+   switch(ins.symbol){case 0:randomMin_=value;break;case 1:randomMax_=value;break;
+    case 2:if(value>1){fail(ErrorCode::SettingValue);return;}jitterEnabled_=value!=0;break;
+    case 3:jitterMax_=value;break;default:fail(ErrorCode::Structure);return;}++pc_;break;
++ case Op::Restart:event_={EventType::Restart,0};pending_=true;deliver(now);break;
+  case Op::Reset:event_={EventType::Reset,0};pending_=true;deliver(now);break;
+  case Op::Set:if(!ins.target&&!initialized_[ins.symbol]){fail(ErrorCode::Uninitialized);return;}values_[ins.symbol]=value;initialized_[ins.symbol]=true;++pc_;break;
+  case Op::Text:case Op::TextLn:typing_=true;enter_=ins.op==Op::TextLn;textPos_=0;break;
+--- core.h
++++ core.h
+@@ -15,7 +15,7 @@
+  ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable, RandomRange, SettingValue };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset };
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset, Restart };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+ enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+@@ -91,7 +91,7 @@
+     CompileWork work()const{return work_;}
+     static size_t compilerBytes();
+ };
+-enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release, LockWait, Reset };
++enum class EventType : uint8_t { Character, KeyTap, Delay, Hold, Release, LockWait, Reset, Restart };
+ struct Event { EventType type; uint16_t value; uint8_t modifiers=0; }; // ASCII byte, HID page07 usage, or milliseconds.
+ enum class Accept : uint8_t { Accepted, Retry, Failed };
+ using Sink = Accept(*)(void*, const Event&);
+@@ -118,6 +118,7 @@
+     void enterCall(uint8_t function,bool needsValue,uint16_t column);
+     void evaluationStep(uint32_t now);
+     void completeInstruction(uint32_t now,uint16_t value);
++    void rewindExecution();
+     void deliver(uint32_t now);
+ public:
+     using RandomReader=bool(*)(void*,uint32_t&);
+--- adapter.cpp
++++ adapter.cpp
+@@ -78,7 +78,7 @@
+   pending_=false;++acks_;return Accept::Accepted;
+  }
+  route_b::Admission a=route_b::Admission::Rejected;
+- if(e.type==EventType::Reset)a=route_b::reset(session_,id_);
++ if(e.type==EventType::Reset||e.type==EventType::Restart)a=route_b::reset(session_,id_);
+  else if(e.type==EventType::Character)a=route_b::character(session_,e.value,id_);
+  else if(e.type==EventType::KeyTap)a=e.value?route_b::key(session_,e.value,id_,e.modifiers):route_b::modifier(session_,e.modifiers,id_);
+  else if(e.type==EventType::Hold||e.type==EventType::Release)a=route_b::ownership(session_,e.value,e.type==EventType::Hold,id_);
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-TEXT-KEYBOARD-v1";
++constexpr const char* BuildId="ROUTEB-PAYLOAD-RESTART-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
