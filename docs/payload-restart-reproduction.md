@@ -27,3 +27,13 @@ The build preserves the approved isolated Arduino ESP32 core3.3.0 archive profil
 Executed native environment: Linux, Python3.12.14, Debian g++14.2.0 (`14.2.0-19`), GNU Bash5.2.37, C++17 and address/undefined sanitizers with leak detection. Host package interfaces remain High Sierra10.13.6, Bash3.2, Python3.8 and esptool4.12; native High Sierra execution of the new candidate remains pending.
 
 After all source/native/build/link checks pass, inspect `python3 tests/payload_restart/package.py --help`. Commit source before binding its package revision. Package and bound-installer tests use disposable public copies and synthetic tool responses only. Bind exact accepted text/keyboard rollback. Publish only the isolated new branch/archive, download the commit-pinned ZIP, compare size/hash/member identities, and verify all previous remote refs unchanged. No LED helper or second installation package is needed.
+
+## Bound public package checks
+
+```bash
+python3 tests/payload_restart/package.py --directory /workspace/outputs/evilduck-routeb-payload-restart-macos-v1 --build-root /workspace/scratch/payload-restart/build-v1 --linked-report docs/payload-restart-build.json --core /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0 --archive /workspace/outputs/evilduck-routeb-payload-restart-macos-v1.zip --source-commit f9f343ce9ff5362e143f5410ad353e55d3868414
+python3 tests/payload_restart/test_package.py --directory /workspace/outputs/evilduck-routeb-payload-restart-macos-v1 --archive /workspace/outputs/evilduck-routeb-payload-restart-macos-v1.zip --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/payload-restart/package-tests.json
+python3 tests/payload_restart/test_bound_installer.py --directory /workspace/outputs/evilduck-routeb-payload-restart-macos-v1 --ota-template /workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/tools/partitions/boot_app0.bin --results /workspace/scratch/payload-restart/installer-tests.json
+```
+
+These paths are occupied; use fresh output names. The source commit versions of the bundled documents/receipts are required to reproduce the exact frozen ZIP, because the repository report subsequently gains package/publication information. All44 package and38 mock-installer checks passed; publication is verified separately.

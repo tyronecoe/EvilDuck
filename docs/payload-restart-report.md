@@ -24,7 +24,7 @@ The old text/keyboard receipt recorded V14 as53 assertions and inferred that the
 
 The fresh run executes V14's full79 assertions, adding26 held-key/jitter checks relative to the prior receipt. Accordingly the371 selected cases now contribute14,933 assertions, not the old14,907. No regression expectation was weakened; the26 newly executed assertions are counted only in this fresh run. The new receipt records this provenance gap explicitly. Earlier generated-copy identity substitutions and previously documented capability adaptations remain separately described; they do not modify historical files.
 
-Package and mock-installer checks must be recorded separately. No Linux mock or successful build establishes physical High Sierra behavior. Preserve historical test classifications and all existing artifacts/refs.
+The final public package passed **44 package checks and 38 mock-installer checks**, zero failures. [Package results](payload-restart-package-tests.json), [mock-installer results](payload-restart-installer-tests.json). Tests use disposable public copies and synthetic tool/device responses; no actual serial endpoint is opened. No Linux mock or successful build establishes physical High Sierra behavior. Preserve historical test classifications and all existing artifacts/refs.
 
 ## Clean build and resources
 
@@ -45,6 +45,10 @@ Post-link verification confirms the linked rewind symbol and deliver-to-rewind e
 
 ## Delivery
 
-Prepare one review-only `evilduck-routeb-payload-restart-macos-v1.zip`. Bind exact accepted rollback **1,412,400 bytes**, SHA-256 `53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167`; preserve High Sierra10.13.6/Bash3.2/Python3.8/esptool4.12 interfaces. Final package/hash, checks, downloaded-byte verification, changed-file inventory and previous-ref comparison remain PENDING until actually performed. No new LED helper is required.
+Prepare one review-only `evilduck-routeb-payload-restart-macos-v1.zip`. Bind exact accepted rollback **1,412,400 bytes**, SHA-256 `53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167`; preserve High Sierra10.13.6/Bash3.2/Python3.8/esptool4.12 interfaces. Public ZIP: **2,371,203 bytes**, SHA-256 `36e2ca0df08eeea1cec5e766330a0e4699351d28cfa2b2f382d3e112052d15f2`. [Artifact inventory](payload-restart-artifact.json). All 24 members, 20 support bindings, both application images and CRC are verified; deterministic re-archiving matches exactly. Independent archive review confirmed S3 headers, image checksums, unchanged table geometry and app-only ranges. Publication/download verification follows separately. The bundled report is the source-commit pre-publication snapshot; it is not regenerated to claim later checks. No new LED helper is required.
 
 GO: software/package review after required checks pass. Physical installation/testing, flashing, real HID output and OTA require separate owner approval. No hardware access, stored owner payload execution, settings reset or formatting is authorized by this release preparation.
+
+## Source inventory
+
+Only new `tests/payload_restart/*`, `docs/payload-restart-*` and the new public ZIP are added. The pinned composition patch changes four generated application files: `core.cpp`, `core.h`, `adapter.cpp` and build identity in `caps_trial.h`. The scheduler, backend, storage and EDR1 source bytes remain unchanged. An independent source/artifact review rehashed all 201 candidate sources and five build artifacts, confirmed the four-file delta and linked rewind-to-deliver edge, and found no blocking defect. Exact source pins and final linked evidence are retained in the build receipt.
