@@ -52,3 +52,9 @@ GO: software/package review after required checks pass. Physical installation/te
 ## Source inventory
 
 Only new `tests/payload_restart/*`, `docs/payload-restart-*` and the new public ZIP are added. The pinned composition patch changes four generated application files: `core.cpp`, `core.h`, `adapter.cpp` and build identity in `caps_trial.h`. The scheduler, backend, storage and EDR1 source bytes remain unchanged. An independent source/artifact review rehashed all 201 candidate sources and five build artifacts, confirmed the four-file delta and linked rewind-to-deliver edge, and found no blocking defect. Exact source pins and final linked evidence are retained in the build receipt.
+
+## Publication and final review
+
+The [commit-pinned Mac ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/9bb979bdd6a1803504f45dc67987722a862bdcdf/downloads/evilduck-routeb-payload-restart-macos-v1.zip) was downloaded and matched **2,371,203 bytes**, SHA-256 `36e2ca0df08eeea1cec5e766330a0e4699351d28cfa2b2f382d3e112052d15f2`, repository bytes, ZIP CRC and both application identities. The [publication receipt](payload-restart-publication.json) records all **75 previous remote refs unchanged**, with only the isolated branch added. The [new-file inventory](payload-restart-file-inventory.json) records exact additions/modes/hashes; the final branch tip and clean working tree are checked after the receipt commit.
+
+**GO:** review the candidate package and three-trial sheet. **Physical restart acceptance remains unverified.** This publication does not authorize installation, hardware access, real HID execution, flashing or OTA. No such operation, formatting, settings reset, private backup access or owner-script execution occurred. INJECT_VAR remains blocked. No next compatibility feature is begun automatically.

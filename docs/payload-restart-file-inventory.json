@@ -1,0 +1,188 @@
+{
+  "baseline": "7230bcddcdddd6b7e305f07721b7922df01dbd91",
+  "only_additions": true,
+  "files": [
+    {
+      "file": "docs/payload-restart-acceptance.md",
+      "bytes": 2039,
+      "sha256": "43cc2cc6500e35fc9ac9f9d2bed23dfd4bec6d2b90d3fc99ce8c9186af7f0086",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-artifact.json",
+      "bytes": 1441,
+      "sha256": "65610265214599e8d3d7d1934cb395f22b48008cab6af3cf559ae3bf53913e18",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-build.json",
+      "bytes": 1927964,
+      "sha256": "6b1d50ba69c9b1f46bcbc36a88be80d7956b543966892d33cc0de8bd3276c5b2",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-compatibility.md",
+      "bytes": 3074,
+      "sha256": "85576003353bdc2ffcb7d114df75991da040037a6fda758e9b00965e4bf045ec",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-design.md",
+      "bytes": 4593,
+      "sha256": "83fc80a316cfb48b0821b608e2ea1e190891ec982186b5725dc2b8f896d6f3a6",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-install.md",
+      "bytes": 2238,
+      "sha256": "3812419aa94fddb5517860873c3ac7e6956911b23ad5ad4cc2ff7d30c079fed9",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-installer-tests.json",
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-owner-evidence.md",
+      "bytes": 1122,
+      "sha256": "8502c324c9615cd0c7d5b04348f2e2983f68c2677252f2896ec802985655bb4d",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-package-tests.json",
+      "bytes": 3968,
+      "sha256": "6696142efecd4d93b352a0adcff88c4543a27ad2d062f93124eba2af6d579ca2",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-preservation.json",
+      "bytes": 319,
+      "sha256": "24ca7a951f346e94347ab0f8f1784611bed85ea5633ecd9474b218e9e1cb4aad",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-publication.json",
+      "bytes": 15376,
+      "sha256": "d8166d2d69946d47e3d4896df243648144362a0bd25111eebd7eebd695309cef",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-references.json",
+      "bytes": 463,
+      "sha256": "953a92280100b03636bc3aa7fc9c12b75ffd834d2176e9949490660507c2d603",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-report.md",
+      "bytes": 10137,
+      "sha256": "769d0ac36c09f7be303b138de634363273ee7dcb3b6c0675929d20952e1f576d",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-reproduction.md",
+      "bytes": 5424,
+      "sha256": "c52afb8cad289e0eccfb61cf73c7289a2de599ef4170e3fdecc6c9521802215a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-resources.json",
+      "bytes": 8480,
+      "sha256": "0f33ba08feee574b288a9b201ddf1339605240de911fa830e149b5e22d5c3c4b",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-rollback.md",
+      "bytes": 1544,
+      "sha256": "f2095039e5e176c11119556890cf3bf4419dc1df84af81956eef82536b960a2e",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/payload-restart-test-results.json",
+      "bytes": 81182,
+      "sha256": "ac54b972f9582628b612a1e5b62771f4ac6702aff11fbbf20af319b6a6df75bf",
+      "mode": "100644"
+    },
+    {
+      "file": "downloads/evilduck-routeb-payload-restart-macos-v1.zip",
+      "bytes": 2371203,
+      "sha256": "36e2ca0df08eeea1cec5e766330a0e4699351d28cfa2b2f382d3e112052d15f2",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/application.patch",
+      "bytes": 7876,
+      "sha256": "afe22833307ba4859c6793aca30b8524ad94fb45f99dc4b26ca42041afb9d238",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/build_candidate.py",
+      "bytes": 1885,
+      "sha256": "13269d15e94e6913b5ede5b4fd65aed81fed5634487c98fa420add348ef4a138",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/package.py",
+      "bytes": 12181,
+      "sha256": "ab6527b8a09cfefffce95cf85c0166e874c87712c681391bba6e72cf304583f4",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/preflight.py",
+      "bytes": 9668,
+      "sha256": "09bdecd1f57a823a3c92db8f9e879981fc6f2fbbe3bc32baac0c36a6600a5418",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/prepare_sources.py",
+      "bytes": 1416,
+      "sha256": "d245a8b900ad27579314f329bf96b695c6ecfd0eef886271ef55a1f1ed7ff09d",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/run_tests.py",
+      "bytes": 8448,
+      "sha256": "97f32bfb1ae3fb09343adf4ea74df79fe01fc0f4ac07e6f4b5e27802fdb5709b",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/source-manifest.json",
+      "bytes": 1413,
+      "sha256": "e0f2d709eb2bc4bf31f8a255c57bc5a9e1015aad818bcc8b73d24096eec068d8",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/startup_decode.py",
+      "bytes": 697,
+      "sha256": "89446c879b2432300699f6d8227214d1fb01efff041612a03764f9407dbc55f5",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/test_bound_installer.py",
+      "bytes": 8215,
+      "sha256": "a8f5b37eb2a6e1e225e5d09820acdd4824c549f4e5e4490e29767782c3360b4d",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/test_main.cpp",
+      "bytes": 17048,
+      "sha256": "a5977c2424f0840cf98c3f565370c1d2a4b30653397e8ef3a441ac8f4012b337",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/test_package.py",
+      "bytes": 12289,
+      "sha256": "96fcf97d856f0d3519bebbe6f12d68b2d036c5d0d9e116c7c00a082b22092418",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/payload_restart/verify_link.py",
+      "bytes": 11683,
+      "sha256": "0fc6efd4e65bcd013d888ffc36052f15d73d5a513853a72824f6c2529b01d5eb",
+      "mode": "100644"
+    }
+  ],
+  "excluded_self": true,
+  "final_file_count_including_this_inventory": 31
+}
