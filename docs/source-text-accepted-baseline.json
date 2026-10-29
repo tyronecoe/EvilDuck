@@ -1,0 +1,56 @@
+{
+  "format": "evilduck-owner-accepted-baseline-v1",
+  "build_id": "ROUTEB-PAYLOAD-RESTART-v1",
+  "release_commit": "2bdf7e6cea7fb1a343d4ac0973a90578264ced07",
+  "source_commit": "f9f343ce9ff5362e143f5410ad353e55d3868414",
+  "application_bytes": 1412688,
+  "application_sha256": "1d4ea6394306885b832619adb3436eaeeccc0a67ce8b73e1f20dd0f9c7d0a060",
+  "public_archive": "downloads/evilduck-routeb-payload-restart-macos-v1.zip",
+  "public_archive_bytes": 2371203,
+  "public_archive_sha256": "36e2ca0df08eeea1cec5e766330a0e4699351d28cfa2b2f382d3e112052d15f2",
+  "accepted_application_member": "application.bin",
+  "future_rollback_application_bytes": 1412688,
+  "future_rollback_application_sha256": "1d4ea6394306885b832619adb3436eaeeccc0a67ce8b73e1f20dd0f9c7d0a060",
+  "evidence_origin": "owner-reported scoped physical acceptance; no new independent device readback by Codex",
+  "host_os": "macOS High Sierra 10.13.6",
+  "dashboard_build_id": "OWNER_REPORTED_EXPECTED",
+  "owner_report_recorded_date": "2026-10-29",
+  "physical_trial_date": null,
+  "boot_id": null,
+  "session_id": null,
+  "receipt_id": null,
+  "trials": [
+    {
+      "trial": 1,
+      "name": "Restart flow and STOP",
+      "result": "OWNER_REPORTED_PASS",
+      "request_id": null
+    },
+    {
+      "trial": 2,
+      "name": "Held-Shift rewind and recovery",
+      "result": "OWNER_REPORTED_PASS",
+      "request_id": null
+    },
+    {
+      "trial": 3,
+      "name": "Malformed restart rejection",
+      "result": "OWNER_REPORTED_PASS",
+      "request_id": null
+    }
+  ],
+  "older_recovery_application": {
+    "build_id": "ROUTEB-TEXT-KEYBOARD-v1",
+    "application_bytes": 1412400,
+    "application_sha256": "53acc374ef38be652b6847d4b84f2dc7d42fa73a3dd54ea62d5208be4cbc0167",
+    "role": "older recovery version; not the mandatory rollback for this candidate"
+  },
+  "original_firmware_availability": "OWNER CONFIRMED: AVAILABLE EXTERNALLY",
+  "codex_physical_verification": false,
+  "installation_authorized_by_this_record": false,
+  "limitations": [
+    "three scoped trials only",
+    "no exhaustive language/layout/timing certification",
+    "no general host-global release or USB retirement guarantee"
+  ]
+}

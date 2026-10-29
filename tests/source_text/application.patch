@@ -1,0 +1,79 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_ROUTE_B_SOURCE_TEXT) || EVILDUCK_ROUTE_B_SOURCE_TEXT != 1
++#error "Explicit Route B source-text candidate profile required"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_PAYLOAD_RESTART) || EVILDUCK_ROUTE_B_PAYLOAD_RESTART != 1
+ #error "Explicit Route B payload-restart candidate profile required"
+ #endif
+@@ -59,6 +62,15 @@
+   if(!strncmp(text,"STRINGLN_",9)&&!white(text[9])&&whole(text+9,language))return 2;
+  }return 0;
+ }
++// Ordinary inline-text aliases are an EvilDuck extension. Block detection stays exact.
++uint8_t textCommandKind(const char* text){
++ if(command(text,"STRING"))return 1;if(command(text,"STRINGLN"))return 2;
++ static const char* const languages[]={"POWERSHELL","BATCH","BASH","JAVASCRIPT","PYTHON","RUBY","HTML"};
++ for(const char* language:languages){
++  if(!strncmp(text,"STRING_",7)&&!white(text[7])&&command(text+7,language))return 1;
++  if(!strncmp(text,"STRINGLN_",9)&&!white(text[9])&&command(text+9,language))return 2;
++ }return 0;
++}
+ bool reserved(const char* p){
+  const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","RESTART_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","REPEAT","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+  if(textKind(p)||key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+@@ -293,7 +305,7 @@
+    while(digit(*count)){unsigned next=unsigned(n)*10+unsigned(*count++-'0');if(next>MaxCode)return fail(ErrorCode::CodeLimit);n=static_cast<uint16_t>(next);}
+    if(n<2||!white(*count))return fail(ErrorCode::Syntax);char* body=left(count);if(!*body)return fail(ErrorCode::Syntax);
+    char* end=body;while(*end&&!white(*end)&&*end!='-')++end;char saved=*end;*end=0;bool shortcut=ds_shortcut::modifier(body)!=0;*end=saved;
+-   bool allowed=shortcut||key(body)||command(body,"STRING")||command(body,"STRINGLN")||command(body,"DELAY")||command(body,"INJECT_MOD");
++   bool allowed=shortcut||key(body)||textCommandKind(body)||command(body,"DELAY")||command(body,"INJECT_MOD");
+    static const char* const randoms[]={"RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
+    for(const char* r:randoms)allowed=allowed||command(body,r);
+    if(!allowed)return fail(ErrorCode::Unsupported);
+@@ -315,8 +327,8 @@
+    // target differentiates declaration from assignment: only VAR may initialize.
+    return emit(Op::Set,expanded,declare?1:0,static_cast<uint8_t>(id));
+   }
+-  if(command(text,"STRING")||command(text,"STRINGLN")){
+-   bool enter=command(text,"STRINGLN");char* arg=argument(text);if(!*arg)return fail(ErrorCode::Unsupported);
++  if(uint8_t kind=textCommandKind(text)){
++   bool enter=kind==2;char* arg=argument(text);if(!*arg)return fail(ErrorCode::Unsupported);
+    if(!expand(arg,expanded))return false;right(expanded);return emit(enter?Op::TextLn:Op::Text,expanded);
+   }
+   if(command(text,"DELAY")){if(!expand(left(argument(text)),expanded)||!expr(expanded))return false;return emit(Op::Delay,expanded);}
+--- adapter.cpp
++++ adapter.cpp
+@@ -94,10 +94,18 @@
+   char chunk[ds_preview::ReadChunk];auto rr=reader_.read(reader_.context,chunk,sizeof(chunk));
+   if(rr.status==ds_preview::ReadStatus::Retry){if(rr.bytes)fail(Fault::Reader);return;}
+   if(rr.status==ds_preview::ReadStatus::Error||rr.bytes>sizeof(chunk)||rr.bytes>reader_.bytes-used_){fail(Fault::Reader);return;}
+-  for(size_t i=0;i<rr.bytes;++i){unsigned char c=chunk[i];if(!(c==9||c==10||c==13||(c>=32&&c<=126))){fail(Fault::Capability);return;}}
++  // Preserve raw bytes; permit exactly one UTF-8 marker at absolute offset zero.
++  // Derive prefix state from captured bytes, including across reads/Retry, not globals.
++  for(size_t i=0;i<rr.bytes;++i){
++   unsigned char c=static_cast<unsigned char>(chunk[i]);size_t at=used_+i;
++   bool bom=static_cast<unsigned char>(used_?source_[0]:chunk[0])==0xef;
++   if(bom&&at<3){static constexpr unsigned char signature[]={0xef,0xbb,0xbf};if(c!=signature[at]){fail(Fault::Capability);return;}}
++   else if(!(c==9||c==10||c==13||(c>=32&&c<=126))){fail(Fault::Capability);return;}
++  }
+   if(rr.bytes)memcpy(source_+used_,chunk,rr.bytes);used_+=rr.bytes;
+   if(rr.status==ds_preview::ReadStatus::Eof){
+-   if(used_!=reader_.bytes){fail(Fault::Reader);return;}source_[used_]=0;
++   if(used_!=reader_.bytes){fail(Fault::Reader);return;}
++   if(used_&&used_<3&&static_cast<unsigned char>(source_[0])==0xef){fail(Fault::Capability);return;}source_[used_]=0;
+    memory_={source_,used_,0};if(!compiler_.start(program_,memory_.reader(),"stage28u.duck")){fail(Fault::Compiler);return;}state_=State::Compiling;
+   }else if(!rr.bytes)fail(Fault::Reader);
+   return;
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-PAYLOAD-RESTART-v1";
++constexpr const char* BuildId="ROUTEB-SOURCE-TEXT-PORTABILITY-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

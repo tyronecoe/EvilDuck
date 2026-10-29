@@ -1,0 +1,27 @@
+{
+  "inspected_utc": "2026-10-29T05:54:02.188944+00:00",
+  "new_network_fetch": false,
+  "official_runtime_executed": false,
+  "prior_INJECT_VAR_checks_repeated": false,
+  "sources": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection.md",
+      "bytes": 21524,
+      "sha256": "e8fab69b1bf25cc271e946618edd46094fa6ac6551f2aade891d2c3bbea9f909",
+      "lines": "307\u2013329",
+      "finding": "Seven STRING/STRINGLN suffixes explicitly described as embedded-language blocks; Community syntax permitted, Pro adds highlighting/autocomplete"
+    },
+    {
+      "url": "https://payloadstudio.hak5.org/community/",
+      "bytes": 605048,
+      "sha256": "18efc91b48d8ada4e7aaaaebe0218e9bbc360360eb81ac182a63c4db9c10eee7",
+      "lines": "5723\u20135731; 7775\u20137787",
+      "finding": "Static source regexes include suffixed same-line forms ending END_STRING/END_STRINGLN. Ordinary nonterminated inline regexes have no suffix. Handlers strip same-line terminator. This is compiler-source evidence, not official runtime execution."
+    }
+  ],
+  "classification": "Requested nonterminated inline suffixes are a documented EvilDuck extension; same-line canonical-terminated forms are not newly claimed",
+  "quoted_regexes": {
+    "string": "^\\s*STRING(_(POWERSHELL|BASH|BATCH|PYTHON|HTML|RUBY|JAVASCRIPT))?\\s+.*\\s+END_STRING$",
+    "stringln": "^\\s*STRINGLN(_(POWERSHELL|BASH|BATCH|PYTHON|HTML|RUBY|JAVASCRIPT))?\\s+.*\\s+END_STRINGLN$"
+  }
+}
