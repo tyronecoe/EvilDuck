@@ -23,3 +23,9 @@ One distinct review-only `evilduck-routeb-source-text-portability-macos-v2.zip`;
 Public ZIP **2,395,166 bytes**, SHA-256 `589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0`. [Artifact inventory](source-text-v2-artifact.json). All24 members,20 support bindings, both applications and CRC checked; deterministic re-archiving is byte-identical. Publication/download verification follows separately. The package report is a frozen pre-publication snapshot.
 
 GO: candidate review after checks. Physical testing/installation/HID/flashing/OTA need separate owner authorization. No such access, private backup use, automatic payload execution, formatting, settings reset or EDR1 change occurs. INJECT_VAR remains blocked.
+
+## Publication and readiness
+
+The [commit-pinned v2 Mac ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/d241a1da070bc7bd447904cd6b762f73385487c4/downloads/evilduck-routeb-source-text-portability-macos-v2.zip) was downloaded and matched **2,395,166 bytes**, SHA-256 `589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0`, repository bytes, ZIP CRC and both application identities. [Publication receipt](source-text-v2-publication.json) records **77 historical remote refs unchanged**, only this isolated branch added, and the original v1 ZIP rehashed unchanged. [Exact new-file inventory](source-text-v2-file-inventory.json) records additions/modes/hashes. Final tip and clean worktree are checked after receipt publication.
+
+**GO:** v2 package/design review. Physical acceptance remains unverified and installation needs separate approval. No hardware access, real HID, flashing, OTA, automatic payload execution, formatting, settings reset or private-backup access occurred. Same-line syntax is supported only within the documented bounded delimiter policy; no official runtime equivalence or compiler-quirk emulation is claimed. INJECT_VAR remains blocked.

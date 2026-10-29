@@ -1,0 +1,194 @@
+{
+  "baseline": "1659544f392a0523fa6e598423001e11919370aa",
+  "only_additions": true,
+  "files": [
+    {
+      "file": "docs/source-text-v2-acceptance.md",
+      "bytes": 6739,
+      "sha256": "ae4fe8661051971683514cdef30858de3964263084c69c8a2895327aed6df81d",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-artifact.json",
+      "bytes": 1372,
+      "sha256": "ea7cfb67ff47b210074cc7d5a7f1d869b0b768f96a1e5635b0abb0eb476e6cfe",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-build.json",
+      "bytes": 1969960,
+      "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-compatibility.md",
+      "bytes": 1220,
+      "sha256": "69c036932eb4ae82539249224aca9f8572e31e611272a5a5d0a90039d9a398c8",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-design.md",
+      "bytes": 3549,
+      "sha256": "1b6c6949c49f73f03a7e237770c068c3b28d9149f551627971bc375c341afa98",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-install.md",
+      "bytes": 2260,
+      "sha256": "ccd5271e1d2195cf97f95cc1072e4a2c29ac0ffde9fed6f7fd87e019381d7190",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-installer-tests.json",
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-owner-evidence.md",
+      "bytes": 1329,
+      "sha256": "72284042030c0abe412fdf667fe4eb9e9ebad2ca5d047156facf0724f7a4a980",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-package-tests.json",
+      "bytes": 4150,
+      "sha256": "68d8519356001f22b0816ebaf1f539b41fea5ddd6dc123d45aff0156abd6b7bd",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-preservation.json",
+      "bytes": 319,
+      "sha256": "5f5706debfb3829d0ec554ef3e334c22f8c28069abbee4ce07044b27de415d6a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-publication.json",
+      "bytes": 15810,
+      "sha256": "1c26bed958e443458bab6763df523c06916733be12f69b6da2e87a2f7bbe700a",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-reference-results.json",
+      "bytes": 3345,
+      "sha256": "7e64e043a81faa804855091907608a8cd35fc4faeb811f4704a4765ea322bc2c",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-report.md",
+      "bytes": 6176,
+      "sha256": "5979dccf6c055a40d93233901ac19610444f90fad8594472bb3828fd2e9c50bc",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-reproduction.md",
+      "bytes": 3818,
+      "sha256": "6c13df1e58a8af908e62bce77315e6c39078a69070980da561b1b4801436c0ca",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-resources.json",
+      "bytes": 10313,
+      "sha256": "2c8837a20f9481b86653c6b22c5dbb054dc5014f6ef0eab63bd65c78dd0a44a5",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-rollback.md",
+      "bytes": 1496,
+      "sha256": "d779f7fbd6c514a6f9b92c25c6c0c9466308b200f7de8b024a67a23fd85921a6",
+      "mode": "100644"
+    },
+    {
+      "file": "docs/source-text-v2-test-results.json",
+      "bytes": 90520,
+      "sha256": "eb5ac10e6c9cea1f2f4593f35b0dc046f966450fa6efc1789b2c6c32e59acc67",
+      "mode": "100644"
+    },
+    {
+      "file": "downloads/evilduck-routeb-source-text-portability-macos-v2.zip",
+      "bytes": 2395166,
+      "sha256": "589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/application.patch",
+      "bytes": 2025,
+      "sha256": "79e88189378e808fede2d0ef93ef7b8147658becffa86e4f4dc80c7ed1ed4e18",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/build_candidate.py",
+      "bytes": 1978,
+      "sha256": "6779f98a31447a614ac79601fc383236515873c8e4631d56089bfb70bdda701b",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/package.py",
+      "bytes": 12431,
+      "sha256": "1660ff549ee8be2d75cd20babf9de9e2680ccb7750c789c777a64f6a9edbd784",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/preflight.py",
+      "bytes": 10018,
+      "sha256": "889d4115478b06435a1efca1915581ac002bc82c51b4258c77c280415ea03b72",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/prepare_sources.py",
+      "bytes": 1412,
+      "sha256": "564973d10eedba72e4fc36f44c0c009d2a2dce3a1a6b709a538df8d5fe8324f3",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/reference_probe.py",
+      "bytes": 2777,
+      "sha256": "61d315fb94a8e001738d36ab6a548f747d2fbea7b7d8429646521b3f79d9bb06",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/run_tests.py",
+      "bytes": 11385,
+      "sha256": "4733a2db7faab68a6b0524f695d77cbe9f454bb55bd1b6bba7d46fcc0147f1b5",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/source-manifest.json",
+      "bytes": 926,
+      "sha256": "7eff3dbeee47b7de70fb788c60d1009cd83f1c28b8384517695df268dd27e1a2",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/startup_decode.py",
+      "bytes": 869,
+      "sha256": "7316ae8e5f039d53583b88ff8700a7c44b06751f96e985b399f2eff78e1a2a8c",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/test_bound_installer.py",
+      "bytes": 8393,
+      "sha256": "1ed83277621c07a17c21aa81729d735b8b1c1e3e2b3eb970150a100fb8985995",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/test_main.cpp",
+      "bytes": 6123,
+      "sha256": "8f1a02ee30c8930c3534a28d1e956d0d20d3b6ec26badbf4c60d7872800eee02",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/test_package.py",
+      "bytes": 13526,
+      "sha256": "25dcf7417c1ae7c700b0c77f308e7f988e181efbdf74523274fd80914548c5d5",
+      "mode": "100644"
+    },
+    {
+      "file": "tests/source_text_v2/verify_link.py",
+      "bytes": 14280,
+      "sha256": "e155bf66e2c5892b49d7241d36f21dc4b10b6ac2cb1bbf95a96596b02bb07182",
+      "mode": "100644"
+    }
+  ],
+  "excluded_self": true,
+  "final_file_count_including_this_inventory": 32
+}
