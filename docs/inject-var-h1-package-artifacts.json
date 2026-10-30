@@ -1,0 +1,166 @@
+{
+  "package": {
+    "file": "evilduck-routeb-inject-var-h1-experimental-macos-v1.zip",
+    "bytes": 2450845,
+    "sha256": "229da835898e6739e31e4a6c08dd1ee9b5d74ded0458c7a0d850c899f5d2c639",
+    "members": [
+      {
+        "file": "APACHE-2.0.txt",
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "file": "INSTALL-MAC.md",
+        "bytes": 7142,
+        "sha256": "41d2d109a9cd3f9a55b6cf6abe018c183712030ce9d0e554562dd1505158b103"
+      },
+      {
+        "file": "OWNER-CHECK.md",
+        "bytes": 5766,
+        "sha256": "0ec39266648c9800291d195881285af48ca0ad304b0fa49a80bfb3e6e5425ed1"
+      },
+      {
+        "file": "README.md",
+        "bytes": 525,
+        "sha256": "fd0e1acd34578823abe443bfe3274a2e46b235a4d279628c14d1e7f23406f01f"
+      },
+      {
+        "file": "ROLLBACK-MAC.md",
+        "bytes": 2722,
+        "sha256": "91f738b2924461289c80a5a7e5301f2b1264aca8b0e7d2f59f360ca68e058610"
+      },
+      {
+        "file": "application.bin",
+        "bytes": 1414080,
+        "sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd"
+      },
+      {
+        "file": "build-receipt.json",
+        "bytes": 2175019,
+        "sha256": "cf00b9a66e9b9dfb270f10d418e2145af083e7a58a64cc21f2b57842fbe0d4d0"
+      },
+      {
+        "file": "compatibility.md",
+        "bytes": 4480,
+        "sha256": "2ea96147bb709027242173398026a341137810b139b04f69589a3a0c65cb15f8"
+      },
+      {
+        "file": "dependency-pin.json",
+        "bytes": 2298,
+        "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475"
+      },
+      {
+        "file": "expected-partitions.bin",
+        "bytes": 3072,
+        "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+      },
+      {
+        "file": "firmware-report.md",
+        "bytes": 14212,
+        "sha256": "5f62eda02e495e03c8295784e5f1bdcf81cbada14633e5e95079da74d3ef8263"
+      },
+      {
+        "file": "gen_esp32part.py",
+        "bytes": 29496,
+        "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+      },
+      {
+        "file": "h1-fixed-copy.txt",
+        "bytes": 191,
+        "sha256": "7e329ddd435fe11eaf4d5631b5c2e6409825fc04734e2a15bb8f5d380f02b0b5"
+      },
+      {
+        "file": "h1-malformed.txt",
+        "bytes": 34,
+        "sha256": "b8485cc58e88381880fe1fbd495a575a3924441931ffcd7130bf7399fa4075cb"
+      },
+      {
+        "file": "h1-random-copy.txt",
+        "bytes": 99,
+        "sha256": "d37499ef5437784cf49b7a8ac36371c0374adfe049d044eeb7afe19e57d7656b"
+      },
+      {
+        "file": "h1-stop-held-shift.txt",
+        "bytes": 93,
+        "sha256": "7b5da1a22e24298e4aae5f82d07510f83ed7f55b4f64f3ad4154f87f01fd4415"
+      },
+      {
+        "file": "install-macos.sh",
+        "bytes": 168,
+        "sha256": "290467849471980640fcf4bd6e44d69e22ec20f1cb7f5fd4436c0dc8a83f1cd8"
+      },
+      {
+        "file": "installer.py",
+        "bytes": 8525,
+        "sha256": "a0bf2a361b3bf72bb5ef6e041769e41b3ca77cec9f7460f809a50205cd2f5c52"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 6323,
+        "sha256": "8cb00b958170401cc2dd02f8b358442bf4b6bdde4f984ba3d326d5816f3d7e18"
+      },
+      {
+        "file": "owner-evidence.md",
+        "bytes": 3437,
+        "sha256": "8301f384a7c6076f8fbcbdf8d282085d103ec5993c81363b4464ef979633a811"
+      },
+      {
+        "file": "preflight.py",
+        "bytes": 12692,
+        "sha256": "54172ec681296ff65c728c0229567a48f4e5cd63dc9fba1d2d68007af67dc0ea"
+      },
+      {
+        "file": "reproduction.md",
+        "bytes": 3779,
+        "sha256": "227de5739a50a811a94e3a17bc05adfecaf473b6738d95aa1df0a68feeba6155"
+      },
+      {
+        "file": "rollback-application.bin",
+        "bytes": 1413200,
+        "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+      },
+      {
+        "file": "rollback-build-receipt.json",
+        "bytes": 1969960,
+        "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953"
+      },
+      {
+        "file": "rollback-macos.sh",
+        "bytes": 306,
+        "sha256": "6ad97fa1d58d89689e2638ec1559c2b927e7251cb99047bdb003ff3cea97321b"
+      },
+      {
+        "file": "source-LICENSE.txt",
+        "bytes": 1066,
+        "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+      },
+      {
+        "file": "source-manifest.json",
+        "bytes": 1280,
+        "sha256": "c11b0ae8679281af98245c2a43c4937052032a7b703384020bc6b5d9b889a591"
+      },
+      {
+        "file": "test-results.json",
+        "bytes": 106208,
+        "sha256": "f391f5f56b466501bac57868fc4c5b6042a8fc27c98234cb9767961ec0b08c1a"
+      }
+    ]
+  },
+  "packaging_source_commit": "ad224daa1c983acbe8945730ff823bb0ac79ea2a",
+  "firmware_review_commit": "a15b8e218935b2c6a69b71eeac3aaf378c3c0c03",
+  "build_id": "ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1",
+  "application": {
+    "bytes": 1414080,
+    "sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd"
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+  },
+  "elf_sha256": "c33c612cfa704b15d6b9c7908d37b8dc17767384270c8a52893f650bfc0763c0",
+  "table_sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+  "firmware_rebuilt": false,
+  "firmware_changed": false,
+  "hardware_access": false,
+  "official_runtime_encoding_verified": false
+}

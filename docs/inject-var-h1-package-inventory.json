@@ -1,0 +1,101 @@
+{
+  "baseline": "a15b8e218935b2c6a69b71eeac3aaf378c3c0c03",
+  "files": [
+    {
+      "file": "docs/inject-var-h1-package-acceptance.md",
+      "bytes": 5766,
+      "sha256": "0ec39266648c9800291d195881285af48ca0ad304b0fa49a80bfb3e6e5425ed1"
+    },
+    {
+      "file": "docs/inject-var-h1-package-artifacts.json",
+      "bytes": 5513,
+      "sha256": "e4f2f575463e76ad821b6a91c4f60d8ba2adac16e88e8dc0aba584d9bdea0840"
+    },
+    {
+      "file": "docs/inject-var-h1-package-install.md",
+      "bytes": 7142,
+      "sha256": "41d2d109a9cd3f9a55b6cf6abe018c183712030ce9d0e554562dd1505158b103"
+    },
+    {
+      "file": "docs/inject-var-h1-package-overview.md",
+      "bytes": 3437,
+      "sha256": "8301f384a7c6076f8fbcbdf8d282085d103ec5993c81363b4464ef979633a811"
+    },
+    {
+      "file": "docs/inject-var-h1-package-preservation.json",
+      "bytes": 8119,
+      "sha256": "128ad7a05f8607e15d05eb720120b1e6801f21eab3659860df7e58390bea2842"
+    },
+    {
+      "file": "docs/inject-var-h1-package-report.md",
+      "bytes": 8467,
+      "sha256": "4c8a201c8f1f6dd058bdbb6444ae28135bc6dfb39cd5892f450d7435e1a91c79"
+    },
+    {
+      "file": "docs/inject-var-h1-package-reproduction.md",
+      "bytes": 3779,
+      "sha256": "227de5739a50a811a94e3a17bc05adfecaf473b6738d95aa1df0a68feeba6155"
+    },
+    {
+      "file": "docs/inject-var-h1-package-rollback.md",
+      "bytes": 2722,
+      "sha256": "91f738b2924461289c80a5a7e5301f2b1264aca8b0e7d2f59f360ca68e058610"
+    },
+    {
+      "file": "docs/inject-var-h1-package-tests.json",
+      "bytes": 24750,
+      "sha256": "e7214c54e6df38a68d0f0a6b1a52e34a4408830cc20594434b9840d3b39b1afa"
+    },
+    {
+      "file": "downloads/evilduck-routeb-inject-var-h1-experimental-macos-v1.zip",
+      "bytes": 2450845,
+      "sha256": "229da835898e6739e31e4a6c08dd1ee9b5d74ded0458c7a0d850c899f5d2c639"
+    },
+    {
+      "file": "tests/inject_var_h1_package/.gitignore",
+      "bytes": 13,
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+    },
+    {
+      "file": "tests/inject_var_h1_package/fixtures/h1-fixed-copy.txt",
+      "bytes": 191,
+      "sha256": "7e329ddd435fe11eaf4d5631b5c2e6409825fc04734e2a15bb8f5d380f02b0b5"
+    },
+    {
+      "file": "tests/inject_var_h1_package/fixtures/h1-malformed.txt",
+      "bytes": 34,
+      "sha256": "b8485cc58e88381880fe1fbd495a575a3924441931ffcd7130bf7399fa4075cb"
+    },
+    {
+      "file": "tests/inject_var_h1_package/fixtures/h1-random-copy.txt",
+      "bytes": 99,
+      "sha256": "d37499ef5437784cf49b7a8ac36371c0374adfe049d044eeb7afe19e57d7656b"
+    },
+    {
+      "file": "tests/inject_var_h1_package/fixtures/h1-stop-held-shift.txt",
+      "bytes": 93,
+      "sha256": "7b5da1a22e24298e4aae5f82d07510f83ed7f55b4f64f3ad4154f87f01fd4415"
+    },
+    {
+      "file": "tests/inject_var_h1_package/package.py",
+      "bytes": 15660,
+      "sha256": "c34d6743b7acab71af544ab8f7e6e8e21b9954bfb26e547ecce08a41a147898b"
+    },
+    {
+      "file": "tests/inject_var_h1_package/preflight.py",
+      "bytes": 12087,
+      "sha256": "5ef335b22921bd3d90fcd9b6441081a538dc635067713e727dadbf5030e0f8a6"
+    },
+    {
+      "file": "tests/inject_var_h1_package/test_bound_installer.py",
+      "bytes": 8728,
+      "sha256": "c0c66fbd3aef23aa62874b384546f3e8521e6f7621e638f195eaa8ff31eb4bf7"
+    },
+    {
+      "file": "tests/inject_var_h1_package/test_package.py",
+      "bytes": 18919,
+      "sha256": "da21a7ac6c880c6cbe3a2e1a04a467dd7c279e8dcd061ed00cd845acf94ed2e5"
+    }
+  ],
+  "note": "Additive inventory excludes this self-referential inventory and later publication receipt."
+}

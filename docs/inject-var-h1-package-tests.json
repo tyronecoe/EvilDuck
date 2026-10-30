@@ -1,0 +1,974 @@
+{
+  "final_package": {
+    "counts": {
+      "PASS": 75,
+      "FAIL": 0
+    },
+    "results": [
+      {
+        "name": "package_only_no_ranges_no_authorization",
+        "status": "PASS"
+      },
+      {
+        "name": "supplied_supported_metadata_app0_both_slots_no_authorization",
+        "status": "PASS"
+      },
+      {
+        "name": "table_without_ota_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "legacy_or_changed_layout",
+        "status": "PASS"
+      },
+      {
+        "name": "truncated_table",
+        "status": "PASS"
+      },
+      {
+        "name": "changed_table_flag",
+        "status": "PASS"
+      },
+      {
+        "name": "nonerased_trailer",
+        "status": "PASS"
+      },
+      {
+        "name": "missing_ota_record",
+        "status": "PASS"
+      },
+      {
+        "name": "unreviewed_active_slot",
+        "status": "PASS"
+      },
+      {
+        "name": "corrupt_ota_crc",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_bin_hash",
+        "status": "PASS"
+      },
+      {
+        "name": "truncated_bin",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_chip_header",
+        "status": "PASS"
+      },
+      {
+        "name": "old_source_identity",
+        "status": "PASS"
+      },
+      {
+        "name": "authorization_flag",
+        "status": "PASS"
+      },
+      {
+        "name": "false_canonical_claim",
+        "status": "PASS"
+      },
+      {
+        "name": "false_physical_claim",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_manifest_build_id",
+        "status": "PASS"
+      },
+      {
+        "name": "nvs_range",
+        "status": "PASS"
+      },
+      {
+        "name": "full_slot_erase",
+        "status": "PASS"
+      },
+      {
+        "name": "only_one_slot",
+        "status": "PASS"
+      },
+      {
+        "name": "oversize_app",
+        "status": "PASS"
+      },
+      {
+        "name": "path_injection",
+        "status": "PASS"
+      },
+      {
+        "name": "unexpected_private_member_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "fixture_integrity",
+        "status": "PASS"
+      },
+      {
+        "name": "unrelated_historical_observer_not_published",
+        "status": "PASS"
+      },
+      {
+        "name": "fixture_matches_reviewed_source_h1-fixed-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "fixture_matches_reviewed_source_h1-stop-held-shift.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "fixture_matches_reviewed_source_h1-malformed.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "fixture_matches_reviewed_source_h1-random-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_tamper_h1-fixed-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_missing_h1-fixed-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_tamper_h1-stop-held-shift.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_missing_h1-stop-held-shift.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_tamper_h1-malformed.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_missing_h1-malformed.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_tamper_h1-random-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_fixture_missing_h1-random-copy.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "archive_crc_members_and_exact_bytes",
+        "status": "PASS"
+      },
+      {
+        "name": "input_files_readonly",
+        "status": "PASS"
+      },
+      {
+        "name": "new_linked_keyboard_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "new_text_keyboard_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "new_payload_restart_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "new_source_text_v2_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_source_text_v1_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "new_lock_wait_timeout_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_source_text_v2_composition_pin_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_lowercase_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_uppercase_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_randomization_jitter_policy_required",
+        "status": "PASS"
+      },
+      {
+        "name": "new_linked_composition_pin_required",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_link_verification_required",
+        "status": "PASS"
+      },
+      {
+        "name": "canonical_runtime_claim_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_build_id_required",
+        "status": "PASS"
+      },
+      {
+        "name": "inherited_timeout_pin_required",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_build_adapter_identity_required",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_link_adapter_identity_required",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_build_guard_removal_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_link_guard_removal_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "h1_opt_in_build_selector_required",
+        "status": "PASS"
+      },
+      {
+        "name": "candidate_and_rollback_cannot_be_swapped",
+        "status": "PASS"
+      },
+      {
+        "name": "first_offline_command_no_hardware_or_write_plan",
+        "status": "PASS"
+      },
+      {
+        "name": "all_plan_ranges_inside_apps_no_nonapplication_overlap",
+        "status": "PASS"
+      },
+      {
+        "name": "required_installed_metadata_missing_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "rollback_plan_requires_same_metadata_and_two_pinned_slots",
+        "status": "PASS"
+      },
+      {
+        "name": "rollback_without_metadata_has_no_plan",
+        "status": "PASS"
+      },
+      {
+        "name": "unknown_image_selection_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "corrupt_rollback_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "rollback_nvs_range_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "rollback_erase_regions_inside_apps",
+        "status": "PASS"
+      },
+      {
+        "name": "bundled_cli_required_metadata_and_rollback_exit_status",
+        "status": "PASS"
+      },
+      {
+        "name": "symlink_member_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "bundled_python_38_grammar",
+        "status": "PASS"
+      },
+      {
+        "name": "guide_shell_syntax_and_app_only_gates",
+        "status": "PASS"
+      },
+      {
+        "name": "deterministic_rearchive_exact_bytes",
+        "status": "PASS"
+      }
+    ],
+    "fixtures": "disposable public copies and pinned OTA initializer; no actual owner metadata supplied",
+    "hardware": false,
+    "native_macos_tested": false,
+    "sanitizers": "N/A Python package logic; sender cleanup checks reported separately",
+    "installation_authorized": false
+  },
+  "final_mock_installer": {
+    "counts": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "results": [
+      {
+        "name": "release_binding_matches_exact_preflight",
+        "status": "PASS"
+      },
+      {
+        "name": "actual_release_default_check_no_write_no_full_backup",
+        "status": "PASS"
+      },
+      {
+        "name": "actual_release_install_fresh_gates_and_two_compares",
+        "status": "PASS"
+      },
+      {
+        "name": "actual_release_rollback_fresh_gates_and_two_compares",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_bad_package",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_wrong_tool",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_wrong_chip",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_small_flash",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_secure_boot",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_encrypted",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_crypt_count",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_missing_security",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_duplicate_security",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_wrong_layout",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_wrong_ota",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_short_table",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_missing_readback",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_backup_failure",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_short_backup",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_wrong_backup",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_changed_chip",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_changed_metadata",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_changed_image",
+        "status": "PASS"
+      },
+      {
+        "name": "real_validator_denies_interrupt",
+        "status": "PASS"
+      },
+      {
+        "name": "deliberate_cancellation_before_write",
+        "status": "PASS"
+      },
+      {
+        "name": "real_release_write_failure_no_retry_or_reboot",
+        "status": "PASS"
+      },
+      {
+        "name": "real_release_verify_failure_no_retry_or_reboot",
+        "status": "PASS"
+      },
+      {
+        "name": "real_release_second_verify_failure_no_retry_or_reboot",
+        "status": "PASS"
+      },
+      {
+        "name": "changed_helper_rejected_before_import_or_device_access",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_default_launcher_requires_explicit_fresh_port",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_rollback_cannot_be_overridden",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_python38_preflight.py",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_python38_installer.py",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_python38_gen_esp32part.py",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_shell_install-macos.sh",
+        "status": "PASS"
+      },
+      {
+        "name": "bound_shell_rollback-macos.sh",
+        "status": "PASS"
+      },
+      {
+        "name": "numbered_tool_progress_success_without_device_dispatch",
+        "status": "PASS"
+      },
+      {
+        "name": "numbered_tool_progress_failure_not_hidden",
+        "status": "PASS"
+      }
+    ],
+    "scope": "Actual public ELF-derived images, exact release preflight and bound installer with injected esptool responses. All device contents synthetic.",
+    "hardware": false,
+    "native_macos_tested": false
+  },
+  "initial_documentation_check": {
+    "package": {
+      "counts": {
+        "PASS": 74,
+        "FAIL": 1
+      },
+      "results": [
+        {
+          "name": "package_only_no_ranges_no_authorization",
+          "status": "PASS"
+        },
+        {
+          "name": "supplied_supported_metadata_app0_both_slots_no_authorization",
+          "status": "PASS"
+        },
+        {
+          "name": "table_without_ota_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "legacy_or_changed_layout",
+          "status": "PASS"
+        },
+        {
+          "name": "truncated_table",
+          "status": "PASS"
+        },
+        {
+          "name": "changed_table_flag",
+          "status": "PASS"
+        },
+        {
+          "name": "nonerased_trailer",
+          "status": "PASS"
+        },
+        {
+          "name": "missing_ota_record",
+          "status": "PASS"
+        },
+        {
+          "name": "unreviewed_active_slot",
+          "status": "PASS"
+        },
+        {
+          "name": "corrupt_ota_crc",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_bin_hash",
+          "status": "PASS"
+        },
+        {
+          "name": "truncated_bin",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_chip_header",
+          "status": "PASS"
+        },
+        {
+          "name": "old_source_identity",
+          "status": "PASS"
+        },
+        {
+          "name": "authorization_flag",
+          "status": "PASS"
+        },
+        {
+          "name": "false_canonical_claim",
+          "status": "PASS"
+        },
+        {
+          "name": "false_physical_claim",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_manifest_build_id",
+          "status": "PASS"
+        },
+        {
+          "name": "nvs_range",
+          "status": "PASS"
+        },
+        {
+          "name": "full_slot_erase",
+          "status": "PASS"
+        },
+        {
+          "name": "only_one_slot",
+          "status": "PASS"
+        },
+        {
+          "name": "oversize_app",
+          "status": "PASS"
+        },
+        {
+          "name": "path_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "unexpected_private_member_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "fixture_integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "unrelated_historical_observer_not_published",
+          "status": "PASS"
+        },
+        {
+          "name": "fixture_matches_reviewed_source_h1-fixed-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "fixture_matches_reviewed_source_h1-stop-held-shift.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "fixture_matches_reviewed_source_h1-malformed.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "fixture_matches_reviewed_source_h1-random-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_tamper_h1-fixed-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_missing_h1-fixed-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_tamper_h1-stop-held-shift.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_missing_h1-stop-held-shift.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_tamper_h1-malformed.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_missing_h1-malformed.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_tamper_h1-random-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_fixture_missing_h1-random-copy.txt",
+          "status": "PASS"
+        },
+        {
+          "name": "archive_crc_members_and_exact_bytes",
+          "status": "PASS"
+        },
+        {
+          "name": "input_files_readonly",
+          "status": "PASS"
+        },
+        {
+          "name": "new_linked_keyboard_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "new_text_keyboard_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "new_payload_restart_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "new_source_text_v2_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_source_text_v1_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "new_lock_wait_timeout_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_source_text_v2_composition_pin_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_lowercase_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_uppercase_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_randomization_jitter_policy_required",
+          "status": "PASS"
+        },
+        {
+          "name": "new_linked_composition_pin_required",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_link_verification_required",
+          "status": "PASS"
+        },
+        {
+          "name": "canonical_runtime_claim_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_build_id_required",
+          "status": "PASS"
+        },
+        {
+          "name": "inherited_timeout_pin_required",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_build_adapter_identity_required",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_link_adapter_identity_required",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_build_guard_removal_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_link_guard_removal_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "h1_opt_in_build_selector_required",
+          "status": "PASS"
+        },
+        {
+          "name": "candidate_and_rollback_cannot_be_swapped",
+          "status": "PASS"
+        },
+        {
+          "name": "first_offline_command_no_hardware_or_write_plan",
+          "status": "PASS"
+        },
+        {
+          "name": "all_plan_ranges_inside_apps_no_nonapplication_overlap",
+          "status": "PASS"
+        },
+        {
+          "name": "required_installed_metadata_missing_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "rollback_plan_requires_same_metadata_and_two_pinned_slots",
+          "status": "PASS"
+        },
+        {
+          "name": "rollback_without_metadata_has_no_plan",
+          "status": "PASS"
+        },
+        {
+          "name": "unknown_image_selection_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "corrupt_rollback_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "rollback_nvs_range_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "rollback_erase_regions_inside_apps",
+          "status": "PASS"
+        },
+        {
+          "name": "bundled_cli_required_metadata_and_rollback_exit_status",
+          "status": "PASS"
+        },
+        {
+          "name": "symlink_member_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "bundled_python_38_grammar",
+          "status": "PASS"
+        },
+        {
+          "name": "guide_shell_syntax_and_app_only_gates",
+          "status": "FAIL",
+          "diagnostic": "AssertionError"
+        },
+        {
+          "name": "deterministic_rearchive_exact_bytes",
+          "status": "PASS"
+        }
+      ],
+      "fixtures": "disposable public copies and pinned OTA initializer; no actual owner metadata supplied",
+      "hardware": false,
+      "native_macos_tested": false,
+      "sanitizers": "N/A Python package logic; sender cleanup checks reported separately",
+      "installation_authorized": false
+    },
+    "mock_installer": {
+      "counts": {
+        "PASS": 38,
+        "FAIL": 0
+      },
+      "results": [
+        {
+          "name": "release_binding_matches_exact_preflight",
+          "status": "PASS"
+        },
+        {
+          "name": "actual_release_default_check_no_write_no_full_backup",
+          "status": "PASS"
+        },
+        {
+          "name": "actual_release_install_fresh_gates_and_two_compares",
+          "status": "PASS"
+        },
+        {
+          "name": "actual_release_rollback_fresh_gates_and_two_compares",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_bad_package",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_wrong_tool",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_wrong_chip",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_small_flash",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_secure_boot",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_encrypted",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_crypt_count",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_missing_security",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_duplicate_security",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_wrong_layout",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_wrong_ota",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_short_table",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_missing_readback",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_backup_failure",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_short_backup",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_wrong_backup",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_changed_chip",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_changed_metadata",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_changed_image",
+          "status": "PASS"
+        },
+        {
+          "name": "real_validator_denies_interrupt",
+          "status": "PASS"
+        },
+        {
+          "name": "deliberate_cancellation_before_write",
+          "status": "PASS"
+        },
+        {
+          "name": "real_release_write_failure_no_retry_or_reboot",
+          "status": "PASS"
+        },
+        {
+          "name": "real_release_verify_failure_no_retry_or_reboot",
+          "status": "PASS"
+        },
+        {
+          "name": "real_release_second_verify_failure_no_retry_or_reboot",
+          "status": "PASS"
+        },
+        {
+          "name": "changed_helper_rejected_before_import_or_device_access",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_default_launcher_requires_explicit_fresh_port",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_rollback_cannot_be_overridden",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_python38_preflight.py",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_python38_installer.py",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_python38_gen_esp32part.py",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_shell_install-macos.sh",
+          "status": "PASS"
+        },
+        {
+          "name": "bound_shell_rollback-macos.sh",
+          "status": "PASS"
+        },
+        {
+          "name": "numbered_tool_progress_success_without_device_dispatch",
+          "status": "PASS"
+        },
+        {
+          "name": "numbered_tool_progress_failure_not_hidden",
+          "status": "PASS"
+        }
+      ],
+      "scope": "Actual public ELF-derived images, exact release preflight and bound installer with injected esptool responses. All device contents synthetic.",
+      "hardware": false,
+      "native_macos_tested": false
+    },
+    "correction": "Added explicit OWNER-CHECK.md link to INSTALL-MAC.md; preserved initial results, no test weakening; final package rerun"
+  },
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "bash": "5.2.37",
+    "git": "2.52.0",
+    "native_macos_tested": false,
+    "python38_grammar": "PASS",
+    "bash_syntax": "PASS"
+  },
+  "reused_not_rerun": {
+    "native_cases": 522,
+    "assertions": 23124,
+    "source_receipt": "docs/inject-var-experimental-test-results.json",
+    "sanitizers": "Source-stage ASan/UBSan/leak clean, unchanged C++ inputs; not rerun for Python-only packaging"
+  },
+  "hardware": false
+}
