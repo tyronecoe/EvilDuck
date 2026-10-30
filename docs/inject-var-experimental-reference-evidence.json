@@ -1,0 +1,744 @@
+{
+  "format": "evilduck-inject-var-experimental-evidence-v1",
+  "recorded_utc": "2026-10-30T16:52:24.672072+00:00",
+  "baseline_commit": "51583dd9008c98699f1eb082c42103bbff6c755a",
+  "evidence_status": "COMPILER_ASSIGNMENT_COPY_EMISSION_CONFIRMED_RUNTIME_ENCODING_UNRESOLVED",
+  "current_retrievals": [
+    {
+      "requested_url": "https://docs.hak5.org/",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:50.405339+00:00"
+    },
+    {
+      "requested_url": "https://docs.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:51.570697+00:00"
+    },
+    {
+      "requested_url": "https://docs.hak5.org/hak5-usb-rubber-ducky/advanced-features/randomization.md",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:50.040106+00:00"
+    },
+    {
+      "requested_url": "https://docs.hak5.org/hak5-usb-rubber-ducky/advanced-features/exfiltration.md",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:49.861375+00:00"
+    },
+    {
+      "requested_url": "https://docs.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/variables.md",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:51.454599+00:00"
+    },
+    {
+      "requested_url": "https://payloadstudio.hak5.org/community/",
+      "resolved_url": "https://payloadstudio.hak5.org/community/",
+      "status": 200,
+      "bytes": 605048,
+      "sha256": "18efc91b48d8ada4e7aaaaebe0218e9bbc360360eb81ac182a63c4db9c10eee7",
+      "content_type": "text/html; charset=utf-8",
+      "capture": "4b83bb20574b81.txt",
+      "retrieved_utc": "2026-10-30T16:49:50.809631+00:00"
+    },
+    {
+      "requested_url": "https://www.usb.org/sites/default/files/hut1_5.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:51.084659+00:00"
+    },
+    {
+      "requested_url": "https://www.usb.org/sites/default/files/hid1_11.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "exception": "HTTPError",
+      "retrieved_utc": "2026-10-30T16:49:51.265826+00:00"
+    }
+  ],
+  "current_documentation_canonical_urls_verified": false,
+  "historical_evidence_preserved": {
+    "original_25_check_receipt": {
+      "path": "/workspace/outputs/inject-var-focused-validation/reproduced-compiler-inspection.json",
+      "sha256": "0cf7493d40a8a2258b937179de758945a0d313ec5e990feacf0a0eaa0b1e5788",
+      "reexecuted_as_main_result": false
+    },
+    "prior_verification_sha256": "557892404e5ad29af8692684e9b65f037cdbc092dae024a6b078fd67bada9278",
+    "stage15_vectors_sha256": "2df8bc6da8d3e5de09ea10dd3e27730d6124f66fbb58143c514f4f5e21ba4e3a",
+    "original_reference_contract_sha256": "6979eb288119c722cbbea8d332a0362c61fde7f46bba636714fcba6e6161ba07"
+  },
+  "new_compiler_trace": {
+    "checks": [
+      {
+        "name": "LOWER_LETTER assignment uses reserved selector",
+        "actual": "e8010001fa420000",
+        "expected": "e8010001fa420000",
+        "status": "PASS"
+      },
+      {
+        "name": "LOWER_LETTER compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "UPPER_LETTER assignment uses reserved selector",
+        "actual": "e8010001fb420000",
+        "expected": "e8010001fb420000",
+        "status": "PASS"
+      },
+      {
+        "name": "UPPER_LETTER compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "LETTER assignment uses reserved selector",
+        "actual": "e8010001ff420000",
+        "expected": "e8010001ff420000",
+        "status": "PASS"
+      },
+      {
+        "name": "LETTER compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "NUMBER assignment uses reserved selector",
+        "actual": "e8010001fc420000",
+        "expected": "e8010001fc420000",
+        "status": "PASS"
+      },
+      {
+        "name": "NUMBER compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "SPECIAL assignment uses reserved selector",
+        "actual": "e8010001fd420000",
+        "expected": "e8010001fd420000",
+        "status": "PASS"
+      },
+      {
+        "name": "SPECIAL compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "CHAR assignment uses reserved selector",
+        "actual": "e8010001fe420000",
+        "expected": "e8010001fe420000",
+        "status": "PASS"
+      },
+      {
+        "name": "CHAR compiler placeholder is not sampled runtime value",
+        "actual": [
+          "0000",
+          true
+        ],
+        "expected": [
+          "0000",
+          true
+        ],
+        "status": "PASS"
+      },
+      {
+        "name": "copy assignment references original register",
+        "actual": "e801000200010000",
+        "expected": "e801000200010000",
+        "status": "PASS"
+      },
+      {
+        "name": "two injections reference copy register",
+        "actual": "e9e90002e9e90002",
+        "expected": "e9e90002e9e90002",
+        "status": "PASS"
+      },
+      {
+        "name": "compiler handlers do not mutate placeholders",
+        "actual": "[\"VALUES\",\"0000\",\"0000\"]",
+        "expected": "[\"VALUES\",\"0000\",\"0000\"]",
+        "status": "PASS"
+      },
+      {
+        "name": "EXFIL variable references, not calibration of runtime framing",
+        "actual": "f6e90001f6e90002",
+        "expected": "f6e90001f6e90002",
+        "status": "PASS"
+      },
+      {
+        "name": "hex initializer gets separate constant register",
+        "actual": "e801000100020000",
+        "expected": "e801000100020000",
+        "status": "PASS"
+      },
+      {
+        "name": "hex constant serialization vs variable placeholder",
+        "actual": [
+          "VALUES",
+          "0000",
+          "0402"
+        ],
+        "expected": [
+          "VALUES",
+          "0000",
+          "0402"
+        ],
+        "status": "PASS"
+      }
+    ],
+    "counts": {
+      "PASS": 18,
+      "FAIL": 0
+    },
+    "hypothesis_comparison": {
+      "vectors": [
+        {
+          "character": "a",
+          "usage": 4,
+          "modifier": 0,
+          "H1_prediction": 4,
+          "H2_prediction": 1024,
+          "ASCII_prediction": 97,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        },
+        {
+          "character": "A",
+          "usage": 4,
+          "modifier": 2,
+          "H1_prediction": 516,
+          "H2_prediction": 1026,
+          "ASCII_prediction": 65,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        },
+        {
+          "character": "Z",
+          "usage": 29,
+          "modifier": 2,
+          "H1_prediction": 541,
+          "H2_prediction": 7426,
+          "ASCII_prediction": 90,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        },
+        {
+          "character": "0",
+          "usage": 39,
+          "modifier": 0,
+          "H1_prediction": 39,
+          "H2_prediction": 9984,
+          "ASCII_prediction": 48,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        },
+        {
+          "character": "!",
+          "usage": 30,
+          "modifier": 2,
+          "H1_prediction": 542,
+          "H2_prediction": 7682,
+          "ASCII_prediction": 33,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        },
+        {
+          "character": "#",
+          "usage": 32,
+          "modifier": 2,
+          "H1_prediction": 544,
+          "H2_prediction": 8194,
+          "ASCII_prediction": 35,
+          "observation_supplied": false,
+          "matches": null,
+          "status": "UNDERDETERMINED_NO_RUNTIME_OBSERVATION",
+          "official_runtime_value": null
+        }
+      ],
+      "algorithmic_checks": [
+        {
+          "name": "independent A stroke yields distinct H1/H2 predictions",
+          "status": "PASS",
+          "kind": "algorithmic prediction check, not runtime validation"
+        },
+        {
+          "name": "independent a stroke yields distinct H1/H2 predictions",
+          "status": "PASS",
+          "kind": "algorithmic prediction check, not runtime validation"
+        },
+        {
+          "name": "all absent runtime observations remain underdetermined",
+          "status": "PASS",
+          "kind": "algorithmic prediction check, not runtime validation"
+        },
+        {
+          "name": "synthetic counterexample would reject H1 without changing expectations",
+          "status": "PASS",
+          "kind": "algorithmic prediction check, not runtime validation"
+        },
+        {
+          "name": "synthetic H1 match would reject H2 for same US stroke",
+          "status": "PASS",
+          "kind": "algorithmic prediction check, not runtime validation"
+        }
+      ],
+      "counts": {
+        "PASS": 5,
+        "FAIL": 0
+      },
+      "synthetic_counterexample": {
+        "provenance": "SYNTHETIC_ONLY_NOT_OFFICIAL",
+        "hypothetical_observed_scalar": 1026,
+        "comparison": {
+          "character": "A",
+          "usage": 4,
+          "modifier": 2,
+          "H1_prediction": 516,
+          "H2_prediction": 1026,
+          "ASCII_prediction": 65,
+          "observation_supplied": true,
+          "matches": {
+            "H1": false,
+            "H2": true,
+            "ASCII": false
+          },
+          "status": "CONDITIONAL_COMPARISON_REQUIRES_PROVENANCE",
+          "official_runtime_value": null
+        }
+      },
+      "language_cell_observation": {
+        "bytes": "0402",
+        "character_label": "LANG_a",
+        "has_runtime_scalar": false,
+        "conclusion": "Cannot select H1/H2; forced-Shift serialized compiler cell, not observed lowercase getter value"
+      },
+      "unparameterized_hypotheses": [
+        "layout-table index",
+        "tagged value",
+        "runtime case transform"
+      ],
+      "unparameterized_status": "No defined scalar function; cannot compute discriminating values without a specific versioned contract",
+      "winner": null
+    },
+    "page_sha256": "18efc91b48d8ada4e7aaaaebe0218e9bbc360360eb81ac182a63c4db9c10eee7",
+    "encoder": "5b4c1b5-271b6b-1690371896-STABLE",
+    "source_functions": [
+      {
+        "function": "DS3",
+        "first_line": 6220,
+        "last_line": 6225,
+        "sha256": "af591d4306140edcc674f72536f217211173382ba9cb27347785376d088fa417"
+      },
+      {
+        "function": "hexEncode",
+        "first_line": 5445,
+        "last_line": 5447,
+        "sha256": "9d96aa686883a0b322e2363ce39ee824e955d4ada7214ea572d0bfbf4ef5cbb6"
+      },
+      {
+        "function": "swapHex",
+        "first_line": 6270,
+        "last_line": 6276,
+        "sha256": "c32e8a10db75e3688e93e5c79ad7ed6202cfc60b9627d1f994d080753e0d3271"
+      },
+      {
+        "function": "decToHex",
+        "first_line": 9051,
+        "last_line": 9069,
+        "sha256": "988c15592059d8c76f2d2bd2a74ed5fe50fff54a66efd7f732899881f5a364b0"
+      },
+      {
+        "function": "varExists",
+        "first_line": 6280,
+        "last_line": 6282,
+        "sha256": "bb66204aa14c149beed9fb706b56355aa7c6aebb975bee2e9e225d1cb098ba15"
+      },
+      {
+        "function": "allocateVar",
+        "first_line": 6284,
+        "last_line": 6291,
+        "sha256": "88b4ffc41cf5090c4e69c3f81046a8361ad74547864894e44e8b22d3594261e9"
+      },
+      {
+        "function": "assignValue",
+        "first_line": 6293,
+        "last_line": 6298,
+        "sha256": "df381c222e82ad880737511b0649af09a03d59a64e73333a4dcf30f6e11760e7"
+      },
+      {
+        "function": "getVarAddress",
+        "first_line": 6300,
+        "last_line": 6302,
+        "sha256": "0c360e58488088027f83f10c2ba474acc215c205403ee23129da0b849404506d"
+      },
+      {
+        "function": "containsFunctionCall",
+        "first_line": 6227,
+        "last_line": 6229,
+        "sha256": "fcea282679308f8b3e547b1e2e00dfd5f4f8524a9be7ed19927047068274c1c0"
+      },
+      {
+        "function": "isOperator",
+        "first_line": 6231,
+        "last_line": 6233,
+        "sha256": "903aa6aedd16009ef2a12e2479e049ef8c21b059ca62c0135699edacb3e50665"
+      },
+      {
+        "function": "isVar",
+        "first_line": 6235,
+        "last_line": 6237,
+        "sha256": "0f9c9ac4a5cc8dabd3647e7016712ab34830e99c56acba55f84a076d94512cdc"
+      },
+      {
+        "function": "isReservedVar",
+        "first_line": 6241,
+        "last_line": 6249,
+        "sha256": "1ce23f5d82efcc04cf71cbb8e5ba765e60170f3e14c5478d6c522dee49e04afc"
+      },
+      {
+        "function": "isReservedConstant",
+        "first_line": 6304,
+        "last_line": 6306,
+        "sha256": "42a8e2aed6365cb5806786e79e0f38e9bb9f59e837af898a83924f9190a9b7f4"
+      },
+      {
+        "function": "isNumeric",
+        "first_line": 6251,
+        "last_line": 6253,
+        "sha256": "24fec317e0be3785ca2b9299e200dd7ab9e7c1d20add3e1ffeea44f4be3291dd"
+      },
+      {
+        "function": "isDecimal",
+        "first_line": 6255,
+        "last_line": 6257,
+        "sha256": "b102b5941ec0accb345a1c81ca756a16c27f8d3499262a5c20679515516b598d"
+      },
+      {
+        "function": "isHex",
+        "first_line": 6259,
+        "last_line": 6261,
+        "sha256": "57a0e82a3fa4930a4797a7bbec708733275d743b46c9896c711a7a3b91d85e13"
+      },
+      {
+        "function": "formatHex",
+        "first_line": 6263,
+        "last_line": 6268,
+        "sha256": "b86fa30d54943e829e1ad926a99d9334f09aea73aa640afe0aaa073eaf343b1c"
+      },
+      {
+        "function": "handleAssignment",
+        "first_line": 6701,
+        "last_line": 6946,
+        "sha256": "9c2aa5df3addd7f6310ff79d6f65025842566597a984cab0f1ad476486382fe8"
+      },
+      {
+        "function": "handleInjectVar",
+        "first_line": 7353,
+        "last_line": 7365,
+        "sha256": "df162df8530693fd333b67e991dd6328e7a3df9f5f6d202830e2e0b543ddffa8"
+      },
+      {
+        "function": "handleExfilVar",
+        "first_line": 7430,
+        "last_line": 7442,
+        "sha256": "d5c27876fb7974f20aca666a2132f5c482fb3ad652b59ee6af090de05882ada5"
+      },
+      {
+        "data": "operatorMap",
+        "first_line": 5575,
+        "last_line": 5596,
+        "sha256": "7d9613928263676e0369b730b43cffeed4f69fb6c8bb9f52f36f75e6746206fd"
+      },
+      {
+        "data": "reservedVariables",
+        "first_line": 5601,
+        "last_line": 5647,
+        "sha256": "ffb998f7763405b015b936f8a99332fec56152b9edb853095f4e0f67bf51e948"
+      },
+      {
+        "data": "reservedConstants",
+        "first_line": 5702,
+        "last_line": 5711,
+        "sha256": "212e88ed7ddcd7345a696acea03a2c2db3bbe2105b365bf5781c8b09356eb09b"
+      }
+    ],
+    "node": "v24.19.0",
+    "limitations": [
+      "Selected original compiler handlers only; helpers for append/logging/error/UI dependencies are mocks",
+      "No complete compiler pipeline, official runtime, bytecode interpreter, browser or HID execution",
+      "varValues are compiler placeholders/serialized constants; no generated runtime keycode observed",
+      "EXFIL opcode emission is not output-channel framing or runtime scalar evidence"
+    ],
+    "official_runtime_executed": false,
+    "official_runtime_value": null,
+    "command": [
+      "python3",
+      "tests/inject_var_experimental/compiler_trace.py",
+      "--page",
+      "/workspace/scratch/inject-var-experimental/research/4b83bb20574b81.txt",
+      "--output",
+      "/workspace/scratch/inject-var-experimental/research/compiler-trace-final2.json"
+    ]
+  },
+  "independent_printable_vectors": [
+    {
+      "character": "a",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 4,
+      "independent_modifier": 0,
+      "expected_normalized_report": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x0004",
+      "H2_byte_swapped_prediction_hex": "0x0400",
+      "ASCII_hypothesis_hex": "0x0061",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    },
+    {
+      "character": "A",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 4,
+      "independent_modifier": 2,
+      "expected_normalized_report": [
+        2,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x0204",
+      "H2_byte_swapped_prediction_hex": "0x0402",
+      "ASCII_hypothesis_hex": "0x0041",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    },
+    {
+      "character": "Z",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 29,
+      "independent_modifier": 2,
+      "expected_normalized_report": [
+        2,
+        0,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x021d",
+      "H2_byte_swapped_prediction_hex": "0x1d02",
+      "ASCII_hypothesis_hex": "0x005a",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    },
+    {
+      "character": "0",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 39,
+      "independent_modifier": 0,
+      "expected_normalized_report": [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x0027",
+      "H2_byte_swapped_prediction_hex": "0x2700",
+      "ASCII_hypothesis_hex": "0x0030",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    },
+    {
+      "character": "!",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 30,
+      "independent_modifier": 2,
+      "expected_normalized_report": [
+        2,
+        0,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x021e",
+      "H2_byte_swapped_prediction_hex": "0x1e02",
+      "ASCII_hypothesis_hex": "0x0021",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    },
+    {
+      "character": "#",
+      "layout": "US",
+      "caps_lock_assumption": "off",
+      "independent_hid_usage": 32,
+      "independent_modifier": 2,
+      "expected_normalized_report": [
+        2,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "report_provenance": "Keyboard page07 usage assignments and ordinary US layout; correlated with pinned public getBytesForKey/defaultUSKbdLayout and existing Route B map, not H1 decoder",
+      "H1_prediction_hex": "0x0220",
+      "H2_byte_swapped_prediction_hex": "0x2002",
+      "ASCII_hypothesis_hex": "0x0023",
+      "official_runtime_value": null,
+      "physical_report_observed": false
+    }
+  ],
+  "representations": {
+    "instruction": "e9e9 INJECT_VAR; f6e9 EXFIL_VAR; e801 assignment",
+    "register_reference": "0001 or0002 big-endian-looking fourhex field from decToHex, not a key value",
+    "internal_selector": "42FA..42FF conceptual IDs serialize fa42..ff42 from hexEncode; ASCII properties have distinct42F4..42F9 selectors",
+    "serialized_constant": "0x0204 literal occupies a separate constant register initialized with0402; user target starts0000",
+    "language_table": "generateLangPack forcibly assigns Shift into all36letter/digit cells; a0402 is not a lowercase runtime sample",
+    "runtime_keycode": "unknown; no original/copy scalar from genuine DS3 runtime",
+    "usb_report": "modifier,reserved,sixusages per existing reportID1; not the scalar representation"
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "formula": "(modifier_mask << 8) | HID_usage",
+      "status": "CONSISTENT_NOT_ESTABLISHED",
+      "supports": "single-stroke table field structure and distinct ASCII selectors",
+      "limitation": "requires unobserved runtime transformation for lowercase language cells; runtime scalar nevercaptured",
+      "falsifier": "calibrated genuine runtime scalar for a correlatedUSsample differs from prediction"
+    },
+    {
+      "id": "H2",
+      "formula": "(HID_usage << 8) | modifier_mask",
+      "status": "CONSISTENT_NOT_ESTABLISHED",
+      "supports": "mixed byte-order serialization functions make swapped numeric interpretation plausible",
+      "limitation": "no runtimevalue exists to distinguish H1/H2",
+      "falsifier": "calibrated scalar plus visible/reportcorrelation contradicts byte-swapped prediction"
+    },
+    {
+      "id": "H3",
+      "formula": "ASCII-like scalar or layout-table index/tag, possibly runtime-transformed",
+      "status": "UNDERDETERMINED",
+      "supports": "consumer receives a register reference; firmware decoder could transform stored value; separate ASCII/keycode selectors weaken pure-ASCII interpretation but do not empirically exclude it",
+      "limitation": "no authoritative value domain/tag/index table or runtime decoder was retrieved",
+      "falsifier": "a defined versioned candidate model requires correlated observations; an unspecified transform cannot be meaningfully ruled out by compiler emission"
+    }
+  ],
+  "prototype_gate": {
+    "H1_contradicted_by_observed_runtime": false,
+    "official_runtime_observations_available": false,
+    "limited_opt_in_EvilDuck_H1_policy_justified": true,
+    "canonical_Hak5_compatibility_justified": false,
+    "H1_test_pass_is_runtime_reference": false
+  },
+  "official_runtime_executed": false,
+  "hardware_access": false,
+  "private_data_access": false,
+  "contact_made": false,
+  "outer_compiler_static_trace": [
+    {
+      "lines": "5896\u20135912",
+      "behavior": "Assignment/declaration regexes select handleAssignment"
+    },
+    {
+      "lines": "6701\u20136947",
+      "behavior": "Reduction emits e801 assignment + register/property references; literals allocated separate serialized constant registers"
+    },
+    {
+      "lines": "7967\u20138015",
+      "behavior": "Full compile loop delegates source lines, conditionally generates language pack, prepends varValues between E8E8 markers; this outer UI pipeline was inspected statically, not executed"
+    },
+    {
+      "lines": "7892\u20137909",
+      "behavior": "Language pack forcibly sets SHIFT in every entry"
+    },
+    {
+      "lines": "7353\u20137365",
+      "behavior": "INJECT_VAR emits opcode plus register reference; no JS runtime decoder"
+    },
+    {
+      "lines": "7430\u20137443",
+      "behavior": "EXFIL emits opcode plus register reference; no scalar framing implementation"
+    }
+  ],
+  "trace_tool_sha256": "a0fee770f17a7e404f68949d6c6b49d9023a6eea9d61ba2a08a7fbbcf96ad599",
+  "overlapping_original_function_pins_matched": 9
+}

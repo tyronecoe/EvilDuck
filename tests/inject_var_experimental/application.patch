@@ -1,0 +1,128 @@
+--- core.cpp
++++ core.cpp
+@@ -1,3 +1,6 @@
++#if !defined(EVILDUCK_EXPERIMENTAL_INJECT_VAR_H1) || EVILDUCK_EXPERIMENTAL_INJECT_VAR_H1 != 1
++#error "Explicit experimental INJECT_VAR H1 profile required; canonical encoding unverified"
++#endif
+ #if !defined(EVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT) || EVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT != 1
+ #error "Explicit Route B lock-wait-timeout candidate profile required"
+ #endif
+@@ -82,8 +85,19 @@
+  if(textKind(p)||key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
++// An independently specified experiment, not a claim about official runtime values.
++// Reuse the reviewed US translator as a finite whitelist, never arbitrary HID bytes.
++bool decodeExperimentalKeycodeH1(uint16_t value,uint8_t& usage,uint8_t& modifiers){
++ usage=modifiers=0;const uint8_t low=static_cast<uint8_t>(value),high=static_cast<uint8_t>(value>>8);
++ if(high!=0&&high!=2)return false;
++ for(uint16_t c=32;c<=126;++c){uint8_t u=0,m=0;
++  if(ds_shortcut::mapUS(c,u,m)&&u==low&&m==high){usage=u;modifiers=m;return true;}
++ }return false;
++}
++static const char* randomAlphabet(uint8_t group);
+ const char* message(ErrorCode c){
+  switch(c){
++ case ErrorCode::InvalidExperimentalKeycode:return "Value outside experimental H1 US printable keycode subset";
+  case ErrorCode::RandomRange:return "Random minimum exceeds maximum at draw";
+  case ErrorCode::SettingValue:return "Internal setting requires a valid Boolean, unsigned 16-bit value, or nonzero lock timeout";
+  case ErrorCode::RandomUnavailable:return "Bounded random source unavailable";
+@@ -141,8 +155,8 @@
+    bool var=c=='$';size_t start=pos_;if(var)++pos_;while(letter(input_[pos_])||digit(input_[pos_]))++pos_;
+    size_t n=pos_-start;
+    if(var&&n>1&&input_[start+1]=='_'){
+-    static const char* const internal[]={"$_NUMLOCK_ON","$_CAPSLOCK_ON","$_SCROLLLOCK_ON","$_RECEIVED_HOST_LOCK_LED_REPLY","$_EVILDUCK_LOCK_KNOWN","$_RANDOM_INT","$_RANDOM_MIN","$_RANDOM_MAX","$_JITTER_ENABLED","$_JITTER_MAX","$_EVILDUCK_LOCK_TIMEOUT"};
+-    for(uint16_t i=0;i<11;++i)if(strlen(internal[i])==n&&!memcmp(internal[i],input_+start,n)){number_=i;token_=Internal;return;}
++    static const char* const internal[]={"$_NUMLOCK_ON","$_CAPSLOCK_ON","$_SCROLLLOCK_ON","$_RECEIVED_HOST_LOCK_LED_REPLY","$_EVILDUCK_LOCK_KNOWN","$_RANDOM_INT","$_RANDOM_MIN","$_RANDOM_MAX","$_JITTER_ENABLED","$_JITTER_MAX","$_EVILDUCK_LOCK_TIMEOUT","$_RANDOM_LOWER_LETTER_KEYCODE","$_RANDOM_UPPER_LETTER_KEYCODE","$_RANDOM_LETTER_KEYCODE","$_RANDOM_NUMBER_KEYCODE","$_RANDOM_SPECIAL_KEYCODE","$_RANDOM_CHAR_KEYCODE"};
++    for(uint16_t i=0;i<17;++i)if(strlen(internal[i])==n&&!memcmp(internal[i],input_+start,n)){number_=i;token_=Internal;return;}
+     fail(ErrorCode::Identifier);return;
+    }
+    if(n>=sizeof(name_)){fail(ErrorCode::Identifier);return;}memcpy(name_,input_+start,n);name_[n]=0;
+@@ -394,7 +408,13 @@
+   }
+   {static const char* const groups[]={"RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
+    for(uint16_t i=0;i<4;++i)if(command(text,groups[i])){if(!exact(text,groups[i]))return fail(ErrorCode::Syntax);return emit(Op::RandomGroup,"",i);}}
+-  if(command(text,"INJECT_VAR"))return fail(ErrorCode::Unsupported);
++  if(command(text,"INJECT_VAR")){
++   // Deliberately one raw ordinary variable; no expressions, getter or text mode.
++   char* operand=left(argument(text));
++   if(operand[0]!='$'||operand[1]=='_'||!ident(operand+1))return fail(ErrorCode::Syntax);
++   if(strlen(operand)>=sizeof(name))return fail(ErrorCode::Identifier);
++   if(!expr(operand))return false;return emit(Op::InjectVar,operand);
++  }
+   if(command(text,"RANDOM_UPPERCASE_LETTER")){
+    if(!exact(text,"RANDOM_UPPERCASE_LETTER"))return fail(ErrorCode::Syntax);
+    return emit(Op::RandomUppercase);
+@@ -598,7 +618,7 @@
+   }
+   case CompilePhase::Validate:{
+    if(validate_==p_.count_){phase_=CompilePhase::Publish;return true;}const Instruction& ins=p_.code_[validate_++];line_=ins.line;
+-   if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
++   if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::InjectVar||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
+     ++cost.expressions;uint16_t value=0;bool known=false;Expression e(p_,nullptr,p_.text_+ins.offset,nullptr,true);Error error=e.evaluate(value,&known);if(error.code!=ErrorCode::None)return fail(error.code,error.column);
+     if(ins.op==Op::InternalSet&&ins.symbol==4&&known&&!value)return fail(ErrorCode::SettingValue);
+    }return true;
+@@ -698,6 +718,15 @@
+   else if(token.value==6)value=randomMin_;else if(token.value==7)value=randomMax_;
+   else if(token.value==8)value=jitterEnabled_;else if(token.value==9)value=jitterMax_;
+   else if(token.value==10)value=lockTimeoutMs_;
++  else if(token.value>=11&&token.value<=16){
++   static const uint8_t groups[]={'a','A',0,1,2,3};
++   const char* alphabet=randomAlphabet(groups[token.value-11]);uint16_t selected=0;
++   int result=sample(0,static_cast<uint16_t>(strlen(alphabet)-1),selected);
++   if(result<=0){if(result==0)--frame.cursor;return;}
++   uint8_t usage=0,modifiers=0;
++   if(!ds_shortcut::mapUS(static_cast<uint8_t>(alphabet[selected]),usage,modifiers)){fail(ErrorCode::InvalidExperimentalKeycode,token.column);return;}
++   value=static_cast<uint16_t>((uint16_t(modifiers)<<8)|usage);
++  }
+   else if(!internalReader||!internalReader(internalContext,token.value,value)){fail(ErrorCode::FeedbackUnavailable,token.column);return;}
+   frame.values[frame.size++]=value;return;
+  }
+@@ -789,7 +818,7 @@
+  if(pc_>=program_->count_){state_=State::Completed;releaseProgram();return;}
+  if(steps_==stepLimit_){fail(ErrorCode::StepLimit);return;}++steps_;
+  const Instruction& ins=program_->code_[pc_];const char* arg=program_->text_+ins.offset;uint16_t value=0;
+- if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
++ if(ins.op==Op::Set||ins.op==Op::InternalSet||ins.op==Op::InjectVar||ins.op==Op::If||ins.op==Op::Delay||(ins.op==Op::Return&&ins.length)){
+   Error e=Expression(*program_,nullptr,arg,&evaluations_[depth_],true).evaluate(value);if(e.code!=ErrorCode::None){fail(e.code,e.column);}return;
+  }
+  completeInstruction(now,value);
+@@ -814,6 +843,10 @@
+  case Op::LockWait:event_={EventType::LockWait,ins.target,0,lockTimeoutMs_};pending_=true;deliver(now);break;
+  case Op::Delay:event_={EventType::Delay,value};pending_=true;deliver(now);break;
+  case Op::Key:event_={EventType::KeyTap,ins.target,ins.symbol};pending_=true;deliver(now);break;
++ case Op::InjectVar:{
++  uint8_t usage=0,modifiers=0;if(!decodeExperimentalKeycodeH1(value,usage,modifiers)){fail(ErrorCode::InvalidExperimentalKeycode);return;}
++  event_={EventType::KeyTap,usage,modifiers};pending_=true;deliver(now);break;
++ }
+  case Op::Hold:case Op::Release:event_={ins.op==Op::Hold?EventType::Hold:EventType::Release,ins.target};pending_=true;deliver(now);break;
+  case Op::If:pc_=value?pc_+1:ins.target;break;
+  case Op::Jump:case Op::Function:pc_=ins.target;break;
+--- core.h
++++ core.h
+@@ -12,10 +12,12 @@
+  TextLimit, Identifier, SymbolLimit, FunctionLimit, ConstantLimit, ConstantExpansion,
+  DuplicateConstant, DuplicateFunction, UnknownStatement, Unsupported, Syntax,
+  Structure, NestingLimit, UndefinedSymbol, Uninitialized, UndefinedFunction,
+- ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable, RandomRange, SettingValue };
++ ExpressionLimit, Arithmetic, CallLimit, StepLimit, TickLimit, Timeout, InvalidBudget, VoidValue, SinkFailure, NotCompiled, Busy, ReadError, SeekError, CompileLimit, FeedbackUnavailable, PreprocessorSyntax, PreprocessorLimit, CompileFlag, ExtensionSyntax, ExtensionLimit, RandomUnavailable, RandomRange, SettingValue, InvalidExperimentalKeycode };
+ struct Error { ErrorCode code=ErrorCode::None; uint16_t line=0, column=0; };
+ const char* message(ErrorCode code);
+-enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset, Restart };
++// H1-only experimental policy: not a verified Hak5 runtime scalar encoding.
++bool decodeExperimentalKeycodeH1(uint16_t value,uint8_t& usage,uint8_t& modifiers);
++enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset, Restart, InjectVar };
+ struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };
+ struct Function { char name[24]={}; uint16_t entry=0, end=0; };
+ enum class ExprKind : uint8_t { Literal, Variable, Call, Binary, Internal };
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-LOCK-WAIT-TIMEOUT-v1";
++constexpr const char* BuildId="ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

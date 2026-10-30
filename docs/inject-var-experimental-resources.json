@@ -1,0 +1,136 @@
+{
+  "build_id": "ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1",
+  "current": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1414080,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6188096,
+    "free_percent_per_slot": 81.39900996767241,
+    "application_sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1413931,
+    "static_ram_bytes": 113896,
+    "compiler_ram_maximum_bytes": 327680,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "verified_cpp_extra_flags": "-DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3",
+    "merged_image_for_migration": false
+  },
+  "starting_software_candidate": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1413520,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6188656,
+    "free_percent_per_slot": 81.40637627963362,
+    "application_sha256": "319df438aa4fb7cabec4247f9fcb2b666de27213cbd1611d8041b55cf5aa129f",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1413375,
+    "static_ram_bytes": 113896,
+    "compiler_ram_maximum_bytes": 327680,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "verified_cpp_extra_flags": "-DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/lock-wait-timeout/build-v1/candidate/EvilDuckS3",
+    "merged_image_for_migration": false
+  },
+  "accepted_v2": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1413200,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6188976,
+    "free_percent_per_slot": 81.41058560075432,
+    "application_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1413055,
+    "static_ram_bytes": 113888,
+    "compiler_ram_maximum_bytes": 327680,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "verified_cpp_extra_flags": "-DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/source-text-v2/build-v1/candidate/EvilDuckS3",
+    "merged_image_for_migration": false
+  },
+  "delta_from_starting_candidate": {
+    "compiler_program_bytes": 556,
+    "application_bytes": 560,
+    "static_ram_bytes": 0,
+    "free_bytes_per_slot": -560
+  },
+  "delta_from_accepted_v2": {
+    "compiler_program_bytes": 876,
+    "application_bytes": 880,
+    "static_ram_bytes": 8,
+    "free_bytes_per_slot": -880
+  },
+  "elf_sha256": "c33c612cfa704b15d6b9c7908d37b8dc17767384270c8a52893f650bfc0763c0",
+  "sdk_archives_identical": 177,
+  "core_pin": {
+    "core_version": "3.3.0",
+    "baseline": "0d100caa120d11920341e493019e5fc016c05a4f",
+    "original_tree_sha256": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+    "patched_tree_sha256": "a79b9c7e42e7ea2066815271117eeac23fe0a27e65fa00657dc268b70c22c53a",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "aba054156d04bceee833a4708abab2de2f8dd380325fd1ab61d13ecae32d4e84",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+    "profile": "arduino-3.3.0-archive-feedback-boundary-v1",
+    "archive_sha256": "c8525462e47b37b726c211b71afada0fca5859ba748963e4d967131355716ba2",
+    "proposal_commit": "f47e46dec2fa19ef7310ea6ffd36fed8a23aefb3",
+    "approval": "Owner approved additive archive-based software build and package preparation; no hardware authorization",
+    "historical_reproduction": false,
+    "feedback_usb_source_sha256": "8d7b8283bc3ee978de14229382d43628ae48c1f01acbbaa15837bf2ced01571f",
+    "feedback_patch_sha256": "8c96735814cead97e95ffca8accf286ac0765cfddb1273f852600d86a9a68572"
+  },
+  "selected_compiler_frames": [
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/core.cpp:90:6:bool ds_preview::decodeExperimentalKeycodeH1(uint16_t, uint8_t&, uint8_t&)",
+      "bytes": 48,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/core.cpp:322:7:bool ds_preview::Compiler::statement(char*)",
+      "bytes": 352,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/core.cpp:826:6:void ds_preview::Runtime::completeInstruction(uint32_t, uint16_t)",
+      "bytes": 48,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/core.cpp:704:6:void ds_preview::Runtime::evaluationStep(uint32_t)",
+      "bytes": 144,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/core.cpp:788:6:void ds_preview::Runtime::tick(uint32_t)",
+      "bytes": 128,
+      "kind": "static"
+    },
+    {
+      "symbol": "/workspace/scratch/inject-var-experimental/build-v1/candidate/EvilDuckS3/adapter.cpp:51:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+      "bytes": 96,
+      "kind": "static"
+    }
+  ],
+  "no_physical_stack_heap_latency_measurements": true
+}

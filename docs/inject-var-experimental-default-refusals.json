@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "profile": "ROUTEB-LOCK-WAIT-TIMEOUT-v1 unchanged default",
+  "binary": "/workspace/scratch/lock-wait-timeout/native-v3/native",
+  "binary_sha256": "48aba751e0a8738fd0e3757544600268d707857a6bed0c267e974b451a54e384",
+  "basis": "Previously compiled default source; fresh execution of unchanged refusal cases, not a rebuilt default firmware",
+  "cases": [
+    {
+      "id": "R06",
+      "exit": 0,
+      "stdout": "PASS R06 (12 assertions)",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "id": "U06",
+      "exit": 0,
+      "stdout": "PASS U06 (12 assertions)",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "id": "T16",
+      "exit": 0,
+      "stdout": "PASS T16 (20 assertions)",
+      "stderr": "",
+      "status": "PASS"
+    }
+  ],
+  "PASS": 3,
+  "FAIL": 0,
+  "assertions": 44,
+  "sanitizers": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "hardware": false
+}

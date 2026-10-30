@@ -1,0 +1,33 @@
+{
+  "baseline": "51583dd9008c98699f1eb082c42103bbff6c755a",
+  "verified_utc": "2026-10-30T16:59:24.788783+00:00",
+  "historical_files_and_modes": 2197,
+  "all_historical_files_and_modes_unchanged": true,
+  "default_composed_sources_verified": 201,
+  "old_focused_report_matches_original_receipt": true,
+  "preserved_reference_contract_hashes": {
+    "docs/stage15-inject-var-analysis.md": "87447677dedfef3c4fc07e7520d0bc1201c8a35b202c57561dd539d006ce1bfa",
+    "tests/stage15/reference-vectors.json": "2df8bc6da8d3e5de09ea10dd3e27730d6124f66fbb58143c514f4f5e21ba4e3a",
+    "/workspace/outputs/inject-var-focused-validation/unchanged-reference-contract.json": "6979eb288119c722cbbea8d332a0362c61fde7f46bba636714fcba6e6161ba07"
+  },
+  "rollback": {
+    "source": "application.bin in unchanged published source/text-v2 ZIP",
+    "zip_sha256": "589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0",
+    "bytes": 1413200,
+    "application_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "artifact_kind": "standalone-application",
+    "physical_readback": false,
+    "recovery_requires_separate_owner_authorization_and_installed_layout_security_checks": true
+  },
+  "no_installer_created": true,
+  "no_deployable_images_committed": true,
+  "hardware_access": false,
+  "private_backups_accessed": false,
+  "historical_combined_handoff_artifact": {
+    "file": "downloads/evilduck-routeb-randomization-jitter-macos-v1.zip",
+    "zip_sha256": "a25e703dbd8198fa9dfa29f3f04a278ae0b704ae220bd377b8fad0036ac964d1",
+    "application_bytes": 1411088,
+    "application_sha256": "2e1d8345417c6f23a5df3d884db42dd2a0f9f305120ee494c56a58048e677496",
+    "latest_required_rollback": false
+  }
+}

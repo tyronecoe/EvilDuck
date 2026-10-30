@@ -1,0 +1,84 @@
+{
+  "status": "PASS_SYNTHETIC_PARSER_CHECKS_ONLY",
+  "counts": {
+    "PASS": 18,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "little_calibration_and_h1",
+      "status": "PASS"
+    },
+    {
+      "name": "little_distinguishes_h2",
+      "status": "PASS"
+    },
+    {
+      "name": "big_calibration_and_h1",
+      "status": "PASS"
+    },
+    {
+      "name": "big_distinguishes_h2",
+      "status": "PASS"
+    },
+    {
+      "name": "mutation_is_preserved_not_hidden",
+      "status": "PASS"
+    },
+    {
+      "name": "truncated",
+      "status": "PASS"
+    },
+    {
+      "name": "extra_bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_visible_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_layout",
+      "status": "PASS"
+    },
+    {
+      "name": "caps_unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "private_data_not_confirmed",
+      "status": "PASS"
+    },
+    {
+      "name": "bad_offset",
+      "status": "PASS"
+    },
+    {
+      "name": "bad_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_group",
+      "status": "PASS"
+    },
+    {
+      "name": "ambiguous_calibration",
+      "status": "PASS"
+    },
+    {
+      "name": "trailing_calibration_mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "calibration_only_before_injection_review",
+      "status": "PASS"
+    }
+  ],
+  "official_runtime_executed": false,
+  "hardware_access": false,
+  "canonical_runtime_contract_established": false
+}
