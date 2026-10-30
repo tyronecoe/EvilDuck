@@ -10,7 +10,7 @@ Unpack into a new directory, preserve the original ZIP, and open Terminal in tha
 python3 preflight.py --directory .
 ```
 
-This uses only package files; it does not enumerate USB, open a port or make network requests. Expect exit 0, `package_integrity: PASS`, `installed_metadata: NOT_SUPPLIED`, `plan_ready: false`, `hardware_access: false`, and `installation_authorized: false`. The latter fields are deliberate: package integrity does not authorize or prove device readiness. Stop on rejection. The offline checker also verifies both image checksums/appended digests, the expected table, support-file identities and bounded app-slot plans.
+This uses only package files; it does not enumerate USB, open a port or make network requests. Expect exit 0, `package_integrity: PASS`, `installed_metadata: NOT_SUPPLIED`, `plan_ready: false`, `hardware_access: false`, and `installation_authorized: false`. The latter fields are deliberate: package integrity does not authorize or prove device readiness. Stop on rejection. Read **OWNER-CHECK.md** before any separately approved acceptance trial. The offline checker also verifies both image checksums/appended digests, the expected table, support-file identities and bounded app-slot plans.
 
 Compatible preparation interfaces are **macOS High Sierra 10.13.6**, **Bash 3.2**, **Python 3.8.10** and **esptool 4.12.0**. Python/esptool must already be available in the selected `python3`; this package does not download or install dependencies. `python3 --version` and `python3 -m esptool version` inspect the local tool versions without accessing the device. Linux package/mock results do not claim native High Sierra execution.
 
