@@ -1,0 +1,121 @@
+{
+  "format": "evilduck-owner-accepted-baseline-v1",
+  "recorded_utc": "2026-10-30T08:21:39.690228+00:00",
+  "accepted_build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+  "release_branch": "routeb-source-text-portability-v2",
+  "release_commit": "789815a70544e0b8f3967f8ab68d9f4f1f4e5f62",
+  "source_commit": "71a62ea1bd775bc260052d099b5784b06ba3fc12",
+  "package_commit": "d241a1da070bc7bd447904cd6b762f73385487c4",
+  "application": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "kind": "standalone-application",
+    "verified_from": "application.bin in exact published v2 ZIP",
+    "physical_application_readback": false
+  },
+  "package": {
+    "file": "downloads/evilduck-routeb-source-text-portability-macos-v2.zip",
+    "bytes": 2395166,
+    "sha256": "589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0",
+    "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/d241a1da070bc7bd447904cd6b762f73385487c4/downloads/evilduck-routeb-source-text-portability-macos-v2.zip"
+  },
+  "owner_evidence": {
+    "origin": "owner-reported acceptance handoff; original physical artifacts not supplied with this closeout",
+    "host_os": "macOS High Sierra 10.13.6",
+    "expected_installed_build_id_reported": true,
+    "test_date_unknown": true,
+    "handoff": {
+      "preserved_file": "docs/source-text-v2-acceptance-handoff.txt",
+      "original_filename": "EvilDuck-Source-Text-v2-Acceptance-Codex-Handoff.txt",
+      "bytes": 5276,
+      "sha256": "cb05221b388cd24b08c6388d4f77bd9a59ea6db51ba0d7cfdc3fe44d20cef1bc"
+    },
+    "trials": [
+      {
+        "id": "terminated-aliases",
+        "result": "OWNER_REPORTED_PASS",
+        "exercise": "Terminated aliases, ordinary literal closing-token and multiline-block comparisons",
+        "request_id": null,
+        "test_date": null,
+        "boot_id": null,
+        "session_id": null,
+        "original_receipt_id": null,
+        "original_screenshot_association": null,
+        "original_serial_transcript": null
+      },
+      {
+        "id": "restart-held-shift-stop",
+        "result": "OWNER_REPORTED_PASS",
+        "exercise": "Restart, held-Shift recovery and STOP",
+        "request_id": null,
+        "test_date": null,
+        "boot_id": null,
+        "session_id": null,
+        "original_receipt_id": null,
+        "original_screenshot_association": null,
+        "original_serial_transcript": null
+      },
+      {
+        "id": "malformed-source",
+        "result": "OWNER_REPORTED_PASS",
+        "exercise": "Malformed syntax rejected",
+        "request_id": null,
+        "diagnostic_line": null,
+        "diagnostic_code": null,
+        "test_date": null,
+        "boot_id": null,
+        "session_id": null,
+        "original_receipt_id": null,
+        "original_screenshot_association": null,
+        "original_serial_transcript": null
+      },
+      {
+        "id": "leading-bom-stored-file",
+        "result": "OWNER_REPORTED_PASS",
+        "exercise": "Complete leading UTF-8 BOM upload/readback and explicit stored-file Route B execution",
+        "request_id": 1,
+        "dashboard_result": "Completed",
+        "source_bytes_compared": 30,
+        "source_prefix_hex": "efbbbf",
+        "exact_source_readback_reported": true,
+        "source_fixture_filename": null,
+        "source_readback_sha256": null,
+        "console_submission": "Control + J",
+        "console_result": "Queued Route B",
+        "textedit_output": "111bom",
+        "textedit_occurrences": 1,
+        "test_date": null,
+        "boot_id": null,
+        "session_id": null,
+        "original_receipt_id": null,
+        "original_screenshot_association": null,
+        "original_serial_transcript": null
+      }
+    ],
+    "codex_hardware_access": false,
+    "independent_physical_evidence_inspection": false
+  },
+  "future_candidate_rollback": {
+    "build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "reuse_exact_published_application_bytes": true,
+    "rebuild_not_permitted_as_substitute": true,
+    "existing_historical_builders_changed": false
+  },
+  "older_recovery_resource": {
+    "build_id": "ROUTEB-PAYLOAD-RESTART-v1",
+    "bytes": 1412688,
+    "sha256": "1d4ea6394306885b832619adb3436eaeeccc0a67ce8b73e1f20dd0f9c7d0a060",
+    "member_in_unchanged_v2_package": "rollback-application.bin"
+  },
+  "limitations": [
+    "Four exercised owner workflows, not exhaustive DS3 compatibility",
+    "Representative aliases, not all fourteen physical variants",
+    "No arbitrary Unicode or additional keyboard-layout validation",
+    "No precise timing, entropy-quality or general USB/host-state guarantee",
+    "Windows acceptance not established"
+  ],
+  "firmware_implementation_authorized_by_closeout": false,
+  "new_physical_operations_authorized_by_closeout": false
+}

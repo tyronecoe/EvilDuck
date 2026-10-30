@@ -1,0 +1,65 @@
+EvilDuck S3 — Source/text v2 acceptance closeout and next-stage recommendation
+
+Record ROUTEB-SOURCE-TEXT-PORTABILITY-v2 as the latest owner-accepted baseline on macOS High Sierra 10.13.6.
+
+Release branch: routeb-source-text-portability-v2
+Release commit: 789815a70544e0b8f3967f8ab68d9f4f1f4e5f62
+Application size: 1,413,200 bytes
+Application SHA-256:
+cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02
+
+Published package: evilduck-routeb-source-text-portability-macos-v2.zip
+Package size: 2,395,166 bytes
+Package SHA-256:
+589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0
+Commit-pinned package:
+https://raw.githubusercontent.com/tyronecoe/EvilDuck/d241a1da070bc7bd447904cd6b762f73385487c4/downloads/evilduck-routeb-source-text-portability-macos-v2.zip
+
+1. Record the physical acceptance results
+
+The owner reports all four planned trials passed:
+
+1) Terminated text aliases, including the planned ordinary literal closing-token and multiline-block comparisons.
+2) Restart and held-Shift recovery, including STOP.
+3) Malformed syntax rejection.
+4) Leading UTF-8 BOM through the supported stored-file Route B path.
+
+The owner reports the expected installed build ID. For the final BOM trial, the reported observations are:
+
+- All 30 source bytes, including the leading EF BB BF, survived upload and download byte comparison.
+- The serial console accepted the explicit Route B command after Control + J.
+- Terminal reported "Queued Route B".
+- TextEdit displayed exactly one "111bom".
+- Dashboard reported "Request 1: Completed".
+
+Record these as scoped owner-reported observations. This handoff does not include the original screenshots, readback files or serial transcript for independent inspection. Associate evidence only when available and clearly tied to this trial. Do not borrow identifiers from older releases. Leave unknown test time, boot/session identifiers, fixture filename/readback hash and negative-trial diagnostic details unknown.
+
+These passes establish the exercised workflows. They do not establish all fourteen physical alias variants, arbitrary Unicode, exhaustive delimiter handling, universal keyboard layouts, precise timing, general USB/host-state guarantees or Windows acceptance. Preserve the distinction between physical observations, historical automated receipts and any newly executed checks.
+
+2. Update High Sierra console instructions
+
+On the tested High Sierra/GNU Screen setup at 115200 baud, Control + J successfully submitted commands where ordinary Return appeared ineffective. Record this as an observed submission workaround, not a universal requirement or a proven firmware defect. Do not infer a root cause or change console parsing from this observation alone.
+
+Document that the /dev/cu.usbmodem* identifier can change after reconnection/reset. Rediscover and verify the current port for each connection rather than copying an old numeric suffix. Keep explicit Route B selection and one deliberate submission per trial in the instructions.
+
+3. Preserve release and rollback identities
+
+Keep the published v2 ZIP, its included older rollback image, v1 and previous evidence unchanged. Publish acceptance closeout as additive documentation after checking subsequent work.
+
+Every future candidate package must include exact rollback to the newly accepted v2 application:
+1,413,200 bytes / cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02
+
+The previously accepted restart application remains an older recovery resource:
+1,412,688 bytes / 1d4ea6394306885b832619adb3436eaeeccc0a67ce8b73e1f20dd0f9c7d0a060
+
+Do not rebuild the accepted image to manufacture rollback bytes. Reuse and verify its exact published application bytes. Keep application hashes distinct from ZIP hashes and application readback distinct from script-file readback.
+
+4. Recommend the next useful development stage
+
+Use the existing compatibility inventory, completed investigations and current composed Route B source. Update stale current-status entries for restart, BOM admission and v2 alias grammar without rewriting historical reports. Preserve documented EvilDuck extensions and stricter delimiter policies.
+
+Identify the strongest remaining practical improvement and compare it briefly with two alternatives. Give the concrete user benefit, exact proposed syntax/behavior, reference evidence, implementation scope, regression risks, meaningful offline tests and a short feasible High Sierra acceptance plan. A reproducible existing defect should take priority when warranted.
+
+Do not repeat a broad audit, reimplement completed features or choose additional layouts without a concrete target and verified mapping. Keep INJECT_VAR and stored random-keycode contracts blocked pending new independent official-runtime evidence. Do not restart Caps diagnostics or require Windows for independent Mac-compatible work.
+
+Deliver the acceptance closeout and a concrete next-release recommendation before implementation. This task permits documentation, publication of that documentation on an isolated branch, and targeted offline inspection/checks. It does not authorize firmware changes, builds, new installation packages, hardware access, HID execution, flashing, OTA, settings resets or automatic payload execution.
