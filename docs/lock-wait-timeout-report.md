@@ -54,11 +54,15 @@ Compiler frame estimates: Compiler::expr changes112→144bytes (+32) with its ne
 
 ## Package, owner check and limitations
 
+Final focused checks: **49 package PASS / 0 FAIL; 39 mock-installer PASS / 0 FAIL**. Final ZIP **2,432,631 bytes**, SHA256 `4e162b3c71d01aedba1238fdc33d955b2bd7d29ad8acb11d9518f0799f95bf05`. [Package checks](lock-wait-timeout-package-tests.json) and [mock-installer checks](lock-wait-timeout-installer-tests.json) include the exact final commands. Source binding: `a1e521325cb6a41e6424227cdf4023ed0e52a9a8`.
+
 One distinct Mac app-only review ZIP includes the candidate plus exact accepted v2 application rollback, reused from published bytes. The v2 ZIP and its older included restart rollback remain unchanged. Existing app-only region, chip/security/image/table/OTA checks remain fail closed. No installation, formatting, automatic repair or automatic payload execution is authorized. [Install review](lock-wait-timeout-install.md), [rollback](lock-wait-timeout-rollback.md), [three-trial acceptance sheet](lock-wait-timeout-acceptance.md).
 
 The bound `observe_wait.py` is Python3.8 stdlib, GET-only, authenticates with a private header prompt, checks candidate build identity, preflights idle state, requires the actual assigned request and logs whitelisted status fields. Prepare it before Start. It cannot start/STOP a script or emit LED/HID actions. HTTP errors stop observation; no failed-request replay, stale-current substitution or automatic acceptance. The2s timeout is socket inactivity, not a hard total-response deadline; a slow peer can exceed the polling window. Late responses cannot establish waiting evidence. Ctrl+C ends observation but does not STOP firmware.
 
 A passive timeout is an expected policy outcome, distinct from whole-run budget, disconnect or cleanup failure. STOP requires correlated routeBWaiting/request evidence, not an invented UI label. Missing correlation/competing transition is inconclusive; no broad Caps investigation or Windows prerequisite is introduced. Longer waits do not prove host-global locks, actual USB delivery or endpoint retirement.
+
+An initial package guide check failed because the install guide omitted its packaged OWNER-CHECK.md name. Review also corrected its offline-check command to Python preflight: the installer launcher default check needs a port and may read hardware. The corrected guide was packaged into a separate final archive; the initial 48PASS/1FAIL package receipt remains preserved as development evidence. The rollback receipt mismatch caught by independent source review was corrected before assembly. Neither issue required firmware changes.
 
 Package size/hash, source/artifact commits, package/mock-installer checks and the commit-pinned download are recorded in the subsequent [artifact receipt](lock-wait-timeout-artifact.json) and [publication receipt](lock-wait-timeout-publication.json). This report is included in the ZIP as its source-commit snapshot; later publication receipts supplement it without regenerating the archive. [Historical preservation check](lock-wait-timeout-preservation.json).
 
