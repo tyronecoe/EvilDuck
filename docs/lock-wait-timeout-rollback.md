@@ -1,0 +1,5 @@
+# Exact accepted v2 rollback — future separate authorization only
+
+rollback-application.bin is the accepted **ROUTEB-SOURCE-TEXT-PORTABILITY-v2**,1413200bytes SHA256 `cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02`, copied from its verified published application.bin, not rebuilt. Source71a62ea1bd775bc260052d099b5784b06ba3fc12, release789815a70544e0b8f3967f8ab68d9f4f1f4e5f62. Its separate build receipt is included. The older restart1412688byte image remains a historical recovery resource, not this package's rollback target.
+
+The inherited deliberate interface is `bash rollback-macos.sh --port /dev/cu.usbmodemCURRENT`; it is documented for a future separately authorized operation, not executed or authorized by this release. It enforces image/chip/security/installed table/OTA prerequisites and scoped application write ranges before writing. Stop on any mismatch; no fallback, automatic replay, partition repair, filesystem formatting or NVS reset. App rollback does not restore settings/storage. Preserve current accepted package and verified recovery resources independently.

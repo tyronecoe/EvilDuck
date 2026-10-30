@@ -1,0 +1,16 @@
+{
+  "baseline": "993a915bb932bfe50b4e18ea3dedb0a504caaab3",
+  "files": 2163,
+  "all_baseline_files_and_modes_unchanged": true,
+  "git_tree_sha256": "03575455121c6071a6435b62f29c49d40631b2167e3c5fd515217f1b906ddbd2",
+  "verified_utc": "2026-10-30T08:56:19.735044+00:00",
+  "stage26": "235 frozen files PASS",
+  "accepted_v2_download": {
+    "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/d241a1da070bc7bd447904cd6b762f73385487c4/downloads/evilduck-routeb-source-text-portability-macos-v2.zip",
+    "bytes": 2395166,
+    "sha256": "589c277b48838777a9333304e29ba7c1052a0a022558fa5f2bf0a1ffe7d2f1d0",
+    "equal_to_repository_blob": true
+  },
+  "hardware_access": false,
+  "owner_backups_accessed": false
+}
