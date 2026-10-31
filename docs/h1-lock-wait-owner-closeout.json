@@ -278,5 +278,38 @@
     "observer_or_package_suites_rerun": false
   },
   "terminal_observer_utc_date": "2026-10-31",
-  "owner_local_test_date": null
+  "owner_local_test_date": null,
+  "owner_clarification": {
+    "recorded_date_utc": "2026-10-31",
+    "basis": "Explicit owner clarification in EvilDuck-Next-Firmware-Codex-Handoff.txt",
+    "handoff_file": "1-EvilDuck-Next-Firmware-Codex-Handoff.txt",
+    "handoff_bytes": 6627,
+    "handoff_sha256": "b4e01ce187c525f6225e6f93ebc0832428253516deb4c86e26a32039c4d68ad1",
+    "planned_groups": 3,
+    "passed_groups": 3,
+    "failed_acceptance_groups": 0,
+    "outstanding_acceptance_groups_requiring_repetition": 0,
+    "successful_requests": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "excluded_handling_attempts": [
+      {
+        "request_id": 4,
+        "owner_classification": "Test-handling mistake; excluded from planned acceptance count",
+        "historical_capture_classification": "INCONCLUSIVE",
+        "relabeled_as_success": false
+      },
+      {
+        "request_id": 5,
+        "owner_classification": "Test-handling mistake; excluded from planned acceptance count",
+        "historical_capture_behavior": null,
+        "relabeled_as_success": false
+      }
+    ],
+    "original_capture_records_preserved": true,
+    "earlier_four_check_h1_milestone_unchanged": true
+  }
 }

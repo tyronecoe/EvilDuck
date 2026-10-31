@@ -52,3 +52,7 @@ Original preserved firmware/rollback resource (reference only, no new installati
 ## Later owner acceptance — October 31, 2026
 
 The owner has now reported **three scoped inherited lock-wait PASS groups on H1**, comprising successful Requests **1, 2, 3 and 6** on High Sierra 10.13.6. See the [later physical closeout](h1-lock-wait-owner-closeout.md) and [structured evidence](h1-lock-wait-owner-closeout.json). Request 4 remains inconclusive and Request 5 unknown. These IDs belong to the lock-wait sequence and do not change the separate earlier H1 milestone's identifiers. This later report updates the historical pending-owner context above; its original text and the ZIP's enclosed README remain unchanged. H1 stays experimental, canonical Hak5 encoding unresolved, and the exact source/text-v2 rollback mandatory. No new physical operation is authorized by this closeout.
+
+### Owner count clarification — October 31, 2026
+
+The owner confirms **3/3 planned inherited lock-wait groups PASS**, using successful Requests1/2/3/6. Attempts4/5 were owner-confirmed handling mistakes outside the planned acceptance count, not two extra unresolved tests or demonstrated firmware failures. No milestone retest is requested. Original inconclusive/unknown capture records remain preserved without invented data; see the [attributed correction](h1-right-modifiers-owner-correction.md). This does not alter the separate earlier H1 milestone, H1's experimental status or the mandatory rollback target.

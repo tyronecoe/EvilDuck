@@ -67,3 +67,9 @@ Idle terminal snapshots with the stated reason/error values are scoped observati
 Only new closeout documentation/receipts and a dated link appended to the repository kit README are permitted. Its original text remains a byte-identical prefix, and the published ZIP's enclosed README, frozen reports, logs/screenshots, tests, observers, fixtures, profiles, application/kit packages and earlier refs remain unchanged. Publication/download and ref verification are recorded after push.
 
 **GO: close these three scoped owner-operated inherited lock-wait acceptance groups on H1.** No new firmware, package, installation, hardware operation or physical repetition is requested or performed. Further development or physical testing requires a separate instruction.
+
+## Owner clarification — October 31, 2026: 3/3 planned groups passed
+
+The owner explicitly confirms **three planned groups, three scoped passes**. Successful Requests **1, 2, 3 and 6** supply those group outcomes. Attempts **4 and 5** were owner-confirmed **test-handling mistakes**, not additional planned tests or demonstrated firmware failures, and are excluded from the acceptance count. There is **no outstanding failed acceptance group and no owner-requested retest** for this milestone.
+
+The original capture records above remain unchanged: Request4 was inconclusive about entry into the wait; Request5 has no supplied behavior/capture record. This later owner clarification does not invent either capture or relabel either attempt as a successful run. See [the correction record](h1-right-modifiers-owner-correction.md). It remains separate from the earlier four-check H1 milestone and is bundled into the next authorized right-modifier development work, without new physical-test authorization.

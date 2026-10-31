@@ -1,0 +1,38 @@
+--- shortcut_keys.h
++++ shortcut_keys.h
+@@ -2,6 +2,12 @@
+ #define EVILDUCK_TRANSIENT_SHORTCUT_KEYS_H
+ #ifndef EVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS
+ #error Explicit shortcut candidate selector required
++#endif
++#if !defined(EVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1) || EVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1 != 1
++#error "Explicit H1 right-modifier candidate profile required"
++#endif
++#if !defined(EVILDUCK_EXPERIMENTAL_INJECT_VAR_H1) || EVILDUCK_EXPERIMENTAL_INJECT_VAR_H1 != 1
++#error "Experimental INJECT_VAR H1 prerequisite required"
+ #endif
+ // Bounded page-07 key vocabulary. US character mapping; no device or transport calls.
+ #include <stdint.h>
+@@ -28,6 +34,11 @@
+  if(!strcmp(s,"SHIFT"))return 2;
+  if(!strcmp(s,"ALT")||!strcmp(s,"OPTION"))return 4;
+  if(!strcmp(s,"GUI")||!strcmp(s,"WINDOWS")||!strcmp(s,"COMMAND"))return 8;
++ // Right-side source names are EvilDuck extensions; standard USB modifier bits.
++ if(!strcmp(s,"RCTRL"))return 0x10;
++ if(!strcmp(s,"RSHIFT"))return 0x20;
++ if(!strcmp(s,"RALT"))return 0x40;
++ if(!strcmp(s,"RGUI"))return 0x80;
+  return 0;
+ }
+ inline bool validUsage(uint16_t u){return (u>=0x28&&u<=0x53)||u==0x65||(u>=0x68&&u<=0x73)||(u>=4&&u<=0x27)||(u>=0x2d&&u<=0x38);}
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1";
++constexpr const char* BuildId="ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

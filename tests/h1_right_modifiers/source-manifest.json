@@ -1,0 +1,57 @@
+{
+  "format": "evilduck-routeb-right-modifiers-h1-v1",
+  "baseline": "60e94cf987de4420c99f48a93bfef03f5113c82e",
+  "parent_source_review": "a15b8e218935b2c6a69b71eeac3aaf378c3c0c03",
+  "parent_prepare_sha256": "0da0dc94b569d4a72c45b72c31d8af71267d594d238a18bb11a9941c8c7e5413",
+  "patch_sha256": "fbccda7274a085f29874fb6657d94acb0ecd2ce68a18046c3b8737750b277c2f",
+  "build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+  "required_flag": "EVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1",
+  "prerequisite_flag": "EVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1",
+  "compatibility": "Named right-side modifiers are EvilDuck extensions; H1 scalar whitelist and official-runtime unknowns unchanged",
+  "before": [
+    {
+      "file": "shortcut_keys.h",
+      "sha256": "af11e3d20251747062ffc8415d81c600bc023e604d9b54acfa488c0128711707"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "d87ce4c9a56894f6dc601205f211e74c05887f1135e0797e139acf1521e219db"
+    }
+  ],
+  "after": [
+    {
+      "file": "shortcut_keys.h",
+      "sha256": "a5ec66459abc75806dbedaf5506c71ca16327a7c5e71e5149abe5859d13e8f8d"
+    },
+    {
+      "file": "caps_trial.h",
+      "sha256": "6069778291adb0092dee7f04ecd7dd0dd134cb02af6cea55632ff5a6c04c8636"
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "core.cpp",
+      "sha256": "2876056adb42347f53ff8efdcf9cdbbce8ca04db4dc670bd1c4fdb2dc49befa5"
+    },
+    {
+      "file": "core.h",
+      "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a"
+    },
+    {
+      "file": "adapter.cpp",
+      "sha256": "b0945472e00d6177c14367e56eab3091d640ad3c471ecc825bbc812be57b3bb0"
+    },
+    {
+      "file": "adapter.h",
+      "sha256": "ca8099f2568bb703610cf666a33ceb870c6e4e257c37977ef0ba4bd03b7e0c8b"
+    },
+    {
+      "file": "hid_backend.cpp",
+      "sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c"
+    },
+    {
+      "file": "hid_backend.h",
+      "sha256": "7925198fa38eeb5489ddd5f3dbfb47d4f00a477ba7b5ceeeb58bb5dbdaf08830"
+    }
+  ]
+}
