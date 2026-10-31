@@ -1,0 +1,314 @@
+{
+  "final_observer": {
+    "tests": 46,
+    "PASS": 46,
+    "FAIL": 0,
+    "SKIP": 0,
+    "hardware": false,
+    "network": false,
+    "scope": "Mock-only observer tests; no esptool or real HTTP operation",
+    "native_high_sierra_tested": false
+  },
+  "final_package": {
+    "counts": {
+      "PASS": 31,
+      "FAIL": 0
+    },
+    "checks": [
+      {
+        "name": "valid_kit_no_permission_or_device_access",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_ACCEPTANCE.md",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_LICENSE.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_README.md",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_observe_wait.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_source-evidence.json",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_test-results.json",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_test_observe_wait.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_validate_kit.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-held-shift-stop.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-new-run-default.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-passive-expiry.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-settings-reset.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "missing_fixture_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "extra_member_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "symlink_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_build_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_prefix_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_application_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_rollback_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_permission_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_firmware_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_physical_claim_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_source_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "observer_rehashed_manifest_still_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "archive_exact_flat_regular_inventory_crc_bytes",
+        "status": "PASS"
+      },
+      {
+        "name": "fixtures_exact_historical_contract",
+        "status": "PASS"
+      },
+      {
+        "name": "bundled_python38_grammar",
+        "status": "PASS"
+      },
+      {
+        "name": "acceptance_bash_syntax_and_scope",
+        "status": "PASS"
+      },
+      {
+        "name": "actual_offline_cli_exit_and_no_permission",
+        "status": "PASS"
+      },
+      {
+        "name": "deterministic_package_reproduction",
+        "status": "PASS"
+      }
+    ],
+    "hardware": false,
+    "network": false,
+    "native_high_sierra_tested": false
+  },
+  "prior_attempt": {
+    "observer": {
+      "tests": 45,
+      "PASS": 44,
+      "FAIL": 1,
+      "SKIP": 0,
+      "hardware": false,
+      "network": false,
+      "scope": "Mock-only observer tests; no esptool or real HTTP operation",
+      "native_high_sierra_tested": false
+    },
+    "correction": "The fake client treated KeyboardInterrupt as response data; changed synthetic client to raise BaseException, not firmware workaround."
+  },
+  "intermediate_successful_observer": {
+    "tests": 45,
+    "PASS": 45,
+    "FAIL": 0,
+    "SKIP": 0,
+    "hardware": false,
+    "network": false,
+    "scope": "Mock-only observer tests; no esptool or real HTTP operation",
+    "native_high_sierra_tested": false
+  },
+  "intermediate_successful_package": {
+    "counts": {
+      "PASS": 31,
+      "FAIL": 0
+    },
+    "checks": [
+      {
+        "name": "valid_kit_no_permission_or_device_access",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_ACCEPTANCE.md",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_LICENSE.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_README.md",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_observe_wait.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_source-evidence.json",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_test-results.json",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_test_observe_wait.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_validate_kit.py",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-held-shift-stop.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-new-run-default.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-passive-expiry.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "tamper_wait-settings-reset.txt",
+        "status": "PASS"
+      },
+      {
+        "name": "missing_fixture_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "extra_member_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "symlink_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_build_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_prefix_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_application_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_rollback_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_permission_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_firmware_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_physical_claim_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "wrong_source_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "observer_rehashed_manifest_still_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "archive_exact_flat_regular_inventory_crc_bytes",
+        "status": "PASS"
+      },
+      {
+        "name": "fixtures_exact_historical_contract",
+        "status": "PASS"
+      },
+      {
+        "name": "bundled_python38_grammar",
+        "status": "PASS"
+      },
+      {
+        "name": "acceptance_bash_syntax_and_scope",
+        "status": "PASS"
+      },
+      {
+        "name": "actual_offline_cli_exit_and_no_permission",
+        "status": "PASS"
+      },
+      {
+        "name": "deterministic_package_reproduction",
+        "status": "PASS"
+      }
+    ],
+    "hardware": false,
+    "network": false,
+    "native_high_sierra_tested": false
+  },
+  "intermediate_status": "Superseded after adding non-echoing password prompt refusal and its test; not added to final totals",
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "bash": "GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)",
+    "native_high_sierra_tested": false
+  },
+  "sanitizers": "Not applicable to these Python helper checks; no firmware/C++ sanitizer rerun",
+  "physical_acceptance": "PENDING_OWNER"
+}

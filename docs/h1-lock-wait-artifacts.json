@@ -1,0 +1,141 @@
+{
+  "package": {
+    "file": "evilduck-h1-inherited-lock-wait-high-sierra-v1.zip",
+    "bytes": 24304,
+    "sha256": "faf26f64212fad199e4f34b822f9ea4d684da99540ce2d5c3d50d35932d56211",
+    "members": [
+      {
+        "file": "ACCEPTANCE.md",
+        "bytes": 11330,
+        "sha256": "2be3c90385806c8143c960da7c51c78e509603745ad98de0273bfff7a35f1f2b"
+      },
+      {
+        "file": "LICENSE.txt",
+        "bytes": 1066,
+        "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+      },
+      {
+        "file": "README.md",
+        "bytes": 5466,
+        "sha256": "906d289d9a3d1093906edfbd38bdfd4bbd399bb05e8ca3528a5006bbd877f7de"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 2399,
+        "sha256": "dbb1809dc9b311785d88a14f8c904593a29768ac99f00e8a5bc7ad0783f0c7c1"
+      },
+      {
+        "file": "observe_wait.py",
+        "bytes": 10365,
+        "sha256": "e20abad2cc68d2c00610acacddf4e178c53d14c404111d6a54cbee4faa1d6d2b"
+      },
+      {
+        "file": "source-evidence.json",
+        "bytes": 4162,
+        "sha256": "c141c148d4ea6bcd8614bf577b67bf6d8879b65ff4a834dc968beeabf359dbcd"
+      },
+      {
+        "file": "test-results.json",
+        "bytes": 211,
+        "sha256": "4ad4abf9363b3e055245678edbc31a5cf680827f1c2ea56614d369b3842c3acf"
+      },
+      {
+        "file": "test_observe_wait.py",
+        "bytes": 20173,
+        "sha256": "f0d50a5bdb8109a158e723028d98f29f05ddc365a97160e3fa8a1044baac92ea"
+      },
+      {
+        "file": "validate_kit.py",
+        "bytes": 3270,
+        "sha256": "5685fb79bfa6dcde259bc9574a058130f8612153352f2ed633310168fd7af6b0"
+      },
+      {
+        "file": "wait-held-shift-stop.txt",
+        "bytes": 91,
+        "sha256": "c058d9fec69f6a3151edbabf0a06e8f6001e1ad90c27bfeeccde6176f9072ca7"
+      },
+      {
+        "file": "wait-new-run-default.txt",
+        "bytes": 77,
+        "sha256": "4c9738f0f5c7a088f1d100fb8d8a3b8ee9e90bea7a30f11885f994f9aee53459"
+      },
+      {
+        "file": "wait-passive-expiry.txt",
+        "bytes": 79,
+        "sha256": "d67514f4fe5ab2f02b4c0030fa4a8fc76c64c67ff6cfc724ad4f739ab2e77d3c"
+      },
+      {
+        "file": "wait-settings-reset.txt",
+        "bytes": 246,
+        "sha256": "d436ef0e32e232a4ee5e30f8ea5e42019d55453de725f6b06db30892f01eaf1e"
+      }
+    ]
+  },
+  "manifest": {
+    "package_id": "evilduck-h1-inherited-lock-wait-high-sierra-v1",
+    "label": "REVIEW ONLY \u2014 HOST HELPER AND FIXTURES \u2014 NO FIRMWARE",
+    "source_commit": "c7531e2792e1f396ba07fc9c69313a21ae9d9949",
+    "reviewed_base": "29cbfae7974abccf513c6d7ff1b7faa5a3fc58c6",
+    "target_build_id": "ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1",
+    "application_bytes": 1414080,
+    "application_sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd",
+    "rollback_bytes": 1413200,
+    "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "firmware_included": false,
+    "hardware_access_authorized": false,
+    "physical_acceptance": "PENDING_OWNER",
+    "unsigned_integrity_only": true,
+    "files": {
+      "ACCEPTANCE.md": {
+        "bytes": 11330,
+        "sha256": "2be3c90385806c8143c960da7c51c78e509603745ad98de0273bfff7a35f1f2b"
+      },
+      "LICENSE.txt": {
+        "bytes": 1066,
+        "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+      },
+      "README.md": {
+        "bytes": 5466,
+        "sha256": "906d289d9a3d1093906edfbd38bdfd4bbd399bb05e8ca3528a5006bbd877f7de"
+      },
+      "observe_wait.py": {
+        "bytes": 10365,
+        "sha256": "e20abad2cc68d2c00610acacddf4e178c53d14c404111d6a54cbee4faa1d6d2b"
+      },
+      "source-evidence.json": {
+        "bytes": 4162,
+        "sha256": "c141c148d4ea6bcd8614bf577b67bf6d8879b65ff4a834dc968beeabf359dbcd"
+      },
+      "test-results.json": {
+        "bytes": 211,
+        "sha256": "4ad4abf9363b3e055245678edbc31a5cf680827f1c2ea56614d369b3842c3acf"
+      },
+      "test_observe_wait.py": {
+        "bytes": 20173,
+        "sha256": "f0d50a5bdb8109a158e723028d98f29f05ddc365a97160e3fa8a1044baac92ea"
+      },
+      "validate_kit.py": {
+        "bytes": 3270,
+        "sha256": "5685fb79bfa6dcde259bc9574a058130f8612153352f2ed633310168fd7af6b0"
+      },
+      "wait-held-shift-stop.txt": {
+        "bytes": 91,
+        "sha256": "c058d9fec69f6a3151edbabf0a06e8f6001e1ad90c27bfeeccde6176f9072ca7"
+      },
+      "wait-new-run-default.txt": {
+        "bytes": 77,
+        "sha256": "4c9738f0f5c7a088f1d100fb8d8a3b8ee9e90bea7a30f11885f994f9aee53459"
+      },
+      "wait-passive-expiry.txt": {
+        "bytes": 79,
+        "sha256": "d67514f4fe5ab2f02b4c0030fa4a8fc76c64c67ff6cfc724ad4f739ab2e77d3c"
+      },
+      "wait-settings-reset.txt": {
+        "bytes": 246,
+        "sha256": "d436ef0e32e232a4ee5e30f8ea5e42019d55453de725f6b06db30892f01eaf1e"
+      }
+    }
+  },
+  "firmware_included": false,
+  "hardware_access": false
+}
