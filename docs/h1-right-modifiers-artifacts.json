@@ -1,0 +1,330 @@
+{
+  "status": "PASS",
+  "package": {
+    "file": "evilduck-routeb-right-modifiers-h1-experimental-macos-v1.zip",
+    "bytes": 2471296,
+    "sha256": "9a3593735799d36d1db949c2982558a384dc5f6de43f2d3f804c4bfb15fc113e",
+    "members": [
+      {
+        "file": "APACHE-2.0.txt",
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "file": "INSTALL-MAC.md",
+        "bytes": 7624,
+        "sha256": "04228166750acbd0cb9474f989dbad98be5b57fd5dbd95852c42c1ba2ba225aa"
+      },
+      {
+        "file": "OWNER-CHECK.md",
+        "bytes": 5274,
+        "sha256": "386b888fec5d08db949b32baeb3212591e4c33ffad1bd4aaa023facb3d8bc686"
+      },
+      {
+        "file": "README.md",
+        "bytes": 616,
+        "sha256": "5e1c8affb7bc33ed382286bda3f9e0046b2867b7884aaa75922b5e65a39130f9"
+      },
+      {
+        "file": "ROLLBACK-MAC.md",
+        "bytes": 2791,
+        "sha256": "fe481960049f70bac8ac52c9f31b85c25c5120297454f2f17f281aae5dbd394b"
+      },
+      {
+        "file": "application.bin",
+        "bytes": 1414176,
+        "sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3"
+      },
+      {
+        "file": "build-receipt.json",
+        "bytes": 2285561,
+        "sha256": "f770fd0f49baf3b9d5a9104cd8516bee41ebce682360147dc32e5f52789ac8d1"
+      },
+      {
+        "file": "compatibility.md",
+        "bytes": 3137,
+        "sha256": "da826661b3af5543e3cd4d78e5cd6db5d48d8b9604706f5e3040056f96176bda"
+      },
+      {
+        "file": "dependency-pin.json",
+        "bytes": 2298,
+        "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475"
+      },
+      {
+        "file": "expected-partitions.bin",
+        "bytes": 3072,
+        "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+      },
+      {
+        "file": "firmware-report.md",
+        "bytes": 11287,
+        "sha256": "5ce9d8922bb15e2c5e2a5fd70d205258f69bf72b8e7bf3ebd08797cced7aad24"
+      },
+      {
+        "file": "gen_esp32part.py",
+        "bytes": 29496,
+        "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+      },
+      {
+        "file": "install-macos.sh",
+        "bytes": 168,
+        "sha256": "290467849471980640fcf4bd6e44d69e22ec20f1cb7f5fd4436c0dc8a83f1cd8"
+      },
+      {
+        "file": "installer.py",
+        "bytes": 8541,
+        "sha256": "f0fa4985e3f84fbff221a205bcda812ab800e2abb1a1b755d13968924067bc07"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 6326,
+        "sha256": "d82b31f3574170d7cba7ad2fb08f44326468fa8d99f27f887bebfde0fe38febc"
+      },
+      {
+        "file": "owner-evidence.md",
+        "bytes": 2695,
+        "sha256": "78d1a229eed24f8065a583a881743d9883e4c1f94edc8919bf24b0b3b965ea51"
+      },
+      {
+        "file": "preflight.py",
+        "bytes": 13679,
+        "sha256": "dd77670e0f611c2cfc6af22dfa44b7da4e0fc97f713f316eed960e48a8eb559c"
+      },
+      {
+        "file": "reproduction.md",
+        "bytes": 4533,
+        "sha256": "8587f6178eb8ceffd06d61567c1e87f3a01893a8ef379648bcd820075c5f46f2"
+      },
+      {
+        "file": "rm-malformed.txt",
+        "bytes": 32,
+        "sha256": "e4e2ce0e92431624e86ec59405304549db7754572c5255d210273c52baef0d94"
+      },
+      {
+        "file": "rm-modifier-taps.txt",
+        "bytes": 77,
+        "sha256": "a9d5de681fb2ce892a97b3b9488fa6ee50faf0e4bec44b04f02b376768204e4f"
+      },
+      {
+        "file": "rm-shift.txt",
+        "bytes": 113,
+        "sha256": "ffe9c08379fb045b7f85f7e92f19ca0fdd9d4362ef82e01bed7c34d144dec823"
+      },
+      {
+        "file": "rm-stop.txt",
+        "bytes": 60,
+        "sha256": "3d47b5de664ead9037c887e3db513ce8a23c9e55935074ef808da06e9e9c9baa"
+      },
+      {
+        "file": "rollback-application.bin",
+        "bytes": 1413200,
+        "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+      },
+      {
+        "file": "rollback-build-receipt.json",
+        "bytes": 1969960,
+        "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953"
+      },
+      {
+        "file": "rollback-macos.sh",
+        "bytes": 306,
+        "sha256": "6ad97fa1d58d89689e2638ec1559c2b927e7251cb99047bdb003ff3cea97321b"
+      },
+      {
+        "file": "source-LICENSE.txt",
+        "bytes": 1066,
+        "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+      },
+      {
+        "file": "source-manifest.json",
+        "bytes": 1994,
+        "sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183"
+      },
+      {
+        "file": "test-results.json",
+        "bytes": 120412,
+        "sha256": "439c431ddf3b5dda934c7b417231e9f1303ce7b2a373cee2f0d43a41f500ff31"
+      }
+    ]
+  },
+  "manifest": {
+    "package_id": "evilduck-routeb-right-modifiers-h1-experimental-macos-v1",
+    "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+    "source_commit": "245792db1a15468ae7d04cd0882d177cfa9ae03a",
+    "source_url": "https://github.com/tyronecoe/EvilDuck/tree/245792db1a15468ae7d04cd0882d177cfa9ae03a",
+    "firmware_source_commit": "6d15952e40f9016c4374b8b0403883ebb2290d9a",
+    "firmware_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+    "official_runtime_encoding_verified": false,
+    "physical_candidate_tested": false,
+    "composition_base_commit": "60e94cf987de4420c99f48a93bfef03f5113c82e",
+    "composition_pin_sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183",
+    "application_bytes": 1414176,
+    "application_sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3",
+    "application_elf_sha256": "b85061de399991f019e364401ef5e23a0c46e1972b34408add2ca886d0f64095",
+    "table_sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+    "update_method": "FUTURE_ROM_APP_ONLY_BOTH_SLOTS",
+    "installation_authorized": false,
+    "hardware": false,
+    "proposed_writes": [
+      {
+        "role": "app0",
+        "file": "application.bin",
+        "offset": 65536,
+        "bytes": 1414176,
+        "sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3",
+        "partition_bytes": 7602176,
+        "erase_start": 65536,
+        "erase_end_exclusive": 1482752,
+        "selected_for_execution": false
+      },
+      {
+        "role": "app1",
+        "file": "application.bin",
+        "offset": 7667712,
+        "bytes": 1414176,
+        "sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3",
+        "partition_bytes": 7602176,
+        "erase_start": 7667712,
+        "erase_end_exclusive": 9084928,
+        "selected_for_execution": false
+      }
+    ],
+    "rollback_writes": [
+      {
+        "role": "app0",
+        "file": "rollback-application.bin",
+        "offset": 65536,
+        "bytes": 1413200,
+        "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+        "partition_bytes": 7602176,
+        "erase_start": 65536,
+        "erase_end_exclusive": 1482752,
+        "selected_for_execution": false
+      },
+      {
+        "role": "app1",
+        "file": "rollback-application.bin",
+        "offset": 7667712,
+        "bytes": 1413200,
+        "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+        "partition_bytes": 7602176,
+        "erase_start": 7667712,
+        "erase_end_exclusive": 9084928,
+        "selected_for_execution": false
+      }
+    ],
+    "rollback_bytes": 1413200,
+    "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "rollback_source_commit": "71a62ea1bd775bc260052d099b5784b06ba3fc12",
+    "support_files": {
+      "APACHE-2.0.txt": {
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      "INSTALL-MAC.md": {
+        "bytes": 7624,
+        "sha256": "04228166750acbd0cb9474f989dbad98be5b57fd5dbd95852c42c1ba2ba225aa"
+      },
+      "OWNER-CHECK.md": {
+        "bytes": 5274,
+        "sha256": "386b888fec5d08db949b32baeb3212591e4c33ffad1bd4aaa023facb3d8bc686"
+      },
+      "README.md": {
+        "bytes": 616,
+        "sha256": "5e1c8affb7bc33ed382286bda3f9e0046b2867b7884aaa75922b5e65a39130f9"
+      },
+      "ROLLBACK-MAC.md": {
+        "bytes": 2791,
+        "sha256": "fe481960049f70bac8ac52c9f31b85c25c5120297454f2f17f281aae5dbd394b"
+      },
+      "build-receipt.json": {
+        "bytes": 2285561,
+        "sha256": "f770fd0f49baf3b9d5a9104cd8516bee41ebce682360147dc32e5f52789ac8d1"
+      },
+      "compatibility.md": {
+        "bytes": 3137,
+        "sha256": "da826661b3af5543e3cd4d78e5cd6db5d48d8b9604706f5e3040056f96176bda"
+      },
+      "dependency-pin.json": {
+        "bytes": 2298,
+        "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475"
+      },
+      "firmware-report.md": {
+        "bytes": 11287,
+        "sha256": "5ce9d8922bb15e2c5e2a5fd70d205258f69bf72b8e7bf3ebd08797cced7aad24"
+      },
+      "gen_esp32part.py": {
+        "bytes": 29496,
+        "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+      },
+      "install-macos.sh": {
+        "bytes": 168,
+        "sha256": "290467849471980640fcf4bd6e44d69e22ec20f1cb7f5fd4436c0dc8a83f1cd8"
+      },
+      "installer.py": {
+        "bytes": 8541,
+        "sha256": "f0fa4985e3f84fbff221a205bcda812ab800e2abb1a1b755d13968924067bc07"
+      },
+      "owner-evidence.md": {
+        "bytes": 2695,
+        "sha256": "78d1a229eed24f8065a583a881743d9883e4c1f94edc8919bf24b0b3b965ea51"
+      },
+      "preflight.py": {
+        "bytes": 13679,
+        "sha256": "dd77670e0f611c2cfc6af22dfa44b7da4e0fc97f713f316eed960e48a8eb559c"
+      },
+      "reproduction.md": {
+        "bytes": 4533,
+        "sha256": "8587f6178eb8ceffd06d61567c1e87f3a01893a8ef379648bcd820075c5f46f2"
+      },
+      "rm-malformed.txt": {
+        "bytes": 32,
+        "sha256": "e4e2ce0e92431624e86ec59405304549db7754572c5255d210273c52baef0d94"
+      },
+      "rm-modifier-taps.txt": {
+        "bytes": 77,
+        "sha256": "a9d5de681fb2ce892a97b3b9488fa6ee50faf0e4bec44b04f02b376768204e4f"
+      },
+      "rm-shift.txt": {
+        "bytes": 113,
+        "sha256": "ffe9c08379fb045b7f85f7e92f19ca0fdd9d4362ef82e01bed7c34d144dec823"
+      },
+      "rm-stop.txt": {
+        "bytes": 60,
+        "sha256": "3d47b5de664ead9037c887e3db513ce8a23c9e55935074ef808da06e9e9c9baa"
+      },
+      "rollback-build-receipt.json": {
+        "bytes": 1969960,
+        "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953"
+      },
+      "rollback-macos.sh": {
+        "bytes": 306,
+        "sha256": "6ad97fa1d58d89689e2638ec1559c2b927e7251cb99047bdb003ff3cea97321b"
+      },
+      "source-LICENSE.txt": {
+        "bytes": 1066,
+        "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+      },
+      "source-manifest.json": {
+        "bytes": 1994,
+        "sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183"
+      },
+      "test-results.json": {
+        "bytes": 120412,
+        "sha256": "439c431ddf3b5dda934c7b417231e9f1303ce7b2a373cee2f0d43a41f500ff31"
+      }
+    },
+    "protected_nonapplication_regions": "all; bootloader/table/NVS/otadata/SPIFFS/coredump excluded from write plan",
+    "required_installed_otadata_sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+    "unsigned_integrity_only": true
+  },
+  "implementation_commit": "6d15952e40f9016c4374b8b0403883ebb2290d9a",
+  "packaging_commit": "245792db1a15468ae7d04cd0882d177cfa9ae03a",
+  "target_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+  "application_bytes": 1414176,
+  "application_sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3",
+  "mandatory_rollback_bytes": 1413200,
+  "mandatory_rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+  "hardware_access": false,
+  "physical_candidate_tested": false
+}
