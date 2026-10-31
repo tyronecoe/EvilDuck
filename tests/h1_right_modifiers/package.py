@@ -25,7 +25,7 @@ import tempfile
 sys.dont_write_bytecode = True
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 PACKAGE = 'evilduck-routeb-right-modifiers-h1-experimental-macos-v1'
-FIRMWARE_SOURCE = 'UNBOUND_FIRMWARE_SOURCE'
+FIRMWARE_SOURCE = '6d15952e40f9016c4374b8b0403883ebb2290d9a'
 APP_SHA = '12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3'
 APP_BYTES = 1414176
 BUILD_ID = 'ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1'
