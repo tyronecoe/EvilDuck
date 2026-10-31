@@ -1,0 +1,255 @@
+{
+  "format": "evilduck-right-modifiers-h1-owner-closeout-v1",
+  "recorded_date_utc": "2026-10-31",
+  "handoff_date": "2026-10-31",
+  "overall_classification": "FOUR_SCOPED_OWNER_REPORTED_PASSES_INCLUDING_STOP_VARIANT",
+  "pass_count": 4,
+  "exact_published_script_matches": 3,
+  "stop_variant_pass_count": 1,
+  "request_namespace": "Right-modifiers owner sequence only; separate from earlier H1 and inherited lock-wait sequences",
+  "handoff": {
+    "file": "1-EvilDuck_Right_Modifiers_H1_Owner_Acceptance_Codex_Handoff.txt",
+    "bytes": 6279,
+    "sha256": "b4195516ab75a85b3d9cf78c96251fd44abe1c7998c123fc36173a1d7b5d3928",
+    "photographs_attached_to_this_session": false,
+    "raw_observer_logs_attached_to_this_session": false,
+    "photographs_independently_inspected_here": false,
+    "raw_observer_logs_independently_inspected_here": false
+  },
+  "host": {
+    "description": "Intel MacBook",
+    "os": "macOS High Sierra",
+    "version": "10.13.6",
+    "editor": "TextEdit",
+    "control": "iPhone Wi-Fi dashboard at 192.168.4.1; explicit Route B (owner-reported)",
+    "independent_input_source_record": null,
+    "independent_caps_state_record": null
+  },
+  "identity": {
+    "intended_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+    "reported_dashboard_prefix": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIME...",
+    "reported_dashboard_identifier_cropped": true,
+    "complete_identifier_proven_by_screenshot": false,
+    "exact_contemporaneous_full_build_record_supplied": null,
+    "device_application_readback_sha256": null,
+    "device_image_identity_independently_verified": false,
+    "new_installation_comparison_receipt": null
+  },
+  "release": {
+    "branch": "routeb-h1-right-modifiers-v1",
+    "release_commit": "2a99ed58bcb6f52912627c698158ef02abd2e421",
+    "package_commit": "abe9c548f01a4bf5f43c0a791fbb449b418a2227",
+    "firmware_implementation_commit": "6d15952e40f9016c4374b8b0403883ebb2290d9a",
+    "packaging_tools_commit": "245792db1a15468ae7d04cd0882d177cfa9ae03a",
+    "zip": {
+      "file": "evilduck-routeb-right-modifiers-h1-experimental-macos-v1.zip",
+      "bytes": 2471296,
+      "sha256": "9a3593735799d36d1db949c2982558a384dc5f6de43f2d3f804c4bfb15fc113e"
+    },
+    "application": {
+      "bytes": 1414176,
+      "sha256": "12134383e75505704d7efebf33cb7b7fdd7bd8f609038fbc575e911a0ad69ca3",
+      "identity_basis": "Published package/build evidence, not independent physical readback"
+    }
+  },
+  "required_rollback": {
+    "build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "replaced": false
+  },
+  "trials": [
+    {
+      "test": "A",
+      "request_id": 1,
+      "reported_script_lines": [
+        "DELAY 5000",
+        "HOLD RSHIFT",
+        "STRING a",
+        "RELEASE RSHIFT",
+        "STRING b",
+        "SHIFT-RSHIFT c",
+        "RSHIFT d",
+        "INJECT_MOD RSHIFT",
+        "STRING e",
+        "ENTER"
+      ],
+      "published_fixture": "rm-shift.txt",
+      "reported_script_matches_published_fixture": true,
+      "observed_visible_text": "AbCDe",
+      "reported_line_count": 1,
+      "dashboard_status": "Completed",
+      "physical_line": null,
+      "diagnostic_code": null,
+      "scope": "Visible text and completion match the published fixture; no wire-level left/right proof",
+      "classification": "OWNER_REPORTED_PASS",
+      "evidence_basis": "Attached handoff summarizes screenshots/owner observations; original photographs not supplied to or independently inspected in this session",
+      "screenshot_filenames": null,
+      "original_log_filenames": null,
+      "boot_id": null,
+      "session_id": null,
+      "observed_utc": null,
+      "source_file_readback_sha256": null,
+      "independent_usb_report_capture": false,
+      "host_acknowledgement_capture": false
+    },
+    {
+      "test": "B",
+      "request_id": 3,
+      "reported_script_lines": [
+        "DELAY 3000",
+        "HOLD RSHIFT",
+        "DELAY 15000",
+        "STRING BAD",
+        "RELEASE RSHIFT"
+      ],
+      "published_fixture_for_comparison": "rm-stop.txt",
+      "reported_script_matches_published_fixture": false,
+      "published_script_lines": [
+        "DELAY 5000",
+        "HOLD RSHIFT",
+        "STRING a",
+        "DELAY 10000",
+        "STRINGLN 999bad"
+      ],
+      "script_deviation": {
+        "published_initial_delay_ms": 5000,
+        "executed_initial_delay_ms": 3000,
+        "published_held_delay_ms": 10000,
+        "executed_held_delay_ms": 15000,
+        "published_initial_text": "a under held Shift (expected A)",
+        "executed_initial_text": null,
+        "published_unwanted_text": "STRINGLN 999bad",
+        "executed_unwanted_text": "STRING BAD",
+        "explicit_release_added": true
+      },
+      "dashboard_status": "Cancelled",
+      "observed_text_before_manual_typing": "",
+      "manual_text": "abc123",
+      "manual_lowercase_and_unshifted_digits_owner_reported": true,
+      "unwanted_BAD_reported": false,
+      "physical_line": null,
+      "diagnostic_code": null,
+      "independent_hold_instant_or_timing_trace": false,
+      "scope": "STOP/recovery PASS for the actually executed variant only, not exact execution of published rm-stop.txt",
+      "classification": "OWNER_REPORTED_PASS",
+      "evidence_basis": "Attached handoff summarizes screenshots/owner observations; original photographs not supplied to or independently inspected in this session",
+      "screenshot_filenames": null,
+      "original_log_filenames": null,
+      "boot_id": null,
+      "session_id": null,
+      "observed_utc": null,
+      "source_file_readback_sha256": null,
+      "independent_usb_report_capture": false,
+      "host_acknowledgement_capture": false
+    },
+    {
+      "test": "C",
+      "request_id": 4,
+      "reported_script_lines": [
+        "DELAY 5000",
+        "INJECT_MOD RCTRL",
+        "INJECT_MOD RALT",
+        "INJECT_MOD RGUI",
+        "STRINGLN 222taps"
+      ],
+      "published_fixture": "rm-modifier-taps.txt",
+      "reported_script_matches_published_fixture": true,
+      "observed_visible_text": "222taps",
+      "dashboard_status": "Completed",
+      "unexpected_application_action_reported": false,
+      "physical_line": null,
+      "diagnostic_code": null,
+      "scope": "Observed benign tap behavior and text; no independent right-vs-left HID byte proof or universal layout claim",
+      "classification": "OWNER_REPORTED_PASS",
+      "evidence_basis": "Attached handoff summarizes screenshots/owner observations; original photographs not supplied to or independently inspected in this session",
+      "screenshot_filenames": null,
+      "original_log_filenames": null,
+      "boot_id": null,
+      "session_id": null,
+      "observed_utc": null,
+      "source_file_readback_sha256": null,
+      "independent_usb_report_capture": false,
+      "host_acknowledgement_capture": false
+    },
+    {
+      "test": "D",
+      "request_id": 5,
+      "reported_script_lines": [
+        "STRINGLN 999bad",
+        "RSHIFT-RSHIFT a"
+      ],
+      "published_fixture": "rm-malformed.txt",
+      "reported_script_matches_published_fixture": true,
+      "observed_text_before_manual_typing": "",
+      "blank_editor_explicit_owner_confirmation": true,
+      "manual_text": "abc123",
+      "manual_lowercase_owner_reported": true,
+      "dashboard_status": "Compile failure",
+      "physical_line": 2,
+      "diagnostic_code": 15,
+      "manual_typing_is_held_modifier_recovery_proof": false,
+      "scope": "This duplicate modifier rejected before first-line keyboard output; later typing is only a normal keyboard check",
+      "classification": "OWNER_REPORTED_PASS",
+      "evidence_basis": "Attached handoff summarizes screenshots/owner observations; original photographs not supplied to or independently inspected in this session",
+      "screenshot_filenames": null,
+      "original_log_filenames": null,
+      "boot_id": null,
+      "session_id": null,
+      "observed_utc": null,
+      "source_file_readback_sha256": null,
+      "independent_usb_report_capture": false,
+      "host_acknowledgement_capture": false
+    }
+  ],
+  "unreported_requests": [
+    {
+      "request_id": 2,
+      "outcome": null,
+      "error": null,
+      "execution_happened": null
+    }
+  ],
+  "limits": {
+    "h1_and_right_modifiers_remain_experimental": true,
+    "canonical_hak5_compatibility": "UNRESOLVED",
+    "inject_var_numeric_encoding": "UNRESOLVED",
+    "led_feedback_on_high_sierra": "UNKNOWN_UNVERIFIED",
+    "usb_report_bytes_independently_observed": false,
+    "host_acknowledgements_independently_observed": false,
+    "universal_host_release_proven": false,
+    "general_absence_of_faults_or_quarantine_proven": false,
+    "cross_platform_compatibility_proven": false,
+    "general_altgr_or_layout_compatibility_proven": false,
+    "default_profile_promoted": false
+  },
+  "prior_milestones": {
+    "earlier_four_h1_checks_unchanged": true,
+    "inherited_lock_wait_three_groups_pass_unchanged": true,
+    "request_ids_not_merged": true
+  },
+  "codex_actions": {
+    "firmware_changed": false,
+    "firmware_rebuilt": false,
+    "hardware_access": false,
+    "flashing": false,
+    "ota": false,
+    "new_package": false,
+    "payload_execution": false,
+    "physical_retests": false,
+    "next_feature_implemented": false,
+    "firmware_or_helper_test_suites_rerun": false
+  },
+  "next_stage_proposal": {
+    "name": "Research offline acceptance-receipt consistency checking",
+    "status": "PROPOSAL_ONLY",
+    "purpose": "Reuse existing receipt/manifest tools to distinguish exact fixtures from variants, cropped identifiers from attested identities, sequence-specific requests and unknown evidence",
+    "bounds": [
+      "Local public or deliberately supplied sanitized evidence only",
+      "No device/network actions or credential collection",
+      "No automatic PASS inference when evidence is missing",
+      "No firmware/USB capability expansion",
+      "No new physical repetition required"
+    ]
+  }
+}
