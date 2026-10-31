@@ -16,6 +16,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import warnings
 
 BUILD = 'ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1'
 FIELDS = ('routeBRequestId', 'routeBOwned', 'snapshotKind', 'capturedAtMs',
@@ -26,6 +27,16 @@ FIELDS = ('routeBRequestId', 'routeBOwned', 'snapshotKind', 'capturedAtMs',
 
 class ObservationError(Exception):
     pass
+
+
+def read_password(prompt):
+    # Refuse getpass's echoing fallback before it can read any credential.
+    with warnings.catch_warnings():
+        warnings.simplefilter('error', getpass.GetPassWarning)
+        try:
+            return getpass.getpass(prompt)
+        except getpass.GetPassWarning:
+            raise ObservationError('PASSWORD_TTY_REQUIRED') from None
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -172,7 +183,7 @@ def monitor(client, wanted, seconds, emit, clock=time.monotonic, sleep=time.slee
     return 2
 
 
-def main(argv=None, client_factory=Client, ask=input, secret=getpass.getpass,
+def main(argv=None, client_factory=Client, ask=input, secret=read_password,
          output=None, clock=time.monotonic, sleep=time.sleep):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', default='http://192.168.4.1')

@@ -365,6 +365,23 @@ def _(self):
     self.assertEqual(out.count('MATCHED_CAPTURE'),1)
 
 
+@add_test('echoing_password_fallback_refused_before_input_or_network')
+def _(self):
+    import warnings
+    from unittest.mock import patch
+    reached=[]
+    def unavailable(prompt):
+        warnings.warn('PRIVATE_TTY_DIAGNOSTIC',m.getpass.GetPassWarning)
+        reached.append('MUST_NOT_READ_PASSWORD')
+        return 'SECRET'
+    out=io.StringIO()
+    with patch.object(m.getpass,'getpass',side_effect=unavailable):
+        code=m.main([],client_factory=lambda *a:self.fail('must not create client'),output=out)
+    self.assertEqual(code,2);self.assertEqual(reached,[])
+    self.assertIn('PASSWORD_TTY_REQUIRED',out.getvalue())
+    self.assertNotIn('PRIVATE_',out.getvalue());self.assertNotIn('SECRET',out.getvalue())
+
+
 def main():
     import argparse
     parser=argparse.ArgumentParser(description=__doc__)

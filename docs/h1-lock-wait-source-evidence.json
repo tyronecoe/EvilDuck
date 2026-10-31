@@ -72,7 +72,8 @@
     "Require nonwaiting idle preflight",
     "Actual assigned request must exceed preflight ID; no prediction",
     "Seed capture progression from idle preflight timestamp",
-    "Reject future/ambiguous wait start and session changes before matched capture output"
+    "Reject future/ambiguous wait start and session changes before matched capture output",
+    "Refuse getpass echo fallback when a private terminal prompt is unavailable, before reading a password"
   ],
   "test_fixture_adaptations": [
     "Initial mocked idle capture now strictly precedes first mocked response including wrap",

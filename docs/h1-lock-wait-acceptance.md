@@ -27,7 +27,7 @@ printf 'Observation log: %s\n' "$WAIT_LOG"
 python3 -u ./observe_wait.py --seconds 45 2>&1 | tee "$WAIT_LOG"
 ```
 
-Enter the dashboard password **only** at `Dashboard password (not saved):`. Do not put it in arguments, URLs, shell variables, saved logs or screenshots. The helper uses the `X-Duck-Password` header, not Basic auth or `?pw=`. Its default `http://192.168.4.1` is unencrypted; use only the known local AP/network. Redirects are not followed. Logs whitelist execution fields and omit raw response bodies, SSID, script names and credentials. Process-memory clearing is not a secure-erasure guarantee.
+Use an interactive Terminal; if a non-echoing password prompt is unavailable, the helper refuses with `PASSWORD_TTY_REQUIRED` before reading a credential. Enter the dashboard password **only** at `Dashboard password (not saved):`. Do not put it in arguments, URLs, shell variables, saved logs or screenshots. The helper uses the `X-Duck-Password` header, not Basic auth or `?pw=`. Its default `http://192.168.4.1` is unencrypted; use only the known local AP/network. Redirects are not followed. Logs whitelist execution fields and omit raw response bodies, SSID, script names and credentials. Process-memory clearing is not a secure-erasure guarantee.
 
 Wait for **READY**. This means full H1 build-name verification and idle status preflight succeeded; **no device action was sent and no fixture run is authorized by READY alone**. When separately ready to conduct the reviewed trial:
 
