@@ -1,0 +1,10 @@
+{
+  "tests": 45,
+  "PASS": 45,
+  "FAIL": 0,
+  "SKIP": 0,
+  "hardware": false,
+  "network": false,
+  "scope": "Mock-only observer tests; no esptool or real HTTP operation",
+  "native_high_sierra_tested": false
+}

@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "firmware_source_review": "a15b8e218935b2c6a69b71eeac3aaf378c3c0c03",
+  "reviewed_closeout": "29cbfae7974abccf513c6d7ff1b7faa5a3fc58c6",
+  "historical_observer_sha256": "3967f44390bf25062dc03d3f355501bebc3b1f9d25745b308fa714524a4780d7",
+  "historical_tests_sha256": "657dc8c9248cd9e6db0249f31db59af860889d5bd952b0f40a42d1fc5da9fa2f",
+  "generated_h1_sources_verified": [
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "size": 46706,
+      "sha256": "cec743a698772265f8cd5fa9888a3685d083144e52b52669f5c65bb9bcf5ab94"
+    },
+    {
+      "file": "EvilDuckS3/caps_trial.h",
+      "size": 654,
+      "sha256": "d87ce4c9a56894f6dc601205f211e74c05887f1135e0797e139acf1521e219db"
+    },
+    {
+      "file": "EvilDuckS3/coordinator.h",
+      "size": 1810,
+      "sha256": "575dc07c65fffa133cf562afe5669c06802a974f601fd95626f9e581c2e2c680"
+    },
+    {
+      "file": "EvilDuckS3/coordinator.cpp",
+      "size": 11879,
+      "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4"
+    },
+    {
+      "file": "EvilDuckS3/adapter.cpp",
+      "size": 8971,
+      "sha256": "b0945472e00d6177c14367e56eab3091d640ad3c471ecc825bbc812be57b3bb0"
+    },
+    {
+      "file": "EvilDuckS3/adapter.h",
+      "size": 2982,
+      "sha256": "ca8099f2568bb703610cf666a33ceb870c6e4e257c37977ef0ba4bd03b7e0c8b"
+    },
+    {
+      "file": "EvilDuckS3/core.cpp",
+      "size": 61532,
+      "sha256": "2876056adb42347f53ff8efdcf9cdbbce8ca04db4dc670bd1c4fdb2dc49befa5"
+    },
+    {
+      "file": "EvilDuckS3/core.h",
+      "size": 8362,
+      "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "size": 4112,
+      "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "size": 2241,
+      "sha256": "7925198fa38eeb5489ddd5f3dbfb47d4f00a477ba7b5ceeeb58bb5dbdaf08830"
+    }
+  ],
+  "source_contracts": {
+    "identity": "webserver.cpp:488-496 exact build ID and auth under guard; caps_trial.h:5",
+    "snapshot": "webserver.cpp:573-600 coherent status plus millis under authenticated mutex; whitelist only, private settings omitted",
+    "phase_and_reason": "coordinator.h:6-7 phases0..8; running6,quarantined8; reasonCompleted1,Cancelled2,Runtime6,Deadline9",
+    "wait_selector": "core.cpp:406-407 CAPS_CHANGE5",
+    "wait_policy": "adapter.cpp:51-64 freeze timeout/start/session/boot; expiry first, retry unchanged",
+    "expiry": "adapter.h:27; core.h:15; coordinator.cpp:29-30 -> Timeout26/Deadline9; unchanged fixture line3",
+    "setting": "core.cpp:677 default5000;720 read;832 assign nonzero;834 RESET preserves;763-769 RESTART resets",
+    "ids": "coordinator.cpp:59 monotonically increasing request IDs; other service actions can also consume IDs"
+  },
+  "observer_changes": [
+    "Exact full H1 build identity instead of other release",
+    "Bound phase to real0..8, quarantine8 ends UNVERIFIED",
+    "Require nonwaiting idle preflight",
+    "Actual assigned request must exceed preflight ID; no prediction",
+    "Seed capture progression from idle preflight timestamp",
+    "Reject future/ambiguous wait start and session changes before matched capture output"
+  ],
+  "test_fixture_adaptations": [
+    "Initial mocked idle capture now strictly precedes first mocked response including wrap",
+    "Wrapped waiting fixture start moved to a valid pre-wrap timestamp",
+    "FakeClient handles BaseException so KeyboardInterrupt is simulated as interruption, not response data"
+  ],
+  "limits": [
+    "Build name is not image-byte attestation",
+    "Coherent captures are not continuous live promises or authenticated boot continuity",
+    "Socket timeout is inactivity only, not total-response deadline",
+    "Zero waitSession is allowed; nonwaiting snapshots retain wait metadata",
+    "No original lock-wait binary or canonical Hak5 compatibility certification"
+  ],
+  "hardware_access": false,
+  "firmware_changed": false,
+  "firmware_rebuilt": false
+}
