@@ -1,0 +1,282 @@
+{
+  "format": "evilduck-h1-lock-wait-owner-closeout-v1",
+  "recorded_date_utc": "2026-10-31",
+  "classification": "PASS",
+  "scope": "Three planned inherited lock-wait groups on experimental H1 / Intel Mac / macOS High Sierra 10.13.6",
+  "group_count": 3,
+  "successful_execution_count": 4,
+  "request_namespace": "Inherited lock-wait test sequence only; not the earlier four-check H1 milestone",
+  "host": {
+    "description": "Intel Mac",
+    "os": "macOS High Sierra",
+    "version": "10.13.6",
+    "basis": "Owner-reported",
+    "independent_host_setting_records": null
+  },
+  "handoff": {
+    "file": "1-EvilDuck-H1-Lock-Wait-Physical-Results-Codex.txt",
+    "bytes": 6843,
+    "sha256": "2fbbdf3de596ba7c7a1320aaabac9df269d01104d803818b365dac2625aa3eb3",
+    "original_logs_supplied_to_this_session": false,
+    "photographs_supplied_to_this_session": false,
+    "original_logs_independently_inspected_here": false,
+    "photographs_independently_inspected_here": false
+  },
+  "identity": {
+    "reported_full_build_id": "ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1",
+    "reported_full_build_id_basis": "Full observer buildId reported in owner handoff",
+    "intended_application_bytes": 1414080,
+    "intended_application_sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd",
+    "independent_physical_readback_verified": false,
+    "new_installation_comparison_receipt": null,
+    "complete_boot_marker_correlation": null
+  },
+  "kit": {
+    "file": "evilduck-h1-inherited-lock-wait-high-sierra-v1.zip",
+    "bytes": 24304,
+    "sha256": "faf26f64212fad199e4f34b822f9ea4d684da99540ce2d5c3d50d35932d56211",
+    "report_commit": "b28f692bb255a44345f3b757b2324983863cb36e",
+    "zip_commit": "4575a23f02c4a0e56b9a25d22c296f676990b642",
+    "tools_source_commit": "c7531e2792e1f396ba07fc9c69313a21ae9d9949"
+  },
+  "groups": [
+    {
+      "group": 1,
+      "classification": "PASS",
+      "requests": [
+        1,
+        2
+      ],
+      "scope": "Default5000, assignment/readback10000, keyboard RESET preservation, separately started new-run5000"
+    },
+    {
+      "group": 2,
+      "classification": "PASS",
+      "requests": [
+        3
+      ],
+      "scope": "Passive configured1000ms CAPS_CHANGE expiry, Deadline9/Timeout26/line3 and blank editor; no precise timing claim"
+    },
+    {
+      "group": 3,
+      "classification": "PASS",
+      "requests": [
+        6
+      ],
+      "scope": "STOP during correlated owned CAPS_CHANGE wait under held Shift, Cancelled2 and scoped manual lowercase recovery"
+    }
+  ],
+  "executions": [
+    {
+      "request_id": 1,
+      "group": 1,
+      "fixture": "wait-settings-reset.txt",
+      "classification": "PASS",
+      "observed_text": "111default\n222set\n333reset",
+      "text_format": "Three exact TextEdit lines reported; trailing newline bytes not independently inspected",
+      "dashboard": "Request 1 Completed",
+      "terminal": {
+        "phase": 0,
+        "reason": 1,
+        "error_code": 0,
+        "line": null,
+        "observed_utc": "2026-10-31T06:32:50.515856+00:00",
+        "clock_basis": "Observer log timestamp reported in handoff, not independently verified device time"
+      },
+      "waiting_observed": null,
+      "waiting_observed_expected": false,
+      "waiting_capture": null,
+      "evidence_references": [
+        "wait-settings-reset-results.txt",
+        "IMG_EDD5B866-45AC-4CEC-AAA2-33BE0602DD13.jpeg",
+        "IMG_4140.jpeg"
+      ],
+      "evidence_basis": "Owner-supplied handoff summary; original logs and photographs not supplied to this Codex session",
+      "boot_marker": null,
+      "complete_boot_correlation": false,
+      "independent_source_readback_sha256": null,
+      "independent_device_image_sha256": null,
+      "general_absence_of_quarantine_or_faults_proven": false
+    },
+    {
+      "request_id": 2,
+      "group": 1,
+      "fixture": "wait-new-run-default.txt",
+      "classification": "PASS",
+      "observed_text": "444newrun",
+      "text_format": "Exact visible TextEdit text reported; trailing newline bytes not independently inspected",
+      "dashboard": "Request 2 Completed",
+      "terminal": {
+        "phase": 0,
+        "reason": 1,
+        "error_code": 0,
+        "line": null,
+        "observed_utc": "2026-10-31T06:53:13.171802+00:00",
+        "clock_basis": "Observer log timestamp reported in handoff, not independently verified device time"
+      },
+      "waiting_observed": null,
+      "waiting_observed_expected": false,
+      "waiting_capture": null,
+      "evidence_references": [
+        "Pasted complete observer log (filename not supplied)",
+        "IMG_8D1211AB-8E70-4E4A-A4C9-BCCC956AEE6F.jpeg",
+        "IMG_4145.jpeg"
+      ],
+      "evidence_basis": "Owner-supplied handoff summary; original logs and photographs not supplied to this Codex session",
+      "boot_marker": null,
+      "complete_boot_correlation": false,
+      "independent_source_readback_sha256": null,
+      "independent_device_image_sha256": null,
+      "general_absence_of_quarantine_or_faults_proven": false
+    },
+    {
+      "request_id": 3,
+      "group": 2,
+      "fixture": "wait-passive-expiry.txt",
+      "classification": "PASS",
+      "observed_text": "",
+      "blank_editor_explicit_owner_confirmation": true,
+      "dashboard": "Request 3 Deadline at line 3, code 26",
+      "waiting_capture": {
+        "owned": true,
+        "phase": 6,
+        "command": 5,
+        "feedback_session": 3,
+        "started_ms": 2650676,
+        "captured_at_ms": null
+      },
+      "waiting_observed": true,
+      "terminal": {
+        "phase": 0,
+        "reason": 9,
+        "error_code": 26,
+        "line": 3,
+        "observed_utc": "2026-10-31T07:12:13.529944+00:00",
+        "clock_basis": "Observer log timestamp reported in handoff, not independently verified device time"
+      },
+      "evidence_references": [
+        "Wait-passive-expiry.txt (observer transcript, not the lowercase fixture)",
+        "IMG_4146.jpeg",
+        "Owner blank-TextEdit confirmation in testing chat"
+      ],
+      "evidence_basis": "Owner-supplied handoff summary; original logs and photographs not supplied to this Codex session",
+      "boot_marker": null,
+      "complete_boot_correlation": false,
+      "independent_source_readback_sha256": null,
+      "independent_device_image_sha256": null,
+      "general_absence_of_quarantine_or_faults_proven": false
+    },
+    {
+      "request_id": 6,
+      "group": 3,
+      "fixture": "wait-held-shift-stop.txt",
+      "classification": "PASS",
+      "observed_text_before_manual_typing": "",
+      "blank_editor_explicit_owner_confirmation": true,
+      "manual_recovery_text": "abc",
+      "manual_lowercase_explicit_owner_confirmation": true,
+      "dashboard": "Request 6 Cancelled",
+      "waiting_capture": {
+        "owned": true,
+        "waiting": true,
+        "phase": 6,
+        "command": 5,
+        "feedback_session": 3,
+        "started_ms": 5871019,
+        "captured_at_ms": null
+      },
+      "waiting_observed": true,
+      "matched_wait_event": "MATCHED_CAPS_CHANGE_WAIT_OBSERVED",
+      "multiple_waiting_snapshots_reported": true,
+      "waiting_snapshot_count": null,
+      "terminal": {
+        "phase": 0,
+        "reason": 2,
+        "error_code": 0,
+        "line": null,
+        "observed_utc": "2026-10-31T08:05:57.122465+00:00",
+        "clock_basis": "Observer log timestamp reported in handoff, not independently verified device time"
+      },
+      "evidence_references": [
+        "Evil_test.txt",
+        "IMG_4149.jpeg",
+        "Owner blank-editor and manual-lowercase confirmations in testing chat"
+      ],
+      "evidence_basis": "Owner-supplied handoff summary; original logs and photographs not supplied to this Codex session",
+      "boot_marker": null,
+      "complete_boot_correlation": false,
+      "independent_source_readback_sha256": null,
+      "independent_device_image_sha256": null,
+      "general_absence_of_quarantine_or_faults_proven": false
+    }
+  ],
+  "inconclusive_attempts": [
+    {
+      "request_id": 4,
+      "group": 3,
+      "fixture": "wait-held-shift-stop.txt",
+      "classification": "INCONCLUSIVE",
+      "terminal_status": "Cancelled",
+      "error_code": 0,
+      "terminal_phase": null,
+      "terminal_reason": null,
+      "observed_utc": null,
+      "terminal_waiting_observed": false,
+      "reason": "No supplied capture establishes entry into the intended waiting or held-Shift interval",
+      "evidence_references": [
+        "Mac-test.txt",
+        "IMG_4148.jpeg"
+      ],
+      "all_supplied_snapshots_show_waiting_false": true
+    }
+  ],
+  "unreported_requests": [
+    {
+      "request_id": 5,
+      "classification": "UNKNOWN",
+      "execution_happened": null,
+      "behavior": null,
+      "evidence_references": []
+    }
+  ],
+  "prior_h1_milestone": {
+    "closeout_commit": "29cbfae7974abccf513c6d7ff1b7faa5a3fc58c6",
+    "four_owner_passes_unchanged": true,
+    "earlier_h1_request_2_classification": "INCONCLUSIVE",
+    "earlier_h1_successful_stop_request_id": null,
+    "identifiers_not_overwritten": true
+  },
+  "required_rollback": {
+    "build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "replaced": false
+  },
+  "limitations": {
+    "h1_remains_experimental": true,
+    "default_firmware_promoted": false,
+    "canonical_hak5_encoding": "UNRESOLVED",
+    "older_lock_wait_binary_retroactively_accepted": false,
+    "all_nine_wait_variants_physically_certified": false,
+    "precise_timeout_or_usb_timing_measured": false,
+    "arbitrary_host_layout_behavior_certified": false,
+    "general_host_key_release_proven": false,
+    "general_absence_of_faults_or_quarantine_proven": false,
+    "feedback_session_3_proves_boot_continuity": false
+  },
+  "codex_actions": {
+    "firmware_changed": false,
+    "firmware_rebuilt": false,
+    "new_package": false,
+    "hardware_access": false,
+    "physical_repetition": false,
+    "hid_execution": false,
+    "flashing": false,
+    "ota": false,
+    "settings_action": false,
+    "firmware_test_suites_rerun": false,
+    "observer_or_package_suites_rerun": false
+  },
+  "terminal_observer_utc_date": "2026-10-31",
+  "owner_local_test_date": null
+}
