@@ -1,0 +1,191 @@
+{
+  "format": "evilduck-h1-owner-test-closeout-v1",
+  "recorded_date_utc": "2026-10-31",
+  "owner_test_conversation_date": "2026-10-30",
+  "date_basis": "Owner handoff; not an exact per-run timestamp",
+  "classification": "PASS",
+  "classification_scope": "Four owner-operated experimental EvilDuck H1 checks on Intel Mac / macOS High Sierra 10.13.6",
+  "owner_handoff": {
+    "file": "1-EvilDuck-H1-Physical-Test-Results-Codex.txt",
+    "bytes": 6571,
+    "sha256": "db60fc7df41ebddac16b20133ff7100d6e43c9fe22e19971a86914051b705e9f",
+    "images_embedded": false,
+    "referenced_images_available_to_codex": false,
+    "referenced_images_independently_inspected": false
+  },
+  "host": {
+    "os": "macOS High Sierra",
+    "version": "10.13.6",
+    "architecture_description": "Intel Mac (owner-reported)",
+    "instructed_setup": [
+      "Explicit Route B",
+      "Blank plain-text TextEdit",
+      "US input source",
+      "Caps off",
+      "No held physical keys"
+    ],
+    "independent_host_setting_records": null
+  },
+  "artifacts": {
+    "intended_build_id": "ROUTEB-INJECT-VAR-H1-EXPERIMENTAL-v1",
+    "firmware_review_commit": "a15b8e218935b2c6a69b71eeac3aaf378c3c0c03",
+    "package_report_commit": "6299e19a41925ff1048655bb52751899cc0ee6ea",
+    "zip_commit": "0982baec1d2beda44b1db31aacd373b3f45c1121",
+    "zip": {
+      "file": "evilduck-routeb-inject-var-h1-experimental-macos-v1.zip",
+      "bytes": 2450845,
+      "sha256": "229da835898e6739e31e4a6c08dd1ee9b5d74ded0458c7a0d850c899f5d2c639"
+    },
+    "application": {
+      "bytes": 1414080,
+      "sha256": "8a48f3f208165466e579f76a35fb7898fbaf1188e746ca3a0d60e99c576b0ecd",
+      "independent_physical_readback_verified": false
+    },
+    "required_rollback": {
+      "build_id": "ROUTEB-SOURCE-TEXT-PORTABILITY-v2",
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "replaced_by_this_closeout": false
+    }
+  },
+  "installation_evidence": {
+    "read_only_check_result": "READ_ONLY_CHECK_PASS",
+    "read_only_check_writes": 0,
+    "planned_candidate_application_entries": 2,
+    "both_planned_entries_referenced_candidate_hash": true,
+    "installation_completed_owner_reported": true,
+    "dashboard_summary": {
+      "build_id_prefix": "H1 experimental build-name prefix",
+      "full_build_id_visible": false,
+      "usb_configured": true,
+      "hid_input_ready": true
+    },
+    "final_installation_comparison_receipt": null,
+    "independent_full_application_readback": null,
+    "earlier_lock_wait_receipt_used_as_h1_evidence": false
+  },
+  "trials": [
+    {
+      "id": "fixed-copy",
+      "fixture": "h1-fixed-copy.txt",
+      "classification": "PASS",
+      "evidence_level": "OWNER_HANDOFF_SUMMARY_OF_TEXTEDIT_AND_DASHBOARD_IMAGES",
+      "request_id": 1,
+      "terminal_status": "Completed",
+      "observed_text": "aaA00!!",
+      "images_referenced": [
+        "IMG_7F2F5CEB-E988-4DFD-949B-F0BFFCF546E2.jpeg",
+        "IMG_4134.jpeg"
+      ],
+      "boot_id": null,
+      "session_id": null,
+      "exact_timestamp": null,
+      "source_readback_sha256": null,
+      "quarantine_state": null,
+      "transport_diagnostics": null
+    },
+    {
+      "id": "held-stop-success",
+      "fixture": "h1-stop-held-shift.txt",
+      "classification": "PASS",
+      "evidence_level": "OWNER_HANDOFF_SUMMARY_OF_TEXTEDIT_IMAGE_AND_EXPLICIT_OWNER_CONFIRMATION",
+      "request_id": null,
+      "terminal_status": "Cancelled",
+      "terminal_status_basis": "Owner explicitly answered: Yes it says cancelled.",
+      "observed_text": "Aabc",
+      "injected_text_reported": "A",
+      "manual_recovery_text": "abc",
+      "unwanted_999bad_visible": false,
+      "images_referenced": [
+        "IMG_D44D04C7-10E4-415A-A0E0-82442B134F2A.jpeg"
+      ],
+      "boot_id": null,
+      "session_id": null,
+      "exact_timestamp": null,
+      "source_readback_sha256": null,
+      "quarantine_state": null,
+      "transport_diagnostics": null
+    },
+    {
+      "id": "malformed",
+      "fixture": "h1-malformed.txt",
+      "classification": "PASS",
+      "evidence_level": "OWNER_ONLY_REPORTED_PASS",
+      "request_id": null,
+      "terminal_status": "Compile rejection (owner-reported)",
+      "observed_text": "",
+      "diagnostic_code": null,
+      "physical_line": null,
+      "images_referenced": [],
+      "exact_console_message": null,
+      "boot_id": null,
+      "session_id": null,
+      "exact_timestamp": null,
+      "source_readback_sha256": null,
+      "quarantine_state": null,
+      "transport_diagnostics": null
+    },
+    {
+      "id": "random-copy",
+      "fixture": "h1-random-copy.txt",
+      "classification": "PASS",
+      "evidence_level": "OWNER_HANDOFF_SUMMARY_OF_TEXTEDIT_AND_DASHBOARD_IMAGES",
+      "request_id": 6,
+      "terminal_status": "Completed",
+      "observed_text": "yy",
+      "captured_numeric_scalar": null,
+      "images_referenced": [
+        "IMG_377FFE55-D5EF-4308-B755-8FFB3425285A.jpeg",
+        "IMG_4137.jpeg"
+      ],
+      "boot_id": null,
+      "session_id": null,
+      "exact_timestamp": null,
+      "source_readback_sha256": null,
+      "quarantine_state": null,
+      "transport_diagnostics": null
+    }
+  ],
+  "inconclusive_attempts": [
+    {
+      "id": "held-stop-initial",
+      "fixture": "h1-stop-held-shift.txt",
+      "classification": "INCONCLUSIVE",
+      "request_id": 2,
+      "terminal_status": "Cancelled",
+      "observed_text": "",
+      "manual_stop_owner_confirmed": true,
+      "stop_timing": null,
+      "reason": "Cancelled with blank TextEdit; held-Shift interval and injected A not established",
+      "boot_id": null,
+      "session_id": null,
+      "exact_timestamp": null,
+      "source_readback_sha256": null,
+      "quarantine_state": null,
+      "transport_diagnostics": null
+    }
+  ],
+  "limitations": {
+    "official_hak5_runtime_encoding": "UNRESOLVED",
+    "canonical_compatibility": "UNRESOLVED",
+    "genuine_ds3_capture_performed": false,
+    "h1_can_distinguish_alternative_runtime_encodings": false,
+    "default_firmware_promoted": false,
+    "other_layouts_physically_validated": false,
+    "exhaustive_printable_physical_coverage": false,
+    "randomness_quality_measured": false,
+    "general_host_release_proven": false,
+    "usb_endpoint_retirement_proven": false,
+    "general_recovery_guarantees_proven": false,
+    "inherited_lock_timeout_physically_accepted_by_these_trials": false
+  },
+  "codex_work": {
+    "hardware_access": false,
+    "firmware_changed": false,
+    "firmware_rebuilt": false,
+    "installer_created": false,
+    "physical_repetitions_requested": false,
+    "firmware_suites_rerun": false,
+    "research_sweep_performed": false
+  }
+}
