@@ -18,6 +18,8 @@ spec = importlib.util.spec_from_file_location("privacy_fix1_parent", parent)
 B = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(B)
 prepare, native_sources = B.prepare, B.native_sources
+# The target builder uses the same pinned preparation/library helpers as H1.
+sha, frameworks, manifest, load = B.sha, B.frameworks, B.manifest, B.load
 
 
 def delta(source, *, native=False):

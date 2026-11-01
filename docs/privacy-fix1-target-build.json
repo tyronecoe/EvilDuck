@@ -1,0 +1,3198 @@
+{
+  "format": "evilduck-privacy-fix1-clean-target-integration-v1",
+  "status": "PASS_COMPILE_AND_INPUT_BINDING_ONLY",
+  "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+  "historical_base": "a04e54309c9c73bae17ef23c48283828dfebc0ad",
+  "build_worktree_base": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+  "profile": "PRIVACY FIX 1 / H1 EXPERIMENTAL / CLEAN COMPILE ONLY / NOT DEPLOYMENT APPROVED",
+  "actual_target_command": [
+    "/workspace/tooling/arduino/bin/arduino-cli",
+    "--config-file",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/arduino-cli.json",
+    "compile",
+    "--fqbn",
+    "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "--build-path",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build",
+    "--jobs",
+    "4",
+    "--build-property",
+    "upload.maximum_size=7602176",
+    "--build-property",
+    "recipe.hooks.objcopy.postobjcopy.3.pattern=",
+    "--build-property",
+    "compiler.cpp.extra_flags=-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1 -DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/privacy-fix1-integration/build-v2/candidate/EvilDuckS3",
+    "--clean",
+    "--verbose",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/candidate/EvilDuckS3"
+  ],
+  "adapter_exit": 0,
+  "compiler_exit": 0,
+  "composition": {
+    "status": "PASS_COMPILED_INPUTS_BOUND",
+    "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+    "selected_preparer": "tests/privacy_fix1/prepare_sources.py",
+    "preparer_sha256": "0bb594377dd1964926dcefbfb2e746251cdd908434bc6eba4eeb6624a2ba1dca",
+    "overlay_calls": 1,
+    "parent_overlay_calls": "one via privacy.overlay -> H1.overlay",
+    "source_inventory": [
+      {
+        "file": "EvilDuckS3/EvilDuckS3.ino",
+        "size": 4479,
+        "sha256": "42fdfde854f04ab67aa4abed4b6ce2b3b939491fc2e4daa5a4efff08945b8040"
+      },
+      {
+        "file": "EvilDuckS3/adapter.cpp",
+        "size": 8971,
+        "sha256": "b0945472e00d6177c14367e56eab3091d640ad3c471ecc825bbc812be57b3bb0"
+      },
+      {
+        "file": "EvilDuckS3/adapter.h",
+        "size": 2982,
+        "sha256": "ca8099f2568bb703610cf666a33ceb870c6e4e257c37977ef0ba4bd03b7e0c8b"
+      },
+      {
+        "file": "EvilDuckS3/attackmode.cpp",
+        "size": 3337,
+        "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+      },
+      {
+        "file": "EvilDuckS3/attackmode.h",
+        "size": 519,
+        "sha256": "d9e68dd330af814b87cae856c16cb85dc02a4009da07e67ce72ce5a4e87504a8"
+      },
+      {
+        "file": "EvilDuckS3/backend_lease.h",
+        "size": 1256,
+        "sha256": "f3db353e1b27dc74a2d449f21869886c70ad94ddbfb8b31f247112eff9492df6"
+      },
+      {
+        "file": "EvilDuckS3/backend_lease.inc",
+        "size": 4395,
+        "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+      },
+      {
+        "file": "EvilDuckS3/bridge.cpp",
+        "size": 6722,
+        "sha256": "6a74cb7367bb0827dc0af03267f0fde1e74b7de104b401c3b44a6f9e1a8ceff1"
+      },
+      {
+        "file": "EvilDuckS3/bridge.h",
+        "size": 2734,
+        "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+      },
+      {
+        "file": "EvilDuckS3/caps_trial.cpp",
+        "size": 1592,
+        "sha256": "07636d1d22806ac6bf8a1624135ea6df632967b2b91ae1b4dfb4ae4b3b73fe59"
+      },
+      {
+        "file": "EvilDuckS3/caps_trial.h",
+        "size": 659,
+        "sha256": "6069778291adb0092dee7f04ecd7dd0dd134cb02af6cea55632ff5a6c04c8636"
+      },
+      {
+        "file": "EvilDuckS3/cli.cpp",
+        "size": 14525,
+        "sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7"
+      },
+      {
+        "file": "EvilDuckS3/cli.h",
+        "size": 209,
+        "sha256": "962f59d6b211a3bbca0da9996dc648014c2197c17e5d02a4730a69b61a814229"
+      },
+      {
+        "file": "EvilDuckS3/com.cpp",
+        "size": 29094,
+        "sha256": "1889918ee99ccde65036ba6c1855ee743b852999d6226a4b3004a3492f0eee40"
+      },
+      {
+        "file": "EvilDuckS3/com.h",
+        "size": 892,
+        "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+      },
+      {
+        "file": "EvilDuckS3/conditional_state.h",
+        "size": 1236,
+        "sha256": "82a061d989437c41aeee6ecdde365c74088b502307f1eb807d29190e37cdb05d"
+      },
+      {
+        "file": "EvilDuckS3/config.h",
+        "size": 2645,
+        "sha256": "8e52a6f2d284efb28d17c74a83f01f818ce2eeb307c6b3c387f959af0a7fcdcf"
+      },
+      {
+        "file": "EvilDuckS3/control_flow.h",
+        "size": 3811,
+        "sha256": "6bb648c0e8d0596f1374aa3577cdc3b134385bd09596a286d16dea9092c04fe2"
+      },
+      {
+        "file": "EvilDuckS3/controlled_layout.h",
+        "size": 1406,
+        "sha256": "f181a0290427b6bcf38b9fdb55ceef4087d527e8cca56a0fb30151d0d913fd51"
+      },
+      {
+        "file": "EvilDuckS3/coordinator.cpp",
+        "size": 11879,
+        "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4"
+      },
+      {
+        "file": "EvilDuckS3/coordinator.h",
+        "size": 1810,
+        "sha256": "575dc07c65fffa133cf562afe5669c06802a974f601fd95626f9e581c2e2c680"
+      },
+      {
+        "file": "EvilDuckS3/core.cpp",
+        "size": 61532,
+        "sha256": "2876056adb42347f53ff8efdcf9cdbbce8ca04db4dc670bd1c4fdb2dc49befa5"
+      },
+      {
+        "file": "EvilDuckS3/core.h",
+        "size": 8362,
+        "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/01_variables.txt",
+        "size": 119,
+        "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/02_if_else.txt",
+        "size": 129,
+        "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/03_while_loop.txt",
+        "size": 141,
+        "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/04_save_spiffs.txt",
+        "size": 98,
+        "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/05_save_sd.txt",
+        "size": 136,
+        "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/06_attackmode.txt",
+        "size": 120,
+        "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/07_attackmode_hid_only.txt",
+        "size": 86,
+        "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+      },
+      {
+        "file": "EvilDuckS3/data/advanced/08_read_file.txt",
+        "size": 124,
+        "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/01_hello_windows.txt",
+        "size": 149,
+        "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/02_calculator_windows.txt",
+        "size": 81,
+        "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/03_delay_test.txt",
+        "size": 116,
+        "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/04_repeat_demo.txt",
+        "size": 74,
+        "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/05_special_keys.txt",
+        "size": 131,
+        "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/06_locale_de.txt",
+        "size": 130,
+        "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/07_led_blink.txt",
+        "size": 126,
+        "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+      },
+      {
+        "file": "EvilDuckS3/data/demos/08_keycode_ctrl_a.txt",
+        "size": 77,
+        "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+      },
+      {
+        "file": "EvilDuckS3/data/index.html",
+        "size": 246,
+        "sha256": "c67a22c88c1e5741138e035018c07bdbf600aeb5f18d5367f8e35203565eeb83"
+      },
+      {
+        "file": "EvilDuckS3/data/linux/01_terminal.txt",
+        "size": 157,
+        "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+      },
+      {
+        "file": "EvilDuckS3/data/linux/02_nano_editor.txt",
+        "size": 212,
+        "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+      },
+      {
+        "file": "EvilDuckS3/data/linux/03_firefox.txt",
+        "size": 88,
+        "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+      },
+      {
+        "file": "EvilDuckS3/data/linux/04_tmux_new.txt",
+        "size": 130,
+        "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+      },
+      {
+        "file": "EvilDuckS3/data/macos/01_terminal.txt",
+        "size": 135,
+        "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+      },
+      {
+        "file": "EvilDuckS3/data/macos/02_safari.txt",
+        "size": 87,
+        "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+      },
+      {
+        "file": "EvilDuckS3/data/macos/03_lock_screen.txt",
+        "size": 77,
+        "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+      },
+      {
+        "file": "EvilDuckS3/data/macos/04_textedit.txt",
+        "size": 120,
+        "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/01_run_dialog.txt",
+        "size": 75,
+        "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/02_cmd_prompt.txt",
+        "size": 122,
+        "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/03_powershell.txt",
+        "size": 135,
+        "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/04_lock_screen.txt",
+        "size": 59,
+        "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/05_desktop_show.txt",
+        "size": 54,
+        "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/06_task_manager.txt",
+        "size": 78,
+        "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/07_file_explorer.txt",
+        "size": 53,
+        "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/08_settings.txt",
+        "size": 85,
+        "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/alt_f4_close.txt",
+        "size": 83,
+        "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/browser_url.txt",
+        "size": 134,
+        "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/hacker_terminals_3_monitors.txt",
+        "size": 197,
+        "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/hello_notepad.txt",
+        "size": 180,
+        "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/lock_screen.txt",
+        "size": 63,
+        "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_calculator.txt",
+        "size": 97,
+        "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_cmd.txt",
+        "size": 137,
+        "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_dedsec_image.txt",
+        "size": 197,
+        "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_explorer.txt",
+        "size": 67,
+        "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_powershell.txt",
+        "size": 156,
+        "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_settings.txt",
+        "size": 61,
+        "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/open_taskmgr.txt",
+        "size": 90,
+        "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/paste_clipboard.txt",
+        "size": 60,
+        "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/screenshot.txt",
+        "size": 105,
+        "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/select_all_copy.txt",
+        "size": 96,
+        "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/show_desktop.txt",
+        "size": 75,
+        "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/skull_loading_terminal.txt",
+        "size": 4043,
+        "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+      },
+      {
+        "file": "EvilDuckS3/data/windows/typing_speed_test.txt",
+        "size": 238,
+        "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+      },
+      {
+        "file": "EvilDuckS3/debug.cpp",
+        "size": 261,
+        "sha256": "21995b69ab6f4f587d95222187aab167fdf344eda0a861810c8b17c8fc7ac6cc"
+      },
+      {
+        "file": "EvilDuckS3/debug.h",
+        "size": 136,
+        "sha256": "eed438797b682327c9de78d4f9ed7d431e29fd345fb9ec3d860264acab98ff5e"
+      },
+      {
+        "file": "EvilDuckS3/deployment_boot.h",
+        "size": 853,
+        "sha256": "0c4dc2d8b6fc6ab610536eb201de6611d7cd7761de17e5df351d6e2e25afe232"
+      },
+      {
+        "file": "EvilDuckS3/diagnostic_platform.h",
+        "size": 1292,
+        "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858"
+      },
+      {
+        "file": "EvilDuckS3/diagnostics.cpp",
+        "size": 4843,
+        "sha256": "a2dc6ea2cc4d5cc559bba3d8271d91967bfa8b098f7b6a9328cd9a9ecc8a471c"
+      },
+      {
+        "file": "EvilDuckS3/diagnostics.h",
+        "size": 1503,
+        "sha256": "7c47d35f2aa009778c362d6832a989c5be9e7f4377b3d28be0c03f13c8f17f1f"
+      },
+      {
+        "file": "EvilDuckS3/duck_constants.cpp",
+        "size": 4932,
+        "sha256": "058c6d6fcde39de3f4fbcce6f0aa407cec62babd59fc658948779716f5ebbff5"
+      },
+      {
+        "file": "EvilDuckS3/duck_constants.h",
+        "size": 612,
+        "sha256": "ab3d4de46274f557085e963835f4d25473f062ab4a74c8e1c22f354973c4ac27"
+      },
+      {
+        "file": "EvilDuckS3/duck_expr.cpp",
+        "size": 13040,
+        "sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330"
+      },
+      {
+        "file": "EvilDuckS3/duck_expr.h",
+        "size": 1720,
+        "sha256": "933f5e10f0e16972d77e44f0af6946ffa289b1595794c78fc609c0f33f512192"
+      },
+      {
+        "file": "EvilDuckS3/duck_keys.cpp",
+        "size": 3567,
+        "sha256": "2817becad1c4cca4bd29d5d1b6cc3866ddb35ba535f03cb531cafed692c6b62a"
+      },
+      {
+        "file": "EvilDuckS3/duck_keys.h",
+        "size": 604,
+        "sha256": "6b0dd4921d076defdbe60e74afab33b764ca6c5cae2aa30dbea4f0a19e55258f"
+      },
+      {
+        "file": "EvilDuckS3/duck_random.cpp",
+        "size": 2775,
+        "sha256": "d4ffe176ee222bb4add3aebdf7aa4a70801572893f0d88940d7443449f63b170"
+      },
+      {
+        "file": "EvilDuckS3/duck_random.h",
+        "size": 840,
+        "sha256": "e6dc9b5c3fb2edb329d088f57ce4d314cc4ef5cb62afc16b500085d0936e0d06"
+      },
+      {
+        "file": "EvilDuckS3/duck_vars.cpp",
+        "size": 12206,
+        "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293"
+      },
+      {
+        "file": "EvilDuckS3/duck_vars.h",
+        "size": 1304,
+        "sha256": "c49314e670ebcc4c15804d329d003f119a013136c003b08314f4efbd6587ce6f"
+      },
+      {
+        "file": "EvilDuckS3/duckscript.cpp",
+        "size": 23380,
+        "sha256": "b47475a4070b38be5dd71bdfb0adc66fb0324a7b0b6e9aa3ec371c59ddfd4851"
+      },
+      {
+        "file": "EvilDuckS3/duckscript.h",
+        "size": 387,
+        "sha256": "cb477305bb9af8554542395eeca56f451a9134a4bcec926fa723d8b66c45bc34"
+      },
+      {
+        "file": "EvilDuckS3/execution_guard.h",
+        "size": 4112,
+        "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b"
+      },
+      {
+        "file": "EvilDuckS3/feedback_diag.cpp",
+        "size": 3909,
+        "sha256": "fb3343fab32358e10579beb53bfa47d21bde71ba03ed349c228dba1ff3176aff"
+      },
+      {
+        "file": "EvilDuckS3/feedback_diag.h",
+        "size": 1488,
+        "sha256": "8882eee63e2440577ea6ebe8be5251f70580f0be511bb9b3ac70f1193f966f3f"
+      },
+      {
+        "file": "EvilDuckS3/fetch_locales.ps1",
+        "size": 799,
+        "sha256": "b7290777966bc4d32c301115149f134420ae2ea6195a2710c004205ff0d13eb3"
+      },
+      {
+        "file": "EvilDuckS3/file_source.cpp",
+        "size": 2028,
+        "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+      },
+      {
+        "file": "EvilDuckS3/file_source.h",
+        "size": 613,
+        "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+      },
+      {
+        "file": "EvilDuckS3/hid_backend.cpp",
+        "size": 29052,
+        "sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c"
+      },
+      {
+        "file": "EvilDuckS3/hid_backend.h",
+        "size": 2241,
+        "sha256": "7925198fa38eeb5489ddd5f3dbfb47d4f00a477ba7b5ceeeb58bb5dbdaf08830"
+      },
+      {
+        "file": "EvilDuckS3/hid_trace.cpp",
+        "size": 3401,
+        "sha256": "ae806e8252cc1e877e27bec742bea8488db59d99793409cf1b4511796d4b7b43"
+      },
+      {
+        "file": "EvilDuckS3/hid_trace.h",
+        "size": 1020,
+        "sha256": "9c41c5d445551ba74bb743df4f198cae952b34f27ce066d134bf5525e8905336"
+      },
+      {
+        "file": "EvilDuckS3/internal_vars.h",
+        "size": 580,
+        "sha256": "9b62bb7af0340a2bb1c7a85252fda729b940856ff8a19a6c2d063f4ba92f7c82"
+      },
+      {
+        "file": "EvilDuckS3/keyboard.cpp",
+        "size": 6618,
+        "sha256": "0d61a025ce174a6f940a77fbb56e83195507da10d640432a2621b9e597b3bcf9"
+      },
+      {
+        "file": "EvilDuckS3/keyboard.h",
+        "size": 2959,
+        "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+      },
+      {
+        "file": "EvilDuckS3/keyboard_locale.cpp",
+        "size": 4586,
+        "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+      },
+      {
+        "file": "EvilDuckS3/keyboard_locale.h",
+        "size": 732,
+        "sha256": "7146c6c398ed0d76dd009f9b0374b7b3f2c04097df1768b138fa01817db6c737"
+      },
+      {
+        "file": "EvilDuckS3/led.cpp",
+        "size": 2441,
+        "sha256": "2c0bce17312132821c66a21d537cff3180385005dd8f533fcd787ac637da01aa"
+      },
+      {
+        "file": "EvilDuckS3/led.h",
+        "size": 104,
+        "sha256": "e8fc9756baa3a06a08c10948b85082b0b2aeb958d06752ee0cb957de0ad568d8"
+      },
+      {
+        "file": "EvilDuckS3/led_receiver.cpp",
+        "size": 4111,
+        "sha256": "7b8743a007487db970c8a777aa95dc60bee35c86b0fa96d9ac62ec473ec6916e"
+      },
+      {
+        "file": "EvilDuckS3/led_receiver.h",
+        "size": 1049,
+        "sha256": "a6a2a9970e4f0515987ae527a4ed20731153e97fc87d1066b82576a6895ef42a"
+      },
+      {
+        "file": "EvilDuckS3/locale/locale_de.h",
+        "size": 4942,
+        "sha256": "dc10ea86906667c24ea43c3f1b8b7c450568d26d3c7e4a7c4b80daad75b2cd56"
+      },
+      {
+        "file": "EvilDuckS3/locale/locale_types.h",
+        "size": 228,
+        "sha256": "c48cf655a0b810ea275edc4319d34a120f2aebc97ad231c755a87c5d72305ea0"
+      },
+      {
+        "file": "EvilDuckS3/locale/locale_us.h",
+        "size": 3667,
+        "sha256": "d1982e64f18ec1c0a87ac232ce53c63cdb114fa0898ca79a77a8387eddedf61c"
+      },
+      {
+        "file": "EvilDuckS3/locale/locales.h",
+        "size": 1673,
+        "sha256": "d1657a7b159776d35e84c00f29f623ef2389f1cf2176f0a11811f0fb4602cdf0"
+      },
+      {
+        "file": "EvilDuckS3/locale/usb_hid_keys.h",
+        "size": 3081,
+        "sha256": "4c9c49c041811f16c0e2dba6362b44cb8b65eb36cb5f772674d9e877faf51dcb"
+      },
+      {
+        "file": "EvilDuckS3/locales.cpp",
+        "size": 419,
+        "sha256": "3fe13d85fd47f64c584f720fa860d7d72e09d36b68e40443fde7fb1ea53315b2"
+      },
+      {
+        "file": "EvilDuckS3/mutation_guard.h",
+        "size": 546,
+        "sha256": "c69fd2486daf20df562d11a2fe63e79297fc81c37868cb935d176b3885e9f464"
+      },
+      {
+        "file": "EvilDuckS3/nvs_startup.h",
+        "size": 417,
+        "sha256": "615745d0c93d17448002d9094c4868bbb7264d7ebec966b6befdea146d55ed83"
+      },
+      {
+        "file": "EvilDuckS3/partitions.csv",
+        "size": 394,
+        "sha256": "29f1c8956b5b68b26a1eb79ea46c68cb110d2510b40091e4bebfb89f06f511ef"
+      },
+      {
+        "file": "EvilDuckS3/scheduler_seam.h",
+        "size": 1150,
+        "sha256": "fa25540c9e43862052c705833ab0a47988185d873ced313aa299f38075f9ecfc"
+      },
+      {
+        "file": "EvilDuckS3/script_functions.cpp",
+        "size": 2949,
+        "sha256": "ed9ab30624a5ad4687d5d9b822634204cdf5a49e7e3b22c8e47622b69d8dcb47"
+      },
+      {
+        "file": "EvilDuckS3/script_functions.h",
+        "size": 2066,
+        "sha256": "44a285d895ea946c54a564350e0259eb7dc9b60efdd8ec20e257bfd94e976ed7"
+      },
+      {
+        "file": "EvilDuckS3/script_library.cpp",
+        "size": 3371,
+        "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769"
+      },
+      {
+        "file": "EvilDuckS3/script_library.h",
+        "size": 278,
+        "sha256": "bf7f8005fbb586d8a3f41473a9f7acfd97b3d79b49616d90257d8129783efab2"
+      },
+      {
+        "file": "EvilDuckS3/script_log.cpp",
+        "size": 1778,
+        "sha256": "9a269ef95b6ec0d8c22ea7ce24687339b8c08471a134b807a669846972f7434a"
+      },
+      {
+        "file": "EvilDuckS3/script_log.h",
+        "size": 270,
+        "sha256": "48af946b433dfab38af76e79a504c9d0d15f72440411e496056e62e87d5233de"
+      },
+      {
+        "file": "EvilDuckS3/script_parser.cpp",
+        "size": 35558,
+        "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47"
+      },
+      {
+        "file": "EvilDuckS3/script_parser.h",
+        "size": 2628,
+        "sha256": "9624a59e80b718f7525c0c4702dc992501d5aa53be3fc8559095ddf49044140b"
+      },
+      {
+        "file": "EvilDuckS3/script_preprocessor.cpp",
+        "size": 4276,
+        "sha256": "fc09ef1124ac9a6a4f47f6fd1ad543cafda814e927d05cf148e6d86089c52d79"
+      },
+      {
+        "file": "EvilDuckS3/script_preprocessor.h",
+        "size": 1353,
+        "sha256": "b390d7b2879852c6a66e4f89928bc75b52d9690109cd6794140d04dd72d380f0"
+      },
+      {
+        "file": "EvilDuckS3/script_source.cpp",
+        "size": 3043,
+        "sha256": "7ea73e3b9e773448c317b8e24176381f52768bc64f175191088284c0310463f3"
+      },
+      {
+        "file": "EvilDuckS3/script_source.h",
+        "size": 1239,
+        "sha256": "1ea0ddbd7bf239af6c715f1b057bbdc5a7bd491f11c19314f407239d98ef84b0"
+      },
+      {
+        "file": "EvilDuckS3/scripts/README.txt",
+        "size": 892,
+        "sha256": "cc8adc67182f4c753773d1fbe939d7d17ac8bb31338ee7cff2a0b2a26418c587"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/01_variables.txt",
+        "size": 119,
+        "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/02_if_else.txt",
+        "size": 129,
+        "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/03_while_loop.txt",
+        "size": 141,
+        "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/04_save_spiffs.txt",
+        "size": 98,
+        "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/05_save_sd.txt",
+        "size": 136,
+        "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/06_attackmode.txt",
+        "size": 120,
+        "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/07_attackmode_hid_only.txt",
+        "size": 86,
+        "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+      },
+      {
+        "file": "EvilDuckS3/scripts/advanced/08_read_file.txt",
+        "size": 124,
+        "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/01_hello_windows.txt",
+        "size": 149,
+        "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/02_calculator_windows.txt",
+        "size": 81,
+        "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/03_delay_test.txt",
+        "size": 116,
+        "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/04_repeat_demo.txt",
+        "size": 74,
+        "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/05_special_keys.txt",
+        "size": 131,
+        "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/06_locale_de.txt",
+        "size": 130,
+        "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/07_led_blink.txt",
+        "size": 126,
+        "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+      },
+      {
+        "file": "EvilDuckS3/scripts/demos/08_keycode_ctrl_a.txt",
+        "size": 77,
+        "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+      },
+      {
+        "file": "EvilDuckS3/scripts/linux/01_terminal.txt",
+        "size": 157,
+        "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+      },
+      {
+        "file": "EvilDuckS3/scripts/linux/02_nano_editor.txt",
+        "size": 212,
+        "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+      },
+      {
+        "file": "EvilDuckS3/scripts/linux/03_firefox.txt",
+        "size": 88,
+        "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+      },
+      {
+        "file": "EvilDuckS3/scripts/linux/04_tmux_new.txt",
+        "size": 130,
+        "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+      },
+      {
+        "file": "EvilDuckS3/scripts/macos/01_terminal.txt",
+        "size": 135,
+        "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+      },
+      {
+        "file": "EvilDuckS3/scripts/macos/02_safari.txt",
+        "size": 87,
+        "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+      },
+      {
+        "file": "EvilDuckS3/scripts/macos/03_lock_screen.txt",
+        "size": 77,
+        "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+      },
+      {
+        "file": "EvilDuckS3/scripts/macos/04_textedit.txt",
+        "size": 120,
+        "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+      },
+      {
+        "file": "EvilDuckS3/scripts/sync_to_data.ps1",
+        "size": 774,
+        "sha256": "103f1f45641921b97f45f4b5d4f842b62d540ec7ce96cdd5d100edc868a5a534"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/01_run_dialog.txt",
+        "size": 75,
+        "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/02_cmd_prompt.txt",
+        "size": 122,
+        "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/03_powershell.txt",
+        "size": 135,
+        "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/04_lock_screen.txt",
+        "size": 59,
+        "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/05_desktop_show.txt",
+        "size": 54,
+        "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/06_task_manager.txt",
+        "size": 78,
+        "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/07_file_explorer.txt",
+        "size": 53,
+        "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/08_settings.txt",
+        "size": 85,
+        "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/alt_f4_close.txt",
+        "size": 83,
+        "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/browser_url.txt",
+        "size": 134,
+        "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/hello_notepad.txt",
+        "size": 180,
+        "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/lock_screen.txt",
+        "size": 63,
+        "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_calculator.txt",
+        "size": 97,
+        "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_cmd.txt",
+        "size": 137,
+        "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_dedsec_image.txt",
+        "size": 197,
+        "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_explorer.txt",
+        "size": 67,
+        "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_powershell.txt",
+        "size": 156,
+        "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_settings.txt",
+        "size": 61,
+        "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/open_taskmgr.txt",
+        "size": 90,
+        "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/paste_clipboard.txt",
+        "size": 60,
+        "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/run_hacker_terminals.cmd",
+        "size": 266,
+        "sha256": "402c0056d6eba24f2e2c9f80f99cd1e214b1a327c2a7f5aba0235024727193e2"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/screenshot.txt",
+        "size": 105,
+        "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/select_all_copy.txt",
+        "size": 96,
+        "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/show_desktop.txt",
+        "size": 75,
+        "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/skull_loading_terminal.txt",
+        "size": 4043,
+        "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+      },
+      {
+        "file": "EvilDuckS3/scripts/windows/typing_speed_test.txt",
+        "size": 238,
+        "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+      },
+      {
+        "file": "EvilDuckS3/sd_card.cpp",
+        "size": 6573,
+        "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8"
+      },
+      {
+        "file": "EvilDuckS3/sd_card.h",
+        "size": 605,
+        "sha256": "363a41bee3f28c5570cd1749e46a7157f7f92942f8c51b0f7287a7f1db8bff9e"
+      },
+      {
+        "file": "EvilDuckS3/seam.inc",
+        "size": 8356,
+        "sha256": "229a1474ebc6a13ef48d6561e1ad32ab31c453da09167065f2180e527dd7602a"
+      },
+      {
+        "file": "EvilDuckS3/settings.cpp",
+        "size": 13030,
+        "sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3"
+      },
+      {
+        "file": "EvilDuckS3/settings.h",
+        "size": 1008,
+        "sha256": "733cfefc1aa1e34e0bbaa1419405785492bce6753ec559be52b17477cac84e00"
+      },
+      {
+        "file": "EvilDuckS3/shortcut_keys.h",
+        "size": 3353,
+        "sha256": "a5ec66459abc75806dbedaf5506c71ca16327a7c5e71e5149abe5859d13e8f8d"
+      },
+      {
+        "file": "EvilDuckS3/spiffs.cpp",
+        "size": 4311,
+        "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da"
+      },
+      {
+        "file": "EvilDuckS3/spiffs.h",
+        "size": 624,
+        "sha256": "a168225fdb4bec5a7d63c56809cab4ee6c4e42cc3b8d18f77c459f3f49fe2aab"
+      },
+      {
+        "file": "EvilDuckS3/storage.cpp",
+        "size": 10762,
+        "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c"
+      },
+      {
+        "file": "EvilDuckS3/storage.h",
+        "size": 920,
+        "sha256": "b89f8e791997f79f173dfcacc375a4efb51241e3975d3c3c6ba83a0021c32937"
+      },
+      {
+        "file": "EvilDuckS3/task_platform.h",
+        "size": 1203,
+        "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+      },
+      {
+        "file": "EvilDuckS3/usb_msc.cpp",
+        "size": 8329,
+        "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7"
+      },
+      {
+        "file": "EvilDuckS3/usb_msc.h",
+        "size": 504,
+        "sha256": "c03a6068ccf9ce2a53c057a15cc02628a12e04f5a4b82a67b6c1659dc2b1efe9"
+      },
+      {
+        "file": "EvilDuckS3/webfiles.h",
+        "size": 75332,
+        "sha256": "17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724"
+      },
+      {
+        "file": "EvilDuckS3/webserver.cpp",
+        "size": 47583,
+        "sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9"
+      },
+      {
+        "file": "EvilDuckS3/webserver.h",
+        "size": 89,
+        "sha256": "3187c949614453e0703ac750079804abd7871a8b5e143cc821893476b4e54c4b"
+      }
+    ],
+    "changed_sources": [
+      "cli.cpp",
+      "webserver.cpp",
+      "webfiles.h"
+    ],
+    "unchanged_sources": 198,
+    "metadata_only_differences": [],
+    "dashboard_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+    "dashboard_id_distinguishes_privacy": false,
+    "profile": "PRIVACY FIX 1 / H1 EXPERIMENTAL / CLEAN COMPILE ONLY / NOT DEPLOYMENT APPROVED",
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e"
+  },
+  "target_binding": {
+    "status": "PASS",
+    "source_files": 201,
+    "privacy_files": 3,
+    "unchanged_files": 198,
+    "verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+    "source_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+    "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+    "parent_preparer_sha256": "17c5f6d7d640800985a3969d265f8249249eb63ab9e6fd3a6955e319fee33f40",
+    "compile_inputs": [
+      {
+        "source": "cli.cpp",
+        "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+        "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp",
+        "compiled_sha256": "6f3c0c234135079fadd63e9eae516677ea339d303baa87be5fc58cc274cb3f66",
+        "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.o",
+        "object_sha256": "99220b1bcc00ed262870631e65c849c193f7983627f11e4e97b70f9009605261",
+        "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+        "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.d",
+        "dependency_sha256": "74af96096dcddab411c9bce5d13bca9fae563b3e397af5984c69743fc61a1cb8",
+        "dependency_count": 187,
+        "verbose_compile_observed": true,
+        "linked_map_load": true
+      },
+      {
+        "source": "webserver.cpp",
+        "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+        "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp",
+        "compiled_sha256": "42ed6fe209b678031190948df63c31aa316af07739948c6857ae4e9dcde362d2",
+        "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.o",
+        "object_sha256": "745c8542a295df01eb6a928f592a997dd645ec422d99d0dd87393b63b4e5b775",
+        "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+        "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.d",
+        "dependency_sha256": "f3d55612308c84880ce84a2c1dd496a9706a0578d2f2ca09ddaa66e0a56e3475",
+        "dependency_count": 262,
+        "verbose_compile_observed": true,
+        "linked_map_load": true,
+        "webfiles_header": {
+          "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webfiles.h",
+          "sha256": "e4f70b362ac004cf3af3ec6c7187c0e2a713f9304d0192aa7b017208a9854816",
+          "candidate_sha256": "17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724",
+          "dependency_observed": true
+        }
+      }
+    ],
+    "compile_log_sha256": "3914162cd9b3ba3dde6af03ab30f987dd78e66cbd2b1b45afa6ba1b2ca55c642",
+    "compile_commands_sha256": "4552f1ddd725ec28489301161a1fef541284bf746c1ea6d2142a4da2fd41b1ba",
+    "map_sha256": "0396e1da8f503e6cebf75805066e03a679787d5a233ebe7cf48c07a873738ea9",
+    "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "application_bytes": 1415968,
+    "sdk_archives_checked": 177,
+    "sdk_archives_selected": 153,
+    "sdk_pin_reconciliation": {
+      "pinned_installed_verified": 177,
+      "selected_map_and_report": 153,
+      "installed_archive_total": 183,
+      "pinned_but_not_selected": [
+        "dio_opi/libbootloader_support.a",
+        "dio_opi/libesp_hw_support.a",
+        "dio_opi/libesp_psram.a",
+        "dio_opi/libesp_system.a",
+        "dio_opi/libfreertos.a",
+        "dio_opi/libspi_flash.a",
+        "dio_qspi/libbootloader_support.a",
+        "dio_qspi/libesp_hw_support.a",
+        "dio_qspi/libesp_psram.a",
+        "dio_qspi/libesp_system.a",
+        "dio_qspi/libfreertos.a",
+        "dio_qspi/libspi_flash.a",
+        "opi_opi/libbootloader_support.a",
+        "opi_opi/libesp_hw_support.a",
+        "opi_opi/libesp_psram.a",
+        "opi_opi/libesp_system.a",
+        "opi_opi/libfreertos.a",
+        "opi_opi/libspi_flash.a",
+        "qio_opi/libbootloader_support.a",
+        "qio_opi/libesp_hw_support.a",
+        "qio_opi/libesp_psram.a",
+        "qio_opi/libesp_system.a",
+        "qio_opi/libfreertos.a",
+        "qio_opi/libspi_flash.a"
+      ],
+      "unpinned_installed_and_not_selected": [
+        "lib/libesp_zb_api.zczr.a",
+        "lib/libesp_zb_api.zczr.debug.a",
+        "lib/libzboss_port.remote.a",
+        "lib/libzboss_port.remote.debug.a",
+        "lib/libzboss_stack.zczr.a",
+        "lib/libzboss_stack.zczr.debug.a"
+      ],
+      "unpinned_archives_trusted": false
+    },
+    "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+    "historical_full_h1_verify_link_executed": false,
+    "profile": "PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL",
+    "build_id_policy": "Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate",
+    "physical": false,
+    "installation_authorized": false,
+    "package_created": false
+  },
+  "metrics": {
+    "core_version": "3.3.0",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "application_address": 65536,
+    "flash_bytes": 16777216,
+    "application_bytes": 1415968,
+    "ota_slot_bytes": 7602176,
+    "free_bytes_per_slot": 6186208,
+    "free_percent_per_slot": 81.37417497306035,
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "hardware_verified": false,
+    "compiler_program_bytes": 1415827,
+    "static_ram_bytes": 113896,
+    "compiler_ram_maximum_bytes": 327680,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "verified_cpp_extra_flags": "-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1 -DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/privacy-fix1-integration/build-v2/candidate/EvilDuckS3",
+    "merged_image_for_migration": false
+  },
+  "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+  "compiler_version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "core_pin": {
+    "core_version": "3.3.0",
+    "baseline": "0d100caa120d11920341e493019e5fc016c05a4f",
+    "original_tree_sha256": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+    "patched_tree_sha256": "a79b9c7e42e7ea2066815271117eeac23fe0a27e65fa00657dc268b70c22c53a",
+    "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+    "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+    "patched_routing_sha256": "aba054156d04bceee833a4708abab2de2f8dd380325fd1ab61d13ecae32d4e84",
+    "tree_hash_excludes": [
+      "installed.json (Arduino-generated package index metadata, not release source)"
+    ],
+    "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+    "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+    "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+    "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+    "nvs_source": "cores/esp32/esp32-hal-misc.c",
+    "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+    "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+    "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+    "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+    "profile": "arduino-3.3.0-archive-feedback-boundary-v1",
+    "archive_sha256": "c8525462e47b37b726c211b71afada0fca5859ba748963e4d967131355716ba2",
+    "proposal_commit": "f47e46dec2fa19ef7310ea6ffd36fed8a23aefb3",
+    "approval": "Owner approved additive archive-based software build and package preparation; no hardware authorization",
+    "historical_reproduction": false,
+    "feedback_usb_source_sha256": "8d7b8283bc3ee978de14229382d43628ae48c1f01acbbaa15837bf2ced01571f",
+    "feedback_patch_sha256": "8c96735814cead97e95ffca8accf286ac0765cfddb1273f852600d86a9a68572"
+  },
+  "framework_pins": [
+    {
+      "directory": "ESP_Async_WebServer",
+      "tree_sha256": "da63cc5538f50e090687a8110649b5723f10d54733dced39c487cac51c2d33e9"
+    },
+    {
+      "directory": "Async_TCP",
+      "tree_sha256": "9d66fc7133f679351d73e812f4cd62f6e078ce3b8084c28652aaa04a729789e5"
+    }
+  ],
+  "supplementary_library_pin": {
+    "version": "1.15.5",
+    "archive_url": "https://downloads.arduino.cc/libraries/github.com/adafruit/Adafruit_NeoPixel-1.15.5.zip",
+    "archive_sha256": "3d767caa011ab3078df7fe3c3e0456359ce2bc309eba343932690a2c1612fd16",
+    "inventory": {
+      "tree_sha256": "5393751674b84512dc147d7d137e51a32477ba41ffd2f6451fc2ea81d3cc8796",
+      "files": [
+        [
+          "Adafruit_NeoPixel.cpp",
+          "96600c063012af338f0b9cd749bd2b08df19c4b298dd3f950904e3b3c0766793"
+        ],
+        [
+          "Adafruit_NeoPixel.h",
+          "25a8279dcaa27519c92726fe3dcced0e452ec7c2786c303f3e18cc82028e59f4"
+        ],
+        [
+          "Adafruit_Neopixel_RP2.cpp",
+          "bce93f514303057b36927a14c6fd4c436268d03ce882e14728a0a83c3407f765"
+        ],
+        [
+          "CONTRIBUTING.md",
+          "b40002543489ad8da91be9d1fc17e7f7eeee8cbe27cf01796fa78a80185565be"
+        ],
+        [
+          "COPYING",
+          "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+        ],
+        [
+          "README.md",
+          "6c714197f2ed4ff8e40307fe39ab2d1033ad3990d32f17f40859ce86e78c378f"
+        ],
+        [
+          "esp.c",
+          "1f158b01845a3798f5cba7094c8fffba7effd96fe1903a379472ddc563ef1905"
+        ],
+        [
+          "esp8266.c",
+          "4dc66ada19e049983096255792944838d5afae4cd67eafb722e66357b629af59"
+        ],
+        [
+          "examples/RGBWstrandtest/RGBWstrandtest.ino",
+          "8d09da7e039e9d6901f45c354483d7e1dd0df714e0bed770abd332c33fe478dd"
+        ],
+        [
+          "examples/StrandtestArduinoBLE/StrandtestArduinoBLE.ino",
+          "45d1b397089f5db205ea820b8fb425616f970eedd8524650823121411b3d29f7"
+        ],
+        [
+          "examples/StrandtestArduinoBLECallback/StrandtestArduinoBLECallback.ino",
+          "3f801ce5cdc89c504ef62212244db80d6eab6a1d35b043e39f4b33277b0b7a55"
+        ],
+        [
+          "examples/StrandtestBLE/BLESerial.cpp",
+          "f84d0c33f6be332463ab543c52de82387100574d006c08fec24e664ac6f4f215"
+        ],
+        [
+          "examples/StrandtestBLE/BLESerial.h",
+          "fb313b7a51e83a77cbca48149556065fa9f941b274d6aeccdb84524229a26a7d"
+        ],
+        [
+          "examples/StrandtestBLE/StrandtestBLE.ino",
+          "d8bbc4be9f678cef2d080b3697b660e7aab3158ba512d9253d923b701b397349"
+        ],
+        [
+          "examples/StrandtestBLE_nodelay/BLESerial.cpp",
+          "f84d0c33f6be332463ab543c52de82387100574d006c08fec24e664ac6f4f215"
+        ],
+        [
+          "examples/StrandtestBLE_nodelay/BLESerial.h",
+          "fb313b7a51e83a77cbca48149556065fa9f941b274d6aeccdb84524229a26a7d"
+        ],
+        [
+          "examples/StrandtestBLE_nodelay/StrandtestBLE_nodelay.ino",
+          "0fe584f16984b222052349d7a9cc73e816514bba20003d303d63e1723f2f0dad"
+        ],
+        [
+          "examples/buttoncycler/buttoncycler.ino",
+          "5faa09628cc09cb91ef6a45efd401abf6f95e6412d23a1fbb0319d628be49dce"
+        ],
+        [
+          "examples/simple/simple.ino",
+          "662a2d2efa28b5069c59674cc286962bdea094bf2aff962479ddfb1c8bb21f69"
+        ],
+        [
+          "examples/simple_new_operator/simple_new_operator.ino",
+          "81565970788edf5e57ae0e53a8cb9545896f90793ff358ecafd15ce72ee639bb"
+        ],
+        [
+          "examples/strandtest/strandtest.ino",
+          "2088f27c2e14bef24c908d4409ee8c93446da8b32ff125d73464e0bf7b44eb0f"
+        ],
+        [
+          "examples/strandtest_nodelay/strandtest_nodelay.ino",
+          "f131a05fdd0ab97ad1fe1835e3f95aff5eb20daf63ca04162971e9fb7dfdd7fd"
+        ],
+        [
+          "examples/strandtest_wheel/strandtest_wheel.ino",
+          "9772c6cf904d1c4de060d92bfd911199010463e7241859d613c3a37783536d1d"
+        ],
+        [
+          "kendyte_k210.c",
+          "7d807d22f36521d1ad9f10f78396c6c750d4c6ad306c2c230cc17403f9b26a0e"
+        ],
+        [
+          "keywords.txt",
+          "371be950a33e02a8decf5ec12b33daf52270111eb7a57d15fe971b27a534d6ca"
+        ],
+        [
+          "library.properties",
+          "91a42bcc6f06d3f6a828bd329c6c942dd2b61789276661f719c79e2f25e1120e"
+        ],
+        [
+          "psoc6.c",
+          "2c6408ef5ec89f7666f60397be43a9e071c605ba62fab37cfff6724cb47c9629"
+        ],
+        [
+          "rp2040_pio.h",
+          "0f0dda6e8824b83a368daff759a0693dc61dadc3314263418de200089e7fffed"
+        ]
+      ],
+      "links": [],
+      "semantics": "sorted Path.rglob; Path.is_file/read_bytes (follows file symlinks); exclude only root installed.json; compact JSON relative path/SHA pairs; no mode or mtime hashing"
+    }
+  },
+  "inherited_provenance": {
+    "patched_core_pin": {
+      "core_version": "3.3.0",
+      "baseline": "0d100caa120d11920341e493019e5fc016c05a4f",
+      "original_tree_sha256": "8d9ff37fa810d0338ed89bc87aa26523ea39add6ec8ce947ae59c4abeedeccc8",
+      "patched_tree_sha256": "a79b9c7e42e7ea2066815271117eeac23fe0a27e65fa00657dc268b70c22c53a",
+      "patch_sha256": "cae03eeb7a8befc5608caa95ed8085280a6da3dcd0a3ff739f1152b31b288154",
+      "original_routing_sha256": "027bd25dea97537b87ec1728624119df0bdb842e64d14ba720fe39036909e46f",
+      "patched_routing_sha256": "aba054156d04bceee833a4708abab2de2f8dd380325fd1ab61d13ecae32d4e84",
+      "tree_hash_excludes": [
+        "installed.json (Arduino-generated package index metadata, not release source)"
+      ],
+      "companion_patch_sha256": "73eb0d398c72fe4edf117f57df7a820a9e56266e95326ed57bf0dfdc9c3b24ec",
+      "original_backend_sha256": "248ead4469d4d556c1a2cc9c4926d51fde7e3f5f63cc4043f5000f935dc72cad",
+      "integrated_backend_sha256": "3df4642064bf3fa918bff610020c0060546098d6054cd7c3b61e500ed7add831",
+      "hid_only_tree_sha256": "7cf86f7a1912d291ad69f2eab7f5c7fbbcbacbfcba4ed72f21b7fe7d08446499",
+      "nvs_source": "cores/esp32/esp32-hal-misc.c",
+      "original_nvs_source_sha256": "ce5c88b08640235938cb6b23433c482d024f5662223b581856c25886329be94e",
+      "patched_nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+      "nvs_patch_sha256": "a2eee87eb2ada400223760a7148b029b3f8dbf6b0358ca9be4348454ab7efcc5",
+      "sdk_nvs_archive_sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e",
+      "sdk_config_sha256": "06fcb22dee7956d54f1c7c05b0856ee87a362380697071fef2c26753fb14c271",
+      "profile": "arduino-3.3.0-archive-feedback-boundary-v1",
+      "archive_sha256": "c8525462e47b37b726c211b71afada0fca5859ba748963e4d967131355716ba2",
+      "proposal_commit": "f47e46dec2fa19ef7310ea6ffd36fed8a23aefb3",
+      "approval": "Owner approved additive archive-based software build and package preparation; no hardware authorization",
+      "historical_reproduction": false,
+      "feedback_usb_source_sha256": "8d7b8283bc3ee978de14229382d43628ae48c1f01acbbaa15837bf2ced01571f",
+      "feedback_patch_sha256": "8c96735814cead97e95ffca8accf286ac0765cfddb1273f852600d86a9a68572"
+    },
+    "core": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0",
+    "compiled_routing": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/libraries/USB/src/USBHID.cpp",
+    "routing_object_sha256": "7828255bc561d3ae9f4e9f31de4c295f52f8e1526c6ddb3f8ea7e0d47cb74213",
+    "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "backend_sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c",
+    "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+    "compiler_version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "cli_settings": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "single_strong_callback": true,
+    "feature_workaround_absent": true,
+    "hid_cdc_msc_linked": true,
+    "deployment_safe_start": false,
+    "controlled_normal_start": true,
+    "elf_to_image_verified": true,
+    "esptool_sha256": "0e11f846b22e67fccf366977f8916cd35db611e44b6496a719039c208b7df345",
+    "checked_settings_persistence": true,
+    "settings_failure_quiescent": true,
+    "settings_source_sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3",
+    "sdk_nvs_immutable": false,
+    "nvs_preservation_policy": true,
+    "nvs_source_sha256": "b119be330cc02e07c5cd53dae83a2dc2784b0cdd614ed89c6e902f68b029b73d",
+    "hardware_access": false
+  },
+  "privacy_target_adapter": {
+    "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+    "parent": "tests/h1_right_modifiers/build_candidate.py",
+    "parent_sha256": "f3a62aacd0fe125b69b0b67323c55853de77f37bdac4b446d811d078d6c6ff0d",
+    "adapter_sha256": "814cf12ac3ad8dd69ef460006c1610c890ea6b7ee8a9ef03daa16c1da63c1f80",
+    "preparer": "tests/privacy_fix1/prepare_sources.py",
+    "overlay_calls": 1,
+    "exact_selection_replacement": {
+      "before": "text=text.replace('lock_feedback','h1_right_modifiers')",
+      "after": "text=text.replace('lock_feedback','privacy_fix1')"
+    },
+    "inherited_safety_predicates_removed": 0,
+    "clean_compile": true,
+    "full_historical_h1_verify_link_rerun": false,
+    "privacy_target_binding": {
+      "status": "PASS",
+      "source_files": 201,
+      "privacy_files": 3,
+      "unchanged_files": 198,
+      "verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+      "source_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+      "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+      "parent_preparer_sha256": "17c5f6d7d640800985a3969d265f8249249eb63ab9e6fd3a6955e319fee33f40",
+      "compile_inputs": [
+        {
+          "source": "cli.cpp",
+          "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+          "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp",
+          "compiled_sha256": "6f3c0c234135079fadd63e9eae516677ea339d303baa87be5fc58cc274cb3f66",
+          "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.o",
+          "object_sha256": "99220b1bcc00ed262870631e65c849c193f7983627f11e4e97b70f9009605261",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.d",
+          "dependency_sha256": "74af96096dcddab411c9bce5d13bca9fae563b3e397af5984c69743fc61a1cb8",
+          "dependency_count": 187,
+          "verbose_compile_observed": true,
+          "linked_map_load": true
+        },
+        {
+          "source": "webserver.cpp",
+          "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+          "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp",
+          "compiled_sha256": "42ed6fe209b678031190948df63c31aa316af07739948c6857ae4e9dcde362d2",
+          "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.o",
+          "object_sha256": "745c8542a295df01eb6a928f592a997dd645ec422d99d0dd87393b63b4e5b775",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.d",
+          "dependency_sha256": "f3d55612308c84880ce84a2c1dd496a9706a0578d2f2ca09ddaa66e0a56e3475",
+          "dependency_count": 262,
+          "verbose_compile_observed": true,
+          "linked_map_load": true,
+          "webfiles_header": {
+            "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webfiles.h",
+            "sha256": "e4f70b362ac004cf3af3ec6c7187c0e2a713f9304d0192aa7b017208a9854816",
+            "candidate_sha256": "17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724",
+            "dependency_observed": true
+          }
+        }
+      ],
+      "compile_log_sha256": "3914162cd9b3ba3dde6af03ab30f987dd78e66cbd2b1b45afa6ba1b2ca55c642",
+      "compile_commands_sha256": "4552f1ddd725ec28489301161a1fef541284bf746c1ea6d2142a4da2fd41b1ba",
+      "map_sha256": "0396e1da8f503e6cebf75805066e03a679787d5a233ebe7cf48c07a873738ea9",
+      "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+      "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+      "application_bytes": 1415968,
+      "sdk_archives_checked": 177,
+      "sdk_archives_selected": 153,
+      "sdk_pin_reconciliation": {
+        "pinned_installed_verified": 177,
+        "selected_map_and_report": 153,
+        "installed_archive_total": 183,
+        "pinned_but_not_selected": [
+          "dio_opi/libbootloader_support.a",
+          "dio_opi/libesp_hw_support.a",
+          "dio_opi/libesp_psram.a",
+          "dio_opi/libesp_system.a",
+          "dio_opi/libfreertos.a",
+          "dio_opi/libspi_flash.a",
+          "dio_qspi/libbootloader_support.a",
+          "dio_qspi/libesp_hw_support.a",
+          "dio_qspi/libesp_psram.a",
+          "dio_qspi/libesp_system.a",
+          "dio_qspi/libfreertos.a",
+          "dio_qspi/libspi_flash.a",
+          "opi_opi/libbootloader_support.a",
+          "opi_opi/libesp_hw_support.a",
+          "opi_opi/libesp_psram.a",
+          "opi_opi/libesp_system.a",
+          "opi_opi/libfreertos.a",
+          "opi_opi/libspi_flash.a",
+          "qio_opi/libbootloader_support.a",
+          "qio_opi/libesp_hw_support.a",
+          "qio_opi/libesp_psram.a",
+          "qio_opi/libesp_system.a",
+          "qio_opi/libfreertos.a",
+          "qio_opi/libspi_flash.a"
+        ],
+        "unpinned_installed_and_not_selected": [
+          "lib/libesp_zb_api.zczr.a",
+          "lib/libesp_zb_api.zczr.debug.a",
+          "lib/libzboss_port.remote.a",
+          "lib/libzboss_port.remote.debug.a",
+          "lib/libzboss_stack.zczr.a",
+          "lib/libzboss_stack.zczr.debug.a"
+        ],
+        "unpinned_archives_trusted": false
+      },
+      "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+      "historical_full_h1_verify_link_executed": false,
+      "profile": "PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL",
+      "build_id_policy": "Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate",
+      "physical": false,
+      "installation_authorized": false,
+      "package_created": false
+    }
+  },
+  "actual_link_command": [
+    "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+    "-Wl,--Map=/workspace/scratch/privacy-fix1-integration/build-v2/build/EvilDuckS3.ino.map",
+    "-L/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib",
+    "-L/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld",
+    "-L/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi",
+    "-Wl,--wrap=esp_panic_handler",
+    "@/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/ld_flags",
+    "@/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/ld_scripts",
+    "-Wl,--start-group",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/EvilDuckS3.ino.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/adapter.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/attackmode.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/bridge.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/caps_trial.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/com.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/coordinator.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/core.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/debug.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/diagnostics.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_constants.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_expr.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_keys.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_random.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_vars.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duckscript.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/feedback_diag.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/file_source.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/hid_backend.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/hid_trace.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/keyboard.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/keyboard_locale.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/led.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/led_receiver.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/locales.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_functions.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_library.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_log.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_parser.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_preprocessor.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_source.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/sd_card.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/settings.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/spiffs.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/storage.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/usb_msc.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/AP.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/STA.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFi.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiAP.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiGeneric.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiMulti.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiSTA.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiScan.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkClient.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkEvents.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkInterface.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkManager.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkServer.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkUdp.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/FS/FS.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/FS/vfs_api.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHID.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDConsumerControl.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDGamepad.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDKeyboard.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDMouse.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDSystemControl.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDVendor.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBMIDI.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBVendor.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_da_DK.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_de_DE.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_en_US.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_es_ES.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_fr_FR.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_hu_HU.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_it_IT.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_pt_BR.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_pt_PT.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_sv_SE.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/esp.c.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/esp8266.c.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/kendyte_k210.c.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/psoc6.c.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SPIFFS/SPIFFS.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SPI/SPI.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/SD.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/sd_diskio.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/sd_diskio_crc.c.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncEventSource.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncJson.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebHeader.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebServerRequest.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebSocket.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/BackPort_SHA1Builder.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/ChunkPrint.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/Middleware.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebAuthentication.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebHandlers.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebRequest.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebResponses.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebServer.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Async_TCP/AsyncTCP.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Update/HttpsOTAUpdate.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Update/Updater.cpp.o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/core/core.a",
+    "@/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/flags/ld_libs",
+    "-Wl,--end-group",
+    "-Wl,-EL",
+    "-o",
+    "/workspace/scratch/privacy-fix1-integration/build-v2/build/EvilDuckS3.ino.elf"
+  ],
+  "linked_input_hashes": [
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "size": 375128,
+      "sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/EvilDuckS3.ino.cpp.o",
+      "size": 98404,
+      "sha256": "744fbf8523cb0256598f46edec9cb05886b53ab90a4365c3f057449cfd9a18b0"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/adapter.cpp.o",
+      "size": 91840,
+      "sha256": "b29d539a60cdc1bca0ce50f181e970fccf0e6b1de72068cbc52a694649bffcc4"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/attackmode.cpp.o",
+      "size": 116096,
+      "sha256": "68127808d19fbeb4b73238ebf7a35520e2e8bd120c97a45afd0e665100ff0416"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/bridge.cpp.o",
+      "size": 72744,
+      "sha256": "1c3d6887d7d63e73521ef930f6966b262f2ebc41758d1feef633d0d91bf5224c"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/caps_trial.cpp.o",
+      "size": 29208,
+      "sha256": "f11464dc529bfbe48cffdaf023a0415489e57f1711b81a0eae9824b16e67faa2"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.o",
+      "size": 301740,
+      "sha256": "99220b1bcc00ed262870631e65c849c193f7983627f11e4e97b70f9009605261"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/com.cpp.o",
+      "size": 361124,
+      "sha256": "56464e115c50f6accb9e1af2fa357c104bcd57d7c65b43c0b40c0fc2a92c99de"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/coordinator.cpp.o",
+      "size": 260796,
+      "sha256": "011a10720149b01038aea551ba2c4105c4a9c91965df884c5496dc6f03f69412"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/core.cpp.o",
+      "size": 419764,
+      "sha256": "2bec8c7eaf472ac43ded811cdfc3282d57b158161bf929e197bc0246674c54ae"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/debug.cpp.o",
+      "size": 44456,
+      "sha256": "8fd9424d6b054dc313909b2638c48f513c69a02d2111834ef476ac9526b381cb"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/diagnostics.cpp.o",
+      "size": 80208,
+      "sha256": "0fe906a8e887fd27c2c39cbed772db05ffe1c29cdd296e2dc05a36f8f6d523aa"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_constants.cpp.o",
+      "size": 98168,
+      "sha256": "20a961c9c2143d88dfdfd61c33bc7882c672b548481d7c152435431ab2590787"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_expr.cpp.o",
+      "size": 97244,
+      "sha256": "376dd024cb8c7872684e5963c7883d1a7430b78fd430b5ce7dfa91bdef0060a1"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_keys.cpp.o",
+      "size": 71632,
+      "sha256": "f9240b7a9d20a36899dc7baf6e9c38bdb3e405158fda985954f3783db163ea27"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_random.cpp.o",
+      "size": 31568,
+      "sha256": "a9e319757b395bcbe1e22f17d019f4168f9b86133188dac5cec420041cdd3180"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duck_vars.cpp.o",
+      "size": 145628,
+      "sha256": "29ad318b43720467a86852184c22d848c75e49bca643d0a51d4af8d43d9a2c96"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/duckscript.cpp.o",
+      "size": 344600,
+      "sha256": "e6a9ea32d6555ffcdbd312e9e0d4a864693bc0ead74e602db474a46c9698de84"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/feedback_diag.cpp.o",
+      "size": 59968,
+      "sha256": "59c848e2d9cbebc72bd04176a55fbcf6ae3c9e4749e8f86e3f9dc05b6ef076aa"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/file_source.cpp.o",
+      "size": 113492,
+      "sha256": "5cedcf741d63368bcb36875c068a66f76da82039babaa7f5f75e5fe6dae6ede8"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/hid_backend.cpp.o",
+      "size": 369244,
+      "sha256": "cc47b1a8bdbf171b41c0e8c7099cc1abd354a89e1aa46331cf90cbdfe422d76c"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/hid_trace.cpp.o",
+      "size": 67808,
+      "sha256": "5b35e76d0a8e7a40db737bfb2af776f6329051b15d26252711f969749b232fba"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/keyboard.cpp.o",
+      "size": 82256,
+      "sha256": "42186474b28f94c6d23ea7b97689f5f5ef05000047c13ba4c26f52149da686be"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/keyboard_locale.cpp.o",
+      "size": 90744,
+      "sha256": "fc9612397d95802b6825749d812e89d6c205bc084a8517cacd0078e014ec9952"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/led.cpp.o",
+      "size": 61928,
+      "sha256": "dbaaee7938d0dd384c0f040223da2f124b14e16b1af095574424fef9bb9ef25a"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/led_receiver.cpp.o",
+      "size": 45348,
+      "sha256": "ca4d4c0b4b50124f7d124271acddc15910ea8d4956287dd8ea10180c5df979cb"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/locales.cpp.o",
+      "size": 28908,
+      "sha256": "f88bbf930ce7013894cd43d7e8e1908b1eb87b41e9cd3f39d6276bbd38f15cf4"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_functions.cpp.o",
+      "size": 63864,
+      "sha256": "780640a4194ab67b8adf7e5eea03fab68adbdc3f4858dbb4a80fbfed8a3c3c82"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_library.cpp.o",
+      "size": 145988,
+      "sha256": "638f2337d4d414fe1fc24a76c2ff594b0b011d07abd73534e7cf639de9e987d2"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_log.cpp.o",
+      "size": 107172,
+      "sha256": "fee682017e63056a76403d55d8ff9c4a6fc3994397e86a8c48a29acd7297f161"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_parser.cpp.o",
+      "size": 418084,
+      "sha256": "b8d199ca01633c77bab54cb56dea3561d7392594b3eff5f81958365904065409"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_preprocessor.cpp.o",
+      "size": 77296,
+      "sha256": "1884035e054272eace6e17f0b30121a3337062d208b51cc94948ba851aac09eb"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/script_source.cpp.o",
+      "size": 87212,
+      "sha256": "93af61941b85aa775cfe8680c03cf7038cb0f14e61219d1e27d91b6cc6dff1a9"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/sd_card.cpp.o",
+      "size": 232700,
+      "sha256": "f01a4cd9ffbc416b7a48d86c0720fef9137eab853182501949617b429a2c79f5"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/settings.cpp.o",
+      "size": 213560,
+      "sha256": "6573c910b6f619e3ba33fd7c04b1f24f15eaed3b50212360030e3383480a94ec"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/spiffs.cpp.o",
+      "size": 201940,
+      "sha256": "2cea32364f9bdcf6f2ca7d4406ed2b9e7e7ce5b604091733efd808e1198b7003"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/storage.cpp.o",
+      "size": 310756,
+      "sha256": "71e88e1559267ca4e0b3740e450177ceca9d0094f3532c37b3865edba71bc2e5"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/usb_msc.cpp.o",
+      "size": 187332,
+      "sha256": "1024ca276b0b105ce920f6d2fe11fe6738ead2287bf14ab6f6d7c770197ce45f"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.o",
+      "size": 1545476,
+      "sha256": "745c8542a295df01eb6a928f592a997dd645ec422d99d0dd87393b63b4e5b775"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/AP.cpp.o",
+      "size": 177988,
+      "sha256": "35be59772fa4fcf562b6ef8a4105c655ae70a9876485be408d8746126d60b2b7"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/STA.cpp.o",
+      "size": 219996,
+      "sha256": "97d8ad0c16afe601020999019c102320c2acbf8b8acb81e117b86d8cf21ee482"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFi.cpp.o",
+      "size": 107488,
+      "sha256": "eb16b124acf6d96f46687e40a9c482e90feb238c8de0a40b933a6a0277a94d3d"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiAP.cpp.o",
+      "size": 83536,
+      "sha256": "f77f05fa10b6126d56629fb012ad6dfce803de81ea4724fecdbd35b1235111e7"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiGeneric.cpp.o",
+      "size": 221928,
+      "sha256": "4b89704d6eed07507a637a8a3cb03ab50c7fc49f522632c5223110b9e1d4de5e"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiMulti.cpp.o",
+      "size": 191064,
+      "sha256": "bd4514be65829a755edaa7985273bd46c867a1a0b1582c3c36cd3484c11eff6b"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiSTA.cpp.o",
+      "size": 152244,
+      "sha256": "7639a8a69fe8df47ba7a014a660b5830b12e762f9b8633bd7a1d6ba1613fb1bb"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/WiFi/WiFiScan.cpp.o",
+      "size": 120484,
+      "sha256": "47e6642e610eac6de74381c5b1a90b28a360fe9c7129e5ed9aeeae9a8077fe22"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkClient.cpp.o",
+      "size": 263416,
+      "sha256": "df6791552c2f3bbb1399a10ab0e9c60113e7f8e25ec9dc94d27489080d9d2d70"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkEvents.cpp.o",
+      "size": 408696,
+      "sha256": "2d654998a9db0eb6540fff868243d99a1eb47a595e179baa6cb92f28a7b73800"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkInterface.cpp.o",
+      "size": 216920,
+      "sha256": "e6fa0bec96c122d5ac28a14fd651bbe0bf48d5fab66755c266d962a0dbb4e678"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkManager.cpp.o",
+      "size": 119168,
+      "sha256": "ea24731eee245ef1c83ece62aed35e31294efc4e62e9415e282ad66b07537fc0"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkServer.cpp.o",
+      "size": 65284,
+      "sha256": "d37fb0ed60fa8cb87c8e990a6bad29edc9917e568aa8cdfc6ba5e662eefdf73f"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Network/NetworkUdp.cpp.o",
+      "size": 123744,
+      "sha256": "41aed11058c4492be5a21758cbd2a46a7626edcf74e07258daefc66b83653b92"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/FS/FS.cpp.o",
+      "size": 163112,
+      "sha256": "04352667080cac5e695e4b77c7843ccc94e5e9fcdba3df25aac633eaeb0dd51d"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/FS/vfs_api.cpp.o",
+      "size": 246572,
+      "sha256": "0ee482b4cd11c07f415bc92c55eef1ad247dab3f77c1fdeb7924e88f76cd3ef3"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHID.cpp.o",
+      "size": 98084,
+      "sha256": "7828255bc561d3ae9f4e9f31de4c295f52f8e1526c6ddb3f8ea7e0d47cb74213"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDConsumerControl.cpp.o",
+      "size": 29312,
+      "sha256": "6252cedc3cfe672df4a4f4d780aa07a3b2df03da78613598c041661ad62239a4"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDGamepad.cpp.o",
+      "size": 40512,
+      "sha256": "0d700d285e36f062de891cc41de807752fd0bea5b8c2595d4e29043f773acbb2"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDKeyboard.cpp.o",
+      "size": 80660,
+      "sha256": "14711fa1a6ba31f4f90f160a4e56b1f9e704f94bd0fd4aa38030b02c08c1c6f0"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDMouse.cpp.o",
+      "size": 46836,
+      "sha256": "45e22127d825c0e42ffa6f7b2c0d235310799192c0cf775b4b905e1fbdbffbd7"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDSystemControl.cpp.o",
+      "size": 30912,
+      "sha256": "6ed2c8391b2a8d1a4be1d3ab0475996392a41152c9897dd61ead747365963691"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBHIDVendor.cpp.o",
+      "size": 82168,
+      "sha256": "03f9f16aa0862ccb9c6209aad034e66894639fd9de9071173434228dd2a6a66e"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBMIDI.cpp.o",
+      "size": 67072,
+      "sha256": "f4a4ee6d486b3d3ef898efb16703e7f65364bd5681e75c34e469b52914389235"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/USBVendor.cpp.o",
+      "size": 87480,
+      "sha256": "8a553d7c285875cfd39122a7ad1dd0982264a876a64ae69067672d22a5358ebf"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_da_DK.cpp.o",
+      "size": 26448,
+      "sha256": "5604fd9e0d6bc4ffdbd4603d6b23647d8694fc6e609aafcac62d61f70da0d031"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_de_DE.cpp.o",
+      "size": 26448,
+      "sha256": "0988c0fa94f970ddafd855725266433da20b6a93338272aff9d109edef6e4f20"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_en_US.cpp.o",
+      "size": 26448,
+      "sha256": "0c21b78ccbdd6aa067f54ca5f3635d2308c12d699008b135facbc8625e26f585"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_es_ES.cpp.o",
+      "size": 26448,
+      "sha256": "7a2539a60406cc69a0e0bda707ebd77966968cb5e243420c8a044cba0066096d"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_fr_FR.cpp.o",
+      "size": 26448,
+      "sha256": "7a926bfde82f446a19ad072bd7c50aebd1c23999a707c59db935a6e28a654edf"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_hu_HU.cpp.o",
+      "size": 26448,
+      "sha256": "61911e38ba96da2f2fdcf8edc84cf79524ba6b38dd2b18b678c277686a000d9b"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_it_IT.cpp.o",
+      "size": 26448,
+      "sha256": "527a59afc99969e196b7c8f00c610b87d2577e3e2a1e239446da41595eb87083"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_pt_BR.cpp.o",
+      "size": 26448,
+      "sha256": "70b51f6f94416c9f29bf2a550bf00d3cf25bed28672b05735832d1b40251445d"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_pt_PT.cpp.o",
+      "size": 26448,
+      "sha256": "33601e8a26ef82381ddf86390117fe043dae77d27af219c4fa77dce688702a99"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/USB/keyboardLayout/KeyboardLayout_sv_SE.cpp.o",
+      "size": 26448,
+      "sha256": "b4b288fdb585bd7bf5b5ad6c11d5e6acddf21a03006e59bfb4de9f995bacf4c9"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp.o",
+      "size": 73656,
+      "sha256": "2968ff6c8dbc5286f6cb731a67df1af794b5d4d33ec3d3bb9e2b47ea70adeeb7"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp.o",
+      "size": 1392,
+      "sha256": "455f50d0b92d9ecd23287412c1edf94dd72af4f22a14659a95ceb0544d73c8e5"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/esp.c.o",
+      "size": 15684,
+      "sha256": "d445a375ea26c6c5fb47e2ce0d659496310480d6f2f1fd8506a0b4af54ef81a4"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/esp8266.c.o",
+      "size": 1292,
+      "sha256": "c761b09a0da8db4e797a972b581a0e499db494f2cfe707048fe9ad0fffc57aa8"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/kendyte_k210.c.o",
+      "size": 1304,
+      "sha256": "77aa13d674c6f269e13d72bb4a6faff2d94a0f6aaaebfbfe35d4779773f099dd"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Adafruit_NeoPixel/psoc6.c.o",
+      "size": 1288,
+      "sha256": "994613812ffe9de2f1db75a1aef942e488ef2ac6c11fbbb4ee5f8a7fe4920243"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SPIFFS/SPIFFS.cpp.o",
+      "size": 137796,
+      "sha256": "85fe13288b34136f3ada753ddf4be493eb9331b6a72c64e0fa86db3146d859a2"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SPI/SPI.cpp.o",
+      "size": 78036,
+      "sha256": "87669de78cba3fc4e3eb2f7cf1ec00f0445a48a0ca427c9ca65d36a1a9d8eb7c"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/SD.cpp.o",
+      "size": 136508,
+      "sha256": "0ecfec6b6ed1e43f786c68c39ec740a8a5e1d0cb7115165829a35bee4ce92455"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/sd_diskio.cpp.o",
+      "size": 127392,
+      "sha256": "4628622303382b925eb34d8177b1d24bc1242a546359631ced7b646a7360a977"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/SD/sd_diskio_crc.c.o",
+      "size": 7664,
+      "sha256": "de5a4be7a01eeec4efe6750c80321dba26196d8437e7dc3621938aa675f12a7a"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncEventSource.cpp.o",
+      "size": 834580,
+      "sha256": "8319ea2a5e8e7f1f973e98ba6899c013f154597d46f18351f59d8fcb008df5cf"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncJson.cpp.o",
+      "size": 78156,
+      "sha256": "a11780e78213e12e9cdc24a843543f1bc161b193601910c0241922b5bbb1d645"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebHeader.cpp.o",
+      "size": 89352,
+      "sha256": "0d9b5a041aad5f593abe32ff92d6690f08e470884060366c3f3034b299540d8f"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebServerRequest.cpp.o",
+      "size": 422784,
+      "sha256": "b480f4f7bfc39d061a89c23c1750e0c65628f0256b51d6c702ed45f2bf86e8c1"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/AsyncWebSocket.cpp.o",
+      "size": 1218564,
+      "sha256": "5cc5c960015ce354b7243f717e3c1501eb638c881297adf62b18469f7877232f"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/BackPort_SHA1Builder.cpp.o",
+      "size": 21288,
+      "sha256": "8586cd796c15ce9d37aea977e2fe478387bcf19057e977d6af0edc45dffb946c"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/ChunkPrint.cpp.o",
+      "size": 16800,
+      "sha256": "46a656d787cc8578fd76260586d9d8459b5d39ff44bcf08ad1ceb765d7ab92ca"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/Middleware.cpp.o",
+      "size": 676564,
+      "sha256": "27c9047d11141f82063824ec90a99b30a63f21423bfd0bab4e733bdbbb695f11"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebAuthentication.cpp.o",
+      "size": 111700,
+      "sha256": "0ef03472cb08ef5779e2eb21477f74f0dfc08577324934c634d2dacd20fbb71c"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebHandlers.cpp.o",
+      "size": 579920,
+      "sha256": "1d8626cf2b51d2eb283a53f887eb657847aa26fd100386b763c99271b516567d"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebRequest.cpp.o",
+      "size": 1158204,
+      "sha256": "92bbcd6309eb4e126ade86c3864ccb40f862855b51fedc7a512b6da472ec6e6a"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebResponses.cpp.o",
+      "size": 970976,
+      "sha256": "65c33e295c17937bbbb09eeaed5c1775580c2eb5719259b5a8192e0d03390df8"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/ESP_Async_WebServer/WebServer.cpp.o",
+      "size": 955260,
+      "sha256": "cda1a648fbb4c4f2482fe50aad0a6382623ca014913cd891d3310de2268667d4"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Async_TCP/AsyncTCP.cpp.o",
+      "size": 319360,
+      "sha256": "bbca15ec8c7c73da289e1f1724f4ccf0edb4b3f920610bba960726b21438f285"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Update/HttpsOTAUpdate.cpp.o",
+      "size": 33124,
+      "sha256": "94d405473c112167274a80c9313324d7899701c5430a7a019ff0190f76d32b51"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/libraries/Update/Updater.cpp.o",
+      "size": 157488,
+      "sha256": "2367b6758194ec5c446130549f27365967694838455045279c73385dedbef46b"
+    },
+    {
+      "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/core/core.a",
+      "size": 3316374,
+      "sha256": "473852c1dff5986e802ef8ff53eda02ef8945c6a782e2e67c514664399ae274e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libbtbb.a",
+      "size": 22204,
+      "sha256": "890902e13da31dea80a06df9e5f562fca6dc9aa57aab9e11539c8571c264931c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libbtdm_app.a",
+      "size": 1516258,
+      "sha256": "b3ffdad00c14bcf5bb93c9167b2fda9313a6890efc862ead2fc29dc7f3c47a67"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libc_speech_features.a",
+      "size": 517864,
+      "sha256": "a5f2bf194dc737abe9d2d309a2f4d746c2344b60449badb32ce2f1a2122a6e20"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libdl_lib.a",
+      "size": 3562322,
+      "sha256": "c40f563d3d307e52217fdea5674d0add7197c14eef28f155b6b43af5c583e869"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libesp_tts_chinese.a",
+      "size": 1546404,
+      "sha256": "7034c1075a464ae355eb4452d267e27831ecb519bf4629b85464be03796819f3"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libfst.a",
+      "size": 456386,
+      "sha256": "908225bcdf558fe742fe349e06a9adfc808ea025d3420844442136b978750365"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libphy.a",
+      "size": 251990,
+      "sha256": "af64b3d0ab790b03e297246538fdf6ed5c9a286387c07ed8b8c7c626a2c9c785"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/ld/libvoice_set_xiaole.a",
+      "size": 4548092,
+      "sha256": "3cf241ca026f7497fec3ea961e83a7e7ccdfc7fa5440811be5e71ebc964fb08e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libapp_trace.a",
+      "size": 85010,
+      "sha256": "9a9931a9e112dc8351e73d7f50758c4c0dceb8121d8a5807efbbba2778ea9e67"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libapp_update.a",
+      "size": 134706,
+      "sha256": "b7d86a11aa415067680846c0a2befa4e5d0cc144f653c4fb852cff1dc3fc6957"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libarduino_tinyusb.a",
+      "size": 1109204,
+      "sha256": "dece5cdd1d132dabb5e2022d8e3d293592b10f03de5902d9740994d652dd9a18"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libble_mesh.a",
+      "size": 1487414,
+      "sha256": "a88de73703f7cfda7ba27c8edb2d98e49030ad57c1ec7591f08a711056015a0e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libbt.a",
+      "size": 2318728,
+      "sha256": "ea3818424e1366d11689c9492a38d0f1ff9115ca0bc0961ad08503e4007681ae"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libchmorgan__esp-libhelix-mp3.a",
+      "size": 662064,
+      "sha256": "84b55929e24ab09e6f9b0fc64a315225d41eb9eb3745d32e2a0be8b3ff962cdc"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libcmock.a",
+      "size": 21356,
+      "sha256": "cd938ec042f12c0a1fbbb247786eb1d5cfe082ba5136a0b137b1f20a8582de3a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libcoexist.a",
+      "size": 106688,
+      "sha256": "cb22a6cff1b5a97d72edd0714ef03f409574f60f16bc6cbd9533b729197255a7"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libconsole.a",
+      "size": 777614,
+      "sha256": "c0d46142e1f3cd7f3f93fd78173541addd1e1740ccc781e1dd4c7eb9a9f92135"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libcore.a",
+      "size": 4848,
+      "sha256": "a1f6c79b712f79279cc4d0350162a287c576639d87cb1c39f90312b654e729eb"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libcxx.a",
+      "size": 52178,
+      "sha256": "ef328fe41e15fbf011ed34a73b946fcef53a59ddeea766582f01bfb9d790444d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libdriver.a",
+      "size": 2655496,
+      "sha256": "52aa4582b22d50c55613c1f48e529128ea8fd3772e1bff5e4df36157b4c5b199"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libefuse.a",
+      "size": 400040,
+      "sha256": "1f5e325d4149910b017997f196cee108e39e3bc6d969453e1a079318206ea02b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp-tls.a",
+      "size": 286028,
+      "sha256": "88cddef630307ef354bf8eb00d1ff6ae6d3b67b05b80db2b74a1250f59c963ac"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_adc.a",
+      "size": 493678,
+      "sha256": "9e3a662c025b846d5efc2601016cc18e195ba8053617e8616d6dbe39fde90fa0"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_app_format.a",
+      "size": 14428,
+      "sha256": "091d857a09092d88799541753889643bde2f447809801b2be84308b414e6e6f1"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_audio_front_end.a",
+      "size": 296292,
+      "sha256": "e241052b9e052c8209774e0b5faa7d71130acb13d57fead2460abd8e2d47bdff"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_audio_processor.a",
+      "size": 3554760,
+      "sha256": "d2373c3469f8a43201ab4dbd8349695a6ce86c21fa16e46532cdb5f3d7cdc77b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_bootloader_format.a",
+      "size": 5368,
+      "sha256": "df301faf6ff0d8c546047941937fe44e652ee2197c38e0f52b64536cc2fd201e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_coex.a",
+      "size": 57704,
+      "sha256": "fac06bdf600e9f8e9e272a76afcba2c1af2aef8b678e57e52c3238594c360d3a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_common.a",
+      "size": 22226,
+      "sha256": "814af93e4e0c1f6db6de9a7a868b1b5a1fc8c7d28cd9562d451c3cf2a5af896b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_cam.a",
+      "size": 42136,
+      "sha256": "089d4aa8512444d369c67def154e8e1f36a066fee8c80e14055b459d0068c54a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_gpio.a",
+      "size": 496632,
+      "sha256": "cd4096a16bff149e7e0a0bad6257017dfe270ba562b37400c21138b732e85620"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_gptimer.a",
+      "size": 199708,
+      "sha256": "3dd77cd9261b4cf4d7110d15a51445f813d240011bb2f30a4def33f105dfecce"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_i2c.a",
+      "size": 542132,
+      "sha256": "5a9b2b561830aef83cb17ca85db1d540747a960672d13508b6d700c1898a92f0"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_i2s.a",
+      "size": 608532,
+      "sha256": "88550b6b80f90c1b003637767237d4464f3715736c9d626b655fa8b7aa1da078"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_ledc.a",
+      "size": 322774,
+      "sha256": "55d9f6c94dacd888d1c91c2698394dab3a2f644c1d0e383859d70909bed39a80"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_mcpwm.a",
+      "size": 928376,
+      "sha256": "2dd91253e1d1fc152be2bb8fa061df141c6332a2bd834a9963df67fe93d9523a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_pcnt.a",
+      "size": 224104,
+      "sha256": "752bd97546e764ef593f4875b464aac367d65abba5dad42f0d6b99d9f27d734f"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_rmt.a",
+      "size": 683290,
+      "sha256": "de5acf0515fc48fc51dd08127e8c454e1f25ee533abb3e25e9883154099f2d80"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_sdm_2.a",
+      "size": 61418,
+      "sha256": "05ae8b552331b15f29c5b6aa2d201951658294f12188bfa3fe0cd4b67876cfef"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_sdmmc.a",
+      "size": 306886,
+      "sha256": "099d8b8d9efe8811ee179752340fb080ecf6e73591481d1a1ac07997c59a885c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_sdspi.a",
+      "size": 120172,
+      "sha256": "178d4cba59ed6a114132db6e9e31af1c6c51dad07109d138e964db6dff39ff02"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_spi.a",
+      "size": 701720,
+      "sha256": "bd7a90188522c572ecc4985e0663c53f828fe73246557b7691c760e2bc6987ab"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_touch_sens.a",
+      "size": 340446,
+      "sha256": "1e20e0d15d0eeb8649b3c3364625fa2d1ba0968534ef9ba76f8cbb28dcfc6fac"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_tsens.a",
+      "size": 47314,
+      "sha256": "0db092efc132a5032b5d9810645d3df264f51f65b21276be11bf0faa049877c1"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_twai.a",
+      "size": 238824,
+      "sha256": "358509b09f056c26f671349924e01d08f06c6f3ae82cabcb04eb5d2cd0ea9822"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_uart.a",
+      "size": 740036,
+      "sha256": "165d0296e8fa8193ed9e3479cb9e5f20246f80ea4dc8c33de4af60bea9621168"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_driver_usb_serial_jtag.a",
+      "size": 260006,
+      "sha256": "5e956088a19f0abd6e963b29d42a605a532ec9ebd3f289d1514907b078f014e9"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_eth.a",
+      "size": 1174764,
+      "sha256": "1d8dae7846e137f28c9dc67bf3ce40bd5ffb51ce325c0890ce1a00b932af468c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_event.a",
+      "size": 142656,
+      "sha256": "0ef43c9b830f4ee3183d687e54569ff01c469f39069f22b9b422b792e9b6da26"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_gdbstub.a",
+      "size": 214030,
+      "sha256": "e54ce1502bae62d2fcd36bc293d2fdd8362ff68081aa20649b3a1b91b88a4b1d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_hid.a",
+      "size": 198990,
+      "sha256": "338d967b58a4eb44b88090af2099b1d06e409139baac0ea68420a8e8fbe3a621"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_http_client.a",
+      "size": 322884,
+      "sha256": "f0f8ee794c932362ff59962f7a999b8af17a3fb046df161a5e58919f3d4fc67d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_http_server.a",
+      "size": 462550,
+      "sha256": "65ea37f77b146b8484eabe9233a596d44ca1288a77e4f8e07d6a937edbaf5772"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_https_ota.a",
+      "size": 112912,
+      "sha256": "3ff08eb602b9962d7b13f73c83dc84340668498a293586e2fb119421ec7c4191"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_https_server.a",
+      "size": 54298,
+      "sha256": "33617d43d7ffc76432a01305abbd49766b3e0b6ef34a1a80312b6b8e18003691"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_lcd.a",
+      "size": 908324,
+      "sha256": "73ad8bad53c6aeaa37f11e3cb43dbaa9f451ccc5b2c3ec52e06ea376aba575e8"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_local_ctrl.a",
+      "size": 273584,
+      "sha256": "f84a7502492cfa66a477e7fa1a7b864df569ca5c7af1358268101a6eb04e3bbb"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_mm.a",
+      "size": 189574,
+      "sha256": "bdb5dbf01c39e97b3c8eff9575ce8ce1fca8fe9a3aa1def8cd9851bc0c8b8d3c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_netif.a",
+      "size": 531512,
+      "sha256": "8f600ac5bd306022800f468eef56b4112d85ffef47bea8d0856082bd056f72a2"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_partition.a",
+      "size": 109178,
+      "sha256": "dd56cec7a28fb58246381dafddff33fcd9b46f56c9a863bdb8fb3441288d991d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_phy.a",
+      "size": 150496,
+      "sha256": "22aa7c491524d0c06cb30473d7693d22deebdebd6919c0553a451a785a39ce1e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_pm.a",
+      "size": 93754,
+      "sha256": "0ee03b65a675ed3a01b6fb68422c2cf93726401e4d51e89af252f324a4f922c2"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_ringbuf.a",
+      "size": 141642,
+      "sha256": "81872269ac732a67059dbbfbaee8bacbdd2b079db4eb9c4e7bcd060714cabc93"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_rom.a",
+      "size": 100214,
+      "sha256": "f1b5c43dac537daa542ddd5a198206107a15ad304f9fac9a3d4cedbccd74cb22"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_security.a",
+      "size": 140356,
+      "sha256": "dfdf99020619abb989d5371b46980aec8426fea58ae8f503858a8cb0285284ca"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_timer.a",
+      "size": 219386,
+      "sha256": "10514715cbde29f0362223d4cba3b43bae41d68cd790b4c55546f3e70c13aa6f"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_vfs_console.a",
+      "size": 43296,
+      "sha256": "d3b70973a93486d3c55b83d013e75729f2da9b485095509bbf907a54b3dc6ccf"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libesp_wifi.a",
+      "size": 332896,
+      "sha256": "c6c8c43833fd4f4c8d5428dab3e13e9f67409d1e5c127580a59e2ac173575be7"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespcoredump.a",
+      "size": 313326,
+      "sha256": "7e8045b429d8d6e8b768dcb559b32948214e2c978e024c7f58942c5b22a29346"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespnow.a",
+      "size": 62174,
+      "sha256": "065319f45d6a539468807c245150b8b5ddd326231fc688a601a0db39f6b77143"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__cbor.a",
+      "size": 476952,
+      "sha256": "c9a70faed9260f15ff21556a9c966319ecc292c42fea3236a1616a35b58605c9"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-dsp.a",
+      "size": 1620854,
+      "sha256": "30668d073e7bd401135c614fd7909514edfb331e2109118fb7f52efc79ab417c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-modbus.a",
+      "size": 1423228,
+      "sha256": "9069e334fe5826d1dc9c662b2bb689957630bce0ce7b66131ba5180427804924"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-nn.a",
+      "size": 832908,
+      "sha256": "94e18b4134b8c29ed6aae3fe5b603ef33a2b66c7c1d65c0ae5cabaa729cb26ac"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-serial-flasher.a",
+      "size": 190360,
+      "sha256": "c2124b1b8f1f57b69938a750a6af9742c5fc1cfe9e2c42edb5a002f4776cd1f6"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-sr.a",
+      "size": 170612,
+      "sha256": "466f8c204abfbe6be7577e3c74daef0b8cfbbbb27c12c22e2cb707c4d26a79b7"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-tflite-micro.a",
+      "size": 2785320,
+      "sha256": "f3949aa4402d3750589964420028458a7d1ca54181522524e949684fe835ca67"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp-zigbee-lib.a",
+      "size": 26132,
+      "sha256": "0de9ec65c35cfb659c4be285cb725564b55de5fb20c700e727f0d87528a1b700"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp32-camera.a",
+      "size": 1928392,
+      "sha256": "775f8388bf5525b75cff9d1f2f016484fb1fc660adc5e6f03ccd7052f50ffc0b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_delta_ota.a",
+      "size": 175304,
+      "sha256": "8c9773c3e995c39629e83ca0898ac4ad1c840c4a540ae3d6fc23c24d45f37723"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_diag_data_store.a",
+      "size": 92016,
+      "sha256": "f764cb85d02a041a8a27f7665dd51e3aa08ffcd7a24b60a8449272a87769d41b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_diagnostics.a",
+      "size": 274916,
+      "sha256": "1c6f733b95809cd095ac73491065eee44f80f1ae6fa156b1c570c204e09b7b22"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_encrypted_img.a",
+      "size": 52176,
+      "sha256": "4c2941d9dd580b5afe2c88268690d36b955ef9438b64530c93a18f2b132058fb"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_insights.a",
+      "size": 352606,
+      "sha256": "f7f7a72b71d99d1b1c03e7723c23cdfc25b5fb9ebd5d6412f2f11d8586326b52"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_jpeg.a",
+      "size": 34376,
+      "sha256": "b141239465dcfcda1c70f931880d995e80f4a9d6afec627f713e16423458563a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_matter.a",
+      "size": 20106950,
+      "sha256": "7bec182cbe37710575bc2dd85ca7378bb308658a9166a4e5efc2ccfb6c3e6a32"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_modem.a",
+      "size": 6648556,
+      "sha256": "329ff1e812200c8ecd07eec8dc65dccbc9fbe5169f37d81f63a74c58114321f5"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_rainmaker.a",
+      "size": 1245522,
+      "sha256": "9d3a7c95cc6aeead495a024217025b7ac44fe266d1cd69c919c223b2e88b430f"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_rcp_update.a",
+      "size": 66042,
+      "sha256": "e2bea4f7de05ded58fc46fbcd0184edda2c31438b359c06a81849c85fe003b0b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_schedule.a",
+      "size": 108162,
+      "sha256": "bc27a514a6eb993201a874455ee38db7ec165c6dfeb3716eede63a9f8d7cfaeb"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__esp_secure_cert_mgr.a",
+      "size": 124138,
+      "sha256": "8e5f0ec47c0fa76218d85841966761b79c2f673ecfff6ab3cdaaf421fa3d3b83"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__json_generator.a",
+      "size": 51892,
+      "sha256": "c4eceb4799409bc28797685a506933c4b3ce87da0ac0921818917d0fe77c727f"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__json_parser.a",
+      "size": 86604,
+      "sha256": "b25867e5c565d72a24a4ead8385db3e8adda88d5bae427e20e76fd5e6b837b8d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__libsodium.a",
+      "size": 3324598,
+      "sha256": "37c2cbd8f1a9c98f0e1f1975f0962063e47b331b800deec5af5c8e21c2b70f7d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__mdns.a",
+      "size": 1075342,
+      "sha256": "776cd0f7e1c487333b3af48e3dac33f633a44ed0f5d30c4aaf7499cbfc8cb655"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__network_provisioning.a",
+      "size": 986102,
+      "sha256": "4bf5ba5c9ca4e4012b8dc25bcf4702cae4e6513c7ead1bc459aeb55a8e836877"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__qrcode.a",
+      "size": 175966,
+      "sha256": "ff26d593e86a6bf7f95882e3dd6061c39d024fd163cc82e0085d99d6e50e50be"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libespressif__rmaker_common.a",
+      "size": 333164,
+      "sha256": "f0c5f5175df5a65e96f1245197bd18a2fa4426fb891127356e6711a10f85eebc"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libeverest.a",
+      "size": 7642,
+      "sha256": "0818bfa6f5c325483a5685d9fc7b4264ecb35839e7424c441760026e26c2264e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libfatfs.a",
+      "size": 757112,
+      "sha256": "b6b1bfb6c50c0dad387d65a848cb495d617cb17c3a9be982bf8e5c7b9db5fd1a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libfb_gfx.a",
+      "size": 28108,
+      "sha256": "0cf33fa2654dac02e28432a86d8d1907353673a0719035fa80d92d2ff713b8c6"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libflite_g2p.a",
+      "size": 1950306,
+      "sha256": "a3dcdeea7ca5d35bb451f674c172ba9c5019976280e9479192b4367788a57585"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libhal.a",
+      "size": 2501652,
+      "sha256": "828f74ff44ece942a62b179c6a13382e25df0763ed39658e13eed21f220f165b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libheap.a",
+      "size": 614946,
+      "sha256": "3c5d5377faed0245cd492fac9ab19a2576b8c993bccf1e9d021918d27192e206"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libhttp_parser.a",
+      "size": 154604,
+      "sha256": "0a01752032de42c0e5ccafcd56884e26d06fb8d1caf4bc393e77989a22fe3ca9"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libhufzip.a",
+      "size": 200028,
+      "sha256": "efe8b7b7a623db788b2100a23756e887168d2737104e63e8d5623c814f348e9b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libjoltwallet__littlefs.a",
+      "size": 736208,
+      "sha256": "6e511d2af17951f76905a9c1ba5cd9c0efcf92354c195c19dc98626b6af896ae"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libjson.a",
+      "size": 349544,
+      "sha256": "257efb37aae795739b598ec7ec95c37d33f7713df92772d541be8fd7b2857c5a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/liblog.a",
+      "size": 161000,
+      "sha256": "9dbf094487a280dfa7eea71007e0c60db5e5ddde8537877f1446fe89bc5a1c36"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/liblwip.a",
+      "size": 4035412,
+      "sha256": "fe516c8ab4de8a4bfdb02abcecf42badb259090d6b502079cfb63db31e5c236b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmbedcrypto.a",
+      "size": 4864476,
+      "sha256": "5b5dc22cc7de08bb3d6f8fe5ea6eca515291df8f5d68b68f45564d6962e5b93c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmbedtls.a",
+      "size": 122508,
+      "sha256": "87a7f3b63afc2a1ce168eaaa0945d56781d0ebf406e338802dc7883855283903"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmbedtls_2.a",
+      "size": 1367372,
+      "sha256": "b5e1ffd3f60dfe7ab133f58c6ddf140fb9dcc22447f8c0e95daf3733e3aaf6ad"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmbedx509.a",
+      "size": 676466,
+      "sha256": "9d5439bf8c0634f5550079b40193c4680f33091a8eb9f4e5188570191d035b63"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmesh.a",
+      "size": 995432,
+      "sha256": "160eca296ceffeadfed7f742783bedc35a858fff8725e34cba6b5fe5bce4f3d1"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmqtt.a",
+      "size": 352018,
+      "sha256": "ff9ec6289c1363a0a23a3a8f4c8291e1761f96eade4c338d02e2c13e462a3850"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libmultinet.a",
+      "size": 1849922,
+      "sha256": "dd0866c53ad728af6c853aec732af076e9241cabdc8e74425b42d9a329f48680"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnet80211.a",
+      "size": 1380252,
+      "sha256": "dcb524dda8563976cf1a97d4398c7b06cf024b7ef9a5f07788e84c88792d8071"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnewlib.a",
+      "size": 719904,
+      "sha256": "40a7376872eb27d2f2840c61b22aa28e69131f4aa2cf55eae3bb44ddd340e7d4"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnsnet.a",
+      "size": 268346,
+      "sha256": "a07659c897d47308d01104136eabe9006dd0ea5a70ebf4950605032e3f299013"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnvs_flash.a",
+      "size": 1608076,
+      "sha256": "a1ac62b0f8b69ef2ac08e82dd1c57f58d53db74147bc309f070e36a148067a2e"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libnvs_sec_provider.a",
+      "size": 33282,
+      "sha256": "4b9a1b343b493d7bd56ec6405d4481de9613a1ce0b4c667525c1b61098786838"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libopenthread.a",
+      "size": 462684,
+      "sha256": "f46941536b8c82c63dd977caeb0961eb69a43c2009d9d8140768755125c40e9d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libp256m.a",
+      "size": 5202,
+      "sha256": "afd5b82ca699bbbcb37a5c04d0d663446636064358217e873e0cdb70acefadc4"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libperfmon.a",
+      "size": 50548,
+      "sha256": "029dc4e227199636db40ac512af38f8f50a77f5eb2706ce90b9befecadbc1eb7"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libpp.a",
+      "size": 706608,
+      "sha256": "8b4a4d4f1a4df64d3260bc7b7a1796ae289b47a7525b23c9360c410bc2004137"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libprotobuf-c.a",
+      "size": 269912,
+      "sha256": "04b0bd3ba30d2bfed277a8c2eec2f83d6eedefb458ee50dc7ccf3b92e118b44b"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libprotocomm.a",
+      "size": 763278,
+      "sha256": "4cfa6b720179ee777bcf46faa31b55675e63c75785dc6b16c83dee0e1ccc82e9"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libpthread.a",
+      "size": 217356,
+      "sha256": "98f7eecfbb184eb4bce5eaf6e6a8358ae5a95bb4d5222e287faa88021db0d548"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/librt.a",
+      "size": 75932,
+      "sha256": "1ab23e9045cb00f73c6f89ba270164f24695a442826fa83163d6c32bb8febb43"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libsdmmc.a",
+      "size": 479606,
+      "sha256": "3e815c8d90f3632c8abcaab8a3db18967633deb3e8ea3a07f8c9a2067a2c1df3"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libsmartconfig.a",
+      "size": 190946,
+      "sha256": "6ade00f50721306e15f18792f3513d2aaf8d7ebb121b69e85bbf74e677b86c37"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libsoc.a",
+      "size": 201966,
+      "sha256": "e67d50c2317cf9f2a502dc39ec1ee471bbf012661898526057b87545a14c1550"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libspiffs.a",
+      "size": 702938,
+      "sha256": "a2a3e626296179900fca29b1fafcc28833ee634f3f88bc510ec0536d2fd67d90"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libtcp_transport.a",
+      "size": 337702,
+      "sha256": "869249f8c62fecb9f428ce94727f47403f2c6f9879360fbfaa3306f08d739ecf"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libtouch_element.a",
+      "size": 441360,
+      "sha256": "63233265a743e10c2ec1657652d34b43377809d9d1d4a779cb8896084bc22556"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libulp.a",
+      "size": 71912,
+      "sha256": "7e39d795655797f79aa14b906ef1b36eb7b87fa653d92c2a24e3d01db1a159be"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libunity.a",
+      "size": 317488,
+      "sha256": "13ed823593590ae1da06b3e1957ac4a46325fefb95319ff43c6975238266f4f6"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libusb.a",
+      "size": 1287626,
+      "sha256": "2ca5fa2e6e3ad1e235880df1e15449a4c7d1af3a977aaea5fb3c8ac8a25c0abb"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libvfs.a",
+      "size": 436438,
+      "sha256": "5c3ecbb8f9597ededef30f23b6a5efbffeb431b3e6a38cf26c4554d00bb79c86"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libwakenet.a",
+      "size": 647440,
+      "sha256": "a58d619a329f84463fa6f8341040ccf8bdb96aa9459c15102e2a5a2a540c4289"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libwapi.a",
+      "size": 52466,
+      "sha256": "e36e2b00e4d08befe690ccbbd93b49fe0238e89221e40d01595e2f48e5fadf1d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libwear_levelling.a",
+      "size": 338604,
+      "sha256": "2788325ef354387cc0403df90babf5b04396c3b468f3a6df49748d029508d7cf"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libwifi_provisioning.a",
+      "size": 779912,
+      "sha256": "fb172fa2213a55f347060cb678f0fa1dee4fed70ee2764de4d331d85e4192257"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libwpa_supplicant.a",
+      "size": 4649808,
+      "sha256": "be717acd0eb3487a2ed6b92f54a11201b05423ba3f7457a3e134d13f53eac595"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libxt_hal.a",
+      "size": 240506,
+      "sha256": "4823e6c657199a6726f3163f15e1222edb85a8a33eeaafd2aad0cc06150cc4ec"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/lib/libxtensa.a",
+      "size": 68214,
+      "sha256": "8780c76c5cdb3c31aedd1f87cf77470b7188001806d84d7a66ee2aff95e4c8ae"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libbootloader_support.a",
+      "size": 628386,
+      "sha256": "389fd95ae04b164a701bfb6de976b57bdfae6f796cc0ef04336101fecfef103a"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libesp_hw_support.a",
+      "size": 2170640,
+      "sha256": "e24e838afd33dc7d1271c719769c5ffc345d1765a5cccf68226c1bfef275ffbd"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libesp_psram.a",
+      "size": 114458,
+      "sha256": "afa6fda216beedd67b61347053911a2b312d4190f05bbe1426714e6c4bdc6981"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libesp_system.a",
+      "size": 1254640,
+      "sha256": "75df2579ef4f907c0af3fe8629f35c35c8e92165664f3e08aea373bc623386d7"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libfreertos.a",
+      "size": 981788,
+      "sha256": "44a489b632edfdc8bf1c809434e5d8a81e4fbad83db8d4b5fe6cfa836aeb48f0"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/qio_qspi/libspi_flash.a",
+      "size": 881834,
+      "sha256": "7f5f4969d9ec3d9bcb08252dd334f299b9fe9561fc507b2eca493774b1ef8270"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "EvilDuckS3.ino.bin",
+      "size": 1415968,
+      "sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e"
+    },
+    {
+      "file": "EvilDuckS3.ino.bootloader.bin",
+      "size": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf"
+    },
+    {
+      "file": "EvilDuckS3.ino.elf",
+      "size": 23623216,
+      "sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e"
+    },
+    {
+      "file": "EvilDuckS3.ino.map",
+      "size": 26770061,
+      "sha256": "0396e1da8f503e6cebf75805066e03a679787d5a233ebe7cf48c07a873738ea9"
+    },
+    {
+      "file": "EvilDuckS3.ino.partitions.bin",
+      "size": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    }
+  ],
+  "resource_comparison": {
+    "compiler_program_bytes": {
+      "h1_baseline": 1414027,
+      "privacy": 1415827,
+      "delta": 1800
+    },
+    "application_bytes": {
+      "h1_baseline": 1414176,
+      "privacy": 1415968,
+      "delta": 1792
+    },
+    "static_ram_bytes": {
+      "h1_baseline": 113896,
+      "privacy": 113896,
+      "delta": 0
+    },
+    "ota_slot_bytes": {
+      "h1_baseline": 7602176,
+      "privacy": 7602176,
+      "delta": 0
+    },
+    "free_bytes_per_slot": {
+      "h1_baseline": 6188000,
+      "privacy": 6186208,
+      "delta": -1792
+    }
+  },
+  "stack_estimates": {
+    "handleSaveSettings": {
+      "h1_baseline": [
+        {
+          "bytes": 128,
+          "kind": "static"
+        }
+      ],
+      "privacy": [
+        {
+          "bytes": 160,
+          "kind": "static"
+        }
+      ]
+    },
+    "handleGetSettings": {
+      "h1_baseline": [
+        {
+          "bytes": 96,
+          "kind": "static"
+        }
+      ],
+      "privacy": [
+        {
+          "bytes": 112,
+          "kind": "static"
+        }
+      ]
+    },
+    "cli::parse": {
+      "h1_baseline": [
+        {
+          "bytes": 1744,
+          "kind": "static"
+        }
+      ],
+      "privacy": [
+        {
+          "bytes": 1744,
+          "kind": "static"
+        }
+      ]
+    }
+  },
+  "reused_software_tests": {
+    "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+    "rerun_in_this_stage": false,
+    "privacy": {
+      "PASS": 28,
+      "FAIL": 0,
+      "assertions": 736
+    },
+    "existing_regressions": {
+      "PASS": 558,
+      "FAIL": 0,
+      "assertions": 23901
+    },
+    "embedded_js": {
+      "PASS": 12,
+      "FAIL": 0,
+      "assertions": 221
+    },
+    "sanitizers": "Historical/reused ASan, UBSan and leak evidence; no target sanitizer execution"
+  },
+  "fresh_checks": {
+    "clean_composition_entries": 201,
+    "privacy_changes": 3,
+    "unchanged_entries": 198,
+    "overlay_calls": 1,
+    "final_clean_build_adapter_exit": 0,
+    "verifier_unit_tests": {
+      "PASS": 4,
+      "FAIL": 0,
+      "log_sha256": "feabb4add9e2ca3374e538560634d1ec97dc4f4ce89aab12f3d726e36ea9b2f6"
+    },
+    "actual_target_read_only_controls": {
+      "status": "PASS",
+      "positive_checks": 1,
+      "expected_rejections": 6,
+      "results": [
+        {
+          "id": "unchanged-real-evidence",
+          "status": "PASS"
+        },
+        {
+          "id": "old-H1-without-privacy",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Candidate source identity mismatch: cli.cpp"
+        },
+        {
+          "id": "changed-compiled-CLI",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Compiled source bytes differ from privacy source: cli.cpp"
+        },
+        {
+          "id": "missing-patched-header-dependency",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Patched webfiles.h absent from actual webserver dependencies"
+        },
+        {
+          "id": "missing-H1-opt-in-selector",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Application profile selector missing"
+        },
+        {
+          "id": "changed-pinned-NVS-archive",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Installed pinned SDK archive changed: lib/libnvs_flash.a"
+        },
+        {
+          "id": "incomplete-linked-SDK-inventory",
+          "status": "EXPECTED_REJECTION",
+          "reason": "Actual map LOAD SDK coverage differs from build report"
+        }
+      ],
+      "altered_real_files": false,
+      "firmware_compiled": false,
+      "hardware": false
+    },
+    "warning_lines": 0
+  },
+  "development_observations": [
+    {
+      "run": "build-v1",
+      "compiler_exit": 0,
+      "inherited_provenance": "PASS",
+      "adapter_exit": 1,
+      "reason": "Initial privacy verifier compared broader historical installed archive inventory177 with actual link153; common hashes all matched. Corrected verifier hashes all177 pins and checks actual153 map/report set independently. Original evidence retained."
+    },
+    {
+      "run": "target-controls-initial",
+      "status": "TEST_INJECTION_ERROR",
+      "reason": "SDK negative-control mock matched a symlink alias instead of the resolved archive read, so it did not change observed bytes. Corrected test intercepts resolved identity; final six rejection controls pass. Actual archive was never modified."
+    },
+    {
+      "run": "verifier-unit-initial",
+      "status": "TEST_FIXTURE_ERROR",
+      "reason": "Dependency continuation fixture contained an unintended plus character. Test data corrected; verifier acceptance policy unchanged."
+    }
+  ],
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "container": "downloads/evilduck-routeb-right-modifiers-h1-experimental-macos-v1.zip",
+    "container_sha256": "9a3593735799d36d1db949c2982558a384dc5f6de43f2d3f804c4bfb15fc113e",
+    "read_only_member_verification": true
+  },
+  "receipts": {
+    "build-v2/report.json": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v2/report.json",
+      "sha256": "4c391dfc27ecf9e966405b676a9fc5421171d5e9d6e1445bb7ea5e416d78c582",
+      "bytes": 1383970
+    },
+    "build-v2/privacy-target-verification.json": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v2/privacy-target-verification.json",
+      "sha256": "9dd3918a2b5a6862f2aae4b021056bc2c4c6fb1f29b3272fc32aac832d2bf205",
+      "bytes": 5108
+    },
+    "build-v2/privacy-composition.json": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v2/privacy-composition.json",
+      "sha256": "0f24b649bbdf15f18ba540a08740fdd5aae84da417976251c7465f23917cdad2",
+      "bytes": 34340
+    },
+    "build-v2/build/s3-build.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v2/build/s3-build.log",
+      "sha256": "3914162cd9b3ba3dde6af03ab30f987dd78e66cbd2b1b45afa6ba1b2ca55c642",
+      "bytes": 975722
+    },
+    "build-v2.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v2.log",
+      "sha256": "ca2ebce19cb0f732eb0b9d440200df6403eeb2f056b1690ce5f7367bcd9646aa",
+      "bytes": 3592
+    },
+    "target-controls-v2.json": {
+      "path": "/workspace/scratch/privacy-fix1-integration/target-controls-v2.json",
+      "sha256": "636dc044faedd23bb77aab12d112342b84eeab4e6af61fde89f5e761ba912508",
+      "bytes": 1231
+    },
+    "target-controls-v2.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/target-controls-v2.log",
+      "sha256": "636dc044faedd23bb77aab12d112342b84eeab4e6af61fde89f5e761ba912508",
+      "bytes": 1231
+    },
+    "parser-tests-final.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/parser-tests-final.log",
+      "sha256": "feabb4add9e2ca3374e538560634d1ec97dc4f4ce89aab12f3d726e36ea9b2f6",
+      "bytes": 102
+    },
+    "build-v1.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/build-v1.log",
+      "sha256": "c0b627c82a0841632063ca53a6916978a701c87dccb3bfcc20d05d4df0a69ecb",
+      "bytes": 2367
+    },
+    "target-controls.log": {
+      "path": "/workspace/scratch/privacy-fix1-integration/target-controls.log",
+      "sha256": "f5b0c73158b998700753ebaf9541152a97ba6042dea898af161a225b739003ca",
+      "bytes": 604
+    }
+  },
+  "integration_source_files": [
+    {
+      "file": "tests/privacy_fix1/build_candidate.py",
+      "sha256": "814cf12ac3ad8dd69ef460006c1610c890ea6b7ee8a9ef03daa16c1da63c1f80"
+    },
+    {
+      "file": "tests/privacy_fix1/prepare_sources.py",
+      "sha256": "0bb594377dd1964926dcefbfb2e746251cdd908434bc6eba4eeb6624a2ba1dca"
+    },
+    {
+      "file": "tests/privacy_fix1/run_tests.py",
+      "sha256": "fd67a67dfc99dfcb0d07a38d84542ce500bcfeb5aaa612681f6ab2d5d631584a"
+    },
+    {
+      "file": "tests/privacy_fix1/startup_decode.py",
+      "sha256": "bd534708173f268a7249242155aff015078fa210920be3184606e718e803d24f"
+    },
+    {
+      "file": "tests/privacy_fix1/test_target_controls.py",
+      "sha256": "34a515eb071f6691453f5235e9f5929b0787366d51d315d2412f4f0f53ff2532"
+    },
+    {
+      "file": "tests/privacy_fix1/test_verify_target.py",
+      "sha256": "4f96010c0f1a4c9f7b7ffbdd2f0cc213025f833bc7961ea464b4991d81162f6e"
+    },
+    {
+      "file": "tests/privacy_fix1/verify_target.py",
+      "sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e"
+    }
+  ],
+  "remote_refs_before_sha256": "29fe5db73cf4078ab600eb1e32ea768ebd3e76e9fab26ce3ca5a1645e9c1b889",
+  "limitations": [
+    "No distributable firmware package or installer changes",
+    "Historical H1 dashboard buildId retained; identify this local compile by manifest and application SHA",
+    "Full historical H1 verify_link chain not rerun; unchanged builder guards plus new privacy binding executed",
+    "Settings persistence remains non-atomic",
+    "No physical hardware, USB/HID execution, flashing, OTA or installation approval",
+    "No bit-for-bit cross-build reproducibility claim"
+  ]
+}
