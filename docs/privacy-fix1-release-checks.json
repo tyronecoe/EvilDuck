@@ -1,0 +1,250 @@
+{
+  "format": "evilduck-privacy-fix1-release-checks-v1",
+  "status": "PASS",
+  "exact_release_receipt_sha256": "77b2787b0f72d92b0a8573da57419ccc362106ba0d7330e5c0da00efa95da908",
+  "exact_release_receipt_bytes": 2313928,
+  "full_receipt_in_zip": "build-receipt.json",
+  "privacy_release_verification": {
+    "status": "PASS",
+    "full_frozen_h1_chain_executed": true,
+    "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+    "target_integration_commit": "0380d1508b8f761e30a6a1fb63f67c2850cbc84a",
+    "adapter_sha256": "71387fda4a0443e413e29e5c9f217511391108ca0a2df5db4fd0076b339af328",
+    "source_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+    "exact_final_source_overrides": {
+      "cli.cpp": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+      "webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+      "webfiles.h": "17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724"
+    },
+    "frozen_verifiers": {
+      "h1_right_modifiers": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+      "inject_var_experimental": "6da2ddaad1800354a032193e78e6f1775da376e15c30ce77d170b0f6c87e02e4",
+      "lock_wait_timeout": "d8ab7a0d35efe18ac425bcada05d21ba7d0b84108caa18781661e678e0f1776e",
+      "source_text_v2": "e155bf66e2c5892b49d7241d36f21dc4b10b6ac2cb1bbf95a96596b02bb07182",
+      "lock_feedback": "45d52ec2abdbc18cfcc03d24e672a8aa02088074efa119b638dc76e4af180d7d",
+      "caps_stop": "bf2c6a7050a2601f285f7e76eb26936399f2b07a12bc56f212903e645ccb4e6d"
+    },
+    "compile_events": [
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "right-modifier H1",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "1e729c4584f64522ac9c43801ac3b561883e26cd79e653e3458caa771a2471ca",
+        "generated_ast_after_sha256": "ae1453ebd7fa35c394af7ef28656591c2c0d4bbe93c59d8da34beff864e93ae1",
+        "assertions_preserved": 23,
+        "expectation_adaptations": [
+          {
+            "line": 60,
+            "before": "hashlib.sha256((sketch / v['file']).read_bytes()).hexdigest() == v['sha256']",
+            "after": "hashlib.sha256((sketch / v['file']).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(v['file'], v['sha256'])"
+          },
+          {
+            "line": 65,
+            "before": "hashlib.sha256((sketch / name).read_bytes()).hexdigest() == expected",
+            "after": "hashlib.sha256((sketch / name).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(name, expected)"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/inject_var_experimental/verify_link.py",
+        "logical_layer": "experimental H1",
+        "frozen_file_sha256": "6da2ddaad1800354a032193e78e6f1775da376e15c30ce77d170b0f6c87e02e4",
+        "generated_ast_before_sha256": "80cd488db02e162d9724fd95f3feb65b295449e612bd313945baba3fe7fb8f88",
+        "generated_ast_after_sha256": "8a30ade7847086af4735a295ce5c0d2bccd6aaacf477b5fe4ddde8d08c0414a3",
+        "assertions_preserved": 21,
+        "expectation_adaptations": [
+          {
+            "line": 1,
+            "before": "hashlib.sha256((sketch / r['file']).read_bytes()).hexdigest() == RIGHT_AFTER.get(r['file'], r['sha256'])",
+            "after": "hashlib.sha256((sketch / r['file']).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(r['file'], RIGHT_AFTER.get(r['file'], r['sha256']))"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/lock_wait_timeout/verify_link.py",
+        "logical_layer": "bounded lock waits",
+        "frozen_file_sha256": "d8ab7a0d35efe18ac425bcada05d21ba7d0b84108caa18781661e678e0f1776e",
+        "generated_ast_before_sha256": "e701c2715d968bdeedca0a7f947d4c6a971c24bfed286cf9d6a477444f7b167e",
+        "generated_ast_after_sha256": "87c9908c42700514737e846182be785383763d74612972eaf6661835733d2ad6",
+        "assertions_preserved": 16,
+        "expectation_adaptations": [
+          {
+            "line": 1,
+            "before": "hashlib.sha256((a.build_root / 'candidate/EvilDuckS3' / r['file']).read_bytes()).hexdigest() == FINAL_AFTER.get(r['file'], r['sha256'])",
+            "after": "hashlib.sha256((a.build_root / 'candidate/EvilDuckS3' / r['file']).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(r['file'], FINAL_AFTER.get(r['file'], r['sha256']))"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/source_text_v2/verify_link.py",
+        "logical_layer": "source/text v2",
+        "frozen_file_sha256": "e155bf66e2c5892b49d7241d36f21dc4b10b6ac2cb1bbf95a96596b02bb07182",
+        "generated_ast_before_sha256": "570f00115d218295004ca8d9426011a229e115f4b5c606fc831c053dcb76b02b",
+        "generated_ast_after_sha256": "8df43a6786489e1b1651f87dcd5df8362f4d4949d465ff14a37798df1c016920",
+        "assertions_preserved": 46,
+        "expectation_adaptations": [
+          {
+            "line": 71,
+            "before": "hashlib.sha256((args.build_root / 'candidate/EvilDuckS3' / row['file']).read_bytes()).hexdigest() == timeout_after.get(row['file'], row['sha256'])",
+            "after": "hashlib.sha256((args.build_root / 'candidate/EvilDuckS3' / row['file']).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(row['file'], timeout_after.get(row['file'], row['sha256']))"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "keyboard/lock feedback",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "868404aa1f1ef4361a3b7e63836011cc830a9cbe56bffc4c628e45b49dfc976a",
+        "generated_ast_after_sha256": "0d4a0caf6e27d65dca63f3501fd41292f935f9829e843cb0ced65440376b74de",
+        "assertions_preserved": 25,
+        "expectation_adaptations": [
+          {
+            "line": 70,
+            "before": "hashlib.sha256((sketch / row['file']).read_bytes()).hexdigest() == source_after.get(row['file'], row['sha256'])",
+            "after": "hashlib.sha256((sketch / row['file']).read_bytes()).hexdigest() == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(row['file'], source_after.get(row['file'], row['sha256']))"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "caps/STOP closure",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "5f87ce2a75f58c027e2ba42b1f9cf692150f17f012e10d985e8a1760127570df",
+        "generated_ast_after_sha256": "ae0c3b52b2d68005a899290a0d81a250e4e393d7d8ce9d71686492a511270d4a",
+        "assertions_preserved": 59,
+        "expectation_adaptations": [
+          {
+            "line": 33,
+            "before": "sha(a.build_root / 'candidate/EvilDuckS3' / x['file']) == after.get(x['file'], x['sha256'])",
+            "after": "sha(a.build_root / 'candidate/EvilDuckS3' / x['file']) == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(x['file'], after.get(x['file'], x['sha256']))"
+          },
+          {
+            "line": 34,
+            "before": "sha(a.build_root / 'candidate/EvilDuckS3' / file) == digest",
+            "after": "sha(a.build_root / 'candidate/EvilDuckS3' / file) == {'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': '17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(file, digest)"
+          }
+        ]
+      }
+    ],
+    "assertions_removed": 0,
+    "unrelated_expected_hashes_changed": 0,
+    "privacy_target_binding": {
+      "status": "PASS",
+      "source_files": 201,
+      "privacy_files": 3,
+      "unchanged_files": 198,
+      "verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+      "source_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+      "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+      "parent_preparer_sha256": "17c5f6d7d640800985a3969d265f8249249eb63ab9e6fd3a6955e319fee33f40",
+      "compile_inputs": [
+        {
+          "source": "cli.cpp",
+          "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+          "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp",
+          "compiled_sha256": "6f3c0c234135079fadd63e9eae516677ea339d303baa87be5fc58cc274cb3f66",
+          "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.o",
+          "object_sha256": "99220b1bcc00ed262870631e65c849c193f7983627f11e4e97b70f9009605261",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/cli.cpp.d",
+          "dependency_sha256": "74af96096dcddab411c9bce5d13bca9fae563b3e397af5984c69743fc61a1cb8",
+          "dependency_count": 187,
+          "verbose_compile_observed": true,
+          "linked_map_load": true
+        },
+        {
+          "source": "webserver.cpp",
+          "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+          "compiled_source": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp",
+          "compiled_sha256": "42ed6fe209b678031190948df63c31aa316af07739948c6857ae4e9dcde362d2",
+          "object": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.o",
+          "object_sha256": "745c8542a295df01eb6a928f592a997dd645ec422d99d0dd87393b63b4e5b775",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webserver.cpp.d",
+          "dependency_sha256": "f3d55612308c84880ce84a2c1dd496a9706a0578d2f2ca09ddaa66e0a56e3475",
+          "dependency_count": 262,
+          "verbose_compile_observed": true,
+          "linked_map_load": true,
+          "webfiles_header": {
+            "file": "/workspace/scratch/privacy-fix1-integration/build-v2/build/sketch/webfiles.h",
+            "sha256": "e4f70b362ac004cf3af3ec6c7187c0e2a713f9304d0192aa7b017208a9854816",
+            "candidate_sha256": "17c26cfed13f8b4f0eb29a70e452415b9bb6001645f6d900a87b908210a9c724",
+            "dependency_observed": true
+          }
+        }
+      ],
+      "compile_log_sha256": "3914162cd9b3ba3dde6af03ab30f987dd78e66cbd2b1b45afa6ba1b2ca55c642",
+      "compile_commands_sha256": "4552f1ddd725ec28489301161a1fef541284bf746c1ea6d2142a4da2fd41b1ba",
+      "map_sha256": "0396e1da8f503e6cebf75805066e03a679787d5a233ebe7cf48c07a873738ea9",
+      "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+      "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+      "application_bytes": 1415968,
+      "sdk_archives_checked": 177,
+      "sdk_archives_selected": 153,
+      "sdk_pin_reconciliation": {
+        "pinned_installed_verified": 177,
+        "selected_map_and_report": 153,
+        "installed_archive_total": 183,
+        "pinned_but_not_selected": [
+          "dio_opi/libbootloader_support.a",
+          "dio_opi/libesp_hw_support.a",
+          "dio_opi/libesp_psram.a",
+          "dio_opi/libesp_system.a",
+          "dio_opi/libfreertos.a",
+          "dio_opi/libspi_flash.a",
+          "dio_qspi/libbootloader_support.a",
+          "dio_qspi/libesp_hw_support.a",
+          "dio_qspi/libesp_psram.a",
+          "dio_qspi/libesp_system.a",
+          "dio_qspi/libfreertos.a",
+          "dio_qspi/libspi_flash.a",
+          "opi_opi/libbootloader_support.a",
+          "opi_opi/libesp_hw_support.a",
+          "opi_opi/libesp_psram.a",
+          "opi_opi/libesp_system.a",
+          "opi_opi/libfreertos.a",
+          "opi_opi/libspi_flash.a",
+          "qio_opi/libbootloader_support.a",
+          "qio_opi/libesp_hw_support.a",
+          "qio_opi/libesp_psram.a",
+          "qio_opi/libesp_system.a",
+          "qio_opi/libfreertos.a",
+          "qio_opi/libspi_flash.a"
+        ],
+        "unpinned_installed_and_not_selected": [
+          "lib/libesp_zb_api.zczr.a",
+          "lib/libesp_zb_api.zczr.debug.a",
+          "lib/libzboss_port.remote.a",
+          "lib/libzboss_port.remote.debug.a",
+          "lib/libzboss_stack.zczr.a",
+          "lib/libzboss_stack.zczr.debug.a"
+        ],
+        "unpinned_archives_trusted": false
+      },
+      "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+      "historical_full_h1_verify_link_executed": false,
+      "profile": "PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL",
+      "build_id_policy": "Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate",
+      "physical": false,
+      "installation_authorized": false,
+      "package_created": false
+    },
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+    "recompiled": false,
+    "target_source_or_images_modified": false,
+    "hardware": false,
+    "runtime_build_id_changed": false,
+    "owner_review_candidate": true
+  },
+  "fresh_check_summary": {
+    "sdk_archive_pins": 177,
+    "compiled_source_checks": 88,
+    "linked_input_records": 284,
+    "link_response_files": 3,
+    "linker_scripts": 13,
+    "ast_policy_test_groups": 3,
+    "ast_static_assert_nodes_preserved": 190,
+    "candidate_hash_comparison_adaptations": 8
+  }
+}

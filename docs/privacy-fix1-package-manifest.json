@@ -1,0 +1,182 @@
+{
+  "package_id": "evilduck-privacy-fix1-h1-macos-review-v1",
+  "label": "EXPERIMENTAL \u2014 REVIEW ONLY \u2014 NOT AUTHORIZED FOR FLASHING",
+  "source_commit": "48ed7c9dc694316d8f1d194c0bbf4efe492186f9",
+  "source_url": "https://github.com/tyronecoe/EvilDuck/tree/48ed7c9dc694316d8f1d194c0bbf4efe492186f9",
+  "firmware_source_commit": "0380d1508b8f761e30a6a1fb63f67c2850cbc84a",
+  "firmware_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+  "official_runtime_encoding_verified": false,
+  "physical_candidate_tested": false,
+  "composition_base_commit": "60e94cf987de4420c99f48a93bfef03f5113c82e",
+  "composition_pin_sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183",
+  "application_bytes": 1415968,
+  "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+  "application_elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e",
+  "table_sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+  "update_method": "FUTURE_ROM_APP_ONLY_BOTH_SLOTS",
+  "installation_authorized": false,
+  "hardware": false,
+  "proposed_writes": [
+    {
+      "role": "app0",
+      "file": "application.bin",
+      "offset": 65536,
+      "bytes": 1415968,
+      "sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+      "partition_bytes": 7602176,
+      "erase_start": 65536,
+      "erase_end_exclusive": 1482752,
+      "selected_for_execution": false
+    },
+    {
+      "role": "app1",
+      "file": "application.bin",
+      "offset": 7667712,
+      "bytes": 1415968,
+      "sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+      "partition_bytes": 7602176,
+      "erase_start": 7667712,
+      "erase_end_exclusive": 9084928,
+      "selected_for_execution": false
+    }
+  ],
+  "rollback_writes": [
+    {
+      "role": "app0",
+      "file": "rollback-application.bin",
+      "offset": 65536,
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "partition_bytes": 7602176,
+      "erase_start": 65536,
+      "erase_end_exclusive": 1482752,
+      "selected_for_execution": false
+    },
+    {
+      "role": "app1",
+      "file": "rollback-application.bin",
+      "offset": 7667712,
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "partition_bytes": 7602176,
+      "erase_start": 7667712,
+      "erase_end_exclusive": 9084928,
+      "selected_for_execution": false
+    }
+  ],
+  "rollback_bytes": 1413200,
+  "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+  "rollback_source_commit": "71a62ea1bd775bc260052d099b5784b06ba3fc12",
+  "support_files": {
+    "APACHE-2.0.txt": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "INSTALL-MAC.md": {
+      "bytes": 7980,
+      "sha256": "51f95b7f508cfdab4645797074b047f71be3e15e02b4970a38a5252aabd40fb8"
+    },
+    "OWNER-CHECK.md": {
+      "bytes": 3781,
+      "sha256": "8d1f34b0574271734549ea5febd8b5979a7cbf3f0c2b57cd6f8fc14019bc99c3"
+    },
+    "README.md": {
+      "bytes": 2721,
+      "sha256": "3b835f2e2b302fdc3b6681c92956d148217cd2b4f0243831b1e0c8dd4fc31025"
+    },
+    "ROLLBACK-MAC.md": {
+      "bytes": 2910,
+      "sha256": "131c376d0925eb74d014f498fc282dd546ab39646bd409813f618ad793b76798"
+    },
+    "build-receipt.json": {
+      "bytes": 2313928,
+      "sha256": "77b2787b0f72d92b0a8573da57419ccc362106ba0d7330e5c0da00efa95da908"
+    },
+    "compatibility.md": {
+      "bytes": 1541,
+      "sha256": "3c263931f70107b4970b775561d1a2e1096959f01259d15d58d043ddcbed9a2b"
+    },
+    "dependency-pin.json": {
+      "bytes": 2298,
+      "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475"
+    },
+    "firmware-report.md": {
+      "bytes": 2729,
+      "sha256": "20d1b41ddd4a1292bcc2b59bdd1dd237edcf66b1c1b46b09a99f8c8306c15007"
+    },
+    "gen_esp32part.py": {
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c"
+    },
+    "install-macos.sh": {
+      "bytes": 168,
+      "sha256": "290467849471980640fcf4bd6e44d69e22ec20f1cb7f5fd4436c0dc8a83f1cd8"
+    },
+    "installer.py": {
+      "bytes": 8541,
+      "sha256": "90ff96df5a4c12aff04ea96f498545ca080ab4605dcf7b5492ffc10e2819bd83"
+    },
+    "owner-evidence.md": {
+      "bytes": 2695,
+      "sha256": "78d1a229eed24f8065a583a881743d9883e4c1f94edc8919bf24b0b3b965ea51"
+    },
+    "preflight.py": {
+      "bytes": 18457,
+      "sha256": "845f30dc422bc85b87d52de5b8f5f1145d5544aa4c7c0146aa57e6d529bebafb"
+    },
+    "privacy-source-manifest.json": {
+      "bytes": 28309,
+      "sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4"
+    },
+    "reproduction.md": {
+      "bytes": 1846,
+      "sha256": "5142b631510555313fec5b919700a3453460ac800599270a4a50fc57438bcc5e"
+    },
+    "rm-malformed.txt": {
+      "bytes": 32,
+      "sha256": "e4e2ce0e92431624e86ec59405304549db7754572c5255d210273c52baef0d94"
+    },
+    "rm-modifier-taps.txt": {
+      "bytes": 77,
+      "sha256": "a9d5de681fb2ce892a97b3b9488fa6ee50faf0e4bec44b04f02b376768204e4f"
+    },
+    "rm-shift.txt": {
+      "bytes": 113,
+      "sha256": "ffe9c08379fb045b7f85f7e92f19ca0fdd9d4362ef82e01bed7c34d144dec823"
+    },
+    "rm-stop.txt": {
+      "bytes": 60,
+      "sha256": "3d47b5de664ead9037c887e3db513ce8a23c9e55935074ef808da06e9e9c9baa"
+    },
+    "rollback-build-receipt.json": {
+      "bytes": 1969960,
+      "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953"
+    },
+    "rollback-macos.sh": {
+      "bytes": 306,
+      "sha256": "6ad97fa1d58d89689e2638ec1559c2b927e7251cb99047bdb003ff3cea97321b"
+    },
+    "source-LICENSE.txt": {
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb"
+    },
+    "source-manifest.json": {
+      "bytes": 1994,
+      "sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183"
+    },
+    "test-results.json": {
+      "bytes": 6592,
+      "sha256": "89246eae801ceafd52fc1fb6c8b62d35e9e5fa15aa86a9ddea3930870ed32e33"
+    }
+  },
+  "protected_nonapplication_regions": "all; bootloader/table/NVS/otadata/SPIFFS/coredump excluded from write plan",
+  "required_installed_otadata_sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+  "unsigned_integrity_only": true,
+  "source_checkpoint_commit": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+  "target_integration_commit": "0380d1508b8f761e30a6a1fb63f67c2850cbc84a",
+  "privacy_profile": "PRIVACY_FIX1_H1_OWNER_REVIEW",
+  "privacy_composition_pin_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+  "runtime_build_id_distinguishes_privacy": false,
+  "rollback_is_privacy_patched": false,
+  "packaging_parent_sha256": "b29c8995bf36668da89e092975c3f83cba7214e33349f12050dde7b82db773b2"
+}

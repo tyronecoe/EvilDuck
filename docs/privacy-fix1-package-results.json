@@ -1,0 +1,125 @@
+{
+  "format": "evilduck-privacy-fix1-macos-review-package-v1",
+  "package_id": "evilduck-privacy-fix1-h1-macos-review-v1",
+  "packaging_source_commit": "48ed7c9dc694316d8f1d194c0bbf4efe492186f9",
+  "source_checkpoint": "93cc8d1a7b162bdda91e239d840a3eee8a70c51c",
+  "target_integration_commit": "0380d1508b8f761e30a6a1fb63f67c2850cbc84a",
+  "zip": {
+    "file": "evilduck-privacy-fix1-h1-macos-review-v1.zip",
+    "bytes": 2471979,
+    "sha256": "6fff7825d25df3288beb8975abbd56f464bf5ccc81a5c680fa6f5ccf7b2940cf"
+  },
+  "application": {
+    "bytes": 1415968,
+    "sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "elf_sha256": "af7887ceccfe2694738c173c76b3c211b78cb0c7b667d8d7d942a1b0ef317f6e"
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "older_baseline_without_privacy_fix": true
+  },
+  "fresh_tests": {
+    "package": {
+      "PASS": 83,
+      "FAIL": 0
+    },
+    "installer": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "privacy": {
+      "PASS": 36,
+      "FAIL": 0
+    }
+  },
+  "release_policy_unit_groups": 3,
+  "release_checks": {
+    "sdk_archive_pins": 177,
+    "compiled_source_checks": 88,
+    "linked_input_records": 284,
+    "link_response_files": 3,
+    "linker_scripts": 13,
+    "ast_policy_test_groups": 3,
+    "ast_static_assert_nodes_preserved": 190,
+    "candidate_hash_comparison_adaptations": 8
+  },
+  "offline_extracted_preflight": {
+    "command": "python3 preflight.py --directory .",
+    "cwd": "/workspace/scratch/privacy-fix1-package/extracted-v1",
+    "exit": 0,
+    "stdout": {
+      "selected_image": "application",
+      "plan_ready": false,
+      "package_integrity": "PASS",
+      "source_commit": "48ed7c9dc694316d8f1d194c0bbf4efe492186f9",
+      "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+      "installed_metadata": "NOT_SUPPLIED",
+      "selected_write_ranges": [],
+      "installation_authorized": false,
+      "hardware_access": false,
+      "device_authenticity_or_freshness_verified": false
+    },
+    "stderr": "",
+    "interpreter_version": "3.12.14",
+    "os": "Linux; native High Sierra not executed",
+    "archive_bytes": 2471979,
+    "archive_sha256": "6fff7825d25df3288beb8975abbd56f464bf5ccc81a5c680fa6f5ccf7b2940cf",
+    "application_sha256": "9e4d3b615d78e87521882a35c4b43ce66403168a15b6b39bcebc81bb32a6b96e",
+    "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+  },
+  "reused_evidence": {
+    "native_privacy": {
+      "PASS": 28,
+      "assertions": 736
+    },
+    "existing_native_regressions": {
+      "PASS": 558,
+      "assertions": 23901
+    },
+    "embedded_js": {
+      "PASS": 12,
+      "assertions": 221
+    },
+    "native_tests_rerun": false,
+    "ASan_UBSan_leaks": "Reused unchanged earlier source-tested evidence; not newly run for packaging"
+  },
+  "installer_behavior": "Historical H1 installer unchanged except generated preflight hash binding; shell launchers unchanged",
+  "runtime_build_id": "ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1",
+  "runtime_build_id_distinguishes_privacy": false,
+  "hardware": false,
+  "firmware_recompiled": false,
+  "physical_candidate_tested": false,
+  "installation_authorized": false,
+  "historical_remote_refs_before": 87,
+  "receipts": {
+    "release-verification-v2.json": {
+      "file": "/workspace/scratch/privacy-fix1-package/release-verification-v2.json",
+      "sha256": "77b2787b0f72d92b0a8573da57419ccc362106ba0d7330e5c0da00efa95da908"
+    },
+    "release-verification-v2.log": {
+      "file": "/workspace/scratch/privacy-fix1-package/release-verification-v2.log",
+      "sha256": "e56c7acaa7e1fbfdf2638b4bd5f590e39264eac232857437410b59ee7d960679"
+    },
+    "release-policy-tests-final.log": {
+      "file": "/workspace/scratch/privacy-fix1-package/release-policy-tests-final.log",
+      "sha256": "199ba496f288116d36c62f29346d4fbf0bd75745a1c893abfcbdaa4c6d5b1033"
+    },
+    "package-tests-v1.json": {
+      "file": "/workspace/scratch/privacy-fix1-package/package-tests-v1.json",
+      "sha256": "e031517c550c77914d92f7a3f45b3c3f0c098a0c70854caa6c200e113f490591"
+    },
+    "installer-tests-v1.json": {
+      "file": "/workspace/scratch/privacy-fix1-package/installer-tests-v1.json",
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1"
+    },
+    "privacy-package-tests-v1.json": {
+      "file": "/workspace/scratch/privacy-fix1-package/privacy-package-tests-v1.json",
+      "sha256": "3ccf37c3d57cbcaedbcfdfdeb827ee33e52a6755f711458f7f8f0d51dfe6021c"
+    },
+    "extracted-offline-preflight-v1.json": {
+      "file": "/workspace/scratch/privacy-fix1-package/extracted-offline-preflight-v1.json",
+      "sha256": "183274374d37b6dd34b9f766b94f7e03c3ce5505d15bf50c445afaf25e1d2057"
+    }
+  }
+}
