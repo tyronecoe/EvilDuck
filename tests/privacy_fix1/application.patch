@@ -1,0 +1,215 @@
+--- cli.cpp
++++ cli.cpp
+@@ -6,6 +6,9 @@
+ #include "cli.h"
+ #include "duckscript.h"
+ #include "settings.h"
++#include "config.h"
++#include "deployment_boot.h"
++#include <cstring>
+ #include "com.h"
+ #include "debug.h"
+ #include "spiffs.h"
+@@ -92,13 +95,13 @@
+   if (startsWithNoCase(cmd, "settings")) {
+     String s = "";
+     s += "ssid=" + settings::getSSID() + "\n";
+-    s += "password=" + settings::getPassword() + "\n";
++    s += String("password_configured=") + (settings::getPassword().length() ? "1" : "0") + "\n";
+     s += "channel=" + String(settings::getChannel()) + "\n";
+     s += "autorun=" + settings::getAutorun() + "\n";
+     s += "stealth=" + String(settings::getStealthMode() ? 1 : 0) + "\n";
+     s += "hidden_ap=" + String(settings::getHiddenAp() ? 1 : 0) + "\n";
+     s += "disable_led=" + String(settings::getDisableLed() ? 1 : 0) + "\n";
+-    s += "web_password=" + settings::getWebPassword() + "\n";
++    s += String("web_password_configured=") + (settings::getWebPassword().length() ? "1" : "0") + "\n";
+     s += "autorun_delay_min=" + String(settings::getAutorunDelayMin()) + "\n";
+     s += "autorun_delay_max=" + String(settings::getAutorunDelayMax()) + "\n";
+     out(s);
+@@ -121,6 +124,15 @@
+       value = value.substring(1, value.length() - 1);
+     }
+     name.toLowerCase();
++    if (name == "password" || name == "web_password") {
++      if (!value.length()) { out("Password unchanged (empty replacement)"); return; }
++      const bool commonInvalid = std::strlen(value.c_str()) != value.length() ||
++          value.indexOf('\n') >= 0 || value.indexOf('\r') >= 0;
++      const bool invalid = commonInvalid || (name == "password" ?
++          (value.length() < 8 || value.length() > 63 ||
++           (deployment::controlledStart() && value == WIFI_PASSWORD)) : value.length() >= 4000);
++      if (invalid) { out("Invalid password replacement"); return; }
++    }
+     if (name == "ssid") settings::setSSID(value);
+     else if (name == "password") settings::setPassword(value);
+     else if (name == "channel") settings::setChannel(static_cast<uint8_t>(value.toInt()));
+@@ -140,7 +152,7 @@
+       return;
+     }
+     if (!settings::saveChecked()) { out("Settings save failed; partial persistence possible"); return; }
+-    out("> set \"" + name + "\" to \"" + value + "\"");
++    out("> set \"" + name + "\" updated (value omitted)");
+     return;
+   }
+   if (startsWithNoCase(cmd, "reset")) {
+@@ -361,7 +373,12 @@
+   if(!route_u::legacyAllowed()){if(printfunc)printfunc("Busy: admission changed");return;}
+ #endif
+   activePrint = printfunc;
+-  if (echo) out(String("# ") + input);
++  // The public parse API can request echo even though serial update does not.
++  // Never echo setting values, including malformed credential-setting input.
++  if (echo) {
++    if (startsWithNoCase(trimLine(String(input)), "set")) out("# set [value omitted]");
++    else out(String("# ") + input);
++  }
+   executeCommand(String(input));
+   activePrint = nullptr;
+ }
+--- webserver.cpp
++++ webserver.cpp
+@@ -34,6 +34,7 @@
+ #include <SD.h>
+ #include <ESPAsyncWebServer.h>
+ #include <Update.h>
++#include <cstring>
+ 
+ static AsyncWebServer server(80);
+ static AsyncWebSocket ws("/ws");
+@@ -280,6 +281,24 @@
+   if (!authorize(req)) return;
+   execution::TryGuard settingsGuard;
+   if (!settingsGuard) { req->send(409, "text/plain", "Settings busy"); return; }
++  // Passwords are write-only replacements. Omitted/empty fields keep the
++  // current value. Validate both before any setter; setters may silently reject.
++  const String password = req->hasParam("password", true) ? req->getParam("password", true)->value() : String();
++  const String webPassword = req->hasParam("web_password", true) ? req->getParam("web_password", true)->value() : String();
++  if (password.length() &&
++      (password.length() < 8 || password.length() > 63 ||
++       std::strlen(password.c_str()) != password.length() ||
++       password.indexOf('\n') >= 0 || password.indexOf('\r') >= 0 ||
++       (deployment::controlledStart() && password == WIFI_PASSWORD))) {
++    req->send(400, "text/plain", "Invalid password replacement");
++    return;
++  }
++  if (webPassword.length() &&
++      (webPassword.length() >= 4000 || std::strlen(webPassword.c_str()) != webPassword.length() ||
++       webPassword.indexOf('\n') >= 0 || webPassword.indexOf('\r') >= 0)) {
++    req->send(400, "text/plain", "Invalid web password replacement");
++    return;
++  }
+   if (req->hasParam("ssid", true)) {
+     String ssid = req->getParam("ssid", true)->value();
+     if (!ssid.length() || ssid.length() > 32) {
+@@ -289,14 +308,7 @@
+     settings::setSSID(ssid);
+   }
+ 
+-  if (req->hasParam("password", true)) {
+-    String password = req->getParam("password", true)->value();
+-    if (password.length() < 8 || password.length() > 63) {
+-      req->send(400, "text/plain", "Invalid password");
+-      return;
+-    }
+-    settings::setPassword(password);
+-  }
++  if (password.length()) settings::setPassword(password);
+ 
+   if (req->hasParam("channel", true)) {
+     uint8_t channel = static_cast<uint8_t>(req->getParam("channel", true)->value().toInt());
+@@ -338,9 +350,7 @@
+       return;
+     }
+   }
+-  if (req->hasParam("web_password", true)) {
+-    settings::setWebPassword(req->getParam("web_password", true)->value());
+-  }
++  if (webPassword.length()) settings::setWebPassword(webPassword);
+   if (req->hasParam("autorun_delay_min", true) && req->hasParam("autorun_delay_max", true)) {
+     settings::setAutorunDelay(
+         static_cast<uint16_t>(req->getParam("autorun_delay_min", true)->value().toInt()),
+@@ -367,14 +377,14 @@
+   if (!authorize(req)) return;
+   String json = "{";
+   json += "\"ssid\":\"" + settings::getSSID() + "\",";
+-  json += "\"password\":\"" + settings::getPassword() + "\",";
++  json += "\"password_configured\":" + String(settings::getPassword().length() ? "true" : "false") + ",";
+   json += "\"channel\":" + String(settings::getChannel()) + ",";
+   json += "\"autorun_script\":\"" + settings::getAutorun() + "\",";
+   json += "\"stealth\":" + String(settings::getStealthMode() ? "true" : "false") + ",";
+   json += "\"hidden_ap\":" + String(settings::getHiddenAp() ? "true" : "false") + ",";
+   json += "\"disable_led\":" + String(settings::getDisableLed() ? "true" : "false") + ",";
+   json += "\"led_color\":\"" + settings::getLedColorHex() + "\",";
+-  json += "\"web_password\":\"" + settings::getWebPassword() + "\",";
++  json += "\"web_password_configured\":" + String(settings::getWebPassword().length() ? "true" : "false") + ",";
+   json += "\"autorun_delay_min\":" + String(settings::getAutorunDelayMin()) + ",";
+   json += "\"autorun_delay_max\":" + String(settings::getAutorunDelayMax());
+   json += "}";
+--- webfiles.h
++++ webfiles.h
+@@ -240,9 +240,9 @@
+           <input class="input" id="ssid" maxlength="32" autocomplete="off" />
+         </label>
+         <label class="field">
+-          <span class="label">Password</span>
++          <span class="label">Replace AP password (leave blank to keep existing)</span>
+           <input class="input" id="password" minlength="8" maxlength="63" type="password" autocomplete="off" />
+-          <span class="hint">8–63 characters.</span>
++          <span class="hint">Replacement: 8–63 characters. Blank keeps the current password.</span>
+         </label>
+         <label class="field">
+           <span class="label">Channel</span>
+@@ -258,7 +258,7 @@
+     <section class="card span2">
+       <div class="cardhead"><h2>Stealth / OPSEC</h2></div>
+       <div class="stack">
+-        <label class="field"><span class="label">Web UI password (empty = off)</span>
++        <label class="field"><span class="label">Replace Web UI password (leave blank to keep existing)</span>
+           <input class="input" id="web_password" type="password" autocomplete="off" />
+         </label>
+         <label class="field"><span class="label"><input type="checkbox" id="stealth" /> Stealth mode</span></label>
+@@ -1154,30 +1154,41 @@
+   const r=await fetch('/settings',{headers:duckHeaders()});
+   const s=await r.json();
+   document.getElementById('ssid').value=s.ssid||'';
+-  document.getElementById('password').value=s.password||'';
++  document.getElementById('password').value='';
++  document.getElementById('password').placeholder=s.password_configured?'Configured; leave blank to keep existing':'Enter a new AP password';
+   document.getElementById('channel').value=s.channel||1;
+   if(document.getElementById('stealth')) document.getElementById('stealth').checked=!!s.stealth;
+   if(document.getElementById('hidden_ap')) document.getElementById('hidden_ap').checked=!!s.hidden_ap;
+   if(document.getElementById('disable_led')) document.getElementById('disable_led').checked=!!s.disable_led;
+   if(document.getElementById('led_color')) document.getElementById('led_color').value=s.led_color||'#000028';
+-  if(document.getElementById('web_password')) document.getElementById('web_password').value=s.web_password||'';
++  if(document.getElementById('web_password')) {
++    document.getElementById('web_password').value='';
++    document.getElementById('web_password').placeholder=s.web_password_configured?'Configured; leave blank to keep existing':'Enter a new Web UI password';
++  }
+   if(document.getElementById('autorun_delay_min')) document.getElementById('autorun_delay_min').value=s.autorun_delay_min||0;
+   if(document.getElementById('autorun_delay_max')) document.getElementById('autorun_delay_max').value=s.autorun_delay_max||0;
+ }
+ async function saveSettings(){
+   const fd=new FormData();
+   fd.append('ssid',document.getElementById('ssid').value.trim());
+-  fd.append('password',document.getElementById('password').value);
++  const password=document.getElementById('password').value;
++  if(password.length) fd.append('password',password);
+   fd.append('channel',document.getElementById('channel').value);
+   if(document.getElementById('stealth')) fd.append('stealth',document.getElementById('stealth').checked?'1':'0');
+   if(document.getElementById('hidden_ap')) fd.append('hidden_ap',document.getElementById('hidden_ap').checked?'1':'0');
+   if(document.getElementById('disable_led')) fd.append('disable_led',document.getElementById('disable_led').checked?'1':'0');
+   if(document.getElementById('led_color')) fd.append('led_color',document.getElementById('led_color').value);
+-  if(document.getElementById('web_password')) fd.append('web_password',document.getElementById('web_password').value);
++  const webPassword=document.getElementById('web_password');
++  if(webPassword&&webPassword.value.length) fd.append('web_password',webPassword.value);
+   if(document.getElementById('autorun_delay_min')) fd.append('autorun_delay_min',document.getElementById('autorun_delay_min').value);
+   if(document.getElementById('autorun_delay_max')) fd.append('autorun_delay_max',document.getElementById('autorun_delay_max').value);
+   const r=await fetch('/settings',{method:'POST',body:fd,headers:duckHeaders()});
+   log(await r.text());
++  if(r.ok) {
++    // Do not retain submitted replacements after an acknowledged save.
++    document.getElementById('password').value='';
++    if(webPassword) webPassword.value='';
++  }
+ }
+ let ledColorTimer=null;
+ function scheduleLedColorApply(){

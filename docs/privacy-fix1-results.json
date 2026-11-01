@@ -1,0 +1,222 @@
+{
+  "format": "evilduck-privacy-fix1-local-source-tests-v1",
+  "baseline": "a04e54309c9c73bae17ef23c48283828dfebc0ad",
+  "local_branch": "routeb-privacy-fix1",
+  "scope": "Local additive source patch and host software tests only; no target firmware built or published",
+  "native": {
+    "counts": {
+      "PASS": 586,
+      "FAIL": 0
+    },
+    "assertions": 24637,
+    "privacy": {
+      "PASS": 28,
+      "FAIL": 0,
+      "assertions": 736
+    },
+    "existing_composed_regressions": {
+      "PASS": 558,
+      "FAIL": 0,
+      "assertions": 23901
+    },
+    "sanitizers": "ASan/UBSan/leak detection",
+    "stderr_records": 0
+  },
+  "embedded_js": {
+    "PASS": 12,
+    "FAIL": 0,
+    "assertions": 221,
+    "results": [
+      {
+        "name": "stale-secret-fields-not-preloaded",
+        "status": "PASS",
+        "assertions": 13
+      },
+      {
+        "name": "unconfigured-placeholders",
+        "status": "PASS",
+        "assertions": 6
+      },
+      {
+        "name": "unrelated-save-omits-secrets",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "name": "ap-only-replacement",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "web-only-replacement",
+        "status": "PASS",
+        "assertions": 18
+      },
+      {
+        "name": "both-replacements",
+        "status": "PASS",
+        "assertions": 19
+      },
+      {
+        "name": "empty-replacements-preserve",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "name": "replacement-whitespace-preserved",
+        "status": "PASS",
+        "assertions": 11
+      },
+      {
+        "name": "failed-save-retains-input-and-reports-error",
+        "status": "PASS",
+        "assertions": 68
+      },
+      {
+        "name": "network-failure-has-no-retry-or-false-success",
+        "status": "PASS",
+        "assertions": 17
+      },
+      {
+        "name": "following-save-does-not-replay-replacement",
+        "status": "PASS",
+        "assertions": 10
+      },
+      {
+        "name": "replacement-ui-labels-and-no-device-activity",
+        "status": "PASS",
+        "assertions": 7
+      }
+    ],
+    "scope": "actual composed SETTINGS_JS in Node VM with mocked DOM/FormData/HTTP; no native browser, network or hardware"
+  },
+  "inherited_core_edge_probe": {
+    "status": "PASS",
+    "checks": 2,
+    "exit": 0
+  },
+  "source_delta": {
+    "status": "PASS",
+    "matched_sources": 201,
+    "changed_sources": [
+      "cli.cpp",
+      "webserver.cpp",
+      "webfiles.h"
+    ],
+    "unchanged_sources": 198,
+    "repeated_patch_rejected": true,
+    "altered_input_rejected": true,
+    "firmware_built": false,
+    "unchanged_dashboard_sections": [
+      "INDEX_HTML",
+      "TERMINAL_HTML",
+      "CREDITS_HTML",
+      "ERROR404_HTML",
+      "STYLE_CSS",
+      "INDEX_JS",
+      "TERMINAL_JS"
+    ],
+    "changed_dashboard_sections": [
+      "SETTINGS_HTML",
+      "SETTINGS_JS"
+    ]
+  },
+  "preservation": {
+    "historical_tracked_files_unchanged": true,
+    "remote_tracking_and_tag_refs_unchanged": true,
+    "remote_server_refs_queried": false,
+    "push_performed": false,
+    "rollback_bytes": 1413200,
+    "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "existing_package_sha256": "9a3593735799d36d1db949c2982558a384dc5f6de43f2d3f804c4bfb15fc113e",
+    "accepted_composed_source_files_reverified": 201
+  },
+  "expected_negative_control": {
+    "status": "EXPECTED_REJECTION",
+    "command": [
+      "node",
+      "tests/privacy_fix1/test_ui.cjs",
+      "/workspace/scratch/privacy-fix1/before/webfiles.h"
+    ],
+    "exit": 1,
+    "reason": "Unchanged baseline preloads saved passwords; first write-only UI assertion detects it",
+    "pass_groups": 0,
+    "expected_failed_groups": 1,
+    "development_note": "Initial control verifier looked in stderr; UI runner emits structured failures to stdout. Corrected verifier checks exact failing group and message."
+  },
+  "tool_versions": {
+    "g++": "g++ (Debian 14.2.0-19) 14.2.0",
+    "node": "v24.19.0",
+    "python": "Python 3.12.14"
+  },
+  "development_observations": [
+    {
+      "run": "native-v1",
+      "status": "HARNESS_PREPARATION_ERROR",
+      "cases_executed": 0,
+      "reason": "Preservation check assumed settings.h copied into native scratch; header actually remains in unchanged firmware include directory. Corrected path resolution; original log retained."
+    },
+    {
+      "run": "native-v2",
+      "status": "TEST_DRIVER_COMPILE_ERROR",
+      "cases_executed": 0,
+      "reason": "New driver omitted nvs.h for ESP_OK. Added test-only include; original log retained."
+    },
+    {
+      "run": "native-v3",
+      "status": "PASS",
+      "reason": "Final complete composed native and UI execution; no expectations weakened."
+    }
+  ],
+  "receipts": {
+    "full_native": "/workspace/scratch/privacy-fix1/native-v3.json",
+    "full_native_sha256": "2468dd376dd10f3625f0d6932048d136ad95583927c0e44dabdf7409c93fd407",
+    "log": "/workspace/scratch/privacy-fix1/native-v3.log",
+    "log_sha256": "7fad10374ccded19207919f9bd75a2eb4422b309f2d6c16a88487449cbd76737"
+  },
+  "new_test_inputs": [
+    {
+      "file": "tests/privacy_fix1/application.patch",
+      "sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76"
+    },
+    {
+      "file": "tests/privacy_fix1/nvs_fixture.cpp",
+      "sha256": "9b177801a1ec7af46933f6e2091f6450ab87a4fc0bf7428753c55042aeffe30d"
+    },
+    {
+      "file": "tests/privacy_fix1/nvs_fixture.h",
+      "sha256": "b58540625d73023e42639f039ae2816fe0944a4ac5759c3cfad11914161935a6"
+    },
+    {
+      "file": "tests/privacy_fix1/prepare_sources.py",
+      "sha256": "80baee06e327201703d7bebf19fec854587e6ccdb7ca33c3d1ce5af87e4c7e56"
+    },
+    {
+      "file": "tests/privacy_fix1/run_tests.py",
+      "sha256": "fd67a67dfc99dfcb0d07a38d84542ce500bcfeb5aaa612681f6ab2d5d631584a"
+    },
+    {
+      "file": "tests/privacy_fix1/source-manifest.json",
+      "sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4"
+    },
+    {
+      "file": "tests/privacy_fix1/test_main.cpp",
+      "sha256": "ca264782966ee06cefe14d49a2be069d8f057ee22ecb73b5cc08fa3343031a84"
+    },
+    {
+      "file": "tests/privacy_fix1/test_ui.cjs",
+      "sha256": "900704292cc6767d67f8fd5deec2fd5fd36b504ceebe4e7b64981dbe367d8d3a"
+    }
+  ],
+  "not_performed": [
+    "firmware build/link",
+    "package creation",
+    "hardware access",
+    "real HID output",
+    "flashing",
+    "OTA",
+    "commits",
+    "remote pushes",
+    "private backup/configuration inspection"
+  ]
+}
