@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "operation": "fresh clean-base source composition only",
+  "path": "/workspace/scratch/dashboard-cleanup-independent-jtt30bk7",
+  "source_entries": 201,
+  "changed_vs_privacy": [
+    "caps_trial.h",
+    "webfiles.h"
+  ],
+  "unchanged_vs_privacy": 199,
+  "changed_vs_h1": [
+    "caps_trial.h",
+    "cli.cpp",
+    "webfiles.h",
+    "webserver.cpp"
+  ],
+  "unchanged_vs_h1": 197,
+  "target_compiler_executed": false,
+  "firmware_generated": false,
+  "hardware": false
+}

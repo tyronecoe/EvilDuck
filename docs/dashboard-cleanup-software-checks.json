@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "command": [
+        "node",
+        "tests/led_return/test_stop_ui.cjs",
+        "/workspace/scratch/dashboard-cleanup/candidate/webfiles.h"
+      ],
+      "exit": 0,
+      "stdout": "{\"PASS\":10,\"FAIL\":0,\"assertions\":21,\"scope\":\"actual embedded JS with mocks; not native browser or hardware\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "tests/stop_ui/test_ui.cjs",
+        "/workspace/scratch/dashboard-cleanup/candidate/webfiles.h"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(v)\n\n    at check (/workspace/EvilDuck/tests/stop_ui/test_ui.cjs:5:57)\n    at /workspace/EvilDuck/tests/stop_ui/test_ui.cjs:9:232 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n"
+    },
+    {
+      "command": [
+        "node",
+        "tests/stop_ui/test_ui.cjs",
+        "/workspace/scratch/dashboard-cleanup/before/webfiles.h"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(v)\n\n    at check (/workspace/EvilDuck/tests/stop_ui/test_ui.cjs:5:57)\n    at /workspace/EvilDuck/tests/stop_ui/test_ui.cjs:9:232 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "tests/dashboard_cleanup/test_verify_release.py"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.005s\n\nOK\n"
+    }
+  ],
+  "classification": "Current LED-return STOP regression PASS; earlier stop_ui runner incompatible on both unchanged privacy base and current UI due reply.text() String(object) mock; preserved FAIL receipts, no expectations modified",
+  "sanitizers": "Not rerun: only HTML/CSS/JS plus identity literal changed; previous unchanged native/backend sanitizer evidence historical"
+}

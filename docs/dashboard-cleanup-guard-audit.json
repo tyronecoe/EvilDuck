@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "privacy_target_require_calls": 45,
+  "unchanged_guard_expressions": 40,
+  "updated_identity_inventory_guard_expressions": 5,
+  "profile_flag_parser_unchanged": true,
+  "adaptation_count": 11,
+  "startup_forwarder_loaded": true,
+  "historical_caps_dependency_contains_actual_header": true,
+  "target_compiler_executed": false,
+  "historical_artifact_used_only_for_dependency_parser": true
+}

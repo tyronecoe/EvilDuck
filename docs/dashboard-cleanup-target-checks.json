@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "source_files": 201,
+  "dashboard_files": 2,
+  "unchanged_files": 199,
+  "comparison_base": "privacy-fix1",
+  "cumulative_h1_changed_files": 4,
+  "cumulative_h1_unchanged_files": 197,
+  "verifier_sha256": "01ff00b6dfe7fe74baf2854123a1a65af38837eb7ee58e7c6f9a82eab8221bb1",
+  "source_manifest_sha256": "b000f87c3cafb5b2bf4c98ee9c740789324c020d7099c4ae67610d273dfa479e",
+  "dashboard_patch_sha256": "49d293a2cb97bae179a08252652c00be0fe771952e37d50300d06503e56c95fd",
+  "parent_preparer_sha256": "0bb594377dd1964926dcefbfb2e746251cdd908434bc6eba4eeb6624a2ba1dca",
+  "compile_inputs": [
+    {
+      "source": "cli.cpp",
+      "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+      "compiled_source": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/cli.cpp",
+      "compiled_sha256": "9fba51bfc3547458f29e1a9d84a6455873f3ae10b6e07c211ae5757fe74ce9de",
+      "object": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/cli.cpp.o",
+      "object_sha256": "b2fb67d25a8517e293cf0d83a21955c28839efb1a60409b5d97662ab3fdc1c39",
+      "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "dependency_file": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/cli.cpp.d",
+      "dependency_sha256": "6c99c99762e52d9c8af295b595142841b76a8a11c4ab307be6c482aca46ddaf7",
+      "dependency_count": 187,
+      "verbose_compile_observed": true,
+      "linked_map_load": true
+    },
+    {
+      "source": "webserver.cpp",
+      "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+      "compiled_source": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/webserver.cpp",
+      "compiled_sha256": "4cd7d91bdb2b4b434fbb3ef2687b7989834debf20e240c51b5b70bf3f5a9fc26",
+      "object": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/webserver.cpp.o",
+      "object_sha256": "01ca50acf756e177a18a639ce56d28c838cc65d7fb49f6ea38f151aa41a697a6",
+      "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+      "dependency_file": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/webserver.cpp.d",
+      "dependency_sha256": "26433f3394da33c5d72e279b7cf3595aef7d1f648285b1e1546ae00272cf99b5",
+      "dependency_count": 262,
+      "verbose_compile_observed": true,
+      "linked_map_load": true,
+      "webfiles_header": {
+        "file": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/webfiles.h",
+        "sha256": "e1d9d36e34a1e9163934951d66bb3b48d86e05b380e6e32871a6c71baf77658c",
+        "candidate_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+        "dependency_observed": true
+      }
+    }
+  ],
+  "compile_log_sha256": "ad9f66412302593a38ab97e145163869711561f6b2f372d34bb7206ea1fe493e",
+  "compile_commands_sha256": "85e5c73b9d4dd88780945ef11ebd556e7b2c5be7ae82721a9f990f0a006278b3",
+  "map_sha256": "7a0ea59da5532213c88526dbc7c623c5aa1b4088b70e30e724cc551980da0553",
+  "elf_sha256": "39c5003af0006cf6e74297a4cbc135bae771a5d3592a553cc485d159bb3977b4",
+  "application_sha256": "e0ae270554c28dbc7f5634a5879c4ea56dd39b60e37b4c2de5cb9493520b97d1",
+  "application_bytes": 1428208,
+  "sdk_archives_checked": 177,
+  "sdk_archives_selected": 153,
+  "sdk_pin_reconciliation": {
+    "pinned_installed_verified": 177,
+    "selected_map_and_report": 153,
+    "installed_archive_total": 183,
+    "pinned_but_not_selected": [
+      "dio_opi/libbootloader_support.a",
+      "dio_opi/libesp_hw_support.a",
+      "dio_opi/libesp_psram.a",
+      "dio_opi/libesp_system.a",
+      "dio_opi/libfreertos.a",
+      "dio_opi/libspi_flash.a",
+      "dio_qspi/libbootloader_support.a",
+      "dio_qspi/libesp_hw_support.a",
+      "dio_qspi/libesp_psram.a",
+      "dio_qspi/libesp_system.a",
+      "dio_qspi/libfreertos.a",
+      "dio_qspi/libspi_flash.a",
+      "opi_opi/libbootloader_support.a",
+      "opi_opi/libesp_hw_support.a",
+      "opi_opi/libesp_psram.a",
+      "opi_opi/libesp_system.a",
+      "opi_opi/libfreertos.a",
+      "opi_opi/libspi_flash.a",
+      "qio_opi/libbootloader_support.a",
+      "qio_opi/libesp_hw_support.a",
+      "qio_opi/libesp_psram.a",
+      "qio_opi/libesp_system.a",
+      "qio_opi/libfreertos.a",
+      "qio_opi/libspi_flash.a"
+    ],
+    "unpinned_installed_and_not_selected": [
+      "lib/libesp_zb_api.zczr.a",
+      "lib/libesp_zb_api.zczr.debug.a",
+      "lib/libzboss_port.remote.a",
+      "lib/libzboss_port.remote.debug.a",
+      "lib/libzboss_stack.zczr.a",
+      "lib/libzboss_stack.zczr.debug.a"
+    ],
+    "unpinned_archives_trusted": false
+  },
+  "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+  "historical_full_h1_verify_link_executed": false,
+  "profile": "DASHBOARD CLEANUP / PRIVACY FIX 1 / H1 EXPERIMENTAL / OWNER REVIEW",
+  "build_id_policy": "Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity",
+  "physical": false,
+  "installation_authorized": false,
+  "package_created": false,
+  "build_id": "ROUTEB-DASHBOARD-CLEANUP-v1",
+  "privacy_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+  "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+  "parent_target_verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+  "dashboard_source_manifest_sha256": "b000f87c3cafb5b2bf4c98ee9c740789324c020d7099c4ae67610d273dfa479e",
+  "cumulative_h1_source_overrides": {
+    "caps_trial.h": "c5ede40c4ef13636a5e20059bcfb79011a6cce8f20d7bb84577f3038a30c7075",
+    "webfiles.h": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+    "cli.cpp": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+    "webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9"
+  },
+  "identity_header": {
+    "source": "caps_trial.h",
+    "candidate_sha256": "c5ede40c4ef13636a5e20059bcfb79011a6cce8f20d7bb84577f3038a30c7075",
+    "compiled_header": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/caps_trial.h",
+    "compiled_sha256": "1d0d3e17fa8ffc06652da25b93c1c0ce0aa5f27da285941f059b77b10048be1f",
+    "dependency_observed": true,
+    "dependency_file": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/caps_trial.cpp.d",
+    "object": "/workspace/scratch/dashboard-cleanup/build-v1/build/sketch/caps_trial.cpp.o",
+    "object_sha256": "2e908c80170d6396a3c0f1494a3f72ca6e206beba58b4ae0430605ff31026e66",
+    "verbose_compile_observed": true,
+    "linked_map_load": true,
+    "metadata_only": true
+  },
+  "target_verifier_adaptations": [
+    {
+      "before": "manifest_path = ROOT / \"tests/privacy_fix1/source-manifest.json\"",
+      "after": "manifest_path = ROOT / \"tests/dashboard_cleanup/source-manifest.json\"",
+      "occurrences": 1
+    },
+    {
+      "before": "sha(ROOT / \"tests/h1_right_modifiers/prepare_sources.py\")",
+      "after": "sha(ROOT / \"tests/privacy_fix1/prepare_sources.py\")",
+      "occurrences": 1
+    },
+    {
+      "before": "sha(ROOT / \"tests/privacy_fix1/application.patch\")",
+      "after": "sha(ROOT / \"tests/dashboard_cleanup/application.patch\")",
+      "occurrences": 1
+    },
+    {
+      "before": "len(pin[\"after\"]) == 3 and len(pin[\"unchanged\"]) == 198",
+      "after": "len(pin[\"after\"]) == 2 and len(pin[\"unchanged\"]) == 199",
+      "occurrences": 1
+    },
+    {
+      "before": "\"Privacy manifest is not the reviewed 3/198 source delta\"",
+      "after": "\"Dashboard manifest is not the reviewed 2/199 source delta\"",
+      "occurrences": 1
+    },
+    {
+      "before": "{\"cli.cpp\", \"webserver.cpp\", \"webfiles.h\"}",
+      "after": "{\"webfiles.h\", \"caps_trial.h\"}",
+      "occurrences": 1
+    },
+    {
+      "before": "require(b\"ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1\" in data, \"Expected retained H1 build identity missing\")",
+      "after": "require(b'ROUTEB-DASHBOARD-CLEANUP-v1' in data, \"Expected dashboard candidate identity missing\")",
+      "occurrences": 1
+    },
+    {
+      "before": "source_files=201, privacy_files=3, unchanged_files=198",
+      "after": "source_files=201, dashboard_files=2, unchanged_files=199, comparison_base=\"privacy-fix1\", cumulative_h1_changed_files=4, cumulative_h1_unchanged_files=197",
+      "occurrences": 1
+    },
+    {
+      "before": "privacy_patch_sha256=pin[\"patch_sha256\"]",
+      "after": "dashboard_patch_sha256=pin[\"patch_sha256\"]",
+      "occurrences": 1
+    },
+    {
+      "before": "profile=\"PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL\"",
+      "after": "profile=\"DASHBOARD CLEANUP / PRIVACY FIX 1 / H1 EXPERIMENTAL / OWNER REVIEW\"",
+      "occurrences": 1
+    },
+    {
+      "before": "build_id_policy=\"Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate\"",
+      "after": "build_id_policy=\"Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity\"",
+      "occurrences": 1
+    }
+  ]
+}

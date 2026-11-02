@@ -1,0 +1,11 @@
+{
+  "counts": {
+    "PASS": 6,
+    "FAIL": 0
+  },
+  "scope": "Inert source/AST package policy tests; no image/package construction",
+  "details": "test_final_sources_are_two_and_199_without_relabeling_privacy_base (__main__.PackagePolicy.test_final_sources_are_two_and_199_without_relabeling_privacy_base) ... ok\ntest_generated_docs_are_offline_first_and_clear_about_private_backup (__main__.PackagePolicy.test_generated_docs_are_offline_first_and_clear_about_private_backup) ... ok\ntest_inherited_h1_preflight_guards_unchanged_except_three_explicit_fields (__main__.PackagePolicy.test_inherited_h1_preflight_guards_unchanged_except_three_explicit_fields) ... ok\ntest_no_new_installer_or_launcher_behavior (__main__.PackagePolicy.test_no_new_installer_or_launcher_behavior) ... ok\ntest_pinned_packager_keeps_historical_h1_metadata (__main__.PackagePolicy.test_pinned_packager_keeps_historical_h1_metadata) ... ok\ntest_python38_syntax_and_bound_receipt_required (__main__.PackagePolicy.test_python38_syntax_and_bound_receipt_required) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.030s\n\nOK\n",
+  "hardware": false,
+  "network": false,
+  "firmware_built": false
+}
