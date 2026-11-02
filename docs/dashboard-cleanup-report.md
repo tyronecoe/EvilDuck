@@ -213,3 +213,22 @@ is published. Final package receipts are linked in
 [extracted offline preflight](dashboard-cleanup-offline-preflight.json).
 The ZIP's firmware-report.md is the packaging-source checkpoint report; these
 subsequent packaging/publication results are supplied alongside it in the repository.
+
+## Publication verification
+
+[Download the exact verified public ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/211e6f8956c3de5277a8b5334a7cd04f91e05622/downloads/evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip).
+Artifact commit: `211e6f8956c3de5277a8b5334a7cd04f91e05622`. A fresh HTTP 200
+download matched its 2,497,152-byte size, ZIP hash, actual Git blob bytes, application
+and rollback hashes. It is an actual ZIP, not a Git LFS pointer.
+[Publication receipt](dashboard-cleanup-publication.json) records the comparison.
+All **88 previous remote refs** and **2,348 historical files/modes** remain
+unchanged; only the new review branch is published.
+
+Inert synthetic fixture screenshots, **not physical-device evidence**:
+[Home at 320px](dashboard-cleanup-home-320.png),
+[Diagnostics at 320px](dashboard-cleanup-diagnostics-320.png), and
+[Settings at 390px](dashboard-cleanup-settings-390.png).
+
+Final decision: **GO for review; installation and physical candidate acceptance
+remain separately authorized and unverified.** No hardware access, flashing, OTA
+or real HID output occurred. Stop here for owner review.
