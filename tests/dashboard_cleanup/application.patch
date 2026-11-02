@@ -1,0 +1,460 @@
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1";
++constexpr const char* BuildId="ROUTEB-DASHBOARD-CLEANUP-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;
+--- webfiles.h
++++ webfiles.h
+@@ -29,7 +29,8 @@
+   </header>
+ 
+ 
+-  <aside id="emergencyStop" hidden role="region" aria-label="Script stop" style="position:sticky;top:0;z-index:50;background:#240909;padding:4px 8px;border:1px solid #ff5555">
++  <div class="execution-strip" role="region" aria-label="Execution and STOP">
++  <aside id="emergencyStop" hidden role="region" aria-label="Script stop" style="background:#240909;padding:4px 8px;border:1px solid #ff5555">
+     <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;min-height:44px">STOP script</button>
+     <span id="runState" role="status">Checking execution</span>
+     <details id="stopDetails"><summary>Details / status</summary>
+@@ -39,29 +40,15 @@
+     </details>
+   </aside>
+   <div style="padding:4px 8px"><button type="button" onclick="stopScript()">STOP / check execution</button> <span id="runResult" role="status" aria-live="polite">Checking execution</span></div>
+-  <section class="card" aria-label="LED fixed-message test">
+-   <h2>USB LED fixed-message test (RAM only)</h2>
+-   <p>Custom protocol, not Hak5-compatible. Receive EVILDUCK TEST 123 only. Maximum120 seconds. STOP script does not stop receiving.</p>
+-   <button type="button" onclick="ledAction('start')">Start receiving</button>
+-   <button type="button" onclick="ledAction('stop')">Stop receiving</button>
+-   <button type="button" onclick="ledAction('')">Observe LEDs / refresh</button>
+-   <button type="button" onclick="viewLedData(false)">View test data</button>
+-   <button type="button" onclick="viewLedData(true)">Download test data</button>
+-   <button type="button" onclick="ledAction('clear')">Clear RAM result</button>
+-   <pre id="ledTestResult" role="status">Unknown — no host LED report inferred.</pre><pre id="ledTestText"></pre>
+-  </section>
+-  <section class="card"><h2>Ordinary Route B Caps timing (opt-in)</h2><p>Default 5ms. Mac mode uses the owner-confirmed 500ms interval only for standalone CAPSLOCK. RAM only until reboot. Each run captures its setting; changing this does not alter an active run.</p>
+-   <select id="capsTimingMode"><option value="standard">Standard: 5ms</option><option value="mac">Mac Caps: 500ms</option></select><button type="button" onclick="capsTiming(true)">Apply for future runs</button><button type="button" onclick="capsTiming(false)">Refresh setting</button><pre id="capsTimingResult">Not yet observed.</pre></section>
+-  <section class="card"><h2>One Caps-duration trial</h2><p>Experimental: known EvilDuck-generated starting case, focus TextEdit within five seconds. One invocation only; no automatic replay. STOP remains available. Ordinary CAPSLOCK uses the separately captured timing setting; this diagnostic keeps its own selected duration.</p>
+-   <select id="capsDuration"><option value="0">Baseline (5 ms scheduled wait)</option><option value="100">100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select>
+-   <button type="button" onclick="capsTrial(true)">Start ONE trial (5-second focus delay)</button><button type="button" onclick="capsTrial(false)">Refresh trial evidence</button><pre id="capsTrialResult">No trial requested.</pre></section>
+-  <section class="card"><h2>Bounded HID/STOP trace (default OFF)</h2><p>Enable only while idle. Last128 source-tagged events,120seconds,8 events per refresh. No typed text/key identities. Trace does not execute anything.</p><button onclick="hidTrace('enable')">Enable / reset trace</button><button onclick="hidTrace('disable')">Disable trace</button><button onclick="hidTrace('')">Read next events</button><pre id="hidTraceResult">Trace not observed. HTTP202 STOP means requested; terminal cancellation is separate. USB callbacks are not host delivery.</pre></section>
++  <div class="diagnostic-activity"><span id="diagnosticsActivity" role="status" aria-live="polite">Diagnostic activity not yet checked.</span><button type="button" onclick="activateTab('diagnostics')">Diagnostics</button></div>
++  </div>
+   <main class="tabshell">
+     <div class="tabbar" role="tablist" aria-label="Home sections">
+       <button class="tabbtn active" type="button" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="dashboard">Dashboard</button>
+       <button class="tabbtn" type="button" role="tab" aria-selected="false" aria-controls="tab-scripts" data-tab="scripts">Scripts</button>
+       <button class="tabbtn" type="button" role="tab" aria-selected="false" aria-controls="tab-library" data-tab="library">Library</button>
+       <button class="tabbtn" type="button" role="tab" aria-selected="false" aria-controls="tab-logs" data-tab="logs">Logs</button>
++      <button class="tabbtn" type="button" role="tab" aria-selected="false" aria-controls="tab-diagnostics" data-tab="diagnostics">Diagnostics</button>
+     </div>
+ 
+     <section id="tab-dashboard" class="tabpanel active grid" role="tabpanel">
+@@ -194,6 +181,23 @@
+         <pre id="log" class="log" aria-live="polite"></pre>
+       </section>
+     </section>
++    <section id="tab-diagnostics" class="tabpanel grid" role="tabpanel" hidden>
++      <div class="diagnostic-note span2">Existing manual diagnostics. Opening this view or a panel does not start a test, enable a trace or clear a result. Script STOP does not stop the LED receiver; use its separate Stop receiving control.</div>
++      <details id="ledDiagnostic" class="card span2 diagnostic-detail"><summary>USB LED fixed-message test (RAM only)</summary><div class="diagnostic-body">
++   <p>Custom protocol, not Hak5-compatible. Receive EVILDUCK TEST 123 only. Maximum120 seconds. STOP script does not stop receiving.</p>
++   <button type="button" onclick="ledAction('start')">Start receiving</button>
++   <button type="button" onclick="ledAction('stop')">Stop receiving</button>
++   <button type="button" onclick="ledAction('')">Observe LEDs / refresh</button>
++   <button type="button" onclick="viewLedData(false)">View test data</button>
++   <button type="button" onclick="viewLedData(true)">Download test data</button>
++   <button type="button" onclick="ledAction('clear')">Clear RAM result</button>
++   <pre id="ledTestResult" role="status">Unknown — no host LED report inferred.</pre><pre id="ledTestText"></pre>
++  </div></details>
++      <details id="capsTrialDiagnostic" class="card span2 diagnostic-detail"><summary>One Caps-duration trial</summary><div class="diagnostic-body"><p>Experimental: known EvilDuck-generated starting case, focus TextEdit within five seconds. One invocation only; no automatic replay. STOP remains available. Ordinary CAPSLOCK uses the separately captured timing setting; this diagnostic keeps its own selected duration.</p>
++   <select id="capsDuration"><option value="0">Baseline (5 ms scheduled wait)</option><option value="100">100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select>
++   <button type="button" onclick="capsTrial(true)">Start ONE trial (5-second focus delay)</button><button type="button" onclick="capsTrial(false)">Refresh trial evidence</button><pre id="capsTrialResult">No trial requested.</pre></div></details>
++      <details id="traceDiagnostic" class="card span2 diagnostic-detail"><summary>Bounded HID/STOP trace (default OFF)</summary><div class="diagnostic-body"><p>Enable only while idle. Last128 source-tagged events,120seconds,8 events per refresh. No typed text/key identities. Trace does not execute anything.</p><button type="button" onclick="hidTrace('enable')">Enable / reset trace</button><button type="button" onclick="hidTrace('disable')">Disable trace</button><button type="button" onclick="hidTrace('')">Read next events</button><pre id="hidTraceResult">Trace not observed. HTTP202 STOP means requested; terminal cancellation is separate. USB callbacks are not host delivery.</pre></div></details>
++    </section>
+   </main>
+ 
+   <footer class="footer">
+@@ -231,6 +235,18 @@
+     </nav>
+   </header>
+ 
++  <div class="execution-strip" role="region" aria-label="Execution and STOP">
++  <aside id="emergencyStop" hidden role="region" aria-label="Script stop" style="background:#240909;padding:4px 8px;border:1px solid #ff5555">
++    <button id="stopScript" type="button" onclick="stopScript()" style="background:#c01818;color:white;min-height:44px">STOP script</button>
++    <span id="runState" role="status">Checking execution</span>
++    <details id="stopDetails"><summary>Details / status</summary>
++      <button type="button" onclick="refreshStatus()">Check status</button>
++      <div id="stopResult" role="status" aria-live="polite"></div>
++      <div>Stops EvilDuck script execution. Programs already launched on the computer may keep running. Host key release is not proven.</div>
++    </details>
++  </aside>
++  <div style="padding:4px 8px"><button type="button" onclick="stopScript()">STOP / check execution</button> <span id="runResult" role="status" aria-live="polite">Checking execution</span></div>
++  </div>
+   <main class="grid">
+     <section class="card span2">
+       <div class="cardhead"><h2>Wi‑Fi AP</h2></div>
+@@ -255,6 +271,14 @@
+       </div>
+     </section>
+ 
++    <section class="card span2 keyboard-timing" aria-labelledby="capsTimingHeading">
++      <div class="cardhead"><h2 id="capsTimingHeading">Keyboard timing</h2></div>
++      <p class="hint">Route B standalone CAPSLOCK: default 5ms; Mac option 500ms. RAM until reboot; future runs only. An active run keeps its captured timing.</p>
++      <label for="capsTimingMode">Caps Lock timing</label>
++      <select id="capsTimingMode" class="input" onchange="capsTimingEdited()"><option value="standard">Standard: 5ms</option><option value="mac">Mac Caps: 500ms</option></select>
++      <div class="actions"><button id="capsTimingApply" type="button" onclick="capsTiming(true)">Apply for future runs</button><button id="capsTimingRefresh" type="button" onclick="capsTiming(false)">Refresh setting</button></div>
++      <div id="capsTimingResult" role="status" aria-live="polite">Not yet observed. No timing change requested.</div>
++    </section>
+     <section class="card span2">
+       <div class="cardhead"><h2>Stealth / OPSEC</h2></div>
+       <div class="stack">
+@@ -519,12 +543,14 @@
+   margin:0 auto;
+ }
+ .tabbar{
+-  padding:16px 16px 0;
++  padding:12px 16px 0;
+   display:flex;
+-  gap:10px;
+   flex-wrap:wrap;
+ }
+ .tabbtn{
++  min-height:44px;
++  margin:0 8px 8px 0;
++  max-width:100%;
+   padding:10px 12px;
+   border-radius:999px;
+   border:1px solid var(--border);
+@@ -721,6 +747,22 @@
+   resize:vertical;
+   box-sizing:border-box;
+ }
++
++/* Presentation only: controls remain wired to the existing authenticated APIs. */
++.execution-strip{position:-webkit-sticky;position:sticky;top:0;z-index:60;background:#16191b;border-bottom:1px solid #555;box-sizing:border-box;max-width:100%;}
++.execution-strip button{min-height:44px;max-width:100%;}
++.execution-strip #runResult,.execution-strip #runState{overflow-wrap:break-word;word-wrap:break-word;}
++.diagnostic-activity{display:flex;align-items:center;flex-wrap:wrap;padding:2px 8px;font-size:12px;line-height:1.35;}
++.diagnostic-activity span{flex:1 1 220px;min-width:0;overflow-wrap:break-word;word-wrap:break-word;margin:2px 8px 2px 0;}
++.diagnostic-activity button{flex:0 0 auto;}
++.diagnostic-note{font-size:13px;line-height:1.4;color:var(--muted);}
++.diagnostic-detail{min-width:0;box-sizing:border-box;}
++.diagnostic-detail summary{min-height:44px;box-sizing:border-box;padding:10px 0;cursor:pointer;font-weight:700;}
++.diagnostic-body{min-width:0;}
++.diagnostic-body button{min-height:44px;margin:2px 4px 2px 0;max-width:100%;}
++.diagnostic-body pre{white-space:pre-wrap;overflow-wrap:break-word;word-wrap:break-word;overflow:auto;max-width:100%;box-sizing:border-box;}
++.keyboard-timing select{max-width:100%;}
++#capsTimingResult{font-size:13px;line-height:1.4;overflow-wrap:break-word;word-wrap:break-word;}
+ )rawliteral";
+ 
+ static const char INDEX_JS[] PROGMEM = R"rawliteral(
+@@ -741,6 +783,8 @@
+     panel.hidden=!active;
+   });
+   if(location.hash!=='#'+name) history.replaceState(null,'','#'+name);
++  if(name==='logs')refreshExecLog();
++  refreshDiagnosticsActivity();
+ }
+ 
+ function appendScriptRow(ul,name,{showRun=true,showDelete=true}={}){
+@@ -910,7 +954,7 @@
+   if(statusPollInFlight)return;statusPollInFlight=true;
+   try{
+     const r=await controlFetch('/status',{headers:duckHeaders()});
+-    if(!r.ok)throw new Error('HTTP '+r.status);
++    if(!r.ok){const error=new Error(httpFailure(r,await r.text()));error.status=r.status;throw error;}
+     const s=await r.json();observeStop(s);observeExecution(s);
+     document.getElementById('ssidVal').textContent=s.ssid||'—';
+     document.getElementById('chVal').textContent=(s.channel??'—');
+@@ -926,8 +970,8 @@
+     const chipSt=document.getElementById('chipStorage');
+     if(chipSt) setChip(chipSt, s.storage?'MSC on':'MSC off', s.storage?'good':'subtle');
+   }catch(e){
+-    executionUncertain('Status unavailable — execution unknown; STOP available');
+-    setChip(document.getElementById('chipRunning'), 'Offline', 'bad');
++    executionUncertain(e.status===401?'Authentication required (HTTP 401); execution unknown; STOP control available':'Status unavailable — execution unknown; STOP control available');
++    setChip(document.getElementById('chipRunning'), e.status===401?'Sign in required':'Status unknown', 'bad');
+   }finally{statusPollInFlight=false;}
+ }
+ 
+@@ -955,14 +999,18 @@
+   }catch(e){log('Library: '+e);}
+ }
+ 
++let execLogPollInFlight=false;
+ async function refreshExecLog(){
+   const el=document.getElementById('execLog');
+-  if(!el) return;
++  const panel=document.getElementById('tab-logs');
++  if(!el||!panel||panel.hidden||execLogPollInFlight)return;
++  execLogPollInFlight=true;
+   try{
+     const r=await controlFetch('/exec/log?format=text',{headers:duckHeaders()});
+     const body=await r.text();el.textContent=r.ok&&!/^\s*</.test(body)?(body||'No legacy log entries; see request execution status above.'):httpFailure(r,body);
+     el.scrollTop=el.scrollHeight;
+-  }catch(e){el.textContent=String(e);}
++  }catch(e){el.textContent='Log unavailable: '+e.message;}
++  finally{execLogPollInFlight=false;}
+ }
+ 
+ // BEGIN STOP CONTROLS
+@@ -978,7 +1026,7 @@
+   if(stopInFlight)return;
+   stopInFlight=true;stopReceipt=null;stopMessage('Requesting STOP…');
+   try{const r=await controlFetch('/stop',{method:'POST',headers:duckHeaders()});
+-    if(r.status!==202)throw new Error('HTTP '+r.status+': '+await r.text());
++    if(r.status!==202)throw new Error(httpFailure(r,await r.text()));
+     const receipt=await r.json();stopReceipt=receipt;
+     stopMessage(receipt.wasOwned===false?'No active Route B execution at admission. This does not prove host key release.':'Stop requested — waiting for owner confirmation.');
+     refreshStatus();
+@@ -1007,7 +1055,7 @@
+  finally{runInFlight=false;}
+ }
+ let currentRunId=null;
+-function httpFailure(r,body){return 'HTTP '+r.status+(/^\s*</.test(body)?' (non-text error response)':': '+String(body).slice(0,180));}
++function httpFailure(r,body){if(r.status===401)return 'Authentication required (HTTP 401). Enter the Web UI password on Dashboard.';return 'HTTP '+r.status+(/^\s*</.test(body)?' (non-text error response)':': '+String(body).slice(0,180));}
+ function executionUncertain(message){
+  const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=false;
+  const state=document.getElementById('runState');if(state)state.textContent=message;
+@@ -1027,17 +1075,48 @@
+  if(terminal)currentRunId=null;
+ }
+ // END STOP CONTROLS
++// BEGIN DIAGNOSTIC ACTIVITY SUMMARY — read-only, one cycle at most per 5 seconds.
++let diagnosticsPollInFlight=false,diagnosticsLastPollAt=0,diagnosticsLastObservedAt=0;
++let diagnosticsLastActive=[],diagnosticsError='';
++function renderDiagnosticsActivity(){
++ const out=document.getElementById('diagnosticsActivity');if(!out)return;
++ const at=diagnosticsLastObservedAt?new Date(diagnosticsLastObservedAt).toLocaleTimeString():'';
++ if(diagnosticsError){
++  out.textContent='Diagnostic activity unknown — '+diagnosticsError+(diagnosticsLastActive.length?'. Last observed active at '+at+': '+diagnosticsLastActive.join(', '):'. No current activity evidence.');
++  out.setAttribute('data-activity','unknown');return;
++ }
++ if(!diagnosticsLastObservedAt){out.textContent='Diagnostic activity not yet checked.';return;}
++ out.textContent='Last observed '+at+': '+(diagnosticsLastActive.length?diagnosticsLastActive.join(', ')+' active':'no diagnostics reported active')+'.'+(diagnosticsLastActive.indexOf('LED receiver')>=0?' Script STOP does not stop receiving.':'');
++ out.setAttribute('data-activity',diagnosticsLastActive.length?'active':'inactive');
++}
++async function refreshDiagnosticsActivity(){
++ if(document.hidden||diagnosticsPollInFlight||stopInFlight||runInFlight)return;
++ const now=Date.now();if(diagnosticsLastPollAt&&now-diagnosticsLastPollAt<5000)return;
++ diagnosticsLastPollAt=now;diagnosticsPollInFlight=true;
++ try{
++  async function read(path){const r=await controlFetch(path,{headers:duckHeaders()});if(!r.ok)throw new Error(httpFailure(r,await r.text()));return r.json();}
++  const led=await read('/led-test');
++  const trial=await read('/caps-trial');
++  const trace=await read('/hid-trace?after=4294967295');
++  if(!Number.isInteger(led.state)||led.state<0||led.state>8||typeof trial.active!=='boolean'||typeof trace.enabled!=='boolean')throw new Error('Invalid activity snapshot');
++  const active=[];if(led.state===1)active.push('LED receiver');if(trial.active)active.push('Caps trial');if(trace.enabled)active.push('HID trace');
++  diagnosticsLastActive=active;diagnosticsLastObservedAt=Date.now();diagnosticsError='';renderDiagnosticsActivity();
++ }catch(e){diagnosticsError=e.message;renderDiagnosticsActivity();}
++ finally{diagnosticsPollInFlight=false;}
++}
++// END DIAGNOSTIC ACTIVITY SUMMARY
++
+ // BEGIN LED TEST CONTROLS
+ async function ledAction(action){
+  const out=document.getElementById('ledTestResult');
+  try{const r=await controlFetch('/led-test'+(action?'/'+action:''),{method:action?'POST':'GET',headers:duckHeaders()});
+-  if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
++  if(!r.ok)throw new Error(httpFailure(r,await r.text()));const s=await r.json();
+   out.textContent=JSON.stringify(s,null,2)+'\nUse ledEvidenceValid for current LED evidence (5-second freshness). connected is deprecated feedback history, NOT the USB link. Stack fields are separate samples; hidInReady may be false while IN is busy. callbacks is keyboard-handler-only; rawArrivals includes successful control and interrupt OUT callback arrivals. MissingRoute may precede successful prefixed-ID routing. Stale is last-known, not no report. Reports describe this interface, not another keyboard. Compare buildId + bootMarker + uptime before comparing counters.';
+  }catch(e){out.textContent='Receiver not confirmed: '+e.message;}
+ }
+ async function viewLedData(download){
+  const out=document.getElementById('ledTestText');
+- try{const r=await controlFetch('/led-test/data',{headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const text=await r.text();if(!r.contentType.toLowerCase().startsWith('text/plain')||text!=='EVILDUCK TEST 123')throw new Error('Wrong response type or unverified fixed message');out.textContent=text;
++ try{const r=await controlFetch('/led-test/data',{headers:duckHeaders()});if(!r.ok)throw new Error(httpFailure(r,await r.text()));const text=await r.text();if(!r.contentType.toLowerCase().startsWith('text/plain')||text!=='EVILDUCK TEST 123')throw new Error('Wrong response type or unverified fixed message');out.textContent=text;
+   if(download){const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'text/plain'}));link.download='evilduck-fixed-test.txt';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);}
+  }catch(e){out.textContent='No verified data: '+e.message;}
+ }
+@@ -1050,30 +1129,15 @@
+  capsTrialPending=true;
+  try{const fd=new FormData();if(start)fd.append('ms',ms);
+   const r=await controlFetch('/caps-trial'+(start?'/start':''),{method:start?'POST':'GET',headers:duckHeaders(),...(start?{body:fd}:{})});
+-  if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
++  if(!r.ok)throw new Error(httpFailure(r,await r.text()));const s=await r.json();
+   out.textContent=JSON.stringify(s,null,2)+'\nLocal timestamps only. Check EvilDuck-generated typing, not a different keyboard light. Host release and LED return remain unproven by this local trial record alone.';
+   if(start){currentRunId=s.requestId;executionUncertain('Caps trial admitted; focus editor now. No replay.');}
+  }catch(e){out.textContent='Trial not confirmed: '+e.message+'; do not replay automatically. Use STOP / check execution.';if(start)executionUncertain('Caps trial result unknown');}
+  finally{capsTrialPending=false;}
+ }
+-let capsTimingPending=false;
+-async function capsTiming(set){
+- if(capsTimingPending)return;
+- const out=document.getElementById('capsTimingResult');const mode=document.getElementById('capsTimingMode').value;
+- if(set&&!['standard','mac'].includes(mode)){out.textContent='Select standard or mac';return;}
+- capsTimingPending=true;
+- try{const fd=new FormData();if(set)fd.append('mode',mode);
+-  const r=await controlFetch('/caps-timing',{method:set?'POST':'GET',headers:duckHeaders(),...(set?{body:fd}:{})});
+-  if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();
+-  if(![5,500].includes(s.selectedMs)||typeof s.requestCapsMs!=='number')throw new Error('Invalid timing snapshot');
+-  document.getElementById('capsTimingMode').value=s.selectedMs===500?'mac':'standard';
+-  out.textContent='Future runs: '+s.selectedMs+'ms. RAM until reboot. Request '+s.requestId+' captured '+s.requestCapsMs+'ms'+(s.owned?' (active, unchanged)':' (last/idle)')+'. No execution requested.';
+- }catch(e){out.textContent='Setting not confirmed: '+e.message+'; no automatic retry.';}
+- finally{capsTimingPending=false;}
+-}
+ let traceAfter=0,tracePending=false;
+ async function hidTrace(action){if(tracePending)return;tracePending=true;const out=document.getElementById('hidTraceResult');
+- try{const after=action==='enable'?0:traceAfter;const r=await controlFetch('/hid-trace'+(action?'/'+action:'')+'?after='+after,{method:action?'POST':'GET',headers:duckHeaders()});if(!r.ok)throw new Error('HTTP '+r.status+': '+await r.text());const s=await r.json();if(!Array.isArray(s.events))throw new Error('Invalid trace');if(action==='enable'){traceAfter=0;out.textContent='';}out.textContent+='\n'+JSON.stringify(s,null,2);if(out.textContent.length>16000)out.textContent=out.textContent.slice(-16000);if(s.events.length)traceAfter=s.events[s.events.length-1].seq;
++ try{const after=action==='enable'?0:traceAfter;const r=await controlFetch('/hid-trace'+(action?'/'+action:'')+'?after='+after,{method:action?'POST':'GET',headers:duckHeaders()});if(!r.ok)throw new Error(httpFailure(r,await r.text()));const s=await r.json();if(!Array.isArray(s.events))throw new Error('Invalid trace');if(action==='enable'){traceAfter=0;out.textContent='';}out.textContent+='\n'+JSON.stringify(s,null,2);if(out.textContent.length>16000)out.textContent=out.textContent.slice(-16000);if(s.events.length)traceAfter=s.events[s.events.length-1].seq;
+  }catch(e){out.textContent+='\nTrace not confirmed: '+e.message+'; no automatic retry.';}finally{tracePending=false;}}
+ // END LED TEST CONTROLS
+ 
+@@ -1122,7 +1186,7 @@
+     btn.addEventListener('click',()=>activateTab(btn.dataset.tab));
+   });
+   const initial=(location.hash||'').replace('#','');
+-  if(['dashboard','scripts','library','logs'].includes(initial)) activateTab(initial);
++  if(['dashboard','scripts','library','logs','diagnostics'].includes(initial)) activateTab(initial);
+   const p=document.getElementById('duckPw');
+   if(p) p.value=sessionStorage.getItem('duckPw')||'';
+   const en=document.getElementById('editorName');
+@@ -1135,13 +1199,71 @@
+ loadList();
+ loadLibraryList();
+ refreshStatus();
+-capsTiming(false);
++refreshDiagnosticsActivity();
+ refreshExecLog();
++setInterval(refreshDiagnosticsActivity, 5000);
++document.addEventListener('visibilitychange',function(){if(!document.hidden)refreshDiagnosticsActivity();});
+ setInterval(refreshStatus, 1500);
+ setInterval(refreshExecLog, 2000);
+ )rawliteral";
+ 
+-static const char SETTINGS_JS[] PROGMEM = R"rawliteral(
++static const char SETTINGS_JS[] PROGMEM = R"rawliteral(// BEGIN SETTINGS EXECUTION CONTROLS — existing authenticated STOP/status APIs.
++let stopInFlight=false,stopReceipt=null,currentRunId=null,statusPollInFlight=false;
++async function controlFetch(url,options){
++  const controller=typeof AbortController==='undefined'?null:new AbortController();
++  if(controller)options.signal=controller.signal;
++  let timer;try{return await Promise.race([(async()=>{const r=await fetch(url,options);const body=await r.text();return {status:r.status,ok:r.ok,contentType:r.headers?r.headers.get('Content-Type')||'':'',text:async()=>body,json:async()=>JSON.parse(body)};})(),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Request timed out; outcome unknown. Check status before a deliberate retry.'));},4000);})]);}
++  finally{clearTimeout(timer);}
++}
++async function stopScript(){
++  if(stopInFlight)return;
++  stopInFlight=true;stopReceipt=null;stopMessage('Requesting STOP…');
++  try{const r=await controlFetch('/stop',{method:'POST',headers:duckHeaders()});
++    if(r.status!==202)throw new Error(httpFailure(r,await r.text()));
++    const receipt=await r.json();stopReceipt=receipt;
++    stopMessage(receipt.wasOwned===false?'No active Route B execution at admission. This does not prove host key release.':'Stop requested — waiting for owner confirmation.');
++    refreshStatus();
++  }catch(e){stopMessage('STOP not confirmed: '+e.message+' Deliberate retry available.');}
++  finally{stopInFlight=false;}
++}
++function observeStop(s){
++  if(!stopReceipt)return;
++  if(stopReceipt.engine==='legacy'){if(!s.running)stopMessage('Legacy idle observed; cancellation correlation and host release are not proven.');return;}
++  if(!stopReceipt.wasOwned)return;
++  if(s.snapshotKind!=='request-capture'||s.routeBRequestId!==stopReceipt.requestId)return;
++  if(s.routeBPhase===8){stopMessage('STOP unresolved: execution quarantined. Inspect diagnostics.');return;}
++  if(s.routeBPhase===0&&s.routeBOwned===false){
++    stopMessage(s.routeBReason===2?'Stopped / Cancelled — local owner terminal. Host key release is not proven.':'Execution ended with reason '+s.routeBReason+'; cancellation was not confirmed.');
++  }
++}
++function httpFailure(r,body){if(r.status===401)return 'Authentication required (HTTP 401). Enter the Web UI password on Dashboard.';return 'HTTP '+r.status+(/^\s*</.test(body)?' (non-text error response)':': '+String(body).slice(0,180));}
++function executionUncertain(message){
++ const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=false;
++ const state=document.getElementById('runState');if(state)state.textContent=message;
++}
++function observeExecution(s){
++ if(s.snapshotKind!=='request-capture'){executionUncertain('Execution freshness unknown');return;}
++ if(currentRunId&&s.routeBRequestId!==currentRunId){executionUncertain('Current request differs; prior result unconfirmed');return;}
++ const names=['Idle','Queued','Capturing','Verifying','Compiling','Ready','Running','Stopping','Quarantined'];
++ const reasons=['None','Completed','Cancelled','File failure','Compile failure','Unsupported capability','Runtime failure','Backend failure','USB loss','Deadline'];
++ const phase=s.routeBPhase;const terminal=phase===0&&s.routeBOwned===false;
++ const message='Request '+s.routeBRequestId+': '+(terminal?(reasons[s.routeBReason]||'Unknown terminal reason'):(names[phase]||'Unknown phase'))+
++   (typeof s.routeBCapsMs==='number'?' [Caps '+s.routeBCapsMs+'ms captured]':'')+(s.routeBLine?' at line '+s.routeBLine:'')+(s.routeBErrorCode?' (code '+s.routeBErrorCode+')':'');
++ const result=document.getElementById('runResult');if(result)result.textContent=message;
++ const state=document.getElementById('runState');if(state)state.textContent=message;
++ const bar=document.getElementById('emergencyStop');if(bar)bar.hidden=terminal;
++ // Terminal evidence stays visible outside the collapsed active control.
++ if(terminal)currentRunId=null;
++}
++function stopMessage(text){executionUncertain('STOP status');const details=document.getElementById('stopDetails');if(details)details.open=true;document.getElementById('stopResult').textContent=text;}
++async function refreshStatus(){
++ if(statusPollInFlight)return;statusPollInFlight=true;
++ try{const r=await controlFetch('/status',{headers:duckHeaders()});if(!r.ok)throw new Error(httpFailure(r,await r.text()));const value=await r.json();observeStop(value);observeExecution(value);}
++ catch(e){executionUncertain('Execution status unknown — '+e.message+' STOP control remains available.');}
++ finally{statusPollInFlight=false;}
++}
++// END SETTINGS EXECUTION CONTROLS
++
+ const log=(m)=>{const e=document.getElementById('log');e.textContent+=m+"\n";e.scrollTop=e.scrollHeight;};
+ const clearLog=()=>{document.getElementById('log').textContent='';};
+ function duckHeaders(){
+@@ -1151,7 +1273,9 @@
+   return h;
+ }
+ async function loadSettings(){
+-  const r=await fetch('/settings',{headers:duckHeaders()});
++  try{
++  const r=await controlFetch('/settings',{headers:duckHeaders()});
++  if(!r.ok)throw new Error(httpFailure(r,await r.text()));
+   const s=await r.json();
+   document.getElementById('ssid').value=s.ssid||'';
+   document.getElementById('password').value='';
+@@ -1167,6 +1291,7 @@
+   }
+   if(document.getElementById('autorun_delay_min')) document.getElementById('autorun_delay_min').value=s.autorun_delay_min||0;
+   if(document.getElementById('autorun_delay_max')) document.getElementById('autorun_delay_max').value=s.autorun_delay_max||0;
++  }catch(e){log('Settings unavailable: '+e.message);}
+ }
+ async function saveSettings(){
+   const fd=new FormData();
+@@ -1182,13 +1307,17 @@
+   if(webPassword&&webPassword.value.length) fd.append('web_password',webPassword.value);
+   if(document.getElementById('autorun_delay_min')) fd.append('autorun_delay_min',document.getElementById('autorun_delay_min').value);
+   if(document.getElementById('autorun_delay_max')) fd.append('autorun_delay_max',document.getElementById('autorun_delay_max').value);
+-  const r=await fetch('/settings',{method:'POST',body:fd,headers:duckHeaders()});
+-  log(await r.text());
++  try{
++  const r=await controlFetch('/settings',{method:'POST',body:fd,headers:duckHeaders()});
++  const body=await r.text();
++  if(!r.ok){log(httpFailure(r,body));return;}
++  log(body);
+   if(r.ok) {
+     // Do not retain submitted replacements after an acknowledged save.
+     document.getElementById('password').value='';
+     if(webPassword) webPassword.value='';
+   }
++  }catch(e){log('Settings save not confirmed: '+e.message+' No automatic retry.');}
+ }
+ let ledColorTimer=null;
+ function scheduleLedColorApply(){
+@@ -1209,7 +1338,31 @@
+     log('LED color error: '+(e?.message||String(e)));
+   }
+ }
++// BEGIN KEYBOARD TIMING — only explicit Apply sends POST.
++let capsTimingPending=false,capsTimingRevision=0;
++function capsTimingEdited(){++capsTimingRevision;}
++async function capsTiming(set){
++ if(capsTimingPending)return;
++ const out=document.getElementById('capsTimingResult');const select=document.getElementById('capsTimingMode');
++ const mode=select.value;const revision=capsTimingRevision;
++ if(set&&['standard','mac'].indexOf(mode)<0){out.textContent='Select standard or mac';return;}
++ capsTimingPending=true;
++ const apply=document.getElementById('capsTimingApply'),refresh=document.getElementById('capsTimingRefresh');
++ if(apply)apply.disabled=true;if(refresh)refresh.disabled=true;
++ try{const fd=new FormData();if(set)fd.append('mode',mode);
++  const r=await controlFetch('/caps-timing',{method:set?'POST':'GET',headers:duckHeaders(),...(set?{body:fd}:{})});
++  if(!r.ok)throw new Error(httpFailure(r,await r.text()));const value=await r.json();
++  if([5,500].indexOf(value.selectedMs)<0||typeof value.requestCapsMs!=='number')throw new Error('Invalid timing snapshot');
++  if(revision===capsTimingRevision)select.value=value.selectedMs===500?'mac':'standard';
++  out.textContent='Future runs: '+value.selectedMs+'ms. RAM until reboot. Request '+value.requestId+' captured '+value.requestCapsMs+'ms'+(value.owned?' (active, unchanged)':' (last/idle)')+'. No execution requested.'+(revision!==capsTimingRevision?' Your unsaved selection was kept.':'');
++ }catch(e){out.textContent='Setting not confirmed: '+e.message+' No automatic retry.';}
++ finally{capsTimingPending=false;if(apply)apply.disabled=false;if(refresh)refresh.disabled=false;}
++}
++// END KEYBOARD TIMING
+ loadSettings();
++capsTiming(false);
++refreshStatus();
++setInterval(refreshStatus,1500);
+ const ledColorEl=document.getElementById('led_color');
+ if(ledColorEl){
+   ledColorEl.addEventListener('input',scheduleLedColorApply);
