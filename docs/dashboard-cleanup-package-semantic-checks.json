@@ -1,0 +1,191 @@
+{
+  "counts": {
+    "PASS": 44,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "exact_dashboard_application_and_exact_older_rollback_no_hardware_or_plan",
+      "status": "PASS"
+    },
+    {
+      "name": "installer_and_launchers_frozen_except_release_binding_historical_fixtures_and_pins_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "offline_first_readme_and_no_credential_bearing_owner_commands",
+      "status": "PASS"
+    },
+    {
+      "name": "package_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "new_runtime_id_required",
+      "status": "PASS"
+    },
+    {
+      "name": "privacy_base_revision",
+      "status": "PASS"
+    },
+    {
+      "name": "dashboard_scope",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate_runtime_distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "older_rollback_cannot_claim_privacy_patch",
+      "status": "PASS"
+    },
+    {
+      "name": "privacy_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "dashboard_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_final_dashboard_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "rehashed_dashboard_pin_cannot_bypass_bound_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "dashboard_release_receipt_required",
+      "status": "PASS"
+    },
+    {
+      "name": "release_status",
+      "status": "PASS"
+    },
+    {
+      "name": "full_frozen_chain",
+      "status": "PASS"
+    },
+    {
+      "name": "release_adapter",
+      "status": "PASS"
+    },
+    {
+      "name": "linked_dashboard_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "source_revision",
+      "status": "PASS"
+    },
+    {
+      "name": "all_190_assertions",
+      "status": "PASS"
+    },
+    {
+      "name": "removed_assertions",
+      "status": "PASS"
+    },
+    {
+      "name": "unrelated_hash_changes",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_pin_ids",
+      "status": "PASS"
+    },
+    {
+      "name": "release_artifact",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_new_runtime_id",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_four_cumulative_overrides",
+      "status": "PASS"
+    },
+    {
+      "name": "all_six_frozen_layers",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_id_adaptation_audit_required",
+      "status": "PASS"
+    },
+    {
+      "name": "build_adapter",
+      "status": "PASS"
+    },
+    {
+      "name": "one_overlay",
+      "status": "PASS"
+    },
+    {
+      "name": "clean_compile",
+      "status": "PASS"
+    },
+    {
+      "name": "preserved_build_guards",
+      "status": "PASS"
+    },
+    {
+      "name": "target_status",
+      "status": "PASS"
+    },
+    {
+      "name": "all_201_sources",
+      "status": "PASS"
+    },
+    {
+      "name": "final_two_changes",
+      "status": "PASS"
+    },
+    {
+      "name": "final_199_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "four_cumulative_changes",
+      "status": "PASS"
+    },
+    {
+      "name": "target_app_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "target_verifier",
+      "status": "PASS"
+    },
+    {
+      "name": "target_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_final_composed_sources",
+      "status": "PASS"
+    },
+    {
+      "name": "final_webfiles_dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "compiled_build_identity_header",
+      "status": "PASS"
+    },
+    {
+      "name": "unreviewed_receipt_extra_data",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Actual bound dashboard preflight on disposable PUBLIC copies; support metadata rehashed to test semantic gates",
+  "original_package_unchanged": true,
+  "hardware": false,
+  "network": false,
+  "firmware_built": false,
+  "native_macos_tested": false,
+  "installation_authorized": false
+}

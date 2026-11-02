@@ -184,3 +184,32 @@ Next action: review this bounded UI candidate, then separately authorize any
 owner installation. After that, use the short page-navigation/settings-display
 check; no new keyboard test or live diagnostic is needed for this presentation
 milestone. No further feature or privacy stage is begun here.
+
+## Final packaged-byte checks
+
+Packaging source: `be559301ab01a608396073f8656d05e4f59921e7`. Final ZIP:
+[evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip](../downloads/evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip),
+**2,497,152 bytes**, SHA-256:
+`f9221d2f8bd397cbcaf9166126026f4712fc17fd0ae883fe05115cc33578142c`.
+
+The final archive passes **83 package checks, 38 bound-installer mocks and 44
+dashboard-specific semantic checks**, all with zero final failures. Six packaging
+policy unit checks also pass. These are separate from browser and release-layer
+counts. Extracted offline preflight exits 0 with plan_ready=false, no selected
+write ranges and installation_authorized=false. Python 3.8 AST grammar and Bash
+syntax pass on Linux; this is not native High Sierra execution.
+
+The first draft package's frozen guide check recorded 82 PASS/1 FAIL because
+the new guide abbreviated the future install command and omitted the historical
+H1 label. Only documentation generation was corrected; final firmware bytes and
+test expectations remain unchanged. A first invocation with symbolic HEAD was
+rejected before construction; the required full packaging commit was then used.
+Original failed receipts/draft archives remain local; only the verified final ZIP
+is published. Final package receipts are linked in
+[package identity](dashboard-cleanup-package.json),
+[83 package checks](dashboard-cleanup-package-checks.json),
+[38 installer mocks](dashboard-cleanup-installer-checks.json),
+[44 semantic checks](dashboard-cleanup-package-semantic-checks.json), and
+[extracted offline preflight](dashboard-cleanup-offline-preflight.json).
+The ZIP's firmware-report.md is the packaging-source checkpoint report; these
+subsequent packaging/publication results are supplied alongside it in the repository.

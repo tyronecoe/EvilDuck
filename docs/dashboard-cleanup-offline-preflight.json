@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "preflight.py",
+    "--directory",
+    "."
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"selected_image\": \"application\",\n  \"plan_ready\": false,\n  \"package_integrity\": \"PASS\",\n  \"source_commit\": \"be559301ab01a608396073f8656d05e4f59921e7\",\n  \"application_sha256\": \"e0ae270554c28dbc7f5634a5879c4ea56dd39b60e37b4c2de5cb9493520b97d1\",\n  \"installed_metadata\": \"NOT_SUPPLIED\",\n  \"selected_write_ranges\": [],\n  \"installation_authorized\": false,\n  \"hardware_access\": false,\n  \"device_authenticity_or_freshness_verified\": false\n}\n",
+  "stderr": "",
+  "scope": "Extracted final public package only; no device/network/owner files"
+}

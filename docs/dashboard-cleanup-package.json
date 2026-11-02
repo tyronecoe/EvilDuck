@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "package_id": "evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1",
+  "file": "downloads/evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip",
+  "bytes": 2497152,
+  "sha256": "f9221d2f8bd397cbcaf9166126026f4712fc17fd0ae883fe05115cc33578142c",
+  "firmware_source_commit": "0db1f980e0ed05390d71fe9e92178304d7a3bc24",
+  "packaging_source_commit": "be559301ab01a608396073f8656d05e4f59921e7",
+  "build_id": "ROUTEB-DASHBOARD-CLEANUP-v1",
+  "application": {
+    "bytes": 1428208,
+    "sha256": "e0ae270554c28dbc7f5634a5879c4ea56dd39b60e37b4c2de5cb9493520b97d1"
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "profile": "accepted source/text-v2; no Privacy Fix 1"
+  },
+  "checks": {
+    "package_pass": 83,
+    "package_fail": 0,
+    "installer_mock_pass": 38,
+    "installer_mock_fail": 0,
+    "dashboard_semantic_pass": 44,
+    "dashboard_semantic_fail": 0,
+    "policy_pass": 6,
+    "policy_fail": 0
+  },
+  "offline_preflight": "PASS from extracted package",
+  "private_files_included": false,
+  "hardware": false,
+  "installation_authorized": false,
+  "historical_files_and_modes_unchanged": 2348,
+  "remote_refs_before": 88,
+  "intermediate_results": {
+    "first_package_guide": "82PASS/1FAIL; corrected complete future command and labelled historical H1 identity; no firmware or test expectation change",
+    "first_package_bad_source_argument": "HEAD rejected; corrected to full committed SHA before any package construction",
+    "browser_v2": "8PASS/1 harnessFAIL locator ambiguity; fixed scoped test locator, source unchanged"
+  },
+  "platform": "Linux offline/mock/browser only; native High Sierra/current physical dashboard untested"
+}
