@@ -56,10 +56,12 @@ def generated_documents(application_sha, application_bytes, firmware_source):
     install = (common + identity + '\n' + offline + rollback +
                'Read OWNER-CHECK.md. Only after separate physical authorization, use the owner-established ROM-entry '
                'procedure and rediscover the current `/dev/cu.usbmodem*` port after reconnects. Do not assume a previous suffix. '
+               'The inherited source-stage label `ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1` identifies the historical '
+               'H1 layer, not this dashboard candidate; require the new Build ID above and exact application hash. '
                'The supported board is ESP32-S3 with 16 MiB flash; PSRAM remains disabled.\n\n'
                'The unchanged application-only installer refuses unsupported chip/security/layout/OTA states. '
                'Its future actions are `bash install-macos.sh --action check --port CURRENT_PORT` and, '
-               'only when separately authorized, `--action install` with that freshly verified port. '
+               'only when separately authorized, `bash install-macos.sh --action install --port CURRENT_PORT` with that freshly verified port. '
                'Do not run the placeholder literally. It requires esptool 4.12.0 and owner-controlled ROM mode; '
                'there is no automatic reset, reboot, retry, script Start or HID action.\n\n'
                'Before writing, the existing installer creates a new **private full-flash backup** on the Desktop, '
