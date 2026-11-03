@@ -1,0 +1,618 @@
+{
+  "baseline": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "local_branch": "routeb-editor-failed-load-safety",
+  "source_delta": {
+    "changed": 1,
+    "unchanged": 200,
+    "file": "webfiles.h",
+    "candidate_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+    "patch_sha256": "d20564165f1ead4ee2364c21184f6dfc8f506572982c2f143aa50323d76b8c58"
+  },
+  "fresh": {
+    "editor": {
+      "counts": {
+        "PASS": 41,
+        "FAIL": 0
+      },
+      "assertions": 309,
+      "receipt": "docs/editor-load-safety-browser-results.json"
+    },
+    "dashboard_regressions": {
+      "counts": {
+        "PASS": 9,
+        "FAIL": 0
+      },
+      "assertions": 207,
+      "results": [
+        {
+          "name": "layout-navigation-1280",
+          "status": "PASS",
+          "assertions": 42
+        },
+        {
+          "name": "layout-navigation-320",
+          "status": "PASS",
+          "assertions": 42
+        },
+        {
+          "name": "layout-navigation-390",
+          "status": "PASS",
+          "assertions": 42
+        },
+        {
+          "name": "hidden-active-diagnostics-and-script-stop",
+          "status": "PASS",
+          "assertions": 12
+        },
+        {
+          "name": "authentication-errors-compact",
+          "status": "PASS",
+          "assertions": 20
+        },
+        {
+          "name": "explicit-diagnostic-control-wiring-inert-only",
+          "status": "PASS",
+          "assertions": 16
+        },
+        {
+          "name": "delayed-diagnostics-no-overlap-stop-responsive",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "settings-private-replacements-and-explicit-timing",
+          "status": "PASS",
+          "assertions": 17
+        },
+        {
+          "name": "pending-timing-read-retains-owner-selection",
+          "status": "PASS",
+          "assertions": 6
+        }
+      ],
+      "source": "/workspace/scratch/editor-load-safety/source-replay-v1/webfiles.h",
+      "source_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+      "browser": {
+        "engine": "Chromium",
+        "version": "151.0.7922.173",
+        "executable": "/usr/bin/chromium",
+        "platform": "Linux",
+        "playwright": "1.62.0"
+      },
+      "profiles": [
+        {
+          "width": 1280,
+          "height": 900,
+          "mobile": false,
+          "touch": false
+        },
+        {
+          "width": 320,
+          "height": 640,
+          "mobile": true,
+          "touch": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "mobile": true,
+          "touch": true
+        }
+      ],
+      "other_environments": "Native High Sierra/newer macOS/Windows/Android/iOS and Firefox/WebKit not tested",
+      "real_network_requests": false,
+      "real_device_operations": false,
+      "payloads_executed": false,
+      "scope": "Actual embedded HTML/CSS/JS with intercepted inert HTTP; mobile viewport/touch emulation is not physical OS/browser evidence"
+    },
+    "stop_regressions": {
+      "PASS": 10,
+      "FAIL": 0,
+      "assertions": 21,
+      "scope": "actual embedded JS with mocks; not native browser or hardware"
+    },
+    "source_boundary": {
+      "counts": {
+        "PASS": 4,
+        "FAIL": 0
+      },
+      "assertions": 14,
+      "results": [
+        {
+          "name": "only_home_editor_literals_changed",
+          "status": "PASS",
+          "changed": [
+            "INDEX_HTML",
+            "INDEX_JS"
+          ]
+        },
+        {
+          "name": "stop_auth_deletion_and_direct_row_run_unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "complete_201_file_source_boundary",
+          "status": "PASS",
+          "changed": 1,
+          "unchanged": 200
+        },
+        {
+          "name": "zero_fuzz_replay_and_denied_wrong_or_repeated_input",
+          "status": "PASS"
+        }
+      ],
+      "baseline_header_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+      "candidate_header_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+      "scope": "Public source copies only; no native build, hardware or owner files"
+    },
+    "pre_fix_negative_control": {
+      "source": "/workspace/scratch/editor-load-safety/before.h",
+      "source_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+      "browser_fixture_sha256": "3713fa15a9d5ca9fa1bfe1fbfe4fde337af1b662c67c79921efe74aa05ce6166",
+      "real_network_requests": false,
+      "hardware": false,
+      "owner_sources_read": false,
+      "scripts_executed": false,
+      "real_saves": false,
+      "scope": "Actual composed embedded UI in intercepted Linux Chromium; no native Mac or device proof",
+      "results": [
+        {
+          "name": "failed-load-placeholder-explicit-save",
+          "classification": "OBSERVED_DEFECT",
+          "load_http_status": 409,
+          "assertions": 10,
+          "editor_text": "REM Load failed: HTTP 409: Route B owns storage\nREM File: audit-only-source.duck",
+          "submitted_content": "REM Load failed: HTTP 409: Route B owns storage\r\nREM File: audit-only-source.duck",
+          "requested_name": "audit-only-source.duck",
+          "multipart_newline_serialization": "Textarea LF serialized as CRLF in multipart/form-data",
+          "exactly_one_mock_save": true,
+          "no_automatic_save": true,
+          "api_requests": [
+            {
+              "method": "GET",
+              "path": "/list",
+              "authenticated": true,
+              "field_names": []
+            },
+            {
+              "method": "GET",
+              "path": "/library",
+              "query": "all=1",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/status",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/led-test",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/caps-trial",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/hid-trace",
+              "query": "after=4294967295",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "POST",
+              "path": "/script/load",
+              "authenticated": true,
+              "field_names": [
+                "name"
+              ]
+            },
+            {
+              "method": "POST",
+              "path": "/script",
+              "authenticated": true,
+              "field_names": [
+                "content",
+                "name",
+                "storage"
+              ]
+            },
+            {
+              "method": "GET",
+              "path": "/list",
+              "authenticated": true,
+              "field_names": []
+            },
+            {
+              "method": "GET",
+              "path": "/status",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            }
+          ],
+          "unexpected_requests": [],
+          "browser_errors": []
+        },
+        {
+          "name": "successful-load-save-control",
+          "classification": "CONTROL_CONFIRMED",
+          "load_http_status": 200,
+          "assertions": 10,
+          "editor_text": "REM Synthetic audit control; never executed.\n",
+          "submitted_content": "REM Synthetic audit control; never executed.\r\n",
+          "requested_name": "audit-only-source.duck",
+          "multipart_newline_serialization": "Textarea LF serialized as CRLF in multipart/form-data",
+          "exactly_one_mock_save": true,
+          "no_automatic_save": true,
+          "api_requests": [
+            {
+              "method": "GET",
+              "path": "/list",
+              "authenticated": true,
+              "field_names": []
+            },
+            {
+              "method": "GET",
+              "path": "/library",
+              "query": "all=1",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/status",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/led-test",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/caps-trial",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "GET",
+              "path": "/hid-trace",
+              "query": "after=4294967295",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "POST",
+              "path": "/script/load",
+              "authenticated": true,
+              "field_names": [
+                "name"
+              ]
+            },
+            {
+              "method": "GET",
+              "path": "/status",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            },
+            {
+              "method": "POST",
+              "path": "/script",
+              "authenticated": true,
+              "field_names": [
+                "content",
+                "name",
+                "storage"
+              ]
+            },
+            {
+              "method": "GET",
+              "path": "/list",
+              "authenticated": true,
+              "field_names": []
+            },
+            {
+              "method": "GET",
+              "path": "/status",
+              "query": "",
+              "authenticated": true,
+              "field_names": [],
+              "timing_mode": null
+            }
+          ],
+          "unexpected_requests": [],
+          "browser_errors": []
+        }
+      ],
+      "harness_failures": [],
+      "browser": {
+        "engine": "Chromium",
+        "version": "151.0.7922.173",
+        "platform": "Linux",
+        "playwright": "1.62.0"
+      },
+      "classification": "OBSERVED_DEFECT",
+      "assertions": 20,
+      "counts": {
+        "OBSERVED_DEFECT": 1,
+        "CONTROL_CONFIRMED": 1,
+        "HARNESS_ERROR": 0
+      },
+      "interpretation": "Explicit Save can submit a failed-load error placeholder as replacement source; this confirms a UI data-loss risk, not an observed device overwrite. Exit zero means the audit reproduction completed, not safe behavior PASS."
+    }
+  },
+  "bom_observation": {
+    "classification": "OBSERVATION_EXISTING_TEXT_DECODING",
+    "browser": "151.0.7922.173",
+    "results": [
+      {
+        "label": "baseline",
+        "source_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+        "response_payload_utf8_hex": "efbbbf52454d2053796e74686574696320656469746f72206669787475726520413b206e657665722065786563757465642e0a",
+        "textarea_value": "REM Synthetic editor fixture A; never executed.\n",
+        "textarea_has_leading_bom": false,
+        "writes": 0,
+        "runs": 0,
+        "unexpected": []
+      },
+      {
+        "label": "candidate",
+        "source_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+        "response_payload_utf8_hex": "efbbbf52454d2053796e74686574696320656469746f72206669787475726520413b206e657665722065786563757465642e0a",
+        "textarea_value": "REM Synthetic editor fixture A; never executed.\n",
+        "textarea_has_leading_bom": false,
+        "writes": 0,
+        "runs": 0,
+        "unexpected": []
+      }
+    ],
+    "real_network": false,
+    "hardware": false,
+    "scope": "Synthetic UTF-8 BOM response via existing fetch.text() loader; no byte-preserving UI claim or parser test"
+  },
+  "historical_runner_incompatibilities": [
+    {
+      "command": [
+        "node",
+        "tests/privacy_fix1/test_ui.cjs",
+        "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h"
+      ],
+      "exit": 1,
+      "stdout": "{\"PASS\":0,\"FAIL\":1,\"assertions\":1,\"results\":[{\"name\":\"stale-secret-fields-not-preloaded\",\"status\":\"FAIL\",\"assertions\":1,\"message\":\"setInterval is not defined\"}],\"error\":\"setInterval is not defined\",\"scope\":\"actual composed SETTINGS_JS with mocks\"}\n",
+      "stderr": "/workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:51\n    document: { getElementById(id) { if (!(id in elements)) throw new Error('Unexpected DOM element'); return elements[id]; } },\n                                                                  ^\n\nError: Unexpected DOM element\n    at Object.getElementById (/workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:51:67)\n    at capsTiming (actual-SETTINGS_JS:137:21)\n    at actual-SETTINGS_JS:154:1\n    at Script.runInContext (node:vm:149:12)\n    at Object.runInContext (node:vm:301:6)\n    at environment (/workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:74:6)\n    at /workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:108:21\n    at group (/workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:102:15)\n    at /workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:107:9\n    at Object.<anonymous> (/workspace/EvilDuck/tests/privacy_fix1/test_ui.cjs:212:3)\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "tests/caps_stop/test_ui.cjs",
+        "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "evalmachine.<anonymous>:1\ncapsTiming(true)\n^\n\nReferenceError: capsTiming is not defined\n    at evalmachine.<anonymous>:1:1\n    at Script.runInContext (node:vm:149:12)\n    at Object.runInContext (node:vm:301:6)\n    at Object.run (/workspace/EvilDuck/tests/caps_stop/test_ui.cjs:6:638)\n    at /workspace/EvilDuck/tests/caps_stop/test_ui.cjs:38:172\n"
+    }
+  ],
+  "intermediate_runs": {
+    "v1": {
+      "counts": {
+        "PASS": 25,
+        "FAIL": 4
+      },
+      "assertions": 211,
+      "results": [
+        {
+          "name": "no-selection-direct-handler-guards",
+          "status": "FAIL",
+          "assertions": 5,
+          "diagnostic": "TimeoutError: Locator.fill: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"#editorBody\")\n    - locator resolved to <textarea readonly rows=\"14\" id=\"editorBody\" class=\"editor mono\" placeholder=\"Select a script from the list to edit it here.\"></textarea>\n    - fill(\"REM Cannot forge a successful load.\n\")\n  - attempting fill action\n    2 \u00d7 waiting for element to be visible, enabled and editable\n      - element is not editable\n    - retrying fill action\n    - waiting 20ms\n    2 \u00d7 waiting for element to be visible, enabled and editable\n      - element is not editable\n    - retrying fill action\n      - waiting 100ms\n    10 \u00d7 waiting for element to be visible, enabled and editable\n       - element is not editable\n     - retrying fill action\n       - waiting 500ms\n"
+        },
+        {
+          "name": "load-http-401",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-http-404",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-http-409",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-http-500",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-http-503",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-network-failure",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-malformed-response-mime",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-empty-response",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "failed-load-deliberate-retry-success",
+          "status": "PASS",
+          "assertions": 8
+        },
+        {
+          "name": "ordinary-edit-save-editor-run",
+          "status": "PASS",
+          "assertions": 6
+        },
+        {
+          "name": "loaded-name-change-cannot-cross-file-save",
+          "status": "PASS",
+          "assertions": 5
+        },
+        {
+          "name": "loaded-destination-change-cannot-cross-volume-save",
+          "status": "PASS",
+          "assertions": 5
+        },
+        {
+          "name": "intentional-new-creation",
+          "status": "PASS",
+          "assertions": 5
+        },
+        {
+          "name": "failed-selection-then-explicit-new",
+          "status": "PASS",
+          "assertions": 5
+        },
+        {
+          "name": "stale-out-of-order-responses",
+          "status": "PASS",
+          "assertions": 8
+        },
+        {
+          "name": "explicit-new-supersedes-pending-load",
+          "status": "PASS",
+          "assertions": 6
+        },
+        {
+          "name": "dirty-switch-cancel-preserves-original-draft",
+          "status": "FAIL",
+          "assertions": 4,
+          "diagnostic": "AssertionError: Dirty selection switch lacked explicit decision"
+        },
+        {
+          "name": "dirty-failed-switch-explicit-original-restore",
+          "status": "FAIL",
+          "assertions": 4,
+          "diagnostic": "AssertionError: Dirty switch bypassed decision"
+        },
+        {
+          "name": "dirty-new-explicit-decision",
+          "status": "FAIL",
+          "assertions": 4,
+          "diagnostic": "AssertionError: New discarded unsaved content without a decision"
+        },
+        {
+          "name": "load-deadline-and-late-response",
+          "status": "PASS",
+          "assertions": 9
+        },
+        {
+          "name": "double-selection-no-automatic-action",
+          "status": "PASS",
+          "assertions": 8
+        },
+        {
+          "name": "rapid-three-selections-stale-success-error",
+          "status": "PASS",
+          "assertions": 5
+        },
+        {
+          "name": "pending-save-no-duplicate-or-selection-switch",
+          "status": "PASS",
+          "assertions": 7
+        },
+        {
+          "name": "pending-run-direct-dom-tamper-guard",
+          "status": "PASS",
+          "assertions": 7
+        },
+        {
+          "name": "legitimate-error-like-comment-is-source",
+          "status": "PASS",
+          "assertions": 4
+        },
+        {
+          "name": "load-malformed-nul-source",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "load-unexpected-204-status",
+          "status": "PASS",
+          "assertions": 10
+        },
+        {
+          "name": "existing-authenticated-deletion-confirmation",
+          "status": "PASS",
+          "assertions": 6
+        }
+      ],
+      "source": "/workspace/scratch/editor-load-safety/candidate/webfiles.h",
+      "source_sha256": "d8c5977400fefbdd620e22a2d6ecb02fd04105dae709e46ba8e9358e9b5db0d6",
+      "parent_browser_fixture_sha256": "3713fa15a9d5ca9fa1bfe1fbfe4fde337af1b662c67c79921efe74aa05ce6166",
+      "browser": {
+        "engine": "Chromium",
+        "version": "151.0.7922.173",
+        "platform": "Linux",
+        "playwright": "1.62.0"
+      },
+      "real_network_requests": false,
+      "device_access": false,
+      "real_saves_or_deletes": false,
+      "real_runs_or_hid": false,
+      "owner_sources_read": false,
+      "scope": "Actual embedded UI with inert HTTP; no native High Sierra/iPhone or hardware acceptance"
+    },
+    "v2_summary": {
+      "counts": {
+        "PASS": 39,
+        "FAIL": 0
+      },
+      "assertions": 292,
+      "limitation": "MIME/empty/NUL load cases still used HTTP409; final v3 corrects them to200. Not final branch coverage evidence."
+    }
+  },
+  "runtime_version": "Local revision/requested path only; no server ETag/hash/CAS/resolved-origin guarantee",
+  "native_macos_or_iphone_tested": false,
+  "hardware": false,
+  "real_saves_or_runs": false,
+  "firmware_build": false,
+  "package": false,
+  "committed": false,
+  "pushed": false,
+  "rollback_bytes": 1413200,
+  "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+  "sanitizers": "Not freshly run; no native runtime changes/build. Historical evidence remains historical."
+}

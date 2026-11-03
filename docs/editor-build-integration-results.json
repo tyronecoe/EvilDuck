@@ -1,0 +1,1130 @@
+{
+  "status_label": "CANDIDATE-BUILT",
+  "installed": false,
+  "owner_hardware_verified": false,
+  "base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "new_commit": null,
+  "source_commit_contains_changes": false,
+  "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+  "tracked_privacy_prerequisites": {
+    "tests/privacy_fix1/application.patch": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+    "tests/privacy_fix1/source-manifest.json": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+    "tests/privacy_fix1/prepare_sources.py": "0bb594377dd1964926dcefbfb2e746251cdd908434bc6eba4eeb6624a2ba1dca"
+  },
+  "source_layers": [
+    {
+      "layer": "right-modifier H1",
+      "patch": "tests/h1_right_modifiers/application.patch",
+      "patch_sha256": "fbccda7274a085f29874fb6657d94acb0ecd2ce68a18046c3b8737750b277c2f"
+    },
+    {
+      "layer": "Privacy Fix 1",
+      "patch": "tests/privacy_fix1/application.patch",
+      "patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76"
+    },
+    {
+      "layer": "dashboard cleanup",
+      "patch": "tests/dashboard_cleanup/application.patch",
+      "patch_sha256": "49d293a2cb97bae179a08252652c00be0fe771952e37d50300d06503e56c95fd"
+    },
+    {
+      "layer": "reviewed editor safety",
+      "patch": "tests/editor_load_safety/application.patch",
+      "patch_sha256": "d20564165f1ead4ee2364c21184f6dfc8f506572982c2f143aa50323d76b8c58"
+    },
+    {
+      "layer": "uninstalled candidate identity",
+      "patch": "tests/editor_build_integration/identity.patch",
+      "patch_sha256": "07e8f78cc8b14fc3fdf7ab2ae413e900533151f0479f6c7e08dbc1d63301c13f"
+    }
+  ],
+  "normal_entry": "tools/build_routeb_candidate.py",
+  "normal_clean_command": [
+    "python3",
+    "-B",
+    "tools/build_routeb_candidate.py",
+    "--output-dir",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled",
+    "--config",
+    "/workspace/scratch/led-feedback-isolated-core/arduino-cli.json",
+    "--core",
+    "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0",
+    "--arduino-cli",
+    "/workspace/tooling/arduino/bin/arduino-cli",
+    "--jobs",
+    "4"
+  ],
+  "clean_build_exit": 0,
+  "inner_compiler_command": [
+    "/workspace/tooling/arduino/bin/arduino-cli",
+    "--config-file",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/arduino-cli.json",
+    "compile",
+    "--fqbn",
+    "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "--build-path",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build",
+    "--jobs",
+    "4",
+    "--build-property",
+    "upload.maximum_size=7602176",
+    "--build-property",
+    "recipe.hooks.objcopy.postobjcopy.3.pattern=",
+    "--build-property",
+    "compiler.cpp.extra_flags=-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1 -DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3",
+    "--clean",
+    "--verbose",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3"
+  ],
+  "test_suites": {
+    "editor_dashboard_stop_scope": {
+      "status": "PASS",
+      "recorded_utc": "2026-11-03T05:51:48.923943+00:00",
+      "inputs": {
+        "source": "/workspace/scratch/editor-load-safety/source-replay-v1",
+        "source_entries": 201,
+        "source_inventory_verified": true,
+        "header_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+        "reviewed_local_files_sha256": {
+          "tests/editor_load_safety/application.patch": "d20564165f1ead4ee2364c21184f6dfc8f506572982c2f143aa50323d76b8c58",
+          "tests/editor_load_safety/source-manifest.json": "2654bb2aeb425a86d16b5969a9801d1045445e77d04bee1801e8f9d5ddc2c503",
+          "tests/editor_load_safety/prepare_sources.py": "f26e68027e50300168556a82710fcddc35ab14a3c77ca5845af65e311ecb986f",
+          "tests/editor_load_safety/test_browser.py": "a5915a0b2a617f9090eab994e8a50eeeb1863d402cd2194aa9d783e0c5d617ef",
+          "tests/editor_load_safety/test_scope.py": "f720d56b7771cdc892e5de87d7c9c9d872d575d32600f62ce38d090bcbdf40d7",
+          "docs/editor-load-safety-report.md": "a719edb520569a71b9af891742695fc2411989e05e2a3f6adfb631751852f364",
+          "docs/editor-load-safety-browser-results.json": "328adfad7b3da536687fb82beee32395f3b89ad3b44a894bf77a849b5c10f55f",
+          "docs/editor-load-safety-results.json": "8ad08ba0f479413cca7c2c385807f79940caf68303059d4136b70424fe823e66"
+        },
+        "head": "805d989c3ac50cb96025862c95916830c59f8ba7",
+        "python": "Python 3.12.14",
+        "node": "v24.19.0"
+      },
+      "checks": [
+        {
+          "name": "editor",
+          "command": [
+            "python3",
+            "-B",
+            "tests/editor_load_safety/test_browser.py",
+            "--source",
+            "/workspace/scratch/editor-load-safety/source-replay-v1/webfiles.h",
+            "--output-dir",
+            "/workspace/scratch/editor-build-integration/regressions/v1/editor"
+          ],
+          "receipt": "editor/results.json",
+          "exit": 0,
+          "counts": {
+            "PASS": 41,
+            "FAIL": 0
+          },
+          "assertions": 309,
+          "receipt_sha256": "fbc4e824e02dcf67729714c0d836365aafda9214998c420661731d58ae96420a"
+        },
+        {
+          "name": "dashboard_privacy_regressions",
+          "command": [
+            "python3",
+            "-B",
+            "tests/dashboard_cleanup/test_browser.py",
+            "--source",
+            "/workspace/scratch/editor-load-safety/source-replay-v1/webfiles.h",
+            "--output-dir",
+            "/workspace/scratch/editor-build-integration/regressions/v1/dashboard"
+          ],
+          "receipt": "dashboard/results.json",
+          "exit": 0,
+          "counts": {
+            "PASS": 9,
+            "FAIL": 0
+          },
+          "assertions": 207,
+          "receipt_sha256": "f5e7c7ea7fdfc3259304a1253b35e7d7be7020a310b8db2035da455bec740c72"
+        },
+        {
+          "name": "stop_regressions",
+          "command": [
+            "node",
+            "tests/led_return/test_stop_ui.cjs",
+            "/workspace/scratch/editor-load-safety/source-replay-v1/webfiles.h"
+          ],
+          "receipt": "stop.json",
+          "exit": 0,
+          "counts": {
+            "PASS": 10,
+            "FAIL": 0
+          },
+          "assertions": 21,
+          "receipt_sha256": "c0eb9bb045b8ef7c45450ecb30b533df927789c886794c09fc1f6a8435dcc839"
+        },
+        {
+          "name": "source_boundary",
+          "command": [
+            "python3",
+            "-B",
+            "tests/editor_load_safety/test_scope.py",
+            "--baseline-composed",
+            "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3",
+            "--candidate-composed",
+            "/workspace/scratch/editor-load-safety/source-replay-v1",
+            "--results",
+            "/workspace/scratch/editor-build-integration/regressions/v1/scope.json"
+          ],
+          "receipt": "scope.json",
+          "exit": 0,
+          "counts": {
+            "PASS": 4,
+            "FAIL": 0
+          },
+          "assertions": 14,
+          "receipt_sha256": "f231a18ee58e861b00a757c805e8ec956bd6d5dd63e5d8f607d2e9031b30f09d"
+        }
+      ],
+      "total_groups": 64,
+      "total_assertions": 551,
+      "unexpected_failures": 0,
+      "reviewed_input_files_unchanged": true,
+      "source_inventory_after_checks": 201,
+      "browser": {
+        "engine": "Chromium",
+        "version": "151.0.7922.173",
+        "platform": "Linux",
+        "playwright": "1.62.0"
+      },
+      "network": "All test HTTP intercepted in browser fixtures; no real server or device",
+      "native_macos_tested": false,
+      "device": false,
+      "owner_files": false,
+      "hid": false,
+      "firmware_build": false,
+      "package": false,
+      "sanitizers": "Not applicable to these JavaScript/browser/source-only checks; no fresh C++ sanitizer claim",
+      "repository_edits": 0
+    },
+    "composition_and_negative_controls": {
+      "counts": {
+        "PASS": 9,
+        "FAIL": 0
+      },
+      "policy_only": false,
+      "target_firmware_executed": false,
+      "actual_elf_or_bin_verification": false,
+      "scope": "Synthetic matcher/provenance policy plus disposable public source controls; actual target proof is separate",
+      "test_sha256": "45048e6c1514b9a4acbffbe04068fe53f886b72ff615ab3d22944c23351532f8",
+      "failures": []
+    },
+    "native_privacy": {
+      "PASS": 28,
+      "FAIL": 0,
+      "assertions": 736
+    },
+    "native_existing": {
+      "PASS": 558,
+      "FAIL": 0,
+      "assertions": 23901
+    },
+    "native_case_stderr_empty": 586,
+    "sanitizers": "ASan/UBSan/leak detection",
+    "native_ui_repeat": {
+      "counts": {
+        "PASS": 9,
+        "FAIL": 0
+      },
+      "assertions": 207,
+      "exit": 0,
+      "note": "Separately executed current browser suite; do not add this repeat as new compatibility coverage"
+    }
+  },
+  "native_privacy_receipt": {
+    "file": "/workspace/scratch/editor-build-integration/privacy-native-v1.json",
+    "sha256": "3e8dbe7e47e86d6570de4edda37ece4c263c8d322b1aa0bdd3c19bd3a17b6f41",
+    "runner_sha256": "8ac89aa0029ad654e8cdb15a063c1aa96895e21819ab4a9e835eb3ef08fd2a30",
+    "source_tree_note": "Native target-source binding used normally generated v1 source; all 201 hashes independently match final v2 sources; actual target ID proof is separate"
+  },
+  "actual_compiled_editor": {
+    "status": "PASS",
+    "source_files": 201,
+    "editor_build_files": 2,
+    "unchanged_files": 199,
+    "comparison_base": "privacy-fix1",
+    "cumulative_h1_changed_files": 4,
+    "cumulative_h1_unchanged_files": 197,
+    "verifier_sha256": "3de9e0a39ce39ed40204c23b94a36b875f8f5999fbe956d9d35f700b15c6a810",
+    "source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+    "identity_patch_sha256": "07e8f78cc8b14fc3fdf7ab2ae413e900533151f0479f6c7e08dbc1d63301c13f",
+    "parent_preparer_sha256": "f26e68027e50300168556a82710fcddc35ab14a3c77ca5845af65e311ecb986f",
+    "compile_inputs": [
+      {
+        "source": "cli.cpp",
+        "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+        "compiled_source": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp",
+        "compiled_sha256": "0774fd758c20e17f224fc5c54ba3e01d2e5cc11c4f6622e25ec56e9fb6f94fff",
+        "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp.o",
+        "object_sha256": "e78404f5783d2844e454cd9bcf3cfea6715cbbe873a670e2f24dfed7a9e3435e",
+        "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+        "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp.d",
+        "dependency_sha256": "2ba57a108e222d17bc775e8c2005de74a84d191295a0a57abafc92d80f97acfd",
+        "dependency_count": 187,
+        "verbose_compile_observed": true,
+        "linked_map_load": true
+      },
+      {
+        "source": "webserver.cpp",
+        "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+        "compiled_source": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp",
+        "compiled_sha256": "39bf32a8376d97d6d0b85ec04a4b9260c9aa744cd0f4327567c71eb38c527274",
+        "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp.o",
+        "object_sha256": "563d9d71bda6fc03694b1cf01996c72626f83ac1bd120dc83451103aadd4691a",
+        "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+        "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp.d",
+        "dependency_sha256": "ebd1860fa5452d8c08f96bf11669b3b3d8a5269cf7230039d6b558bdd3d465e7",
+        "dependency_count": 262,
+        "verbose_compile_observed": true,
+        "linked_map_load": true,
+        "webfiles_header": {
+          "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webfiles.h",
+          "sha256": "c88753baf4df61c238afe83fc98b603dc6f51167e864d9864db9b3042956b802",
+          "candidate_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+          "dependency_observed": true
+        }
+      }
+    ],
+    "compile_log_sha256": "7dbb88ac598f4476e2fcbbf7e2e1fde45ff708941ab1801fd5ac0e5578d65e76",
+    "compile_commands_sha256": "1bd45f0bce8eb1351fdbdfb2c0dd32698634b3984a40ffed2446e1fc1c2357d0",
+    "map_sha256": "70680a62766fe7b43aece8263db54ef318e3b116b4ea18e2147cba76829f556f",
+    "elf_sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057",
+    "application_sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+    "application_bytes": 1437696,
+    "sdk_archives_checked": 177,
+    "sdk_archives_selected": 153,
+    "sdk_pin_reconciliation": {
+      "pinned_installed_verified": 177,
+      "selected_map_and_report": 153,
+      "installed_archive_total": 183,
+      "pinned_but_not_selected": [
+        "dio_opi/libbootloader_support.a",
+        "dio_opi/libesp_hw_support.a",
+        "dio_opi/libesp_psram.a",
+        "dio_opi/libesp_system.a",
+        "dio_opi/libfreertos.a",
+        "dio_opi/libspi_flash.a",
+        "dio_qspi/libbootloader_support.a",
+        "dio_qspi/libesp_hw_support.a",
+        "dio_qspi/libesp_psram.a",
+        "dio_qspi/libesp_system.a",
+        "dio_qspi/libfreertos.a",
+        "dio_qspi/libspi_flash.a",
+        "opi_opi/libbootloader_support.a",
+        "opi_opi/libesp_hw_support.a",
+        "opi_opi/libesp_psram.a",
+        "opi_opi/libesp_system.a",
+        "opi_opi/libfreertos.a",
+        "opi_opi/libspi_flash.a",
+        "qio_opi/libbootloader_support.a",
+        "qio_opi/libesp_hw_support.a",
+        "qio_opi/libesp_psram.a",
+        "qio_opi/libesp_system.a",
+        "qio_opi/libfreertos.a",
+        "qio_opi/libspi_flash.a"
+      ],
+      "unpinned_installed_and_not_selected": [
+        "lib/libesp_zb_api.zczr.a",
+        "lib/libesp_zb_api.zczr.debug.a",
+        "lib/libzboss_port.remote.a",
+        "lib/libzboss_port.remote.debug.a",
+        "lib/libzboss_stack.zczr.a",
+        "lib/libzboss_stack.zczr.debug.a"
+      ],
+      "unpinned_archives_trusted": false
+    },
+    "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+    "historical_full_h1_verify_link_executed": false,
+    "profile": "EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED",
+    "build_id_policy": "Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity",
+    "physical": false,
+    "installation_authorized": false,
+    "package_created": false,
+    "build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1",
+    "privacy_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+    "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+    "parent_target_verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+    "editor_build_source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+    "cumulative_h1_source_overrides": {
+      "webfiles.h": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+      "caps_trial.h": "1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826",
+      "cli.cpp": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+      "webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9"
+    },
+    "identity_header": {
+      "source": "caps_trial.h",
+      "candidate_sha256": "1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826",
+      "compiled_header": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.h",
+      "compiled_sha256": "da90e611012b85712dd992b9e3435edb4de70b27400f57f3252fda05b71334e7",
+      "dependency_observed": true,
+      "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.cpp.d",
+      "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.cpp.o",
+      "object_sha256": "180ab7f11303cb07def6876d893a7f10e7862171bb07a073b8d8a17345ef95c1",
+      "verbose_compile_observed": true,
+      "linked_map_load": true,
+      "metadata_only": true
+    },
+    "target_verifier_adaptations": [
+      {
+        "before": "manifest_path = ROOT / \"tests/privacy_fix1/source-manifest.json\"",
+        "after": "manifest_path = ROOT / \"tests/editor_build_integration/source-manifest.json\"",
+        "occurrences": 1
+      },
+      {
+        "before": "sha(ROOT / \"tests/h1_right_modifiers/prepare_sources.py\")",
+        "after": "sha(ROOT / \"tests/editor_load_safety/prepare_sources.py\")",
+        "occurrences": 1
+      },
+      {
+        "before": "sha(ROOT / \"tests/privacy_fix1/application.patch\")",
+        "after": "sha(ROOT / \"tests/editor_build_integration/identity.patch\")",
+        "occurrences": 1
+      },
+      {
+        "before": "len(pin[\"after\"]) == 3 and len(pin[\"unchanged\"]) == 198",
+        "after": "len(pin[\"after\"]) == 2 and len(pin[\"unchanged\"]) == 199",
+        "occurrences": 1
+      },
+      {
+        "before": "\"Privacy manifest is not the reviewed 3/198 source delta\"",
+        "after": "\"Dashboard manifest is not the reviewed 2/199 source delta\"",
+        "occurrences": 1
+      },
+      {
+        "before": "{\"cli.cpp\", \"webserver.cpp\", \"webfiles.h\"}",
+        "after": "{\"webfiles.h\", \"caps_trial.h\"}",
+        "occurrences": 1
+      },
+      {
+        "before": "require(b\"ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1\" in data, \"Expected retained H1 build identity missing\")",
+        "after": "require(b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in data, \"Expected dashboard candidate identity missing\")",
+        "occurrences": 1
+      },
+      {
+        "before": "source_files=201, privacy_files=3, unchanged_files=198",
+        "after": "source_files=201, editor_build_files=2, unchanged_files=199, comparison_base=\"privacy-fix1\", cumulative_h1_changed_files=4, cumulative_h1_unchanged_files=197",
+        "occurrences": 1
+      },
+      {
+        "before": "privacy_patch_sha256=pin[\"patch_sha256\"]",
+        "after": "identity_patch_sha256=pin[\"patch_sha256\"]",
+        "occurrences": 1
+      },
+      {
+        "before": "profile=\"PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL\"",
+        "after": "profile=\"EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED\"",
+        "occurrences": 1
+      },
+      {
+        "before": "build_id_policy=\"Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate\"",
+        "after": "build_id_policy=\"Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity\"",
+        "occurrences": 1
+      }
+    ],
+    "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+    "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+    "local_source_provenance": {
+      "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+      "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+      "files_sha256": "fe437002a15746d604307101b89216fc5c82d84ea5ad3b6d080c590b40f0a68d",
+      "input_count": 17,
+      "source_commit_contains_changes": false,
+      "uncommitted_local_changes": true
+    },
+    "editor_source_composition": {
+      "status": "PASS",
+      "source_files": 201,
+      "editor_repair_files": 1,
+      "identity_only_files": 1,
+      "final_expectation_base": "privacy-fix1",
+      "final_changed_files": 2,
+      "final_unchanged_files": 199,
+      "source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+      "reviewed_editor_manifest_sha256": "2654bb2aeb425a86d16b5969a9801d1045445e77d04bee1801e8f9d5ddc2c503",
+      "webfiles_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+      "build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1"
+    },
+    "bundled_resources": [
+      {
+        "resource": "INDEX_HTML",
+        "bytes_including_nul": 12185,
+        "sha256": "e086c053bbc4439ad5b8515c9a42e516496ae65adcf32783cfefc9147ac66a58",
+        "elf_occurrences": 1,
+        "binary_occurrences": 1,
+        "elf_offset": 186902,
+        "binary_offset": 182806
+      },
+      {
+        "resource": "INDEX_JS",
+        "bytes_including_nul": 31933,
+        "sha256": "4268329ef9d387ca4732407b198e1a182f55a66d909a5a19f9fd60c099110d36",
+        "elf_occurrences": 1,
+        "binary_occurrences": 1,
+        "elf_offset": 113661,
+        "binary_offset": 109565
+      },
+      {
+        "resource": "SETTINGS_HTML",
+        "bytes_including_nul": 5390,
+        "sha256": "f545e9154b2cf8d5e6573075008a87704a786bceb44fc625376b7a7d64bdd4e8",
+        "elf_occurrences": 1,
+        "binary_occurrences": 1,
+        "elf_offset": 181512,
+        "binary_offset": 177416
+      },
+      {
+        "resource": "SETTINGS_JS",
+        "bytes_including_nul": 10503,
+        "sha256": "7ef1cc50fdbb772e7dedb2629c6004b744f5ef9b7a0e35f2abb7b93ceb2af686",
+        "elf_occurrences": 1,
+        "binary_occurrences": 1,
+        "elf_offset": 103158,
+        "binary_offset": 99062
+      },
+      {
+        "resource": "STYLE_CSS",
+        "bytes_including_nul": 31976,
+        "sha256": "572d65a22ddb9892bea169a8ea43ca078e3aa9207519b7cd58cb465de39428da",
+        "elf_occurrences": 1,
+        "binary_occurrences": 1,
+        "elf_offset": 145594,
+        "binary_offset": 141498
+      }
+    ],
+    "actual_parent_verifier_sha256": "01ff00b6dfe7fe74baf2854123a1a65af38837eb7ee58e7c6f9a82eab8221bb1",
+    "integration_verifier_adaptations": [
+      {
+        "before": "BUILD_ID = \"ROUTEB-DASHBOARD-CLEANUP-v1\"",
+        "after": "BUILD_ID = 'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1'",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/dashboard_cleanup/source-manifest.json",
+        "after": "tests/editor_build_integration/source-manifest.json",
+        "occurrences": 2
+      },
+      {
+        "before": "tests/dashboard_cleanup/application.patch",
+        "after": "tests/editor_build_integration/identity.patch",
+        "occurrences": 1
+      },
+      {
+        "before": "'sha(ROOT / \"tests/privacy_fix1/prepare_sources.py\")'",
+        "after": "'sha(ROOT / \"tests/editor_load_safety/prepare_sources.py\")'",
+        "occurrences": 1
+      },
+      {
+        "before": "pin[\"format\"] == \"evilduck-dashboard-cleanup-v1\"",
+        "after": "pin[\"format\"] == \"evilduck-editor-build-integration-v1\"",
+        "occurrences": 1
+      },
+      {
+        "before": "pin[\"baseline\"] == \"70d08e9f789c187c5e27350a66f4d0d52992964b\"",
+        "after": "pin[\"baseline\"] == '805d989c3ac50cb96025862c95916830c59f8ba7'",
+        "occurrences": 1
+      },
+      {
+        "before": "source_files=201, dashboard_files=2",
+        "after": "source_files=201, editor_build_files=2",
+        "occurrences": 1
+      },
+      {
+        "before": "dashboard_patch_sha256=pin[\"patch_sha256\"]",
+        "after": "identity_patch_sha256=pin[\"patch_sha256\"]",
+        "occurrences": 1
+      },
+      {
+        "before": "dashboard_source_manifest_sha256=sha(pin_path)",
+        "after": "editor_build_source_manifest_sha256=sha(pin_path)",
+        "occurrences": 1
+      },
+      {
+        "before": "DASHBOARD CLEANUP / PRIVACY FIX 1 / H1 EXPERIMENTAL / OWNER REVIEW",
+        "after": "EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED",
+        "occurrences": 1
+      }
+    ],
+    "dashboard_parent_manifest_sha256": "b000f87c3cafb5b2bf4c98ee9c740789324c020d7099c4ae67610d273dfa479e",
+    "reviewed_editor_patch_sha256": "d20564165f1ead4ee2364c21184f6dfc8f506572982c2f143aa50323d76b8c58",
+    "installed": false
+  },
+  "full_release_summary": {
+    "status": "PASS",
+    "full_frozen_h1_chain_executed": true,
+    "base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+    "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+    "source_commit_contains_changes": false,
+    "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+    "adapter_sha256": "223ce8a330d33607710d9eea5ec9fbf378dc53e0707b1c3e0b8f0860a3756fb8",
+    "parent_privacy_verifier_sha256": "71387fda4a0443e413e29e5c9f217511391108ca0a2df5db4fd0076b339af328",
+    "source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+    "privacy_source_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+    "exact_final_source_overrides": {
+      "cli.cpp": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+      "webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+      "webfiles.h": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+      "caps_trial.h": "1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826"
+    },
+    "frozen_verifiers": {
+      "h1_right_modifiers": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+      "inject_var_experimental": "6da2ddaad1800354a032193e78e6f1775da376e15c30ce77d170b0f6c87e02e4",
+      "lock_wait_timeout": "d8ab7a0d35efe18ac425bcada05d21ba7d0b84108caa18781661e678e0f1776e",
+      "source_text_v2": "e155bf66e2c5892b49d7241d36f21dc4b10b6ac2cb1bbf95a96596b02bb07182",
+      "lock_feedback": "45d52ec2abdbc18cfcc03d24e672a8aa02088074efa119b638dc76e4af180d7d",
+      "caps_stop": "bf2c6a7050a2601f285f7e76eb26936399f2b07a12bc56f212903e645ccb4e6d"
+    },
+    "compile_events": [
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "right-modifier H1",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "1e729c4584f64522ac9c43801ac3b561883e26cd79e653e3458caa771a2471ca",
+        "generated_ast_after_sha256": "3fed8b5923bb413ae78ff032d6c84a908324ab20bc89931eedc865b300fb1e32",
+        "assertions_preserved": 23,
+        "expectation_adaptations": [
+          {
+            "line": 60,
+            "before": "hashlib.sha256((sketch / v['file']).read_bytes()).hexdigest() == v['sha256']",
+            "after": "hashlib.sha256((sketch / v['file']).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(v['file'], v['sha256'])"
+          },
+          {
+            "line": 65,
+            "before": "hashlib.sha256((sketch / name).read_bytes()).hexdigest() == expected",
+            "after": "hashlib.sha256((sketch / name).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(name, expected)"
+          }
+        ],
+        "runtime_identity_adaptations": [
+          {
+            "line": 73,
+            "before": "BUILD.encode() in data",
+            "after": "b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in data"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/inject_var_experimental/verify_link.py",
+        "logical_layer": "experimental H1",
+        "frozen_file_sha256": "6da2ddaad1800354a032193e78e6f1775da376e15c30ce77d170b0f6c87e02e4",
+        "generated_ast_before_sha256": "80cd488db02e162d9724fd95f3feb65b295449e612bd313945baba3fe7fb8f88",
+        "generated_ast_after_sha256": "2029b4268eb5037c3ea5fbe2085a8a6bd2cc761dfcefad8ea788ee10874b5491",
+        "assertions_preserved": 21,
+        "expectation_adaptations": [
+          {
+            "line": 1,
+            "before": "hashlib.sha256((sketch / r['file']).read_bytes()).hexdigest() == RIGHT_AFTER.get(r['file'], r['sha256'])",
+            "after": "hashlib.sha256((sketch / r['file']).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(r['file'], RIGHT_AFTER.get(r['file'], r['sha256']))"
+          }
+        ],
+        "runtime_identity_adaptations": [
+          {
+            "line": 71,
+            "before": "BUILD.encode() in data",
+            "after": "b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in data"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/lock_wait_timeout/verify_link.py",
+        "logical_layer": "bounded lock waits",
+        "frozen_file_sha256": "d8ab7a0d35efe18ac425bcada05d21ba7d0b84108caa18781661e678e0f1776e",
+        "generated_ast_before_sha256": "e701c2715d968bdeedca0a7f947d4c6a971c24bfed286cf9d6a477444f7b167e",
+        "generated_ast_after_sha256": "a16b166e0d54760166e57fb998d358c4ab451741d95dc8cc6b4920801d04182f",
+        "assertions_preserved": 16,
+        "expectation_adaptations": [
+          {
+            "line": 1,
+            "before": "hashlib.sha256((a.build_root / 'candidate/EvilDuckS3' / r['file']).read_bytes()).hexdigest() == FINAL_AFTER.get(r['file'], r['sha256'])",
+            "after": "hashlib.sha256((a.build_root / 'candidate/EvilDuckS3' / r['file']).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(r['file'], FINAL_AFTER.get(r['file'], r['sha256']))"
+          }
+        ],
+        "runtime_identity_adaptations": [
+          {
+            "line": 46,
+            "before": "BUILD_ID.encode() in elf.read_bytes()",
+            "after": "b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in elf.read_bytes()"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/source_text_v2/verify_link.py",
+        "logical_layer": "source/text v2",
+        "frozen_file_sha256": "e155bf66e2c5892b49d7241d36f21dc4b10b6ac2cb1bbf95a96596b02bb07182",
+        "generated_ast_before_sha256": "570f00115d218295004ca8d9426011a229e115f4b5c606fc831c053dcb76b02b",
+        "generated_ast_after_sha256": "52acb30d54a55cb4343ce5d7c9f06457ce4e31eddac518487e9ce1e7a7495a03",
+        "assertions_preserved": 46,
+        "expectation_adaptations": [
+          {
+            "line": 71,
+            "before": "hashlib.sha256((args.build_root / 'candidate/EvilDuckS3' / row['file']).read_bytes()).hexdigest() == timeout_after.get(row['file'], row['sha256'])",
+            "after": "hashlib.sha256((args.build_root / 'candidate/EvilDuckS3' / row['file']).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(row['file'], timeout_after.get(row['file'], row['sha256']))"
+          }
+        ],
+        "runtime_identity_adaptations": [
+          {
+            "line": 86,
+            "before": "BUILD_ID.encode() in elf.read_bytes()",
+            "after": "b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in elf.read_bytes()"
+          }
+        ]
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "keyboard/lock feedback",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "868404aa1f1ef4361a3b7e63836011cc830a9cbe56bffc4c628e45b49dfc976a",
+        "generated_ast_after_sha256": "3b6eb951b55193a79b4ac22d937a3e552505812a45093ceaa9a00050d18d6c9c",
+        "assertions_preserved": 25,
+        "expectation_adaptations": [
+          {
+            "line": 70,
+            "before": "hashlib.sha256((sketch / row['file']).read_bytes()).hexdigest() == source_after.get(row['file'], row['sha256'])",
+            "after": "hashlib.sha256((sketch / row['file']).read_bytes()).hexdigest() == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(row['file'], source_after.get(row['file'], row['sha256']))"
+          }
+        ],
+        "runtime_identity_adaptations": []
+      },
+      {
+        "filename": "/workspace/EvilDuck/tests/h1_right_modifiers/verify_link.py",
+        "logical_layer": "caps/STOP closure",
+        "frozen_file_sha256": "ce94c470a80843ec7dd18102739b052a0445b2a672519cf35f7e5b566f4f19cd",
+        "generated_ast_before_sha256": "5f87ce2a75f58c027e2ba42b1f9cf692150f17f012e10d985e8a1760127570df",
+        "generated_ast_after_sha256": "a22a27b0dfc2623fabfbfc4ea8a570981d20a2ac4821755eca0b649f583ad604",
+        "assertions_preserved": 59,
+        "expectation_adaptations": [
+          {
+            "line": 33,
+            "before": "sha(a.build_root / 'candidate/EvilDuckS3' / x['file']) == after.get(x['file'], x['sha256'])",
+            "after": "sha(a.build_root / 'candidate/EvilDuckS3' / x['file']) == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(x['file'], after.get(x['file'], x['sha256']))"
+          },
+          {
+            "line": 34,
+            "before": "sha(a.build_root / 'candidate/EvilDuckS3' / file) == digest",
+            "after": "sha(a.build_root / 'candidate/EvilDuckS3' / file) == {'caps_trial.h': '1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826', 'cli.cpp': '5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7', 'webfiles.h': 'df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445', 'webserver.cpp': '02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9'}.get(file, digest)"
+          }
+        ],
+        "runtime_identity_adaptations": [
+          {
+            "line": 177,
+            "before": "b'ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1' in elf.read_bytes()",
+            "after": "b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in elf.read_bytes()"
+          }
+        ]
+      }
+    ],
+    "assertions_preserved": 190,
+    "assertions_removed": 0,
+    "unrelated_expected_hashes_changed": 0,
+    "historical_source_pin_build_ids_changed": false,
+    "editor_target_binding": {
+      "status": "PASS",
+      "source_files": 201,
+      "editor_build_files": 2,
+      "unchanged_files": 199,
+      "comparison_base": "privacy-fix1",
+      "cumulative_h1_changed_files": 4,
+      "cumulative_h1_unchanged_files": 197,
+      "verifier_sha256": "3de9e0a39ce39ed40204c23b94a36b875f8f5999fbe956d9d35f700b15c6a810",
+      "source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+      "identity_patch_sha256": "07e8f78cc8b14fc3fdf7ab2ae413e900533151f0479f6c7e08dbc1d63301c13f",
+      "parent_preparer_sha256": "f26e68027e50300168556a82710fcddc35ab14a3c77ca5845af65e311ecb986f",
+      "compile_inputs": [
+        {
+          "source": "cli.cpp",
+          "candidate_sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+          "compiled_source": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp",
+          "compiled_sha256": "0774fd758c20e17f224fc5c54ba3e01d2e5cc11c4f6622e25ec56e9fb6f94fff",
+          "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp.o",
+          "object_sha256": "e78404f5783d2844e454cd9bcf3cfea6715cbbe873a670e2f24dfed7a9e3435e",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/cli.cpp.d",
+          "dependency_sha256": "2ba57a108e222d17bc775e8c2005de74a84d191295a0a57abafc92d80f97acfd",
+          "dependency_count": 187,
+          "verbose_compile_observed": true,
+          "linked_map_load": true
+        },
+        {
+          "source": "webserver.cpp",
+          "candidate_sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+          "compiled_source": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp",
+          "compiled_sha256": "39bf32a8376d97d6d0b85ec04a4b9260c9aa744cd0f4327567c71eb38c527274",
+          "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp.o",
+          "object_sha256": "563d9d71bda6fc03694b1cf01996c72626f83ac1bd120dc83451103aadd4691a",
+          "compiler": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++",
+          "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webserver.cpp.d",
+          "dependency_sha256": "ebd1860fa5452d8c08f96bf11669b3b3d8a5269cf7230039d6b558bdd3d465e7",
+          "dependency_count": 262,
+          "verbose_compile_observed": true,
+          "linked_map_load": true,
+          "webfiles_header": {
+            "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/webfiles.h",
+            "sha256": "c88753baf4df61c238afe83fc98b603dc6f51167e864d9864db9b3042956b802",
+            "candidate_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+            "dependency_observed": true
+          }
+        }
+      ],
+      "compile_log_sha256": "7dbb88ac598f4476e2fcbbf7e2e1fde45ff708941ab1801fd5ac0e5578d65e76",
+      "compile_commands_sha256": "1bd45f0bce8eb1351fdbdfb2c0dd32698634b3984a40ffed2446e1fc1c2357d0",
+      "map_sha256": "70680a62766fe7b43aece8263db54ef318e3b116b4ea18e2147cba76829f556f",
+      "elf_sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057",
+      "application_sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+      "application_bytes": 1437696,
+      "sdk_archives_checked": 177,
+      "sdk_archives_selected": 153,
+      "sdk_pin_reconciliation": {
+        "pinned_installed_verified": 177,
+        "selected_map_and_report": 153,
+        "installed_archive_total": 183,
+        "pinned_but_not_selected": [
+          "dio_opi/libbootloader_support.a",
+          "dio_opi/libesp_hw_support.a",
+          "dio_opi/libesp_psram.a",
+          "dio_opi/libesp_system.a",
+          "dio_opi/libfreertos.a",
+          "dio_opi/libspi_flash.a",
+          "dio_qspi/libbootloader_support.a",
+          "dio_qspi/libesp_hw_support.a",
+          "dio_qspi/libesp_psram.a",
+          "dio_qspi/libesp_system.a",
+          "dio_qspi/libfreertos.a",
+          "dio_qspi/libspi_flash.a",
+          "opi_opi/libbootloader_support.a",
+          "opi_opi/libesp_hw_support.a",
+          "opi_opi/libesp_psram.a",
+          "opi_opi/libesp_system.a",
+          "opi_opi/libfreertos.a",
+          "opi_opi/libspi_flash.a",
+          "qio_opi/libbootloader_support.a",
+          "qio_opi/libesp_hw_support.a",
+          "qio_opi/libesp_psram.a",
+          "qio_opi/libesp_system.a",
+          "qio_opi/libfreertos.a",
+          "qio_opi/libspi_flash.a"
+        ],
+        "unpinned_installed_and_not_selected": [
+          "lib/libesp_zb_api.zczr.a",
+          "lib/libesp_zb_api.zczr.debug.a",
+          "lib/libzboss_port.remote.a",
+          "lib/libzboss_port.remote.debug.a",
+          "lib/libzboss_stack.zczr.a",
+          "lib/libzboss_stack.zczr.debug.a"
+        ],
+        "unpinned_archives_trusted": false
+      },
+      "inherited_guard": "Unchanged builder protected-core/startup/checked-settings/ELF-to-BIN verifier",
+      "historical_full_h1_verify_link_executed": false,
+      "profile": "EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED",
+      "build_id_policy": "Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity",
+      "physical": false,
+      "installation_authorized": false,
+      "package_created": false,
+      "build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1",
+      "privacy_manifest_sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+      "privacy_patch_sha256": "7fe541182ee26b1acb89c696664a2428aa3cbc784d6635032e35d66b6608ff76",
+      "parent_target_verifier_sha256": "d6af79682101b8ca36e0ec7a950275b2504c61c8c109083ac2aa0f170d76170e",
+      "editor_build_source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+      "cumulative_h1_source_overrides": {
+        "webfiles.h": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+        "caps_trial.h": "1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826",
+        "cli.cpp": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+        "webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9"
+      },
+      "identity_header": {
+        "source": "caps_trial.h",
+        "candidate_sha256": "1d15810b6730759da1e111de5f67dff40c48926da28015412fa8dfbc22c2c826",
+        "compiled_header": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.h",
+        "compiled_sha256": "da90e611012b85712dd992b9e3435edb4de70b27400f57f3252fda05b71334e7",
+        "dependency_observed": true,
+        "dependency_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.cpp.d",
+        "object": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/sketch/caps_trial.cpp.o",
+        "object_sha256": "180ab7f11303cb07def6876d893a7f10e7862171bb07a073b8d8a17345ef95c1",
+        "verbose_compile_observed": true,
+        "linked_map_load": true,
+        "metadata_only": true
+      },
+      "target_verifier_adaptations": [
+        {
+          "before": "manifest_path = ROOT / \"tests/privacy_fix1/source-manifest.json\"",
+          "after": "manifest_path = ROOT / \"tests/editor_build_integration/source-manifest.json\"",
+          "occurrences": 1
+        },
+        {
+          "before": "sha(ROOT / \"tests/h1_right_modifiers/prepare_sources.py\")",
+          "after": "sha(ROOT / \"tests/editor_load_safety/prepare_sources.py\")",
+          "occurrences": 1
+        },
+        {
+          "before": "sha(ROOT / \"tests/privacy_fix1/application.patch\")",
+          "after": "sha(ROOT / \"tests/editor_build_integration/identity.patch\")",
+          "occurrences": 1
+        },
+        {
+          "before": "len(pin[\"after\"]) == 3 and len(pin[\"unchanged\"]) == 198",
+          "after": "len(pin[\"after\"]) == 2 and len(pin[\"unchanged\"]) == 199",
+          "occurrences": 1
+        },
+        {
+          "before": "\"Privacy manifest is not the reviewed 3/198 source delta\"",
+          "after": "\"Dashboard manifest is not the reviewed 2/199 source delta\"",
+          "occurrences": 1
+        },
+        {
+          "before": "{\"cli.cpp\", \"webserver.cpp\", \"webfiles.h\"}",
+          "after": "{\"webfiles.h\", \"caps_trial.h\"}",
+          "occurrences": 1
+        },
+        {
+          "before": "require(b\"ROUTEB-RIGHT-MODIFIERS-H1-EXPERIMENTAL-v1\" in data, \"Expected retained H1 build identity missing\")",
+          "after": "require(b'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1' in data, \"Expected dashboard candidate identity missing\")",
+          "occurrences": 1
+        },
+        {
+          "before": "source_files=201, privacy_files=3, unchanged_files=198",
+          "after": "source_files=201, editor_build_files=2, unchanged_files=199, comparison_base=\"privacy-fix1\", cumulative_h1_changed_files=4, cumulative_h1_unchanged_files=197",
+          "occurrences": 1
+        },
+        {
+          "before": "privacy_patch_sha256=pin[\"patch_sha256\"]",
+          "after": "identity_patch_sha256=pin[\"patch_sha256\"]",
+          "occurrences": 1
+        },
+        {
+          "before": "profile=\"PRIVACY FIX 1 COMPILE-ONLY REVIEW; H1 REMAINS EXPERIMENTAL\"",
+          "after": "profile=\"EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED\"",
+          "occurrences": 1
+        },
+        {
+          "before": "build_id_policy=\"Historical H1 dashboard build ID retained; privacy inventory, output directory and application SHA identify this local candidate\"",
+          "after": "build_id_policy=\"Distinct dashboard candidate BuildId; source inventory and application SHA remain exact artifact identity\"",
+          "occurrences": 1
+        }
+      ],
+      "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+      "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+      "local_source_provenance": {
+        "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+        "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+        "files_sha256": "fe437002a15746d604307101b89216fc5c82d84ea5ad3b6d080c590b40f0a68d",
+        "input_count": 17,
+        "source_commit_contains_changes": false,
+        "uncommitted_local_changes": true
+      },
+      "editor_source_composition": {
+        "status": "PASS",
+        "source_files": 201,
+        "editor_repair_files": 1,
+        "identity_only_files": 1,
+        "final_expectation_base": "privacy-fix1",
+        "final_changed_files": 2,
+        "final_unchanged_files": 199,
+        "source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+        "reviewed_editor_manifest_sha256": "2654bb2aeb425a86d16b5969a9801d1045445e77d04bee1801e8f9d5ddc2c503",
+        "webfiles_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+        "build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1"
+      },
+      "bundled_resources": [
+        {
+          "resource": "INDEX_HTML",
+          "bytes_including_nul": 12185,
+          "sha256": "e086c053bbc4439ad5b8515c9a42e516496ae65adcf32783cfefc9147ac66a58",
+          "elf_occurrences": 1,
+          "binary_occurrences": 1,
+          "elf_offset": 186902,
+          "binary_offset": 182806
+        },
+        {
+          "resource": "INDEX_JS",
+          "bytes_including_nul": 31933,
+          "sha256": "4268329ef9d387ca4732407b198e1a182f55a66d909a5a19f9fd60c099110d36",
+          "elf_occurrences": 1,
+          "binary_occurrences": 1,
+          "elf_offset": 113661,
+          "binary_offset": 109565
+        },
+        {
+          "resource": "SETTINGS_HTML",
+          "bytes_including_nul": 5390,
+          "sha256": "f545e9154b2cf8d5e6573075008a87704a786bceb44fc625376b7a7d64bdd4e8",
+          "elf_occurrences": 1,
+          "binary_occurrences": 1,
+          "elf_offset": 181512,
+          "binary_offset": 177416
+        },
+        {
+          "resource": "SETTINGS_JS",
+          "bytes_including_nul": 10503,
+          "sha256": "7ef1cc50fdbb772e7dedb2629c6004b744f5ef9b7a0e35f2abb7b93ceb2af686",
+          "elf_occurrences": 1,
+          "binary_occurrences": 1,
+          "elf_offset": 103158,
+          "binary_offset": 99062
+        },
+        {
+          "resource": "STYLE_CSS",
+          "bytes_including_nul": 31976,
+          "sha256": "572d65a22ddb9892bea169a8ea43ca078e3aa9207519b7cd58cb465de39428da",
+          "elf_occurrences": 1,
+          "binary_occurrences": 1,
+          "elf_offset": 145594,
+          "binary_offset": 141498
+        }
+      ],
+      "actual_parent_verifier_sha256": "01ff00b6dfe7fe74baf2854123a1a65af38837eb7ee58e7c6f9a82eab8221bb1",
+      "integration_verifier_adaptations": [
+        {
+          "before": "BUILD_ID = \"ROUTEB-DASHBOARD-CLEANUP-v1\"",
+          "after": "BUILD_ID = 'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1'",
+          "occurrences": 1
+        },
+        {
+          "before": "tests/dashboard_cleanup/source-manifest.json",
+          "after": "tests/editor_build_integration/source-manifest.json",
+          "occurrences": 2
+        },
+        {
+          "before": "tests/dashboard_cleanup/application.patch",
+          "after": "tests/editor_build_integration/identity.patch",
+          "occurrences": 1
+        },
+        {
+          "before": "'sha(ROOT / \"tests/privacy_fix1/prepare_sources.py\")'",
+          "after": "'sha(ROOT / \"tests/editor_load_safety/prepare_sources.py\")'",
+          "occurrences": 1
+        },
+        {
+          "before": "pin[\"format\"] == \"evilduck-dashboard-cleanup-v1\"",
+          "after": "pin[\"format\"] == \"evilduck-editor-build-integration-v1\"",
+          "occurrences": 1
+        },
+        {
+          "before": "pin[\"baseline\"] == \"70d08e9f789c187c5e27350a66f4d0d52992964b\"",
+          "after": "pin[\"baseline\"] == '805d989c3ac50cb96025862c95916830c59f8ba7'",
+          "occurrences": 1
+        },
+        {
+          "before": "source_files=201, dashboard_files=2",
+          "after": "source_files=201, editor_build_files=2",
+          "occurrences": 1
+        },
+        {
+          "before": "dashboard_patch_sha256=pin[\"patch_sha256\"]",
+          "after": "identity_patch_sha256=pin[\"patch_sha256\"]",
+          "occurrences": 1
+        },
+        {
+          "before": "dashboard_source_manifest_sha256=sha(pin_path)",
+          "after": "editor_build_source_manifest_sha256=sha(pin_path)",
+          "occurrences": 1
+        },
+        {
+          "before": "DASHBOARD CLEANUP / PRIVACY FIX 1 / H1 EXPERIMENTAL / OWNER REVIEW",
+          "after": "EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED",
+          "occurrences": 1
+        }
+      ],
+      "dashboard_parent_manifest_sha256": "b000f87c3cafb5b2bf4c98ee9c740789324c020d7099c4ae67610d273dfa479e",
+      "reviewed_editor_patch_sha256": "d20564165f1ead4ee2364c21184f6dfc8f506572982c2f143aa50323d76b8c58",
+      "installed": false
+    },
+    "actual_runtime_build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1",
+    "application_sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+    "elf_sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057",
+    "recompiled": false,
+    "target_source_or_images_modified": false,
+    "hardware": false,
+    "runtime_build_id_changed": true,
+    "owner_review_candidate": true,
+    "actual_parent_verifier_sha256": "eca7a6797940b158935bbc1352550652a93f99b4e7283d0d1eab04662330ed54",
+    "integration_adaptations": [
+      {
+        "before": "BUILD_ID = \"ROUTEB-DASHBOARD-CLEANUP-v1\"",
+        "after": "BUILD_ID = 'ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1'",
+        "occurrences": 1
+      },
+      {
+        "before": "BASE_COMMIT = \"70d08e9f789c187c5e27350a66f4d0d52992964b\"",
+        "after": "BASE_COMMIT = '805d989c3ac50cb96025862c95916830c59f8ba7'",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/dashboard_cleanup/source-manifest.json",
+        "after": "tests/editor_build_integration/source-manifest.json",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/dashboard_cleanup/application.patch",
+        "after": "tests/editor_build_integration/identity.patch",
+        "occurrences": 1
+      },
+      {
+        "before": "    from verify_target import verify",
+        "after": "    target_path = ROOT / \"tests/editor_build_integration/verify_target.py\"\n    target_spec = importlib.util.spec_from_file_location(\"editor_selected_target_verify\", target_path)\n    target_module = importlib.util.module_from_spec(target_spec)\n    target_spec.loader.exec_module(target_module)\n    verify = target_module.verify",
+        "occurrences": 1
+      },
+      {
+        "before": "dashboard_target_adapter",
+        "after": "editor_target_adapter",
+        "occurrences": 1
+      },
+      {
+        "before": "dashboard_target_binding",
+        "after": "editor_target_binding",
+        "occurrences": 1
+      },
+      {
+        "before": "dashboard_release_verification",
+        "after": "editor_release_verification",
+        "occurrences": 1
+      },
+      {
+        "before": "report[\"dashboard_source_pin\"] = pin",
+        "after": "report[\"editor_build_source_pin\"] = pin",
+        "occurrences": 1
+      },
+      {
+        "before": "    source_info = built.get(\"editor_target_adapter\", {})\n    source_commit = source_info.get(\"source_commit\", source_info.get(\"source_checkpoint\"))\n    assert isinstance(source_commit, str) and len(source_commit) == 40 and all(\n        character in \"0123456789abcdef\" for character in source_commit), \"Missing exact target source revision\"\n",
+        "after": "    source_info = built.get(\"editor_target_adapter\", {})\n    local_inputs_sha256 = sha(build_root / \"local-inputs.json\")\n    assert source_info.get(\"source_base_commit\") == BASE_COMMIT, \"Wrong source base commit\"\n    assert source_info.get(\"local_inputs_sha256\") == local_inputs_sha256, \"Wrong local uncommitted-input identity\"\n    assert source_info.get(\"overlay_calls\") == 1 and source_info.get(\"clean_compile\") is True, \"Default overlay/clean build evidence missing\"\n    assert source_info.get(\"editor_target_binding\") == binding_after, \"Target binding differs from executed build\"\n",
+        "occurrences": 1
+      },
+      {
+        "before": "source_commit=source_commit, adapter_sha256=sha(__file__),",
+        "after": "source_base_commit=BASE_COMMIT, source_commit_contains_changes=False, local_inputs_sha256=local_inputs_sha256, adapter_sha256=sha(__file__),",
+        "occurrences": 1
+      },
+      {
+        "before": "DASHBOARD CLEANUP / PRIVACY FIX 1 / H1 EXPERIMENTAL / OWNER REVIEW / PHYSICAL VALIDATION PENDING",
+        "after": "EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / UNINSTALLED / NOT OWNER-HARDWARE-VERIFIED",
+        "occurrences": 1
+      }
+    ],
+    "installed": false,
+    "package_created": false,
+    "status_label": "CANDIDATE-BUILT / UNINSTALLED / NOT OWNER-HARDWARE-VERIFIED"
+  },
+  "build_report_sha256": "7918e759521ed93e650f14f23a6b8f9105f1c72dc5814d7ca2cd3c79db43aecf",
+  "stage_gates": {
+    "A": "PASS: normal canonical build selects editor by default",
+    "B": "PASS: unsafe/omitted overlay and resource controls rejected",
+    "C": "PASS: focused editor, privacy and relevant software regressions",
+    "D": "PASS: source/dependency/object/map and full resource bytes in actual ELF/BIN",
+    "E": "PASS: previous artifacts/rollback/reviewed eight files/refs unchanged",
+    "F": "CANDIDATE-BUILT; NOT INSTALLED; NOT OWNER-HARDWARE-VERIFIED"
+  },
+  "first_attempt": {
+    "output": "/workspace/scratch/editor-build-integration/build-v1-uninstalled",
+    "exit": 1,
+    "stage": "PRE-COMPILATION",
+    "error": "ImportError: selected preparer lacked delta export expected by inherited inventory checker",
+    "resolution": "Added the same deterministic identity-only delta interface, kept all guards; reran normal command in fresh v2 output",
+    "source_or_dependency_guards_removed": 0
+  },
+  "committed": false,
+  "pushed": false,
+  "tagged": false,
+  "package_created": false,
+  "device_access": false,
+  "owner_files_accessed": false
+}

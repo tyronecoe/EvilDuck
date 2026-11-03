@@ -1,0 +1,229 @@
+{
+  "counts": {
+    "PASS": 41,
+    "FAIL": 0
+  },
+  "assertions": 309,
+  "results": [
+    {
+      "name": "no-selection-direct-handler-guards",
+      "status": "PASS",
+      "assertions": 7
+    },
+    {
+      "name": "load-http-401",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-http-404",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-http-409",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-http-500",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-http-503",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-network-failure",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-malformed-response-mime",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-empty-response",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "failed-load-deliberate-retry-success",
+      "status": "PASS",
+      "assertions": 8
+    },
+    {
+      "name": "ordinary-edit-save-editor-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "loaded-name-change-cannot-cross-file-save",
+      "status": "PASS",
+      "assertions": 5
+    },
+    {
+      "name": "loaded-destination-change-cannot-cross-volume-save",
+      "status": "PASS",
+      "assertions": 5
+    },
+    {
+      "name": "intentional-new-creation",
+      "status": "PASS",
+      "assertions": 5
+    },
+    {
+      "name": "failed-selection-then-explicit-new",
+      "status": "PASS",
+      "assertions": 5
+    },
+    {
+      "name": "stale-out-of-order-responses",
+      "status": "PASS",
+      "assertions": 8
+    },
+    {
+      "name": "explicit-new-supersedes-pending-load",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "dirty-switch-cancel-preserves-original-draft",
+      "status": "PASS",
+      "assertions": 7
+    },
+    {
+      "name": "dirty-failed-switch-explicit-original-restore",
+      "status": "PASS",
+      "assertions": 12
+    },
+    {
+      "name": "dirty-new-explicit-decision",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "load-deadline-and-late-response",
+      "status": "PASS",
+      "assertions": 9
+    },
+    {
+      "name": "double-selection-no-automatic-action",
+      "status": "PASS",
+      "assertions": 8
+    },
+    {
+      "name": "rapid-three-selections-stale-success-error",
+      "status": "PASS",
+      "assertions": 5
+    },
+    {
+      "name": "pending-save-no-duplicate-or-selection-switch",
+      "status": "PASS",
+      "assertions": 7
+    },
+    {
+      "name": "pending-run-direct-dom-tamper-guard",
+      "status": "PASS",
+      "assertions": 7
+    },
+    {
+      "name": "legitimate-error-like-comment-is-source",
+      "status": "PASS",
+      "assertions": 4
+    },
+    {
+      "name": "load-malformed-nul-source",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "load-unexpected-204-status",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "stale-response-without-abortcontroller",
+      "status": "PASS",
+      "assertions": 8
+    },
+    {
+      "name": "cancelled-switch-cancels-older-load-and-restores-draft",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "supported-namespace-aliases-and-uppercase-spiffs-folder",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "save-http-401-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "save-http-409-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "save-http-500-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "invalid-save-acknowledgement-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "invalid-save-response-mime-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "save-network-error-blocks-run",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "save-deadline-blocks-run-no-automatic-retry",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "clean-crlf-load-switch-does-not-invent-unsaved-edits",
+      "status": "PASS",
+      "assertions": 7
+    },
+    {
+      "name": "unsupported-mixedcase-prefix-no-silent-reinterpretation",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "existing-authenticated-deletion-confirmation",
+      "status": "PASS",
+      "assertions": 6
+    }
+  ],
+  "source": "/workspace/scratch/editor-load-safety/candidate/webfiles.h",
+  "source_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+  "parent_browser_fixture_sha256": "3713fa15a9d5ca9fa1bfe1fbfe4fde337af1b662c67c79921efe74aa05ce6166",
+  "browser": {
+    "engine": "Chromium",
+    "version": "151.0.7922.173",
+    "platform": "Linux",
+    "playwright": "1.62.0"
+  },
+  "real_network_requests": false,
+  "device_access": false,
+  "real_saves_or_deletes": false,
+  "real_runs_or_hid": false,
+  "owner_sources_read": false,
+  "scope": "Actual embedded UI with inert HTTP; no native High Sierra/iPhone or hardware acceptance"
+}

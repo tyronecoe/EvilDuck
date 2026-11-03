@@ -1,0 +1,286 @@
+--- webfiles.h
++++ webfiles.h
+@@ -135,10 +135,10 @@
+         <div class="cardhead">
+           <h2>Script editor</h2>
+           <div class="row gap">
+-            <button class="btn ghost" onclick="newScript()">New</button>
+-            <button class="btn" onclick="loadScript()">Load</button>
+-            <button class="btn primary" onclick="saveScript()">Save</button>
+-            <button class="btn" onclick="runEditorScript()">Run</button>
++            <button id="editorNew" type="button" class="btn ghost" onclick="newScript()">New</button>
++            <button id="editorLoad" type="button" class="btn" onclick="loadScript()">Load</button>
++            <button id="editorSave" type="button" class="btn primary" onclick="saveScript()" disabled>Save</button>
++            <button id="editorRun" type="button" class="btn" onclick="runEditorScript()" disabled>Run</button>
+           </div>
+         </div>
+         <div class="stack">
+@@ -154,7 +154,9 @@
+               <option value="sd">SD card</option>
+             </select>
+           </label>
+-          <textarea class="editor mono" id="editorBody" rows="14" placeholder="Select a script from the list to edit it here."></textarea>
++          <div id="editorStatus" class="hint" role="status" aria-live="polite" data-state="none">Load a script or explicitly choose New. No source selected.</div>
++          <div class="row gap"><button id="editorRetry" type="button" class="btn" onclick="retryEditorLoad()" hidden>Retry load</button><button id="editorRestore" type="button" class="btn" onclick="restoreEditorDraft()" hidden>Restore preserved draft</button></div>
++          <textarea class="editor mono" id="editorBody" rows="14" placeholder="Select a script from the list to edit it here." readonly></textarea>
+         </div>
+       </section>
+     </section>
+@@ -849,88 +851,168 @@
+   renderList();
+ }
+ 
++// BEGIN EDITOR DOCUMENT SAFETY — local identity/revision, not a server version.
++const editorState={phase:'none',generation:0,revision:0,document:null,retained:null,failedTarget:null,controller:null,writing:false};
++function editorIdentity(raw,storage){
++ let path=String(raw).trim(),volume=storage==='sd'?'sd':'spiffs';
++ if(path.startsWith('sd:')||path.startsWith('SD:')){volume='sd';path=path.slice(3);}
++ else if(path.startsWith('/sd/')||path.startsWith('sd/')){volume='sd';path=path.replace(/^\/?sd\//,'');}
++ path=path.replace(/^\/+/, '');
++ if(!/^[A-Za-z0-9_.\/-]+\.(txt|duck)$/.test(path)||path.includes('..')||path.split('/').some(p=>!p||p==='.'))return null;
++ return {key:volume+':/'+path,storage:volume,path,name:(volume==='sd'?'sd:':'')+path};
++}
++function editorFields(){return editorIdentity(document.getElementById('editorName').value,document.getElementById('editorStorage').value);}
++function editorSetFields(id){document.getElementById('editorName').value=id.name;document.getElementById('editorStorage').value=id.storage;}
++function editorEligible(){
++ const id=editorFields(),doc=editorState.document;
++ return !!doc&&!!id&&id.key===doc.id.key&&['loaded','dirty','new'].includes(editorState.phase);
++}
++function editorRender(message){
++ const eligible=editorEligible()&&!editorState.writing;
++ document.getElementById('editorSave').disabled=!eligible;
++ document.getElementById('editorRun').disabled=!eligible;
++ document.getElementById('editorBody').readOnly=!['loaded','dirty','new'].includes(editorState.phase)||editorState.writing;
++ document.getElementById('editorNew').disabled=editorState.writing;
++ document.getElementById('editorLoad').disabled=editorState.writing;
++ document.getElementById('editorRetry').hidden=editorState.phase!=='load-failed'||!editorState.failedTarget;
++ document.getElementById('editorRetry').disabled=editorState.writing;
++ document.getElementById('editorRestore').hidden=!editorState.retained;
++ document.getElementById('editorRestore').disabled=editorState.writing;
++ const status=document.getElementById('editorStatus');status.dataset.state=editorState.phase;
++ if(message)status.textContent=message;
++}
++function editorRemember(){
++ if(editorState.retained)return;
++ const doc=editorState.document;if(!doc)return;
++ editorState.retained={id:{...doc.id},savedText:doc.savedText,origin:doc.origin,text:document.getElementById('editorBody').value};
++}
++function editorCancelRead(){
++ ++editorState.generation;
++ if(editorState.controller)editorState.controller.abort();
++ editorState.controller=null;
++}
++function editorHasEdits(){
++ const old=editorState.retained,doc=editorState.document;
++ return old?(old.origin==='new'||old.text!==old.savedText):!!doc&&(doc.origin==='new'||document.getElementById('editorBody').value!==doc.savedText);
++}
++function editorMayReplace(){
++ if(editorState.writing){editorRender('A Save is pending. No selection change or duplicate action was sent.');return false;}
++ if(editorHasEdits()&&!confirm('Replace unsaved editor changes if this action succeeds? Cancel keeps your draft.')){
++  if(editorState.retained)restoreEditorDraft();
++  editorRender('Unsaved draft and its original identity retained; pending replacement cancelled.');return false;
++ }
++ return true;
++}
++function editorSourceChanged(){
++ ++editorState.revision;
++ const doc=editorState.document;
++ if(doc&&['loaded','dirty','new'].includes(editorState.phase))editorState.phase=doc.origin==='new'?'new':(document.getElementById('editorBody').value===doc.savedText?'loaded':'dirty');
++ editorRender('Editor changed locally. Save and Run require this document identity; no action sent.');
++}
++function editorSelectionChanged(){
++ ++editorState.revision;editorCancelRead();
++ const id=editorFields(),doc=editorState.document;
++ if(doc&&doc.origin==='new'&&editorState.phase==='new'){
++  if(id)doc.id=id;
++  editorRender('Intentional new script: choose its target, then explicitly Save. Existing server files have no version protection.');return;
++ }
++ editorRemember();editorState.phase='identity-changed';editorState.failedTarget=null;
++ editorRender('Target changed. Load it or choose New; retained source cannot be saved under a different identity.');
++}
++function restoreEditorDraft(){
++ if(editorState.writing||!editorState.retained)return false;
++ const old=editorState.retained;editorCancelRead();++editorState.revision;
++ editorState.document={id:{...old.id},savedText:old.savedText,origin:old.origin};
++ editorSetFields(old.id);document.getElementById('editorBody').value=old.text;
++ editorState.retained=null;editorState.failedTarget=null;
++ editorState.phase=old.origin==='new'?'new':(old.text===old.savedText?'loaded':'dirty');
++ editorRender('Restored the preserved document and its original target '+old.id.name+'. No request sent.');return true;
++}
+ function newScript(){
+-  document.getElementById('editorName').value='payload.txt';
+-  document.getElementById('editorBody').value='REM New script\nDEFAULTDELAY 50\n';
+-  document.getElementById('editorBody').focus();
+-}
+-
+-async function fetchScriptContent(name){
+-  const fd=new FormData();
+-  fd.append('name',name);
+-  let r=await fetch('/script/load',{method:'POST',body:fd,headers:duckHeaders()});
+-  let text=await r.text();
+-  if(r.ok) return text;
+-  if(r.status!==404)throw new Error(httpFailure(r,text));
+-  r=await fetch('/script?s='+encodeURIComponent(name),{headers:duckHeaders()});
+-  text=await r.text();
+-  if(r.ok) return text;
+-  if(r.status!==404)throw new Error(httpFailure(r,text));
+-  r=await fetch('/library?s='+encodeURIComponent(name),{headers:duckHeaders()});
+-  text=await r.text();
+-  if(r.ok) return text;
+-  throw new Error(text||('HTTP '+r.status));
+-}
+-
+-async function loadScript(forcedName){
+-  const name=(forcedName||document.getElementById('editorName').value).trim();
+-  const body=document.getElementById('editorBody');
+-  if(!name){log('Enter a filename');return;}
+-  document.getElementById('editorName').value=name;
+-  if(name.startsWith('sd:')||name.startsWith('SD:')){
+-    const sel=document.getElementById('editorStorage');
+-    if(sel) sel.value='sd';
++ if(!editorMayReplace())return false;
++ editorCancelRead();++editorState.revision;
++ const id=editorIdentity('payload.txt','spiffs');
++ editorState.document={id,savedText:null,origin:'new'};editorState.retained=null;editorState.failedTarget=null;editorState.phase='new';
++ editorSetFields(id);document.getElementById('editorBody').value='REM New script\nDEFAULTDELAY 50\n';
++ editorRender('Intentional new script. Choose its filename/destination; nothing is written until Save.');document.getElementById('editorBody').focus();return true;
++}
++async function fetchScriptContent(name,signal){
++ const fd=new FormData();fd.append('name',name);
++ const attempts=[['/script/load',{method:'POST',body:fd}],['/script?s='+encodeURIComponent(name),{}],['/library?s='+encodeURIComponent(name),{}]];
++ for(let i=0;i<attempts.length;++i){
++  if(signal&&signal.aborted)throw new Error('Load cancelled.');
++  const [url,options]=attempts[i];const r=await fetch(url,{...options,headers:duckHeaders(),signal});const text=await r.text();
++  if(r.ok){
++   const type=r.headers?(r.headers.get('Content-Type')||'').split(';')[0].trim().toLowerCase():'';
++   if(r.status!==200||type!=='text/plain'||typeof text!=='string'||!text.length||text.includes('\0'))throw new Error('Invalid or empty script response; no source accepted. Empty reads cannot be distinguished from read failure.');
++   return text;
+   }
+-  body.value='Loading...';
+-  try{
+-    const text=await fetchScriptContent(name);
+-    body.value=text;
+-    const preview=text.split('\n')[0].slice(0,60);
+-    log('Loaded: '+name+' | '+preview+(text.length>60?'...':''));
+-  }catch(e){
+-    body.value='REM Load failed: '+e.message+'\nREM File: '+name;
+-    log('Load failed: '+e.message);
+-  }
+-}
+-
++  if(r.status!==404||i===attempts.length-1)throw new Error(httpFailure(r,text));
++ }
++ throw new Error('Script not found.');
++}
++async function loadScript(forcedName,forcedStorage){
++ const id=editorIdentity(forcedName===undefined?document.getElementById('editorName').value:forcedName,forcedStorage===undefined?document.getElementById('editorStorage').value:forcedStorage);
++ if(!editorMayReplace())return false;
++ if(!id){editorRemember();editorCancelRead();editorState.phase='identity-changed';editorRender('Invalid script target. Source retained; no load or write sent.');return false;}
++ editorRemember();editorCancelRead();const generation=editorState.generation;
++ const controller=typeof AbortController==='undefined'?null:new AbortController();editorState.controller=controller;
++ editorState.failedTarget=id;editorState.phase='loading';editorSetFields(id);
++ editorRender('Loading '+id.name+'. Previous source is retained and locked; Save/Run are unavailable.');
++ let timer;
++ try{
++  const text=await Promise.race([fetchScriptContent(id.name,controller?controller.signal:undefined),new Promise((_,reject)=>{timer=setTimeout(()=>{if(controller)controller.abort();reject(new Error('Load timed out. No source accepted; deliberate retry available.'));},4000);})]);
++  if(generation!==editorState.generation)return false;
++  // A valid response is bound to the captured request, never the current text fields.
++  if(!editorFields()||editorFields().key!==id.key){editorState.phase='identity-changed';editorRender('Target changed during load. Response ignored; source retained.');return false;}
++  document.getElementById('editorBody').value=text;
++  editorState.document={id,savedText:document.getElementById('editorBody').value,origin:'loaded'};
++  editorState.retained=null;editorState.failedTarget=null;editorState.phase='loaded';++editorState.revision;
++  editorRender('Loaded '+id.name+'. Save target '+id.key+'. Server source version is not provided.');
++  const preview=text.split('\n')[0].slice(0,60);log('Loaded: '+id.name+' | '+preview+(text.length>60?'...':''));return true;
++ }catch(e){
++  if(generation!==editorState.generation)return false;
++  editorState.phase='load-failed';editorRender('Load failed for '+id.name+': '+e.message+' Source was not replaced. Retry, restore the preserved document, or choose New.');
++  log('Load failed: '+e.message);return false;
++ }finally{clearTimeout(timer);if(generation===editorState.generation)editorState.controller=null;}
++}
++function retryEditorLoad(){const id=editorState.failedTarget;return id?loadScript(id.name,id.storage):false;}
+ async function openEditor(name){
+-  const sel=document.getElementById('editorStorage');
+-  if(sel) sel.value=(name.startsWith('sd:')||name.startsWith('SD:'))?'sd':'spiffs';
+-  activateTab('scripts');
+-  await loadScript(name);
+-  document.getElementById('editorBody').scrollIntoView({behavior:'smooth',block:'center'});
+-}
+-
+-function scriptRefName(raw, storage){
+-  let n=raw.trim();
+-  if(!n) return '';
+-  if(n.startsWith('sd:')) return n;
+-  if(storage==='sd') return 'sd:'+n;
+-  return n;
+-}
+-
++ activateTab('scripts');const ok=await loadScript(name,'spiffs');
++ document.getElementById('editorBody').scrollIntoView({behavior:'smooth',block:'center'});return ok;
++}
++function scriptRefName(raw,storage){const id=editorIdentity(raw,storage);return id?id.name:'';}
++function editorCapture(){
++ if(editorState.writing||!editorEligible()){editorRender('Save/Run blocked: load this target successfully, restore its preserved document, or explicitly choose New.');return null;}
++ return {document:editorState.document,id:{...editorState.document.id},text:document.getElementById('editorBody').value,generation:editorState.generation,revision:editorState.revision};
++}
++function editorSame(capture){
++ const id=editorFields();return editorState.document===capture.document&&!!id&&id.key===capture.id.key&&editorState.generation===capture.generation&&editorState.revision===capture.revision&&document.getElementById('editorBody').value===capture.text&&editorEligible();
++}
++async function editorWrite(capture){
++ const fd=new FormData();fd.append('name',capture.id.name);fd.append('content',capture.text);fd.append('storage',capture.id.storage);
++ const r=await controlFetch('/script',{method:'POST',body:fd,headers:duckHeaders()});const text=await r.text();
++ if(!r.ok)throw new Error(httpFailure(r,text));
++ if(r.status!==200||(r.contentType||'').split(';')[0].trim().toLowerCase()!=='text/plain'||text!=='Saved to '+capture.id.name)throw new Error('Save acknowledgement is invalid; outcome unknown. Check before a deliberate retry.');
++ if(!editorSame(capture)){editorRender('Save acknowledged for captured target '+capture.id.name+', but the editor changed. Current edits are not confirmed saved; no Run sent.');return false;}
++ editorState.document.savedText=capture.text;editorState.document.origin='loaded';editorState.phase='loaded';
++ editorRender('Saved '+capture.id.name+'. This acknowledges the submitted text, not a server version or atomic Save/Run.');log(text);loadList();return true;
++}
+ async function saveScript(){
+-  const raw=document.getElementById('editorName').value.trim();
+-  const storage=document.getElementById('editorStorage').value;
+-  const name=scriptRefName(raw, storage);
+-  const content=document.getElementById('editorBody').value;
+-  if(!name){log('Enter a filename');return;}
+-  const fd=new FormData();
+-  fd.append('name',name);
+-  fd.append('content',content);
+-  fd.append('storage', storage);
+-  const r=await fetch('/script',{method:'POST',body:fd,headers:duckHeaders()});
+-  const result=await r.text();if(!r.ok){log('Save failed: '+httpFailure(r,result));return false;}
+-  log(result);await loadList();return true;
+-}
+-
++ const capture=editorCapture();if(!capture)return false;
++ editorState.writing=true;editorRender('Saving '+capture.id.name+'; duplicate actions are blocked.');
++ try{return await editorWrite(capture);}
++ catch(e){editorRender('Save not confirmed: '+e.message+' No automatic retry or Run.');log('Save not confirmed: '+e.message);return false;}
++ finally{editorState.writing=false;editorRender();}
++}
+ async function runEditorScript(){
+-  const raw=document.getElementById('editorName').value.trim();
+-  const storage=document.getElementById('editorStorage').value;
+-  const name=scriptRefName(raw, storage);
+-  if(!name){log('Enter a filename');return;}
+-  if(await saveScript())await runScript(name);
+-}
++ const capture=editorCapture();if(!capture)return false;
++ editorState.writing=true;editorRender('Saving captured editor document before explicit Run.');
++ try{if(!await editorWrite(capture)||!editorSame(capture))return false;await runScript(capture.id.name);return true;}
++ catch(e){editorRender('Editor Run not confirmed: '+e.message+' No automatic retry.');log('Editor Run not confirmed: '+e.message);return false;}
++ finally{editorState.writing=false;editorRender();}
++}
++// END EDITOR DOCUMENT SAFETY
+ 
+ function setChip(el, text, cls){
+   if(!el) return;
+@@ -1189,7 +1271,11 @@
+   if(['dashboard','scripts','library','logs','diagnostics'].includes(initial)) activateTab(initial);
+   const p=document.getElementById('duckPw');
+   if(p) p.value=sessionStorage.getItem('duckPw')||'';
++  editorRender();
++  document.getElementById('editorBody').addEventListener('input',editorSourceChanged);
++  document.getElementById('editorStorage').addEventListener('change',editorSelectionChanged);
+   const en=document.getElementById('editorName');
++  en.addEventListener('input',editorSelectionChanged);
+   if(en){
+     en.addEventListener('keydown',e=>{
+       if(e.key==='Enter'){e.preventDefault();loadScript();}

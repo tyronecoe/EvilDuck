@@ -1,0 +1,139 @@
+{
+  "status_label": "CANDIDATE-BUILT",
+  "installed": false,
+  "owner_hardware_verified": false,
+  "installation_authorized": false,
+  "build_id": "ROUTEB-EDITOR-SAFETY-UNINSTALLED-v1",
+  "source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "source_commit_contains_changes": false,
+  "local_inputs_file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/local-inputs.json",
+  "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+  "final_source_manifest_sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+  "webfiles_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+  "normal_entry": "tools/build_routeb_candidate.py",
+  "clean_command": [
+    "/workspace/tooling/arduino/bin/arduino-cli",
+    "--config-file",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/arduino-cli.json",
+    "compile",
+    "--fqbn",
+    "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "--build-path",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build",
+    "--jobs",
+    "4",
+    "--build-property",
+    "upload.maximum_size=7602176",
+    "--build-property",
+    "recipe.hooks.objcopy.postobjcopy.3.pattern=",
+    "--build-property",
+    "compiler.cpp.extra_flags=-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1 -DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3",
+    "--clean",
+    "--verbose",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3"
+  ],
+  "resources": [
+    {
+      "resource": "INDEX_HTML",
+      "bytes_including_nul": 12185,
+      "sha256": "e086c053bbc4439ad5b8515c9a42e516496ae65adcf32783cfefc9147ac66a58",
+      "elf_occurrences": 1,
+      "binary_occurrences": 1,
+      "elf_offset": 186902,
+      "binary_offset": 182806
+    },
+    {
+      "resource": "INDEX_JS",
+      "bytes_including_nul": 31933,
+      "sha256": "4268329ef9d387ca4732407b198e1a182f55a66d909a5a19f9fd60c099110d36",
+      "elf_occurrences": 1,
+      "binary_occurrences": 1,
+      "elf_offset": 113661,
+      "binary_offset": 109565
+    },
+    {
+      "resource": "SETTINGS_HTML",
+      "bytes_including_nul": 5390,
+      "sha256": "f545e9154b2cf8d5e6573075008a87704a786bceb44fc625376b7a7d64bdd4e8",
+      "elf_occurrences": 1,
+      "binary_occurrences": 1,
+      "elf_offset": 181512,
+      "binary_offset": 177416
+    },
+    {
+      "resource": "SETTINGS_JS",
+      "bytes_including_nul": 10503,
+      "sha256": "7ef1cc50fdbb772e7dedb2629c6004b744f5ef9b7a0e35f2abb7b93ceb2af686",
+      "elf_occurrences": 1,
+      "binary_occurrences": 1,
+      "elf_offset": 103158,
+      "binary_offset": 99062
+    },
+    {
+      "resource": "STYLE_CSS",
+      "bytes_including_nul": 31976,
+      "sha256": "572d65a22ddb9892bea169a8ea43ca078e3aa9207519b7cd58cb465de39428da",
+      "elf_occurrences": 1,
+      "binary_occurrences": 1,
+      "elf_offset": 145594,
+      "binary_offset": 141498
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/EvilDuckS3.ino.bin",
+      "bytes": 1437696,
+      "sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+      "role": "UNINSTALLED APPLICATION"
+    },
+    {
+      "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/EvilDuckS3.ino.elf",
+      "bytes": 23645104,
+      "sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057",
+      "role": "Build evidence only; not an installation plan"
+    },
+    {
+      "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/EvilDuckS3.ino.map",
+      "bytes": 26992898,
+      "sha256": "70680a62766fe7b43aece8263db54ef318e3b116b4ea18e2147cba76829f556f",
+      "role": "Build evidence only; not an installation plan"
+    },
+    {
+      "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/EvilDuckS3.ino.partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "role": "Build evidence only; not an installation plan"
+    },
+    {
+      "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/build/EvilDuckS3.ino.bootloader.bin",
+      "bytes": 20256,
+      "sha256": "95b966ad240a05bf8a804cd4519eebac5271b662e51417668da488652b7354bf",
+      "role": "Build evidence only; not an installation plan"
+    }
+  ],
+  "mandatory_release_receipt": {
+    "file": "/workspace/scratch/editor-build-integration/build-v2-uninstalled/editor-release-verification.json",
+    "sha256": "a53f86bfdac4f949930f3edc1d9550b0aa50c107b3d5ed7313a41c3351e16c79",
+    "frozen_layers": 6,
+    "static_assert_nodes_retained": 190
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "source_package": "/workspace/EvilDuck/downloads/evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip",
+    "member": "rollback-application.bin",
+    "privacy_fix1": false,
+    "dashboard_cleanup": false
+  },
+  "preservation": {
+    "reviewed_local_files_unchanged": 8,
+    "all_historical_tracked_files_unchanged": true,
+    "git_refs_unchanged": true,
+    "published_zip_unchanged": true,
+    "owner_files_accessed": false
+  },
+  "hardware_access": false,
+  "installer_created": false,
+  "package_created": false,
+  "published": false
+}
