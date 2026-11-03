@@ -1,0 +1,267 @@
+{
+  "format": "evilduck-script-storage-readonly-audit-v1",
+  "baseline": "e117037a15b5f79ba57abb1fb1da45cd4bb15fbf",
+  "live_inventory_available": false,
+  "screenshot_originals_supplied_to_this_task": true,
+  "destructive_operations_authorized": false,
+  "allowlist": [],
+  "allowlist_count": 0,
+  "reported_inspection_candidates": [
+    {
+      "reported_label": "x28-* family",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "lockwait* family",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "wait-* family",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "rm-* family",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "h1-* family",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "other test/example names",
+      "storage_namespace": null,
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Uninspected owner content; may be a test upload or other script",
+      "reference_evidence": "Only a truncated name/family in the handoff; no inspected contents, references or path identity",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "sd:loot.txt",
+      "storage_namespace": "SD display label only",
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Unknown user content",
+      "reference_evidence": "SD root and /scripts listing collapse to the same sd: basename; no live source/identity supplied",
+      "recommendation": "UNKNOWN"
+    },
+    {
+      "reported_label": "sd:jtest.txt",
+      "storage_namespace": "SD display label only",
+      "exact_path": null,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Unknown user content",
+      "reference_evidence": "SD root and /scripts listing collapse to the same sd: basename; no live source/identity supplied",
+      "recommendation": "UNKNOWN"
+    }
+  ],
+  "warning": "Labels ending in * describe handoff families only; they are not filesystem paths or wildcard operations",
+  "required_before_any_entry": [
+    "Exact physical storage namespace and path",
+    "Owner-local source/purpose and reference review",
+    "Byte-verified private backup mapped to original path",
+    "Explicit separately authorized file-specific cleanup"
+  ],
+  "private_data_included": false,
+  "device_access": false,
+  "screenshot_count": 11,
+  "owner_clarification": "Owner clicked Edit on the top three entries; screenshots show loaded editor views, not merely typed filenames. No device bytes, size/hash or reference inventory captured.",
+  "provisional_archive_candidates": [
+    {
+      "display_name": "x28-5b41d038bfdd.duck",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/x28-5b41d038bfdd.duck",
+      "actual_path_independently_verified": false,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Likely simple timing/test fixture from owner-confirmed Edit view; origin/age unknown",
+      "recommendation": "ARCHIVE CANDIDATE",
+      "recommendation_limit": "Provisional review only; not deletion-authorized. Must identify saved bytes, references and a verified private backup first.",
+      "evidence": "Owner-supplied editor screenshot plus confirmation of clicking Edit; source contents not reproduced in this public report"
+    },
+    {
+      "display_name": "x28-4c0b7090aeec.duck",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/x28-4c0b7090aeec.duck",
+      "actual_path_independently_verified": false,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Likely simple timing/test fixture from owner-confirmed Edit view; origin/age unknown",
+      "recommendation": "ARCHIVE CANDIDATE",
+      "recommendation_limit": "Provisional review only; not deletion-authorized. Must identify saved bytes, references and a verified private backup first.",
+      "evidence": "Owner-supplied editor screenshot plus confirmation of clicking Edit; source contents not reproduced in this public report"
+    },
+    {
+      "display_name": "x28-ab6d99ed45d7.duck",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/x28-ab6d99ed45d7.duck",
+      "actual_path_independently_verified": false,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Likely simple timing/test fixture from owner-confirmed Edit view; origin/age unknown",
+      "recommendation": "ARCHIVE CANDIDATE",
+      "recommendation_limit": "Provisional review only; not deletion-authorized. Must identify saved bytes, references and a verified private backup first.",
+      "evidence": "Owner-supplied editor screenshot plus confirmation of clicking Edit; source contents not reproduced in this public report"
+    },
+    {
+      "display_name": "x28-349b740cfccc.duck",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/x28-349b740cfccc.duck",
+      "actual_path_independently_verified": false,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Visible DEFINE/function/branch test source; remaining bottom portion and saved bytes unverified",
+      "recommendation": "ARCHIVE CANDIDATE",
+      "recommendation_limit": "Provisional only; verify complete saved bytes, references and private archive before deletion approval",
+      "evidence": "Owner-supplied editor screenshot; private source text not republished"
+    },
+    {
+      "display_name": "d-2ce832ec5e50.txt",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/d-2ce832ec5e50.txt",
+      "actual_path_independently_verified": false,
+      "bytes": null,
+      "sha256": null,
+      "purpose": "Visible canary/test-data text, not an application resource; usage/references unknown",
+      "recommendation": "ARCHIVE CANDIDATE",
+      "recommendation_limit": "Provisional only; verify complete saved bytes, references and private archive before deletion approval",
+      "evidence": "Owner-supplied editor screenshot; private source text not republished"
+    }
+  ],
+  "fully_readable_list_labels": [
+    {
+      "display_name": "lockwait01.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "lockwait02.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "lockwait03.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "lockwait04.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "lockwait05.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "testdoodoo.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "rm-shift.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "rm-taps.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "rm-bad.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    },
+    {
+      "display_name": "h1-malformed.txt",
+      "bytes": null,
+      "sha256": null,
+      "recommendation": "UNKNOWN",
+      "reference_evidence": "Visible label only; contents/dependencies/private saved-byte identity uninspected"
+    }
+  ],
+  "request_observations": [
+    {
+      "scope": "Three editor screenshots",
+      "visible_request": "0: None",
+      "script_identity_for_request": null,
+      "boot_session_id": null
+    },
+    {
+      "scope": "Script-list screenshots",
+      "visible_request": "1: Completed",
+      "script_identity_for_request": null,
+      "boot_session_id": null
+    }
+  ],
+  "load_failure_observations": [
+    {
+      "display_name": "x28-32fab547adf7.duck",
+      "storage_namespace_selected_in_ui": "SPIFFS (internal)",
+      "expected_canonical_path": "/x28-32fab547adf7.duck",
+      "bytes": null,
+      "sha256": null,
+      "purpose": null,
+      "recommendation": "UNKNOWN",
+      "http_status": 409,
+      "evidence": "Editor displays client-generated load-failure placeholder, not file source",
+      "save_warning": "Do not Save or editor Run from this failed-load view; current code can submit the error buffer as replacement source",
+      "cause": "Mutation TryGuard contention or rejected mutation admission; not proof of an executing payload",
+      "visible_request": "0: None",
+      "boot_session_id": null
+    }
+  ]
+}

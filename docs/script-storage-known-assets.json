@@ -1,0 +1,115 @@
+{
+  "scope": "Known public repository/host assets only; no private device inventory",
+  "assets": [
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_right_modifiers/fixtures/rm-malformed.txt",
+      "bytes": 32,
+      "sha256": "e4e2ce0e92431624e86ec59405304549db7754572c5255d210273c52baef0d94",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_right_modifiers/fixtures/rm-modifier-taps.txt",
+      "bytes": 77,
+      "sha256": "a9d5de681fb2ce892a97b3b9488fa6ee50faf0e4bec44b04f02b376768204e4f",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_right_modifiers/fixtures/rm-shift.txt",
+      "bytes": 113,
+      "sha256": "ffe9c08379fb045b7f85f7e92f19ca0fdd9d4362ef82e01bed7c34d144dec823",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_right_modifiers/fixtures/rm-stop.txt",
+      "bytes": 60,
+      "sha256": "3d47b5de664ead9037c887e3db513ce8a23c9e55935074ef808da06e9e9c9baa",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/inject_var_h1_package/fixtures/h1-fixed-copy.txt",
+      "bytes": 191,
+      "sha256": "7e329ddd435fe11eaf4d5631b5c2e6409825fc04734e2a15bb8f5d380f02b0b5",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/inject_var_h1_package/fixtures/h1-malformed.txt",
+      "bytes": 34,
+      "sha256": "b8485cc58e88381880fe1fbd495a575a3924441931ffcd7130bf7399fa4075cb",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/inject_var_h1_package/fixtures/h1-random-copy.txt",
+      "bytes": 99,
+      "sha256": "d37499ef5437784cf49b7a8ac36371c0374adfe049d044eeb7afe19e57d7656b",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/inject_var_h1_package/fixtures/h1-stop-held-shift.txt",
+      "bytes": 93,
+      "sha256": "7b5da1a22e24298e4aae5f82d07510f83ed7f55b4f64f3ad4154f87f01fd4415",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_lock_wait/wait-held-shift-stop.txt",
+      "bytes": 91,
+      "sha256": "c058d9fec69f6a3151edbabf0a06e8f6001e1ad90c27bfeeccde6176f9072ca7",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_lock_wait/wait-new-run-default.txt",
+      "bytes": 77,
+      "sha256": "4c9738f0f5c7a088f1d100fb8d8a3b8ee9e90bea7a30f11885f994f9aee53459",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_lock_wait/wait-passive-expiry.txt",
+      "bytes": 79,
+      "sha256": "d67514f4fe5ab2f02b4c0030fa4a8fc76c64c67ff6cfc724ad4f739ab2e77d3c",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "repository/host provenance",
+      "path": "tests/h1_lock_wait/wait-settings-reset.txt",
+      "bytes": 246,
+      "sha256": "d436ef0e32e232a4ee5e30f8ea5e42019d55453de725f6b06db30892f01eaf1e",
+      "recommendation": "KEEP",
+      "dependency": "Public regression or acceptance fixture; not evidence of any device copy; never run for inventory"
+    },
+    {
+      "namespace": "published host package",
+      "path": "downloads/evilduck-dashboard-diagnostics-cleanup-h1-macos-review-v1.zip",
+      "bytes": 2497152,
+      "sha256": "f9221d2f8bd397cbcaf9166126026f4712fc17fd0ae883fe05115cc33578142c",
+      "recommendation": "KEEP",
+      "dependency": "Verified review package; exact mandatory source/text-v2 rollback member; not a filesystem or settings backup"
+    }
+  ],
+  "rollback_member": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "without_privacy_fix1": true,
+    "without_dashboard_cleanup": true
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "source": "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h",
+  "source_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+  "browser_fixture_sha256": "3713fa15a9d5ca9fa1bfe1fbfe4fde337af1b662c67c79921efe74aa05ce6166",
+  "real_network_requests": false,
+  "hardware": false,
+  "owner_sources_read": false,
+  "scripts_executed": false,
+  "real_saves": false,
+  "scope": "Actual composed embedded UI in intercepted Linux Chromium; no native Mac or device proof",
+  "results": [
+    {
+      "name": "failed-load-placeholder-explicit-save",
+      "classification": "OBSERVED_DEFECT",
+      "load_http_status": 409,
+      "assertions": 10,
+      "editor_text": "REM Load failed: HTTP 409: Route B owns storage\nREM File: audit-only-source.duck",
+      "submitted_content": "REM Load failed: HTTP 409: Route B owns storage\r\nREM File: audit-only-source.duck",
+      "requested_name": "audit-only-source.duck",
+      "multipart_newline_serialization": "Textarea LF serialized as CRLF in multipart/form-data",
+      "exactly_one_mock_save": true,
+      "no_automatic_save": true,
+      "api_requests": [
+        {
+          "method": "GET",
+          "path": "/list",
+          "authenticated": true,
+          "field_names": []
+        },
+        {
+          "method": "GET",
+          "path": "/library",
+          "query": "all=1",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/status",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/led-test",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/caps-trial",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/hid-trace",
+          "query": "after=4294967295",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "POST",
+          "path": "/script/load",
+          "authenticated": true,
+          "field_names": [
+            "name"
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/status",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/led-test",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/caps-trial",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/hid-trace",
+          "query": "after=4294967295",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "POST",
+          "path": "/script",
+          "authenticated": true,
+          "field_names": [
+            "content",
+            "name",
+            "storage"
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/list",
+          "authenticated": true,
+          "field_names": []
+        }
+      ],
+      "unexpected_requests": [],
+      "browser_errors": []
+    },
+    {
+      "name": "successful-load-save-control",
+      "classification": "CONTROL_CONFIRMED",
+      "load_http_status": 200,
+      "assertions": 10,
+      "editor_text": "REM Synthetic audit control; never executed.\n",
+      "submitted_content": "REM Synthetic audit control; never executed.\r\n",
+      "requested_name": "audit-only-source.duck",
+      "multipart_newline_serialization": "Textarea LF serialized as CRLF in multipart/form-data",
+      "exactly_one_mock_save": true,
+      "no_automatic_save": true,
+      "api_requests": [
+        {
+          "method": "GET",
+          "path": "/list",
+          "authenticated": true,
+          "field_names": []
+        },
+        {
+          "method": "GET",
+          "path": "/library",
+          "query": "all=1",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/status",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/led-test",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/caps-trial",
+          "query": "",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "GET",
+          "path": "/hid-trace",
+          "query": "after=4294967295",
+          "authenticated": true,
+          "field_names": [],
+          "timing_mode": null
+        },
+        {
+          "method": "POST",
+          "path": "/script/load",
+          "authenticated": true,
+          "field_names": [
+            "name"
+          ]
+        },
+        {
+          "method": "POST",
+          "path": "/script",
+          "authenticated": true,
+          "field_names": [
+            "content",
+            "name",
+            "storage"
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/list",
+          "authenticated": true,
+          "field_names": []
+        }
+      ],
+      "unexpected_requests": [],
+      "browser_errors": []
+    }
+  ],
+  "harness_failures": [],
+  "browser": {
+    "engine": "Chromium",
+    "version": "151.0.7922.173",
+    "platform": "Linux",
+    "playwright": "1.62.0"
+  },
+  "classification": "OBSERVED_DEFECT",
+  "assertions": 20,
+  "counts": {
+    "OBSERVED_DEFECT": 1,
+    "CONTROL_CONFIRMED": 1,
+    "HARNESS_ERROR": 0
+  },
+  "interpretation": "Explicit Save can submit a failed-load error placeholder as replacement source; this confirms a UI data-loss risk, not an observed device overwrite. Exit zero means the audit reproduction completed, not safe behavior PASS."
+}

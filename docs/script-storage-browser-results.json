@@ -1,0 +1,88 @@
+{
+  "counts": {
+    "PASS": 9,
+    "FAIL": 0
+  },
+  "assertions": 207,
+  "results": [
+    {
+      "name": "layout-navigation-1280",
+      "status": "PASS",
+      "assertions": 42
+    },
+    {
+      "name": "layout-navigation-320",
+      "status": "PASS",
+      "assertions": 42
+    },
+    {
+      "name": "layout-navigation-390",
+      "status": "PASS",
+      "assertions": 42
+    },
+    {
+      "name": "hidden-active-diagnostics-and-script-stop",
+      "status": "PASS",
+      "assertions": 12
+    },
+    {
+      "name": "authentication-errors-compact",
+      "status": "PASS",
+      "assertions": 20
+    },
+    {
+      "name": "explicit-diagnostic-control-wiring-inert-only",
+      "status": "PASS",
+      "assertions": 16
+    },
+    {
+      "name": "delayed-diagnostics-no-overlap-stop-responsive",
+      "status": "PASS",
+      "assertions": 10
+    },
+    {
+      "name": "settings-private-replacements-and-explicit-timing",
+      "status": "PASS",
+      "assertions": 17
+    },
+    {
+      "name": "pending-timing-read-retains-owner-selection",
+      "status": "PASS",
+      "assertions": 6
+    }
+  ],
+  "source": "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h",
+  "source_sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+  "browser": {
+    "engine": "Chromium",
+    "version": "151.0.7922.173",
+    "executable": "/usr/bin/chromium",
+    "platform": "Linux",
+    "playwright": "1.62.0"
+  },
+  "profiles": [
+    {
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "touch": false
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "mobile": true,
+      "touch": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "touch": true
+    }
+  ],
+  "other_environments": "Native High Sierra/newer macOS/Windows/Android/iOS and Firefox/WebKit not tested",
+  "real_network_requests": false,
+  "real_device_operations": false,
+  "payloads_executed": false,
+  "scope": "Actual embedded HTML/CSS/JS with intercepted inert HTTP; mobile viewport/touch emulation is not physical OS/browser evidence"
+}

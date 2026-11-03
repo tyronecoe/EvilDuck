@@ -1,0 +1,59 @@
+{
+  "scope": "Documentation/static audit plus intercepted inert browser only",
+  "date": "2026-11-03",
+  "source_inventory": {
+    "entries": 201,
+    "all_sizes_hashes_match": true
+  },
+  "browser": {
+    "command": [
+      "python3",
+      "-B",
+      "tests/dashboard_cleanup/test_browser.py",
+      "--source",
+      "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h",
+      "--output-dir",
+      "/workspace/scratch/script-storage-audit/browser"
+    ],
+    "exit": 0,
+    "pass_groups": 9,
+    "assertions": 207,
+    "fail_groups": 0,
+    "receipt": "docs/script-storage-browser-results.json"
+  },
+  "editor_observation": {
+    "command": [
+      "python3",
+      "-B",
+      "tests/script_storage_audit/test_editor_error.py",
+      "--source",
+      "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3/webfiles.h",
+      "--output-dir",
+      "/workspace/scratch/script-storage-audit/editor-error-v2"
+    ],
+    "exit": 0,
+    "classification": "OBSERVED_DEFECT",
+    "observed_defects": 1,
+    "successful_controls": 1,
+    "checks": 20,
+    "harness_errors": 0,
+    "receipt": "docs/script-storage-editor-error-observation.json",
+    "no_actual_device_overwrite": true
+  },
+  "public_compiled_examples": {
+    "count": 5,
+    "derived_size_hashes_independently_recomputed": true
+  },
+  "rollback_bytes": 1413200,
+  "rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+  "live_file_size_or_hash_evidence": false,
+  "cleanup_allowlist_count": 0,
+  "firmware_modified": false,
+  "firmware_built": false,
+  "new_package": false,
+  "hardware": false,
+  "private_backups_read": false,
+  "scripts_executed": false,
+  "sanitizers": "Not rerun; no C/C++ changes or new native execution; historical evidence remains historical",
+  "python": "Python 3.12.14"
+}

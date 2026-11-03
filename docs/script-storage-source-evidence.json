@@ -1,0 +1,280 @@
+{
+  "baseline": "e117037a15b5f79ba57abb1fb1da45cd4bb15fbf",
+  "firmware_source_commit": "0db1f980e0ed05390d71fe9e92178304d7a3bc24",
+  "scope": "Public composed sources only; not live filesystem evidence",
+  "files": [
+    {
+      "file": "storage.cpp",
+      "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 19,
+          "last_line": 35,
+          "text": "19: bool isScriptFile(const String &name) {\n20:   return name.endsWith(\".txt\") || name.endsWith(\".duck\");\n21: }\n22: \n23: String basenameOnly(const String &name) {\n24:   String n = name;\n25:   if (n.startsWith(\"sd:\") || n.startsWith(\"SD:\")) n = n.substring(3);\n26:   if (n.startsWith(\"/sd/\")) n = n.substring(4);\n27:   if (n.startsWith(\"sd/\")) n = n.substring(3);\n28:   while (n.length() && n[0] == '/') n = n.substring(1);\n29:   return n;\n30: }\n31: \n32: String spiffsPath(const String &name) {\n33:   String n = basenameOnly(name);\n34:   if (!n.length()) return \"\";\n35:   return n[0] == '/' ? n : String(\"/\") + n;"
+        },
+        {
+          "first_line": 72,
+          "last_line": 75,
+          "text": "72: String sdPath(const String &name) {\n73:   String n = basenameOnly(name);\n74:   if (!n.length()) return \"\";\n75:   return String(\"/scripts/\") + n;"
+        },
+        {
+          "first_line": 104,
+          "last_line": 126,
+          "text": "104: bool parseRef(const String &input, Ref &out) {\n105:   String s = input;\n106:   s.trim();\n107:   if (!s.length()) return false;\n108:   if (!isScriptFile(s) && s.indexOf('.') < 0) return false;\n109: \n110:   if (s.startsWith(\"sd:\") || s.startsWith(\"SD:\")) {\n111:     out.volume = Volume::SD;\n112:     out.path = sdPath(s);\n113:     out.display = \"sd:\" + basenameOnly(s);\n114:     return out.path.length() > 0;\n115:   }\n116:   if (s.startsWith(\"/sd/\") || s.startsWith(\"sd/\")) {\n117:     out.volume = Volume::SD;\n118:     out.path = sdPath(s);\n119:     out.display = \"sd:\" + basenameOnly(s);\n120:     return out.path.length() > 0;\n121:   }\n122: \n123:   out.volume = Volume::SPIFFS;\n124:   out.path = spiffsPath(s);\n125:   out.display = basenameOnly(s);\n126:   return out.path.length() > 0 && isScriptFile(s);"
+        },
+        {
+          "first_line": 144,
+          "last_line": 160,
+          "text": "144: bool resolveScriptForLoad(const String &name, Ref &out) {\n145:   if (parseRef(name, out) && exists(out)) return true;\n146:   if (name.indexOf(':') >= 0) return false;\n147:   if (name.indexOf('/') >= 0) {\n148:     String alt = name;\n149:     if (alt.startsWith(\"/\")) alt = alt.substring(1);\n150:     if (parseRef(alt, out) && exists(out)) return true;\n151:     return false;\n152:   }\n153:   static const char *DIRS[] = {\n154:       \"demos/\", \"windows/\", \"linux/\", \"macos/\", \"advanced/\",\n155:       \"examples/\", \"scripts/\", nullptr};\n156:   for (int i = 0; DIRS[i]; ++i) {\n157:     String tryName = String(DIRS[i]) + name;\n158:     if (parseRef(tryName, out) && exists(out)) return true;\n159:   }\n160:   return false;"
+        },
+        {
+          "first_line": 255,
+          "last_line": 278,
+          "text": "255: bool resolveScript(const String &name, Ref &out) {\n256:   if (!parseRef(name, out)) return false;\n257:   if (exists(out)) return true;\n258: \n259:   if (out.volume == Volume::SPIFFS) {\n260:     Ref alt;\n261:     alt.volume = Volume::SD;\n262:     alt.path = sdPath(name);\n263:     alt.display = \"sd:\" + basenameOnly(name);\n264:     if (sdReady() && exists(alt)) {\n265:       out = alt;\n266:       return true;\n267:     }\n268:   } else {\n269:     Ref alt;\n270:     alt.volume = Volume::SPIFFS;\n271:     alt.path = spiffsPath(name);\n272:     alt.display = basenameOnly(name);\n273:     if (exists(alt)) {\n274:       out = alt;\n275:       return true;\n276:     }\n277:   }\n278:   return false;"
+        },
+        {
+          "first_line": 329,
+          "last_line": 367,
+          "text": "329: String listAllScriptsJson() {\n330:   String json = \"[\";\n331:   bool first = true;\n332:   File root = SPIFFS.open(\"/\");\n333:   if (root && root.isDirectory()) {\n334:     File f = root.openNextFile();\n335:     while (f) {\n336:       String rel = String(f.name());\n337:       if (rel.startsWith(\"/\")) rel = rel.substring(1);\n338:       if (!f.isDirectory() && isScriptFile(rel) && rel.indexOf('/') < 0) {\n339:         if (!first) json += \",\";\n340:         first = false;\n341:         json += \"\\\"\" + rel + \"\\\"\";\n342:       }\n343:       f = root.openNextFile();\n344:     }\n345:   }\n346:   static const char *DIRS[] = {\n347:       \"/examples\", \"/demos\", \"/windows\", \"/linux\",\n348:       \"/macos\", \"/advanced\", \"/scripts\", nullptr};\n349:   for (int i = 0; DIRS[i]; ++i) {\n350:     appendSpiffsDir(DIRS[i], json, first);\n351:   }\n352: \n353: #if SD_ENABLED\n354:   if (sd_card::ready()) {\n355:     String sdList = sd_card::listScriptsJson();\n356:     if (sdList.length() > 2) {\n357:       String inner = sdList.substring(1, sdList.length() - 1);\n358:       if (inner.length()) {\n359:         if (!first) json += \",\";\n360:         json += inner;\n361:       }\n362:     }\n363:   }\n364: #endif\n365: \n366:   json += \"]\";\n367:   return json;"
+        }
+      ]
+    },
+    {
+      "file": "sd_card.cpp",
+      "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 32,
+          "last_line": 49,
+          "text": "32: bool begin() {\n33: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n34:   route_u::Mutation serviceMutation;if(!serviceMutation) return false;\n35: #endif\n36: \n37:   execution::Guard guard;\n38:   mounted = false;\n39:   SPI.begin(SD_SCK, SD_MISO, SD_MOSI, SD_CS);\n40:   if (!SD.begin(SD_CS, SPI, SD_SPI_FREQ_HZ)) {\n41:     debug::error(\"SD card mount failed\");\n42:     return false;\n43:   }\n44:   mounted = true;\n45:   if (!SD.exists(\"/scripts\")) {\n46:     SD.mkdir(\"/scripts\");\n47:   }\n48:   debug::info(\"SD card mounted\");\n49:   return true;"
+        },
+        {
+          "first_line": 172,
+          "last_line": 202,
+          "text": "172: String listScriptsJson() {\n173:   execution::Guard guard;\n174:   String json = \"[\";\n175:   if (!ready()) {\n176:     json += \"]\";\n177:     return json;\n178:   }\n179:   bool first = true;\n180:   auto scan = [&](const char *dirPath) {\n181:     File root = SD.open(dirPath);\n182:     if (!root || !root.isDirectory()) return;\n183:     File entry = root.openNextFile();\n184:     while (entry) {\n185:       if (!entry.isDirectory()) {\n186:         String name = String(entry.name());\n187:         int slash = name.lastIndexOf('/');\n188:         if (slash >= 0) name = name.substring(slash + 1);\n189:         if (isScriptName(name)) {\n190:           if (!first) json += \",\";\n191:           first = false;\n192:           json += \"\\\"sd:\" + name + \"\\\"\";\n193:         }\n194:       }\n195:       entry = root.openNextFile();\n196:     }\n197:     root.close();\n198:   };\n199:   scan(\"/\");\n200:   scan(\"/scripts\");\n201:   json += \"]\";\n202:   return json;"
+        }
+      ]
+    },
+    {
+      "file": "script_library.cpp",
+      "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 64,
+          "last_line": 76,
+          "text": "64: void installIfNeeded() {\n65: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n66:   route_u::Mutation serviceMutation;if(!serviceMutation) return;\n67: #endif\n68: \n69:   if (allExamplesOnDisk()) return;\n70:   for (size_t i = 0; i < sizeof(EXAMPLES) / sizeof(EXAMPLES[0]); ++i) {\n71:     storage::Ref ref;\n72:     if (!storage::parseRef(String(EXAMPLES[i].name), ref)) continue;\n73:     storage::writeFile(ref, String(EXAMPLES[i].body));\n74:   }\n75:   File f = SPIFFS.open(\"/examples/.installed\", FILE_WRITE);\n76:   if (f) { f.print(\"1\"); f.close(); }"
+        },
+        {
+          "first_line": 79,
+          "last_line": 126,
+          "text": "79: String listJson() {\n80:   String j = \"[\";\n81:   bool first = true;\n82:   for (size_t i = 0; i < sizeof(EXAMPLES) / sizeof(EXAMPLES[0]); ++i) {\n83:     if (!first) j += \",\";\n84:     first = false;\n85:     j += \"\\\"\" + String(EXAMPLES[i].name) + \"\\\"\";\n86:   }\n87:   j += \"]\";\n88:   return j;\n89: }\n90: \n91: String listSpiffsOnlyJson() {\n92:   return storage::listAllScriptsJson();\n93: }\n94: \n95: String listCombinedJson() {\n96:   String j = listJson();\n97:   String spiffs = storage::listAllScriptsJson();\n98:   if (spiffs.length() <= 2) return j;\n99:   String inner = spiffs.substring(1, spiffs.length() - 1);\n100:   if (!inner.length()) return j;\n101:   if (j.length() <= 2) return spiffs;\n102:   j.remove(j.length() - 1);\n103:   j += \",\";\n104:   j += inner;\n105:   j += \"]\";\n106:   return j;\n107: }\n108: \n109: bool readFirmware(const String &name, String &out) {\n110:   for (size_t i = 0; i < sizeof(EXAMPLES) / sizeof(EXAMPLES[0]); ++i) {\n111:     if (name == EXAMPLES[i].name) {\n112:       out = String(EXAMPLES[i].body);\n113:       return true;\n114:     }\n115:   }\n116:   return false;\n117: }\n118: \n119: bool readExample(const String &name, String &out) {\n120:   if (readFirmware(name, out)) return true;\n121:   storage::Ref ref;\n122:   if (storage::parseRef(name, ref) && storage::exists(ref)) {\n123:     out = storage::readFile(ref);\n124:     return true;\n125:   }\n126:   return false;"
+        }
+      ]
+    },
+    {
+      "file": "EvilDuckS3.ino",
+      "sha256": "42fdfde854f04ab67aa4abed4b6ce2b3b939491fc2e4daa5a4efff08945b8040",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 85,
+          "last_line": 89,
+          "text": "85:     if (!storage::begin()) {\n86:       startupStorageFailed = true;\n87:       debug::info(\"Required SPIFFS mount failed; application disabled without formatting\");\n88:       return;\n89:     }"
+        },
+        {
+          "first_line": 106,
+          "last_line": 124,
+          "text": "106:   if (!deployment::controlledStart()) {\n107:     storage::begin();\n108:     script_library::installIfNeeded();\n109:   }\n110:   applyIdleLedColor();\n111:   cli::begin();\n112: \n113:   webserver::begin();\n114: \n115:   if (!deployment::controlledStart() && settings::autorunEnabled()) {\n116:     String s = settings::getAutorun();\n117:     if (s.length()) {\n118:       uint32_t delayMs = settings::pickAutorunDelayMs();\n119:       if (delayMs == 0) delayMs = settings::getStealthMode() ? 8000 : 3000;\n120:       debug::info(\"Autorun in \" + String(delayMs) + \"ms: \" + s);\n121:       delay(delayMs);\n122:       duckscript::run(s);\n123:     }\n124:   }"
+        }
+      ]
+    },
+    {
+      "file": "spiffs.cpp",
+      "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 23,
+          "last_line": 34,
+          "text": "23: bool begin() {\n24: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n25:   route_u::Mutation serviceMutation;if(!serviceMutation) return false;\n26: #endif\n27: \n28:   const bool mounted = deployment::controlledStart() ? SPIFFS.begin(false) : SPIFFS.begin(true);\n29:   if (!mounted) {\n30:     debug::error(\"SPIFFS mount failed\");\n31:     return false;\n32:   }\n33:   debug::info(\"SPIFFS mounted\");\n34:   return true;"
+        },
+        {
+          "first_line": 98,
+          "last_line": 104,
+          "text": "98: String readFile(const String &path) {\n99:   File f = SPIFFS.open(normalizePath(path), FILE_READ);\n100:   if (!f) return \"\";\n101:   String out = f.readString();\n102:   f.close();\n103:   return out;\n104: }"
+        }
+      ]
+    },
+    {
+      "file": "webserver.cpp",
+      "sha256": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 86,
+          "last_line": 104,
+          "text": "86: static bool isSafeScriptName(const String &name) {\n87:   String base = scriptBaseName(name);\n88:   if (!base.length() || !isScriptFile(base)) return false;\n89:   if (base.indexOf(\"..\") >= 0 || base.indexOf('\\\\') >= 0) return false;\n90:   for (size_t i = 0; i < base.length(); ++i) {\n91:     char c = base[i];\n92:     bool ok = (c >= 'a' && c <= 'z') ||\n93:               (c >= 'A' && c <= 'Z') ||\n94:               (c >= '0' && c <= '9') ||\n95:               c == '_' || c == '-' || c == '.' || c == '/';\n96:     if (!ok) return false;\n97:   }\n98:   return true;\n99: }\n100: \n101: static bool parseScriptParam(const String &name, storage::Ref &ref) {\n102:   if (!isSafeScriptName(name)) return false;\n103:   if (!storage::parseRef(name, ref)) return false;\n104:   return true;"
+        },
+        {
+          "first_line": 133,
+          "last_line": 138,
+          "text": "133: static void handleListScripts(AsyncWebServerRequest *req) {\n134: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n135:   route_u::Mutation admission;if(!admission){req->send(409,\"text/plain\",\"Route B owns storage\");return;}\n136: #endif\n137:   if (!authorize(req)) return;\n138:   req->send(200, \"application/json\", storage::listAllScriptsJson());"
+        },
+        {
+          "first_line": 249,
+          "last_line": 264,
+          "text": "249:   storage::Ref ref;\n250:   if (!storage::resolveScript(filename, ref)) {\n251:     String libraryBody;\n252:     if (!script_library::readExample(filename, libraryBody)) {\n253:       req->send(404, \"text/plain\", \"Not found\");\n254:       return;\n255:     }\n256:     if (!storage::parseRef(filename, ref)) {\n257:       req->send(400, \"text/plain\", \"Invalid script name\");\n258:       return;\n259:     }\n260:     if (!storage::writeFile(ref, libraryBody)) {\n261:       req->send(500, \"text/plain\", \"Failed to install library script\");\n262:       return;\n263:     }\n264:     if (!storage::resolveScript(filename, ref)) {"
+        },
+        {
+          "first_line": 394,
+          "last_line": 397,
+          "text": "394: static void onUpload(AsyncWebServerRequest *request, String filename, size_t index,\n395:                      uint8_t *data, size_t len, bool final) {\n396: #ifdef EVILDUCK_PORTABLE_ROUTE_B\n397:  request->send(503,\"text/plain\",\"Offline candidate: upload disabled\");return;"
+        },
+        {
+          "first_line": 701,
+          "last_line": 745,
+          "text": "701: static bool loadScriptBody(const String &filename, String &body, String &err, int &httpCode) {\n702:   String name = filename;\n703:   name.trim();\n704:   if (!name.length()) {\n705:     err = \"Empty name\";\n706:     httpCode = 400;\n707:     return false;\n708:   }\n709:   if (!isSafeScriptName(name)) {\n710:     err = \"Invalid script name\";\n711:     httpCode = 400;\n712:     return false;\n713:   }\n714:   storage::Ref ref;\n715:   if (storage::resolveScriptForLoad(name, ref)) {\n716:     body = storage::readFile(ref);\n717:     httpCode = 200;\n718:     return true;\n719:   }\n720:   if (script_library::readFirmware(name, body)) {\n721:     httpCode = 200;\n722:     return true;\n723:   }\n724:   err = \"Not found: \" + name;\n725:   httpCode = 404;\n726:   return false;\n727: }\n728: \n729: static void handleGetScript(AsyncWebServerRequest *req) {\n730: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n731:   route_u::Mutation admission;if(!admission){req->send(409,\"text/plain\",\"Route B owns storage\");return;}\n732: #endif\n733:   if (!authorize(req)) return;\n734:   if (!req->hasParam(\"s\")) {\n735:     req->send(400, \"text/plain\", \"Missing parameter s\");\n736:     return;\n737:   }\n738:   String body, err;\n739:   int code = 500;\n740:   if (!loadScriptBody(req->getParam(\"s\")->value(), body, err, code)) {\n741:     req->send(code, \"text/plain\", err);\n742:     return;\n743:   }\n744:   req->send(200, \"text/plain\", body);\n745: }"
+        },
+        {
+          "first_line": 765,
+          "last_line": 801,
+          "text": "765: static void handleSaveScript(AsyncWebServerRequest *req) {\n766: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n767:   route_u::Mutation mutation;if(!mutation){req->send(409,\"text/plain\",\"Route B busy\");return;}\n768: #endif\n769:   if (!authorize(req)) return;\n770:   if (!req->hasParam(\"name\", true) || !req->hasParam(\"content\", true)) {\n771:     req->send(400, \"text/plain\", \"Missing name or content\");\n772:     return;\n773:   }\n774:   String filename = req->getParam(\"name\", true)->value();\n775:   filename.trim();\n776:   if (!isSafeScriptName(filename)) {\n777:     req->send(400, \"text/plain\", \"Invalid script name\");\n778:     return;\n779:   }\n780:   storage::Ref ref;\n781:   if (wantsSdStorage(req)) {\n782:     String sdName = filename;\n783:     if (!sdName.startsWith(\"sd:\") && !sdName.startsWith(\"SD:\")) {\n784:       sdName = \"sd:\" + scriptBaseName(filename);\n785:     }\n786:     if (!parseScriptParam(sdName, ref)) {\n787:       req->send(400, \"text/plain\", \"SD not available\");\n788:       return;\n789:     }\n790:   } else {\n791:     if (!parseScriptParam(filename, ref)) {\n792:       req->send(400, \"text/plain\", \"Invalid name\");\n793:       return;\n794:     }\n795:   }\n796:   String content = req->getParam(\"content\", true)->value();\n797:   if (!storage::writeFile(ref, content)) {\n798:     req->send(500, \"text/plain\", \"Write failed\");\n799:     return;\n800:   }\n801:   req->send(200, \"text/plain\", \"Saved to \" + ref.display);"
+        },
+        {
+          "first_line": 859,
+          "last_line": 904,
+          "text": "859: static void handleStatic(AsyncWebServerRequest *req) {\n860:   String path = req->url();\n861:   if (path == \"/\" || path == \"/index.html\" || path == \"/index.htm\") {\n862:     req->send_P(200, \"text/html\", INDEX_HTML);\n863:     return;\n864:   }\n865:   if (path == \"/settings.html\") {\n866:     req->send_P(200, \"text/html\", SETTINGS_HTML);\n867:     return;\n868:   }\n869:   if (path == \"/terminal.html\") {\n870:     req->send_P(200, \"text/html\", TERMINAL_HTML);\n871:     return;\n872:   }\n873:   if (path == \"/credits.html\") {\n874:     req->send_P(200, \"text/html\", CREDITS_HTML);\n875:     return;\n876:   }\n877:   if (path == \"/error404.html\") {\n878:     req->send_P(404, \"text/html\", ERROR404_HTML);\n879:     return;\n880:   }\n881:   if (path == \"/style.css\") {\n882:     req->send_P(200, \"text/css\", STYLE_CSS);\n883:     return;\n884:   }\n885:   if (path == \"/index.js\") {\n886:     req->send_P(200, \"application/javascript\", INDEX_JS);\n887:     return;\n888:   }\n889:   if (path == \"/script.js\") {\n890:     req->send_P(200, \"application/javascript\", INDEX_JS);\n891:     return;\n892:   }\n893:   if (path == \"/settings.js\") {\n894:     req->send_P(200, \"application/javascript\", SETTINGS_JS);\n895:     return;\n896:   }\n897:   if (path == \"/terminal.js\") {\n898:     req->send_P(200, \"application/javascript\", TERMINAL_JS);\n899:     return;\n900:   }\n901: #if defined(EVILDUCK_PORTABLE_ROUTE_B)\n902:   req->send(503,\"text/plain\",\"Dynamic filesystem responses disabled in Route B candidate\");\n903:   return; // No async File accepted in this profile, even while Route B is idle.\n904: #else"
+        }
+      ]
+    },
+    {
+      "file": "webfiles.h",
+      "sha256": "7b4be141c776fc2c8d83b6532c62b9c4b9baa033261ce16c60e509dddaea4eab",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 127,
+          "last_line": 148,
+          "text": "127:             <input class=\"input\" id=\"filter\" placeholder=\"Filter scripts\u2026\" oninput=\"renderList()\" />\n128:             <button class=\"btn\" onclick=\"loadList()\">Reload</button>\n129:           </div>\n130:         </div>\n131:         <ul id=\"scripts\" class=\"list\"></ul>\n132:       </section>\n133: \n134:       <section class=\"card span2\">\n135:         <div class=\"cardhead\">\n136:           <h2>Script editor</h2>\n137:           <div class=\"row gap\">\n138:             <button class=\"btn ghost\" onclick=\"newScript()\">New</button>\n139:             <button class=\"btn\" onclick=\"loadScript()\">Load</button>\n140:             <button class=\"btn primary\" onclick=\"saveScript()\">Save</button>\n141:             <button class=\"btn\" onclick=\"runEditorScript()\">Run</button>\n142:           </div>\n143:         </div>\n144:         <div class=\"stack\">\n145:           <label class=\"field\">\n146:             <span class=\"label\">Filename</span>\n147:             <input class=\"input mono\" id=\"editorName\" placeholder=\"demos/01_hello_windows.txt\" autocomplete=\"off\" />\n148:             <span class=\"hint\">Click a script in the list below to load it into the editor.</span>"
+        },
+        {
+          "first_line": 828,
+          "last_line": 849,
+          "text": "828:     empty.textContent=q?'No matches.':'No scripts on device. Flash data/ (Sketch Data Upload), upload a file, or enter Web UI password if set.';\n829:     ul.appendChild(empty);\n830:     return;\n831:   }\n832:   list.forEach(s=>appendScriptRow(ul,s));\n833: }\n834: \n835: async function loadList(){\n836:   try{\n837:     const r=await fetch('/list',{headers:duckHeaders()});\n838:     if(!r.ok){\n839:       log('Script list: '+await r.text());\n840:       scriptsCache=[];\n841:     }else{\n842:       const data=await r.json();\n843:       scriptsCache=Array.isArray(data)?[...new Set(data)]:[];\n844:     }\n845:   }catch(e){\n846:     log('Script list error: '+e);\n847:     scriptsCache=[];\n848:   }\n849:   renderList();"
+        },
+        {
+          "first_line": 858,
+          "last_line": 901,
+          "text": "858: async function fetchScriptContent(name){\n859:   const fd=new FormData();\n860:   fd.append('name',name);\n861:   let r=await fetch('/script/load',{method:'POST',body:fd,headers:duckHeaders()});\n862:   let text=await r.text();\n863:   if(r.ok) return text;\n864:   if(r.status!==404)throw new Error(httpFailure(r,text));\n865:   r=await fetch('/script?s='+encodeURIComponent(name),{headers:duckHeaders()});\n866:   text=await r.text();\n867:   if(r.ok) return text;\n868:   if(r.status!==404)throw new Error(httpFailure(r,text));\n869:   r=await fetch('/library?s='+encodeURIComponent(name),{headers:duckHeaders()});\n870:   text=await r.text();\n871:   if(r.ok) return text;\n872:   throw new Error(text||('HTTP '+r.status));\n873: }\n874: \n875: async function loadScript(forcedName){\n876:   const name=(forcedName||document.getElementById('editorName').value).trim();\n877:   const body=document.getElementById('editorBody');\n878:   if(!name){log('Enter a filename');return;}\n879:   document.getElementById('editorName').value=name;\n880:   if(name.startsWith('sd:')||name.startsWith('SD:')){\n881:     const sel=document.getElementById('editorStorage');\n882:     if(sel) sel.value='sd';\n883:   }\n884:   body.value='Loading...';\n885:   try{\n886:     const text=await fetchScriptContent(name);\n887:     body.value=text;\n888:     const preview=text.split('\\n')[0].slice(0,60);\n889:     log('Loaded: '+name+' | '+preview+(text.length>60?'...':''));\n890:   }catch(e){\n891:     body.value='REM Load failed: '+e.message+'\\nREM File: '+name;\n892:     log('Load failed: '+e.message);\n893:   }\n894: }\n895: \n896: async function openEditor(name){\n897:   const sel=document.getElementById('editorStorage');\n898:   if(sel) sel.value=(name.startsWith('sd:')||name.startsWith('SD:'))?'sd':'spiffs';\n899:   activateTab('scripts');\n900:   await loadScript(name);\n901:   document.getElementById('editorBody').scrollIntoView({behavior:'smooth',block:'center'});"
+        },
+        {
+          "first_line": 953,
+          "last_line": 965,
+          "text": "953: async function refreshStatus(){\n954:   if(statusPollInFlight)return;statusPollInFlight=true;\n955:   try{\n956:     const r=await controlFetch('/status',{headers:duckHeaders()});\n957:     if(!r.ok){const error=new Error(httpFailure(r,await r.text()));error.status=r.status;throw error;}\n958:     const s=await r.json();observeStop(s);observeExecution(s);\n959:     document.getElementById('ssidVal').textContent=s.ssid||'\u2014';\n960:     document.getElementById('chVal').textContent=(s.channel??'\u2014');\n961:     document.getElementById('autorunVal').textContent=s.autorunEnabled ? (s.autorunScript||'') : 'disabled';\n962:     document.getElementById('autorun').value=s.autorunScript||'';\n963:     setChip(document.getElementById('chipRunning'), s.running?'Running':'Idle', s.running?'good':'subtle');\n964:     const chipSd=document.getElementById('chipSD');\n965:     if(chipSd) setChip(chipSd, s.sdReady?'SD OK':'No SD', s.sdReady?'good':'subtle');"
+        },
+        {
+          "first_line": 912,
+          "last_line": 932,
+          "text": "912: async function saveScript(){\n913:   const raw=document.getElementById('editorName').value.trim();\n914:   const storage=document.getElementById('editorStorage').value;\n915:   const name=scriptRefName(raw, storage);\n916:   const content=document.getElementById('editorBody').value;\n917:   if(!name){log('Enter a filename');return;}\n918:   const fd=new FormData();\n919:   fd.append('name',name);\n920:   fd.append('content',content);\n921:   fd.append('storage', storage);\n922:   const r=await fetch('/script',{method:'POST',body:fd,headers:duckHeaders()});\n923:   const result=await r.text();if(!r.ok){log('Save failed: '+httpFailure(r,result));return false;}\n924:   log(result);await loadList();return true;\n925: }\n926: \n927: async function runEditorScript(){\n928:   const raw=document.getElementById('editorName').value.trim();\n929:   const storage=document.getElementById('editorStorage').value;\n930:   const name=scriptRefName(raw, storage);\n931:   if(!name){log('Enter a filename');return;}\n932:   if(await saveScript())await runScript(name);"
+        }
+      ]
+    },
+    {
+      "file": "file_source.cpp",
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 12,
+          "text": "1: #include \"file_source.h\"\n2: #include <cstring>\n3: #include <algorithm>\n4: namespace route_u {\n5: bool FileSource::open(const char* path){\n6:  close();storage::Ref ref;\n7:  if(!storage::parseRef(String(path),ref)||!storage::exists(ref))return false;\n8:  file_=storage::openRead(ref);if(!file_||file_.isDirectory()){close();return false;}\n9:  expected_=file_.size();offset_=verified_=0;verifying_=false;\n10:  if(expected_>ds_preview::MaxSource||!file_.seek(0)||file_.position()!=0){close();return false;}return true;\n11: }\n12: void FileSource::close(){file_.close();}"
+        }
+      ]
+    },
+    {
+      "file": "usb_msc.cpp",
+      "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 20,
+          "last_line": 21,
+          "text": "20: const char *const image = \"/sys/usb_disk.img\";\n21: constexpr uint32_t sectors = 8192, sectorBytes = 512, imageBytes = sectors * sectorBytes;"
+        },
+        {
+          "first_line": 133,
+          "last_line": 137,
+          "text": "133:     case Step::Open:\n134:       // r+ MUST NOT become FILE_WRITE (w): existing user images must never truncate.\n135:       disk = SD.open(image, \"r+\");\n136:       if (!disk) { fail(\"MSC: existing writable /sys/usb_disk.img required; no image created\"); return; }\n137:       if (disk.isDirectory() || disk.size() != imageBytes) { fail(\"MSC: backing image must be exactly 4194304 bytes\"); return; }"
+        }
+      ]
+    },
+    {
+      "file": "cli.cpp",
+      "sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 181,
+          "last_line": 215,
+          "text": "181:   if (startsWithNoCase(cmd, \"sdls\")) {\n182:     if (!storage::sdReady()) {\n183:       out(\"SD not ready\");\n184:       return;\n185:     }\n186:     out(sd_card::listDir(\"/scripts\"));\n187:     return;\n188:   }\n189:   if (startsWithNoCase(cmd, \"import \")) {\n190:     String name = trimLine(cmd.substring(7));\n191:     storage::Ref src;\n192:     if (!storage::parseRef(name.startsWith(\"sd:\") ? name : \"sd:\" + name, src)) {\n193:       out(\"Invalid name\");\n194:       return;\n195:     }\n196:     if (!storage::exists(src)) {\n197:       out(\"SD file not found\");\n198:       return;\n199:     }\n200:     String base = name;\n201:     if (base.startsWith(\"sd:\")) base = base.substring(3);\n202:     if (storage::copyToSpiffs(src, base)) out(\"Imported to SPIFFS: \" + base);\n203:     else out(\"Import failed\");\n204:     return;\n205:   }\n206:   if (startsWithNoCase(cmd, \"export \")) {\n207:     String name = trimLine(cmd.substring(7));\n208:     storage::Ref dst;\n209:     if (!storage::parseRef(\"sd:\" + name, dst)) {\n210:       out(\"Invalid name\");\n211:       return;\n212:     }\n213:     if (storage::copyToSd(name, dst)) out(\"Exported to \" + dst.display);\n214:     else out(\"Export failed\");\n215:     return;"
+        },
+        {
+          "first_line": 253,
+          "last_line": 267,
+          "text": "253:   if (startsWithNoCase(cmd, \"ls\")) {\n254:     String path = \"/\";\n255:     if (cmd.length() > 2) path = trimLine(cmd.substring(2));\n256:     out(spiffs::listDir(path));\n257:     return;\n258:   }\n259:   if (startsWithNoCase(cmd, \"cat \")) {\n260:     String path = trimLine(cmd.substring(4));\n261:     storage::Ref ref;\n262:     if (storage::parseRef(path, ref) && storage::exists(ref)) {\n263:       out(storage::readFile(ref));\n264:     } else {\n265:       out(spiffs::readFile(path));\n266:     }\n267:     return;"
+        }
+      ]
+    },
+    {
+      "file": "core.h",
+      "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 18,
+          "last_line": 22,
+          "text": "18: // H1-only experimental policy: not a verified Hak5 runtime scalar encoding.\n19: bool decodeExperimentalKeycodeH1(uint16_t value,uint8_t& usage,uint8_t& modifiers);\n20: enum class Op : uint8_t { Set, Text, TextLn, TextBlock, TextLnBlock, Delay, Key, If, Jump, Function, Call, Return, EndFunction, Stop, Hold, Release, LockWait, RandomLowercase, RandomUppercase, RandomGroup, InternalSet, Reset, Restart, InjectVar };\n21: struct Instruction { uint16_t line=0, offset=0, length=0, target=0, owner=0; Op op=Op::Stop; uint8_t symbol=0; };\n22: struct Function { char name[24]={}; uint16_t entry=0, end=0; };"
+        }
+      ]
+    },
+    {
+      "file": "core.cpp",
+      "sha256": "2876056adb42347f53ff8efdcf9cdbbce8ca04db4dc670bd1c4fdb2dc49befa5",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 438,
+          "last_line": 462,
+          "text": "438:   if(uint8_t k=key(text))return emit(Op::Key,\"\",k);\n439:   // Structural syntax is already consumed. Expand only the terminal key operand,\n440:   // never manufacture commands or modifier prefixes from constants.\n441:   char* split=text;while(*split&&!white(*split)&&*split!='-')++split;\n442:   char saved=*split;*split=0;bool shortcut=ds_shortcut::modifier(text)!=0;*split=saved;\n443:   if(shortcut){\n444:    uint8_t mods=0,usage=0;char* cursor=text;\n445:    for(;;){\n446:     char* end=cursor;while(*end&&!white(*end)&&*end!='-')++end;\n447:     char delim=*end;*end=0;uint8_t bit=ds_shortcut::modifier(cursor);*end=delim;\n448:     if(!bit)return fail(ErrorCode::Syntax);\n449:     if(mods&bit)return fail(ErrorCode::Syntax);mods|=bit;\n450:     if(!delim)return fail(ErrorCode::Syntax);\n451:     cursor=end+1;if(delim!='-')cursor=left(cursor);\n452:     if(!*cursor||white(*cursor)||(delim=='-'&&*cursor=='-'))return fail(ErrorCode::Syntax);\n453:     char* next=cursor;while(*next&&!white(*next)&&*next!='-')++next;\n454:     char nextDelim=*next;*next=0;bool more=ds_shortcut::modifier(cursor)!=0;*next=nextDelim;\n455:     if(more)continue;\n456:     if(!expand(cursor,expanded))return false;right(expanded);\n457:     uint8_t implicit=0;if(!ds_shortcut::operand(expanded,usage,implicit))return fail(ErrorCode::Syntax);\n458:     return emit(Op::Key,\"\",usage,static_cast<uint8_t>(mods|implicit));\n459:    }\n460:   }\n461:   if(functionName(text,name)){int id=fn(name);if(id<0)return fail(ErrorCode::UndefinedFunction);return emit(Op::Call,\"\",0,static_cast<uint8_t>(id));}\n462:   return fail(ErrorCode::UnknownStatement);"
+        }
+      ]
+    },
+    {
+      "file": "mutation_guard.h",
+      "sha256": "c69fd2486daf20df562d11a2fe63e79297fc81c37868cb935d176b3885e9f464",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 14,
+          "text": "1: #pragma once\n2: #include \"execution_guard.h\"\n3: #include \"coordinator.h\"\n4: namespace route_u {\n5: // One synchronous operation, never borrowed across callbacks. Nested calls on\n6: // this task are admitted; reentrant Start is refused until every guard retires.\n7: class Mutation {\n8:  execution::TryGuard lock_;bool admitted_;\n9:  public:Mutation():admitted_(bool(lock_)&&enterMutation()){}\n10:  ~Mutation(){if(admitted_)leaveMutation();}\n11:  explicit operator bool()const{return admitted_;}\n12:  Mutation(const Mutation&)=delete;Mutation& operator=(const Mutation&)=delete;\n13: };\n14: }"
+        }
+      ]
+    },
+    {
+      "file": "coordinator.cpp",
+      "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4",
+      "composition": "dashboard-cleanup 201-file inventory",
+      "snippets": [
+        {
+          "first_line": 88,
+          "last_line": 94,
+          "text": "88: bool enterMutation(){u_platform::Critical lock;\n89:  if(pub.status.owned||pub.mutationDepth==32)return false;\n90:  if(pub.mutationDepth){if(pub.mutationTask!=u_platform::current())return false;}\n91:  else if(pub.transaction&&(!pub.transactionBusy||pub.transactionClosing||pub.chunkTask!=u_platform::current()))return false;\n92:  pub.mutationTask=u_platform::current();++pub.mutationDepth;return true;\n93: }\n94: void leaveMutation(){u_platform::Critical lock;if(pub.mutationDepth&&pub.mutationTask==u_platform::current()){if(!--pub.mutationDepth)pub.mutationTask={};}}"
+        }
+      ]
+    }
+  ]
+}

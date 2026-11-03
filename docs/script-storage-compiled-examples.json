@@ -1,0 +1,57 @@
+[
+  {
+    "namespace": "compiled firmware library (not a verified device file)",
+    "name": "examples/hello.txt",
+    "bytes": 156,
+    "sha256": "c6c6f9a80a5a2bf9271e5ad8a9d4a6e2e4a1edeb65af69adb42b31e73be8f640",
+    "source": "script_library.cpp:14-51",
+    "device_copy_present": null,
+    "device_copy_sha256": null,
+    "recommendation": "KEEP",
+    "reason": "Embedded resource; not a live cleanup target; byte metadata describes public compiled text only"
+  },
+  {
+    "namespace": "compiled firmware library (not a verified device file)",
+    "name": "examples/linux_shell.txt",
+    "bytes": 140,
+    "sha256": "c3d1e3d79f60ac07138c45968bda73417b98731a6859bd6f3c89be83c53eb052",
+    "source": "script_library.cpp:14-51",
+    "device_copy_present": null,
+    "device_copy_sha256": null,
+    "recommendation": "KEEP",
+    "reason": "Embedded resource; not a live cleanup target; byte metadata describes public compiled text only"
+  },
+  {
+    "namespace": "compiled firmware library (not a verified device file)",
+    "name": "examples/save_log.txt",
+    "bytes": 130,
+    "sha256": "3332e77f47a1c0cedce6ff047560a256898105b4f0399cab4d99f5b9f452ea3e",
+    "source": "script_library.cpp:14-51",
+    "device_copy_present": null,
+    "device_copy_sha256": null,
+    "recommendation": "KEEP",
+    "reason": "Embedded resource; not a live cleanup target; byte metadata describes public compiled text only"
+  },
+  {
+    "namespace": "compiled firmware library (not a verified device file)",
+    "name": "examples/attackmode_demo.txt",
+    "bytes": 106,
+    "sha256": "b448521c63cbde212ae03164dbd19be63d5ea3f84681d37a40925f7ecdc0c239",
+    "source": "script_library.cpp:14-51",
+    "device_copy_present": null,
+    "device_copy_sha256": null,
+    "recommendation": "KEEP",
+    "reason": "Embedded resource; not a live cleanup target; byte metadata describes public compiled text only"
+  },
+  {
+    "namespace": "compiled firmware library (not a verified device file)",
+    "name": "windows/hacker_terminals_3_monitors.txt",
+    "bytes": 197,
+    "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293",
+    "source": "script_library.cpp:14-51",
+    "device_copy_present": null,
+    "device_copy_sha256": null,
+    "recommendation": "KEEP",
+    "reason": "Embedded resource; not a live cleanup target; byte metadata describes public compiled text only"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "baseline": "e117037a15b5f79ba57abb1fb1da45cd4bb15fbf",
+  "branch": "routeb-dashboard-diagnostics-cleanup-v1",
+  "worktree_clean": true,
+  "composed_inventory_entries": 201,
+  "composed_inventory_hashes_matched": 201,
+  "composed_source": "/workspace/scratch/dashboard-cleanup/build-v1/candidate/EvilDuckS3",
+  "firmware_source_commit": "0db1f980e0ed05390d71fe9e92178304d7a3bc24",
+  "hardware": false,
+  "previous_remote_refs": 89,
+  "remote_snapshot_sha256": "6c1a736561a3993bdfa3cf2149e92d959719937ee6a22c24b45e43bfee0c1f1f",
+  "historical_tree_entries": 2382,
+  "historical_tree_sha256": "7435e5220473d0cbf612e84cd64dc6245032d06def3e3b03b3ee997b8c8bd8c5",
+  "historical_tracked_files_modified": 0,
+  "firmware_changed": false,
+  "existing_packages_changed": false
+}
