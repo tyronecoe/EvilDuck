@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-03T20:54:47.780515+00:00",
+  "isolated_branch": "routeb-editor-safety-review-v1",
+  "source_checkpoint_commit": "1664d4f25593e6cc99dba43ff0e5d74531555a51",
+  "packaging_source_commit": "e12bedce330b1a00685127ac21dec979af405ee6",
+  "artifact_publication_commit": "6e574b533adad77bbd90159ee4817a933e3aab7b",
+  "download": {
+    "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/6e574b533adad77bbd90159ee4817a933e3aab7b/downloads/evilduck-editor-safety-h1-macos-review-v1.zip",
+    "http_status": 200,
+    "bytes": 2538965,
+    "sha256": "ea00a7da38d775d62b28624d232de48102c459eee24195b55e185ae70d117638",
+    "byte_identical_to_local_zip": true
+  },
+  "extracted_images": {
+    "application.bin": {
+      "bytes": 1437696,
+      "sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0"
+    },
+    "rollback-application.bin": {
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+    }
+  },
+  "published_zip_offline_preflight": {
+    "selected_image": "application",
+    "plan_ready": false,
+    "package_integrity": "PASS",
+    "source_commit": "e12bedce330b1a00685127ac21dec979af405ee6",
+    "application_sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "preservation": {
+    "historical_entries_unchanged": 2394,
+    "historical_modes_and_blobs_unchanged": true,
+    "old_remote_refs_unchanged": 90,
+    "only_added_remote_ref": "refs/heads/routeb-editor-safety-review-v1"
+  },
+  "firmware_rebuilt": false,
+  "hardware_access": false,
+  "flashing": false,
+  "OTA": false,
+  "owner_scripts_mutated_or_executed": false,
+  "owner_hardware_verified": false,
+  "installation_authorized": false
+}

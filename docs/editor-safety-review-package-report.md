@@ -5,6 +5,14 @@ editor-safety application was packaged without rebuilding firmware. Installation
 and future owner observations remain separate steps. No hardware, HID output,
 flashing, OTA or owner-file mutation occurred.
 
+[Download the commit-pinned review ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/6e574b533adad77bbd90159ee4817a933e3aab7b/downloads/evilduck-editor-safety-h1-macos-review-v1.zip).
+Publication commit: `6e574b533adad77bbd90159ee4817a933e3aab7b`.
+The [publication receipt](editor-safety-review-publication.json) records a fresh
+HTTP 200 download, exact byte comparison, extracted application/rollback hashes,
+and successful offline preflight from the downloaded archive. All 90 previous
+remote refs remain unchanged; only the new review branch was added. Worktree was
+clean at artifact publication.
+
 ## Source and publication identity
 
 - Isolated branch: `routeb-editor-safety-review-v1`.
