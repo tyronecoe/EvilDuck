@@ -1,0 +1,13 @@
+{
+  "status": "SOURCE_RECONSTRUCTED_ONLY",
+  "source_checkpoint": "1664d4f25593e6cc99dba43ff0e5d74531555a51",
+  "source_checkpoint_role": "Post-build attestation of exact original local inputs",
+  "original_source_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "materialized_files": 17,
+  "local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+  "worktree": "/workspace/scratch/editor-review-package/reconstructed-source-v1",
+  "compiler_invoked": false,
+  "firmware_rebuilt": false,
+  "hardware": false,
+  "refs_unchanged": true
+}

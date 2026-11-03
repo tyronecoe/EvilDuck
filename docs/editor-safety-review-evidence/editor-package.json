@@ -1,0 +1,191 @@
+{
+  "counts": {
+    "PASS": 44,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "exact_existing_image_and_older_rollback_offline_only_both_selections",
+      "status": "PASS"
+    },
+    {
+      "name": "installer_frozen_except_binding_and_exact_historical_launchers_fixtures_pins",
+      "status": "PASS"
+    },
+    {
+      "name": "package_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_build_id",
+      "status": "PASS"
+    },
+    {
+      "name": "checkpoint_role",
+      "status": "PASS"
+    },
+    {
+      "name": "original_build_base",
+      "status": "PASS"
+    },
+    {
+      "name": "post_build_flag",
+      "status": "PASS"
+    },
+    {
+      "name": "review_scope",
+      "status": "PASS"
+    },
+    {
+      "name": "old_rollback_privacy_claim",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_original_manifest",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_reviewed-editor-source-manifest.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_editor-build-source-manifest.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_local-build-inputs.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_source-attestation.json",
+      "status": "PASS"
+    },
+    {
+      "name": "rehashed_false_attestation_cannot_bypass_bound_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "release_required",
+      "status": "PASS"
+    },
+    {
+      "name": "release_status",
+      "status": "PASS"
+    },
+    {
+      "name": "release_wrapper",
+      "status": "PASS"
+    },
+    {
+      "name": "all_frozen_layers",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_build_context",
+      "status": "PASS"
+    },
+    {
+      "name": "local_input_digest",
+      "status": "PASS"
+    },
+    {
+      "name": "all_190_checks",
+      "status": "PASS"
+    },
+    {
+      "name": "removed_guards",
+      "status": "PASS"
+    },
+    {
+      "name": "unrelated_hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "rebuild_claim",
+      "status": "PASS"
+    },
+    {
+      "name": "physical_claim",
+      "status": "PASS"
+    },
+    {
+      "name": "all_six_layer_counts",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_final_201_sources",
+      "status": "PASS"
+    },
+    {
+      "name": "one_overlay",
+      "status": "PASS"
+    },
+    {
+      "name": "clean_compile",
+      "status": "PASS"
+    },
+    {
+      "name": "adapter_guards",
+      "status": "PASS"
+    },
+    {
+      "name": "source_count",
+      "status": "PASS"
+    },
+    {
+      "name": "two_final_changes",
+      "status": "PASS"
+    },
+    {
+      "name": "199_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "cumulative_four",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_verifier",
+      "status": "PASS"
+    },
+    {
+      "name": "identity_patch",
+      "status": "PASS"
+    },
+    {
+      "name": "compiled_editor_header",
+      "status": "PASS"
+    },
+    {
+      "name": "compiled_identity_header",
+      "status": "PASS"
+    },
+    {
+      "name": "all_five_resources",
+      "status": "PASS"
+    },
+    {
+      "name": "resource_occurrences",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_resource_bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_fresh_release_receipt",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Actual bound editor review preflight, disposable public copies; support hashes resealed to exercise semantic guards",
+  "original_package_unchanged": true,
+  "hardware": false,
+  "network": false,
+  "firmware_built": false,
+  "native_macos_tested": false,
+  "installation_authorized": false
+}

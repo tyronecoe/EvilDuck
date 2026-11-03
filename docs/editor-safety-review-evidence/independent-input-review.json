@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "role": "Independent focused review-package input verification, no rebuild",
+  "application": {
+    "bytes": 1437696,
+    "sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0"
+  },
+  "elf": {
+    "bytes": 23645104,
+    "sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057"
+  },
+  "target": {
+    "file": "/workspace/scratch/editor-review-package/target-fresh.json",
+    "sha256": "a3baf8539f6d31c110d1213447f4db8e0fd794d02b20d97293ce99851ec668c0",
+    "same_as_original_target_binding": true,
+    "source_entries": 201,
+    "exact_full_resources_in_elf_and_bin": 5
+  },
+  "local_input_manifest": {
+    "files": 17,
+    "sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+    "all_current_files_match": true
+  },
+  "reviewed_checkpoint": {
+    "files": 8,
+    "all_current_files_match": true
+  },
+  "fresh_release": {
+    "file": "/workspace/scratch/editor-review-package/release-fresh.json",
+    "sha256": "96800befe9fa4dba4386b9819d345c6f4f42fd368b7a461153674375767bd1d1",
+    "layers": 6,
+    "static_assert_nodes_retained": 190,
+    "assertions_removed": 0
+  },
+  "reused_evidence": {
+    "browser_stop_source_groups": 64,
+    "browser_stop_source_assertions": 551,
+    "native_privacy_cases": 28,
+    "native_privacy_assertions": 736,
+    "native_existing_cases": 558,
+    "native_existing_assertions": 23901,
+    "composition_controls": 9,
+    "native_sanitizers": "ASan/UBSan/leak detection; 586 empty stderr records"
+  },
+  "firmware_rebuilt": false,
+  "hardware_access": false,
+  "owner_sources_read": false,
+  "source_or_images_modified": false
+}

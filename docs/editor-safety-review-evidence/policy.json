@@ -1,0 +1,11 @@
+{
+  "counts": {
+    "PASS": 5,
+    "FAIL": 0
+  },
+  "scope": "Inert source/AST policy; no package construction",
+  "details": "test_frozen_preflight_functions_and_rollback_tail (__main__.PackagePolicy.test_frozen_preflight_functions_and_rollback_tail) ... ok\ntest_offline_first_documents_and_backup_boundary (__main__.PackagePolicy.test_offline_first_documents_and_backup_boundary) ... ok\ntest_pinned_adapter_keeps_historical_h1_checks (__main__.PackagePolicy.test_pinned_adapter_keeps_historical_h1_checks) ... ok\ntest_python38_syntax_and_stdlib_api (__main__.PackagePolicy.test_python38_syntax_and_stdlib_api) ... ok\ntest_source_provenance_and_resource_checks_exist (__main__.PackagePolicy.test_source_provenance_and_resource_checks_exist) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.143s\n\nOK\n",
+  "hardware": false,
+  "network": false,
+  "firmware_built": false
+}

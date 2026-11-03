@@ -1,0 +1,139 @@
+{
+  "status": "LOCAL_PACKAGE_VERIFIED_PUBLICATION_CHECK_RECORDED_SEPARATELY",
+  "package": "evilduck-editor-safety-h1-macos-review-v1",
+  "source_checkpoint_commit": "1664d4f25593e6cc99dba43ff0e5d74531555a51",
+  "packaging_source_commit": "e12bedce330b1a00685127ac21dec979af405ee6",
+  "original_build_base_commit": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "source_checkpoint_role": "POST_BUILD_CHECKPOINT_EXACT_BUILD_INPUTS",
+  "original_source_commit_contains_changes": false,
+  "original_local_inputs_sha256": "525fc3f9e95c65f81a1233f3f31eac1f321233d0dd87ac2517d5a4c2f2eab768",
+  "zip": {
+    "path": "downloads/evilduck-editor-safety-h1-macos-review-v1.zip",
+    "bytes": 2538965,
+    "sha256": "ea00a7da38d775d62b28624d232de48102c459eee24195b55e185ae70d117638",
+    "entries": 34
+  },
+  "application": {
+    "bytes": 1437696,
+    "sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0"
+  },
+  "elf": {
+    "bytes": 23645104,
+    "sha256": "51e918c98249af4fb79dbd79a31a2ecdbcb92a0045e2d6f213c99cd86e755057",
+    "included_in_zip": false
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "type": "standalone_application",
+    "contains_privacy_fix1_or_dashboard_editor_repairs": false
+  },
+  "fresh_checks": {
+    "editor_package": {
+      "PASS": 44,
+      "FAIL": 0
+    },
+    "inherited_package": {
+      "PASS": 83,
+      "FAIL": 0
+    },
+    "mock_installer": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "source_ast_policy": {
+      "PASS": 5,
+      "FAIL": 0
+    },
+    "linked_verification_layers": 6,
+    "preserved_static_assert_nodes": 190,
+    "actual_embedded_complete_resources_verified_in_elf_and_bin": 5,
+    "offline_extracted_preflight": "PASS",
+    "fresh_release_receipt_sha256": "96800befe9fa4dba4386b9819d345c6f4f42fd368b7a461153674375767bd1d1"
+  },
+  "reused_checks": {
+    "editor_dashboard_stop_source": {
+      "PASS": 64,
+      "FAIL": 0,
+      "assertions": 551
+    },
+    "native_privacy": {
+      "PASS": 28,
+      "FAIL": 0,
+      "assertions": 736
+    },
+    "native_regressions": {
+      "PASS": 558,
+      "FAIL": 0,
+      "assertions": 23901
+    },
+    "composition_controls": {
+      "PASS": 9,
+      "FAIL": 0
+    },
+    "ASan_UBSan_leak": "CLEAN_REUSED_EXACT_INPUTS"
+  },
+  "resources": {
+    "compiler_program_bytes": 1437555,
+    "application_bytes_delta_vs_dashboard": 9488,
+    "static_ram_bytes": 113896,
+    "static_ram_delta": 0,
+    "ota_slot_bytes": 7602176,
+    "free_slot_bytes": 6164480
+  },
+  "preservation": {
+    "status": "PASS",
+    "historical_base": "805d989c3ac50cb96025862c95916830c59f8ba7",
+    "historical_entries_unchanged": 2394,
+    "historical_modes_and_blobs_unchanged": true,
+    "remote_refs_before": 90,
+    "remote_refs_still_unchanged_before_publication": true,
+    "firmware_rebuilt": false,
+    "hardware_access": false
+  },
+  "evidence": {
+    "editor-package.json": {
+      "bytes": 3726,
+      "sha256": "41ab6b08ca29330ab58ffe4207f6844df484d217e1d92797c04cd65b79c53215"
+    },
+    "independent-input-review.json": {
+      "bytes": 1652,
+      "sha256": "3c93b9a7eae30854754caaf6ada59e3ba3ceacf1104783dbafd6afd7a33f9ffc"
+    },
+    "inherited-package.json": {
+      "bytes": 7466,
+      "sha256": "e031517c550c77914d92f7a3f45b3c3f0c098a0c70854caa6c200e113f490591"
+    },
+    "mock-installer.json": {
+      "bytes": 3766,
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1"
+    },
+    "offline-extracted-check.json": {
+      "bytes": 556,
+      "sha256": "5090326ec2fae2cb260143ede93d89ce9010f1c64761992013b5dcdcd076446d"
+    },
+    "offline-preflight.json": {
+      "bytes": 436,
+      "sha256": "c124cfb74ab7af774780020555638a733785ee0937aa47ef30036d2fe810764f"
+    },
+    "policy.json": {
+      "bytes": 929,
+      "sha256": "6795f7a06fb70e11116391f40fdb62d18b929ef30b5ba4fb40f4bb169079704c"
+    },
+    "prepublication-preservation.json": {
+      "bytes": 319,
+      "sha256": "6a7777bb04be13283fa9a4f291b2e9a3bbf3f7e83ea1afc24abb1bd6e5438994"
+    },
+    "source-reconstruction.json": {
+      "bytes": 581,
+      "sha256": "36fc7a09402990bf0f14d6a457c5736bd682284a821b975d5a6fc501a77bb213"
+    }
+  },
+  "owner_hardware_verified": false,
+  "firmware_rebuilt": false,
+  "hardware_access": false,
+  "flashing": false,
+  "OTA": false,
+  "owner_scripts_mutated_or_executed": false,
+  "installation_authorized": false
+}

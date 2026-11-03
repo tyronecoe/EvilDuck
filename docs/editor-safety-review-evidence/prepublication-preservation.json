@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "historical_base": "805d989c3ac50cb96025862c95916830c59f8ba7",
+  "historical_entries_unchanged": 2394,
+  "historical_modes_and_blobs_unchanged": true,
+  "remote_refs_before": 90,
+  "remote_refs_still_unchanged_before_publication": true,
+  "firmware_rebuilt": false,
+  "hardware_access": false
+}
