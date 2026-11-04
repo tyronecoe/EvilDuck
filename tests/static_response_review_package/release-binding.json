@@ -1,0 +1,18 @@
+{
+  "format": "evilduck-static-response-release-binding-v1",
+  "status": "VERIFIED_LOCAL_RELEASE",
+  "build_id": "ROUTEB-STATIC-RESPONSE-REPAIR-v1",
+  "source_commit": "68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5",
+  "application_sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946",
+  "application_bytes": 1437696,
+  "elf_sha256": "4f530f7e0eb330585faaed3311de7b6b4227514b2517f6d6c36615da128e9c44",
+  "elf_bytes": 23642852,
+  "release_receipt_sha256": "e971ec9476db6371af96b4dd45d703508b56ffbf37f9b9d99853beb22f5ebd10",
+  "build_inputs_sha256": "9a3ff6f4f4ff312bd0b353bf72fbbf1e17fe82d2a28f97ad62c4ed7c17295d0d",
+  "static_target_binding_sha256": "34da792df613c534fb3a5b99cc99105fabc8c0f3a1efeccf365572676d3639a3",
+  "verifier_context_commit": "89d499fdb4dde13782cb09c7882ab55cc604a4dd",
+  "completion_context_commit": "520716462ffd66858a686e6c3a06eae037b3c5d4",
+  "completion_receipt_sha256": "329829851a14e7d8fca2d213f013c54ea1a197f815f2949624112cd01d9efdfa",
+  "completion_helper_sha256": "6ebaa0c13234d5b7ccf68aca60a34a5b4fa2ebe08c42609d043396f03bc4dd80",
+  "verification_delta_sha256": "0ceae45e1bd28369e5bf91b38274e2e4fc8543a71bdd6d39588715f65c75cc73"
+}

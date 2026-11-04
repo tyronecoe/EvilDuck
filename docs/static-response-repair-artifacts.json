@@ -1,0 +1,1317 @@
+{
+  "build_id": "ROUTEB-STATIC-RESPONSE-REPAIR-v1",
+  "actual_compile_source_commit": "68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5",
+  "host_verifier_context_commit": "89d499fdb4dde13782cb09c7882ab55cc604a4dd",
+  "completion_helper_commit": "520716462ffd66858a686e6c3a06eae037b3c5d4",
+  "artifacts": {
+    "build/EvilDuckS3.ino.bin": {
+      "bytes": 1437696,
+      "sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946"
+    },
+    "build/EvilDuckS3.ino.elf": {
+      "bytes": 23642852,
+      "sha256": "4f530f7e0eb330585faaed3311de7b6b4227514b2517f6d6c36615da128e9c44"
+    },
+    "build/EvilDuckS3.ino.map": {
+      "bytes": 26863237,
+      "sha256": "cba4c2dfdbbc997fb4fe3848c744e740a32fb155414bf7fcfdaa20ccdb0eb751"
+    },
+    "build/EvilDuckS3.ino.partitions.bin": {
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+    },
+    "build-inputs.json": {
+      "bytes": 5345,
+      "sha256": "9a3ff6f4f4ff312bd0b353bf72fbbf1e17fe82d2a28f97ad62c4ed7c17295d0d"
+    },
+    "static-response-target-verification.json": {
+      "bytes": 24771,
+      "sha256": "e2f1f5d2f4d666d21e15807ec3a443b688a3528a26214f6195c0f0e8b67a9f94"
+    },
+    "static-response-release-verification.json": {
+      "bytes": 2573624,
+      "sha256": "e971ec9476db6371af96b4dd45d703508b56ffbf37f9b9d99853beb22f5ebd10"
+    }
+  },
+  "source_inventory": [
+    {
+      "file": "EvilDuckS3/EvilDuckS3.ino",
+      "size": 4479,
+      "sha256": "42fdfde854f04ab67aa4abed4b6ce2b3b939491fc2e4daa5a4efff08945b8040"
+    },
+    {
+      "file": "EvilDuckS3/adapter.cpp",
+      "size": 8971,
+      "sha256": "b0945472e00d6177c14367e56eab3091d640ad3c471ecc825bbc812be57b3bb0"
+    },
+    {
+      "file": "EvilDuckS3/adapter.h",
+      "size": 2982,
+      "sha256": "ca8099f2568bb703610cf666a33ceb870c6e4e257c37977ef0ba4bd03b7e0c8b"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.cpp",
+      "size": 3337,
+      "sha256": "7e7b926220c8381a5b32e507436dc019b87bfaea16dec5393122e7b2a2ef27d5"
+    },
+    {
+      "file": "EvilDuckS3/attackmode.h",
+      "size": 519,
+      "sha256": "d9e68dd330af814b87cae856c16cb85dc02a4009da07e67ce72ce5a4e87504a8"
+    },
+    {
+      "file": "EvilDuckS3/backend_lease.h",
+      "size": 1256,
+      "sha256": "f3db353e1b27dc74a2d449f21869886c70ad94ddbfb8b31f247112eff9492df6"
+    },
+    {
+      "file": "EvilDuckS3/backend_lease.inc",
+      "size": 4395,
+      "sha256": "5e210acc5674f15f85e420dff9f0b31b6ae743b834d3fe94bc409f670685e2c4"
+    },
+    {
+      "file": "EvilDuckS3/bridge.cpp",
+      "size": 6722,
+      "sha256": "6a74cb7367bb0827dc0af03267f0fde1e74b7de104b401c3b44a6f9e1a8ceff1"
+    },
+    {
+      "file": "EvilDuckS3/bridge.h",
+      "size": 2734,
+      "sha256": "c9cc708efb1ec506bc37df006f20817ec92683ac43ca1726e7bcb0b0befdd5e5"
+    },
+    {
+      "file": "EvilDuckS3/caps_trial.cpp",
+      "size": 1592,
+      "sha256": "07636d1d22806ac6bf8a1624135ea6df632967b2b91ae1b4dfb4ae4b3b73fe59"
+    },
+    {
+      "file": "EvilDuckS3/caps_trial.h",
+      "size": 650,
+      "sha256": "e7076dec55591a3b8513d3715f3ddb0e4e96a4617d96f24b2ed2bd3a152c58b6"
+    },
+    {
+      "file": "EvilDuckS3/cli.cpp",
+      "size": 14525,
+      "sha256": "5209b058e589a6efddae3bf24e68b2b1bb3b30cbcdc382809e4313bf2b1762b7"
+    },
+    {
+      "file": "EvilDuckS3/cli.h",
+      "size": 209,
+      "sha256": "962f59d6b211a3bbca0da9996dc648014c2197c17e5d02a4730a69b61a814229"
+    },
+    {
+      "file": "EvilDuckS3/com.cpp",
+      "size": 29094,
+      "sha256": "1889918ee99ccde65036ba6c1855ee743b852999d6226a4b3004a3492f0eee40"
+    },
+    {
+      "file": "EvilDuckS3/com.h",
+      "size": 892,
+      "sha256": "98eaf2d70c0138b7e1f26ace884e7dff66f785f79e06db221841b1a0a973843b"
+    },
+    {
+      "file": "EvilDuckS3/conditional_state.h",
+      "size": 1236,
+      "sha256": "82a061d989437c41aeee6ecdde365c74088b502307f1eb807d29190e37cdb05d"
+    },
+    {
+      "file": "EvilDuckS3/config.h",
+      "size": 2645,
+      "sha256": "8e52a6f2d284efb28d17c74a83f01f818ce2eeb307c6b3c387f959af0a7fcdcf"
+    },
+    {
+      "file": "EvilDuckS3/control_flow.h",
+      "size": 3811,
+      "sha256": "6bb648c0e8d0596f1374aa3577cdc3b134385bd09596a286d16dea9092c04fe2"
+    },
+    {
+      "file": "EvilDuckS3/controlled_layout.h",
+      "size": 1406,
+      "sha256": "f181a0290427b6bcf38b9fdb55ceef4087d527e8cca56a0fb30151d0d913fd51"
+    },
+    {
+      "file": "EvilDuckS3/coordinator.cpp",
+      "size": 11879,
+      "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4"
+    },
+    {
+      "file": "EvilDuckS3/coordinator.h",
+      "size": 1810,
+      "sha256": "575dc07c65fffa133cf562afe5669c06802a974f601fd95626f9e581c2e2c680"
+    },
+    {
+      "file": "EvilDuckS3/core.cpp",
+      "size": 61532,
+      "sha256": "2876056adb42347f53ff8efdcf9cdbbce8ca04db4dc670bd1c4fdb2dc49befa5"
+    },
+    {
+      "file": "EvilDuckS3/core.h",
+      "size": 8362,
+      "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/01_variables.txt",
+      "size": 119,
+      "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/02_if_else.txt",
+      "size": 129,
+      "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/03_while_loop.txt",
+      "size": 141,
+      "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/04_save_spiffs.txt",
+      "size": 98,
+      "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/05_save_sd.txt",
+      "size": 136,
+      "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/06_attackmode.txt",
+      "size": 120,
+      "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/07_attackmode_hid_only.txt",
+      "size": 86,
+      "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+    },
+    {
+      "file": "EvilDuckS3/data/advanced/08_read_file.txt",
+      "size": 124,
+      "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/01_hello_windows.txt",
+      "size": 149,
+      "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/02_calculator_windows.txt",
+      "size": 81,
+      "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/03_delay_test.txt",
+      "size": 116,
+      "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/04_repeat_demo.txt",
+      "size": 74,
+      "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/05_special_keys.txt",
+      "size": 131,
+      "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/06_locale_de.txt",
+      "size": 130,
+      "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/07_led_blink.txt",
+      "size": 126,
+      "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+    },
+    {
+      "file": "EvilDuckS3/data/demos/08_keycode_ctrl_a.txt",
+      "size": 77,
+      "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+    },
+    {
+      "file": "EvilDuckS3/data/index.html",
+      "size": 246,
+      "sha256": "c67a22c88c1e5741138e035018c07bdbf600aeb5f18d5367f8e35203565eeb83"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/01_terminal.txt",
+      "size": 157,
+      "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/02_nano_editor.txt",
+      "size": 212,
+      "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/03_firefox.txt",
+      "size": 88,
+      "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+    },
+    {
+      "file": "EvilDuckS3/data/linux/04_tmux_new.txt",
+      "size": 130,
+      "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/01_terminal.txt",
+      "size": 135,
+      "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/02_safari.txt",
+      "size": 87,
+      "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/03_lock_screen.txt",
+      "size": 77,
+      "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+    },
+    {
+      "file": "EvilDuckS3/data/macos/04_textedit.txt",
+      "size": 120,
+      "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/01_run_dialog.txt",
+      "size": 75,
+      "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/02_cmd_prompt.txt",
+      "size": 122,
+      "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/03_powershell.txt",
+      "size": 135,
+      "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/04_lock_screen.txt",
+      "size": 59,
+      "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/05_desktop_show.txt",
+      "size": 54,
+      "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/06_task_manager.txt",
+      "size": 78,
+      "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/07_file_explorer.txt",
+      "size": 53,
+      "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/08_settings.txt",
+      "size": 85,
+      "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/alt_f4_close.txt",
+      "size": 83,
+      "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/browser_url.txt",
+      "size": 134,
+      "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/hacker_terminals_3_monitors.txt",
+      "size": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/hello_notepad.txt",
+      "size": 180,
+      "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/lock_screen.txt",
+      "size": 63,
+      "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_calculator.txt",
+      "size": 97,
+      "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_cmd.txt",
+      "size": 137,
+      "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_dedsec_image.txt",
+      "size": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_explorer.txt",
+      "size": 67,
+      "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_powershell.txt",
+      "size": 156,
+      "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_settings.txt",
+      "size": 61,
+      "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/open_taskmgr.txt",
+      "size": 90,
+      "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/paste_clipboard.txt",
+      "size": 60,
+      "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/screenshot.txt",
+      "size": 105,
+      "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/select_all_copy.txt",
+      "size": 96,
+      "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/show_desktop.txt",
+      "size": 75,
+      "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/skull_loading_terminal.txt",
+      "size": 4043,
+      "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+    },
+    {
+      "file": "EvilDuckS3/data/windows/typing_speed_test.txt",
+      "size": 238,
+      "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+    },
+    {
+      "file": "EvilDuckS3/debug.cpp",
+      "size": 261,
+      "sha256": "21995b69ab6f4f587d95222187aab167fdf344eda0a861810c8b17c8fc7ac6cc"
+    },
+    {
+      "file": "EvilDuckS3/debug.h",
+      "size": 136,
+      "sha256": "eed438797b682327c9de78d4f9ed7d431e29fd345fb9ec3d860264acab98ff5e"
+    },
+    {
+      "file": "EvilDuckS3/deployment_boot.h",
+      "size": 853,
+      "sha256": "0c4dc2d8b6fc6ab610536eb201de6611d7cd7761de17e5df351d6e2e25afe232"
+    },
+    {
+      "file": "EvilDuckS3/diagnostic_platform.h",
+      "size": 1292,
+      "sha256": "44498079669dbeb26e431747dad25ae51b7762ea08eb00026b1da29101fc5858"
+    },
+    {
+      "file": "EvilDuckS3/diagnostics.cpp",
+      "size": 4843,
+      "sha256": "a2dc6ea2cc4d5cc559bba3d8271d91967bfa8b098f7b6a9328cd9a9ecc8a471c"
+    },
+    {
+      "file": "EvilDuckS3/diagnostics.h",
+      "size": 1503,
+      "sha256": "7c47d35f2aa009778c362d6832a989c5be9e7f4377b3d28be0c03f13c8f17f1f"
+    },
+    {
+      "file": "EvilDuckS3/duck_constants.cpp",
+      "size": 4932,
+      "sha256": "058c6d6fcde39de3f4fbcce6f0aa407cec62babd59fc658948779716f5ebbff5"
+    },
+    {
+      "file": "EvilDuckS3/duck_constants.h",
+      "size": 612,
+      "sha256": "ab3d4de46274f557085e963835f4d25473f062ab4a74c8e1c22f354973c4ac27"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.cpp",
+      "size": 13040,
+      "sha256": "a52218acb96f08cb47795aeaf723d10b0a686a585585632960d688aa9d778330"
+    },
+    {
+      "file": "EvilDuckS3/duck_expr.h",
+      "size": 1720,
+      "sha256": "933f5e10f0e16972d77e44f0af6946ffa289b1595794c78fc609c0f33f512192"
+    },
+    {
+      "file": "EvilDuckS3/duck_keys.cpp",
+      "size": 3567,
+      "sha256": "2817becad1c4cca4bd29d5d1b6cc3866ddb35ba535f03cb531cafed692c6b62a"
+    },
+    {
+      "file": "EvilDuckS3/duck_keys.h",
+      "size": 604,
+      "sha256": "6b0dd4921d076defdbe60e74afab33b764ca6c5cae2aa30dbea4f0a19e55258f"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.cpp",
+      "size": 2775,
+      "sha256": "d4ffe176ee222bb4add3aebdf7aa4a70801572893f0d88940d7443449f63b170"
+    },
+    {
+      "file": "EvilDuckS3/duck_random.h",
+      "size": 840,
+      "sha256": "e6dc9b5c3fb2edb329d088f57ce4d314cc4ef5cb62afc16b500085d0936e0d06"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.cpp",
+      "size": 12206,
+      "sha256": "32303bb7518603d601b01d5ef3d532f73744420c4c993ab739270903bf660293"
+    },
+    {
+      "file": "EvilDuckS3/duck_vars.h",
+      "size": 1304,
+      "sha256": "c49314e670ebcc4c15804d329d003f119a013136c003b08314f4efbd6587ce6f"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.cpp",
+      "size": 23380,
+      "sha256": "b47475a4070b38be5dd71bdfb0adc66fb0324a7b0b6e9aa3ec371c59ddfd4851"
+    },
+    {
+      "file": "EvilDuckS3/duckscript.h",
+      "size": 387,
+      "sha256": "cb477305bb9af8554542395eeca56f451a9134a4bcec926fa723d8b66c45bc34"
+    },
+    {
+      "file": "EvilDuckS3/execution_guard.h",
+      "size": 4112,
+      "sha256": "2815848dbb668bd2e6243b01b935ac640c8e2375e99ce6709d870943a40bfa6b"
+    },
+    {
+      "file": "EvilDuckS3/feedback_diag.cpp",
+      "size": 3909,
+      "sha256": "fb3343fab32358e10579beb53bfa47d21bde71ba03ed349c228dba1ff3176aff"
+    },
+    {
+      "file": "EvilDuckS3/feedback_diag.h",
+      "size": 1488,
+      "sha256": "8882eee63e2440577ea6ebe8be5251f70580f0be511bb9b3ac70f1193f966f3f"
+    },
+    {
+      "file": "EvilDuckS3/fetch_locales.ps1",
+      "size": 799,
+      "sha256": "b7290777966bc4d32c301115149f134420ae2ea6195a2710c004205ff0d13eb3"
+    },
+    {
+      "file": "EvilDuckS3/file_source.cpp",
+      "size": 2028,
+      "sha256": "f015cc66eedb1bef87aa76e3f14f750e4355e9985dc6817c77b53279dc013b2e"
+    },
+    {
+      "file": "EvilDuckS3/file_source.h",
+      "size": 613,
+      "sha256": "af4e85d53b93f41777dd29016391cc8531647fc431bd7f2fe6ca67a9b196f744"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.cpp",
+      "size": 29052,
+      "sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c"
+    },
+    {
+      "file": "EvilDuckS3/hid_backend.h",
+      "size": 2241,
+      "sha256": "7925198fa38eeb5489ddd5f3dbfb47d4f00a477ba7b5ceeeb58bb5dbdaf08830"
+    },
+    {
+      "file": "EvilDuckS3/hid_trace.cpp",
+      "size": 3401,
+      "sha256": "ae806e8252cc1e877e27bec742bea8488db59d99793409cf1b4511796d4b7b43"
+    },
+    {
+      "file": "EvilDuckS3/hid_trace.h",
+      "size": 1020,
+      "sha256": "9c41c5d445551ba74bb743df4f198cae952b34f27ce066d134bf5525e8905336"
+    },
+    {
+      "file": "EvilDuckS3/internal_vars.h",
+      "size": 580,
+      "sha256": "9b62bb7af0340a2bb1c7a85252fda729b940856ff8a19a6c2d063f4ba92f7c82"
+    },
+    {
+      "file": "EvilDuckS3/keyboard.cpp",
+      "size": 6618,
+      "sha256": "0d61a025ce174a6f940a77fbb56e83195507da10d640432a2621b9e597b3bcf9"
+    },
+    {
+      "file": "EvilDuckS3/keyboard.h",
+      "size": 2959,
+      "sha256": "5da73834d8f47347df4bfcd6dd3ed8e2ebdbe05cd5d9eb02bfd3a8bc06435fa3"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.cpp",
+      "size": 4586,
+      "sha256": "a67001250d9b25cd39c7e26e7b16eb6539fc9d63e53f23c1030ba65c7485d119"
+    },
+    {
+      "file": "EvilDuckS3/keyboard_locale.h",
+      "size": 732,
+      "sha256": "7146c6c398ed0d76dd009f9b0374b7b3f2c04097df1768b138fa01817db6c737"
+    },
+    {
+      "file": "EvilDuckS3/led.cpp",
+      "size": 2441,
+      "sha256": "2c0bce17312132821c66a21d537cff3180385005dd8f533fcd787ac637da01aa"
+    },
+    {
+      "file": "EvilDuckS3/led.h",
+      "size": 104,
+      "sha256": "e8fc9756baa3a06a08c10948b85082b0b2aeb958d06752ee0cb957de0ad568d8"
+    },
+    {
+      "file": "EvilDuckS3/led_receiver.cpp",
+      "size": 4111,
+      "sha256": "7b8743a007487db970c8a777aa95dc60bee35c86b0fa96d9ac62ec473ec6916e"
+    },
+    {
+      "file": "EvilDuckS3/led_receiver.h",
+      "size": 1049,
+      "sha256": "a6a2a9970e4f0515987ae527a4ed20731153e97fc87d1066b82576a6895ef42a"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_de.h",
+      "size": 4942,
+      "sha256": "dc10ea86906667c24ea43c3f1b8b7c450568d26d3c7e4a7c4b80daad75b2cd56"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_types.h",
+      "size": 228,
+      "sha256": "c48cf655a0b810ea275edc4319d34a120f2aebc97ad231c755a87c5d72305ea0"
+    },
+    {
+      "file": "EvilDuckS3/locale/locale_us.h",
+      "size": 3667,
+      "sha256": "d1982e64f18ec1c0a87ac232ce53c63cdb114fa0898ca79a77a8387eddedf61c"
+    },
+    {
+      "file": "EvilDuckS3/locale/locales.h",
+      "size": 1673,
+      "sha256": "d1657a7b159776d35e84c00f29f623ef2389f1cf2176f0a11811f0fb4602cdf0"
+    },
+    {
+      "file": "EvilDuckS3/locale/usb_hid_keys.h",
+      "size": 3081,
+      "sha256": "4c9c49c041811f16c0e2dba6362b44cb8b65eb36cb5f772674d9e877faf51dcb"
+    },
+    {
+      "file": "EvilDuckS3/locales.cpp",
+      "size": 419,
+      "sha256": "3fe13d85fd47f64c584f720fa860d7d72e09d36b68e40443fde7fb1ea53315b2"
+    },
+    {
+      "file": "EvilDuckS3/mutation_guard.h",
+      "size": 546,
+      "sha256": "c69fd2486daf20df562d11a2fe63e79297fc81c37868cb935d176b3885e9f464"
+    },
+    {
+      "file": "EvilDuckS3/nvs_startup.h",
+      "size": 417,
+      "sha256": "615745d0c93d17448002d9094c4868bbb7264d7ebec966b6befdea146d55ed83"
+    },
+    {
+      "file": "EvilDuckS3/partitions.csv",
+      "size": 394,
+      "sha256": "29f1c8956b5b68b26a1eb79ea46c68cb110d2510b40091e4bebfb89f06f511ef"
+    },
+    {
+      "file": "EvilDuckS3/scheduler_seam.h",
+      "size": 1150,
+      "sha256": "fa25540c9e43862052c705833ab0a47988185d873ced313aa299f38075f9ecfc"
+    },
+    {
+      "file": "EvilDuckS3/script_functions.cpp",
+      "size": 2949,
+      "sha256": "ed9ab30624a5ad4687d5d9b822634204cdf5a49e7e3b22c8e47622b69d8dcb47"
+    },
+    {
+      "file": "EvilDuckS3/script_functions.h",
+      "size": 2066,
+      "sha256": "44a285d895ea946c54a564350e0259eb7dc9b60efdd8ec20e257bfd94e976ed7"
+    },
+    {
+      "file": "EvilDuckS3/script_library.cpp",
+      "size": 3371,
+      "sha256": "1615467d18804fd8383610f9f5a1300452260fe583823815e0d4b0cea8632769"
+    },
+    {
+      "file": "EvilDuckS3/script_library.h",
+      "size": 278,
+      "sha256": "bf7f8005fbb586d8a3f41473a9f7acfd97b3d79b49616d90257d8129783efab2"
+    },
+    {
+      "file": "EvilDuckS3/script_log.cpp",
+      "size": 1778,
+      "sha256": "9a269ef95b6ec0d8c22ea7ce24687339b8c08471a134b807a669846972f7434a"
+    },
+    {
+      "file": "EvilDuckS3/script_log.h",
+      "size": 270,
+      "sha256": "48af946b433dfab38af76e79a504c9d0d15f72440411e496056e62e87d5233de"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.cpp",
+      "size": 35558,
+      "sha256": "7af726fb9843e08bc644fcf9eb030ae9c07fcc198590f713abce57b5d6fcdd47"
+    },
+    {
+      "file": "EvilDuckS3/script_parser.h",
+      "size": 2628,
+      "sha256": "9624a59e80b718f7525c0c4702dc992501d5aa53be3fc8559095ddf49044140b"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.cpp",
+      "size": 4276,
+      "sha256": "fc09ef1124ac9a6a4f47f6fd1ad543cafda814e927d05cf148e6d86089c52d79"
+    },
+    {
+      "file": "EvilDuckS3/script_preprocessor.h",
+      "size": 1353,
+      "sha256": "b390d7b2879852c6a66e4f89928bc75b52d9690109cd6794140d04dd72d380f0"
+    },
+    {
+      "file": "EvilDuckS3/script_source.cpp",
+      "size": 3043,
+      "sha256": "7ea73e3b9e773448c317b8e24176381f52768bc64f175191088284c0310463f3"
+    },
+    {
+      "file": "EvilDuckS3/script_source.h",
+      "size": 1239,
+      "sha256": "1ea0ddbd7bf239af6c715f1b057bbdc5a7bd491f11c19314f407239d98ef84b0"
+    },
+    {
+      "file": "EvilDuckS3/scripts/README.txt",
+      "size": 892,
+      "sha256": "cc8adc67182f4c753773d1fbe939d7d17ac8bb31338ee7cff2a0b2a26418c587"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/01_variables.txt",
+      "size": 119,
+      "sha256": "b5707c6321e10ae244e5732111734bf3d6b4e074ab957542c85eee255049e482"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/02_if_else.txt",
+      "size": 129,
+      "sha256": "7fa2d615b57959f79c47372430410ff22a5a65ecce58713c0633cb8a69b4d216"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/03_while_loop.txt",
+      "size": 141,
+      "sha256": "0a6dc0c34ce6619cc39fec0334e67918d725e017bfff9abd4da81ac3eec78952"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/04_save_spiffs.txt",
+      "size": 98,
+      "sha256": "660f8e371961ccc91b440dc26ae080a1466ccd949232eb63bc13fde27f4a7f14"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/05_save_sd.txt",
+      "size": 136,
+      "sha256": "bf579de395c6be541438ae6ce20fe74d60b51572e993941d476d6d48e3e529f8"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/06_attackmode.txt",
+      "size": 120,
+      "sha256": "11f05c8482243165e229273b89526020f926ccf40dae4de74244378647ec451a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/07_attackmode_hid_only.txt",
+      "size": 86,
+      "sha256": "42a4cd06c505421613fa4f480b819d2da8c0650cf8884cafcd1ebaab8b2879c6"
+    },
+    {
+      "file": "EvilDuckS3/scripts/advanced/08_read_file.txt",
+      "size": 124,
+      "sha256": "6cf0c3df8b260089952908f4aa1292951d93e6ca51c54a18077ac0f0e20bb9f2"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/01_hello_windows.txt",
+      "size": 149,
+      "sha256": "93b40f86b9b65f17c09793b14ee67040e9d0b1a953a1385d9bb0ae107ec0169d"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/02_calculator_windows.txt",
+      "size": 81,
+      "sha256": "04a92ca3c0aeefa081fc7ea27cfb03f960048ba09c5257cec1f2df4e1a6cd359"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/03_delay_test.txt",
+      "size": 116,
+      "sha256": "0b00be4f61b874ca78e111437623bff4023e69b9d4b8e333d8e54d55f1814e09"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/04_repeat_demo.txt",
+      "size": 74,
+      "sha256": "8befd3ba948ce1ffa595bef3624c57a94219080c2c2f584b2187207584e78dc1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/05_special_keys.txt",
+      "size": 131,
+      "sha256": "96474daf1b4d0ba4925951c18035b6f6b2ca9cfeafdf2e4773ae716d1ca93158"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/06_locale_de.txt",
+      "size": 130,
+      "sha256": "75a6865b27b84c4f5f4ac762560f270eb16451ac4ec1b1c906e7cdd6a59e4230"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/07_led_blink.txt",
+      "size": 126,
+      "sha256": "f4148bf62398c7d3a1a121eaa7893ec8231eeae3c6b06abc6d6cc1a5f9b73354"
+    },
+    {
+      "file": "EvilDuckS3/scripts/demos/08_keycode_ctrl_a.txt",
+      "size": 77,
+      "sha256": "87034265a46554dd86d6fa6b523874050b9e4163bc977c714858bfdd0e519661"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/01_terminal.txt",
+      "size": 157,
+      "sha256": "27a382c6ee8b7390e39240175c01f2ce10dde13a2cf3c4ecdd8578a74863efca"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/02_nano_editor.txt",
+      "size": 212,
+      "sha256": "89ef20634a0f7f2d854e93285ecbe518dcff498368b2fba23dbd73f88a8d9f5e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/03_firefox.txt",
+      "size": 88,
+      "sha256": "00ae9a8147fdf554e2d494a49a22ff40be7101c596da47e4393691e95fe91d17"
+    },
+    {
+      "file": "EvilDuckS3/scripts/linux/04_tmux_new.txt",
+      "size": 130,
+      "sha256": "4ae8f691cbe5a202f80cd3d0d9d7ee62c5f78d68552a819a14523a5de805b692"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/01_terminal.txt",
+      "size": 135,
+      "sha256": "afb2ae18ff99c0d7d3890658934142f52f90b55efd5ad3e2ca82debacbb166f9"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/02_safari.txt",
+      "size": 87,
+      "sha256": "27fa49862eff4956efc5b65745e5e9579e3d75ca98b84b703ba0d743750e97a5"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/03_lock_screen.txt",
+      "size": 77,
+      "sha256": "4f75cfe1e228ed953b78a09ed3a585b8098889009f0ff3ac002fce6c256a392e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/macos/04_textedit.txt",
+      "size": 120,
+      "sha256": "ab1f4af710ef6d3e0e729791a3893fb3ed223d28ff3c83a87b7117dcb1f93051"
+    },
+    {
+      "file": "EvilDuckS3/scripts/sync_to_data.ps1",
+      "size": 774,
+      "sha256": "103f1f45641921b97f45f4b5d4f842b62d540ec7ce96cdd5d100edc868a5a534"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/01_run_dialog.txt",
+      "size": 75,
+      "sha256": "18f98aa1de05125e0c5d58b21c10e6b766acb29bac187b20cd6a3aa6a00e768a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/02_cmd_prompt.txt",
+      "size": 122,
+      "sha256": "49b2f3cf50eef096d20a70d13ea9f8480baf134d74b57243a73b533207523ca4"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/03_powershell.txt",
+      "size": 135,
+      "sha256": "33f88636ce2c63ba3a7fa5a6f90ef947a28461a7df1f01727de66d444845bb39"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/04_lock_screen.txt",
+      "size": 59,
+      "sha256": "953e0e43ff62f452b9a308aa309918e89fd1e2cbf372b8fbe9b04dfe08fdc92c"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/05_desktop_show.txt",
+      "size": 54,
+      "sha256": "1c3ed6eb63db4ee9c2d88bda2f92bb1367fb0049915da32b10f0ec62bfe0b6cc"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/06_task_manager.txt",
+      "size": 78,
+      "sha256": "7d0313fa494417848228bc2a5037505921fd455624a501942ca9cba9e362c674"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/07_file_explorer.txt",
+      "size": 53,
+      "sha256": "01075698c70981edc0430b1d1100f672d2d847bf62b4b96fe9f2eb3a4ef13a5e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/08_settings.txt",
+      "size": 85,
+      "sha256": "e1adae1ef6fd47c0f99b4cf75aa7d35d7021e73424173ceba8a4f4fe3014525b"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/alt_f4_close.txt",
+      "size": 83,
+      "sha256": "d1252384bf2c4b173fe8a4cfa16364eb6f258f07428929325dbc8a5417821ae1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/browser_url.txt",
+      "size": 134,
+      "sha256": "03299495e15b0d559dadb7ee9a292ac3bb7d6b9fd408dc3c334d89954b8cefe7"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/hello_notepad.txt",
+      "size": 180,
+      "sha256": "4b8a42d3b0c8abb631b5e94c266366eb5f48b3f2b6eb488458e008511f9dd10e"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/lock_screen.txt",
+      "size": 63,
+      "sha256": "de6d0531e418810c38d5634db3c0a96c2f805aaa9510c434e0901277de8652c4"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_calculator.txt",
+      "size": 97,
+      "sha256": "e6c1d318a955cd62fa36c69db40a82eea904bcd7dc6da23f15e13712c362b69d"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_cmd.txt",
+      "size": 137,
+      "sha256": "09c6b046b73433d36bcbe96c8047174c08ae33c38370110f63046d4bd750c113"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_dedsec_image.txt",
+      "size": 197,
+      "sha256": "a45863f28aa6ac05fa5311dd3485408ee66206a7d4cee28dfefa6f76f3e8e293"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_explorer.txt",
+      "size": 67,
+      "sha256": "e3d416a3b02c6d53fb66d3a9f03edc66354bd45510c5bfbcb25df755985da779"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_powershell.txt",
+      "size": 156,
+      "sha256": "68921366210239bd15dc21d2fd6540a1e7e895552b8e35c25d054daee33c5d87"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_settings.txt",
+      "size": 61,
+      "sha256": "d3746d0a8ede919f18f7bf14ff2626f5a9dea5a7a3983182bc05b0bdd069fc64"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/open_taskmgr.txt",
+      "size": 90,
+      "sha256": "82eada2231aeaec71f3ce6585f88466c2b477e7feeae419291ea40448562585a"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/paste_clipboard.txt",
+      "size": 60,
+      "sha256": "c8b44d6e65120dccaecc56578d240e78df23a3a77f80212bfc48ffcf6eb1ea84"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/run_hacker_terminals.cmd",
+      "size": 266,
+      "sha256": "402c0056d6eba24f2e2c9f80f99cd1e214b1a327c2a7f5aba0235024727193e2"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/screenshot.txt",
+      "size": 105,
+      "sha256": "812c1bb03dd4595ea928b4fa665e69a01f2a01228e039707c4a00e5516afae54"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/select_all_copy.txt",
+      "size": 96,
+      "sha256": "cc0a77d4cddcef5b50579d68512518eac1da1af893473434335bad58ffeec4cb"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/show_desktop.txt",
+      "size": 75,
+      "sha256": "aa71ae114086d997a9d3f19c505071e0a358a277cf4da8289896d5744e23d2d1"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/skull_loading_terminal.txt",
+      "size": 4043,
+      "sha256": "2fa38649cbcc5fb491fdf9298cc2d24d4f61e19d96985db6c8033f9e62d0aa39"
+    },
+    {
+      "file": "EvilDuckS3/scripts/windows/typing_speed_test.txt",
+      "size": 238,
+      "sha256": "64d616e96bbf51203c2dbe357269f07299b9b56143399d4cc6ab6f61d00bd21b"
+    },
+    {
+      "file": "EvilDuckS3/sd_card.cpp",
+      "size": 6573,
+      "sha256": "94a93befb4333282f58b900c108cbdabfbbd606a9c0f1719e7e08f15b8c0c1e8"
+    },
+    {
+      "file": "EvilDuckS3/sd_card.h",
+      "size": 605,
+      "sha256": "363a41bee3f28c5570cd1749e46a7157f7f92942f8c51b0f7287a7f1db8bff9e"
+    },
+    {
+      "file": "EvilDuckS3/seam.inc",
+      "size": 8356,
+      "sha256": "229a1474ebc6a13ef48d6561e1ad32ab31c453da09167065f2180e527dd7602a"
+    },
+    {
+      "file": "EvilDuckS3/settings.cpp",
+      "size": 13030,
+      "sha256": "23997403f6da983572a99c650370cb2f88a1e572cb477ea064112435e2b952c3"
+    },
+    {
+      "file": "EvilDuckS3/settings.h",
+      "size": 1008,
+      "sha256": "733cfefc1aa1e34e0bbaa1419405785492bce6753ec559be52b17477cac84e00"
+    },
+    {
+      "file": "EvilDuckS3/shortcut_keys.h",
+      "size": 3353,
+      "sha256": "a5ec66459abc75806dbedaf5506c71ca16327a7c5e71e5149abe5859d13e8f8d"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.cpp",
+      "size": 4311,
+      "sha256": "b86c40372007f3f63e49add9e6076021ae3ebb31303c811e46d047d17d64e6da"
+    },
+    {
+      "file": "EvilDuckS3/spiffs.h",
+      "size": 624,
+      "sha256": "a168225fdb4bec5a7d63c56809cab4ee6c4e42cc3b8d18f77c459f3f49fe2aab"
+    },
+    {
+      "file": "EvilDuckS3/storage.cpp",
+      "size": 10762,
+      "sha256": "fa8d1c85588db8ea32e826bdbd23d2b48f60c8dbec43c5568bb6d064aef2959c"
+    },
+    {
+      "file": "EvilDuckS3/storage.h",
+      "size": 920,
+      "sha256": "b89f8e791997f79f173dfcacc375a4efb51241e3975d3c3c6ba83a0021c32937"
+    },
+    {
+      "file": "EvilDuckS3/task_platform.h",
+      "size": 1203,
+      "sha256": "e718c5fcd4ebfdf492b3881e993ef25b76757e699deec44a79b35a8cb4a26dff"
+    },
+    {
+      "file": "EvilDuckS3/usb_msc.cpp",
+      "size": 8329,
+      "sha256": "d9a2f2b9702aa49b6f8c95225ed2c1f2c1101c8fefa07046bcdd0116d37664f7"
+    },
+    {
+      "file": "EvilDuckS3/usb_msc.h",
+      "size": 504,
+      "sha256": "c03a6068ccf9ce2a53c057a15cc02628a12e04f5a4b82a67b6c1659dc2b1efe9"
+    },
+    {
+      "file": "EvilDuckS3/webfiles.h",
+      "size": 97052,
+      "sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445"
+    },
+    {
+      "file": "EvilDuckS3/webserver.cpp",
+      "size": 48221,
+      "sha256": "98bb1d99e2098c29b962285ec4760d1ab3ed0d6d656cceed55d138fba1e7455c"
+    },
+    {
+      "file": "EvilDuckS3/webserver.h",
+      "size": 89,
+      "sha256": "3187c949614453e0703ac750079804abd7871a8b5e143cc821893476b4e54c4b"
+    }
+  ],
+  "streaming_proof": {
+    "status": "PASS",
+    "asset_overload": "const uint8_t*+size_t",
+    "compiled_object": {
+      "file": "/workspace/scratch/static-response-repair-review/build-v1/build/sketch/webserver.cpp.o",
+      "sha256": "3627901b9ce3482b248036472b3655564a70e160471334b2ed45763bb7d1791a",
+      "byte_overload_observed": true,
+      "char_send_P_absent": true,
+      "resources": [
+        "INDEX_HTML",
+        "SETTINGS_HTML",
+        "TERMINAL_HTML",
+        "CREDITS_HTML",
+        "ERROR404_HTML",
+        "STYLE_CSS",
+        "INDEX_JS",
+        "SETTINGS_JS",
+        "TERMINAL_JS"
+      ],
+      "unknown_path_char_response_allowed": true,
+      "object_sections_sha256": "77a1d941a3980034c34c541b05337ddc8b450f5d160420644e528f4b574accdf",
+      "linked_handler_sha256": "1d1fa8bf0de4e9f4b7cac40b435ea7c7abd3ac3d19d4d4d9bfe05bf91c8ae262"
+    },
+    "linked_handler": {
+      "address": 1107432132,
+      "size": 780,
+      "name": "handleStatic(AsyncWebServerRequest*)",
+      "disassembly_sha256": "1d1fa8bf0de4e9f4b7cac40b435ea7c7abd3ac3d19d4d4d9bfe05bf91c8ae262"
+    },
+    "linked_send_wrapper": {
+      "address": 1107431880,
+      "size": 126,
+      "name": "AsyncWebServerRequest::send(int, char const*, unsigned char const*, unsigned int, std::function<String (String const&)>)",
+      "disassembly_sha256": "e0f63e88649fc0cfe749d6e91986e2893c27d1dd06449e172608b5140b8836e2"
+    },
+    "linked_factory": {
+      "address": 1107495524,
+      "size": 148,
+      "name": "AsyncWebServerRequest::beginResponse(int, char const*, unsigned char const*, unsigned int, std::function<String (String const&)>)",
+      "progmem_ctor_observed": true,
+      "full_resource_string_copy": false,
+      "disassembly_sha256": "2cb691ffb6cdbcfea2694d0019f56ac778b46739be53706a1943afbff2d94a90"
+    },
+    "fill_buffer": {
+      "address": 1107502788,
+      "size": 42,
+      "name": "AsyncProgmemResponse::_fillBuffer(unsigned char*, unsigned int)",
+      "disassembly_sha256": "e2ca57113ff692c671e064ef4640dba8ed2ecf4f57b73cfefbf8a80ba50a0242"
+    },
+    "sdk_consumers": [
+      {
+        "source": "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebRequest.cpp",
+        "source_sha256": "3ca1c44ffef44e4fd7d8e900857e797469cd336bf846f2a9af61e02a0956e7ad",
+        "object": "/workspace/scratch/static-response-repair-review/build-v1/build/libraries/ESP_Async_WebServer/WebRequest.cpp.o",
+        "object_sha256": "92bbcd6309eb4e126ade86c3864ccb40f862855b51fedc7a512b6da472ec6e6a",
+        "linked": true
+      },
+      {
+        "source": "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebResponses.cpp",
+        "source_sha256": "12055aa687cd0f6f719b65057c7a1d203baf6f0ef88e96b3fb4909ac68d0e6f8",
+        "object": "/workspace/scratch/static-response-repair-review/build-v1/build/libraries/ESP_Async_WebServer/WebResponses.cpp.o",
+        "object_sha256": "65c33e295c17937bbbb09eeaed5c1775580c2eb5719259b5a8192e0d03390df8",
+        "linked": true
+      }
+    ],
+    "pointer_length_table": [
+      {
+        "resource": "INDEX_HTML",
+        "http_bytes": 12184,
+        "sha256": "149215865fe1ba4b12f20ebaf6bf4aae95070f20683e66298429d99572159026",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "SETTINGS_HTML",
+        "http_bytes": 5389,
+        "sha256": "ef9f7093b2e537dc18ab2100bc03c9cbc6a7b9886291ace5c1fcfa12c5c1ce3a",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "TERMINAL_HTML",
+        "http_bytes": 1324,
+        "sha256": "cd341048c6d0a1211bd8ff0670203d706f0247eab8c72db08243d5529ba89d51",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "CREDITS_HTML",
+        "http_bytes": 1746,
+        "sha256": "06d0f8e850c968b34a418d8b6462018811c0e7dd4d865f40c8c96644f87a2e8d",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "ERROR404_HTML",
+        "http_bytes": 869,
+        "sha256": "a8e89049a587a61fc7b2bcdd21ccedd578a4b1026df0e796be2a39108fc6da9d",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "STYLE_CSS",
+        "http_bytes": 31975,
+        "sha256": "37df80940a89fb76e7373a1f1cadb687551b068cc94e65d61a18e03100cbed50",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "INDEX_JS",
+        "http_bytes": 31932,
+        "sha256": "7fb8068beb12564dc4e5146e8b6b0a9b719b78caf3f4d94cd0f2b8a2c04baf39",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "SETTINGS_JS",
+        "http_bytes": 10502,
+        "sha256": "37cbfdbd4a4dafc50ec34c79fc862ec1c28ca69eb47d393d1f3d6e8e2101472f",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      },
+      {
+        "resource": "TERMINAL_JS",
+        "http_bytes": 465,
+        "sha256": "22baafe8044c1aa1f63f8f2cd983763f4b0c0b30db1f74a988f81f15f9cc7d6b",
+        "compiled_pointer_observed": true,
+        "compiled_length_observed": true,
+        "c_nul_excluded": true
+      }
+    ],
+    "compiled_asset_call_witnesses": [
+      {
+        "resource": "INDEX_HTML",
+        "http_bytes": 12184,
+        "object_call_offset": 89,
+        "pointer_instructions": [
+          "0x42: l32r a13, fffc0044 <.LC30+0xfffc001a>"
+        ],
+        "length_instructions": [
+          "0x3f: movi a14, 152",
+          "0x4d: addmi a14, a14, 0x2f00"
+        ]
+      },
+      {
+        "resource": "SETTINGS_HTML",
+        "http_bytes": 5389,
+        "object_call_offset": 177,
+        "pointer_instructions": [
+          "0x9a: l32r a13, fffc009c <.LC30+0xfffc0072>"
+        ],
+        "length_instructions": [
+          "0x98: movi.n a14, 13",
+          "0xa5: addmi a14, a14, 0x1500"
+        ]
+      },
+      {
+        "resource": "TERMINAL_HTML",
+        "http_bytes": 1324,
+        "object_call_offset": 233,
+        "pointer_instructions": [
+          "0xd4: l32r a13, fffc00d4 <.LC30+0xfffc00aa>"
+        ],
+        "length_instructions": [
+          "0xde: movi a14, 0x52c"
+        ]
+      },
+      {
+        "resource": "CREDITS_HTML",
+        "http_bytes": 1746,
+        "object_call_offset": 289,
+        "pointer_instructions": [
+          "0x10c: l32r a13, fffc010c <.LC30+0xfffc00e2>"
+        ],
+        "length_instructions": [
+          "0x116: movi a14, 0x6d2"
+        ]
+      },
+      {
+        "resource": "ERROR404_HTML",
+        "http_bytes": 869,
+        "object_call_offset": 345,
+        "pointer_instructions": [
+          "0x144: l32r a13, fffc0144 <.LC30+0xfffc011a>"
+        ],
+        "length_instructions": [
+          "0x14e: movi a14, 0x365"
+        ]
+      },
+      {
+        "resource": "STYLE_CSS",
+        "http_bytes": 31975,
+        "object_call_offset": 405,
+        "pointer_instructions": [
+          "0x17e: l32r a13, fffc0180 <.LC30+0xfffc0156>"
+        ],
+        "length_instructions": [
+          "0x17c: movi.n a14, -25",
+          "0x189: addmi a14, a14, 0x7d00"
+        ]
+      },
+      {
+        "resource": "INDEX_JS",
+        "http_bytes": 31932,
+        "object_call_offset": 461,
+        "pointer_instructions": [
+          "0x1bb: l32r a13, fffc01bc <.LC30+0xfffc0192>"
+        ],
+        "length_instructions": [
+          "0x1b8: l32r a14, fffc01b8 <.LC30+0xfffc018e>"
+        ]
+      },
+      {
+        "resource": "INDEX_JS",
+        "http_bytes": 31932,
+        "object_call_offset": 517,
+        "pointer_instructions": [
+          "0x1f3: l32r a13, fffc01f4 <.LC30+0xfffc01ca>"
+        ],
+        "length_instructions": [
+          "0x1f0: l32r a14, fffc01f0 <.LC30+0xfffc01c6>"
+        ]
+      },
+      {
+        "resource": "SETTINGS_JS",
+        "http_bytes": 10502,
+        "object_call_offset": 577,
+        "pointer_instructions": [
+          "0x22a: l32r a13, fffc022c <.LC30+0xfffc0202>"
+        ],
+        "length_instructions": [
+          "0x228: movi.n a14, 6",
+          "0x235: addmi a14, a14, 0x2900"
+        ]
+      },
+      {
+        "resource": "TERMINAL_JS",
+        "http_bytes": 465,
+        "object_call_offset": 637,
+        "pointer_instructions": [
+          "0x268: l32r a13, fffc0268 <.LC30+0xfffc023e>"
+        ],
+        "length_instructions": [
+          "0x272: movi a14, 0x1d1"
+        ]
+      }
+    ],
+    "objdump_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+    "nm_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+    "actual_elf_sha256": "4f530f7e0eb330585faaed3311de7b6b4227514b2517f6d6c36615da128e9c44",
+    "hardware": false,
+    "actual_ESP32_heap_measured": false
+  },
+  "post_compile_verifier_delta": {
+    "path": "tests/static_response_build_integration/verify_target.py",
+    "compile_source_commit": "68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5",
+    "verification_context_commit": "89d499fdb4dde13782cb09c7882ab55cc604a4dd",
+    "compile_size": 17976,
+    "compile_sha256": "379150aa1beb44f5b908529a2bfaa24a41293b9924d4b1709a50548c3acf978e",
+    "verification_size": 26507,
+    "verification_sha256": "764a53bc8825aafb8bcf695afeef11f00ad4dd37b4ba30d6d031758932a122a1",
+    "git_compile_blob_verified": true,
+    "git_verifier_blob_verified": true
+  },
+  "firmware_built_once": true,
+  "hardware_verified": false
+}

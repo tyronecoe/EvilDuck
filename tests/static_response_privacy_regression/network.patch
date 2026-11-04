@@ -1,0 +1,10 @@
+--- network.h
++++ network.h
+@@ -13,6 +13,7 @@
+  Param* getParam(const char*k,bool post=false){return &(post?body:query).at(k);}
+  String url(){return path;}
+  void send_P(int c,const char*t,const char*s){send(c,t,s);}
++ void send(int c,const char*t,const uint8_t*s,size_t n){send(c,t,String(std::string(reinterpret_cast<const char*>(s),n)));}
+  template<class FS>void send(FS&,const String&,const String&){++fileResponses;++replies;code=200;}
+  void send(int c,const char*,const String&s){if(http_mock::sending)http_mock::sending();++replies;code=c;response=s;}
+ };
