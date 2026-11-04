@@ -5,6 +5,13 @@
 Branch: `routeb-static-response-repair-review-v1`.
 Build ID: **`ROUTEB-STATIC-RESPONSE-REPAIR-v1`**.
 
+[Download the commit-pinned Mac review ZIP](https://raw.githubusercontent.com/tyronecoe/EvilDuck/d8f608005da34ebe0d3e871322922dc35f3788e8/downloads/evilduck-static-response-repair-h1-macos-review-v1.zip).
+Artifact publication commit: `d8f608005da34ebe0d3e871322922dc35f3788e8`.
+The [publication receipt](static-response-repair-publication.json) records the
+HTTP 200 download, exact byte comparison, extracted image hashes and successful
+offline preflight from the downloaded archive. All 91 previous remote refs remain
+unchanged; only the new isolated review branch was added.
+
 The normal build selects the streaming static-response repair by default. It
 preserves the reviewed editor, Privacy Fix 1, dashboard organization and inherited
 Route B safeguards. The previously owner-installed e825 application remains

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-04T05:22:31.014978+00:00",
+  "branch": "routeb-static-response-repair-review-v1",
+  "artifact_publication_commit": "d8f608005da34ebe0d3e871322922dc35f3788e8",
+  "download": {
+    "url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/d8f608005da34ebe0d3e871322922dc35f3788e8/downloads/evilduck-static-response-repair-h1-macos-review-v1.zip",
+    "http_status": 200,
+    "bytes": 2596654,
+    "sha256": "2109f0560103bdebab427978ad33b83f344eea34c8dadb68d039e98b31c4a1f3",
+    "byte_identical_to_local_archive": true
+  },
+  "extracted_images": {
+    "application.bin": {
+      "bytes": 1437696,
+      "sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946"
+    },
+    "rollback-application.bin": {
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+    }
+  },
+  "published_zip_offline_preflight": {
+    "selected_image": "application",
+    "plan_ready": false,
+    "package_integrity": "PASS",
+    "source_commit": "1d4f2402f778e926894ed0111e3916003b3a8291",
+    "application_sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "prior_remote_refs_preserved": 91,
+  "only_added_remote_ref": "refs/heads/routeb-static-response-repair-review-v1",
+  "actual_compile_source_commit": "68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5",
+  "host_verifier_context_commit": "89d499fdb4dde13782cb09c7882ab55cc604a4dd",
+  "completion_helper_commit": "520716462ffd66858a686e6c3a06eae037b3c5d4",
+  "packaging_commit": "1d4f2402f778e926894ed0111e3916003b3a8291",
+  "firmware_clean_compiles": 1,
+  "firmware_recompiled_after_verifier_fix": false,
+  "hardware_access": false,
+  "flashing": false,
+  "OTA": false,
+  "owner_hardware_verified": false,
+  "owner_script_execution": false,
+  "private_backup_access": false
+}
