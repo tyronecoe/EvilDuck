@@ -31,6 +31,10 @@ PROGMEM_CTOR = 'AsyncProgmemResponse::AsyncProgmemResponse(int, char const*, uns
 FILL = 'AsyncProgmemResponse::_fillBuffer(unsigned char*, unsigned int)'
 RESOURCES = ['INDEX_HTML', 'SETTINGS_HTML', 'TERMINAL_HTML', 'CREDITS_HTML',
              'ERROR404_HTML', 'STYLE_CSS', 'INDEX_JS', 'SETTINGS_JS', 'TERMINAL_JS']
+SELF_PATH = 'tests/static_response_build_integration/verify_target.py'
+POST_COMPILE_SOURCE = '68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5'
+POST_COMPILE_VERIFIER_SHA = '379150aa1beb44f5b908529a2bfaa24a41293b9924d4b1709a50548c3acf978e'
+POST_COMPILE_VERIFIER_BYTES = 17976
 
 
 def require(condition, message):
@@ -122,16 +126,45 @@ def verify_input_manifest(build_root):
     require(required.issubset(names), 'Default builder/overlay/verifiers absent from committed input manifest')
     require(hashlib.sha256(json.dumps(rows, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == value['files_sha256'],
             'Committed input-list digest differs')
+    # A post-link decoder correction is host-only: do not rewrite the original
+    # clean compilation's C manifest or pretend the target was compiled at D.
+    # Resolve the stable last-touch revision, not HEAD, so later package-only
+    # commits cannot change the canonical verification binding.
+    verifier_commit = subprocess.check_output(['git', 'log', '-1', '--format=%H', '--', SELF_PATH],
+                                               cwd=ROOT, text=True).strip()
+    require(re.fullmatch('[0-9a-f]{40}', verifier_commit) is not None, 'Verifier revision is absent')
+    require(subprocess.run(['git', 'merge-base', '--is-ancestor', verifier_commit, 'HEAD'],
+                           cwd=ROOT, capture_output=True).returncode == 0, 'Verifier revision is not an ancestor')
+    verifier_blob = subprocess.check_output(['git', 'show', verifier_commit + ':' + SELF_PATH], cwd=ROOT)
+    require(verifier_blob == (ROOT / SELF_PATH).read_bytes(), 'Current verifier differs from its last-touch Git revision')
+    post_compile_delta = None
     for row in rows:
         relative = pathlib.PurePosixPath(row['file'])
         selected = ROOT / row['file']
         require(not relative.is_absolute() and '..' not in relative.parts and selected.is_file() and
                 not selected.is_symlink() and selected.resolve().is_relative_to(ROOT), 'Unsupported committed input path')
-        require(selected.stat().st_size == row['size'] and sha(selected) == row['sha256'], 'Committed input changed: ' + row['file'])
         committed = subprocess.check_output(['git', 'show', commit + ':' + row['file']], cwd=ROOT)
-        require(committed == selected.read_bytes(), 'Input differs from exact source commit: ' + row['file'])
+        require(len(committed) == row['size'] and hashlib.sha256(committed).hexdigest() == row['sha256'],
+                'Original compilation input differs from its Git blob: ' + row['file'])
+        current = selected.read_bytes()
+        if committed != current:
+            require(row['file'] == SELF_PATH and post_compile_delta is None,
+                    'Non-verifier input changed since compilation: ' + row['file'])
+            require(commit == POST_COMPILE_SOURCE and row['sha256'] == POST_COMPILE_VERIFIER_SHA and
+                    row['size'] == POST_COMPILE_VERIFIER_BYTES,
+                    'Unreviewed post-compilation verifier source context')
+            require(subprocess.run(['git', 'merge-base', '--is-ancestor', commit, verifier_commit],
+                                   cwd=ROOT, capture_output=True).returncode == 0,
+                    'Post-link verifier does not descend from the compilation checkpoint')
+            require(current == verifier_blob, 'Post-link verifier is not the recorded Git verifier blob')
+            post_compile_delta = dict(path=SELF_PATH, compile_source_commit=commit,
+                verification_context_commit=verifier_commit, compile_size=len(committed),
+                compile_sha256=hashlib.sha256(committed).hexdigest(), verification_size=len(current),
+                verification_sha256=hashlib.sha256(current).hexdigest(),
+                git_compile_blob_verified=True, git_verifier_blob_verified=True)
     return dict(source_commit=commit, build_inputs_sha256=sha(path), files_sha256=value['files_sha256'],
-                input_count=len(rows), source_commit_contains_changes=True, uncommitted_local_changes=False)
+                input_count=len(rows), source_commit_contains_changes=True, uncommitted_local_changes=False,
+                verifier_context_commit=verifier_commit, post_compile_verifier_delta=post_compile_delta)
 
 
 def resource_literals(source):
@@ -164,6 +197,109 @@ def verify_dispatch_text(object_disassembly, linked_handler):
     return dict(byte_overload_observed=True, char_send_P_absent=True, resources=RESOURCES,
                 unknown_path_char_response_allowed=True, object_sections_sha256=hashlib.sha256(selected.encode()).hexdigest(),
                 linked_handler_sha256=hashlib.sha256(linked_handler.encode()).hexdigest())
+
+
+def decode_literal_pool(dump):
+    """Decode objdump -s bytes (little-endian words remain raw until used)."""
+    pool = bytearray()
+    for line in dump.splitlines():
+        match = re.match(r'^\s+([0-9a-fA-F]+)\s+((?:[0-9a-fA-F]{8}\s*){1,4})', line)
+        if match:
+            offset = int(match[1], 16)
+            require(offset == len(pool), 'Noncontiguous static-handler literal pool')
+            pool.extend(bytes.fromhex(''.join(match[2].split())))
+    require(len(pool) > 0 and len(pool) % 4 == 0, 'Missing/misaligned static-handler literal pool')
+    return bytes(pool)
+
+
+def decode_asset_calls(object_disassembly, literal_pool, expected_lengths):
+    """Check the actual Xtensa a13 pointer/a14 length at each asset send.
+
+    The pinned compiler emits signed MOVI followed by ADDMI for some lengths.
+    objdump's ADDMI operand already includes its 8-bit shift: 152 + 0x2f00,
+    not 152 + (0x2f00 << 8). Other lengths use L32R or plain MOVI. This is a
+    narrow fail-closed decoder for the observed instruction forms, not a general
+    Xtensa emulator. Calls invalidate caller registers, preventing stale values
+    from one URI branch from being reused for another.
+    """
+    literal, code = object_sections(object_disassembly)
+    pointers = {}
+    for line in literal.splitlines():
+        match = re.match(r'^\s*([0-9a-fA-F]+):\s+R_XTENSA_32\s+\.rodata\._ZL\d+(\w+)\s*$', line)
+        if match and match[2] in expected_lengths:
+            pointers[int(match[1], 16)] = match[2]
+    instructions, indexed = [], {}
+    for line in code.splitlines():
+        match = re.match(r'^\s*([0-9a-fA-F]+):\s+([0-9a-fA-F]+)\s+([a-z][a-z0-9_.]*)\s*(.*)$', line)
+        if match:
+            address = int(match[1], 16)
+            row = dict(address=address, opcode=match[3], operands=match[4], relocations=[])
+            instructions.append(row)
+            indexed[address] = row
+            continue
+        match = re.match(r'^\s*([0-9a-fA-F]+):\s+(R_XTENSA_\w+)\s+(.+)$', line)
+        if match and int(match[1], 16) in indexed:
+            indexed[int(match[1], 16)]['relocations'].append((match[2], match[3]))
+    registers, traces, calls = {}, {}, []
+
+    def integer(value):
+        return int(value, 0)
+
+    for row in instructions:
+        opcode, operands = row['opcode'], [p.strip() for p in row['operands'].split(',')]
+        where = '0x%x: %s %s' % (row['address'], opcode, row['operands'])
+        destination = operands[0] if operands else ''
+        if opcode in {'movi', 'movi.n'}:
+            registers[destination] = integer(operands[1])
+            traces[destination] = [where]
+        elif opcode in {'addi', 'addi.n', 'addmi'}:
+            value = registers.get(operands[1])
+            registers[destination] = value + integer(operands[2]) if isinstance(value, int) else None
+            traces[destination] = traces.get(operands[1], []) + [where]
+        elif opcode in {'mov', 'mov.n'}:
+            registers[destination] = registers.get(operands[1])
+            traces[destination] = traces.get(operands[1], []) + [where]
+        elif opcode == 'or' and len(operands) == 3 and operands[1] == operands[2]:
+            registers[destination] = registers.get(operands[1])
+            traces[destination] = traces.get(operands[1], []) + [where]
+        elif opcode == 'l32r':
+            expanded = [target for kind, target in row['relocations'] if kind == 'R_XTENSA_ASM_EXPAND']
+            offset = [re.fullmatch(r'\.literal\._ZL12handleStaticP21AsyncWebServerRequest(?:\+(0x[0-9a-fA-F]+))?', target)
+                      for kind, target in row['relocations'] if kind == 'R_XTENSA_SLOT0_OP']
+            offset = [m for m in offset if m is not None]
+            if expanded:
+                require(len(expanded) == 1, 'Ambiguous call target in static handler')
+                registers[destination] = ('function', expanded[0])
+            elif len(offset) == 1:
+                index = int(offset[0][1] or '0', 0)
+                require(index + 4 <= len(literal_pool), 'Literal read beyond static-handler pool')
+                registers[destination] = (('resource', pointers[index]) if index in pointers else
+                                          struct.unpack_from('<I', literal_pool, index)[0])
+            else:
+                registers[destination] = None
+            traces[destination] = [where]
+        elif opcode.startswith('call'):
+            target = registers.get(destination) if opcode.startswith('callx') else ('function', row['operands'])
+            if isinstance(target, tuple) and target[0] == 'function' and BYTE_SEND in target[1]:
+                pointer, length = registers.get('a13'), registers.get('a14')
+                require(isinstance(pointer, tuple) and pointer[0] == 'resource' and pointer[1] in expected_lengths,
+                        'Asset byte call lacks an independently decoded resource pointer')
+                name = pointer[1]
+                require(isinstance(length, int) and length == expected_lengths[name],
+                        'Compiled asset argument length mismatch: ' + name)
+                calls.append(dict(resource=name, http_bytes=length, object_call_offset=row['address'],
+                                  pointer_instructions=traces.get('a13', []),
+                                  length_instructions=traces.get('a14', [])))
+            for register in ['a' + str(n) for n in range(8, 16)]:
+                registers.pop(register, None)
+                traces.pop(register, None)
+        elif (re.fullmatch(r'a\d+', destination) and not opcode.startswith(('b', 's8i', 's16i', 's32i')) and
+              opcode not in {'j', 'jx', 'entry', 'retw', 'retw.n', 'memw', 'nop', 'nop.n'}):
+            registers[destination] = None
+            traces[destination] = [where]
+    require(set(row['resource'] for row in calls) == set(expected_lengths),
+            'Not every static resource has an exact compiled pointer/length call witness')
+    return calls
 
 
 def symbols(nm_output):
@@ -233,15 +369,9 @@ def streaming_binding(root, binding):
         sdk.append(dict(source=row['source'], source_sha256=row['sha256'], object=row['object'], object_sha256=sha(row['object']), linked=True))
 
     values = resource_literals(sketch / 'webfiles.h')
-    literal_text, code = object_sections(objtext)
-    sizes = {int(x, 16) if x.startswith('0x') else int(x) for x in re.findall(r'\bmovi(?:\.n)?\s+a\d+,\s*(0x[0-9a-fA-F]+|\d+)', code)}
     raw = subprocess.check_output([str(objdump), '-s', '-j', '.literal._ZL12handleStaticP21AsyncWebServerRequest', str(obj)], text=True)
-    pool = bytearray()
-    for line in raw.splitlines():
-        m = re.match(r'^\s+[0-9a-fA-F]+\s+((?:[0-9a-fA-F]{8}\s*){1,4})', line)
-        if m:
-            pool.extend(bytes.fromhex(''.join(m[1].split())))
-    sizes.update(struct.unpack('<' + 'I' * (len(pool) // 4), pool[:len(pool)//4*4]))
+    calls = decode_asset_calls(objtext, decode_literal_pool(raw), {name: len(value) for name, value in values.items()})
+    sizes = {row['http_bytes'] for row in calls}
     table = []
     for name, value in values.items():
         require(len(value) in sizes, 'Compiled handler lacks exact non-NUL resource length: ' + name)
@@ -255,6 +385,7 @@ def streaming_binding(root, binding):
                                     disassembly_sha256=hashlib.sha256(factory_text.encode()).hexdigest()),
                 fill_buffer=dict(**fill, disassembly_sha256=hashlib.sha256(fill_text.encode()).hexdigest()),
                 sdk_consumers=sdk, pointer_length_table=table,
+                compiled_asset_call_witnesses=calls,
                 objdump_sha256=sha(objdump), nm_sha256=sha(nm), actual_elf_sha256=sha(elf),
                 hardware=False, actual_ESP32_heap_measured=False)
 
@@ -273,6 +404,8 @@ def verify(build_root):
     streaming = streaming_binding(root, binding)
     binding.update(status='PASS', build_id=BUILD_ID, source_commit=committed['source_commit'],
                    build_inputs_sha256=committed['build_inputs_sha256'], committed_source_provenance=committed,
+                   verifier_context_commit=committed['verifier_context_commit'],
+                   post_compile_verifier_delta=committed['post_compile_verifier_delta'],
                    static_response_source_composition=source, bundled_resources=complete,
                    streaming_response=streaming, actual_parent_verifier_sha256=PARENT_SHA,
                    integration_verifier_adaptations=changes, physical=False, installed=False, package_created=False)
