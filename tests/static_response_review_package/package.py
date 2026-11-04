@@ -116,7 +116,8 @@ def documents(binding):
     return {'README.md': common + identity + offline + provenance + rollback + historical +
                          'Read OWNER-CHECK.md, INSTALL-MAC.md and ROLLBACK-MAC.md. This release repairs static '
                          'resource serving and preserves the existing authentication/editor/keyboard paths.\n',
-            'INSTALL-MAC.md': common + identity + offline + provenance + rollback + future + historical,
+            'INSTALL-MAC.md': common + identity + offline + provenance + rollback +
+                              'Read OWNER-CHECK.md before any separately authorized physical step.\n\n' + future + historical,
             'ROLLBACK-MAC.md': common + rollback + offline + future + historical}
 
 
