@@ -1,0 +1,143 @@
+{
+  "status": "SOURCE_ONLY_SOFTWARE_VERIFIED_NOT_BUILT_OR_INSTALLED",
+  "branch": "routeb-dashboard-static-response-safety",
+  "starting_commit": "e692435a7c70dbc0d917bbff733c57900cf7d57c",
+  "owner_observations": {
+    "classification": "OWNER_REPORTED",
+    "os": "macOS High Sierra 10.13.6",
+    "mac_chrome": "116.0.5845.187",
+    "fresh_incognito": true,
+    "browser_index_js": {
+      "status": 200,
+      "content_type": "application/javascript",
+      "content_length": 0,
+      "response_tab": "This request has no response data available"
+    },
+    "password_change_console": "ReferenceError: saveDuckPw is not defined",
+    "isolated_read_only_index_js": {
+      "status": 200,
+      "bytes": 31932,
+      "sha256": "7fb8068beb12564dc4e5146e8b6b0a9b719b78caf3f4d94cd0f2b8a2c04baf39"
+    },
+    "password_validity_established": false,
+    "device_heap_measured": false
+  },
+  "finding": "Empty JavaScript response during actual browser load confirmed; full-body heap-copy allocation failure is source- and simulation-supported, not directly measured on board.",
+  "change": {
+    "composition_entries": 201,
+    "changed": [
+      "webserver.cpp"
+    ],
+    "unchanged": 200,
+    "substitutions": 11,
+    "portable_aliases": 12,
+    "literals": 9,
+    "resource_bytes_changed": false,
+    "authentication_or_STOP_changed": false
+  },
+  "tests": {
+    "dashboard-static-response-safety-native.json": {
+      "counts": {
+        "PASS": 33,
+        "FAIL": 0
+      },
+      "assertions": 976,
+      "sha256": "5f2fb968ad1984e1555fd044dd2c9deaf25afc295863a0713ee6287bbd5f306a"
+    },
+    "dashboard-static-response-safety-browser.json": {
+      "counts": {
+        "PASS": 3,
+        "FAIL": 0
+      },
+      "assertions": 26,
+      "sha256": "8aa2c69e2b3e6b00449424db9fb6e8c242016614634e7031732d346e37b22748"
+    },
+    "dashboard-static-response-safety-scope.json": {
+      "counts": {
+        "PASS": 7,
+        "FAIL": 0
+      },
+      "assertions": 32,
+      "sha256": "a6227e376ec399d5d298f76606b2e7c0ed551bc310e0b5b365301257d91f1818"
+    }
+  },
+  "totals": {
+    "PASS": 43,
+    "FAIL": 0,
+    "assertions": 1034
+  },
+  "sanitizers": {
+    "ASan": "PASS",
+    "UBSan": "PASS",
+    "leaks": "PASS",
+    "stderr_empty": true
+  },
+  "historical_files_modes_unchanged": 2437,
+  "local_input_inventory": {
+    "tests/dashboard_response_safety/application.patch": {
+      "bytes": 2679,
+      "sha256": "bc39a185b430b082bb76d8e57f95959665e225b5253af400e2b1b41b2c853307"
+    },
+    "tests/dashboard_response_safety/native/Arduino.h": {
+      "bytes": 165,
+      "sha256": "e24f88a6e5ae8a501f254357aac20317f9bdc83517fcafa0ef2be36500830120"
+    },
+    "tests/dashboard_response_safety/native/esp32-hal-log.h": {
+      "bytes": 71,
+      "sha256": "4f12dc194d3f84579dcf7bad21392b326b1f661f8ceef2517d0124b4296defb5"
+    },
+    "tests/dashboard_response_safety/native/hooks.h": {
+      "bytes": 193,
+      "sha256": "a7f3ce2c7941caaa1fdc12a6b4b298cd12ce18c5927f2b3f3b55435d20ddbee7"
+    },
+    "tests/dashboard_response_safety/native/pgmspace.h": {
+      "bytes": 120,
+      "sha256": "0ba12ce164aae5486612c3d3a1ed8ac218a2e3275749201f50e14712b38544a3"
+    },
+    "tests/dashboard_response_safety/native/probe.cpp": {
+      "bytes": 10863,
+      "sha256": "aa95ccae06550cd11c4f7b87bcd3fb5406be81e7f64ab1e40d7e15737c03d8a8"
+    },
+    "tests/dashboard_response_safety/native/stdlib_noniso.h": {
+      "bytes": 290,
+      "sha256": "bb19b6e1834796af22415b8f2f31d703644207c1ea856d0c2a85ceb98c3b5903"
+    },
+    "tests/dashboard_response_safety/prepare_sources.py": {
+      "bytes": 6306,
+      "sha256": "efe6979e6d63238fdb3eb5fa6836e47bf43c350d9bc5f17db3bcd82b1eca44a1"
+    },
+    "tests/dashboard_response_safety/source-manifest.json": {
+      "bytes": 29741,
+      "sha256": "d2d4be0a8265a4a198bab2af8afa5d2148f412ce242c3168e0369876f3a447fa"
+    },
+    "tests/dashboard_response_safety/test_browser.py": {
+      "bytes": 9948,
+      "sha256": "8d0bff34655580c40d8528b187a171b2b4401792c3f9478cfbfcfb8ef7c1d3ea"
+    },
+    "tests/dashboard_response_safety/test_native.py": {
+      "bytes": 11612,
+      "sha256": "0cfc05c580b430ccea6489a4ad7b4e38fc466331165dd5766e37229688d4b78e"
+    },
+    "tests/dashboard_response_safety/test_scope.py": {
+      "bytes": 7538,
+      "sha256": "e7ce03a153c605d98248dd47a2ed816e3da3e541a4aef5e6de5dd79f22979d93"
+    }
+  },
+  "baseline_application_sha256": "e825a8fb8e1c52ec998509b0191939e47572806b156ca591e51be1ece356fff0",
+  "exact_rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+  "limitations": [
+    "No target firmware build or linked-image verification",
+    "No actual ESP32 heap or TCP-stack execution in native tests",
+    "Linux Chromium fixtures do not establish native Mac/iPhone acceptance",
+    "Historical normal builder does not automatically select this new overlay",
+    "Fresh physical full-page load and authentication remain pending after a future approved installation"
+  ],
+  "firmware_built": false,
+  "package_created": false,
+  "committed": false,
+  "pushed": false,
+  "hardware_access": false,
+  "flashing": false,
+  "OTA": false,
+  "owner_credentials_used_or_saved": false
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "Source-only composition and fail-closed controls",
+  "counts": {
+    "PASS": 7,
+    "FAIL": 0
+  },
+  "assertions": 32,
+  "results": [
+    {
+      "name": "only_static_handler_and_200_other_sources_unchanged",
+      "status": "PASS",
+      "assertions": 8
+    },
+    {
+      "name": "fresh_cli_exact_composition_and_overwrite_refusal",
+      "status": "PASS",
+      "assertions": 4
+    },
+    {
+      "name": "unpatched_final_and_double_apply_refused",
+      "status": "PASS",
+      "assertions": 3
+    },
+    {
+      "name": "wrong_source_rejected_before_patch",
+      "status": "PASS",
+      "assertions": 2
+    },
+    {
+      "name": "symlink_source_rejected",
+      "status": "PASS",
+      "assertions": 1
+    },
+    {
+      "name": "all_six_SDK_pins_reject_changed_or_missing_inputs",
+      "status": "PASS",
+      "assertions": 13
+    },
+    {
+      "name": "source_manifest_pin_rejects_edit",
+      "status": "PASS",
+      "assertions": 1
+    }
+  ],
+  "overlay_sha256": "efe6979e6d63238fdb3eb5fa6836e47bf43c350d9bc5f17db3bcd82b1eca44a1",
+  "firmware_build": false,
+  "hardware": false,
+  "owner_data": false,
+  "network": false
+}

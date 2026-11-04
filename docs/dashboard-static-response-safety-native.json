@@ -1,0 +1,426 @@
+{
+  "status": "PASS",
+  "counts": {
+    "PASS": 33,
+    "FAIL": 0
+  },
+  "assertions": 976,
+  "results": [
+    {
+      "name": "route_explicit_flash_/",
+      "status": "PASS",
+      "assertions": 35,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/index.html",
+      "status": "PASS",
+      "assertions": 35,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/index.htm",
+      "status": "PASS",
+      "assertions": 35,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/settings.html",
+      "status": "PASS",
+      "assertions": 29,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/terminal.html",
+      "status": "PASS",
+      "assertions": 27,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/credits.html",
+      "status": "PASS",
+      "assertions": 29,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/error404.html",
+      "status": "PASS",
+      "assertions": 27,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/style.css",
+      "status": "PASS",
+      "assertions": 65,
+      "simulated_WString_peak_bytes": 0,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 0
+    },
+    {
+      "name": "route_explicit_flash_/index.js",
+      "status": "PASS",
+      "assertions": 65,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "route_explicit_flash_/script.js",
+      "status": "PASS",
+      "assertions": 65,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "route_explicit_flash_/settings.js",
+      "status": "PASS",
+      "assertions": 35,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "route_explicit_flash_/terminal.js",
+      "status": "PASS",
+      "assertions": 27,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "control_baseline_copy_/",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 12192,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 12192
+    },
+    {
+      "name": "control_baseline_copy_/index.html",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 12192,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 12192
+    },
+    {
+      "name": "control_baseline_copy_/index.htm",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 12192,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 12192
+    },
+    {
+      "name": "control_baseline_copy_/settings.html",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 5392,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 5392
+    },
+    {
+      "name": "control_baseline_copy_/terminal.html",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 1328,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 1328
+    },
+    {
+      "name": "control_baseline_copy_/credits.html",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 1760,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 1760
+    },
+    {
+      "name": "control_baseline_copy_/error404.html",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 880,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 880
+    },
+    {
+      "name": "control_baseline_copy_/style.css",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 31984,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 31984
+    },
+    {
+      "name": "control_baseline_copy_/index.js",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 32000,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 31936
+    },
+    {
+      "name": "control_baseline_copy_/script.js",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 32000,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 31936
+    },
+    {
+      "name": "control_baseline_copy_/settings.js",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 10576,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 10512
+    },
+    {
+      "name": "control_baseline_copy_/terminal.js",
+      "status": "PASS",
+      "assertions": 9,
+      "simulated_WString_peak_bytes": 544,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 480
+    },
+    {
+      "name": "negative_old_CSS_then_JS_50k",
+      "status": "PASS",
+      "assertions": 12,
+      "simulated_WString_peak_bytes": 32048,
+      "refused_WString_allocations": 1,
+      "largest_WString_allocation_requested": 31984
+    },
+    {
+      "name": "negative_old_JS_then_CSS_50k",
+      "status": "PASS",
+      "assertions": 12,
+      "simulated_WString_peak_bytes": 32000,
+      "refused_WString_allocations": 1,
+      "largest_WString_allocation_requested": 31984
+    },
+    {
+      "name": "concurrent_new_CSS_JS_same_50k",
+      "status": "PASS",
+      "assertions": 126,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "new_JS_under_existing_old_CSS_pressure",
+      "status": "PASS",
+      "assertions": 70,
+      "simulated_WString_peak_bytes": 32016,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 31984
+    },
+    {
+      "name": "negative_old_largest_block_31935",
+      "status": "PASS",
+      "assertions": 3,
+      "simulated_WString_peak_bytes": 64,
+      "refused_WString_allocations": 1,
+      "largest_WString_allocation_requested": 31936
+    },
+    {
+      "name": "new_stream_largest_block_31935",
+      "status": "PASS",
+      "assertions": 63,
+      "simulated_WString_peak_bytes": 32,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "per_instance_cursor_cancel_independent",
+      "status": "PASS",
+      "assertions": 61,
+      "simulated_WString_peak_bytes": 64,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 32
+    },
+    {
+      "name": "preserved_fallback_/favicon.ico",
+      "status": "PASS",
+      "assertions": 6,
+      "simulated_WString_peak_bytes": 64,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 64
+    },
+    {
+      "name": "preserved_fallback_/unrecognized.js",
+      "status": "PASS",
+      "assertions": 6,
+      "simulated_WString_peak_bytes": 64,
+      "refused_WString_allocations": 0,
+      "largest_WString_allocation_requested": 64
+    }
+  ],
+  "source": "/workspace/scratch/dashboard-response-safety/composed-v1/EvilDuckS3",
+  "source_hashes": {
+    "webserver.cpp": "98bb1d99e2098c29b962285ec4760d1ab3ed0d6d656cceed55d138fba1e7455c",
+    "webfiles.h": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445"
+  },
+  "input_pins": {
+    "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.cpp": "26d0f9519e50e7a78b66fc46be4cf4f6b8d7ed825ce70c1596bd424d975d8107",
+    "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/WString.h": "4ae882b44440656ef99c685087e03e5102b36c217f15b1c8c4954c926bad100e",
+    "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebResponses.cpp": "12055aa687cd0f6f719b65057c7a1d203baf6f0ef88e96b3fb4909ac68d0e6f8",
+    "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebRequest.cpp": "3ca1c44ffef44e4fd7d8e900857e797469cd336bf846f2a9af61e02a0956e7ad",
+    "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/ESPAsyncWebServer.h": "25db7c8fb30943307b28b181722187a65576f6ee778eeb99e29b1ef8db7915ba",
+    "/workspace/tooling/arduino/user/libraries/ESP_Async_WebServer/src/WebResponseImpl.h": "b90de8322a97af18e8cd6817b7a5c27999c6a5e0097f23ecd77a4e167d9ced75",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3/webserver.cpp": "02b1bed01526935e7c8ec1857dfc910221dda3977efc47185eafbc796e4a22f9",
+    "/workspace/scratch/editor-build-integration/build-v2-uninstalled/candidate/EvilDuckS3/webfiles.h": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445"
+  },
+  "test_inputs": {
+    "tests/dashboard_response_safety/test_native.py": "0cfc05c580b430ccea6489a4ad7b4e38fc466331165dd5766e37229688d4b78e",
+    "tests/dashboard_response_safety/native/Arduino.h": "e24f88a6e5ae8a501f254357aac20317f9bdc83517fcafa0ef2be36500830120",
+    "tests/dashboard_response_safety/native/esp32-hal-log.h": "4f12dc194d3f84579dcf7bad21392b326b1f661f8ceef2517d0124b4296defb5",
+    "tests/dashboard_response_safety/native/hooks.h": "a7f3ce2c7941caaa1fdc12a6b4b298cd12ce18c5927f2b3f3b55435d20ddbee7",
+    "tests/dashboard_response_safety/native/pgmspace.h": "0ba12ce164aae5486612c3d3a1ed8ac218a2e3275749201f50e14712b38544a3",
+    "tests/dashboard_response_safety/native/probe.cpp": "aa95ccae06550cd11c4f7b87bcd3fb5406be81e7f64ab1e40d7e15737c03d8a8",
+    "tests/dashboard_response_safety/native/stdlib_noniso.h": "bb19b6e1834796af22415b8f2f31d703644207c1ea856d0c2a85ceb98c3b5903"
+  },
+  "source_manifest_sha256": "d2d4be0a8265a4a198bab2af8afa5d2148f412ce242c3168e0369876f3a447fa",
+  "verbatim_extractions": {
+    "SDK_response_and_factory_functions": {
+      "AsyncBasicResponse::AsyncBasicResponse(int code, const char *contentType, const char *content)": "6759c65210933641bc39133b31853f3bd988934a98b852a65e078e328c7446a9",
+      "AsyncProgmemResponse::AsyncProgmemResponse(int code, const char *contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback)": "8b88b2423c0320c83af500761830e331682e83338a4080dd43c53282d08667d1",
+      "size_t AsyncProgmemResponse::_fillBuffer(uint8_t *data, size_t len)": "a6c647de7b5d611f06f0c4d47756832dbe013a318d4d67febdf27fd9c4894a93",
+      "AsyncWebServerResponse *AsyncWebServerRequest::beginResponse(int code, const char *contentType, const char *content, AwsTemplateProcessor callback)": "62aab512d0a22702827a6416dc861cfa1245ab88b555fb5e471d75ddbb45e265",
+      "AsyncWebServerResponse *\n  AsyncWebServerRequest::beginResponse(int code, const char *contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback)": "8eeea1efd52160ff4184cd79c27303168231e9fec6ebbadf11694b52545358ea"
+    },
+    "SDK_request_inline_functions": {
+      "void send(int code, const char *contentType = asyncsrv::empty, const char *content = asyncsrv::empty, AwsTemplateProcessor callback = nullptr)": "856be3de110c4a7cfebc695bda4cef78cbeb81902d140f70ef6012d9a4ea122e",
+      "void send(int code, const String &contentType, const char *content = asyncsrv::empty, AwsTemplateProcessor callback = nullptr)": "9c7358f64eb3c26c728fb66d554256f90373883e246a1afa499edd9c53cca792",
+      "void send(int code, const char *contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback = nullptr)": "dfd3a4889cb37f5b810ef5877b6e903b45c012dfab13d1bb9ee3a7f73c29d656",
+      "void send(int code, const String &contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback = nullptr)": "9ea5408a3f567c07b53c19a08eef0e2c3d2263673e94d0778141c8c49fe4bcf9",
+      "void send_P(int code, const String &contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback = nullptr)": "dee7104caffe17c1afb3afc9a48c54e47989b7fb3109b95289bf8c6c20b59bc5",
+      "void send_P(int code, const String &contentType, PGM_P content, AwsTemplateProcessor callback = nullptr)": "ab554e7ee3f82119caf77f10214e9f0f62270440e289f3d53735cb6cedd81173",
+      "AsyncWebServerResponse *beginResponse(int code, const String &contentType, const uint8_t *content, size_t len, AwsTemplateProcessor callback = nullptr)": "7db10ec3e215cc4eeb303364904b19a2dbff136ecb9f205c26f190196a5cf711"
+    },
+    "baseline_handler_sha256": "2c4358fcfbad73ed2f0810a9f10db473137d167166936d92944a602da0ae4f38",
+    "fixed_handler_sha256": "c58074c16c82f23e35fd6095b30de2d9d4a640e109b7c6b749462ebc5f6dce15"
+  },
+  "portable_aliases": 12,
+  "resources": 9,
+  "served": {
+    "INDEX_HTML": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/INDEX_HTML.bin",
+      "bytes": 12184,
+      "sha256": "149215865fe1ba4b12f20ebaf6bf4aae95070f20683e66298429d99572159026"
+    },
+    "SETTINGS_HTML": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/SETTINGS_HTML.bin",
+      "bytes": 5389,
+      "sha256": "ef9f7093b2e537dc18ab2100bc03c9cbc6a7b9886291ace5c1fcfa12c5c1ce3a"
+    },
+    "TERMINAL_HTML": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/TERMINAL_HTML.bin",
+      "bytes": 1324,
+      "sha256": "cd341048c6d0a1211bd8ff0670203d706f0247eab8c72db08243d5529ba89d51"
+    },
+    "CREDITS_HTML": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/CREDITS_HTML.bin",
+      "bytes": 1746,
+      "sha256": "06d0f8e850c968b34a418d8b6462018811c0e7dd4d865f40c8c96644f87a2e8d"
+    },
+    "ERROR404_HTML": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/ERROR404_HTML.bin",
+      "bytes": 869,
+      "sha256": "a8e89049a587a61fc7b2bcdd21ccedd578a4b1026df0e796be2a39108fc6da9d"
+    },
+    "STYLE_CSS": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/STYLE_CSS.bin",
+      "bytes": 31975,
+      "sha256": "37df80940a89fb76e7373a1f1cadb687551b068cc94e65d61a18e03100cbed50"
+    },
+    "INDEX_JS": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/INDEX_JS.bin",
+      "bytes": 31932,
+      "sha256": "7fb8068beb12564dc4e5146e8b6b0a9b719b78caf3f4d94cd0f2b8a2c04baf39"
+    },
+    "SETTINGS_JS": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/SETTINGS_JS.bin",
+      "bytes": 10502,
+      "sha256": "37cbfdbd4a4dafc50ec34c79fc862ec1c28ca69eb47d393d1f3d6e8e2101472f"
+    },
+    "TERMINAL_JS": {
+      "file": "/workspace/scratch/dashboard-response-safety/native-v5/served/TERMINAL_JS.bin",
+      "bytes": 465,
+      "sha256": "22baafe8044c1aa1f63f8f2cd983763f4b0c0b30db1f74a988f81f15f9cc7d6b"
+    }
+  },
+  "sanitizers": {
+    "ASan": "PASS",
+    "UBSan": "PASS",
+    "leaks": "PASS",
+    "stderr_empty": true
+  },
+  "mocks": [
+    "HTTP base/header/transport and object allocation",
+    "deterministic WString-only allocator quota",
+    "native PROGMEM memcpy mapping"
+  ],
+  "limitations": "No actual TCP/HTTP-stack execution, ESP32 heap measurement, target compile or physical proof; host WString layout can differ from ESP32",
+  "commands": [
+    [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-I",
+      "/workspace/scratch/dashboard-response-safety/native-v5",
+      "-include",
+      "/workspace/scratch/dashboard-response-safety/native-v5/hooks.h",
+      "-c",
+      "WString.cpp",
+      "-o",
+      "WString.o"
+    ],
+    [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-I",
+      "/workspace/scratch/dashboard-response-safety/native-v5",
+      "probe.cpp",
+      "WString.o",
+      "-Wl,--gc-sections",
+      "-no-pie",
+      "-o",
+      "native-probe"
+    ],
+    [
+      "/workspace/scratch/dashboard-response-safety/native-v5/native-probe",
+      "/workspace/scratch/dashboard-response-safety/native-v5/served"
+    ]
+  ],
+  "firmware_built": false,
+  "hardware_access": false,
+  "real_network_requests": false,
+  "credentials_used": false
+}

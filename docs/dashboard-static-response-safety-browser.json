@@ -1,0 +1,75 @@
+{
+  "scope": "Linux Chromium inert fixture using actual SDK-reconstructed resource bytes",
+  "counts": {
+    "PASS": 3,
+    "FAIL": 0
+  },
+  "assertions": 26,
+  "results": [
+    {
+      "name": "empty_200_control_reproduces_owner_symptom",
+      "status": "PASS",
+      "assertions": 6
+    },
+    {
+      "name": "streamed_resources_manual_password_change_and_status",
+      "status": "PASS",
+      "assertions": 14
+    },
+    {
+      "name": "streamed_settings_keeps_replacements_blank",
+      "status": "PASS",
+      "assertions": 6
+    }
+  ],
+  "source_sha256": "df10d10fd612ecb8be37c0c8e3a092720af463870814cab1c649e8a70304e445",
+  "resources": {
+    "INDEX_HTML": {
+      "bytes": 12184,
+      "sha256": "149215865fe1ba4b12f20ebaf6bf4aae95070f20683e66298429d99572159026"
+    },
+    "SETTINGS_HTML": {
+      "bytes": 5389,
+      "sha256": "ef9f7093b2e537dc18ab2100bc03c9cbc6a7b9886291ace5c1fcfa12c5c1ce3a"
+    },
+    "TERMINAL_HTML": {
+      "bytes": 1324,
+      "sha256": "cd341048c6d0a1211bd8ff0670203d706f0247eab8c72db08243d5529ba89d51"
+    },
+    "CREDITS_HTML": {
+      "bytes": 1746,
+      "sha256": "06d0f8e850c968b34a418d8b6462018811c0e7dd4d865f40c8c96644f87a2e8d"
+    },
+    "ERROR404_HTML": {
+      "bytes": 869,
+      "sha256": "a8e89049a587a61fc7b2bcdd21ccedd578a4b1026df0e796be2a39108fc6da9d"
+    },
+    "STYLE_CSS": {
+      "bytes": 31975,
+      "sha256": "37df80940a89fb76e7373a1f1cadb687551b068cc94e65d61a18e03100cbed50"
+    },
+    "INDEX_JS": {
+      "bytes": 31932,
+      "sha256": "7fb8068beb12564dc4e5146e8b6b0a9b719b78caf3f4d94cd0f2b8a2c04baf39"
+    },
+    "SETTINGS_JS": {
+      "bytes": 10502,
+      "sha256": "37cbfdbd4a4dafc50ec34c79fc862ec1c28ca69eb47d393d1f3d6e8e2101472f"
+    },
+    "TERMINAL_JS": {
+      "bytes": 465,
+      "sha256": "22baafe8044c1aa1f63f8f2cd983763f4b0c0b30db1f74a988f81f15f9cc7d6b"
+    }
+  },
+  "browser": "151.0.7922.173",
+  "playwright": "1.62.0",
+  "native_receipt_sha256": "5f2fb968ad1984e1555fd044dd2c9deaf25afc295863a0713ee6287bbd5f306a",
+  "native_receipt": "/workspace/scratch/dashboard-response-safety/native-v5-results.json",
+  "browser_executable": "/usr/bin/chromium",
+  "hardware": false,
+  "external_requests": false,
+  "owner_credentials": false,
+  "firmware_build": false,
+  "mutations": false,
+  "native_High_Sierra_or_iPhone_verification": false
+}

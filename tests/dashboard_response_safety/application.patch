@@ -1,0 +1,65 @@
+--- webserver.cpp
++++ webserver.cpp
+@@ -859,43 +859,43 @@
+ static void handleStatic(AsyncWebServerRequest *req) {
+   String path = req->url();
+   if (path == "/" || path == "/index.html" || path == "/index.htm") {
+-    req->send_P(200, "text/html", INDEX_HTML);
++    req->send(200, "text/html", reinterpret_cast<const uint8_t *>(INDEX_HTML), sizeof(INDEX_HTML) - 1);
+     return;
+   }
+   if (path == "/settings.html") {
+-    req->send_P(200, "text/html", SETTINGS_HTML);
++    req->send(200, "text/html", reinterpret_cast<const uint8_t *>(SETTINGS_HTML), sizeof(SETTINGS_HTML) - 1);
+     return;
+   }
+   if (path == "/terminal.html") {
+-    req->send_P(200, "text/html", TERMINAL_HTML);
++    req->send(200, "text/html", reinterpret_cast<const uint8_t *>(TERMINAL_HTML), sizeof(TERMINAL_HTML) - 1);
+     return;
+   }
+   if (path == "/credits.html") {
+-    req->send_P(200, "text/html", CREDITS_HTML);
++    req->send(200, "text/html", reinterpret_cast<const uint8_t *>(CREDITS_HTML), sizeof(CREDITS_HTML) - 1);
+     return;
+   }
+   if (path == "/error404.html") {
+-    req->send_P(404, "text/html", ERROR404_HTML);
++    req->send(404, "text/html", reinterpret_cast<const uint8_t *>(ERROR404_HTML), sizeof(ERROR404_HTML) - 1);
+     return;
+   }
+   if (path == "/style.css") {
+-    req->send_P(200, "text/css", STYLE_CSS);
++    req->send(200, "text/css", reinterpret_cast<const uint8_t *>(STYLE_CSS), sizeof(STYLE_CSS) - 1);
+     return;
+   }
+   if (path == "/index.js") {
+-    req->send_P(200, "application/javascript", INDEX_JS);
++    req->send(200, "application/javascript", reinterpret_cast<const uint8_t *>(INDEX_JS), sizeof(INDEX_JS) - 1);
+     return;
+   }
+   if (path == "/script.js") {
+-    req->send_P(200, "application/javascript", INDEX_JS);
++    req->send(200, "application/javascript", reinterpret_cast<const uint8_t *>(INDEX_JS), sizeof(INDEX_JS) - 1);
+     return;
+   }
+   if (path == "/settings.js") {
+-    req->send_P(200, "application/javascript", SETTINGS_JS);
++    req->send(200, "application/javascript", reinterpret_cast<const uint8_t *>(SETTINGS_JS), sizeof(SETTINGS_JS) - 1);
+     return;
+   }
+   if (path == "/terminal.js") {
+-    req->send_P(200, "application/javascript", TERMINAL_JS);
++    req->send(200, "application/javascript", reinterpret_cast<const uint8_t *>(TERMINAL_JS), sizeof(TERMINAL_JS) - 1);
+     return;
+   }
+ #if defined(EVILDUCK_PORTABLE_ROUTE_B)
+@@ -905,7 +905,7 @@
+   if (SPIFFS.exists(path)) {
+     req->send(SPIFFS, path, getContentType(path));
+   } else {
+-    req->send_P(404, "text/html", ERROR404_HTML);
++    req->send(404, "text/html", reinterpret_cast<const uint8_t *>(ERROR404_HTML), sizeof(ERROR404_HTML) - 1);
+   }
+ #endif
+ }
