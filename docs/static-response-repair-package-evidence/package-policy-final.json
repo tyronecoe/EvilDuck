@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "PASS": 6,
+    "FAIL": 0
+  },
+  "details": "test_frozen_installer_construction_and_historical_checks (__main__.PackagePolicy.test_frozen_installer_construction_and_historical_checks) ... ok\ntest_frozen_preflight_image_ranges_ota_and_rollback_tail (__main__.PackagePolicy.test_frozen_preflight_image_ranges_ota_and_rollback_tail) ... ok\ntest_offline_docs_and_failed_candidate_classification (__main__.PackagePolicy.test_offline_docs_and_failed_candidate_classification) ... ok\ntest_pending_and_previous_image_bindings_fail_closed (__main__.PackagePolicy.test_pending_and_previous_image_bindings_fail_closed) ... ok\ntest_python38_offline_stdlib_and_actual_proof_requirements (__main__.PackagePolicy.test_python38_offline_stdlib_and_actual_proof_requirements) ... ok\ntest_single_host_verifier_delta_is_exact_and_stable_after_publication (__main__.PackagePolicy.test_single_host_verifier_delta_is_exact_and_stable_after_publication) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.976s\n\nOK\n",
+  "scope": "Inert source/AST/package policy only",
+  "hardware": false,
+  "firmware_built": false
+}

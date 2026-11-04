@@ -1,0 +1,12 @@
+{
+  "selected_image": "application",
+  "plan_ready": false,
+  "package_integrity": "PASS",
+  "source_commit": "1d4f2402f778e926894ed0111e3916003b3a8291",
+  "application_sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946",
+  "installed_metadata": "NOT_SUPPLIED",
+  "selected_write_ranges": [],
+  "installation_authorized": false,
+  "hardware_access": false,
+  "device_authenticity_or_freshness_verified": false
+}

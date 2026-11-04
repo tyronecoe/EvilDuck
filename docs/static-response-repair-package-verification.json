@@ -1,0 +1,75 @@
+{
+  "status": "PASS_LOCAL_PACKAGE_PUBLICATION_DOWNLOAD_PENDING",
+  "build_id": "ROUTEB-STATIC-RESPONSE-REPAIR-v1",
+  "compiler_source_commit": "68f7fb2de5af2988a3136eb9222fb8c3e7dee8f5",
+  "verifier_context_commit": "89d499fdb4dde13782cb09c7882ab55cc604a4dd",
+  "completion_context_commit": "520716462ffd66858a686e6c3a06eae037b3c5d4",
+  "packaging_commit": "1d4f2402f778e926894ed0111e3916003b3a8291",
+  "archive": {
+    "file": "evilduck-static-response-repair-h1-macos-review-v1.zip",
+    "bytes": 2596654,
+    "sha256": "2109f0560103bdebab427978ad33b83f344eea34c8dadb68d039e98b31c4a1f3",
+    "members": 37
+  },
+  "extracted_images": {
+    "application.bin": {
+      "bytes": 1437696,
+      "sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946"
+    },
+    "rollback-application.bin": {
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+    }
+  },
+  "offline_preflight": {
+    "selected_image": "application",
+    "plan_ready": false,
+    "package_integrity": "PASS",
+    "source_commit": "1d4f2402f778e926894ed0111e3916003b3a8291",
+    "application_sha256": "d5fe0932fe915443a5e53030969c6792409f719d427681304a7102355b2d7946",
+    "installed_metadata": "NOT_SUPPLIED",
+    "selected_write_ranges": [],
+    "installation_authorized": false,
+    "hardware_access": false,
+    "device_authenticity_or_freshness_verified": false
+  },
+  "package_checks": {
+    "static_response": {
+      "PASS": 41,
+      "FAIL": 0
+    },
+    "inherited": {
+      "PASS": 83,
+      "FAIL": 0
+    },
+    "mock_installer": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "source_policy": {
+      "PASS": 6,
+      "FAIL": 0
+    }
+  },
+  "preservation": {
+    "historical_base": "e692435a7c70dbc0d917bbff733c57900cf7d57c",
+    "historical_entries": 2437,
+    "unchanged_historical_entries": 2436,
+    "only_requested_historical_path_updated": "tools/build_routeb_candidate.py",
+    "previous_remote_refs_unchanged": 91,
+    "historical_images_packages_unmodified": true
+  },
+  "first_unpublished_prototype": {
+    "archive_sha256": "e9b55c7d65ed6f7734dff2fc833dcda3d86f372a11eb04a19e1ae27847bd72cc",
+    "generic_counts": {
+      "PASS": 82,
+      "FAIL": 1
+    },
+    "reason": "INSTALL-MAC.md omitted OWNER-CHECK.md reference; corrected with no firmware or installer-code change; prototype retained outside published downloads"
+  },
+  "firmware_clean_compiles": 1,
+  "firmware_recompiled": false,
+  "hardware_access": false,
+  "flashing": false,
+  "owner_hardware_verified": false
+}

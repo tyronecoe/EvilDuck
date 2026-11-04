@@ -1,0 +1,175 @@
+{
+  "counts": {
+    "PASS": 41,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "name": "new_exact_candidate_and_old_rollback_offline_both_selections",
+      "status": "PASS"
+    },
+    {
+      "name": "installer_frozen_except_binding_launchers_and_inherited_support_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_response-source-manifest.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_static-response-build-source-manifest.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_build-inputs.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_source-attestation.json",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_postcompile-completion.json",
+      "status": "PASS"
+    },
+    {
+      "name": "faulty_previous_image_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "faulty_candidate_not_labeled_recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "verifier_context_not_compiler_context",
+      "status": "PASS"
+    },
+    {
+      "name": "completion_receipt_bound",
+      "status": "PASS"
+    },
+    {
+      "name": "completion_helper_bound",
+      "status": "PASS"
+    },
+    {
+      "name": "completion_context_distinct",
+      "status": "PASS"
+    },
+    {
+      "name": "release_status",
+      "status": "PASS"
+    },
+    {
+      "name": "release_wrapper",
+      "status": "PASS"
+    },
+    {
+      "name": "full_frozen_chain",
+      "status": "PASS"
+    },
+    {
+      "name": "committed_source_context",
+      "status": "PASS"
+    },
+    {
+      "name": "preserved190guards",
+      "status": "PASS"
+    },
+    {
+      "name": "removed_guard",
+      "status": "PASS"
+    },
+    {
+      "name": "all_six_layers",
+      "status": "PASS"
+    },
+    {
+      "name": "not_physically_passed",
+      "status": "PASS"
+    },
+    {
+      "name": "rebuild_claim",
+      "status": "PASS"
+    },
+    {
+      "name": "old_response_source_inventory_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "build_inputs_hash_bound",
+      "status": "PASS"
+    },
+    {
+      "name": "no_false_postbuild_provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "new_target_binding_status",
+      "status": "PASS"
+    },
+    {
+      "name": "full_actual_target_proof_hash_bound",
+      "status": "PASS"
+    },
+    {
+      "name": "streaming_required",
+      "status": "PASS"
+    },
+    {
+      "name": "streamed_elf_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "byte_overload_observed",
+      "status": "PASS"
+    },
+    {
+      "name": "char_copy_not_used_for_assets",
+      "status": "PASS"
+    },
+    {
+      "name": "factory_is_progmem",
+      "status": "PASS"
+    },
+    {
+      "name": "no_full_resource_string",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_object_linked",
+      "status": "PASS"
+    },
+    {
+      "name": "sdk_consumer_linked",
+      "status": "PASS"
+    },
+    {
+      "name": "all_ten_paired_asset_calls",
+      "status": "PASS"
+    },
+    {
+      "name": "paired_pointer_and_length",
+      "status": "PASS"
+    },
+    {
+      "name": "all_nine_wire_rows",
+      "status": "PASS"
+    },
+    {
+      "name": "wire_length_excludes_nul",
+      "status": "PASS"
+    },
+    {
+      "name": "no_claimed_board_heap_measurement",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_release_receipt_bound",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Disposable local package/source/identity controls; no device/network/installer dispatch",
+  "hardware": false,
+  "firmware_built": false
+}
