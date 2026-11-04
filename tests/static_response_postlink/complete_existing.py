@@ -123,6 +123,23 @@ def postcompile_source(source, proof):
     return result, evidence
 
 
+def command_policy(words, compiler, compiler_sha256):
+    """Allow exactly the frozen linker's read-only location query, never builds."""
+    executable = pathlib.Path(words[0]).name.lower()
+    forbidden_device = {'--port', 'write_flash', 'read_flash', 'erase_flash', 'erase_region', 'flash_id', 'upload'}
+    assert not forbidden_device.intersection(words), 'Device operation forbidden'
+    if 'arduino' in executable and 'compile' in words:
+        raise AssertionError('Firmware compile/link forbidden')
+    if executable.endswith(('-g++', '-gcc')) or executable in {'g++', 'gcc', 'c++', 'cc'}:
+        # stage28x/verify_link.py asks the exact pinned compiler where its
+        # linker is installed. This query accepts no source, output or build
+        # arguments and does not invoke compilation or linking.
+        assert words == [compiler, '-print-prog-name=ld'], 'Firmware compile/link forbidden'
+        assert sha(compiler) == compiler_sha256, 'Compiler-query executable differs from original C tool'
+        return 'READ_ONLY_PINNED_LINKER_LOCATION_QUERY'
+    return 'NON_COMPILER_VERIFICATION_COMMAND'
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--build-root', type=pathlib.Path, required=True)
@@ -131,6 +148,8 @@ def main():
     p.add_argument('--verify-existing', action='store_true', required=True)
     args = p.parse_args()
     assert args.verify_existing and not args.results.exists(), 'Fresh completion receipt required'
+    command_log = args.results.with_suffix('.commands.jsonl')
+    assert not command_log.exists(), 'Preserve previous command trace'
     root, snapshot = args.build_root.resolve(), args.snapshot.resolve()
     assert not subprocess.check_output(['git', 'diff', 'HEAD', '--name-only'], cwd=ROOT), 'Commit host verifier context first'
     helper_path = str(pathlib.Path(__file__).resolve().relative_to(ROOT))
@@ -164,17 +183,25 @@ def main():
         adaptation.update(evidence)
         return adapted, dict(changes, post_compile_completion=dict(evidence, helper_sha256=sha(__file__)))
 
-    popen, commands = subprocess.Popen, []
+    popen, commands, compiler_queries = subprocess.Popen, [], []
 
     def inspect_command(command, *pa, **kw):
         assert not kw.get('shell') and isinstance(command, (list, tuple)), 'No shell commands in completion'
         words = [str(x) for x in command]
-        executable = pathlib.Path(words[0]).name.lower()
-        forbidden_device = {'--port', 'write_flash', 'read_flash', 'erase_flash', 'erase_region', 'flash_id', 'upload'}
-        assert not forbidden_device.intersection(words), 'Device operation forbidden'
-        assert not (('arduino' in executable and 'compile' in words) or
-                    executable.endswith(('-g++', '-gcc')) or executable in {'g++', 'gcc', 'c++', 'cc'}), 'Firmware compile/link forbidden'
+        # Record attempts before enforcing policy so a refusal is diagnosable.
         commands.append(words)
+        try:
+            policy = command_policy(words, original['link_command'][0], original['compiler_sha256'])
+        except Exception as error:
+            with command_log.open('a') as stream:
+                stream.write(json.dumps(dict(command=words, classification='REFUSED_BEFORE_EXECUTION', reason=str(error))) + '\n')
+            raise
+        with command_log.open('a') as stream:
+            stream.write(json.dumps(dict(command=words, classification=policy)) + '\n')
+        if policy == 'READ_ONLY_PINNED_LINKER_LOCATION_QUERY':
+            compiler_queries.append(dict(command=words, classification=policy,
+                pinned_compiler_sha256=original['compiler_sha256'],
+                purpose='Frozen stage28x linker-location guard; no source/output arguments or compile/link execution'))
         return popen(command, *pa, **kw)
 
     prior_args, prior_path = sys.argv, list(sys.path)
@@ -201,7 +228,9 @@ def main():
                    original_compile_snapshot_sha256=SNAPSHOT_SHA, original_inputs_sha256=INPUT_SHA,
                    immutable_artifacts=before, unchanged_source_entries=len(inventory),
                    post_compile_completion_adapter=dict(helper_sha256=sha(__file__), **adaptation),
-                   commands=commands, firmware_recompiled=False, hardware=False,
+                   commands=commands, read_only_compiler_queries=compiler_queries,
+                   command_trace=dict(file=str(command_log), sha256=sha(command_log)),
+                   firmware_recompiled=False, hardware=False,
                    release_receipt_sha256=sha(root / 'static-response-release-verification.json'))
     args.results.write_text(json.dumps(receipt, indent=2) + '\n')
     print(json.dumps({k:v for k,v in receipt.items() if k not in {'commands', 'post_compile_completion_adapter'}}, indent=2))

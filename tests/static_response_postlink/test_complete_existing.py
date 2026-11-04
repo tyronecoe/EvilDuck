@@ -54,6 +54,28 @@ class Controls(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 C.snapshot_inputs(p / 'no-build', p)
 
+    def test_exact_pinned_linker_query_is_read_only_exception(self):
+        original = json.loads(pathlib.Path('/workspace/scratch/static-response-repair-review/original-compiled-checkpoint/report.json').read_text())
+        compiler = original['link_command'][0]
+        self.assertEqual(C.command_policy([compiler, '-print-prog-name=ld'], compiler, original['compiler_sha256']),
+                         'READ_ONLY_PINNED_LINKER_LOCATION_QUERY')
+        with self.assertRaises(AssertionError):
+            C.command_policy([compiler, '-print-prog-name=ld'], compiler, '0' * 64)
+
+    def test_all_builds_and_other_compiler_queries_still_refused(self):
+        compiler = '/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-g++'
+        for suffix in [['-c', 'webserver.cpp', '-o', 'webserver.o'], ['input.o', '-o', 'application.elf'],
+                       ['-E', 'input.cpp'], ['--version'], ['-print-prog-name=as'],
+                       ['-print-prog-name=ld', '-c', 'input.cpp']]:
+            with self.assertRaises(AssertionError):
+                C.command_policy([compiler] + suffix, compiler, '0' * 64)
+        with self.assertRaises(AssertionError):
+            C.command_policy(['/usr/bin/arduino-cli', 'compile', '--show-properties'], compiler, '0' * 64)
+        with self.assertRaises(AssertionError):
+            C.command_policy(['/different/xtensa-esp32s3-elf-g++', '-print-prog-name=ld'], compiler, '0' * 64)
+        with self.assertRaises(AssertionError):
+            C.command_policy(['python3', 'esptool.py', '--port', '/dev/ttyUSB0', 'read_flash'], compiler, '0' * 64)
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
