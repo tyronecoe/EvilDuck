@@ -1,64 +1,199 @@
-# Current accepted composed Route B compatibility
+# Composed Route B compatibility inventory
 
-Latest owner-accepted High Sierra baseline: **ROUTEB-SOURCE-TEXT-PORTABILITY-v2**, release commit `789815a70544e0b8f3967f8ab68d9f4f1f4e5f62`. Application **1,413,200 bytes**, SHA-256 `cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02`.
+Consolidated **2026-11-07**. This inventory distinguishes selected source
+acceptance, runtime semantics, USB capability and demonstrated host outcome.
+It is not a percentage or a claim that every downloadable Hak5 payload works.
 
-This inventory supersedes stale *current-status descriptions* in the [text/keyboard inventory](routeb-accepted-compatibility.md), [old next-release proposal](routeb-next-compatibility-release.md) and pre-acceptance source/text documents. Those historical files and their release artifacts remain unchanged. The [acceptance closeout](source-text-v2-acceptance-closeout.md) and [machine-readable accepted baseline](source-text-v2-accepted-baseline.json) record the new evidence and rollback requirement. No firmware behavior changes in this closeout.
+## Baseline and evidence identities
 
-## Evidence boundary and source identity
+| Identity | Current record |
+|---|---|
+| Latest owner-recorded installed build | `ROUTEB-PREVIOUS-COMMAND-REPEAT-v1` |
+| Firmware source checkpoint | `820a575a45e5a4f644921d663a650110667a6ab2` |
+| Application | 1,437,888 bytes; SHA-256 `13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f` |
+| Publication checkpoint | `557dc81f65b672d5b701b681664ef6ff0a7e5d44` |
+| Publication ZIP | 2,605,305 bytes; SHA-256 `9ab478df75fcec25648572320229ed9b31b167fa4f1af4f18ea200f2b97f4fbb` |
+| New development candidate | `ROUTEB-DEL-ALIAS-H1-v1`; separate from the installed-record identity and owner acceptance |
 
-The reviewed implementation is the actual composed `EvilDuckS3` tree produced by [v2 preparation](../tests/source_text_v2/prepare_sources.py), with its additive [patch](../tests/source_text_v2/application.patch) and [source manifest](../tests/source_text_v2/source-manifest.json). Its [linked build receipt](source-text-v2-build.json) identifies **201 source files**. References below beginning `C:` are symbols and line numbers inside that generated, hash-bound tree, not claims about uncomposed root files or the standalone preview. In particular, `C:core.cpp` has SHA-256 `f54eb538cdb6b66d0a4e4b67a22da982db96f1244a36620240d48118073ade20`; `C:adapter.cpp` has SHA-256 `ac9294da5c83249052ab708889d6e8305990089a733b0b1cf0d00427b827b1b3`. The old preview wording in a header does not override its demonstrated linked use in this profile.
+The installed identity is an **owner record**, not a new live-device readback.
+Repository HEAD, offline artifact hashes and compilation do not establish the
+bytes installed on the board. Source/test/build/package outcomes for the new candidate belong in
+[its delivery report](del-alias-release-delivery.md) and
+[structured results](del-alias-release-results.json); they do not promote it to
+an accepted baseline. Until those receipts are final, this inventory makes no
+new build or test-pass claim for DEL.
 
-The historical v2 [native receipt](source-text-v2-test-results.json) records **457 PASS, 0 FAIL, 17,612 assertions**, with ASan/UBSan/leak checks. [Package](source-text-v2-package-tests.json) and [mock installer](source-text-v2-installer-tests.json) receipts record **46** and **38** PASS. These suites were **not rerun** for this documentation closeout. Fresh artifact/source/ref checks are recorded separately in [closeout verification](source-text-v2-closeout-verification.json). Previous coverage gaps, adaptations and classifications remain in their original receipts; no old result is retroactively strengthened.
+The reviewed parent is the actual201-file tree selected by
+[the REPEAT release preparer](../tests/previous_command_repeat_release/prepare_sources.py)
+and [manifest](../tests/previous_command_repeat_release/source-manifest.json).
+The planning stage matched every recorded source size/hash. Final parent
+`core.cpp` SHA-256 is
+`01fda98ee58d34cd523241cfdd1da37b6992e037b889ce964ce3e32c899b0c4b`.
+The selected tree was
+`/workspace/scratch/previous-command-repeat-release/build-v3/candidate/EvilDuckS3`.
+References marked **C:** below describe that hash-bound parent; new DEL source
+changes are additive and specified separately. The root firmware, standalone
+preview and separate Legacy interpreter do not substitute for this composition.
+The historical preview wording inside a linked header is stale.
 
-“Owner-reported physical PASS” means the stated representative workflow on the owner's macOS **10.13.6** Mac, not independent Codex board testing, an application readback or full command-family certification. Automated boundary cases remain software evidence. Missing physical metadata remains unknown.
+[REPEAT delivery](previous-command-repeat-release-delivery.md),
+[structured results](previous-command-repeat-release-results.json) and
+[publication note](previous-command-repeat-review-download.md) retain the build,
+software, package and publication evidence. Their earlier local/not-installed
+labels remain true for their original preparation stage. Later publication and
+owner installation reports update current status without rewriting history.
+Old test totals are **historical receipts**, not newly executed checks here.
 
-## Implemented and accepted behavior
+The supported profile is bounded **source compatibility**: Route B compiles
+source into its own program. It is not an `inject.bin` loader or complete DS3
+runtime compatibility. Original Hak5 Legacy1.0 is not synonymous with EvilDuck's
+custom Legacy engine.
 
-| Group | Current implementation and compatibility limits | Physical and source/test evidence |
+## Evidence vocabulary
+
+- **IMPLEMENTED**: active selected source/runtime path exists.
+- **SOFTWARE-TESTED**: the cited actual-composition mocks/checks establish their
+  specified software behavior, not a physical host result.
+- **OWNER-REPORTED PASS**: the identified scoped macOS10.13.6 observation. Missing
+  request/session/raw evidence stays unknown.
+- **PARTIAL**, **UNSUPPORTED**, **REFERENCE-UNRESOLVED** and **HOST-DEPENDENT** are
+  separate boundaries and may coexist. Passing expected rejection is not support.
+
+For every compatibility claim ask: **A** is the spelling accepted? **B** is its
+behavior/failure implemented? **C** does the USB path supply it? **D** was the
+stated host objective observed? A source name, compiled symbol or successful
+submission does not answer all four.
+
+## Selected language and keyboard profile
+
+| Group | Implemented behavior and explicit limits | Evidence boundary |
 |---|---|---|
-| Ordinary `STRING` / `STRINGLN`, multiline blocks | Bounded ASCII text. Ordinary inline commands preserve literal closing-token words. STRING block concatenation and STRINGLN indentation/newline policy remain unchanged. No embedded language is executed. | Prior benign text/newline trials and latest literal/block comparison: scoped owner passes. `C:core.cpp:274` `Compiler::textLine`, `:288` `openText`, `:333` inline text, `:750` `Runtime::tick`; V/Z/AA cases. |
-| Fourteen suffixed text aliases | Seven suffixes—POWERSHELL, BATCH, BASH, JAVASCRIPT, PYTHON, RUBY, HTML—on both STRING families. Bare openers remain multiline blocks. Simple same-line terminated forms are compiler-function-backed; nonterminated inline forms remain EvilDuck extensions. | Latest owner terminated-alias/literal/block trial PASS. All fourteen simple terminated variants have automated report tests; not all fourteen were individually physically certified. `C:core.cpp:60–76,333–352`; [v2 contract](source-text-v2-design.md), [reference receipt](source-text-v2-reference-results.json), AA cases. |
-| Optional leading UTF-8 BOM | Exactly `EF BB BF` at raw offset zero is admitted, preserved and counted in the 8,192-byte limit. Chunk/Retry-safe; repeated, partial, misplaced markers, UTF-16 and other non-ASCII input reject. LF/CRLF and missing final newline remain supported. | Latest owner stored-file trial PASS: all **30** bytes survived upload/readback; explicit Route B submission queued; exactly one `111bom`; **Request 1: Completed**. Source-file readback is not application readback. `C:adapter.cpp:97–109`, `C:core.cpp:531–537`; Z/AA cases and [BOM contract](source-text-design.md). |
-| `DEFINE`, comments | Bounded substitution; REM, REM_BLOCK with optional DOCUMENTATION, END_REM. Replacement order, bounds and nonrecursive policy remain explicit project contracts. Raw text delimiters are resolved before DEFINE expansion. | Earlier owner DEFINE/block/preprocessing examples; latest alias workflow is representative only. `C:core.cpp:219–265,333–352`; P/V/AA cases and [preprocessing design](source-compat-design.md). |
-| Numeric variables, expressions, IF/ELSE IF/ELSE, WHILE, functions/RETURN | Bounded global uint16 values, checked arithmetic, `^` exponentiation, eager Boolean operands, no-argument functions and cooperative expression continuations. All retained source is preflighted, including inactive runtime branches and unused functions. | Earlier owner loop/branch/function examples. Historical initial-case discrepancy in an earlier function trial remains qualified. `C:core.cpp:121–217,319–331,355–380,676–698`; composed regression receipt. No universal operator-edge compatibility claim. |
-| Conditional preprocessing, EXTENSION, VERSION | Partial canonical group: four conditional directives, depth eight, literal Boolean flags; sixteen unique top-level wrappers; bounded dotted-decimal VERSION. Exclusion precedes retained-source semantic validation; wrappers cannot implement unsupported body commands. | Owner accepted conditional and extension/VERSION/function trials in preprocessing release. `C:core.cpp:450–518`; P cases and [source compatibility report](source-compat-report.md). |
-| Six random-character commands | Argument-free lower, upper, mixed letter, number, special and combined commands; bounded unbiased sampling and cached selected characters across retries. RANDOM_CHAR's 72-character alphabet excludes ambiguous documented spacing by stated policy. | Earlier owner lower/upper/combined passes; Canadian/US examples are scoped observations. No statistical quality or universal-layout claim. `C:core.cpp:388–397,701–720,758–759`, `C:adapter.cpp:13`; R/U/T cases and [randomization contract](randomization-jitter-design.md). |
-| `$_RANDOM_INT`, MIN/MAX | Inclusive uint16 range, defaults 0–9. Sequential range changes permitted; reversed interval fails when sampled. Each runtime reference samples anew; suspended evaluation retains resolved values. Not a stored-keycode mechanism. | Owner accepted integer-range trial; endpoints/full-width/exhaustion are software evidence. `C:core.cpp:141,322–327,676–715,791–794`; T cases. |
-| `$_JITTER_ENABLED`, MAX | Optional cooperative pre-press delay; defaults disabled/max20ms, uint16 maximum. Releases, cleanup, RESET and restart bypass jitter. Pending decisions are retained; whole-run budgets still apply. | Owner accepted controls, not measured physical timing. `C:core.cpp:734–748`; T/V/AA cases and [timing policy](randomization-jitter-design.md). |
-| Named keys, chords, inline `INJECT_MOD modifier` | Existing left-modifier vocabulary, named keys and US character operands; held/transient merging. Bare/prefix INJECT_MOD remains unsupported. Right-side spellings available in legacy do not become Route B features. | Owner keyboard Trial A exact output and later acceptance observations. `C:shortcut_keys.h:11–47`, `C:core.cpp:399–431`; Q regressions and [keyboard-control report](keyboard-control-report.md). |
-| `HOLD` / `RELEASE` | Lease-owned persistent state, six nonmodifier limit, collision/rollover refusal. Direct modifier ownership is an EvilDuck extension. Transient output restores held state. | Owner held-Shift, release and STOP recovery passes, including latest restart trial. `C:core.cpp:49–58,406–409`, `C:seam.inc:23–24`; Q/V/Y/AA cases. |
-| `RESET` | Exact no-argument keyboard clear and continue, retaining variables/settings. Correlated local neutral barrier; no device/settings reset. | Earlier owner RESET-and-continued-typing trial PASS. `C:core.cpp:382,796`, `C:adapter.cpp:67–86`, `C:seam.inc:16–21`; V cases. |
-| `RESTART_PAYLOAD` | Exact no-argument rewind after owner-matched neutral barrier. Same Program, request/lease, original elapsed/step/tick budgets. Runtime values, continuations and random/jitter defaults reset; no recompile or external Start. State lifetime/budgets are EvilDuck policies around documented restart intent. | Accepted restart release and latest owner restart/held-Shift/STOP trial PASS. `C:core.cpp:383,723–732,744,795`; Y/AA cases and [restart design](payload-restart-design.md). |
-| Inline `REPEAT` | Decimal literal 2–128 and permitted leaf statement only; shared operand storage, 128 total IR instructions, cooperative expansion. No legacy-history fallback. Terminated aliases use the same parser. | Earlier owner inline REPEAT acceptance; v2 delimiter/repeat boundaries remain automated evidence. `C:core.cpp:306–317,545–546`; V/AA cases. |
-| STOP / `STOP_PAYLOAD`, cleanup | Bounded cooperative cancellation, single owner, prioritized cleanup. Ambiguous acceptance or cleanup failure may quarantine; no automatic replay. | Latest STOP/held-Shift recovery and prior STOP fixtures passed. `C:core.cpp:384,657`, `C:adapter.cpp:88–91,116–127`, coordinator stop/tick; Q/N/Y/AA regressions. Local clear submission and manual lowercase recovery do not prove general host-global release or endpoint retirement. |
+| Text and aliases | STRING/STRINGLN inline and multiline blocks; fourteen aliases from POWERSHELL/BATCH/BASH/JAVASCRIPT/PYTHON/RUBY/HTML. Bare openers retain blocks; simple matching same-line terminated aliases are compiler-function-backed. Nonterminated inline aliases are EvilDuck extensions. Commands emit text, never execute embedded languages. Ordinary closing-token words remain literal. | Scoped owner text/alias passes plus software boundary tests. [v2 contract](source-text-v2-design.md), [reference results](source-text-v2-reference-results.json). Not every delimiter/alias physically certified. |
+| Source formatting | Exactly one EFBBBF at raw offset0, preserved/counting toward8,192 bytes; LF/CRLF/missing final newline. Partial/repeated/misplaced BOM, UTF16, unsupported controls/non-ASCII reject before output. | Source/text-v2 owner BOM trial: all30 bytes uploaded/read back, one111bom, Request1Completed. Source readback is not application readback. `C:adapter.cpp:97`; [source contract](source-text-design.md). |
+| DEFINE/comments/preprocessing | Bounded nonrecursive substitution; REM/REM_BLOCK/END_REM; four conditional directives, depth8/literal flags; sixteen top-level EXTENSION wrappers and bounded VERSION metadata. Excluded source is distinct from retained inactive runtime branches. | Retained branches/unused functions still preflight. Wrappers cannot implement unsupported bodies. [preprocessing design](source-compat-design.md), `C:core.cpp:250,550`. |
+| Variables/control flow | Bounded global uint16 values, IF/ELSE IF/ELSE, WHILE, no-argument functions/RETURN and cooperative expression continuations. Checked arithmetic, exponentiation and eager Boolean evaluation remain project policy. | Owner examples and composed software coverage; no universal operator-edge claim. No arbitrary signed arithmetic, general interpolation or guessed compound-assignment behavior. |
+| Randomization/jitter | Six character commands; bounded unbiased sampling/cached retry decisions. Integer range inclusive/default0–9/uint16; sequential updates permitted, reversed interval fails on draw. Optional pre-press jitter defaults disabled/max20ms; release/cleanup priority and per-run reset. | Scoped owner controls/range passes. RANDOM_CHAR's72-character spacing interpretation is documented policy. Statistical quality/precise timing remain unmeasured. [contract](randomization-jitter-design.md). |
+| Named keys/chords/modifiers | Existing keys, US character operands, inline INJECT_MOD. RCTRL/RSHIFT/RALT/RGUI use standard right-side modifier bits but are EvilDuck source extensions. Bare/prefix INJECT_MOD unsupported. Parent DELETE works; DEL alias is the separately identified new candidate. | `C:shortcut_keys.h:17`; [right-modifier compatibility](h1-right-modifiers-compatibility.md). No generalized AltGr or locale claim. |
+| HOLD/RELEASE | Lease-owned persistent state, transient restoration, six-nonmodifier limit, same-key collision and rollover refusals. Direct modifier ownership is an EvilDuck extension. | Scoped held-Shift/STOP owner results and composed tests. No general host-wide release guarantee. |
+| RESET/restart/STOP | RESET clears keyboard state and continues. RESTART_PAYLOAD clears before rewind, keeps request/lease and cumulative budgets, resets per-run state. STOP is cooperative, single-owner and cleanup-prioritized; ambiguous acceptance/cleanup failure may quarantine without replay. | Accepted representative owner groups and software boundary tests. Device STOP does not terminate a host process already launched. [restart contract](payload-restart-design.md). |
+| Both REPEAT forms | Inline literal2–128 means total executions; standalone literal1–128 means additional eligible-leaf executions. Entire program128 IR maximum. Defined lexical barriers/chaining refusal and eligible leaf list remain bounded EvilDuck policies. | [REPEAT contract](previous-command-repeat-design.md) and actual target receipts. Already implemented; no proposal to repair the old missing-standalone defect again. |
+| Lock feedback/waits | Nine exact ON/OFF/CHANGE waits. `$_EVILDUCK_LOCK_TIMEOUT` is implemented here as an EvilDuck extension: default5,000ms, range1–65,535; cumulative30s budget still applies. Feedback freshness separately5s/current USB session; unknown/stale never means fabricatedOFF. | [timeout contract](lock-wait-timeout-design.md); accepted three planned inherited groups. Reports concern this interface, not necessarily global Mac lock state. |
+| Experimental H1 | Opt-in finite US-printable stored-keycode path and six random-keycode getters. Existing capture/copy/reuse and release paths; no arbitrary numeric keycodes. | Four scoped owner passes. **Canonical Hak5 numeric encoding remains REFERENCE-UNRESOLVED.** [H1 design](inject-var-experimental-design.md), [closeout](inject-var-h1-owner-test-closeout.md). |
+| Privacy/dashboard/editor | Password replacement write-only; blank/omitted preserves saved values. Credential readback/echo removed. Failed-load editor safeguards, coherent dashboard state and complete static-response resource delivery inherited. | Actual-composition software/linked target evidence from later receipts. No claim that earlier installed images contain these fixes solely because their filenames exist. |
 
-## Partial support and deliberate boundaries
+Runtime bounds remain: source8,192B, physical line256B, IR128, operand storage4,096B,
+symbols32, functions/constants16 each, nesting16, call depth8, expressions64
+items/depth16;10,000steps,100,000ticks and30s cumulative runtime. See
+`C:core.h:6`. Source bytes and instruction count are different limits.
 
-| Area | Current status and evidence |
-|---|---|
-| Lock variables and waits | Read-only NUM/CAPS/SCROLL and received/fresh operands; nine exact ON/OFF/CHANGE commands, fixed **5,000ms** deadline and separate five-second freshness policy. Unknown/stale never fabricates OFF. `C:core.cpp:141–143,385–386`; `C:adapter.cpp:45–64`; [lock contract](lock-feedback-compatibility.md), N regressions. Earlier helper observations remain limited to their available request/session evidence; no comprehensive Scroll, restoration or host-global-state acceptance. |
-| EDR1 | Owner-accepted fixed-message LED return on tested Mac/iPhone setup. Custom protocol, RAM result and authentication; not Hak5 EXFIL, general reflection or keystroke capture. [Original milestone evidence](keyboard-control-owner-acceptance.md) and receiver regressions remain unchanged. No fresh EDR1 physical test or protocol change here. |
-| Source and resource bounds | Raw source8,192B, physical line256B, IR128, text4,096B, symbols32, functions/constants16, nesting16, calls8, expression tokens64/depth16; default10,000steps/100,000ticks/30s. `C:core.h:6–9`. Limits are safety contracts, not physical RAM/latency measurements or unlimited DS3 support. |
-| Arithmetic/evaluation | Checked uint16 overflow, eager Boolean operands and explicit precedence remain project policy. No unary `!`/`~`, signed arithmetic, compound assignments or general text interpolation. Existing official evidence does not justify claiming undocumented `++`/`+=` semantics. `C:core.cpp:121–217`; [historical reference analysis](stage9-reference-analysis.md). |
-| Keyboard layouts | Composed scheduler still requires device locale US (`C:seam.inc:37`). Linked legacy DE tables do not enable Route B layout selection. Canadian/US host examples do not establish every punctuation/dead-key combination or arbitrary Unicode. |
-| Engine selection and diagnostics | Explicit CLI `routeb <filename>` and authenticated Route B dashboard/HTTP paths use this composition. Ordinary CLI `run` and no-engine legacy interfaces are separate; refusal never implies legacy fallback. `C:cli.cpp:342–344`; current composed coordinator/HTTP source inventory and [snapshot report](http-snapshot-report.md). Authentication/coherent diagnostics remain required. |
-| USB, boot, storage and updates | Guarded Arduino ESP32 3.3.0 archive profile, pinned SDK,16MiB geometry, PSRAM off and existing USB identity remain unchanged. Language acceptance does not authorize filesystem formatting, MSC, OTA or installation. A software build is not a physical startup/USB guarantee. [Build](source-text-v2-build.json) and [resources](source-text-v2-resources.json) are historical receipts. |
+Route B requires HID enabled and **device locale US** (`C:seam.inc:37`). Printable
+ASCII plus supported TAB/LF events use the ordinary translation path. Linked
+DE/GB/other tables do not enable Route B layout selection. Earlier US/Canadian
+host examples do not certify all punctuation, dead keys or arbitrary Unicode.
 
-## Legacy-only, unsupported and reference-blocked
+## Twelve-technique capability matrix
 
-| Capability | Actual composed Route B status |
-|---|---|
-| `$_EVILDUCK_LOCK_TIMEOUT` | **Unsupported currently; legacy-only EvilDuck extension.** Legacy spelling/default/range are documented in the [Stage14 registry](stage14-internal-variable-matrix.md). The [next-release recommendation](routeb-next-release-recommendation.md) proposes a separate Route B port; publication of that proposal does not implement it. |
-| SAVE/RESTORE host lock state and saved-lock properties | Unsupported in Route B. Legacy Stage12–14 support is not composed support. Active restoration requires a separately reviewed fresh-evidence and host-action contract. |
-| DEFAULT_DELAY/DEFAULTDELAY, WAIT timing alias, history REPEAT/REPLAY | Legacy-only semantics, unsupported on this path. Accepted inline REPEAT does not add history replay. |
-| General STRING variable interpolation, READ/SAVE/APPEND | Legacy EvilDuck extensions, not Route B text or canonical INJECT_VAR support. |
-| INJECT_VAR / stored random-keycode properties | **Blocked** pending independent official-runtime numeric/release evidence. Completed investigation and unresolved vectors remain intact; no guessed packed representation or repeated broad research. |
-| Button/indicator commands, OS detection, dynamic USB modes/identities, consumer/media reports, imports, arbitrary Unicode | Unsupported/outside this profile. A linked legacy/SDK symbol or a reference command name does not demonstrate Route B grammar, runtime binding or hardware support. Each needs a bounded independent proposal. |
+Primary references are the official [quick reference](https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference),
+[keyboard documentation](https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection),
+[extensions](https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/extensions),
+[lock keys](https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/lock-keys),
+[attack modes](https://documentation.hak5.org/hak5-usb-rubber-ducky/attack-modes-constants-and-variables/attack-modes),
+[exfiltration](https://documentation.hak5.org/hak5-usb-rubber-ducky/advanced-features/exfiltration)
+and [official README](https://github.com/hak5/usbrubberducky-payloads/blob/master/README.md).
+Planning retrieved these on2026-11-07; publication/revision dates were not supplied.
 
-## Latest physical evidence and future rollback
+| Technique | Hak5 supplies | Selected Route B source/runtime/USB evidence | Host result or remaining blocker |
+|---|---|---|---|
+| Keystroke Injection | Native text, keys, modifiers and timing. | IMPLEMENTED/SOFTWARE-TESTED bounded grammar and keyboard reports, `C:core.cpp:324`, `shortcut_keys.h:17`, `seam.inc:50`. DEL alias is new candidate. | Scoped OWNER-REPORTED PASS; US/ASCII and finite source/report limits, not all payloads/locales. |
+| HID Spoofing | Keyboard enumeration; native ATTACKMODE modes/identity parameters. | PARTIAL fixed configured keyboard enumeration. Route B has no ATTACKMODE handler; reserved name is not implementation (`C:core.cpp:84,483`). | Payload-selected identities/modes unsupported. No descriptor/impersonation work. |
+| Living off the Land | Host commands/tools invoked by payload input. | HOST-DEPENDENT; keyboard launch mechanics do not confer permissions. | Harmless Bash lab evidence is scoped launch behavior, not elevation/universal portability. |
+| OS Fingerprinting | OS_DETECT extension requiring telemetry including configuration requests/lock replies. | UNSUPPORTED classifier; only a subset of lock telemetry exists. `C:core.cpp:158`; legacy reserved properties fall through Unsupported at `duck_vars.cpp:232`. | Missing inputs/verified classifier. Fabricated offline telemetry only; manual selection is not detection. |
+| Keystroke Reflection | LED reflection and loot storage. | PARTIAL custom fixed17-byte EDR1 (`C:led_receiver.h:5`, `led_receiver.cpp:21`). No arbitrary EXFIL. | Historical OWNER-REPORTED PASS on old CAPS-STOP-TRACE build plus iPhone viewing, not fresh current-build verification or Hak5 protocol compatibility. |
+| Credential Dumping | Host-side operations governed by credential-store permissions. | HOST-DEPENDENT; no native credential collection. | G10 synthetic only; G11 separate fake-item keychain only. No genuine credential/vault/memory access established or planned. |
+| Keylogging / Input Capture | Requires a suitable host collection/hardware path. | UNSUPPORTED. Enumerating as a keyboard does not receive unrelated input; output callback is LED metadata (`C:hid_backend.cpp:215`). | Optional model limited to fabricated text in its own visible lab field; no global/background capture. |
+| Data Exfiltration | EXFIL/loot/LED reflection and host-dependent transfers. | UNSUPPORTED general transfer; PARTIAL unchanged fixed EDR1 transport. Exact message/length/CRC enforcement at `C:led_receiver.cpp:21`. | No arbitrary-data receiver, loot storage or upload endpoints. Synthetic local fixtures/memory sinks only. |
+| Payload Staging | Control flow and payload/host arrangements. | PARTIAL/HOST-DEPENDENT short launcher/local fixtures within bounds (`C:core.h:6`). | Host process may outlive injection STOP. No download-and-execute chain/persistence. |
+| Environment Awareness | Internal variables, extensions and host-derived facts. | PARTIAL branching/fresh lock evidence (`C:adapter.cpp:45`, `hid_backend.cpp:248`). | No OS/application-focus/permission oracle. Unknown/stale/session distinctions retained. |
+| Anti-Analysis | Payload-specific techniques, not a blanket capability. | UNSUPPORTED as detection/evasion. Implemented jitter/randomness does not establish those features. | Documentation only; no evasion, stealth or protection-disabling work. |
+| Conditional Execution | Native conditions, loops, functions/RETURN. | IMPLEMENTED/SOFTWARE-TESTED bounded selected profile (`C:core.cpp:320`, `core.h:8`). | Scoped owner examples; eager/check-arithmetic policies and unsupported operators remain explicit. |
 
-The owner reports four passes on High Sierra10.13.6: terminated aliases with ordinary literal and multiline comparisons; restart/held-Shift/STOP; malformed-source rejection; and complete leading-BOM stored-file execution. Only the final BOM **Request1** is supplied for these trials. Dates, boot/session identifiers, fixture name/readback hash, original screenshots/transcript files and negative-trial diagnostic details remain unknown. Do not borrow identifiers from older releases.
+## Accepted owner records and remaining evidence gaps
 
-Control+J is the observed Screen command-submission workaround, not a universal requirement or proven firmware defect. The current CLI ignores CR and dispatches on LF (`C:cli.cpp:373–380`). Rediscover and verify `/dev/cu.usbmodem*` after reconnect/reset rather than copying an old suffix; preserve explicit Route B selection and one intentional submission.
+- G01–G05: scoped owner-reported passes from the supplied testing conversation.
+  G06–G09: later **All 4 tests passed** supersedes earlier pending labels; G07
+  remains H1, not canonical numeric proof. Original full pack filenames and
+  independent receipts were not available here. Do not confuse these with native
+  tests reusing G-labels. The G06 TextEdit job processor and G06 Bash staging/
+  rollback lab are different objectives; their full filenames remain unknown.
+- G10: synthetic parsing/redaction, not saved-password/vault access. G11: separate
+  keychain containing a fake Wi-Fi-shaped item; no actual Wi-Fi credential-access
+  or later physical-pass claim without evidence.
+- [H1 closeout](inject-var-h1-owner-test-closeout.md): four scoped passes; fixed
+  Request1, random-copy Request6, successful STOP request unknown. Earlier
+  Request2 remains inconclusive. Numeric scalar was not captured.
+- [Right-modifier closeout](h1-right-modifiers-owner-closeout.md): four scoped
+  passes, including **executed STOP variant** Request3Cancelled/manualabc123;
+  A1/C4/D5 remain separate. Request2unknown, build ID cropped, raw screenshots/
+  logs independently unavailable. No physical right/left-bit certification.
+- [Inherited wait correction](h1-right-modifiers-owner-correction.md): three
+  planned groups,3/3PASS, Requests1/2/3/6. Attempts4/5 were owner-described handling
+  mistakes outside the count; no outstanding failed group or automatic retest.
+- [EDR1 acceptance](keyboard-control-owner-acceptance.md): old
+  CAPS-STOP-TRACE-20261019-v1, boot74f39b50638bee97/session3,408accepted reports,
+  exact 17-byte `EVILDUCK TEST 123`. Separate later iPhone820-report image is not
+  merged into that trial. Restoration API accepted; global restoration unproven.
+- Source/text-v2's four High Sierra passes remain: terminated aliases/literals/
+  blocks, restart/held-Shift/STOP, malformed rejection, complete stored-file BOM
+  upload/readback/execution. Its source-file readback is not firmware readback.
 
-Every future candidate package must carry the exact accepted v2 `application.bin` above as rollback. The published v2 ZIP and its included older restart rollback remain untouched. These owner passes do not certify every alias/delimiter, arbitrary Unicode, all layouts, precise timing, statistical randomness, host-global lock state, USB delivery/retirement or Windows compatibility. Windows availability is not a prerequisite for independent Mac-compatible work. No hardware access, HID execution, firmware build, flashing or OTA is performed by this documentation closeout.
+No accepted group is reopened because identifiers are missing. iPhone dashboard
+viewing does not establish wired iPhone HID support, and the separate Pico
+Bluetooth bridge is not evidence for this firmware. Statistical randomness,
+precise timing, global host release and universal layout/USB guarantees remain
+unmeasured or outside the scoped observations.
+
+## Legacy-only, unsupported and reference-dependent boundaries
+
+- DEFAULT_DELAY/DEFAULTDELAY, custom WAIT/REPLAY history, general STRING variable
+  interpolation and READ/SAVE/APPEND remain separate Legacy-engine behavior,
+  not Route B or automatically original Legacy1.0 semantics. Standalone REPEAT
+  is now implemented under its own explicit bounded contract.
+- SAVE/RESTORE host lock state and saved-lock properties remain unsupported in
+  Route B. Active restoration needs a separately reviewed fresh-evidence contract.
+- Canonical INJECT_VAR is REFERENCE-UNRESOLVED; the active bounded H1 experiment
+  is neither missing nor proof of Hak5 values. Preserve unresolved vectors and
+  completed compiler research; no broad reinvestigation absent a specific lead.
+- Button/indicator commands, OS detection, dynamic USB modes/identities,
+  consumer/media reports, imports, arbitrary Unicode and generalized AltGr are
+  unsupported/outside this profile. Reserved names and linked code are not proof.
+- Invalid source admission currently has a diagnostic gap: the precompiler gate
+  can expose no error or a previous compiler error while still rejecting before
+  output. The [roadmap](routeb-compatibility-roadmap-20261107.md) isolates this
+  future fix; no silent acceptance/limit expansion or whole-source bypass.
+
+Explicit authenticated Route B paths and CLI `routeb <filename>` select this
+engine. Ordinary `run`/Legacy interfaces remain separate, with no automatic
+fallback on refusal. Preserve write-only passwords, authentication, single-owner
+STOP, quarantine/no replay, source identity and storage/USB safeguards.
+
+## Recovery and host observations
+
+Mandatory exact rollback remains the source/text-v2 standalone application,
+**1,413,200 bytes**, SHA-256:
+
+```text
+cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02
+```
+
+This older recovery lacks later privacy/dashboard/editor repairs and does not
+restore deleted scripts, filesystem contents or settings. Preserve all published
+packages and private recovery artifacts. The faulty e825 editor image is not a
+known-good replacement rollback. Package integrity is not boot/USB acceptance.
+
+Control+J remains the observed Screen command-submission workaround, not a
+universal requirement. Rediscover and verify `/dev/cu.usbmodem*` after reconnect,
+never assume a previous suffix. Mac High Sierra10.13.6, Bash3.2, Python3.8 and
+esptool4.12 compatibility remain required for future packages. No Windows
+availability or repeated broad Caps campaign is a prerequisite for bounded
+Mac-compatible development. See the [next increments](routeb-compatibility-roadmap-20261107.md)
+and [DEL contract](del-alias-design.md).

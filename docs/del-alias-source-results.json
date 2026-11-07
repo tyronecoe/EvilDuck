@@ -1,0 +1,80 @@
+{
+  "status": "SOURCE_TESTED_TARGET_BUILD_PENDING",
+  "recorded_utc": "2026-11-07T17:45:39.560531+00:00",
+  "branch": "routeb-del-alias-h1-v1",
+  "baseline": "557dc81f65b672d5b701b681664ef6ff0a7e5d44",
+  "focused": {
+    "PASS": 27,
+    "FAIL": 0,
+    "assertions": 797
+  },
+  "regressions_native": {
+    "PASS": 636,
+    "FAIL": 0,
+    "assertions": 27376
+  },
+  "regressions_web": {
+    "PASS": 86,
+    "FAIL": 0,
+    "assertions": 1518
+  },
+  "receipts": [
+    {
+      "kind": "focused_del",
+      "file": "/workspace/scratch/del-alias/focused-v2.json",
+      "sha256": "bee4546913c336387d62143288020897b85784acdb57b58f6c79eb8713eecd02",
+      "counts": {
+        "PASS": 27,
+        "FAIL": 0
+      },
+      "assertions": 797
+    },
+    {
+      "kind": "composition_controls",
+      "file": "/workspace/scratch/del-alias/source-scope-v1.json",
+      "sha256": "4baa607006cec3649413eec898ccaa09bcc5e647bf773f667ab49d96e964befe",
+      "counts": {
+        "PASS": 7,
+        "FAIL": 0
+      },
+      "assertions": 36
+    },
+    {
+      "kind": "composed_regressions",
+      "file": "/workspace/scratch/del-alias-release/regressions-v1.json",
+      "sha256": "d8cc0665effa0d005e5c61bcb9b521bd99ecdafe518d6526244f8f151d8c1e24",
+      "counts": null,
+      "assertions": null
+    },
+    {
+      "kind": "release_controls_prebuild",
+      "file": "/workspace/scratch/del-alias/release-controls-v1.json",
+      "sha256": "3125284bc52ff19a170867ebea3751646d3b1a0c4ece6cf99c2d3e57780bf766",
+      "counts": {
+        "PASS": 23,
+        "FAIL": 0
+      },
+      "assertions": null
+    },
+    {
+      "kind": "package_policy_prebuild",
+      "file": "/workspace/scratch/del-alias-release/package-policy-v4.json",
+      "sha256": "c43983c31edf6be35664a1694640f5990871f6ac5affcbf8e8d03e3081f7c242",
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "assertions": null
+    }
+  ],
+  "hardware_access": false,
+  "hid_output": false,
+  "firmware_built": false,
+  "packaged": false,
+  "installed": false,
+  "limitations": [
+    "Native/mock verification is not physical USB or High Sierra execution.",
+    "The focused native fixtures retain historical mock build metadata; compiled production core/header match the candidate, while the complete final201 identity is bound separately.",
+    "Initial focused harness setup failure is preserved; no tests ran during that setup failure."
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "scope": "Compile-only host harness using actual composed Route B core/header; no Runtime.start, HID module, firmware build, host probe or payload execution",
+  "observed_utc": "2026-11-07T17:42:39.287072+00:00",
+  "official_source": {
+    "url": "https://raw.githubusercontent.com/hak5/usbrubberducky-payloads/4fa639fd06972cd7efd9c48cc73136443f9cffb1/payloads/extensions/os_detect.txt",
+    "bytes": 7875,
+    "sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f"
+  },
+  "actual_composed_source": "/workspace/scratch/del-alias/release-source-v1/EvilDuckS3",
+  "source_inputs": [
+    {
+      "file": "core.cpp",
+      "bytes": 62834,
+      "sha256": "d567a199a247fc585bb8f61c7459323a14ca8ca4bd14ff60690284d334f5431d"
+    },
+    {
+      "file": "core.h",
+      "bytes": 8362,
+      "sha256": "166912a9669b937b5d44515b706721f428782fd5a9361d4f607a8b6d47cc1a9a"
+    },
+    {
+      "file": "shortcut_keys.h",
+      "bytes": 3366,
+      "sha256": "f55b9548aa1499cc5459d503d806040159c0e1cc96912d187d4d4d5b5b3badaa"
+    }
+  ],
+  "harness_sha256": "c14c17b87600d0b985626e85d4ee8487e1d7fb77353c90d023c4d83aed391da6",
+  "host_compile_command": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1",
+    "-DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1",
+    "-DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1",
+    "-DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1",
+    "-DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1",
+    "-DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1",
+    "-DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1",
+    "-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1",
+    "-DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1",
+    "-DEVILDUCK_ROUTE_B_SOURCE_TEXT=1",
+    "-DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1",
+    "-DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1",
+    "-DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1",
+    "-I",
+    "/workspace/scratch/del-alias/release-source-v1/EvilDuckS3",
+    "/workspace/scratch/del-alias/release-source-v1/EvilDuckS3/core.cpp",
+    "/workspace/scratch/os-detect-audit/compile_only.cpp",
+    "-o",
+    "/workspace/scratch/os-detect-audit/compile_only"
+  ],
+  "host_compile_exit": 0,
+  "run_exit": 0,
+  "sanitizers": {
+    "flags": [
+      "address",
+      "undefined"
+    ],
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1",
+    "stderr_empty": true
+  },
+  "bounds": {
+    "raw_bytes": 7875,
+    "source_limit": 8192,
+    "headroom": 317,
+    "physical_lines": 217,
+    "longest_physical_line_bytes": 106,
+    "line_limit": 256,
+    "ascii_only": true,
+    "final_lf": true
+  },
+  "results": [
+    {
+      "label": "official_unmodified",
+      "file": "/workspace/scratch/os-detect-audit/os_detect-official-unmodified.txt",
+      "source_sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f",
+      "source_bytes": 7875,
+      "kind": "Pinned official source, unchanged",
+      "accepted": false,
+      "error_code": 6,
+      "physical_line": 50,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "counter_reset",
+      "file": "/workspace/scratch/os-detect-audit/counter_reset.duck",
+      "source_sha256": "4c4addd33e922612e59bf356d6490840e7507c2ccc7b4085ea735b0f2d6f0af1",
+      "source_bytes": 39,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 18,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "counter_read",
+      "file": "/workspace/scratch/os-detect-audit/counter_read.duck",
+      "source_sha256": "d9bff22d830d2541e2348cbbbcbf211a24301fb026fbfb2669bd28c8b2f761c9",
+      "source_bytes": 51,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 6,
+      "physical_line": 1,
+      "column": 35,
+      "ir_instructions": 0
+    },
+    {
+      "label": "attackmode_exact",
+      "file": "/workspace/scratch/os-detect-audit/attackmode_exact.duck",
+      "source_sha256": "5c3639dab3a49d3485ad2377b9e651ee77a4cb6549880f02f635a6a948b6b622",
+      "source_bytes": 33,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "save_lock",
+      "file": "/workspace/scratch/os-detect-audit/save_lock.duck",
+      "source_sha256": "65e92f600837785828cd353337fd0c6f0dfbe9d887cea037eadd7d4b8b19b9aa",
+      "source_bytes": 30,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "restore_lock",
+      "file": "/workspace/scratch/os-detect-audit/restore_lock.duck",
+      "source_sha256": "6e9a001347875b523ff1bf5c46e24043be43cfa8c794e6eb2e88ad6ac10fe44d",
+      "source_bytes": 33,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "led_red",
+      "file": "/workspace/scratch/os-detect-audit/led_red.duck",
+      "source_sha256": "858d4d887b25ed2e4653c111218e3f12d13526b21dc00f0bbbbd867693ca0684",
+      "source_bytes": 6,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "led_off",
+      "file": "/workspace/scratch/os-detect-audit/led_off.duck",
+      "source_sha256": "094844bd3a3c41554e2ed0b458b1e724ad7f003a67c209cf2a9117372c4340e5",
+      "source_bytes": 8,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "led_green",
+      "file": "/workspace/scratch/os-detect-audit/led_green.duck",
+      "source_sha256": "4d81cbb17b5db46a085244b42d7e244344b4a35fa0e8c4cde2c13ec50644a1fa",
+      "source_bytes": 6,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 13,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "os_internal_assignment",
+      "file": "/workspace/scratch/os-detect-audit/os_internal_assignment.duck",
+      "source_sha256": "f6ca4501f1bf54bd6f6b36acf633f09bbe86c6a319cf3a9a300aea5973c62b94",
+      "source_bytes": 15,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 18,
+      "physical_line": 1,
+      "column": 1,
+      "ir_instructions": 0
+    },
+    {
+      "label": "os_internal_read",
+      "file": "/workspace/scratch/os-detect-audit/os_internal_read.duck",
+      "source_sha256": "361e74169be9c08befb546b199d30133793c0d38bc317d184f1366791271947a",
+      "source_bytes": 21,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 6,
+      "physical_line": 1,
+      "column": 5,
+      "ir_instructions": 0
+    },
+    {
+      "label": "os_enum_expression",
+      "file": "/workspace/scratch/os-detect-audit/os_enum_expression.duck",
+      "source_sha256": "fc4ea28b27f1ef3b5e7e179562deb9f0a4ddbe32c7d789a9e9ea06b3755374ad",
+      "source_bytes": 24,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": false,
+      "error_code": 15,
+      "physical_line": 1,
+      "column": 8,
+      "ir_instructions": 0
+    },
+    {
+      "label": "feedback_syntax_only_control",
+      "file": "/workspace/scratch/os-detect-audit/feedback_syntax_only_control.duck",
+      "source_sha256": "e9e7684f2a1f593f87c4632f8f72619897f647a73ffb522c6d488d3bbb3fc99f",
+      "source_bytes": 59,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": true,
+      "error_code": 0,
+      "physical_line": 0,
+      "column": 0,
+      "ir_instructions": 2
+    },
+    {
+      "label": "caps_syntax_only_control",
+      "file": "/workspace/scratch/os-detect-audit/caps_syntax_only_control.duck",
+      "source_sha256": "c4da416fcceb798bf36436cd6e1405ba53ec0bb9098835cc8915b703ada15837",
+      "source_bytes": 59,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": true,
+      "error_code": 0,
+      "physical_line": 0,
+      "column": 0,
+      "ir_instructions": 2
+    },
+    {
+      "label": "extension_syntax_only_control",
+      "file": "/workspace/scratch/os-detect-audit/extension_syntax_only_control.duck",
+      "source_sha256": "c8fee7122a8684b13ca1441faf1b2ee3ef530194e630facc2ad064cfca7ba156",
+      "source_bytes": 161,
+      "kind": "Compile-only isolated dependency fixture; never executed",
+      "accepted": true,
+      "error_code": 0,
+      "physical_line": 0,
+      "column": 0,
+      "ir_instructions": 3
+    }
+  ],
+  "firmware_source_modified": false,
+  "target_firmware_built": false,
+  "hardware_access": false,
+  "hid_runtime_executed": false,
+  "telemetry_collected": false
+}

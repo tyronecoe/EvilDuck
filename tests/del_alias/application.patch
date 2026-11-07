@@ -1,0 +1,23 @@
+--- core.cpp
++++ core.cpp
+@@ -82,7 +82,8 @@
+ }
+ bool reserved(const char* p){
+  const char* names[]={"REM","REM_BLOCK","END_REM","STRING","STRINGLN","END_STRING","END_STRINGLN","DELAY","VAR","DEFINE","IF","ELSE","END_IF","WHILE","END_WHILE","FUNCTION","END_FUNCTION","RETURN","STOP_PAYLOAD","RESTART_PAYLOAD","ATTACKMODE","HOLD","RELEASE","RESET","INJECT_MOD","INJECT_VAR","REPEAT","RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR","IF_DEFINED_TRUE","IF_NOT_DEFINED_TRUE","ELSE_DEFINED","END_IF_DEFINED","EXTENSION","END_EXTENSION","VERSION"};
+- if(textKind(p)||key(p)||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
++ // DEL() predates the key alias; retain its unambiguous function spelling.
++ if(textKind(p)||(key(p)&&!exact(p,"DEL"))||ds_shortcut::modifier(p))return true;for(const char* n:names)if(exact(p,n))return true;return false;
+ }
+ }
+ // An independently specified experiment, not a claim about official runtime values.
+--- shortcut_keys.h
++++ shortcut_keys.h
+@@ -18,7 +18,7 @@
+  static constexpr Name names[]={
+  {"ENTER",0x28},{"ESCAPE",0x29},{"BACKSPACE",0x2a},{"TAB",0x2b},{"SPACE",0x2c},
+  {"CAPSLOCK",0x39},{"PRINTSCREEN",0x46},{"SCROLLLOCK",0x47},{"PAUSE",0x48},{"BREAK",0x48},
+- {"INSERT",0x49},{"HOME",0x4a},{"PAGEUP",0x4b},{"DELETE",0x4c},{"END",0x4d},{"PAGEDOWN",0x4e},
++ {"INSERT",0x49},{"HOME",0x4a},{"PAGEUP",0x4b},{"DELETE",0x4c},{"DEL",0x4c},{"END",0x4d},{"PAGEDOWN",0x4e},
+  {"RIGHTARROW",0x4f},{"RIGHT",0x4f},{"LEFTARROW",0x50},{"LEFT",0x50},
+  {"DOWNARROW",0x51},{"DOWN",0x51},{"UPARROW",0x52},{"UP",0x52},
+  {"NUMLOCK",0x53},{"MENU",0x65},{"APP",0x65}};

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Canonical committed Route B build including bounded standalone REPEAT.
+"""Canonical committed Route B build including the bounded DEL alias.
 
 Requires a local checkpoint and uses the approved isolated ESP32 3.3.0 profile.
 --compose-only remains available for exact final source composition inspection.
@@ -11,7 +11,7 @@ import sys
 
 sys.dont_write_bytecode = True
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'tests/previous_command_repeat_release'))
+sys.path.insert(0, str(ROOT / 'tests/del_alias_release'))
 from build_candidate import main
 
 if __name__ == '__main__':

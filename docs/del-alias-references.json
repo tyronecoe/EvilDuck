@@ -1,0 +1,38 @@
+{
+  "scope": "Primary source spelling reference only; no official runtime/compiler execution",
+  "sources": [
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference",
+      "final_url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference",
+      "status": 200,
+      "bytes": 39018,
+      "sha256": "cd38fd8410bc7833f6ae047ed0d845454e6fd75c4171245f5841f2e8595617a2",
+      "retrieved_utc": "2026-11-07T17:35:47.878522+00:00",
+      "last_modified": null,
+      "del_lines": [
+        {
+          "line": 158,
+          "text": "> `INSERT` `DELETE` `DEL` `BACKSPACE`"
+        }
+      ]
+    },
+    {
+      "url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection",
+      "final_url": "https://documentation.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/keystroke-injection",
+      "status": 200,
+      "bytes": 21524,
+      "sha256": "e8fab69b1bf25cc271e946618edd46094fa6ac6551f2aade891d2c3bbea9f909",
+      "retrieved_utc": "2026-11-07T17:35:48.451795+00:00",
+      "last_modified": null,
+      "del_lines": []
+    }
+  ],
+  "conclusion": "DEL is an officially listed cursor-key alias; reuse existing DELETE usage 0x4c and report path. No H1 numeric encoding inference.",
+  "sdk_usage_reference": {
+    "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/arduino_tinyusb/tinyusb/src/class/hid/hid.h",
+    "sha256": "df44b1215ccce40ae12c22e3895109a6d01aa13a77115ad43f28d488351bb97c",
+    "line": 465,
+    "definition": "#define HID_KEY_DELETE                      0x4C",
+    "scope": "Pinned TinyUSB standard page-07 usage constant. It does not establish any Hak5 numeric runtime encoding."
+  }
+}
