@@ -1,0 +1,429 @@
+{
+  "status": "BUILT_PACKAGED_REVIEW_ONLY",
+  "recorded_utc": "2026-11-07T01:05:58.014057+00:00",
+  "branch": "routeb-previous-command-repeat-v1",
+  "baseline": "fcba0385ce21662c7a504e0c9b6fba0dfa2c4f8d",
+  "firmware_checkpoint": "820a575a45e5a4f644921d663a650110667a6ab2",
+  "packaging_checkpoint": "fe6a6c4fcfca4fdf64023c998975cb3f7eb05e13",
+  "build_id": "ROUTEB-PREVIOUS-COMMAND-REPEAT-v1",
+  "artifacts": [
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/build-v3/build/EvilDuckS3.ino.bin",
+      "bytes": 1437888,
+      "sha256": "13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/build-v3/build/EvilDuckS3.ino.elf",
+      "bytes": 23644796,
+      "sha256": "9fb92daca3bc71ef1e0d7b60070290e718828df7c36d1125acc8db1f493e6f35"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/evilduck-routeb-previous-command-repeat-h1-macos-review-v1.zip",
+      "bytes": 2605305,
+      "sha256": "9ab478df75fcec25648572320229ed9b31b167fa4f1af4f18ea200f2b97f4fbb"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/build-v3/build-inputs.json",
+      "bytes": 9718,
+      "sha256": "c943075990fc269f8fa9a498096c7d75524202ac6b3adb5a1d1dc3fd32f07cfc"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/build-v3/previous-repeat-release-verification.json",
+      "bytes": 2590556,
+      "sha256": "2084f4de4ed754f9f87b3ac8d6964fa2689d0c00143c759b9fff5c62baf9e776"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/committed-guard-v3/guard-verification.json",
+      "bytes": 12137,
+      "sha256": "f586318b559431e1b56ee6d9e07aaa0f86ded3e4c65eeddcf6e54d1ad9789af7"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/final-regressions-v1.json",
+      "bytes": 40154,
+      "sha256": "3e56c00ca144755dcd39f86a62810e2e4ace7b49a21056ab0fa2874bfd9ee1af"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/package-verification-v1.json",
+      "bytes": 4570,
+      "sha256": "f5062c555138c502fe0a79c62510e548e006bd2e911796ac12da571a20f42426"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/package-v1/manifest.json",
+      "bytes": 10206,
+      "sha256": "74b5b18e3bc1f4ae003e160da244a385c4679de27d6262a13b0d6c7645869408"
+    },
+    {
+      "file": "/workspace/scratch/previous-command-repeat-release/package-v1/OWNER-CHECK.md",
+      "bytes": 2255,
+      "sha256": "f8ac4221c12b3107e0b6c3c68046ae9cf93986855624883faaac6e436774b688"
+    }
+  ],
+  "package": {
+    "status": "PASS",
+    "review_only": true,
+    "package_checkpoint": "fe6a6c4fcfca4fdf64023c998975cb3f7eb05e13",
+    "firmware_source_checkpoint": "820a575a45e5a4f644921d663a650110667a6ab2",
+    "build_id": "ROUTEB-PREVIOUS-COMMAND-REPEAT-v1",
+    "zip": {
+      "file": "/workspace/scratch/previous-command-repeat-release/evilduck-routeb-previous-command-repeat-h1-macos-review-v1.zip",
+      "bytes": 2605305,
+      "sha256": "9ab478df75fcec25648572320229ed9b31b167fa4f1af4f18ea200f2b97f4fbb",
+      "members": 40
+    },
+    "application": {
+      "bytes": 1437888,
+      "sha256": "13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f"
+    },
+    "rollback": {
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "historical_standalone_application": true,
+      "lacks_newer_privacy_dashboard_fixes": true
+    },
+    "package_manifest": {
+      "file": "/workspace/scratch/previous-command-repeat-release/package-v1/manifest.json",
+      "sha256": "74b5b18e3bc1f4ae003e160da244a385c4679de27d6262a13b0d6c7645869408"
+    },
+    "owner_checklist": {
+      "file": "/workspace/scratch/previous-command-repeat-release/package-v1/OWNER-CHECK.md",
+      "sha256": "f8ac4221c12b3107e0b6c3c68046ae9cf93986855624883faaac6e436774b688"
+    },
+    "checks": {
+      "source_policy": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "release_package_controls": {
+        "PASS": 47,
+        "FAIL": 0
+      },
+      "inherited_package_archive_controls": {
+        "PASS": 83,
+        "FAIL": 0
+      },
+      "actual_bound_installer_controls": {
+        "PASS": 38,
+        "FAIL": 0
+      },
+      "supplementary_synthetic_engine_controls": {
+        "PASS": 42,
+        "FAIL": 0
+      }
+    },
+    "receipts": [
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/package-policy-v3.json",
+        "sha256": "2e3897c28eccd1be0e0078f7d7cfa533a2763cbd778c5d2f8a30c303308ada56",
+        "counts": {
+          "PASS": 6,
+          "FAIL": 0
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/package-controls-v1.json",
+        "sha256": "d9451e064ee884886df6afcfa7d68939025ddccdf536ccdc1eae13604a888f12",
+        "counts": {
+          "PASS": 47,
+          "FAIL": 0
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/inherited-package-v1.json",
+        "sha256": "e031517c550c77914d92f7a3f45b3c3f0c098a0c70854caa6c200e113f490591",
+        "counts": {
+          "PASS": 83,
+          "FAIL": 0
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/bound-installer-v1.json",
+        "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+        "counts": {
+          "PASS": 38,
+          "FAIL": 0
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/mock-installer-v1.json",
+        "sha256": "0cc5626385de1ec23b6a5c660b521536d174895d24248797f808ed5fd3ad891f",
+        "counts": {
+          "PASS": 42,
+          "FAIL": 0
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "/workspace/scratch/previous-command-repeat-release/extracted-preflight-v1.json",
+        "sha256": "bf0737cc8187081c550d130e592a783d40c64feba76b5e16c07896f3f0867d64",
+        "counts": null,
+        "status": "PASS"
+      }
+    ],
+    "independent_extraction_exact_bytes": true,
+    "offline_preflight": {
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/previous-command-repeat-release/extracted-package-v1/preflight.py",
+        "--directory",
+        "/workspace/scratch/previous-command-repeat-release/extracted-package-v1"
+      ],
+      "exit": 0,
+      "result": {
+        "selected_image": "application",
+        "plan_ready": false,
+        "package_integrity": "PASS",
+        "source_commit": "fe6a6c4fcfca4fdf64023c998975cb3f7eb05e13",
+        "application_sha256": "13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f",
+        "installed_metadata": "NOT_SUPPLIED",
+        "selected_write_ranges": [],
+        "installation_authorized": false,
+        "hardware_access": false,
+        "device_authenticity_or_freshness_verified": false
+      },
+      "stderr": ""
+    },
+    "hardware_access": false,
+    "installation_authorized": false,
+    "installed": false,
+    "flashed": false,
+    "ota": false,
+    "pushed": false,
+    "native_high_sierra_tested": false,
+    "limitations": [
+      "Native/mockLinuxchecks are notownerHighSierra/iPhonehardwareacceptance",
+      "H1scalarencodingremainsexperimental/unverified",
+      "Packagecontainsstandaloneapplicationrollback,notfullflashrestore"
+    ]
+  },
+  "checks": {
+    "native": {
+      "PASS": 636,
+      "FAIL": 0,
+      "assertions": 27376
+    },
+    "web": {
+      "PASS": 86,
+      "FAIL": 0,
+      "assertions": 1518
+    },
+    "release_verifier_controls": {
+      "PASS": 17,
+      "FAIL": 0
+    },
+    "builder_architecture_controls": {
+      "PASS": 4,
+      "FAIL": 0
+    },
+    "inherited_release_layers": {
+      "PASS": 6,
+      "FAIL": 0,
+      "assertions_preserved": 190,
+      "assertions_removed": 0
+    },
+    "package": {
+      "source_policy": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "release_package_controls": {
+        "PASS": 47,
+        "FAIL": 0
+      },
+      "inherited_package_archive_controls": {
+        "PASS": 83,
+        "FAIL": 0
+      },
+      "actual_bound_installer_controls": {
+        "PASS": 38,
+        "FAIL": 0
+      },
+      "supplementary_synthetic_engine_controls": {
+        "PASS": 42,
+        "FAIL": 0
+      }
+    },
+    "offline_preflight": {
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/previous-command-repeat-release/extracted-package-v1/preflight.py",
+        "--directory",
+        "/workspace/scratch/previous-command-repeat-release/extracted-package-v1"
+      ],
+      "exit": 0,
+      "result": {
+        "selected_image": "application",
+        "plan_ready": false,
+        "package_integrity": "PASS",
+        "source_commit": "fe6a6c4fcfca4fdf64023c998975cb3f7eb05e13",
+        "application_sha256": "13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f",
+        "installed_metadata": "NOT_SUPPLIED",
+        "selected_write_ranges": [],
+        "installation_authorized": false,
+        "hardware_access": false,
+        "device_authenticity_or_freshness_verified": false
+      },
+      "stderr": ""
+    }
+  },
+  "toolchain": {
+    "core_version": "3.3.0",
+    "compiler_version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "compiler_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+    "arduino_cli": "/workspace/tooling/arduino/bin/arduino-cli",
+    "arduino_cli_sha256": "d2f96eddc84f76cae4148a9d8ed0fa8e203d70343970ae0b554220d0db462f46",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+    "actual_command": [
+      "/workspace/tooling/arduino/bin/arduino-cli",
+      "--config-file",
+      "/workspace/scratch/previous-command-repeat-release/build-v3/arduino-cli.json",
+      "compile",
+      "--fqbn",
+      "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+      "--build-path",
+      "/workspace/scratch/previous-command-repeat-release/build-v3/build",
+      "--jobs",
+      "4",
+      "--build-property",
+      "upload.maximum_size=7602176",
+      "--build-property",
+      "recipe.hooks.objcopy.postobjcopy.3.pattern=",
+      "--build-property",
+      "compiler.cpp.extra_flags=-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1 -DEVILDUCK_EXPERIMENTAL_INJECT_VAR_H1=1 -DEVILDUCK_ROUTE_B_LOCK_WAIT_TIMEOUT=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT_V2=1 -DEVILDUCK_ROUTE_B_SOURCE_TEXT=1 -DEVILDUCK_ROUTE_B_PAYLOAD_RESTART=1 -DEVILDUCK_ROUTE_B_TEXT_KEYBOARD=1 -DEVILDUCK_ROUTE_B_RANDOMIZATION_JITTER=1 -DEVILDUCK_ROUTE_B_RANDOM_UPPERCASE=1 -DEVILDUCK_ROUTE_B_RANDOM_LOWERCASE=1 -DEVILDUCK_ROUTE_B_SOURCE_COMPAT=1 -DEVILDUCK_ROUTE_B_LOCK_FEEDBACK=1 -DEVILDUCK_ROUTE_B_KEYBOARD_CONTROL=1 -DEVILDUCK_VERIFIED_LED_DIAGNOSTICS=1 -DEVILDUCK_LED_RETURN_TEST=1 -DEVILDUCK_ROUTE_B_STATUS_HARDENING=1 -DEVILDUCK_ROUTE_B_TRANSIENT_SHORTCUTS=1 -DEVILDUCK_VERIFIED_HID_ROUTING=1 -DEVILDUCK_VERIFIED_NVS_PRESERVATION=1 -DEVILDUCK_CONTROLLED_START=1 -fstack-usage -DEVILDUCK_PORTABLE_ROUTE_B -DEVILDUCK_ROUTE_B_DIAGNOSTICS -I/workspace/scratch/previous-command-repeat-release/build-v3/candidate/EvilDuckS3",
+      "--clean",
+      "--verbose",
+      "/workspace/scratch/previous-command-repeat-release/build-v3/candidate/EvilDuckS3"
+    ],
+    "sdk_archive_dependency_and_startup_guards": "UNCHANGED_PASS"
+  },
+  "resources": {
+    "application_bytes": 1437888,
+    "application_delta_bytes": 192,
+    "compiler_program_bytes": 1437735,
+    "compiler_program_delta_bytes": 188,
+    "elf_bytes": 23644796,
+    "static_ram_bytes": 113896,
+    "static_ram_delta_bytes": 0,
+    "flash_bytes": 16777216,
+    "slot_bytes": 7602176,
+    "free_bytes_per_slot": 6164288,
+    "psram": "disabled",
+    "heap_and_physical_timing": "NOT_MEASURED"
+  },
+  "proof": {
+    "committed_input_count": 47,
+    "original_committed_guard_executed_unmodified": true,
+    "all201_sources_match_fresh_regressions": true,
+    "compiler_call_graph": [
+      "ds_preview::Compiler::step(ds_preview::CompileWork&)",
+      "ds_preview::Compiler::line()",
+      "ds_preview::Compiler::statement(char*)",
+      "ds_preview::Compiler::statementImpl(char*)"
+    ],
+    "standalone_elf_branch_verified": true,
+    "modifier_handler_edges_verified": true,
+    "streaming_resources_verified": true,
+    "inherited_assertions_preserved": 190,
+    "handler_selector_edits": 2,
+    "post_compile_verifier_delta": null
+  },
+  "preservation": {
+    "original11_inputs_unchanged": true,
+    "only_preexisting_tracked_path_changed": "tools/build_routeb_candidate.py",
+    "historical_packages_and_rollback_unchanged": true
+  },
+  "development_attempts": [
+    {
+      "status": "COMPILE_LINK_PASS_FULL_RELEASE_FAIL",
+      "source_commit": "24a31d3e0efce0e4365aaf79f05161cf78943bee",
+      "compile_exit": 0,
+      "terminal_exit": 1,
+      "application_bytes": 1437888,
+      "application_sha256": "8e9f52ffeb629d17eb8d713b302a52d9141e81b44ebf7d7a18a3051e3d972b95",
+      "elf_sha256": "9a5cd0bb83fd03d2cde70d834776b2b1f69f9efb3b73b42338359ea983281646",
+      "new_target_proof": "PASS",
+      "standalone_branch_verified": true,
+      "diagnostic": "tests/h1_right_modifiers/verify_link.py:87: assert 'ds_shortcut::modifier(' in bodies['ds_preview::Compiler::statement(']",
+      "cause": "Historical direct-handler owner changed to statementImpl; fix advances exact semantic selector without dropping assertion",
+      "terminal_log": "/workspace/scratch/previous-command-repeat-release/target-build-v1.terminal.txt",
+      "terminal_sha256": "a5eaa6cf4f8de3153271df9054295ecbceba889dd289db5c11c7abb49b57b37c",
+      "guard_bypassed": false,
+      "approved_for_package": false
+    },
+    {
+      "status": "COMPILE_LINK_AND_TARGET_PASS_FULL_RELEASE_ADAPTER_FAIL",
+      "source_commit": "d81f6bfaec6402891ca77e3a8437d25dbedc981b",
+      "compile_exit": 0,
+      "terminal_exit": 1,
+      "application_bytes": 1437888,
+      "application_sha256": "df30d03fbd06a90e6deeb16819320f4f338b828eb098dd4ac9f66501a4d75aeb",
+      "elf_sha256": "9a40f3bb8d99ad01f15a89574f6c1a8d3bee46f2c1b8de91634747c97a367c64",
+      "target_status": "PASS",
+      "standalone_branch_verified": true,
+      "modifier_handler_reachable": true,
+      "diagnostic": "AssertionError: Expected exactly two right-modifier compiler-handler selectors",
+      "cause": "New host adapter used a reused compile filename instead of verified logical layer; no firmware change",
+      "terminal_file": "/workspace/scratch/previous-command-repeat-release/target-build-v2.terminal.txt",
+      "terminal_sha256": "8d083ee1a0301a94232b70a4c78ca4462a0951a46d554fe649ccbae0285afbf5",
+      "approved_for_package": false,
+      "guard_bypassed": false
+    }
+  ],
+  "development_note": "First two clean compiles passed target checks but full release guards correctly refused host-adapter integration errors; both receipts/images retained. Corrected host-only expectations, committed, and fresh clean build-v3 passed. No production source or profile changes across attempts.",
+  "regression_note": "Fresh native636/web86 on identical final201source reused after host-only corrections; no gratuitous repeated broad tests or owner hardware trials.",
+  "mock_overlap_note": "42 supplementary synthetic engine checks are separate from38 actual-bound-installer checks; do not add them as unique independent coverage.",
+  "built": true,
+  "packaged": true,
+  "hardware_verified": false,
+  "installed": false,
+  "flashed": false,
+  "ota": false,
+  "pushed": false,
+  "merged": false,
+  "native_high_sierra_tested": false,
+  "artifact_delivery": "Local ZIP/manifest/checklist paths supplied; no remote publication",
+  "limitations": [
+    "Native/mockLinuxchecks are notownerHighSierra/iPhonehardwareacceptance",
+    "H1scalarencodingremainsexperimental/unverified",
+    "Packagecontainsstandaloneapplicationrollback,notfullflashrestore"
+  ],
+  "source_review": {
+    "diff_file": "/workspace/scratch/previous-command-repeat-release/release-source-diff.patch",
+    "bytes": 359196,
+    "sha256": "3475a036e581f941d1b7eb9900782ebd11ce3fdfc58553b596cab55614772057",
+    "scope": "All code and packaging changes through packaging checkpoint; final delivery receipts are separate",
+    "paths": [
+      "A\tdocs/previous-command-repeat-design.md",
+      "A\tdocs/previous-command-repeat-release-integration.md",
+      "A\tdocs/previous-command-repeat-report.md",
+      "A\tdocs/previous-command-repeat-results.json",
+      "A\ttests/previous_command_repeat/application.patch",
+      "A\ttests/previous_command_repeat/build_candidate.py",
+      "A\ttests/previous_command_repeat/prepare_sources.py",
+      "A\ttests/previous_command_repeat/run_tests.py",
+      "A\ttests/previous_command_repeat/source-manifest.json",
+      "A\ttests/previous_command_repeat/test_main.cpp",
+      "A\ttests/previous_command_repeat/test_scope.py",
+      "A\ttests/previous_command_repeat/test_web_regressions.py",
+      "A\ttests/previous_command_repeat_package/package.py",
+      "A\ttests/previous_command_repeat_package/package_preflight.py",
+      "A\ttests/previous_command_repeat_package/release-binding.json",
+      "A\ttests/previous_command_repeat_package/test_package.py",
+      "A\ttests/previous_command_repeat_release/build_candidate.py",
+      "A\ttests/previous_command_repeat_release/identity.patch",
+      "A\ttests/previous_command_repeat_release/prepare_sources.py",
+      "A\ttests/previous_command_repeat_release/run_regressions.py",
+      "A\ttests/previous_command_repeat_release/source-manifest.json",
+      "A\ttests/previous_command_repeat_release/startup_decode.py",
+      "A\ttests/previous_command_repeat_release/test_verify_controls.py",
+      "A\ttests/previous_command_repeat_release/verify_release.py",
+      "A\ttests/previous_command_repeat_release/verify_target.py",
+      "M\ttools/build_routeb_candidate.py"
+    ]
+  }
+}
