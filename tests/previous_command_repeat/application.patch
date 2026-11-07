@@ -1,0 +1,93 @@
+--- core.cpp
++++ core.cpp
+@@ -238,6 +238,8 @@
+  struct Block{Op kind;uint16_t start,lastFalse;bool otherwise=false;};Block blocks_[MaxNesting]{};size_t depth_=0;
+  Program& p_;Reader reader_;size_t received_=0,seen_=0;uint16_t line_=1;
+  Instruction repeated_{};uint16_t repeatRemaining_=0;
++ // Lexical leaf only, never runtime history; MaxCode is the invalid sentinel.
++ uint16_t previousRepeatLeaf_=MaxCode;
+  char raw_[MaxLine+1]={},chunk_[ReadChunk]={};size_t rawUsed_=0,chunkUsed_=0,chunkPos_=0;
+  unsigned pass_=0;bool cr_=false,eof_=false;uint8_t bom_=0;
+  uint64_t hash_=1469598103934665603ull,firstHash_=0;
+@@ -290,7 +292,7 @@
+  // Blocks use one IR instruction and checked, byte-addressed arena records.
+  bool textLine(char* raw,unsigned pass){
+   const char* close=textMode_==1?"END_STRING":"END_STRINGLN";
+-  if(whole(raw,close)){if(pass)p_.code_[textInstruction_].length=p_.used_-p_.code_[textInstruction_].offset;textMode_=0;return true;}
++  if(whole(raw,close)){previousRepeatLeaf_=MaxCode;if(pass)p_.code_[textInstruction_].length=p_.used_-p_.code_[textInstruction_].offset;textMode_=0;return true;}
+   char* trimmed=left(raw);
+   if(command(trimmed,"END_STRING")||command(trimmed,"END_STRINGLN")||textKind(trimmed))return fail(ErrorCode::Structure,static_cast<uint16_t>(trimmed-raw+1));
+   if(!pass)return true;
+@@ -303,7 +305,7 @@
+   p_.used_+=static_cast<uint16_t>(required);return true;
+  }
+  bool openText(const char* text,unsigned pass){
+-  textMode_=textKind(text);textOpening_=line_;
++  previousRepeatLeaf_=MaxCode;textMode_=textKind(text);textOpening_=line_;
+   if(pass){if(p_.count_==MaxCode)return fail(ErrorCode::CodeLimit);textInstruction_=p_.count_++;
+    p_.code_[textInstruction_]={line_,p_.used_,0,0,0,textMode_==1?Op::TextBlock:Op::TextLnBlock,0};}
+   return true;
+@@ -319,20 +321,39 @@
+   right(text);if(then){size_t n=strlen(text);if(n<5||strcmp(text+n-4,"THEN")||!white(text[n-5]))return fail(ErrorCode::Syntax);text[n-4]=0;right(text);}
+   return expand(text,expanded)&&expr(expanded);
+  }
++ // Exactly the existing inline REPEAT leaf whitelist; no block/state widening.
++ bool repeatLeaf(char* body){
++  char* end=body;while(*end&&!white(*end)&&*end!='-')++end;char saved=*end;*end=0;bool shortcut=ds_shortcut::modifier(body)!=0;*end=saved;
++  bool allowed=shortcut||key(body)||textCommandKind(body)||command(body,"DELAY")||command(body,"INJECT_MOD");
++  static const char* const randoms[]={"RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
++  for(const char* r:randoms)allowed=allowed||command(body,r);
++  return allowed;
++ }
+  bool statement(char* text){
+   right(text);if(!*text||skip(text))return p_.error_.code==ErrorCode::None;
+   if(command(text,"DEFINE"))return true;
+   if(exact(text,"END_REM"))return fail(ErrorCode::Structure);
++  // Source classification matters: END_IF can emit no IR, and an ineligible
++  // executable must not leave an older leaf available. Inline REPEAT's recursive
++  // body may set a candidate, but its outer wrapper always consumes eligibility.
++  const uint16_t before=p_.count_;const bool eligible=repeatLeaf(text);
++  if(!statementImpl(text))return false;
++  previousRepeatLeaf_=eligible&&p_.count_==before+1?before:MaxCode;
++  return true;
++ }
++ bool statementImpl(char* text){
+   char expanded[MaxLine+1]={};char name[24]={};
+   if(command(text,"REPEAT")){
+    char* count=left(argument(text));uint16_t n=0;if(!digit(*count))return fail(ErrorCode::Syntax);
+    while(digit(*count)){unsigned next=unsigned(n)*10+unsigned(*count++-'0');if(next>MaxCode)return fail(ErrorCode::CodeLimit);n=static_cast<uint16_t>(next);}
++   if(!n)return fail(ErrorCode::Syntax);
++   if(!*count){
++    if(previousRepeatLeaf_==MaxCode)return fail(ErrorCode::Unsupported);
++    repeated_=p_.code_[previousRepeatLeaf_];repeated_.line=line_;
++    repeatRemaining_=n;return true; // n additional copies; share frozen operands.
++   }
+    if(n<2||!white(*count))return fail(ErrorCode::Syntax);char* body=left(count);if(!*body)return fail(ErrorCode::Syntax);
+-   char* end=body;while(*end&&!white(*end)&&*end!='-')++end;char saved=*end;*end=0;bool shortcut=ds_shortcut::modifier(body)!=0;*end=saved;
+-   bool allowed=shortcut||key(body)||textCommandKind(body)||command(body,"DELAY")||command(body,"INJECT_MOD");
+-   static const char* const randoms[]={"RANDOM_LOWERCASE_LETTER","RANDOM_UPPERCASE_LETTER","RANDOM_LETTER","RANDOM_NUMBER","RANDOM_SPECIAL","RANDOM_CHAR"};
+-   for(const char* r:randoms)allowed=allowed||command(body,r);
+-   if(!allowed)return fail(ErrorCode::Unsupported);
++   if(!repeatLeaf(body))return fail(ErrorCode::Unsupported);
+    uint16_t before=p_.count_;if(!statement(body))return false;
+    if(p_.count_!=before+1)return fail(ErrorCode::Structure);
+    repeated_=p_.code_[before];repeatRemaining_=n-1;return true;
+@@ -566,15 +587,15 @@
+ public:
+  Compiler(Program& p,Reader reader):p_(p),reader_(reader){}
+  CompilePhase phase()const{return phase_;}
+- void abort(ErrorCode code){fail(code,static_cast<uint16_t>(rawUsed_+1));}
+- void detach(){reader_=Reader{};}
++ void abort(ErrorCode code){previousRepeatLeaf_=MaxCode;repeatRemaining_=0;fail(code,static_cast<uint16_t>(rawUsed_+1));}
++ void detach(){previousRepeatLeaf_=MaxCode;repeatRemaining_=0;reader_=Reader{};}
+  bool step(CompileWork& cost){
+   // One shared-operand IR copy per cooperative step; no source reparse/unbounded loop.
+   if(repeatRemaining_){++cost.nodes;if(p_.count_==MaxCode){line_=repeated_.line;return fail(ErrorCode::CodeLimit);}p_.code_[p_.count_++]=repeated_;--repeatRemaining_;return true;}
+   switch(phase_){
+   case CompilePhase::SeekFirst:case CompilePhase::Rewind:{
+    ++cost.callbacks;if(!reader_.seek(reader_.context,0))return fail(ErrorCode::SeekError);
+-   received_=seen_=rawUsed_=chunkUsed_=chunkPos_=0;cr_=eof_=false;bom_=0;hash_=1469598103934665603ull;line_=1;comment_=false;textMode_=0;raw_[0]=0;phase_=CompilePhase::Read;return true;
++   received_=seen_=rawUsed_=chunkUsed_=chunkPos_=0;cr_=eof_=false;bom_=0;hash_=1469598103934665603ull;line_=1;comment_=false;textMode_=0;previousRepeatLeaf_=MaxCode;repeatRemaining_=0;raw_[0]=0;phase_=CompilePhase::Read;return true;
+   }
+   case CompilePhase::Read:{
+    size_t capacity=reader_.bytes-received_;if(capacity>ReadChunk)capacity=ReadChunk;
