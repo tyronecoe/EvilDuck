@@ -23,6 +23,8 @@ spec = importlib.util.spec_from_file_location('repeat_release_control_policy', H
 R = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(R)
 SOURCE = None
+CANDIDATE_BUILD = None
+PARTIAL_BINDING = None
 
 
 class Policy(unittest.TestCase):
@@ -61,12 +63,60 @@ class Policy(unittest.TestCase):
             self.assertEqual(sum(isinstance(n, ast.Assert) for n in ast.walk(tree)), count)
             transformed = namespace['FinalCandidateExpectations'](final).visit(tree)
             transformed = namespace['RuntimeIdentityExpectations'](tree).visit(transformed)
+            if directory == 'h1_right_modifiers':
+                handler = R.CompilerHandlerExpectations()
+                transformed = handler.visit(transformed)
+                self.assertEqual(len(handler.edits), 2)
             self.assertEqual(sum(isinstance(n, ast.Assert) for n in ast.walk(transformed)), count)
             total += count
         self.assertEqual(total, 190)
         self.assertTrue(changes['previous_repeat'])
         with self.assertRaises(AssertionError):
             namespace['FinalCandidateExpectations']({k: v for k, v in final.items() if k != 'core.cpp'})
+
+    def test_handler_retarget_is_exact_and_preserves_modifier_assertion(self):
+        path = ROOT / 'tests/h1_right_modifiers/verify_link.py'
+        original = ast.parse(path.read_text())
+        original_asserts = sum(isinstance(n, ast.Assert) for n in ast.walk(original))
+        adapter = R.CompilerHandlerExpectations()
+        changed = adapter.visit(original)
+        self.assertEqual(original_asserts, 23)
+        self.assertEqual(sum(isinstance(n, ast.Assert) for n in ast.walk(changed)), original_asserts)
+        self.assertEqual(len(adapter.edits), 2)
+        self.assertEqual({r['before'] for r in adapter.edits}, {adapter.OLD})
+        self.assertEqual({r['after'] for r in adapter.edits}, {adapter.NEW})
+        statements = [ast.unparse(n) for n in ast.walk(changed) if isinstance(n, ast.Assert)]
+        self.assertIn("assert 'ds_shortcut::modifier(' in bodies['ds_preview::Compiler::statementImpl(']", statements)
+        lookalike = ast.parse("x='ds_preview::Compiler::statement( extra'; y='other handler'")
+        untouched = R.CompilerHandlerExpectations()
+        untouched.visit(lookalike)
+        self.assertFalse(untouched.edits)
+
+    def test_actual_candidate_modifier_handler_and_reachability(self):
+        global PARTIAL_BINDING
+        if CANDIDATE_BUILD is None:
+            self.skipTest('Read-only candidate ELF control not requested')
+        binding = V.core_binding(CANDIDATE_BUILD)
+        self.assertTrue(binding['standalone_branch_verified'])
+        self.assertEqual(binding['compiler_call_graph']['path'][-1], 'ds_preview::Compiler::statementImpl(char*)')
+        rows = {r['name']: r for r in binding['linked_symbols']}
+        implementation = rows['ds_preview::Compiler::statementImpl(char*)']
+        wrapper = rows['ds_preview::Compiler::statement(char*)']
+        entries = json.loads((CANDIDATE_BUILD / 'build/compile_commands.json').read_text())
+        compiler = pathlib.Path(next(r for r in entries if pathlib.Path(r['file']).name == 'core.cpp')['arguments'][0])
+        objdump = compiler.with_name(compiler.name.rsplit('-', 1)[0] + '-objdump')
+        elf = CANDIDATE_BUILD / 'build/EvilDuckS3.ino.elf'
+        bodies = {}
+        for name, row in [('implementation', implementation), ('wrapper', wrapper)]:
+            bodies[name] = subprocess.check_output([str(objdump), '-C', '-d', '--start-address=' + str(row['address']),
+                                                    '--stop-address=' + str(row['address'] + row['size']), str(elf)], text=True)
+        self.assertIn('ds_shortcut::modifier(', bodies['implementation'])
+        self.assertNotIn('ds_shortcut::modifier(', bodies['wrapper'])
+        PARTIAL_BINDING = dict(source=str(CANDIDATE_BUILD), actual_elf_sha256=binding['actual_elf_sha256'],
+                               core_sha256=binding['source_sha256'], modifier_handler='statementImpl',
+                               reachable_path=binding['compiler_call_graph']['path'],
+                               full_provenance_guard_executed=False,
+                               scope='Read-only compiled handler equivalence control, not final release approval')
 
     def test_exact_final_composition(self):
         value = V.verify_composed_source(SOURCE)
@@ -148,19 +198,32 @@ class Policy(unittest.TestCase):
             with self.assertRaises(ValueError):
                 V.compiler_reachability(broken)
 
+    def test_modifier_handler_requires_executable_edge(self):
+        name = 'ds_shortcut::modifier(char const*)'
+        actual = '42000000: 000005 call8 42000100 <' + name + '>\n'
+        self.assertEqual(len(V.modifier_handler_edges(actual)), 1)
+        for unsupported in ['', '<' + name + '>\n',
+                            '42000000: 000005 beqz a2, <' + name + '>\n']:
+            with self.assertRaises(ValueError):
+                V.modifier_handler_edges(unsupported)
+
 
 def main():
-    global SOURCE
+    global SOURCE, CANDIDATE_BUILD
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', required=True, type=pathlib.Path)
     parser.add_argument('--results', required=True, type=pathlib.Path)
+    parser.add_argument('--candidate-build', type=pathlib.Path,
+                        help='Optional read-only actual ELF handler/control proof; never final provenance approval')
     args = parser.parse_args()
     SOURCE = args.source
+    CANDIDATE_BUILD = args.candidate_build
     assert not args.results.exists(), 'Use fresh control evidence'
     stream = io.StringIO()
     result = unittest.TextTestRunner(stream=stream, verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(Policy))
-    receipt = dict(counts=dict(PASS=result.testsRun - len(result.failures) - len(result.errors),
+    receipt = dict(counts=dict(PASS=result.testsRun - len(result.failures) - len(result.errors) - len(result.skipped),
                                FAIL=len(result.failures) + len(result.errors)),
+                   skipped=len(result.skipped), candidate_partial_binding=PARTIAL_BINDING,
                    details=stream.getvalue(), hardware=False, firmware_built=False,
                    test_sha256=hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest(),
                    source=str(SOURCE), scope='New source/committed-input refusals, preserved190Assert transforms and actual old ELF negative control')

@@ -175,6 +175,18 @@ def compiler_reachability(texts):
     raise ValueError('Linked cooperative compiler cannot reach the new REPEAT implementation')
 
 
+def modifier_handler_edges(text):
+    """Keep the right-modifier handler guard on its actual new code owner."""
+    rows = []
+    for line in text.splitlines():
+        match = re.match(r'^\s*([0-9a-fA-F]+):\s+[0-9a-fA-F]+\s+(call\w*|j)\s+.*?<ds_shortcut::modifier\(char const\*\)>', line)
+        if match:
+            rows.append(dict(address=int(match[1], 16), opcode=match[2],
+                             callee='ds_shortcut::modifier(char const*)'))
+    require(rows, 'Linked statementImpl lacks actual modifier-handler call edge')
+    return rows
+
+
 def core_binding(root):
     root = pathlib.Path(root)
     build, sketch = root / 'build', root / 'candidate/EvilDuckS3'
@@ -245,6 +257,7 @@ def core_binding(root):
         witnesses.append(dict(**symbol, object_size=object_symbol['size'], disassembly_sha256=hashlib.sha256(text.encode()).hexdigest()))
         texts[name] = text
     reachable = compiler_reachability(texts)
+    modifier_edges = modifier_handler_edges(texts[names[0]])
     # Actual linked debug-line addresses identify the new standalone branch, not
     # mere source strings or a detached object. Code remains source-hash pinned.
     source_lines = (sketch / 'core.cpp').read_text().splitlines()
@@ -273,6 +286,7 @@ def core_binding(root):
                 object_linked=True, verbose_compile_observed=True, dependency_sha256=sha(dep),
                 linked_symbols=witnesses, standalone_branch_verified=True,
                 compiler_call_graph=reachable,
+                modifier_handler_reachable=True, modifier_handler_call_edges=modifier_edges,
                 standalone_source_lines=lines, executable_line_witnesses=observations,
                 actual_elf_sha256=sha(elf), nm_sha256=sha(nm), objdump_sha256=sha(objdump), hardware=False)
 

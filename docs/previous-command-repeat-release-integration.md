@@ -71,6 +71,19 @@ SHA-256 `3e56c00ca144755dcd39f86a62810e2e4ace7b49a21056ab0fa2874bfd9ee1af`.
 The later freshly generated target source must match this complete inventory;
 identity in a mock is not substituted for target-image evidence.
 
+The first clean compile/link at local checkpoint
+`24a31d3e0efce0e4365aaf79f05161cf78943bee` succeeded and passed the new target
+source/object/ELF/DWARF and streaming checks. Its complete release chain then
+refused an inherited right-modifier predicate that still looked for modifier
+parsing directly in `Compiler::statement`; that handler now resides in
+`Compiler::statementImpl`. This is an expected handler-location integration
+change, not a reason to omit the predicate. The additive verifier advances only
+that exact frozen-unit function expectation, keeps all 190 assertions, and also
+checks modifier calls in the reachable new implementation. The partial first
+build and failure receipt remain preserved. A new local checkpoint and fresh
+clean build are required; no post-compilation exception or guard relaxation is
+used to approve the earlier context. Production source bytes remain unchanged.
+
 ## Review package and owner boundary
 
 The new Mac ZIP must bind the exact newly built image and committed source,
