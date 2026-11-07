@@ -1,5 +1,22 @@
 {
   "format": "evilduck-del-alias-release-binding-v1",
-  "status": "PENDING_VERIFIED_NEW_ARTIFACTS",
-  "build_id": "ROUTEB-DEL-ALIAS-H1-v1"
+  "status": "VERIFIED_LOCAL_RELEASE",
+  "build_id": "ROUTEB-DEL-ALIAS-H1-v1",
+  "source_commit": "2e3efa295d46aef55b4d39af9cf3a9a40bb70422",
+  "verifier_context_commit": "2e3efa295d46aef55b4d39af9cf3a9a40bb70422",
+  "post_compile_verifier_delta": null,
+  "application_sha256": "d1571be81619e464ee997d0ba8ebbf7e7b8a8b4252e4debc9d9144b9ebe6b379",
+  "application_bytes": 1437888,
+  "elf_sha256": "d47c6f0e4fc7339029efaf89a885223c54d023473b40ff36109e42626eebb86f",
+  "elf_bytes": 23643224,
+  "release_receipt_sha256": "bdff5cbac87ab9bf2f7b6548f29b1bb617bf8110d4d017aa9179f17bb4d1a0a0",
+  "build_inputs_sha256": "794379a8af86389eb351cee807548a64da208bb35905eb514029a1f86d9f77b3",
+  "build_input_count": 66,
+  "repeat_target_binding_sha256": "9cc45b9e1cf18d35824d17cf4d531bbc566c52ad416bb90d1208e7da6485f5d3",
+  "repeat_core_sha256": "01fda98ee58d34cd523241cfdd1da37b6992e037b889ce964ce3e32c899b0c4b",
+  "del_core_sha256": "d567a199a247fc585bb8f61c7459323a14ca8ca4bd14ff60690284d334f5431d",
+  "del_shortcuts_sha256": "f55b9548aa1499cc5459d503d806040159c0e1cc96912d187d4d4d5b5b3badaa",
+  "test_results_sha256": "d8cc0665effa0d005e5c61bcb9b521bd99ecdafe518d6526244f8f151d8c1e24",
+  "del_test_receipt": "/workspace/scratch/del-alias/focused-v2.json",
+  "del_test_receipt_sha256": "bee4546913c336387d62143288020897b85784acdb57b58f6c79eb8713eecd02"
 }
