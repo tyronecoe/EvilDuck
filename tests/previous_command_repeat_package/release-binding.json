@@ -1,5 +1,18 @@
 {
   "format": "evilduck-previous-command-repeat-release-binding-v1",
-  "status": "PENDING_VERIFIED_NEW_ARTIFACTS",
-  "build_id": "ROUTEB-PREVIOUS-COMMAND-REPEAT-v1"
+  "status": "VERIFIED_LOCAL_RELEASE",
+  "build_id": "ROUTEB-PREVIOUS-COMMAND-REPEAT-v1",
+  "source_commit": "820a575a45e5a4f644921d663a650110667a6ab2",
+  "verifier_context_commit": "820a575a45e5a4f644921d663a650110667a6ab2",
+  "post_compile_verifier_delta": null,
+  "application_sha256": "13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f",
+  "application_bytes": 1437888,
+  "elf_sha256": "9fb92daca3bc71ef1e0d7b60070290e718828df7c36d1125acc8db1f493e6f35",
+  "elf_bytes": 23644796,
+  "release_receipt_sha256": "2084f4de4ed754f9f87b3ac8d6964fa2689d0c00143c759b9fff5c62baf9e776",
+  "build_inputs_sha256": "c943075990fc269f8fa9a498096c7d75524202ac6b3adb5a1d1dc3fd32f07cfc",
+  "build_input_count": 47,
+  "repeat_target_binding_sha256": "c503754022c57a4ea6ca969c12c0bcf3e6b667506092a25b6a28def1d283d7b2",
+  "repeat_core_sha256": "01fda98ee58d34cd523241cfdd1da37b6992e037b889ce964ce3e32c899b0c4b",
+  "test_results_sha256": "3e56c00ca144755dcd39f86a62810e2e4ace7b49a21056ab0fa2874bfd9ee1af"
 }

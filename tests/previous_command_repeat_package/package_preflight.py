@@ -222,6 +222,8 @@ def validate(directory,installed_table=None,installed_ota=None,require_installed
  events=release['compile_events']
  require([(e.get('logical_layer'),e.get('assertions_preserved')) for e in events]==[('right-modifier H1',23),('experimental H1',21),('bounded lock waits',16),('source/text v2',46),('keyboard/lock feedback',25),('caps/STOP closure',59)],'INCOMPLETE_FROZEN_H1_CHAIN')
  require(sum(len(e.get('expectation_adaptations',[])) for e in events)>0 and sum(len(e.get('runtime_identity_adaptations',[])) for e in events)>0,'MISSING_STATIC_ADAPTATION_AUDIT')
+ handler_changes=[r for e in events for r in e.get('compiler_handler_adaptations',[])]
+ require(len(handler_changes)==2 and all(r.get('logical_layer')=='right-modifier H1' and r.get('before')=='ds_preview::Compiler::statement(' and r.get('after')=='ds_preview::Compiler::statementImpl(' and r.get('filename','').endswith('/tests/h1_right_modifiers/verify_link.py') for r in handler_changes),'UNREVIEWED_COMPILER_HANDLER_RETARGET')
  adapter=receipt['previous_repeat_target_adapter'];binding=release['previous_repeat_target_binding']
  require(adapter.get('adapter_sha256')==RELEASE['repeat_build_adapter_sha256'] and adapter.get('source_commit')==SOURCE_CHECKPOINT and adapter.get('build_inputs_sha256')==inputs_sha and adapter.get('source_commit_contains_changes') is True and adapter.get('overlay_calls')==1 and adapter.get('clean_compile') is True and adapter.get('inherited_safety_predicates_removed')==0,'WRONG_STATIC_BUILD_ADAPTER')
  require(adapter.get('previous_repeat_target_binding')==binding,'STATIC_TARGET_BINDING_DISAGREES')
@@ -264,6 +266,7 @@ def validate(directory,installed_table=None,installed_ota=None,require_installed
  proof=binding['previous_command_repeat']
  require(proof.get('status')=='PASS' and proof.get('source')=='core.cpp' and proof.get('source_sha256')==final_sources['core.cpp'],'WRONG_COMPILED_REPEAT_SOURCE')
  require(proof.get('compiled_from_final_source') is True and proof.get('object_linked') is True and proof.get('standalone_branch_verified') is True and proof.get('hardware') is False,'STANDALONE_REPEAT_NOT_PROVEN')
+ require(proof.get('modifier_handler_reachable') is True and len(proof.get('modifier_handler_call_edges',[]))>0 and all(r.get('opcode')=='call8' and r.get('callee')=='ds_shortcut::modifier(char const*)' for r in proof['modifier_handler_call_edges']),'MODIFIER_HANDLER_NOT_REACHABLE')
  require(pathlib.Path(proof['object_file']).name=='core.cpp.o' and linked.get(proof['object_file'])==proof.get('object_sha256'),'REPEAT_OBJECT_NOT_LINKED')
  require(len(proof.get('linked_symbols',[]))>=2 and all(isinstance(r.get('name'),str) and isinstance(r.get('address'),int) and r.get('size',0)>0 and len(r.get('disassembly_sha256',''))==64 for r in proof['linked_symbols']),'REPEAT_LINKED_SYMBOL_PROOF_MISSING')
  tests_data=read(d/'test-results.json',4*1024*1024);tests=json.loads(tests_data)
