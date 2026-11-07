@@ -134,8 +134,19 @@ def verify_input_manifest(build_root):
                            capture_output=True).returncode == 0, 'Repeat verifier revision is not an ancestor')
     require(subprocess.check_output(['git', 'show', verifier_commit + ':' + SELF_PATH], cwd=ROOT) == (ROOT / SELF_PATH).read_bytes(),
             'Repeat verifier differs from its committed revision')
-    require(verifier_commit == parent['source_commit'], 'New clean build verifier must be in its compilation checkpoint')
-    return dict(parent, verifier_context_commit=verifier_commit,
+    source_commit = parent['source_commit']
+    # Last-touch and compilation context are different facts: a later checkpoint
+    # can contain this exact unchanged verifier blob. The inherited guard has
+    # already checked every committed input/current byte and refused post-link
+    # differences; explicitly bind this active verifier to the build checkpoint.
+    require(subprocess.check_output(['git', 'show', source_commit + ':' + SELF_PATH], cwd=ROOT) == (ROOT / SELF_PATH).read_bytes(),
+            'Active REPEAT verifier is not the compilation-checkpoint Git blob')
+    require(subprocess.run(['git', 'merge-base', '--is-ancestor', verifier_commit, source_commit],
+                           cwd=ROOT, capture_output=True).returncode == 0,
+            'Verifier last-touch revision is newer than the compilation checkpoint')
+    return dict(parent, verifier_context_commit=source_commit,
+                verifier_last_touch_commit=verifier_commit, verifier_blob_commit=source_commit,
+                verifier_blob_sha256=sha(ROOT / SELF_PATH),
                 inherited_guard_verifier_context_commit=parent['verifier_context_commit'],
                 committed_guard_context_adaptations=dict(build_id=BUILD_ID, verifier_path=SELF_PATH),
                 previous_repeat_required_inputs=sorted(required))

@@ -84,6 +84,17 @@ build and failure receipt remain preserved. A new local checkpoint and fresh
 clean build are required; no post-compilation exception or guard relaxation is
 used to approve the earlier context. Production source bytes remain unchanged.
 
+The second clean compile also passed target verification, then exposed a
+host-adapter dispatch error: generated nested verifier units reuse filenames.
+The handler-selector adaptation is therefore scoped to the already verified
+logical right-modifier unit, with exactly two changes there and none in the
+other five units. Collision controls cover that distinction before the next
+checkpoint. Verifier provenance also distinguishes a file's last-touch revision
+from the compilation checkpoint that contains its identical Git blob: the
+original committed-input guard and explicit checkpoint-byte equality remain
+mandatory, and no post-compilation verifier delta is permitted. The second
+failure receipt remains preserved rather than treated as release approval.
+
 ## Review package and owner boundary
 
 The new Mac ZIP must bind the exact newly built image and committed source,

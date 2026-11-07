@@ -92,6 +92,24 @@ class Policy(unittest.TestCase):
         untouched.visit(lookalike)
         self.assertFalse(untouched.edits)
 
+    def test_reused_filename_does_not_select_nested_handler_layer(self):
+        reused = str((ROOT / 'tests/h1_right_modifiers/verify_link.py').resolve())
+        single_selector = "bodies['ds_preview::Compiler::statement('] = 'nested unit'"
+        for layer in ['source/text v2', 'bounded lock waits', 'experimental H1',
+                      'keyboard/lock feedback', 'caps/STOP closure']:
+            tree = ast.parse(single_selector)
+            before = ast.dump(tree, include_attributes=False)
+            after, edits = R.adapt_compiler_handler(tree, layer, reused)
+            self.assertEqual(ast.dump(after, include_attributes=False), before)
+            self.assertFalse(edits)
+        with self.assertRaises(AssertionError):
+            R.adapt_compiler_handler(ast.parse(single_selector), 'right-modifier H1', reused)
+        source = (ROOT / 'tests/h1_right_modifiers/verify_link.py').read_text()
+        changed, edits = R.adapt_compiler_handler(ast.parse(source), 'right-modifier H1', reused)
+        self.assertEqual(len(edits), 2)
+        self.assertTrue(all(e['logical_layer'] == 'right-modifier H1' and e['filename'] == reused for e in edits))
+        self.assertEqual(sum(isinstance(n, ast.Assert) for n in ast.walk(changed)), 23)
+
     def test_actual_candidate_modifier_handler_and_reachability(self):
         global PARTIAL_BINDING
         if CANDIDATE_BUILD is None:

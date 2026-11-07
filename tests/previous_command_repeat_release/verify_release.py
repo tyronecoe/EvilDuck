@@ -43,6 +43,22 @@ class CompilerHandlerExpectations(ast.NodeTransformer):
         return node
 
 
+def adapt_compiler_handler(tree, logical_layer, filename):
+    """Filename reuse by nested historical adapters is not a layer identity.
+
+    The frozen chain already derives logical_layer from its distinctive report
+    assignments. Only that validated right-modifier unit owns these selectors.
+    """
+    if logical_layer != 'right-modifier H1':
+        return tree, []
+    handler = CompilerHandlerExpectations()
+    tree = handler.visit(tree)
+    assert len(handler.edits) == 2, 'Expected exactly two right-modifier compiler-handler selectors'
+    for edit in handler.edits:
+        edit.update(logical_layer=logical_layer, filename=filename)
+    return tree, handler.edits
+
+
 def sha(path):
     return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 
@@ -91,20 +107,14 @@ def adapted_parent():
             'Same pinned comparison policy, with the exact five cumulative files.')
     replace('        tree = identity.visit(tree)\n        ast.fix_missing_locations(tree)',
             '''        tree = identity.visit(tree)
-        handler_edits = []
-        if name == REPEAT_HANDLER_PATH:
-            handler = REPEAT_HANDLER_ADAPTER()
-            tree = handler.visit(tree)
-            assert len(handler.edits) == 2, "Expected exactly two right-modifier compiler-handler selectors"
-            handler_edits = handler.edits
+        tree, handler_edits = REPEAT_HANDLER_ADAPT(tree, layer, name)
         ast.fix_missing_locations(tree)''')
     replace('runtime_identity_adaptations=identity.edits))',
             'runtime_identity_adaptations=identity.edits, compiler_handler_adaptations=handler_edits))')
     replace('STATIC RESPONSE REPAIR / EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / REVIEW / NOT OWNER-HARDWARE-VERIFIED',
             'PREVIOUS COMMAND REPEAT / STATIC RESPONSE / EDITOR SAFETY / PRIVACY FIX 1 / H1 EXPERIMENTAL / REVIEW / NOT OWNER-HARDWARE-VERIFIED')
     namespace = dict(__name__='previous_repeat_frozen_six_layer_release', __file__=str(__file__),
-                     REPEAT_HANDLER_PATH=str((ROOT / 'tests/h1_right_modifiers/verify_link.py').resolve()),
-                     REPEAT_HANDLER_ADAPTER=CompilerHandlerExpectations)
+                     REPEAT_HANDLER_ADAPT=adapt_compiler_handler)
     exec(ORIGINAL_COMPILE(text, str(ROOT / 'tests/dashboard_cleanup/verify_release.py'), 'exec'), namespace)
     return namespace, dict(static_response=inherited, previous_repeat=changes)
 
