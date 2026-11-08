@@ -100,6 +100,58 @@ class Policy(unittest.TestCase):
  def test_compile_duplicate_or_missing_property_refused(self):
   for text in ["args=['compile','--fqbn',s3_validation.FQBN]\nflags='-DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1'", "args=['compile','--fqbn',s3_validation.FQBN]\nflags='-DEVILDUCK_USB_ENUM_OBSERVER=1 -DEVILDUCK_ROUTE_B_RIGHT_MODIFIERS_H1=1'"]:
    with self.assertRaises(AssertionError):B.flag_adapter(text,'refusal','exec')
+ def test_exact_additive_profile_preserves_complete_old_comparison(self):
+  pin=json.loads((ROOT/'docs/h1-right-modifiers-build.json').read_text())
+  baseline=pin['report']['verified_cpp_extra_flags']
+  original=[word for word in V.shlex.split(baseline) if not word.startswith('-I')]
+  current=V.OBSERVER_FLAG+' '+baseline
+  self.assertEqual(V.observer_profile_flags(current),original)
+  for bad in [baseline,V.OBSERVER_FLAG+' '+current,baseline+' '+V.OBSERVER_FLAG,
+              current+' -DUNREVIEWED_PROFILE_CHANGE=1',current.replace('-DEVILDUCK_CONTROLLED_START=1 ',''),
+              current.replace('-fstack-usage','-fno-access-control')]:
+   with self.assertRaises(ValueError):
+    V.require(V.observer_profile_flags(bad)==original,'Controlled H1 profile flags changed')
+ def test_exact_additive_link_property_and_wrapper_set(self):
+  command=['compile','--build-property',V.OBSERVER_LINK_PROPERTY]
+  link=['compiler','-Wl,--wrap=esp_panic_handler','-Wl,--wrap=dcd_event_handler']
+  V.observer_link_profile(command,link)
+  for cmd,args in [([],link),(command+command[1:],link),
+                   (['compile','--build-property',V.OBSERVER_LINK_PROPERTY+' -Wl,--wrap=other'],link),
+                   (command,link[:-1]),(command,link+[link[-1]]),
+                   (command,link+['-Wl,--wrap=other']),(command,[link[0],link[-1]]),
+                   (command,['compiler',link[-1],link[-2]])]:
+   with self.assertRaises(ValueError):V.observer_link_profile(cmd,args)
+ def test_inspection_copy_requires_all_allocated_bytes_addresses_flags_and_symbols(self):
+  def elf():
+   data=bytearray(136);data[:6]=b'\x7fELF\x01\x01'
+   struct.pack_into('<I',data,32,52);struct.pack_into('<HH',data,46,40,2)
+   struct.pack_into('<10I',data,92,0,1,2,0x42000000,132,4,0,0,4,0)
+   data[132:]=b'abcd';return data
+  with tempfile.TemporaryDirectory(prefix='observer-elf-integrity-control-') as folder:
+   original=pathlib.Path(folder)/'original.elf';copy=pathlib.Path(folder)/'copy.elf';data=elf()
+   original.write_bytes(data);copy.write_bytes(data);symbols='42000000 T function\n'
+   V.inspection_copy_equivalent(original,copy,symbols,symbols)
+   for offset,value in [(132,ord('z')),(104,0x40),(100,3)]:
+    changed=bytearray(data);changed[offset]=value;copy.write_bytes(changed)
+    with self.assertRaises(ValueError):V.inspection_copy_equivalent(original,copy,symbols,symbols)
+   copy.write_bytes(data)
+   with self.assertRaises(ValueError):V.inspection_copy_equivalent(original,copy,symbols,symbols+'42000004 T extra\n')
+ def test_setup_dispatch_requires_event6_eight_bytes_buffer_and_wrapper(self):
+  statements=[('l32r','a11, 100'),('movi.n','a8, 6'),('s8i','a2, a1, 36'),('s8i','a8, a1, 37'),
+   ('movi.n','a12, 8'),('addi','a10, a1, 40'),('l32r','a8, 104'),('callx8','a8'),
+   ('addi','a5, a1, 36'),('movi','a11, 1'),('or','a10, a5, a5'),('l32r','a8, 108'),('callx8','a8')]
+  text='\n'.join('%x: 000000 %s %s'%(0x42000000+3*i,op,args) for i,(op,args) in enumerate(statements))
+  edges=[dict(address=0x42000015,target=0x400011f4),dict(address=0x42000024,target=0x42001000)]
+  with patch.object(V,'elf_bytes',return_value=struct.pack('<I',0x3fc00000)):
+   proof=V.setup_dispatch_witness(text,edges,0x42001000,0x400011f4,0x3fc00000,b'ELF')
+   self.assertEqual(proof['event_id'],6);self.assertEqual(proof['setup_bytes'],8)
+   for bad in [text.replace('a8, 6','a8, 7'),text.replace('a12, 8','a12, 9'),
+               text.replace('a10, a1, 40','a10, a1, 44'),text.replace('a11, 1','a11, 0'),
+               text.replace('or a10, a5, a5','or a10, a2, a2')]:
+    with self.assertRaises(ValueError):V.setup_dispatch_witness(bad,edges,0x42001000,0x400011f4,0x3fc00000,b'ELF')
+   for wrong in [edges[:1],[dict(edges[0],target=0x42002000),edges[1]]]:
+    with self.assertRaises(ValueError):V.setup_dispatch_witness(text,wrong,0x42001000,0x400011f4,0x3fc00000,b'ELF')
+   with self.assertRaises(ValueError):V.setup_dispatch_witness(text,edges,0x42001000,0x400011f4,0x3fc00004,b'ELF')
  def test_call_decoder_requires_executable_edges(self):
   text='42001000: 000005 call8 42002000 <dcd_event_handler>\n42001003: 000005 j 42003000 <usb_observer::observe(dcd_event_t const*, bool)>\n'
   self.assertEqual([r['target'] for r in V.call_edges(text)],[0x42002000,0x42003000])

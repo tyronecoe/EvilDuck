@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Actual source, archive, ISR forwarding and ELF capture-only target proof."""
 import argparse
+import ast
 import builtins
 import hashlib
 import importlib.util
@@ -10,6 +11,7 @@ import re
 import shlex
 import subprocess
 import sys
+import tempfile
 from unittest.mock import patch
 sys.dont_write_bytecode = True
 ROOT=pathlib.Path(__file__).resolve().parents[2]
@@ -20,6 +22,8 @@ SELF_PATH='tests/usb_os_observer_release/verify_target.py'
 PARENT=ROOT/'tests/define_labels_release/verify_target.py'
 PARENT_SHA='1c288f259b7ae646e3740d4e71db1f9aebdf8668ef4e7b6626bfda47cd7cd397'
 ORIGINAL_COMPILE=builtins.compile
+OBSERVER_FLAG='-DEVILDUCK_USB_ENUM_OBSERVER=1'
+OBSERVER_LINK_PROPERTY='compiler.c.elf.extra_flags=-Wl,--wrap=dcd_event_handler'
 
 def sha(path):return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def require(condition,message):
@@ -31,6 +35,19 @@ D=load(PARENT,'usb_observer_complete_define_target')
 D.BUILD_ID=D.S.BUILD_ID=BUILD_ID
 D.SELF_PATH=D.S.SELF_PATH=SELF_PATH
 S=D.S
+
+def observer_profile_flags(text):
+    """Remove exactly the declared additive prefix; retain the full old equality."""
+    words=[word for word in shlex.split(text) if not word.startswith('-I')]
+    require(words.count(OBSERVER_FLAG)==1 and words[0]==OBSERVER_FLAG,'Observer profile prefix missing, duplicated or relocated')
+    return words[1:]
+
+def observer_link_profile(command,link):
+    properties=[command[i+1] for i,word in enumerate(command[:-1]) if word=='--build-property']
+    require([p for p in properties if p.startswith('compiler.c.elf.extra_flags=')]==[OBSERVER_LINK_PROPERTY],
+        'Observer link property missing, duplicated or changed')
+    require([w for w in link if '--wrap=' in w]==['-Wl,--wrap=esp_panic_handler','-Wl,--wrap=dcd_event_handler'],
+        'Actual link wrapper set/order differs from original panic plus exact observer addition')
 
 def adapted_parent():
     captured=[]
@@ -60,7 +77,48 @@ def adapted_parent():
     replace('cumulative_h1_changed_files=6, cumulative_h1_unchanged_files=195','cumulative_h1_changed_files=8, cumulative_h1_unchanged_files=193')
     ns=dict(__name__='usb_observer_frozen_target_chain',__file__=str(__file__))
     exec(ORIGINAL_COMPILE(text,str(S.PARENT),'exec'),ns)
+    original_parent_namespace=ns['parent_namespace']
+    def observer_parent_namespace():
+        events=[]
+        privacy=str(ROOT/'tests/privacy_fix1/verify_target.py')
+        def profile_adapter(source,filename,mode,*args,**kwargs):
+            if mode=='exec' and str(filename)==privacy and isinstance(source,str):
+                old='_profile_flags(report["report"]["verified_cpp_extra_flags"])'
+                new='_observer_profile_flags(report["report"]["verified_cpp_extra_flags"])'
+                require(source.count(old)==1,'Exact historical profile comparison absent/ambiguous')
+                before=ast.parse(source);source=source.replace(old,new,1);after=ast.parse(source)
+                count=lambda tree:sum(isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='require' for n in ast.walk(tree))
+                require(count(before)==count(after),'Historical target predicate removed')
+                events.append(dict(before=old,after=new,occurrences=1,require_predicates_retained=count(after)))
+            return ORIGINAL_COMPILE(source,filename,mode,*args,**kwargs)
+        with patch.object(builtins,'compile',profile_adapter):parent,adaptations=original_parent_namespace()
+        require(len(events)==1,'Expected one complete privacy profile adaptation')
+        parent['_observer_profile_flags']=observer_profile_flags
+        return parent,adaptations+events
+    ns['parent_namespace']=observer_parent_namespace
     return ns,dict(define_labels=inherited,usb_observer=changes)
+
+def inspection_copy_equivalent(original,copy,original_symbols,copy_symbols):
+    helper=ROOT/'tests/led_feedback/startup_decode.py'
+    require(sha(helper)=='48406180324f41371d0803547edc4d0844caf1a7c424f965372de045cbce3aba','Approved ELF section decoder changed')
+    decoded=load(helper,'observer_approved_elf_sections')
+    require(decoded.allocated_sections(original)==decoded.allocated_sections(copy),'Inspection ELF changed allocated bytes/addresses/flags')
+    require(original_symbols==copy_symbols,'Inspection ELF changed symbols')
+
+def inspection_disassembly(objdump,elf,symbol):
+    """Decode original code through an allocated-byte/symbol-identical scratch ELF."""
+    prefix=str(objdump).rsplit('objdump',1)[0];before=sha(elf)
+    with tempfile.TemporaryDirectory(prefix='usb-dcd-inspection-') as folder:
+        copy=pathlib.Path(folder)/'inspection.elf'
+        subprocess.run([prefix+'objcopy','--remove-section=.xt.prop','--remove-section=.xt.lit',str(elf),str(copy)],capture_output=True,check=True)
+        symbols=lambda path:subprocess.check_output([prefix+'nm','-n',str(path)],text=True)
+        inspection_copy_equivalent(elf,copy,symbols(elf),symbols(copy))
+        result=subprocess.check_output([str(objdump),'-C','-d','--start-address='+str(symbol['address']),
+            '--stop-address='+str(symbol['address']+symbol['size']),str(copy)],text=True)
+        evidence=dict(original_elf_sha256=before,inspection_elf_sha256=sha(copy),
+            removed_nonallocated_sections=['.xt.prop','.xt.lit'],allocated_sections_identical=True,all_symbols_identical=True)
+    require(sha(elf)==before,'Actual ELF changed during inspection')
+    return result,evidence
 
 def verify_composed_source(source):
     source=pathlib.Path(source);m=load(HERE/'prepare_sources.py','observer_verify_sources');rows=m.verify_final(source)
@@ -123,6 +181,34 @@ def call_edges(text,data=None):
             registers.pop(reg,None)
     return rows
 
+def setup_dispatch_witness(text,edges,wrapper,memcpy,setup_buffer,data):
+    """Bind the actual SDK SETUP block: event6, eight bytes, ISR flag and wrapper."""
+    instructions=[]
+    for line in text.splitlines():
+        m=re.match(r'^\s*([0-9a-fA-F]+):\s+[0-9a-fA-F]+\s+(\S+)\s*(.*)$',line)
+        if m:instructions.append(dict(address=int(m[1],16),op=m[2],args=m[3]))
+    targets={r['address']:r['target'] for r in edges};found=[]
+    for i in range(1,len(instructions)-11):
+        rows=instructions[i:i+12];ops=[r['op'] for r in rows];args=[r['args'] for r in rows]
+        if ops!=['movi.n','s8i','s8i','movi.n','addi','l32r','callx8','addi','movi','or','l32r','callx8']:continue
+        event=re.fullmatch(r'(a\d+),\s*6',args[0]);port=re.fullmatch(r'a2,\s*a1,\s*(\d+)',args[1])
+        if not event or not port:continue
+        start=int(port[1]);reg=event[1]
+        if not re.fullmatch(reg+r',\s*a1,\s*'+str(start+1),args[2]):continue
+        if not re.fullmatch(r'a12,\s*8',args[3]) or not re.fullmatch(r'a10,\s*a1,\s*'+str(start+4),args[4]):continue
+        address=re.fullmatch(r'(a\d+),\s*a1,\s*'+str(start),args[7])
+        if not address or not re.fullmatch(r'a11,\s*1',args[8]):continue
+        if not re.fullmatch(r'a10,\s*'+address[1]+r',\s*'+address[1],args[9]):continue
+        if args[6]!='a8' or args[11]!='a8' or targets.get(rows[6]['address'])!=memcpy or targets.get(rows[11]['address'])!=wrapper:continue
+        previous=instructions[i-1];literal=re.match(r'a11,\s*([0-9a-fA-F]+)',previous['args'])
+        if previous['op']!='l32r' or not literal:continue
+        if int.from_bytes(elf_bytes(data,int(literal[1],16),4),'little')!=setup_buffer:continue
+        found.append(dict(event_id=6,setup_bytes=8,setup_buffer=setup_buffer,event_stack_offset=start,
+            event_id_store=rows[2]['address'],copy_call=rows[6]['address'],wrapper_call=rows[11]['address'],in_isr=True,
+            instructions=[previous]+rows))
+    require(len(found)==1,'Actual SETUP event6/eight-byte copy/ISR wrapper dispatch absent or ambiguous')
+    return found[0]
+
 def observer_binding(root):
     root=pathlib.Path(root);build=root/'build';source=root/'candidate/EvilDuckS3'
     report=json.loads((root/'report.json').read_text());entries=json.loads((build/'compile_commands.json').read_text())
@@ -136,6 +222,7 @@ def observer_binding(root):
     linked={r['file']:r for r in report['linked_input_hashes']};loads={l[5:].strip() for l in (build/'EvilDuckS3.ino.map').read_text().splitlines() if l.startswith('LOAD ')}
     require(str(obj) in linked and str(obj) in loads and linked[str(obj)]['sha256']==sha(obj),'Observer object is not actual linked input')
     link=report['link_command'];link=shlex.split(link) if isinstance(link,str) else link
+    observer_link_profile(report['command'],link)
     require(link.count('-Wl,--wrap=dcd_event_handler')==1,'Actual link lacks one exact observer wrap flag')
     require(link.count('-Wl,--wrap=esp_panic_handler')==1,'Original panic wrapper missing/duplicated')
     require('-DEVILDUCK_USB_ENUM_OBSERVER=1' in report['report']['verified_cpp_extra_flags'],'Build profile does not record observer selector')
@@ -148,9 +235,18 @@ def observer_binding(root):
     require(sum(e['target']==original['address'] for e in edges)==1,'Wrapper must call original handler exactly once')
     require(sum(e['target']==observe['address'] for e in edges)==1,'Wrapper must call bounded observer exactly once')
     require(sum(e['target']==wrapper['address'] for e in edges)==0,'Observer wrapper recurses')
-    dcd=exact('dcd_int_handler');dcd_text=disassemble(dcd);dcd_edges=call_edges(dcd_text,data)
+    dcd=exact('dcd_int_handler');dcd_text,dcd_inspection=inspection_disassembly(objdump,elf,dcd);dcd_edges=call_edges(dcd_text,data)
     require(any(e['target']==wrapper['address'] for e in dcd_edges),'Actual DCD IRQ does not call observer wrapper')
     require(not any(e['target']==original['address'] for e in dcd_edges),'Actual DCD IRQ bypasses wrapper')
+    helper=exact('handle_ep_irq');helper_text,helper_inspection=inspection_disassembly(objdump,elf,helper);helper_edges=call_edges(helper_text,data)
+    require(any(e['target']==helper['address'] for e in dcd_edges),'Actual DCD IRQ does not reach SETUP endpoint helper')
+    require(not any(e['target']==original['address'] for e in helper_edges),'SETUP endpoint helper bypasses wrapper')
+    target,deps=E.make_dependencies(obj.with_suffix('.d').read_text())
+    headers=[pathlib.Path(p) for p in deps if p.endswith('/esp32s3/include/arduino_tinyusb/tinyusb/src/device/dcd.h')]
+    require(len(headers)==1 and sha(headers[0])=='6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1','Actual observer DCD event header missing or changed')
+    setup_path=setup_dispatch_witness(helper_text,helper_edges,wrapper['address'],exact('memcpy')['address'],exact('_dcd_usbbuf')['address'],data)
+    setup_path.update(helper=helper,helper_calls=helper_edges,helper_disassembly=helper_text,inspection=helper_inspection,
+        sdk_dcd_header=str(headers[0]),sdk_dcd_header_sha256=sha(headers[0]))
     state=exact('usb_observer::captureState');mux=exact('usb_observer::captureMux')
     require(state['kind'] in 'Bb','Early observer capture state is not zero-initialized BSS')
     require(state['size']+mux['size']<=2048,'Observer dedicated RAM budget exceeded')
@@ -197,7 +293,8 @@ def observer_binding(root):
         actual_backend_object_sha256=sha(obj),actual_elf_sha256=sha(elf),explicit_compile_selector=True,
         actual_link_wrap_flag=True,wrapper=wrapper,original_handler=original,observer=observe,
         original_panic_wrap_preserved=True,
-        wrapper_calls=edges,dcd_irq=dcd,dcd_calls=dcd_edges,original_handler_called_once=True,
+        wrapper_calls=edges,dcd_irq=dcd,dcd_calls=dcd_edges,dcd_disassembly=dcd_text,dcd_inspection=dcd_inspection,
+        setup_dispatch=setup_path,actual_setup_path_verified=True,original_handler_called_once=True,
         dcd_calls_wrapper=True,original_event_arguments_source_pinned=True,sdk_archive_sha256=sha(archive),
         original_sdk_members=dict(dcd=sha(driver),usbd=sha(original_obj)),sdk_sources_unchanged=True,
         mutable_state=observer_ram,dedicated_state_bytes=state['size']+mux['size'],state_budget_bytes=2048,
