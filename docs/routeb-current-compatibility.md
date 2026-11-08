@@ -6,55 +6,38 @@ It is not a percentage or a claim that every downloadable Hak5 payload works.
 
 ## Baseline and evidence identities
 
-| Identity | Current record |
-|---|---|
-| Latest owner-recorded installed release | `ROUTEB-DEL-ALIAS-H1-v1`; intended release identity, full running dashboard ID unavailable |
-| Recorded DEL firmware checkpoint | `2e3efa295d46aef55b4d39af9cf3a9a40bb70422` |
-| DEL application | 1,437,888 bytes; SHA-256 `d1571be81619e464ee997d0ba8ebbf7e7b8a8b4252e4debc9d9144b9ebe6b379` |
-| DEL publication checkpoint | `6bcfb605c8249b63be2be9f79a00e4e81863fbf6` |
-| DEL publication ZIP | 2,644,497 bytes; SHA-256 `6dbc548c0e58714511c77f29ef50449f07d3ed94ef4422d09fe755e3f4b0f116` |
-| Later owner evidence | Offline integrity PASS; installer reported BOTH_APPLICATION_COMPARISONS_PASS; owner said "Both tests worked" and handoff described `ab` twice in TextEdit |
-| New development candidate | `ROUTEB-DEFINE-LABELS-H1-v1`; separate from the DEL installed/owner-observation record |
+The latest owner-reported installed release is **ROUTEB-DEFINE-LABELS-H1-v1**,
+publication `bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29`, firmware checkpoint
+`5d9176dd15f722ffe20d219d33684da7461d1754`. Application: 1,438,048 bytes,
+SHA-256 `167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30`.
+The [integrated owner update](define-labels-owner-acceptance.md) records all three
+scoped DEFINE passes. Full dashboard build ID and positive-trial request statuses
+remain unknown. Prior DEL, H1, right-modifier and lock-wait passes remain closed;
+missing metadata does not require reruns. No independent live-image readback is
+claimed by this inventory.
 
-The [DEL owner closeout](del-alias-owner-closeout.md) preserves the scoped later
-installation, boot/input and editing observations. Full running build ID,
-request IDs and matching Completed statuses were not supplied; they remain
-unknown and do not require repeating the closed comparison. The source/image
-identities above identify the intended release, not a new independent device
-readback. The earlier owner-recorded REPEAT installation remains historical;
-it is not used to deny the later DEL installation report.
+The current working composition is the actual 201-file DEFINE tree selected by
+[its preparer](../tests/define_labels_release/prepare_sources.py) and manifest.
+Its core.cpp SHA-256 is
+`582c36e717108ccb9a620020272d3bafe6d52012c2c0680e3dda7946fe3eb419`.
+Earlier C: references below describe the reviewed DEL ancestor's unchanged paths;
+DEFINE's three constant-specific changes and measurements are separately bound
+in [the completed release](define-labels-release-delivery.md). Root firmware,
+standalone preview and the custom Legacy interpreter are not substitutes.
 
-The new DEFINE candidate changes only bounded constant-name capacity and its
-matching preprocessing lookup. Source/test/build/package outcomes belong in
-[its delivery report](define-labels-release-delivery.md) and
-[structured results](define-labels-release-results.json). Those software/target
-receipts do not establish installation or physical acceptance of the new image.
+The new USB-only milestone begins with one authorized **capture-only observer**,
+not an OS detector. Its [evidence gate](usb-os-evidence-gate.json) finds no valid
+positive High Sierra signature in existing material. [The capture contract](usb-os-observer-contract.md)
+defines exact metadata, limits, owner observation and working-firmware return.
+A final detector/branching release is conditional on evidence; no guessed OS,
+manual MACOS label, canonical Hak5 counter or always-UNKNOWN detector is claimed.
+Observer test/build/package outcomes belong in its separate delivery report.
 
-The reviewed parent is the actual 201-file tree selected by
-[the DEL release preparer](../tests/del_alias_release/prepare_sources.py) and
-[manifest](../tests/del_alias_release/source-manifest.json). Parent `core.cpp`
-SHA-256 is
-`d567a199a247fc585bb8f61c7459323a14ca8ca4bd14ff60690284d334f5431d`.
-The selected tree was
-`/workspace/scratch/del-alias-release/build-v1/candidate/EvilDuckS3`.
-References marked **C:** below describe that hash-bound DEL parent; new
-DEFINE-label capacity is specified separately. The root firmware, standalone
-preview and separate Legacy interpreter do not substitute for this composition.
-The historical preview wording inside a linked header is stale.
-
-[DEL delivery](del-alias-release-delivery.md),
-[structured results](del-alias-release-results.json),
-[publication note](del-alias-review-download.md) and
-[later owner closeout](del-alias-owner-closeout.md) distinguish source/build,
-publication and physical-observation stages. Earlier local/not-installed/pending
-labels remain historical; the later owner closeout updates the current record
-without rewriting prior packages or receipts. Old test totals are **historical
-receipts**, not newly executed checks by this inventory update.
-
-The supported profile is bounded **source compatibility**: Route B compiles
-source into its own program. It is not an `inject.bin` loader or complete DS3
-runtime compatibility. Original Hak5 Legacy1.0 is not synonymous with EvilDuck's
-custom Legacy engine.
+Original local/pending/not-installed release reports remain historical; later
+owner evidence updates the installed record without changing their packages.
+All test totals retain their original date/source scope. Route B is bounded
+source compatibility, not inject.bin loading or complete DS3 compatibility.
+Original Hak5 Legacy1.0 is distinct from EvilDuck's custom Legacy engine.
 
 ## Evidence vocabulary
 
@@ -114,7 +97,7 @@ Planning retrieved these on2026-11-07; publication/revision dates were not suppl
 | Keystroke Injection | Native text, keys, modifiers and timing. | IMPLEMENTED/SOFTWARE-TESTED bounded grammar and keyboard reports, `C:core.cpp:325`, `shortcut_keys.h:17`, `seam.inc:50`. DEL alias is implemented and has scoped owner editing observations. | Scoped OWNER-REPORTED PASS; US/ASCII and finite source/report limits, not all payloads/locales. |
 | HID Spoofing | Keyboard enumeration; native ATTACKMODE modes/identity parameters. | PARTIAL fixed configured keyboard enumeration. Route B has no ATTACKMODE handler; reserved name is not implementation (`C:core.cpp:83,484`). | Payload-selected identities/modes unsupported. No descriptor/impersonation work. |
 | Living off the Land | Host commands/tools invoked by payload input. | HOST-DEPENDENT; keyboard launch mechanics do not confer permissions. | Harmless Bash lab evidence is scoped launch behavior, not elevation/universal portability. |
-| OS Fingerprinting | OS_DETECT extension requiring telemetry including configuration requests/lock replies. | UNSUPPORTED detector. The DEFINE candidate addresses only the27-byte-label admission gap; actual next unmodified-source compile outcome belongs in its release results. Existing lock telemetry remains a subset. `C:core.cpp:159`; legacy reserved properties fall through Unsupported at `duck_vars.cpp:232`. | Counter event/reset/timing/overflow/session contract unresolved; OS symbols, indicators, Route B lock save/restore, USB mode/identity/reconnect and full-extension capacity remain separate. No OS probe or manual/fixed-label substitute. |
+| OS Fingerprinting | Hak5 supplies telemetry and extension behavior; this release makes no unchanged Hak5 compatibility claim. | Capture-only observer: bounded selected request headers, raw metadata plus unsupported/integrity reasons, manual authenticated export. No classifier/getter or positive OS result. Compiler/runtime and working USB identity remain unchanged. | The [evidence gate](usb-os-evidence-gate.json) requires one capture stage; [contract](usb-os-observer-contract.md) defines exclusions, one owner session and exact working return. Positive High Sierra detection remains gated on independent justification and held-out validation. |
 | Keystroke Reflection | LED reflection and loot storage. | PARTIAL custom fixed17-byte EDR1 (`C:led_receiver.h:5`, `led_receiver.cpp:21`). No arbitrary EXFIL. | Historical OWNER-REPORTED PASS on old CAPS-STOP-TRACE build plus iPhone viewing, not fresh current-build verification or Hak5 protocol compatibility. |
 | Credential Dumping | Host-side operations governed by credential-store permissions. | HOST-DEPENDENT; no native credential collection. | G10 synthetic only; G11 separate fake-item keychain only. No genuine credential/vault/memory access established or planned. |
 | Keylogging / Input Capture | Requires a suitable host collection/hardware path. | UNSUPPORTED. Enumerating as a keyboard does not receive unrelated input; output callback is LED metadata (`C:hid_backend.cpp:215`). | Optional model limited to fabricated text in its own visible lab field; no global/background capture. |

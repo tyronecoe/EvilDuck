@@ -1,0 +1,110 @@
+{
+  "status": "CAPTURE_REQUIRED_NO_VALIDATED_HIGH_SIERRA_RULE",
+  "observed_utc": "2026-11-08T08:31:10.470285+00:00",
+  "scope": "Read-only existing primary/project evidence gate; no new web search, compiler execution, test execution, device access, HID operation or firmware change",
+  "repository_head": "bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29",
+  "official_reference": {
+    "revision": "4fa639fd06972cd7efd9c48cc73136443f9cffb1",
+    "version": "1.1",
+    "url": "https://github.com/hak5/usbrubberducky-payloads/blob/4fa639fd06972cd7efd9c48cc73136443f9cffb1/payloads/extensions/os_detect.txt",
+    "sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f"
+  },
+  "evidence_files": [
+    {
+      "file": "/workspace/EvilDuck/docs/define-labels-os-progress.md",
+      "bytes": 4690,
+      "sha256": "15d3d4b954680e4df7a537826a1a8970d42a150cab8ce9fb98aeca325d908ade"
+    },
+    {
+      "file": "/workspace/EvilDuck/docs/os-fingerprinting-compatibility-investigation.md",
+      "bytes": 7263,
+      "sha256": "3990e69bd64bf088e7419847799be1d493c372ed4a8ccc6cd03c818559026791"
+    },
+    {
+      "file": "/workspace/scratch/os-detect-audit/os_detect-official-unmodified.txt",
+      "bytes": 7875,
+      "sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f"
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/build-v1/candidate/EvilDuckS3/hid_trace.h",
+      "bytes": 1020,
+      "sha256": "9c41c5d445551ba74bb743df4f198cae952b34f27ce066d134bf5525e8905336"
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/build-v1/candidate/EvilDuckS3/adapter.cpp",
+      "bytes": 8971,
+      "sha256": "b0945472e00d6177c14367e56eab3091d640ad3c471ecc825bbc812be57b3bb0"
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/build-v1/candidate/EvilDuckS3/hid_backend.cpp",
+      "bytes": 29052,
+      "sha256": "9e399bb7085261e97c5b71d888b11aa317054fc6f6bace9d92d34b2bb314af0c"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/hardware/esp32/3.3.0/cores/esp32/main.cpp",
+      "bytes": 2654,
+      "sha256": "5e5208f7cf5f83f195906c5b47ef32196d7f6be930f2d2102d470dab9ce26f2d"
+    },
+    {
+      "file": "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.5-b66b5448-v1/esp32s3/include/arduino_tinyusb/tinyusb/src/device/dcd.h",
+      "bytes": 8635,
+      "sha256": "6c1e262648c70347ce37bf086ac48fc428560464162217b808065ddaec5104a1"
+    }
+  ],
+  "gate_findings": [
+    {
+      "claim": "Official counter >2 supports an EvilDuck High Sierra classifier",
+      "accepted": false,
+      "reason": "Official code distinguishes WINDOWS/LINUX with this threshold and does not specify the underlying counter event/reset/session contract."
+    },
+    {
+      "claim": "Missing LED reply means known MACOS",
+      "accepted": false,
+      "reason": "Official fallback is heuristic; no independent positive High Sierra signature. Current strict Caps reads require actual fresh received evidence, whereas no received evidence stays unknown."
+    },
+    {
+      "claim": "Existing accepted Mac typing/LED trials supply the needed enumeration trace",
+      "accepted": false,
+      "reason": "They demonstrate their scoped behavior only. The current HID trace carries operation/LED metadata, not the eight-byte SETUP headers or early enumeration ordering."
+    },
+    {
+      "claim": "A profile trained from the same known Mac establishes OS accuracy",
+      "accepted": false,
+      "reason": "Same-host observations can establish repeatability, not uniqueness across operating systems or independent validation."
+    }
+  ],
+  "minimum_capture_question": "Which early control-request header/order/lifecycle features, if any, support a reproducible positive High Sierra profile under unchanged EvilDuck USB descriptors?",
+  "minimum_capture_fields": [
+    "bmRequestType",
+    "bRequest",
+    "wValue",
+    "wIndex",
+    "wLength",
+    "request ordering",
+    "USB reset/unplug generation boundary"
+  ],
+  "capture_boundary": [
+    "Only approved standard enumeration and HID initialization request headers; no transfer data, descriptor/string contents, HID report contents, keystrokes or host files.",
+    "Capture must be statically ready before Arduino starts USB; setup()/backend initialization is too late.",
+    "Use the approved first64-record/five-second foreground collection contract; overflow, late/incomplete capture, generation mismatch or absent validated rule cannot produce a positive OS result.",
+    "The observer can expose metadata only and must not present an always-UNKNOWN detector as a completed detection release."
+  ],
+  "positive_rule_gate": [
+    "Trace-backed positive evidence for the unchanged profile.",
+    "Separate observations used to develop a rule from held-out observations used to validate it.",
+    "Independently justified discriminator or comparison evidence; classify ambiguity as UNKNOWN.",
+    "Known Mac results remain scoped; other operating systems stay untested unless separately observed."
+  ],
+  "working_return": {
+    "build_id": "ROUTEB-DEFINE-LABELS-H1-v1",
+    "application_bytes": 1438048,
+    "application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30",
+    "kit_sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "mandatory_older_rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+  },
+  "owner_evidence": "Three scoped DEFINE owner passes including Request3 line1/code6, blank output owner-reported; full running build ID and positive statuses unavailable. DEL passes stay accepted.",
+  "firmware_source_modified": false,
+  "tests_or_compilers_executed": false,
+  "hardware_access": false,
+  "network_research_performed": false
+}
