@@ -241,6 +241,8 @@ def adapter(binding, attestation_file, test_results_file):
             "        'source-attestation.json': ATTESTATION_FILE,\n"
             "        'native-test-receipt.json': NATIVE_TEST_FILE,\n"
             "        'web-test-receipt.json': WEB_TEST_FILE,\n"
+            "        'current-del-regression-receipt.json': CURRENT_DEL_TEST_FILE,\n"
+            "        'current-define-regression-receipt.json': CURRENT_DEFINE_TEST_FILE,\n"
             "        'test-results.json': TEST_RESULTS_FILE})\n"
             '    for name, source in copies.items():')
     # All generated owner-facing documents replace stale inherited copies before
@@ -299,6 +301,8 @@ def adapter(binding, attestation_file, test_results_file):
                      TEST_RESULTS_FILE=pathlib.Path(test_results_file),
                      NATIVE_TEST_FILE=pathlib.Path(tests['groups']['native']['receipt']) if tests else pathlib.Path('/public-native-test-receipt.json'),
                      WEB_TEST_FILE=pathlib.Path(tests['groups']['web']['receipt']) if tests else pathlib.Path('/public-web-test-receipt.json'),
+                     CURRENT_DEL_TEST_FILE=pathlib.Path(tests['groups']['del']['receipt']) if tests else pathlib.Path('/public-current-del-test-receipt.json'),
+                     CURRENT_DEFINE_TEST_FILE=pathlib.Path(tests['groups']['define']['receipt']) if tests else pathlib.Path('/public-current-define-test-receipt.json'),
                      DEL_TEST_FILE=pathlib.Path(binding.get('del_test_receipt', '/public-del-test-receipt.json')),
                      DEFINE_TEST_FILE=pathlib.Path(binding.get('define_test_receipt', '/public-define-test-receipt.json')),
                      OBSERVER_TEST_FILE=pathlib.Path(binding.get('observer_test_receipt', '/public-observer-test-receipt.json')),
@@ -377,7 +381,7 @@ def prepare(directory, build_root, linked_report, core, source_commit, test_resu
     assert sha(test_results) == binding['test_results_sha256']
     tests = json.loads(pathlib.Path(test_results).read_text())
     assert tests['status'] == 'PASS' and tests['target_build'] is False and tests['hardware_access'] is False
-    for label in ['native', 'web']:
+    for label in ['native', 'web', 'del', 'define']:
         assert tests['groups'][label]['exit'] == 0 and not tests['groups'][label]['stderr']
         assert sha(tests['groups'][label]['receipt']) == tests['groups'][label]['receipt_sha256']
     focused = pathlib.Path(binding['del_test_receipt'])
