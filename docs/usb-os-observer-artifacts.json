@@ -1,0 +1,51 @@
+{
+  "build_id": "ROUTEB-USB-ENUM-OBSERVER-H1-v1",
+  "source_commit": "7472de1e0edf123a9fcdf9d1d4feb1b38250280e",
+  "package_commit": "20f08464d3b51786d2a3773a7aef25bee9cd2ad5",
+  "artifacts": [
+    {
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1445008,
+      "sha256": "e60af8a1b53ab2ba9e7c79b4ff821719ddd06a0a55384dd987288c4189aed6a9"
+    },
+    {
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 23676852,
+      "sha256": "e63663295f250868e006e3273c718e84cb68f246ae58b7f47c86835505898377"
+    },
+    {
+      "file": "report.json",
+      "bytes": 1590619,
+      "sha256": "e9d364e1b7c28407e745d722b3cd2484853f640f1712700b0e3a7ab64de27091"
+    },
+    {
+      "file": "build-inputs.json",
+      "bytes": 22179,
+      "sha256": "b2f39d1e81692bc6c61aa04945190986790f491a0a24a37bcfc653b314dff1f7"
+    },
+    {
+      "file": "usb-observer-release-verification.json",
+      "bytes": 3036776,
+      "sha256": "decddec3e7b8ad8bcf0b395870fa869cd84deff859cfd9b7f14ab24798b66fb6"
+    }
+  ],
+  "package": {
+    "file": "downloads/evilduck-routeb-usb-enum-observer-h1-macos-review-v1.zip",
+    "bytes": 5492049,
+    "sha256": "a93215b2c23b6937e867b6f988b30f3924be37a2f599fe7b3e805ae51030719c"
+  },
+  "baseline_application": {
+    "bytes": 1438048,
+    "sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30"
+  },
+  "working_return_zip": {
+    "bytes": 2691374,
+    "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "role": "WORKING_DEFINE_RETURN"
+  },
+  "older_rollback_application": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "role": "OLDER_SOURCE_TEXT_V2"
+  }
+}
