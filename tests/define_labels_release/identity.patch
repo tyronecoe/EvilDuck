@@ -1,0 +1,11 @@
+--- caps_trial.h
++++ caps_trial.h
+@@ -2,7 +2,7 @@
+ #define EVILDUCK_CAPS_TRIAL_H
+ #include <stdint.h>
+ namespace caps_trial {
+-constexpr const char* BuildId="ROUTEB-DEL-ALIAS-H1-v1";
++constexpr const char* BuildId="ROUTEB-DEFINE-LABELS-H1-v1";
+ struct Snapshot {
+  uint64_t request=0,boot=0,downReturnUs=0,upReturnUs=0,downCompleteUs=0,upCompleteUs=0;
+  uint32_t feedbackSession=0;uint16_t requestedMs=0;uint8_t reason=0;

@@ -1,0 +1,29 @@
+--- core.cpp
++++ core.cpp
+@@ -235,7 +235,7 @@
+  }
+ };
+ class Compiler {
+- struct Constant{char name[24]={},value[64]={};};Constant constants_[MaxConstants]{};size_t constantsCount_=0;
++ struct Constant{char name[32]={},value[64]={};};Constant constants_[MaxConstants]{};size_t constantsCount_=0;
+  struct Block{Op kind;uint16_t start,lastFalse;bool otherwise=false;};Block blocks_[MaxNesting]{};size_t depth_=0;
+  Program& p_;Reader reader_;size_t received_=0,seen_=0;uint16_t line_=1;
+  Instruction repeated_{};uint16_t repeatRemaining_=0;
+@@ -269,7 +269,7 @@
+  bool constant(char* text){
+   char* label=left(argument(text));char* value=label;while(*value&&!white(*value))++value;
+   if(!*value)return fail(ErrorCode::Syntax);*value++=0;
+-  if(strlen(label)>=24||strlen(value)>=64||!ident(label+(*label=='#'))||!*value)return fail(ErrorCode::Identifier);
++  if(strlen(label)>=sizeof(constants_[0].name)||strlen(value)>=64||!ident(label+(*label=='#'))||!*value)return fail(ErrorCode::Identifier);
+   for(size_t i=0;i<constantsCount_;++i)if(exact(label,constants_[i].name))return fail(ErrorCode::DuplicateConstant);
+   if(constantsCount_==MaxConstants)return fail(ErrorCode::ConstantLimit);
+   strcpy(constants_[constantsCount_].name,label);strcpy(constants_[constantsCount_++].value,value);return true;
+@@ -488,7 +488,7 @@
+  bool includedLine()const{return included_[(line_-1)/8]&(1u<<((line_-1)%8));}
+  bool flag(char* text,bool& value){
+   const char* label=left(argument(text));
+-  if(*label!='#'||strlen(label)>=24||!ident(label+1))return fail(ErrorCode::PreprocessorSyntax);
++  if(*label!='#'||strlen(label)>=sizeof(constants_[0].name)||!ident(label+1))return fail(ErrorCode::PreprocessorSyntax);
+   value=false;if(!selected_)return true;
+   for(size_t i=0;i<constantsCount_;++i)if(exact(label,constants_[i].name)){
+    char stored[64];strcpy(stored,constants_[i].value);right(stored);const char* v=left(stored);

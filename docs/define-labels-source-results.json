@@ -1,0 +1,100 @@
+{
+  "status": "SOURCE_VERIFIED_TARGET_PENDING_AT_THIS_CHECKPOINT",
+  "baseline": "6bcfb605c8249b63be2be9f79a00e4e81863fbf6",
+  "focused_native": {
+    "PASS": 28,
+    "FAIL": 0,
+    "assertions": 374
+  },
+  "fresh_native_regressions": {
+    "PASS": 663,
+    "FAIL": 0,
+    "assertions": 28173
+  },
+  "reused_web": {
+    "PASS": 86,
+    "FAIL": 0,
+    "assertions": 1518,
+    "newly_executed": false
+  },
+  "host_layout_parent": {
+    "compiler_bytes": 3856,
+    "compiler_alignment": 8,
+    "workspace_bytes": 4096,
+    "workspace_alignment": 16,
+    "compile_session_bytes": 4144,
+    "program_bytes": 6936,
+    "runtime_bytes": 4952,
+    "accepted": false,
+    "physical_line": 50,
+    "column": 1,
+    "error_code": 6,
+    "ir_instructions": 0
+  },
+  "host_layout_candidate": {
+    "compiler_bytes": 3984,
+    "compiler_alignment": 8,
+    "workspace_bytes": 4096,
+    "workspace_alignment": 16,
+    "compile_session_bytes": 4144,
+    "program_bytes": 6936,
+    "runtime_bytes": 4952,
+    "accepted": false,
+    "physical_line": 54,
+    "column": 1,
+    "error_code": 18,
+    "ir_instructions": 1
+  },
+  "receipts": [
+    {
+      "file": "/workspace/scratch/define-labels-release/focused-v1.json",
+      "sha256": "b391c771232948cd5e60c81f86f3db7e4f623d443ebd11e526bd431284fc0db3",
+      "status": "PASS",
+      "counts": {
+        "PASS": 28,
+        "FAIL": 0
+      },
+      "assertions": 374
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/source-scope-v1.json",
+      "sha256": "d28a353234d3a8ef20a22ea167aa368ff560cbf0fceab8ea454c139e90e5ca50",
+      "status": "PASS",
+      "counts": {
+        "PASS": 7,
+        "FAIL": 0
+      },
+      "assertions": 34
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/regressions-v1.json",
+      "sha256": "ee0409cd8bbbad6b4fedb1215b9f1dd351334e7b556ca313ac3721c6fb5e16e7",
+      "status": "PASS",
+      "counts": null,
+      "assertions": null
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/release-controls-v1.json",
+      "sha256": "c013f199f6894becf07c2986fa525a10a40a68c1439b143051ad93f6895e627f",
+      "status": null,
+      "counts": {
+        "PASS": 27,
+        "FAIL": 0
+      },
+      "assertions": null
+    },
+    {
+      "file": "/workspace/scratch/define-labels-release/package-policy-v3.json",
+      "sha256": "465851c8c0b83e27e96dce8d871918302591b5038df05218e5776303c797cbfd",
+      "status": null,
+      "counts": {
+        "PASS": 7,
+        "FAIL": 0
+      },
+      "assertions": null
+    }
+  ],
+  "target_firmware_built": false,
+  "hardware_access": false,
+  "hid_output": false
+}

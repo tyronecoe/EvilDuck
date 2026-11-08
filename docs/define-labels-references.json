@@ -1,0 +1,61 @@
+{
+  "scope": "Reused pinned primary-source evidence for one bounded DEFINE-label capacity change; no fresh internet or compiler-function research.",
+  "recorded_utc_date": "2026-11-08",
+  "official_extension": {
+    "url": "https://github.com/hak5/usbrubberducky-payloads/blob/4fa639fd06972cd7efd9c48cc73136443f9cffb1/payloads/extensions/os_detect.txt",
+    "repository_revision": "4fa639fd06972cd7efd9c48cc73136443f9cffb1",
+    "blob": "1df4013ffc6c1006c7df265038e79a3652f84a51",
+    "declared_version": "1.1",
+    "bytes": 7875,
+    "sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f",
+    "publication_date": null,
+    "historical_retrieved_date": "2026-11-07",
+    "local_verified_snapshot": "/workspace/scratch/os-detect-audit/os_detect-official-unmodified.txt",
+    "physical_line": 50,
+    "line_text": "    DEFINE #WINDOWS_HOST_REQUEST_COUNT 2",
+    "label": "#WINDOWS_HOST_REQUEST_COUNT",
+    "label_bytes_including_hash": 27,
+    "evidence_boundary": "Official source establishes use of this label, not an official maximum or working EvilDuck OS detection."
+  },
+  "del_parent": {
+    "publication_commit": "6bcfb605c8249b63be2be9f79a00e4e81863fbf6",
+    "build_checkpoint": "2e3efa295d46aef55b4d39af9cf3a9a40bb70422",
+    "build_id": "ROUTEB-DEL-ALIAS-H1-v1",
+    "source_manifest": "tests/del_alias_release/source-manifest.json",
+    "core_sha256": "d567a199a247fc585bb8f61c7459323a14ca8ca4bd14ff60690284d334f5431d",
+    "historical_observed_rejection": {
+      "diagnostic_code": 6,
+      "diagnostic_name": "Identifier",
+      "physical_line": 50,
+      "column": 1,
+      "ir_instructions": 0,
+      "receipt": "docs/os-fingerprinting-compile-only-results.json"
+    }
+  },
+  "capacity_policy": {
+    "label_max_bytes": 31,
+    "includes_optional_hash": true,
+    "excludes_terminating_nul": true,
+    "storage_cell_bytes": 32,
+    "official_ds3_maximum_known": false,
+    "ordinary_variable_and_function_limits_changed": false,
+    "constant_slots": 16,
+    "compile_workspace_bytes": 4096,
+    "grammar_or_expansion_policy_changed": false,
+    "allocation_model_changed": false
+  },
+  "owner_handoff": {
+    "filename": "1-EvilDuck_Codex_DEFINE_Label_Upgrade.txt",
+    "sha256": "bf4312ba9d7a921eabf69c24e0321f4844f8518c37e2c10997022e2a4ee17611",
+    "evidence_scope": "Owner-supplied summary; referenced photograph/full installation transaction and request statuses were not independently supplied here."
+  },
+  "unresolved": [
+    "Actual enumeration counter event/timing/reset/overflow/session contract",
+    "OS result and constant runtime representation",
+    "Route B indicator and host-lock save/restore handlers",
+    "USB mode/identity/reconnect lifecycle and host accuracy",
+    "Remaining compiled-IR/runtime capacity of complete official extension"
+  ],
+  "no_os_probe": true,
+  "hardware_access": false
+}

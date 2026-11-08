@@ -1,0 +1,45 @@
+{
+  "stage": "COMPILE_ONLY_NO_OS_DETECTION",
+  "recorded_utc": "2026-11-08T03:50:43.670635+00:00",
+  "official_source": {
+    "revision": "4fa639fd06972cd7efd9c48cc73136443f9cffb1",
+    "sha256": "ef137faf626782fdcc6b43405f361b7a3c923c634f98dfd7774c73072e18399f",
+    "bytes": 7875,
+    "modified": false
+  },
+  "del_parent": {
+    "compiler_bytes": 3856,
+    "compiler_alignment": 8,
+    "workspace_bytes": 4096,
+    "workspace_alignment": 16,
+    "compile_session_bytes": 4144,
+    "program_bytes": 6936,
+    "runtime_bytes": 4952,
+    "accepted": false,
+    "physical_line": 50,
+    "column": 1,
+    "error_code": 6,
+    "ir_instructions": 0
+  },
+  "define_candidate": {
+    "compiler_bytes": 3984,
+    "compiler_alignment": 8,
+    "workspace_bytes": 4096,
+    "workspace_alignment": 16,
+    "compile_session_bytes": 4144,
+    "program_bytes": 6936,
+    "runtime_bytes": 4952,
+    "accepted": false,
+    "physical_line": 54,
+    "column": 1,
+    "error_code": 18,
+    "ir_instructions": 1
+  },
+  "receipt": "/workspace/scratch/define-labels-release/focused-v1.json",
+  "receipt_sha256": "b391c771232948cd5e60c81f86f3db7e4f623d443ebd11e526bd431284fc0db3",
+  "only_resolved_dependency": "DEFINE label capacity, 31bytes including optional #",
+  "runtime_started": false,
+  "hardware_access": false,
+  "hid_output": false,
+  "detector_implemented": false
+}

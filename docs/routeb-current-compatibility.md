@@ -1,6 +1,6 @@
 # Composed Route B compatibility inventory
 
-Consolidated **2026-11-07**. This inventory distinguishes selected source
+Consolidated **2026-11-08**. This inventory distinguishes selected source
 acceptance, runtime semantics, USB capability and demonstrated host outcome.
 It is not a percentage or a claim that every downloadable Hak5 payload works.
 
@@ -8,41 +8,48 @@ It is not a percentage or a claim that every downloadable Hak5 payload works.
 
 | Identity | Current record |
 |---|---|
-| Latest owner-recorded installed build | `ROUTEB-PREVIOUS-COMMAND-REPEAT-v1` |
-| Firmware source checkpoint | `820a575a45e5a4f644921d663a650110667a6ab2` |
-| Application | 1,437,888 bytes; SHA-256 `13cec88262afdfa641eb0fb4927fe7903abf2863295344ff316418707ba49b7f` |
-| Publication checkpoint | `557dc81f65b672d5b701b681664ef6ff0a7e5d44` |
-| Publication ZIP | 2,605,305 bytes; SHA-256 `9ab478df75fcec25648572320229ed9b31b167fa4f1af4f18ea200f2b97f4fbb` |
-| New development candidate | `ROUTEB-DEL-ALIAS-H1-v1`; separate from the installed-record identity and owner acceptance |
+| Latest owner-recorded installed release | `ROUTEB-DEL-ALIAS-H1-v1`; intended release identity, full running dashboard ID unavailable |
+| Recorded DEL firmware checkpoint | `2e3efa295d46aef55b4d39af9cf3a9a40bb70422` |
+| DEL application | 1,437,888 bytes; SHA-256 `d1571be81619e464ee997d0ba8ebbf7e7b8a8b4252e4debc9d9144b9ebe6b379` |
+| DEL publication checkpoint | `6bcfb605c8249b63be2be9f79a00e4e81863fbf6` |
+| DEL publication ZIP | 2,644,497 bytes; SHA-256 `6dbc548c0e58714511c77f29ef50449f07d3ed94ef4422d09fe755e3f4b0f116` |
+| Later owner evidence | Offline integrity PASS; installer reported BOTH_APPLICATION_COMPARISONS_PASS; owner said "Both tests worked" and handoff described `ab` twice in TextEdit |
+| New development candidate | `ROUTEB-DEFINE-LABELS-H1-v1`; separate from the DEL installed/owner-observation record |
 
-The installed identity is an **owner record**, not a new live-device readback.
-Repository HEAD, offline artifact hashes and compilation do not establish the
-bytes installed on the board. Source/test/build/package outcomes for the new candidate belong in
-[its delivery report](del-alias-release-delivery.md) and
-[structured results](del-alias-release-results.json); they do not promote it to
-an accepted baseline. Until those receipts are final, this inventory makes no
-new build or test-pass claim for DEL.
+The [DEL owner closeout](del-alias-owner-closeout.md) preserves the scoped later
+installation, boot/input and editing observations. Full running build ID,
+request IDs and matching Completed statuses were not supplied; they remain
+unknown and do not require repeating the closed comparison. The source/image
+identities above identify the intended release, not a new independent device
+readback. The earlier owner-recorded REPEAT installation remains historical;
+it is not used to deny the later DEL installation report.
 
-The reviewed parent is the actual201-file tree selected by
-[the REPEAT release preparer](../tests/previous_command_repeat_release/prepare_sources.py)
-and [manifest](../tests/previous_command_repeat_release/source-manifest.json).
-The planning stage matched every recorded source size/hash. Final parent
-`core.cpp` SHA-256 is
-`01fda98ee58d34cd523241cfdd1da37b6992e037b889ce964ce3e32c899b0c4b`.
+The new DEFINE candidate changes only bounded constant-name capacity and its
+matching preprocessing lookup. Source/test/build/package outcomes belong in
+[its delivery report](define-labels-release-delivery.md) and
+[structured results](define-labels-release-results.json). Those software/target
+receipts do not establish installation or physical acceptance of the new image.
+
+The reviewed parent is the actual 201-file tree selected by
+[the DEL release preparer](../tests/del_alias_release/prepare_sources.py) and
+[manifest](../tests/del_alias_release/source-manifest.json). Parent `core.cpp`
+SHA-256 is
+`d567a199a247fc585bb8f61c7459323a14ca8ca4bd14ff60690284d334f5431d`.
 The selected tree was
-`/workspace/scratch/previous-command-repeat-release/build-v3/candidate/EvilDuckS3`.
-References marked **C:** below describe that hash-bound parent; new DEL source
-changes are additive and specified separately. The root firmware, standalone
+`/workspace/scratch/del-alias-release/build-v1/candidate/EvilDuckS3`.
+References marked **C:** below describe that hash-bound DEL parent; new
+DEFINE-label capacity is specified separately. The root firmware, standalone
 preview and separate Legacy interpreter do not substitute for this composition.
 The historical preview wording inside a linked header is stale.
 
-[REPEAT delivery](previous-command-repeat-release-delivery.md),
-[structured results](previous-command-repeat-release-results.json) and
-[publication note](previous-command-repeat-review-download.md) retain the build,
-software, package and publication evidence. Their earlier local/not-installed
-labels remain true for their original preparation stage. Later publication and
-owner installation reports update current status without rewriting history.
-Old test totals are **historical receipts**, not newly executed checks here.
+[DEL delivery](del-alias-release-delivery.md),
+[structured results](del-alias-release-results.json),
+[publication note](del-alias-review-download.md) and
+[later owner closeout](del-alias-owner-closeout.md) distinguish source/build,
+publication and physical-observation stages. Earlier local/not-installed/pending
+labels remain historical; the later owner closeout updates the current record
+without rewriting prior packages or receipts. Old test totals are **historical
+receipts**, not newly executed checks by this inventory update.
 
 The supported profile is bounded **source compatibility**: Route B compiles
 source into its own program. It is not an `inject.bin` loader or complete DS3
@@ -70,10 +77,10 @@ submission does not answer all four.
 |---|---|---|
 | Text and aliases | STRING/STRINGLN inline and multiline blocks; fourteen aliases from POWERSHELL/BATCH/BASH/JAVASCRIPT/PYTHON/RUBY/HTML. Bare openers retain blocks; simple matching same-line terminated aliases are compiler-function-backed. Nonterminated inline aliases are EvilDuck extensions. Commands emit text, never execute embedded languages. Ordinary closing-token words remain literal. | Scoped owner text/alias passes plus software boundary tests. [v2 contract](source-text-v2-design.md), [reference results](source-text-v2-reference-results.json). Not every delimiter/alias physically certified. |
 | Source formatting | Exactly one EFBBBF at raw offset0, preserved/counting toward8,192 bytes; LF/CRLF/missing final newline. Partial/repeated/misplaced BOM, UTF16, unsupported controls/non-ASCII reject before output. | Source/text-v2 owner BOM trial: all30 bytes uploaded/read back, one111bom, Request1Completed. Source readback is not application readback. `C:adapter.cpp:97`; [source contract](source-text-design.md). |
-| DEFINE/comments/preprocessing | Bounded nonrecursive substitution; REM/REM_BLOCK/END_REM; four conditional directives, depth8/literal flags; sixteen top-level EXTENSION wrappers and bounded VERSION metadata. Excluded source is distinct from retained inactive runtime branches. | Retained branches/unused functions still preflight. Wrappers cannot implement unsupported bodies. [preprocessing design](source-compat-design.md), `C:core.cpp:250,550`. |
+| DEFINE/comments/preprocessing | DEL parent: constant labels at most23 bytes including optional #. New DEFINE candidate: at most31 bytes in32-byte cells, including # and excluding NUL; collection and conditional-flag lookup share the bound. Sixteen constants, existing grammar/boundaries/nonrecursive expansion, REM blocks, conditional depth8/literal flags, sixteen EXTENSION wrappers and VERSION remain. | [DEFINE contract](define-labels-design.md) and its release receipts distinguish the new capacity from parent evidence. Variables/functions are not widened. Retained branches/unused functions still preflight; exclusions stay distinct and wrappers cannot implement unsupported bodies. `C:core.cpp:269,489,550`. |
 | Variables/control flow | Bounded global uint16 values, IF/ELSE IF/ELSE, WHILE, no-argument functions/RETURN and cooperative expression continuations. Checked arithmetic, exponentiation and eager Boolean evaluation remain project policy. | Owner examples and composed software coverage; no universal operator-edge claim. No arbitrary signed arithmetic, general interpolation or guessed compound-assignment behavior. |
 | Randomization/jitter | Six character commands; bounded unbiased sampling/cached retry decisions. Integer range inclusive/default0–9/uint16; sequential updates permitted, reversed interval fails on draw. Optional pre-press jitter defaults disabled/max20ms; release/cleanup priority and per-run reset. | Scoped owner controls/range passes. RANDOM_CHAR's72-character spacing interpretation is documented policy. Statistical quality/precise timing remain unmeasured. [contract](randomization-jitter-design.md). |
-| Named keys/chords/modifiers | Existing keys, US character operands, inline INJECT_MOD. RCTRL/RSHIFT/RALT/RGUI use standard right-side modifier bits but are EvilDuck source extensions. Bare/prefix INJECT_MOD unsupported. Parent DELETE works; DEL alias is the separately identified new candidate. | `C:shortcut_keys.h:17`; [right-modifier compatibility](h1-right-modifiers-compatibility.md). No generalized AltGr or locale claim. |
+| Named keys/chords/modifiers | Existing keys, US character operands, inline INJECT_MOD. RCTRL/RSHIFT/RALT/RGUI use standard right-side modifier bits but are EvilDuck source extensions. Bare/prefix INJECT_MOD unsupported. DEL and DELETE both map to0x4c forward delete; DEL() function compatibility remains preserved. | `C:shortcut_keys.h:17`; [DEL closeout](del-alias-owner-closeout.md) records the two owner comparisons, with request/status gaps preserved. [Right-modifier compatibility](h1-right-modifiers-compatibility.md); no generalized AltGr or locale claim. |
 | HOLD/RELEASE | Lease-owned persistent state, transient restoration, six-nonmodifier limit, same-key collision and rollover refusals. Direct modifier ownership is an EvilDuck extension. | Scoped held-Shift/STOP owner results and composed tests. No general host-wide release guarantee. |
 | RESET/restart/STOP | RESET clears keyboard state and continues. RESTART_PAYLOAD clears before rewind, keeps request/lease and cumulative budgets, resets per-run state. STOP is cooperative, single-owner and cleanup-prioritized; ambiguous acceptance/cleanup failure may quarantine without replay. | Accepted representative owner groups and software boundary tests. Device STOP does not terminate a host process already launched. [restart contract](payload-restart-design.md). |
 | Both REPEAT forms | Inline literal2–128 means total executions; standalone literal1–128 means additional eligible-leaf executions. Entire program128 IR maximum. Defined lexical barriers/chaining refusal and eligible leaf list remain bounded EvilDuck policies. | [REPEAT contract](previous-command-repeat-design.md) and actual target receipts. Already implemented; no proposal to repair the old missing-standalone defect again. |
@@ -104,10 +111,10 @@ Planning retrieved these on2026-11-07; publication/revision dates were not suppl
 
 | Technique | Hak5 supplies | Selected Route B source/runtime/USB evidence | Host result or remaining blocker |
 |---|---|---|---|
-| Keystroke Injection | Native text, keys, modifiers and timing. | IMPLEMENTED/SOFTWARE-TESTED bounded grammar and keyboard reports, `C:core.cpp:324`, `shortcut_keys.h:17`, `seam.inc:50`. DEL alias is new candidate. | Scoped OWNER-REPORTED PASS; US/ASCII and finite source/report limits, not all payloads/locales. |
-| HID Spoofing | Keyboard enumeration; native ATTACKMODE modes/identity parameters. | PARTIAL fixed configured keyboard enumeration. Route B has no ATTACKMODE handler; reserved name is not implementation (`C:core.cpp:84,483`). | Payload-selected identities/modes unsupported. No descriptor/impersonation work. |
+| Keystroke Injection | Native text, keys, modifiers and timing. | IMPLEMENTED/SOFTWARE-TESTED bounded grammar and keyboard reports, `C:core.cpp:325`, `shortcut_keys.h:17`, `seam.inc:50`. DEL alias is implemented and has scoped owner editing observations. | Scoped OWNER-REPORTED PASS; US/ASCII and finite source/report limits, not all payloads/locales. |
+| HID Spoofing | Keyboard enumeration; native ATTACKMODE modes/identity parameters. | PARTIAL fixed configured keyboard enumeration. Route B has no ATTACKMODE handler; reserved name is not implementation (`C:core.cpp:83,484`). | Payload-selected identities/modes unsupported. No descriptor/impersonation work. |
 | Living off the Land | Host commands/tools invoked by payload input. | HOST-DEPENDENT; keyboard launch mechanics do not confer permissions. | Harmless Bash lab evidence is scoped launch behavior, not elevation/universal portability. |
-| OS Fingerprinting | OS_DETECT extension requiring telemetry including configuration requests/lock replies. | UNSUPPORTED classifier; only a subset of lock telemetry exists. `C:core.cpp:158`; legacy reserved properties fall through Unsupported at `duck_vars.cpp:232`. | Missing inputs/verified classifier. Fabricated offline telemetry only; manual selection is not detection. |
+| OS Fingerprinting | OS_DETECT extension requiring telemetry including configuration requests/lock replies. | UNSUPPORTED detector. The DEFINE candidate addresses only the27-byte-label admission gap; actual next unmodified-source compile outcome belongs in its release results. Existing lock telemetry remains a subset. `C:core.cpp:159`; legacy reserved properties fall through Unsupported at `duck_vars.cpp:232`. | Counter event/reset/timing/overflow/session contract unresolved; OS symbols, indicators, Route B lock save/restore, USB mode/identity/reconnect and full-extension capacity remain separate. No OS probe or manual/fixed-label substitute. |
 | Keystroke Reflection | LED reflection and loot storage. | PARTIAL custom fixed17-byte EDR1 (`C:led_receiver.h:5`, `led_receiver.cpp:21`). No arbitrary EXFIL. | Historical OWNER-REPORTED PASS on old CAPS-STOP-TRACE build plus iPhone viewing, not fresh current-build verification or Hak5 protocol compatibility. |
 | Credential Dumping | Host-side operations governed by credential-store permissions. | HOST-DEPENDENT; no native credential collection. | G10 synthetic only; G11 separate fake-item keychain only. No genuine credential/vault/memory access established or planned. |
 | Keylogging / Input Capture | Requires a suitable host collection/hardware path. | UNSUPPORTED. Enumerating as a keyboard does not receive unrelated input; output callback is LED metadata (`C:hid_backend.cpp:215`). | Optional model limited to fabricated text in its own visible lab field; no global/background capture. |
@@ -115,10 +122,15 @@ Planning retrieved these on2026-11-07; publication/revision dates were not suppl
 | Payload Staging | Control flow and payload/host arrangements. | PARTIAL/HOST-DEPENDENT short launcher/local fixtures within bounds (`C:core.h:6`). | Host process may outlive injection STOP. No download-and-execute chain/persistence. |
 | Environment Awareness | Internal variables, extensions and host-derived facts. | PARTIAL branching/fresh lock evidence (`C:adapter.cpp:45`, `hid_backend.cpp:248`). | No OS/application-focus/permission oracle. Unknown/stale/session distinctions retained. |
 | Anti-Analysis | Payload-specific techniques, not a blanket capability. | UNSUPPORTED as detection/evasion. Implemented jitter/randomness does not establish those features. | Documentation only; no evasion, stealth or protection-disabling work. |
-| Conditional Execution | Native conditions, loops, functions/RETURN. | IMPLEMENTED/SOFTWARE-TESTED bounded selected profile (`C:core.cpp:320`, `core.h:8`). | Scoped owner examples; eager/check-arithmetic policies and unsupported operators remain explicit. |
+| Conditional Execution | Native conditions, loops, functions/RETURN. | IMPLEMENTED/SOFTWARE-TESTED bounded selected profile (`C:core.cpp:321`, `core.h:8`). | Scoped owner examples; eager/check-arithmetic policies and unsupported operators remain explicit. |
 
 ## Accepted owner records and remaining evidence gaps
 
+- [DEL closeout](del-alias-owner-closeout.md): owner reported offline integrity PASS,
+  installer BOTH_APPLICATION_COMPARISONS_PASS, and "Both tests worked". The handoff
+  describes `ab` twice in TextEdit. Installation/boot/input observations are scoped;
+  full running ID, requests and Completed statuses remain unknown. No rerun is
+  required and no universal HID/USB guarantee is claimed.
 - G01–G05: scoped owner-reported passes from the supplied testing conversation.
   G06–G09: later **All 4 tests passed** supersedes earlier pending labels; G07
   remains H1, not canonical numeric proof. Original full pack filenames and
@@ -163,6 +175,10 @@ unmeasured or outside the scoped observations.
 - Canonical INJECT_VAR is REFERENCE-UNRESOLVED; the active bounded H1 experiment
   is neither missing nor proof of Hak5 values. Preserve unresolved vectors and
   completed compiler research; no broad reinvestigation absent a specific lead.
+- The [DEFINE capacity increment](define-labels-design.md) addresses one proven
+  source-admission gap in the pinned OS extension. It changes no detector, counter,
+  OS state or host probe. Full source/IR/runtime requirements remain to be established
+  after the next actual compile-only diagnostic; no larger budget is presumed.
 - Button/indicator commands, OS detection, dynamic USB modes/identities,
   consumer/media reports, imports, arbitrary Unicode and generalized AltGr are
   unsupported/outside this profile. Reserved names and linked code are not proof.
@@ -196,4 +212,4 @@ never assume a previous suffix. Mac High Sierra10.13.6, Bash3.2, Python3.8 and
 esptool4.12 compatibility remain required for future packages. No Windows
 availability or repeated broad Caps campaign is a prerequisite for bounded
 Mac-compatible development. See the [next increments](routeb-compatibility-roadmap-20261107.md)
-and [DEL contract](del-alias-design.md).
+and [DEFINE-label contract](define-labels-design.md).
