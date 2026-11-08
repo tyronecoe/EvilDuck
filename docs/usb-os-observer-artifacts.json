@@ -47,5 +47,30 @@
     "bytes": 1413200,
     "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
     "role": "OLDER_SOURCE_TEXT_V2"
+  },
+  "publication": {
+    "status": "PASS",
+    "package_commit": "6dba2b53885f7aaceddf2c779938e27fabb5db03",
+    "pinned_url": "https://raw.githubusercontent.com/tyronecoe/EvilDuck/6dba2b53885f7aaceddf2c779938e27fabb5db03/downloads/evilduck-routeb-usb-enum-observer-h1-macos-review-v1.zip",
+    "zip_bytes": 5492049,
+    "zip_sha256": "a93215b2c23b6937e867b6f988b30f3924be37a2f599fe7b3e805ae51030719c",
+    "members": 62,
+    "crc_pass": true,
+    "downloaded_application_sha256": "e60af8a1b53ab2ba9e7c79b4ff821719ddd06a0a55384dd987288c4189aed6a9",
+    "downloaded_working_application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30",
+    "downloaded_working_zip_sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "downloaded_older_rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "downloaded_offline_preflight_exit": 0,
+    "downloaded_offline_preflight_stdout_sha256": "f21d9aa3878921fbb41aba48c0c38f26c33f0920a09dc5d6e03e43cc87c91974",
+    "historical_remote_refs_preserved": 96,
+    "historical_tree_entries": 2585,
+    "historical_entries_unchanged_except_authorized": 2583,
+    "all_historical_modes_preserved": true,
+    "authorized_existing_file_changes": [
+      "docs/routeb-current-compatibility.md",
+      "tools/build_routeb_candidate.py"
+    ],
+    "hardware_access": false,
+    "installed": false
   }
 }
