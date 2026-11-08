@@ -136,6 +136,18 @@ class Policy(unittest.TestCase):
     with self.assertRaises(ValueError):V.inspection_copy_equivalent(original,copy,symbols,symbols)
    copy.write_bytes(data)
    with self.assertRaises(ValueError):V.inspection_copy_equivalent(original,copy,symbols,symbols+'42000004 T extra\n')
+ def test_inspection_heading_normalization_is_exact_and_binding_stable(self):
+  original=pathlib.Path('/build/actual.elf');a=pathlib.Path('/tmp/first/inspection.elf');b=pathlib.Path('/tmp/second/inspection.elf')
+  body='\nDisassembly of section .flash.text:\n42001000: 008136 entry a1, 64\n'
+  first=str(a)+':     file format elf32-xtensa-le\n'+body
+  second=str(b)+':     file format elf32-xtensa-le\n'+body
+  normalized=V.stable_inspection_heading(first,a,original)
+  self.assertEqual(normalized,V.stable_inspection_heading(second,b,original))
+  self.assertEqual(normalized.split('\n',1)[1],body)
+  untouched=first+'\nreference '+str(a)
+  self.assertTrue(V.stable_inspection_heading(untouched,a,original).endswith('reference '+str(a)))
+  for bad in [body,first+first]:
+   with self.assertRaises(ValueError):V.stable_inspection_heading(bad,a,original)
  def test_setup_dispatch_requires_event6_eight_bytes_buffer_and_wrapper(self):
   statements=[('l32r','a11, 100'),('movi.n','a8, 6'),('s8i','a2, a1, 36'),('s8i','a8, a1, 37'),
    ('movi.n','a12, 8'),('addi','a10, a1, 40'),('l32r','a8, 104'),('callx8','a8'),
@@ -174,6 +186,8 @@ class Policy(unittest.TestCase):
   if CANDIDATE is None:self.skipTest('Final target ELF not built yet')
   proof=V.observer_binding(CANDIDATE);web=V.web_binding(CANDIDATE)
   self.assertTrue(proof['original_handler_called_once']);self.assertTrue(proof['early_bss_state'])
+  self.assertTrue(proof['actual_setup_path_verified']);self.assertEqual(proof['setup_dispatch']['event_id'],6)
+  self.assertEqual(proof['setup_dispatch']['setup_bytes'],8)
   self.assertLessEqual(proof['state_plus_callback_bytes'],2048);self.assertEqual(proof['classification'],'UNKNOWN')
   self.assertTrue(web['authenticated_before_single_snapshot'])
 

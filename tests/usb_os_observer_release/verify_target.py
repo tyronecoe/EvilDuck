@@ -105,6 +105,14 @@ def inspection_copy_equivalent(original,copy,original_symbols,copy_symbols):
     require(decoded.allocated_sections(original)==decoded.allocated_sections(copy),'Inspection ELF changed allocated bytes/addresses/flags')
     require(original_symbols==copy_symbols,'Inspection ELF changed symbols')
 
+def stable_inspection_heading(text,copy,original):
+    # Only objdump's exact file heading carries the random scratch path. Keep
+    # every instruction/address/byte unchanged so repeated binding checks remain
+    # strict; inspection provenance is recorded separately alongside the text.
+    heading=str(copy)+':     file format elf32-xtensa-le'
+    require(text.count(heading)==1,'Inspection disassembly file heading absent/ambiguous')
+    return text.replace(heading,str(original)+':     file format elf32-xtensa-le',1)
+
 def inspection_disassembly(objdump,elf,symbol):
     """Decode original code through an allocated-byte/symbol-identical scratch ELF."""
     prefix=str(objdump).rsplit('objdump',1)[0];before=sha(elf)
@@ -115,6 +123,7 @@ def inspection_disassembly(objdump,elf,symbol):
         inspection_copy_equivalent(elf,copy,symbols(elf),symbols(copy))
         result=subprocess.check_output([str(objdump),'-C','-d','--start-address='+str(symbol['address']),
             '--stop-address='+str(symbol['address']+symbol['size']),str(copy)],text=True)
+        result=stable_inspection_heading(result,copy,elf)
         evidence=dict(original_elf_sha256=before,inspection_elf_sha256=sha(copy),
             removed_nonallocated_sections=['.xt.prop','.xt.lit'],allocated_sections_identical=True,all_symbols_identical=True)
     require(sha(elf)==before,'Actual ELF changed during inspection')
