@@ -16,16 +16,19 @@ remain unknown. Prior DEL, H1, right-modifier and lock-wait passes remain closed
 missing metadata does not require reruns. No independent live-image readback is
 claimed by this inventory.
 
-The last owner-reported running image is the capture-only v1 observer, with its
-dashboard build ID displayed. The [preserved evidence](usb-os-observer-v2-evidence.json)
-contains three distinct boots and five exports; none is COMPLETE/supported and
-all have been examined. This does not establish current physical typing acceptance
-or an OS discriminator. The v2 revision corrects observability, not classification;
-its contract is [here](usb-os-observer-v2-contract.md). No second capture is
-automatic and no old acceptance group is reopened.
+The last owner-reported running image is **ROUTEB-USB-ENUM-OBSERVER-H1-v2**,
+installed after reported offline preflight PASS and identified in the supplied
+export. Independent installed-byte readback, current physical typing acceptance
+and a return to DEFINE remain unknown. The [v2 inconclusive closeout](usb-os-observer-v2-inconclusive-closeout.md)
+preserves one development capture separately from the [historical v1 evidence](usb-os-observer-v2-evidence.json):
+five exports across three boots. All have been examined; none is held out. V2
+answered the timing/rejected-header questions but supplied no independent OS
+discriminator. The frozen prefix remains INCOMPLETE; classification remains
+UNKNOWN. No v3 or another capture is requested without a specific independently
+justified rule. No accepted group is reopened.
 
-The current working composition is the actual 201-file DEFINE tree selected by
-[its preparer](../tests/define_labels_release/prepare_sources.py) and manifest.
+The owner-accepted working-return composition is the actual 201-file DEFINE tree
+selected by [its preparer](../tests/define_labels_release/prepare_sources.py) and manifest.
 Its core.cpp SHA-256 is
 `582c36e717108ccb9a620020272d3bafe6d52012c2c0680e3dda7946fe3eb419`.
 Earlier C: references below describe the reviewed DEL ancestor's unchanged paths;
@@ -33,13 +36,14 @@ DEFINE's three constant-specific changes and measurements are separately bound
 in [the completed release](define-labels-release-delivery.md). Root firmware,
 standalone preview and the custom Legacy interpreter are not substitutes.
 
-The new USB-only milestone begins with one authorized **capture-only observer**,
-not an OS detector. Its [evidence gate](usb-os-evidence-gate.json) finds no valid
-positive High Sierra signature in existing material. [The capture contract](usb-os-observer-contract.md)
-defines exact metadata, limits, owner observation and working-firmware return.
-A final detector/branching release is conditional on evidence; no guessed OS,
-manual MACOS label, canonical Hak5 counter or always-UNKNOWN detector is claimed.
-Observer test/build/package outcomes belong in its separate delivery report.
+The USB-only observer milestone is **closed as inconclusive for OS detection**.
+The original [evidence gate](usb-os-evidence-gate.json), v1/v2 contracts and release
+receipts remain historical, unchanged. Configuration evidence arrived in v2's
+diagnostic tail after prefix cutoff; its excluded MSC-shaped header reflects
+observer policy, not demonstrated SDK rejection. Neither establishes High Sierra.
+No classifier/getter, detection/branching release, manual MACOS label, canonical
+Hak5 counter or always-UNKNOWN completed detector is claimed. A specific new
+independent discriminator is required before reconsidering this route.
 
 Original local/pending/not-installed release reports remain historical; later
 owner evidence updates the installed record without changing their packages.
@@ -105,7 +109,7 @@ Planning retrieved these on2026-11-07; publication/revision dates were not suppl
 | Keystroke Injection | Native text, keys, modifiers and timing. | IMPLEMENTED/SOFTWARE-TESTED bounded grammar and keyboard reports, `C:core.cpp:325`, `shortcut_keys.h:17`, `seam.inc:50`. DEL alias is implemented and has scoped owner editing observations. | Scoped OWNER-REPORTED PASS; US/ASCII and finite source/report limits, not all payloads/locales. |
 | HID Spoofing | Keyboard enumeration; native ATTACKMODE modes/identity parameters. | PARTIAL fixed configured keyboard enumeration. Route B has no ATTACKMODE handler; reserved name is not implementation (`C:core.cpp:83,484`). | Payload-selected identities/modes unsupported. No descriptor/impersonation work. |
 | Living off the Land | Host commands/tools invoked by payload input. | HOST-DEPENDENT; keyboard launch mechanics do not confer permissions. | Harmless Bash lab evidence is scoped launch behavior, not elevation/universal portability. |
-| OS Fingerprinting | Hak5 supplies telemetry and extension behavior; this release makes no unchanged Hak5 compatibility claim. | Capture-only observer: bounded selected request headers, raw metadata plus unsupported/integrity reasons, manual authenticated export. No classifier/getter or positive OS result. Compiler/runtime and working USB identity remain unchanged. | The [evidence gate](usb-os-evidence-gate.json) requires one capture stage; [contract](usb-os-observer-contract.md) defines exclusions, one owner session and exact working return. Positive High Sierra detection remains gated on independent justification and held-out validation. |
+| OS Fingerprinting | Hak5 supplies telemetry and extension behavior; this release makes no unchanged Hak5 compatibility claim. | Capture-only v2 observer: bounded header metadata, immutable prefix, separate tail/live evidence and authenticated manual export. No classifier/getter or positive OS result. Compiler/runtime and working USB identity remain unchanged. | [Inconclusive closeout](usb-os-observer-v2-inconclusive-closeout.md): late configuration and generic MSC GET MAX LUN do not establish an OS discriminator. No further observer/capture now; reopening needs a specific independent rule and later fresh validation after rule freeze. |
 | Keystroke Reflection | LED reflection and loot storage. | PARTIAL custom fixed17-byte EDR1 (`C:led_receiver.h:5`, `led_receiver.cpp:21`). No arbitrary EXFIL. | Historical OWNER-REPORTED PASS on old CAPS-STOP-TRACE build plus iPhone viewing, not fresh current-build verification or Hak5 protocol compatibility. |
 | Credential Dumping | Host-side operations governed by credential-store permissions. | HOST-DEPENDENT; no native credential collection. | G10 synthetic only; G11 separate fake-item keychain only. No genuine credential/vault/memory access established or planned. |
 | Keylogging / Input Capture | Requires a suitable host collection/hardware path. | UNSUPPORTED. Enumerating as a keyboard does not receive unrelated input; output callback is LED metadata (`C:hid_backend.cpp:215`). | Optional model limited to fabricated text in its own visible lab field; no global/background capture. |
@@ -184,6 +188,16 @@ fallback on refusal. Preserve write-only passwords, authentication, single-owner
 STOP, quarantine/no replay, source identity and storage/USB safeguards.
 
 ## Recovery and host observations
+
+For a deliberate return from observer v2, use the exact original nested
+`working-define-labels-macos-review-v1.zip` (SHA-256
+`b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed`).
+Its working DEFINE application is 1,438,048 bytes, SHA-256
+`167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30`.
+Extract separately, preflight unplugged and use that kit's original guarded
+install procedure. The outer rollback action selects the older image below,
+not DEFINE. No owner return has been reported. See the [closeout](usb-os-observer-v2-inconclusive-closeout.md)
+for exact roles, verification limits and return instructions.
 
 Mandatory exact rollback remains the source/text-v2 standalone application,
 **1,413,200 bytes**, SHA-256:

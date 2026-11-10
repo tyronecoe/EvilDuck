@@ -1,0 +1,64 @@
+CODEX HANDOFF — PLAN MODE
+Observer v2 physical capture assessment
+
+Investigate the pinned v2 source and the original JSON below. Deliver a diagnosis and smallest justified next-step plan. Stop before implementation, builds, publication, or hardware operations. Do not assume authorization for another observer revision or capture campaign.
+
+OBJECTIVE
+Useful EvilDuck-specific USB OS detection and eventual conditional execution, if evidence supports it. Exact DuckyScript 3.0 compatibility is not required for this objective. Do not fabricate an OS result or present an always-UNKNOWN detector as complete.
+
+IDENTITY AND CONTEXT
+Build: ROUTEB-USB-ENUM-OBSERVER-H1-v2
+Firmware checkpoint: b075e551e07f7b15124bdad3caa564c614f78ba4
+Report checkpoint: 10a0aa7685688d41ba474eae37bfa32f1647c86f
+Branch: routeb-usb-enum-observer-h1-review-v2
+App SHA-256: b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e
+Report: https://github.com/tyronecoe/EvilDuck/blob/10a0aa7685688d41ba474eae37bfa32f1647c86f/docs/usb-os-observer-v2-delivery.md
+Owner reported successful installation after v2 offline preflight PASS. Export buildId confirms v2 identity; independent installed-byte readback has not been supplied here.
+Host: Intel Mac, macOS High Sierra 10.13.6. EvilDuck plugged into Mac USB; iPhone accesses dashboard over Wi-Fi. Exact hub/cable topology is not fully documented. This is one development capture, not held-out validation. Current physical typing acceptance remains unestablished.
+
+OBSERVED EVIDENCE
+Boot marker 0175bdd330b15824, generation 2; resets=1, unplugs=1.
+Prefix starts at 700 ms, cutoff/observed closure at 5700 ms.
+Nine prefix records, all between 272 and 277 ms; early boot retention explains records preceding foreground window start.
+Prefix state INCOMPLETE. configuredKnown=true, configured=false, sampled at 5700 ms. firstConfigurationAtMs and firstConfiguredAtMs are null in the prefix.
+No prefix unsupported requests, overflow, exhaustion, missing reset, or clock error. maxServiceGapMs=2 within the reported observer service scope; do not generalize this to total system/USB latency.
+Tail is separate, closed, valid: 5700–10700 ms; observed=13, selected=12, ignored=1, unsupported=1.
+First tail selected SETUP: GET_DESCRIPTOR configuration header, at 9289 ms.
+First tail SET_CONFIGURATION request: 00/09, value 1, index 0, length 0, at 9291 ms. First tail configured SDK sample also 9291 ms. These are observations, not proof of completed transactions.
+First unsupported witness: TAIL, local order 12, reason 2, at 9303 ms; A1/FE, value 0, interface index 0, length 1. additionalUnsupportedDistinct=false.
+Live export sample at 187965 ms: present=true, known=true, mismatch=false, configured=true, expected/current generation 2.
+Classification remains UNKNOWN / NO_VALIDATED_RULE.
+
+INTERPRETATION AND LIMITS
+This session directly shows a configuration request in the diagnostic tail, 3591 ms after prefix cutoff. The prefix is correctly kept incomplete under its frozen boundary. Download timing did not cause the missing configuration; export occurred much later. Do not repair historical state using tail/live samples.
+The rejected header matches the USB Mass Storage Bulk-Only GET MAX LUN shape. Verify interface 0 against the actual pinned descriptors and classify semantic interpretation appropriately; a matching header alone does not prove successful execution or establish OS identity.
+Official primary reference: https://www.usb.org/sites/default/files/usbmassbulk_10.pdf section 3.2 (GET MAX LUN: A1/FE, wValue 0, interface index, wLength 1).
+Do not assume this is the missing request from v1. It is a new session and the v1 rejected header was never retained.
+This does not establish why enumeration paused, whether the delay is host-side/device-side, or whether the prefix fingerprint is OS-specific. No positive rule or untouched validation capture exists.
+
+PRIOR EVIDENCE
+Previous handoff preserved five v1 exports representing three boots: 12-record INCOMPLETE, 21-retained/22-observed configured UNSUPPORTED with unidentified order-21 header, and 9-record INCOMPLETE. The intermediate downloads were duplicate snapshots, not independent sessions. V2 was intended to clarify timing and rejected headers without rewriting those historical results. Preserve their exact bytes and conclusions.
+
+READ-ONLY INVESTIGATION REQUEST
+1. Verify this export against pinned v2 schema, timing, generation, witness and SDK-sampling semantics. Cite exact source locations. Separate proven facts, implementation guarantees, and hypotheses.
+2. Examine the gap from 277 ms to first retained tail SETUP at 9289 ms. Explain limits: tail only stores selected witnesses/counters, timestamps do not establish transaction completion, and no claim about all bus activity follows from retained headers. Assess plausible sources of pacing/delay without declaring a cause from timing alone.
+3. Map interface 0 to actual unchanged descriptors and class registration, including registered MSC with inactive media. Trace how A1/FE is dispatched and why observer policy marks it unsupported. Distinguish observer exclusion from SDK/host rejection. Do not weaken flags simply to obtain COMPLETE.
+4. Decide whether capture sufficiency and eventual detection need different bounded rules. Compare a carefully justified window/phase redesign, explicit handling of known MSC request shapes, reuse of existing evidence, or stopping this USB-only route. Do not automatically extend duration, collect more data, or create v3.
+5. Assess whether any independent primary evidence actually supports an OS discriminator under this USB identity. GET MAX LUN and this timing alone are not a validated High Sierra signature. State plainly if evidence is insufficient.
+
+REQUIRED OUTPUT
+A compact findings table, source-backed explanation, ranked options with tradeoffs, and your recommended smallest next step. Any proposed change must specify contract changes, exact data/resource bounds, privacy exclusions, meaningful focused tests, owner steps, stop criteria, and scope of any later independent validation. If no justified path exists, recommend an honest inconclusive closeout and exact working DEFINE return. Do not reopen accepted DEL/DEFINE/H1 tests or ask for repeated exports of the same frozen capture.
+
+PRESERVATION
+Preserve original five-second prefix, tail/live separation and historical evidence unless a prospective contract change is explicitly approved. Preserve USB identity/descriptors, keyboard behavior, STOP/cleanup, privacy fixes, execution limits, settings/scripts/private backups and unresolved H1 encoding status. No host helper, lock probe, credentials, automatic payload, dependency migration, erase, format, automatic reboot or retry.
+The 2016/2048-byte observer-owned state/frame figure has only 32 bytes margin and excludes external clock entry frames/whole IRQ peak. Any proposed instrumentation must remeasure the declared resource bound and avoid claiming runtime stack or latency acceptance from compiler estimates.
+Last owner-reported running image is v2; no DEFINE return has been reported. For inconclusive results, retain documented return via exact nested working-define-labels-macos-review-v1.zip, app hash 167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30. Outer rollback is older source/text-v2 and is not that return.
+
+STOP AFTER DIAGNOSIS AND PLAN. NO IMPLEMENTATION, BUILD, PUBLICATION OR HARDWARE OPERATIONS THIS TURN.
+
+ORIGINAL RAW CAPTURE
+Filename: evilduck-usb-observations-v2.json
+SHA-256: 9d75febf13a302fc4d4328696f15b895010a07af6375d08c57d886ce0dd36feb
+BEGIN JSON
+{"schema":"evilduck-usb-observer-v2","buildId":"ROUTEB-USB-ENUM-OBSERVER-H1-v2","stage":"CAPTURE_ONLY","classification":"UNKNOWN","classificationReason":"NO_VALIDATED_RULE","contextSampleKind":"independent-live-boot-and-uptime","bootMarker":"0175bdd330b15824","contextCapturedAtMs":187965,"timestampKind":"boot-monotonic-ms","statusKind":"sampled-sdk-status-not-transaction-completion","state":"INCOMPLETE","generation":2,"resets":1,"unplugs":1,"ignored":0,"observed":9,"unsupported":0,"unsupportedReasons":0,"port":0,"maxRecords":64,"windowMs":5000,"windowStarted":true,"windowClosed":true,"windowFinishedKind":"nominal-cutoff-ms","speed":0,"windowStartedMs":700,"windowFinishedMs":5700,"windowElapsedMs":5000,"configuredKnown":true,"configured":false,"configuredSampleAtMs":5700,"captureClosedObservedAtMs":5700,"generationStartedMs":260,"firstConfigurationAtMs":null,"firstConfiguredAtMs":null,"lastServiceMs":10700,"maxServiceGapMs":2,"overflow":false,"exhausted":false,"clockError":false,"missingReset":false,"firstUnsupported":{"reason":2,"phase":"TAIL","record":{"order":12,"port":0,"bmRequestType":161,"bRequest":254,"wValue":0,"wIndex":0,"wLength":1,"atMs":9303}},"additionalUnsupportedDistinct":false,"live":{"present":true,"known":true,"mismatch":false,"generation":2,"expectedGeneration":2,"atMs":187965,"configured":true},"tail":{"windowMs":5000,"active":false,"closed":true,"invalid":false,"observed":13,"selected":12,"ignored":1,"unsupported":1,"startedMs":5700,"finishedMs":10700,"finishedKind":"nominal-cutoff-ms","firstConfiguredAtMs":9291,"firstSetup":{"reason":0,"phase":"TAIL","record":{"order":1,"port":0,"bmRequestType":128,"bRequest":6,"wValue":512,"wIndex":0,"wLength":9,"atMs":9289}},"firstConfiguration":{"reason":0,"phase":"TAIL","record":{"order":3,"port":0,"bmRequestType":0,"bRequest":9,"wValue":1,"wIndex":0,"wLength":0,"atMs":9291}}},"count":9,"records":[{"order":1,"port":0,"bmRequestType":0,"bRequest":5,"wValue":10,"wIndex":0,"wLength":0,"atMs":272},{"order":2,"port":0,"bmRequestType":128,"bRequest":6,"wValue":256,"wIndex":0,"wLength":8,"atMs":275},{"order":3,"port":0,"bmRequestType":128,"bRequest":6,"wValue":256,"wIndex":0,"wLength":18,"atMs":275},{"order":4,"port":0,"bmRequestType":128,"bRequest":6,"wValue":770,"wIndex":1033,"wLength":2,"atMs":276},{"order":5,"port":0,"bmRequestType":128,"bRequest":6,"wValue":770,"wIndex":1033,"wLength":24,"atMs":276},{"order":6,"port":0,"bmRequestType":128,"bRequest":6,"wValue":769,"wIndex":1033,"wLength":2,"atMs":276},{"order":7,"port":0,"bmRequestType":128,"bRequest":6,"wValue":769,"wIndex":1033,"wLength":36,"atMs":277},{"order":8,"port":0,"bmRequestType":128,"bRequest":6,"wValue":771,"wIndex":1033,"wLength":2,"atMs":277},{"order":9,"port":0,"bmRequestType":128,"bRequest":6,"wValue":771,"wIndex":1033,"wLength":26,"atMs":277}]}
+END JSON

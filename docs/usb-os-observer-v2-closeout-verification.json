@@ -1,0 +1,309 @@
+{
+  "format": "evilduck-observer-v2-closeout-verification-v1",
+  "verified_at_utc": "2026-11-10T07:40:53.309673+00:00",
+  "status": "PASS",
+  "scope": "Fresh offline supplied-file, arithmetic, archive, existing-source/artifact and documentation-integrity checks only; no firmware test suite, sanitizer, build, runtime or hardware execution",
+  "base_head": "10a0aa7685688d41ba474eae37bfa32f1647c86f",
+  "base_tree": "7c16ab6c836769d64b3e2cd5aba7c4c771d7baaa",
+  "branch": "routeb-usb-observer-v2-inconclusive-closeout",
+  "checks_passed": 44,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "name": "Original handoff preserved byte-for-byte",
+      "status": "PASS"
+    },
+    {
+      "name": "Raw appendix preserved without transformation",
+      "status": "PASS"
+    },
+    {
+      "name": "Raw length, hash and absence of trailing newline",
+      "status": "PASS"
+    },
+    {
+      "name": "Evidence manifest identities match preserved bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "Schema and exact v2 build",
+      "status": "PASS"
+    },
+    {
+      "name": "Capture-only UNKNOWN is not a detector result",
+      "status": "PASS"
+    },
+    {
+      "name": "Generation and latest live sample reconcile",
+      "status": "PASS"
+    },
+    {
+      "name": "Generation precedes boot-captured prefix and foreground",
+      "status": "PASS"
+    },
+    {
+      "name": "Prefix nine headers ordered without filtered omission",
+      "status": "PASS"
+    },
+    {
+      "name": "Prefix cutoff and actual closure preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Prefix incomplete with coherent false SDK sample",
+      "status": "PASS"
+    },
+    {
+      "name": "No recorded overflow exhaustion clock or reset error",
+      "status": "PASS"
+    },
+    {
+      "name": "Separate five-second tail closes at hard boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "Tail counters reconcile exactly",
+      "status": "PASS"
+    },
+    {
+      "name": "First counted tail setup is configuration descriptor header",
+      "status": "PASS"
+    },
+    {
+      "name": "Tail SET_CONFIGURATION and SDK-true sample agree",
+      "status": "PASS"
+    },
+    {
+      "name": "Rejected witness exact shape phase reason and time",
+      "status": "PASS"
+    },
+    {
+      "name": "Observed SETUP gap arithmetic",
+      "status": "PASS"
+    },
+    {
+      "name": "Late configuration arithmetic",
+      "status": "PASS"
+    },
+    {
+      "name": "Live and service timing remain separate",
+      "status": "PASS"
+    },
+    {
+      "name": "Unsupported interpretation does not assert completed transaction",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown physical evidence and return remain unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "Five historical v1 exports preserve recorded hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical v1 exports represent three examined boots",
+      "status": "PASS"
+    },
+    {
+      "name": "Published local v2 archive identity unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "V2 archive CRC clean and member count unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "V2 application is the existing capture-only application",
+      "status": "PASS"
+    },
+    {
+      "name": "Outer older rollback is exact source/text-v2",
+      "status": "PASS"
+    },
+    {
+      "name": "Nested DEFINE kit identity unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Nested DEFINE kit CRC clean",
+      "status": "PASS"
+    },
+    {
+      "name": "Working DEFINE application identity unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Original nested kit retains preflight and guarded installer files",
+      "status": "PASS"
+    },
+    {
+      "name": "All 201 composed sources match existing build inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing EvilDuckS3.ino.bin identity unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing EvilDuckS3.ino.elf identity unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical tracked files unchanged except current inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical tracked modes unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "New source-control files are documentation/evidence only",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical evidence gate and v1 manifest unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Local Markdown references resolve",
+      "status": "PASS"
+    },
+    {
+      "name": "Inventory links current v2 closeout and both recovery roles",
+      "status": "PASS"
+    },
+    {
+      "name": "Scope prohibits another observer/capture and preserves unknown result",
+      "status": "PASS"
+    },
+    {
+      "name": "Isolated branch from pinned source without firmware commit",
+      "status": "PASS"
+    },
+    {
+      "name": "Tracked diff whitespace check",
+      "status": "PASS"
+    }
+  ],
+  "composition_inventory": {
+    "entries": 201,
+    "mismatches": [],
+    "source_receipt": "docs/usb-os-observer-v2-build.json"
+  },
+  "historical_v1_exports": [
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-0.json",
+      "bytes": 1796,
+      "sha256": "572ff4a459ff5efb3b404111141ed7f19855401ce3d30b0ff5fea7a297187c2b",
+      "matches_recorded_hash": true
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-1.json",
+      "bytes": 1797,
+      "sha256": "5636a9429fe89e05057227affca2ae8c489e026287ffecd2ef3dcb3533fc1b4a",
+      "matches_recorded_hash": true
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-2.json",
+      "bytes": 1797,
+      "sha256": "6f22b17bb6015ecc2e91ac430521b97eccd3c23d62f3341e3b43bf69a2c8105f",
+      "matches_recorded_hash": true
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-3.json",
+      "bytes": 2631,
+      "sha256": "1d20cfe38fd636dbab341924848a0d1e720ec1a2164e62425a1d9b6b123445be",
+      "matches_recorded_hash": true
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-4.json",
+      "bytes": 1517,
+      "sha256": "1035528e04c952140eec4ec9563212148b705fee523fbe88bcc7a42393b6f00b",
+      "matches_recorded_hash": true
+    }
+  ],
+  "archive": {
+    "file": "downloads/evilduck-routeb-usb-enum-observer-h1-macos-review-v2.zip",
+    "bytes": 5564384,
+    "sha256": "851ccb1ebec84214d38e4469298a8b7270374fe6fa28aacb32a4c8e37fd5e8af",
+    "bin_members": [
+      {
+        "file": "application.bin",
+        "bytes": 1450624,
+        "sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e"
+      },
+      {
+        "file": "expected-partitions.bin",
+        "bytes": 3072,
+        "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e"
+      },
+      {
+        "file": "rollback-application.bin",
+        "bytes": 1413200,
+        "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02"
+      }
+    ]
+  },
+  "nested_working_return": {
+    "file": "working-define-labels-macos-review-v1.zip",
+    "bytes": 2691374,
+    "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "application_bytes": 1438048,
+    "application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30"
+  },
+  "existing_artifacts": [
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/EvilDuckS3.ino.bin",
+      "bytes": 1450624,
+      "sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e"
+    },
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/EvilDuckS3.ino.elf",
+      "bytes": 23706764,
+      "sha256": "5e473ffd5813e7cea7c30871123352ceeeb64ac657519ff93ad951b096c1622d"
+    }
+  ],
+  "authorized_document_paths": [
+    "docs/routeb-current-compatibility.md",
+    "docs/usb-os-observer-v2-inconclusive-closeout.md",
+    "docs/usb-os-observer-v2-owner-evidence.json",
+    "docs/usb-os-observer-v2-owner-evidence/HANDOFF.txt",
+    "docs/usb-os-observer-v2-owner-evidence/evilduck-usb-observations-v2.json",
+    "docs/usb-os-observer-v2-closeout-verification.json"
+  ],
+  "preservation": {
+    "starting_worktree": "clean",
+    "historical_tree_entries": 2670,
+    "historical_tracked_entries_unchanged_except_inventory": 2669,
+    "historical_tracked_modes_unchanged": true,
+    "preexisting_local_refs_verified_unchanged": 47,
+    "remote_refs_not_queried": true,
+    "remote_push_performed": false,
+    "published_download_repeated": false,
+    "private_files_or_credentials_read": false
+  },
+  "historical_receipts": "Prior firmware/native/web/sanitizer/build/package receipts are preserved and not represented as newly executed tests. The independent read-only review also passed its 23 capture/archive checks; those are not added to this receipt count.",
+  "physical_state": {
+    "v2_installation": "owner-reported",
+    "installed_byte_readback": null,
+    "current_typing_acceptance": null,
+    "define_return": null
+  },
+  "actions_not_performed": [
+    "firmware edits",
+    "new firmware tests",
+    "firmware regressions or sanitizers",
+    "build",
+    "new package",
+    "push",
+    "hardware access",
+    "HID output",
+    "flashing",
+    "OTA",
+    "formatting",
+    "settings reset",
+    "private backup inspection",
+    "additional capture request"
+  ]
+}

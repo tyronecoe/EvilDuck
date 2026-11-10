@@ -1,0 +1,196 @@
+{
+  "format": "evilduck-observer-v2-owner-evidence-v1",
+  "recorded_date_utc": "2026-11-10",
+  "decision": "INCONCLUSIVE_STOP_USB_ONLY_DETECTOR_DEVELOPMENT",
+  "source_report_checkpoint": "10a0aa7685688d41ba474eae37bfa32f1647c86f",
+  "source_firmware_checkpoint": "b075e551e07f7b15124bdad3caa564c614f78ba4",
+  "source_build_id": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+  "source_application": {
+    "bytes": 1450624,
+    "sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e"
+  },
+  "original_handoff": {
+    "file": "docs/usb-os-observer-v2-owner-evidence/HANDOFF.txt",
+    "bytes": 10460,
+    "sha256": "4dfdfdca11f94ecce261408eec8bfacc4aa21c6c3b6023bfb1c06efece535ae9"
+  },
+  "original_export": {
+    "file": "docs/usb-os-observer-v2-owner-evidence/evilduck-usb-observations-v2.json",
+    "original_name": "evilduck-usb-observations-v2.json",
+    "provenance": "Exact inline JSON appendix from owner-supplied handoff; not independently retrieved from hardware",
+    "bytes": 2817,
+    "sha256": "9d75febf13a302fc4d4328696f15b895010a07af6375d08c57d886ce0dd36feb",
+    "trailing_newline": false
+  },
+  "owner_context": {
+    "usb_host": "Intel Mac, macOS High Sierra 10.13.6",
+    "dashboard_client": "iPhone over EvilDuck Wi-Fi; not the USB host",
+    "hub_and_cable_topology": "Not fully documented",
+    "installation": "Owner-reported successful v2 installation after offline preflight PASS",
+    "exported_build_id": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+    "last_owner_reported_running_image": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+    "independent_installed_application_readback": null,
+    "current_physical_typing_acceptance": null,
+    "returned_to_define": null,
+    "receipt_id": null,
+    "request_id": null,
+    "development_captures": 1,
+    "untouched_validation_captures": 0
+  },
+  "observations": {
+    "boot_marker": "0175bdd330b15824",
+    "generation": 2,
+    "resets": 1,
+    "unplugs": 1,
+    "speed": {
+      "raw": 0,
+      "pinned_sdk_meaning": "FULL"
+    },
+    "prefix": {
+      "state": "INCOMPLETE",
+      "generation_started_ms": 260,
+      "start_ms": 700,
+      "cutoff_ms": 5700,
+      "closed_observed_ms": 5700,
+      "observed": 9,
+      "retained": 9,
+      "configured": false,
+      "configured_known": true,
+      "configured_sample_at_ms": 5700,
+      "first_configuration_at_ms": null,
+      "first_configured_at_ms": null
+    },
+    "tail": {
+      "windowMs": 5000,
+      "active": false,
+      "closed": true,
+      "invalid": false,
+      "observed": 13,
+      "selected": 12,
+      "ignored": 1,
+      "unsupported": 1,
+      "startedMs": 5700,
+      "finishedMs": 10700,
+      "finishedKind": "nominal-cutoff-ms",
+      "firstConfiguredAtMs": 9291,
+      "firstSetup": {
+        "reason": 0,
+        "phase": "TAIL",
+        "record": {
+          "order": 1,
+          "port": 0,
+          "bmRequestType": 128,
+          "bRequest": 6,
+          "wValue": 512,
+          "wIndex": 0,
+          "wLength": 9,
+          "atMs": 9289
+        }
+      },
+      "firstConfiguration": {
+        "reason": 0,
+        "phase": "TAIL",
+        "record": {
+          "order": 3,
+          "port": 0,
+          "bmRequestType": 0,
+          "bRequest": 9,
+          "wValue": 1,
+          "wIndex": 0,
+          "wLength": 0,
+          "atMs": 9291
+        }
+      }
+    },
+    "first_unsupported": {
+      "reason": 2,
+      "phase": "TAIL",
+      "record": {
+        "order": 12,
+        "port": 0,
+        "bmRequestType": 161,
+        "bRequest": 254,
+        "wValue": 0,
+        "wIndex": 0,
+        "wLength": 1,
+        "atMs": 9303
+      }
+    },
+    "additional_unsupported_distinct": false,
+    "live": {
+      "present": true,
+      "known": true,
+      "mismatch": false,
+      "generation": 2,
+      "expectedGeneration": 2,
+      "atMs": 187965,
+      "configured": true
+    },
+    "service": {
+      "last_service_ms": 10700,
+      "maximum_accepted_coherent_gap_ms": 2,
+      "scope": "Accepted coherent foreground service calls from first service at 700 ms through finalization at 10700 ms; not USB IRQ/task/control-transfer latency"
+    },
+    "setup_callback_gap_ms": 9012,
+    "configuration_after_prefix_cutoff_ms": 3591
+  },
+  "interpretation": {
+    "classification": "UNKNOWN",
+    "reason": "NO_VALIDATED_RULE",
+    "valid_os_discriminator": false,
+    "positive_rule": null,
+    "prefix_repaired_from_tail_or_live": false,
+    "msc_header": "A1 FE 0000 0000 0001",
+    "msc_interface": 0,
+    "msc_interpretation": "GET MAX LUN-shaped header; known source/linked handler path for registered MSC even while media inactive",
+    "sdk_expected_response": "One-byte highest-LUN value 0; expected from linked code, not observed data",
+    "transaction_completion": null,
+    "pacing_cause": null,
+    "v1_unretained_header_identity": null,
+    "additional_owner_capture_requested": false,
+    "observer_v3_planned": false,
+    "firmware_feature_complete": false
+  },
+  "historical_evidence": {
+    "v1_manifest": "docs/usb-os-observer-v2-evidence.json",
+    "v1_manifest_scope": "Historical v1 evidence despite filename; unchanged",
+    "v1_exports": 5,
+    "v1_distinct_boots": 3,
+    "all_examined": true,
+    "held_out_captures_remaining": 0,
+    "original_evidence_gate": "docs/usb-os-evidence-gate.json",
+    "gate_scope": "Original 2026-11-08 decision; retained unchanged, superseded only as current status by this closeout",
+    "accepted_del_define_h1_right_modifier_lock_wait_groups_reopened": false
+  },
+  "working_return": {
+    "role": "WORKING_DEFINE_RETURN",
+    "nested_zip": "working-define-labels-macos-review-v1.zip",
+    "zip_bytes": 2691374,
+    "zip_sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "build_id": "ROUTEB-DEFINE-LABELS-H1-v1",
+    "application_bytes": 1438048,
+    "application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30",
+    "owner_procedure": "Extract nested original kit separately; offline preflight unplugged; use its original guarded install action and ROM-entry/rediscovered-port instructions; not the outer rollback action",
+    "return_performed": false
+  },
+  "older_rollback": {
+    "role": "OLDER_SOURCE_TEXT_V2",
+    "application_bytes": 1413200,
+    "application_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "working_define_return": false,
+    "full_device_restore": false
+  },
+  "scope": {
+    "firmware_modified": false,
+    "test_implementation_added": false,
+    "tests_or_builds_required": false,
+    "new_package_created": false,
+    "network_research": false,
+    "hardware_access": false,
+    "hid_execution": false,
+    "flashing_or_ota": false,
+    "private_data_access": false,
+    "remote_push": false,
+    "same_capture_reexport_requested": false
+  }
+}
