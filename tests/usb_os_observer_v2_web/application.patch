@@ -1,0 +1,76 @@
+--- webserver.cpp
++++ webserver.cpp
+@@ -617,25 +617,34 @@
+  if(!req->hasHeader("X-Duck-Password")){req->send(401,"text/plain","Unauthorized — set X-Duck-Password header");return;}
+  if(!authorize(req,true))return;
+  const auto s=usb_observer::snapshot();
+- // Boot/uptime are independent context samples, not captured USB timestamps.
+  const uint64_t boot=feedback_diag::snapshot().boot;const uint32_t at=millis();
+  if(s.count>usb_observer::MaxRecords){req->send(503,"text/plain","Observation count invalid");return;}
+  static_assert(usb_observer::MaxRecords==64,"Review export capacity before changing capture bound");
+  constexpr size_t MaxJsonBytes=12288;String json;
+  if(!json.reserve(MaxJsonBytes)){req->send(503,"text/plain","Observation response unavailable");return;}
+- char elapsed[24]="null";
+- // Only normal deadline closure records an endpoint. A valid endpoint may be zero after clock wrap.
++ bool ok=true;
++ auto append=[&](const char* format,auto... values){char chunk[768];const int n=snprintf(chunk,sizeof(chunk),format,values...);
++  if(n<0||size_t(n)>=sizeof(chunk)||json.length()+size_t(n)>MaxJsonBytes||!json.concat(chunk,unsigned(n)))ok=false;};
++ auto number=[&](bool known,uint32_t value){if(known)append("%lu",(unsigned long)value);else append("null");};
++ auto boolean=[&](bool known,bool value){append("%s",known?(value?"true":"false"):"null");};
++ auto record=[&](const usb_observer::Record& r){append("{\"order\":%lu,\"port\":%u,\"bmRequestType\":%u,\"bRequest\":%u,\"wValue\":%u,\"wIndex\":%u,\"wLength\":%u,\"atMs\":%lu}",(unsigned long)r.order,unsigned(r.port),unsigned(r.bmRequestType),unsigned(r.bRequest),unsigned(r.wValue),unsigned(r.wIndex),unsigned(r.wLength),(unsigned long)r.atMs);};
++ auto witness=[&](const usb_observer::Witness& w){if(!w.present){append("null");return;}append("{\"reason\":%u,\"phase\":\"%s\",\"record\":",unsigned(w.reason),w.phase==usb_observer::Phase::Prefix?"PREFIX":w.phase==usb_observer::Phase::Tail?"TAIL":"UNKNOWN");record(w.record);append("}");};
++ append("{\"schema\":\"evilduck-usb-observer-v2\",\"buildId\":\"%s\",\"stage\":\"CAPTURE_ONLY\",\"classification\":\"UNKNOWN\",\"classificationReason\":\"NO_VALIDATED_RULE\",\"contextSampleKind\":\"independent-live-boot-and-uptime\",\"bootMarker\":\"%016llx\",\"contextCapturedAtMs\":%lu,\"timestampKind\":\"boot-monotonic-ms\",\"statusKind\":\"sampled-sdk-status-not-transaction-completion\",",caps_trial::BuildId,(unsigned long long)boot,(unsigned long)at);
++ append("\"state\":\"%s\",\"generation\":%lu,\"resets\":%lu,\"unplugs\":%lu,\"ignored\":%lu,\"observed\":%lu,\"unsupported\":%lu,\"unsupportedReasons\":%u,\"port\":%u,\"maxRecords\":64,\"windowMs\":5000,\"windowStarted\":%s,\"windowClosed\":%s,\"windowFinishedKind\":\"nominal-cutoff-ms\",",usb_observer::stateName(s.state),(unsigned long)s.generation,(unsigned long)s.resets,(unsigned long)s.unplugs,(unsigned long)s.ignored,(unsigned long)s.observed,(unsigned long)s.unsupported,unsigned(s.unsupportedReasons),unsigned(s.port),s.windowStarted?"true":"false",s.windowClosed?"true":"false");
++ append("\"speed\":");number(s.generationTimeKnown&&!s.missingReset,s.speed);append(",\"windowStartedMs\":");number(s.windowStarted,s.windowStartedMs);append(",\"windowFinishedMs\":");
+  const bool knownEnd=s.windowClosed&&(s.state==usb_observer::State::Complete||s.state==usb_observer::State::Incomplete||s.state==usb_observer::State::Unsupported);
+- if(s.windowStarted&&(!s.windowClosed||knownEnd))snprintf(elapsed,sizeof(elapsed),"%lu",(unsigned long)((knownEnd?s.windowFinishedMs:at)-s.windowStartedMs));
+- char header[1024];int n=snprintf(header,sizeof(header),
+-  "{\"schema\":\"evilduck-usb-observer-v1\",\"buildId\":\"%s\",\"stage\":\"CAPTURE_ONLY\",\"classification\":\"UNKNOWN\",\"classificationReason\":\"NO_VALIDATED_RULE\",\"contextSampleKind\":\"independent-live-boot-and-uptime\",\"bootMarker\":\"%016llx\",\"contextCapturedAtMs\":%lu,\"state\":\"%s\",\"generation\":%lu,\"resets\":%lu,\"unplugs\":%lu,\"ignored\":%lu,\"observed\":%lu,\"unsupported\":%lu,\"unsupportedReasons\":%u,\"port\":%u,\"speed\":%u,\"maxRecords\":64,\"windowMs\":5000,\"windowStarted\":%s,\"windowClosed\":%s,\"windowStartedMs\":%lu,\"windowFinishedMs\":%lu,\"windowElapsedMs\":%s,\"configured\":%s,\"overflow\":%s,\"exhausted\":%s,\"clockError\":%s,\"missingReset\":%s,\"count\":%u,\"records\":[",
+-  caps_trial::BuildId,(unsigned long long)boot,(unsigned long)at,usb_observer::stateName(s.state),(unsigned long)s.generation,(unsigned long)s.resets,(unsigned long)s.unplugs,(unsigned long)s.ignored,(unsigned long)s.observed,(unsigned long)s.unsupported,unsigned(s.unsupportedReasons),unsigned(s.port),unsigned(s.speed),s.windowStarted?"true":"false",s.windowClosed?"true":"false",(unsigned long)s.windowStartedMs,(unsigned long)s.windowFinishedMs,elapsed,s.configured?"true":"false",s.overflow?"true":"false",s.exhausted?"true":"false",s.clockError?"true":"false",s.missingReset?"true":"false",unsigned(s.count));
+- if(n<0||size_t(n)>=sizeof(header)||!json.concat(header,unsigned(n))){req->send(503,"text/plain","Observation response overflow");return;}
+- for(uint8_t i=0;i<s.count;++i){const auto& r=s.records[i];char row[192];
+-  n=snprintf(row,sizeof(row),"%s{\"order\":%lu,\"port\":%u,\"bmRequestType\":%u,\"bRequest\":%u,\"wValue\":%u,\"wIndex\":%u,\"wLength\":%u}",i?",":"",(unsigned long)r.order,unsigned(r.port),unsigned(r.bmRequestType),unsigned(r.bRequest),unsigned(r.wValue),unsigned(r.wIndex),unsigned(r.wLength));
+-  if(n<0||size_t(n)>=sizeof(row)||json.length()+size_t(n)+2>MaxJsonBytes||!json.concat(row,unsigned(n))){req->send(503,"text/plain","Observation response overflow");return;}
+- }
+- if(!json.concat("]}")){req->send(503,"text/plain","Observation response unavailable");return;}
++ number(knownEnd,s.windowFinishedMs);append(",\"windowElapsedMs\":");number(s.windowStarted&&(knownEnd||(!s.windowClosed&&s.serviceTimeKnown)),(knownEnd?s.windowFinishedMs:s.lastServiceMs)-s.windowStartedMs);
++ append(",\"configuredKnown\":%s,\"configured\":",s.configuredKnown?"true":"false");boolean(s.configuredKnown,s.configured);
++ append(",\"configuredSampleAtMs\":");number(s.configuredKnown,s.configuredSampleAtMs);append(",\"captureClosedObservedAtMs\":");number(s.captureCloseTimeKnown,s.captureClosedObservedAtMs);
++ append(",\"generationStartedMs\":");number(s.generationTimeKnown,s.generationStartedMs);
++ append(",\"firstConfigurationAtMs\":");number(s.firstConfigurationKnown,s.firstConfigurationAtMs);
++ append(",\"firstConfiguredAtMs\":");number(s.firstConfiguredKnown,s.firstConfiguredAtMs);
++ append(",\"lastServiceMs\":");number(s.serviceTimeKnown,s.lastServiceMs);append(",\"maxServiceGapMs\":");number(s.serviceTimeKnown,s.maxServiceGapMs);
++ append(",\"overflow\":%s,\"exhausted\":%s,\"clockError\":%s,\"missingReset\":%s,\"firstUnsupported\":",s.overflow?"true":"false",s.exhausted?"true":"false",s.clockError?"true":"false",s.missingReset?"true":"false");witness(s.firstUnsupported);
++ append(",\"additionalUnsupportedDistinct\":%s,\"live\":{\"present\":%s,\"known\":%s,\"mismatch\":%s,\"generation\":",s.additionalUnsupportedDistinct?"true":"false",s.live.present?"true":"false",s.live.known?"true":"false",s.live.mismatch?"true":"false");number(s.live.present,s.live.generation);append(",\"expectedGeneration\":");number(s.live.present,s.live.expectedGeneration);append(",\"atMs\":");number(s.live.present,s.live.atMs);append(",\"configured\":");boolean(s.live.known,s.live.configured);append("},");
++ append("\"tail\":{\"windowMs\":5000,\"active\":%s,\"closed\":%s,\"invalid\":%s,\"observed\":%lu,\"selected\":%lu,\"ignored\":%lu,\"unsupported\":%lu,\"startedMs\":",s.tail.active?"true":"false",s.tail.closed?"true":"false",s.tail.invalid?"true":"false",(unsigned long)s.tail.observed,(unsigned long)s.tail.selected,(unsigned long)s.tail.ignored,(unsigned long)s.tail.unsupported);number(s.tail.started,s.tail.startedMs);append(",\"finishedMs\":");number(s.tail.finishedKnown,s.tail.finishedMs);append(",\"finishedKind\":\"nominal-cutoff-ms\",\"firstConfiguredAtMs\":");number(s.tail.firstConfiguredKnown,s.tail.firstConfiguredAtMs);append(",\"firstSetup\":");witness(s.tail.firstSetup);append(",\"firstConfiguration\":");witness(s.tail.firstConfiguration);append("},\"count\":%u,\"records\":[",unsigned(s.count));
++ for(uint8_t i=0;i<s.count;++i){if(i)append(",");record(s.records[i]);}append("]}");
++ if(!ok){req->send(503,"text/plain","Observation response overflow");return;}
+  auto* response=req->beginResponse(200,"application/json",json);
+  if(!response){req->send(503,"text/plain","Observation response unavailable");return;}
+  response->addHeader("Cache-Control","no-store");req->send(response);
+--- webfiles.h
++++ webfiles.h
+@@ -185,7 +185,7 @@
+     </section>
+     <section id="tab-diagnostics" class="tabpanel grid" role="tabpanel" hidden>
+       <div class="diagnostic-note span2">Existing manual diagnostics. Opening this view or a panel does not start a test, enable a trace or clear a result. Script STOP does not stop the LED receiver; use its separate Stop receiving control.</div>
+-      <details id="usbObserverDiagnostic" class="card span2 diagnostic-detail"><summary>USB enumeration observations (capture only)</summary><div class="diagnostic-body"><p>Passive, bounded RAM metadata captured at USB startup. UNKNOWN: no validated OS rule. Viewing or downloading does not start, reset or clear capture. No USB payloads, strings, reports or keystrokes are included. After a fresh connection, allow at least five seconds for the capture window.</p><button type="button" onclick="viewUsbObservations(false)">View USB JSON</button><button type="button" onclick="viewUsbObservations(true)">Download USB JSON</button><pre id="usbObserverResult" role="status">Not read. Capture-only observations do not establish an OS classification.</pre></div></details>
++      <details id="usbObserverDiagnostic" class="card span2 diagnostic-detail"><summary>USB enumeration observations (capture only)</summary><div class="diagnostic-body"><p>Version 2 passive RAM metadata: the first five-second prefix closes permanently; a separate five-second diagnostic tail cannot validate it. SDK status samples and live status are labeled separately, not USB transaction proofs. UNKNOWN: no validated OS rule. Viewing or downloading does not start, reset or clear capture. No payloads, strings, reports, keystrokes or host files are included. After a fresh connection, allow at least ten seconds before the one deliberate download.</p><button type="button" onclick="viewUsbObservations(false)">View USB JSON</button><button type="button" onclick="viewUsbObservations(true)">Download USB JSON</button><pre id="usbObserverResult" role="status">Not read. Capture-only observations do not establish an OS classification.</pre></div></details>
+       <details id="ledDiagnostic" class="card span2 diagnostic-detail"><summary>USB LED fixed-message test (RAM only)</summary><div class="diagnostic-body">
+    <p>Custom protocol, not Hak5-compatible. Receive EVILDUCK TEST 123 only. Maximum120 seconds. STOP script does not stop receiving.</p>
+    <button type="button" onclick="ledAction('start')">Start receiving</button>
+@@ -1235,9 +1235,12 @@
+   const text=await r.text();
+   if(!r.contentType.toLowerCase().startsWith('application/json'))throw new Error('Wrong response type');
+   const s=JSON.parse(text);
+-  if(s.schema!=='evilduck-usb-observer-v1'||s.stage!=='CAPTURE_ONLY'||s.classification!=='UNKNOWN'||s.classificationReason!=='NO_VALIDATED_RULE'||!Number.isInteger(s.unsupported)||s.unsupported<0||s.unsupported>4294967295||!Number.isInteger(s.unsupportedReasons)||s.unsupportedReasons<0||s.unsupportedReasons>7||((s.unsupported===0)!==(s.unsupportedReasons===0))||!Array.isArray(s.records)||s.records.length>64||s.count!==s.records.length)throw new Error('Invalid capture-only response');
++  if(s.schema!=='evilduck-usb-observer-v2'||s.stage!=='CAPTURE_ONLY'||s.classification!=='UNKNOWN'||s.classificationReason!=='NO_VALIDATED_RULE'||!Number.isInteger(s.unsupported)||s.unsupported<0||s.unsupported>4294967295||!Number.isInteger(s.unsupportedReasons)||s.unsupportedReasons<0||s.unsupportedReasons>7||((s.unsupported===0)!==(s.unsupportedReasons===0))||!Array.isArray(s.records)||s.records.length>64||s.count!==s.records.length)throw new Error('Invalid capture-only response');
++  const nullableUint=v=>v===null||(Number.isInteger(v)&&v>=0&&v<=4294967295);
++  const witness=w=>w===null||(w&&Number.isInteger(w.reason)&&w.reason>=0&&w.reason<=7&&['PREFIX','TAIL','UNKNOWN'].includes(w.phase)&&w.record&&Number.isInteger(w.record.atMs)&&w.record.atMs>=0&&w.record.atMs<=4294967295);
++  if(typeof s.configuredKnown!=='boolean'||(s.configuredKnown?typeof s.configured!=='boolean':s.configured!==null)||!s.live||typeof s.live.present!=='boolean'||typeof s.live.known!=='boolean'||typeof s.live.mismatch!=='boolean'||(s.live.known?typeof s.live.configured!=='boolean':s.live.configured!==null)||!nullableUint(s.live.atMs)||!nullableUint(s.live.generation)||!nullableUint(s.live.expectedGeneration)||!s.tail||typeof s.tail.active!=='boolean'||typeof s.tail.closed!=='boolean'||typeof s.tail.invalid!=='boolean'||!nullableUint(s.tail.startedMs)||!nullableUint(s.tail.finishedMs)||!witness(s.firstUnsupported)||!witness(s.tail.firstSetup)||!witness(s.tail.firstConfiguration)||typeof s.additionalUnsupportedDistinct!=='boolean'||s.records.some(r=>!Number.isInteger(r.atMs)||r.atMs<0||r.atMs>4294967295))throw new Error('Invalid capture-only response');
+   out.textContent=JSON.stringify(s,null,2);
+-  if(download){const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));link.download='evilduck-usb-observations.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);}
++  if(download){const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));link.download='evilduck-usb-observations-v2.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);}
+  }catch(e){out.textContent='USB observations unavailable: '+e.message+'; no automatic retry.';}
+  finally{usbObservationPending=false;}
+ }

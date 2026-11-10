@@ -1,0 +1,112 @@
+{
+  "format": "evilduck-observer-v1-owner-evidence-v1",
+  "source_publication": "fe6ed1c291a2af234793cca86aa9b8c979ac6d8e",
+  "source_firmware_checkpoint": "7472de1e0edf123a9fcdf9d1d4feb1b38250280e",
+  "source_application_sha256": "e60af8a1b53ab2ba9e7c79b4ff821719ddd06a0a55384dd987288c4189aed6a9",
+  "handoff_sha256": "3114d145c6eb742969760b3032bace54d734649ed5d4c828cc80f26641b0844d",
+  "exports": [
+    {
+      "original_name": "evilduck-usb-observations.json",
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-0.json",
+      "sha256": "572ff4a459ff5efb3b404111141ed7f19855401ce3d30b0ff5fea7a297187c2b",
+      "boot": "c5cf10e225fcc49a",
+      "generation": 2,
+      "state": "INCOMPLETE",
+      "observed": 12,
+      "retained": 12,
+      "ignored": 0,
+      "unsupported": 0,
+      "reason_mask": 0,
+      "window": [
+        703,
+        5703
+      ]
+    },
+    {
+      "original_name": "evilduck-usb-observations (1).json",
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-1.json",
+      "sha256": "5636a9429fe89e05057227affca2ae8c489e026287ffecd2ef3dcb3533fc1b4a",
+      "boot": "c5cf10e225fcc49a",
+      "generation": 2,
+      "state": "INCOMPLETE",
+      "observed": 12,
+      "retained": 12,
+      "ignored": 0,
+      "unsupported": 0,
+      "reason_mask": 0,
+      "window": [
+        703,
+        5703
+      ]
+    },
+    {
+      "original_name": "evilduck-usb-observations (2).json",
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-2.json",
+      "sha256": "6f22b17bb6015ecc2e91ac430521b97eccd3c23d62f3341e3b43bf69a2c8105f",
+      "boot": "c5cf10e225fcc49a",
+      "generation": 2,
+      "state": "INCOMPLETE",
+      "observed": 12,
+      "retained": 12,
+      "ignored": 0,
+      "unsupported": 0,
+      "reason_mask": 0,
+      "window": [
+        703,
+        5703
+      ]
+    },
+    {
+      "original_name": "evilduck-usb-observations (3).json",
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-3.json",
+      "sha256": "1d20cfe38fd636dbab341924848a0d1e720ec1a2164e62425a1d9b6b123445be",
+      "boot": "4771dde49723cf3d",
+      "generation": 2,
+      "state": "UNSUPPORTED",
+      "observed": 22,
+      "retained": 21,
+      "ignored": 1,
+      "unsupported": 1,
+      "reason_mask": 2,
+      "window": [
+        704,
+        5704
+      ]
+    },
+    {
+      "original_name": "evilduck-usb-observations (4).json",
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-4.json",
+      "sha256": "1035528e04c952140eec4ec9563212148b705fee523fbe88bcc7a42393b6f00b",
+      "boot": "b33465a692136399",
+      "generation": 2,
+      "state": "INCOMPLETE",
+      "observed": 9,
+      "retained": 9,
+      "ignored": 0,
+      "unsupported": 0,
+      "reason_mask": 0,
+      "window": [
+        715,
+        5715
+      ]
+    }
+  ],
+  "distinct_boots": 3,
+  "held_out_captures_remaining": 0,
+  "scope": "Owner-reported installation and dashboard build identity, not independent full-flash readback or current typing acceptance.",
+  "usb_host": "Owner Intel Mac, macOS High Sierra 10.13.6",
+  "dashboard_client": "iPhone on EvilDuck Wi-Fi; not USB host",
+  "topology": "Not fully documented",
+  "notes": [
+    "First three exports differ only in export time; they are not independent enumerations.",
+    "All supplied sessions have been examined. No existing held-out validation sample.",
+    "Observed22=retained21+ignored1 explains order21 omission; exact header was not retained.",
+    "INCOMPLETE/configuredfalse may be initial closure or later COMPLETE downgrade; exact timing unrecoverable.",
+    "UNSUPPORTED is observer policy, not evidence of SDK transaction rejection.",
+    "speed0 means pinned SDK full speed.",
+    "Expected source composite MSC0/HID1/CDC2-3; inactive MSC media does not remove its interface.",
+    "Known-host context and familiar requests do not establish an independent positive OS discriminator."
+  ],
+  "scope_change_authorization": "Owner explicitly requested implementation of the subsequent bounded v2 plan; original v1 evidence and package remain unchanged.",
+  "hardware_access_during_implementation": false
+}

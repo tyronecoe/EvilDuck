@@ -1,12 +1,12 @@
 # Composed Route B compatibility inventory
 
-Consolidated **2026-11-08**. This inventory distinguishes selected source
+Consolidated **2026-11-10**. This inventory distinguishes selected source
 acceptance, runtime semantics, USB capability and demonstrated host outcome.
 It is not a percentage or a claim that every downloadable Hak5 payload works.
 
 ## Baseline and evidence identities
 
-The latest owner-reported installed release is **ROUTEB-DEFINE-LABELS-H1-v1**,
+The latest owner-accepted working return is **ROUTEB-DEFINE-LABELS-H1-v1**,
 publication `bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29`, firmware checkpoint
 `5d9176dd15f722ffe20d219d33684da7461d1754`. Application: 1,438,048 bytes,
 SHA-256 `167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30`.
@@ -15,6 +15,14 @@ scoped DEFINE passes. Full dashboard build ID and positive-trial request statuse
 remain unknown. Prior DEL, H1, right-modifier and lock-wait passes remain closed;
 missing metadata does not require reruns. No independent live-image readback is
 claimed by this inventory.
+
+The last owner-reported running image is the capture-only v1 observer, with its
+dashboard build ID displayed. The [preserved evidence](usb-os-observer-v2-evidence.json)
+contains three distinct boots and five exports; none is COMPLETE/supported and
+all have been examined. This does not establish current physical typing acceptance
+or an OS discriminator. The v2 revision corrects observability, not classification;
+its contract is [here](usb-os-observer-v2-contract.md). No second capture is
+automatic and no old acceptance group is reopened.
 
 The current working composition is the actual 201-file DEFINE tree selected by
 [its preparer](../tests/define_labels_release/prepare_sources.py) and manifest.

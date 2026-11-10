@@ -1,0 +1,238 @@
+--- hid_backend.cpp
++++ hid_backend.cpp
+@@ -51,39 +51,44 @@
+  return static_cast<USBHIDDevice*>(&Keyboard);
+ #endif
+ }
+-// Observation is ready before Arduino app_main starts USB. The wrapper records
+-// fixed header fields only and always forwards the original event unchanged.
++// Observation is ready before Arduino app_main starts USB. V2 keeps the original
++// prefix immutable and records only a separate bounded diagnostic tail.
+ #if !defined(EVILDUCK_USB_ENUM_OBSERVER) || EVILDUCK_USB_ENUM_OBSERVER != 1
+ #error "Explicit USB enumeration observer profile required"
+ #endif
+ #include "device/dcd.h"
+ namespace usb_observer {
+ static_assert(sizeof(tusb_control_request_t)==8,"USB SETUP must be exactly eight bytes");
+-static_assert(sizeof(Record)<=16,"Bounded metadata record");
+-struct CaptureState{Snapshot view{};uint32_t lastNow=0;};
++static_assert(sizeof(Record)<=20&&sizeof(Witness)<=24,"Bounded timestamped metadata");
++struct CaptureState{Snapshot view{};uint32_t lastEventNow=0;bool eventTimeKnown=false,serviceFinalized=false;};
+ CaptureState captureState{};
+ #ifdef EVILDUCK_HOST_TEST
+ std::mutex captureMux;
++static std::atomic<uint32_t> testClock{0};
+ class CaptureGuard{std::lock_guard<std::mutex> lock;public:explicit CaptureGuard(bool):lock(captureMux){}};
+ #else
+ portMUX_TYPE captureMux=portMUX_INITIALIZER_UNLOCKED;
+ class CaptureGuard{bool isr;public:explicit CaptureGuard(bool value):isr(value){if(isr)portENTER_CRITICAL_ISR(&captureMux);else portENTER_CRITICAL(&captureMux);}~CaptureGuard(){if(isr)portEXIT_CRITICAL_ISR(&captureMux);else portEXIT_CRITICAL(&captureMux);}};
+ #endif
+ static_assert(sizeof(CaptureState)+sizeof(captureMux)<=2048,"Observer state exceeds 2KiB bound");
+-static void exhausted(){auto& v=captureState.view;v.exhausted=v.windowClosed=true;v.state=State::Exhausted;}
++__attribute__((noinline)) uint32_t clockMs(){
++#ifdef EVILDUCK_HOST_TEST
++ return testClock.load(std::memory_order_relaxed);
++#else
++ return uint32_t(uint64_t(esp_timer_get_time())/1000U);
++#endif
++}
++static void exhausted(){auto& v=captureState.view;v.exhausted=v.windowClosed=true;v.state=State::Exhausted;v.tail.invalid=v.tail.closed=true;v.tail.active=false;}
+ static bool increment(uint32_t& value){if(value==UINT32_MAX){exhausted();return false;}++value;return true;}
+-static void generation(uint8_t port,uint8_t speed,bool reset,bool unplug){
++static void generation(uint8_t port,uint8_t speed,bool reset,bool unplug,uint32_t now){
+  auto& v=captureState.view;
+  if(v.exhausted||v.generation==UINT32_MAX||(reset&&v.resets==UINT32_MAX)||(unplug&&v.unplugs==UINT32_MAX)){exhausted();return;}
+  const uint32_t next=v.generation+1,resets=v.resets+uint32_t(reset),unplugs=v.unplugs+uint32_t(unplug);
+  memset(static_cast<void*>(&v),0,sizeof(v));v.generation=next;v.resets=resets;v.unplugs=unplugs;v.port=port;v.speed=speed;
+- v.state=unplug?State::Unplugged:State::Capturing;v.windowClosed=unplug;v.missingReset=!reset;captureState.lastNow=0;
+-}
+-// These reason bits describe interpretation limits, separately from raw records.
+-static void unsupported(uint8_t reason){auto& v=captureState.view;v.unsupportedReasons|=reason;increment(v.unsupported);}
++ v.state=unplug?State::Unplugged:State::Capturing;v.windowClosed=unplug;v.missingReset=!reset;
++ v.generationStartedMs=now;v.generationTimeKnown=true;captureState.lastEventNow=now;captureState.eventTimeKnown=true;captureState.serviceFinalized=false;
++}
+ static bool ordinaryEvent(uint8_t id){return id==DCD_EVENT_SOF||id==DCD_EVENT_SUSPEND||id==DCD_EVENT_RESUME||id==DCD_EVENT_XFER_COMPLETE||id==USBD_EVENT_FUNC_CALL;}
+-// Explicit exclusion: CDC-initialization-shaped headers only. The selected
+-// features do not interpret CDC state; interface identity/acceptance is not inferred.
+ static bool excludedCdcHeader(const uint8_t* b){
+  const uint16_t value=uint16_t(b[2])|(uint16_t(b[3])<<8),length=uint16_t(b[6])|(uint16_t(b[7])<<8);
+  if(b[5])return false;
+@@ -95,43 +100,97 @@
+  if((type==0x00||type==0x01)&&(request==1||request==3||request==5||request==9||request==11))return true;
+  return (type==0xa1&&request==1)||(type==0x21&&(request==9||request==10||request==11));
+ }
++static uint8_t reason(const uint8_t* b){
++ if(b[0]==0x00||b[0]==0x01||b[0]==0x80||b[0]==0x81)return 1;
++ return (b[0]==0x21||b[0]==0xa1)&&!excludedCdcHeader(b)?2:0;
++}
++static Record record(const uint8_t* b,uint32_t order,uint32_t now,uint8_t port){
++ Record row;memset(static_cast<void*>(&row),0,sizeof(row));row.order=order;row.atMs=now;row.port=port;row.bmRequestType=b[0];row.bRequest=b[1];
++ row.wValue=uint16_t(b[2])|(uint16_t(b[3])<<8);row.wIndex=uint16_t(b[4])|(uint16_t(b[5])<<8);row.wLength=uint16_t(b[6])|(uint16_t(b[7])<<8);return row;
++}
++static bool sameHeader(const Record& a,const uint8_t* b,uint8_t port){return a.port==port&&a.bmRequestType==b[0]&&a.bRequest==b[1]&&a.wValue==(uint16_t(b[2])|(uint16_t(b[3])<<8))&&a.wIndex==(uint16_t(b[4])|(uint16_t(b[5])<<8))&&a.wLength==(uint16_t(b[6])|(uint16_t(b[7])<<8));}
++static void rememberUnsupported(const uint8_t* b,uint8_t why,uint32_t order,uint32_t now,uint8_t port,Phase phase){
++ auto& v=captureState.view;
++ if(!v.firstUnsupported.present){v.firstUnsupported.record=record(b,order,now,port);v.firstUnsupported.reason=why;v.firstUnsupported.phase=phase;v.firstUnsupported.present=true;}
++ else if(v.firstUnsupported.reason!=why||!sameHeader(v.firstUnsupported.record,b,port))v.additionalUnsupportedDistinct=true;
++}
++static void closePrefix(uint32_t now){
++ auto& v=captureState.view;if(v.windowClosed)return;
++ v.windowClosed=true;v.windowFinishedMs=v.windowStartedMs+WindowMs;v.captureClosedObservedAtMs=now;v.captureCloseTimeKnown=true;
++ v.state=v.unsupportedReasons?State::Unsupported:v.configuredKnown&&v.configured&&v.count&&!v.missingReset?State::Complete:State::Incomplete;
++ v.tail.started=true;v.tail.startedMs=v.windowFinishedMs;v.tail.active=true;
++}
++static void gate(uint32_t now){
++ auto& v=captureState.view;if(!v.windowStarted)return;
++ const uint32_t elapsed=now-v.windowStartedMs;
++ if(!v.windowClosed&&elapsed>=WindowMs)closePrefix(now);
++ if(v.tail.started&&!v.tail.closed&&elapsed>=TotalMs){v.tail.active=false;v.tail.closed=true;v.tail.finishedKnown=true;v.tail.finishedMs=v.windowStartedMs+TotalMs;}
++}
++static void badClock(){auto& v=captureState.view;if(!v.windowClosed){v.clockError=v.windowClosed=true;v.state=State::ClockError;}v.tail.invalid=v.tail.closed=true;v.tail.active=false;v.live.known=false;}
++static bool tailIncrement(uint32_t& value){auto& t=captureState.view.tail;if(value==UINT32_MAX){t.invalid=t.closed=true;t.active=false;return false;}++value;return true;}
+ __attribute__((noinline)) void observe(const dcd_event_t* event,bool inIsr){
+  if(!event||event->rhport!=0)return;
+  if(ordinaryEvent(event->event_id))return;
+- CaptureGuard guard(inIsr);auto& v=captureState.view;
+- if(event->event_id==DCD_EVENT_BUS_RESET){generation(event->rhport,static_cast<uint8_t>(event->bus_reset.speed),true,false);return;}
+- if(event->event_id==DCD_EVENT_UNPLUGGED){generation(event->rhport,0,false,true);return;}
++ CaptureGuard guard(inIsr);auto& v=captureState.view;const uint32_t now=clockMs();
++ if(event->event_id==DCD_EVENT_BUS_RESET){generation(event->rhport,static_cast<uint8_t>(event->bus_reset.speed),true,false,now);return;}
++ if(event->event_id==DCD_EVENT_UNPLUGGED){generation(event->rhport,0,false,true,now);return;}
+  if(v.exhausted)return;
+- if(v.state==State::Boot||v.state==State::Unplugged)generation(event->rhport,0,false,false);
+- if(v.state!=State::Capturing)return;
+- if(event->event_id!=DCD_EVENT_SETUP_RECEIVED){unsupported(4);return;}
+- if(!increment(v.observed))return;
++ if(v.state==State::Boot||v.state==State::Unplugged)generation(event->rhport,0,false,false,now);
++ if(v.windowClosed&&(!v.tail.started||v.tail.closed))return;
++ if((captureState.eventTimeKnown&&static_cast<int32_t>(now-captureState.lastEventNow)<0)||(v.serviceTimeKnown&&static_cast<int32_t>(now-v.lastServiceMs)<0)){badClock();return;}
++ captureState.lastEventNow=now;captureState.eventTimeKnown=true;gate(now);
++ const bool prefix=v.state==State::Capturing&&!v.windowClosed;
++ const bool tail=v.tail.active&&!v.tail.closed;
++ if(!prefix&&!tail)return;
++ if(event->event_id!=DCD_EVENT_SETUP_RECEIVED){if(prefix){v.unsupportedReasons|=4;increment(v.unsupported);}else tailIncrement(v.tail.unsupported);return;}
+  const uint8_t* b=reinterpret_cast<const uint8_t*>(&event->setup_received);
+- if(!whitelisted(b[0],b[1])){
+-  if(!increment(v.ignored))return;
+-  if(b[0]==0x00||b[0]==0x01||b[0]==0x80||b[0]==0x81)unsupported(1);
+-  else if((b[0]==0x21||b[0]==0xa1)&&!excludedCdcHeader(b))unsupported(2);
++ const bool selected=whitelisted(b[0],b[1]);
++ if(tail){
++  if(!tailIncrement(v.tail.observed))return;
++  if(!selected){if(!tailIncrement(v.tail.ignored))return;const uint8_t why=reason(b);if(why&&tailIncrement(v.tail.unsupported))rememberUnsupported(b,why,v.tail.observed,now,event->rhport,Phase::Tail);return;}
++  if(!tailIncrement(v.tail.selected))return;
++  if(!v.tail.firstSetup.present){v.tail.firstSetup.record=record(b,v.tail.observed,now,event->rhport);v.tail.firstSetup.phase=Phase::Tail;v.tail.firstSetup.present=true;}
++  if(b[0]==0&&b[1]==9&&!v.tail.firstConfiguration.present){v.tail.firstConfiguration.record=record(b,v.tail.observed,now,event->rhport);v.tail.firstConfiguration.phase=Phase::Tail;v.tail.firstConfiguration.present=true;}
+   return;
+  }
+- if(v.count==MaxRecords){v.overflow=v.windowClosed=true;v.state=State::Overflow;return;}
+- Record row;memset(static_cast<void*>(&row),0,sizeof(row));row.order=v.observed;row.port=event->rhport;row.bmRequestType=b[0];row.bRequest=b[1];
+- row.wValue=uint16_t(b[2])|(uint16_t(b[3])<<8);row.wIndex=uint16_t(b[4])|(uint16_t(b[5])<<8);row.wLength=uint16_t(b[6])|(uint16_t(b[7])<<8);
+- v.records[v.count++]=row;
+-}
+-void service(uint32_t nowMs,bool configured){
++ if(!increment(v.observed))return;
++ if(!selected){
++  if(!increment(v.ignored))return;const uint8_t why=reason(b);if(!why)return;
++  v.unsupportedReasons|=why;if(!increment(v.unsupported))return;
++  rememberUnsupported(b,why,v.observed,now,event->rhport,Phase::Prefix);
++  return;
++ }
++ if(v.count==MaxRecords){v.overflow=v.windowClosed=true;v.state=State::Overflow;v.tail.invalid=v.tail.closed=true;v.tail.active=false;return;}
++ v.records[v.count++]=record(b,v.observed,now,event->rhport);
++ if(b[0]==0&&b[1]==9&&!v.firstConfigurationKnown){v.firstConfigurationKnown=true;v.firstConfigurationAtMs=now;}
++}
++uint32_t sampleGeneration(){CaptureGuard guard(false);return captureState.view.generation;}
++void service(uint32_t nowMs,bool configured,uint32_t expectedGeneration){
+  CaptureGuard guard(false);auto& v=captureState.view;
+- if(v.state==State::Complete&&!configured){v.configured=false;v.state=State::Incomplete;return;}
+- if(v.state!=State::Capturing)return;
+- v.configured=configured;
+- if(!v.windowStarted){v.windowStarted=true;v.windowStartedMs=nowMs;captureState.lastNow=nowMs;return;}
+- if(static_cast<int32_t>(nowMs-captureState.lastNow)<0){v.clockError=v.windowClosed=true;v.state=State::ClockError;return;}
+- captureState.lastNow=nowMs;
+- if(uint32_t(nowMs-v.windowStartedMs)>=WindowMs){v.windowFinishedMs=nowMs;v.windowClosed=true;v.state=v.unsupportedReasons?State::Unsupported:configured&&v.count&&!v.missingReset?State::Complete:State::Incomplete;}
++ v.live.present=true;v.live.atMs=nowMs;v.live.generation=v.generation;v.live.expectedGeneration=expectedGeneration;
++ v.live.mismatch=expectedGeneration!=v.generation;v.live.known=!v.live.mismatch;v.live.configured=configured;
++ const bool coherent=v.live.known;if(!coherent)return;
++ const bool collectService=!captureState.serviceFinalized&&!v.exhausted&&!v.overflow&&!v.clockError;
++ if(collectService){
++  if(v.serviceTimeKnown){const uint32_t gap=nowMs-v.lastServiceMs;if(static_cast<int32_t>(gap)<0){badClock();return;}if(gap>v.maxServiceGapMs)v.maxServiceGapMs=gap;}
++  v.lastServiceMs=nowMs;v.serviceTimeKnown=true;
++  if(v.windowStarted&&uint32_t(nowMs-v.windowStartedMs)>=TotalMs)captureState.serviceFinalized=true;
++ }
++ if(v.state==State::Boot||v.state==State::Unplugged||v.exhausted||v.overflow||v.clockError)return;
++ if(!v.windowStarted&&!v.windowClosed){v.windowStarted=true;v.windowStartedMs=nowMs;}
++ const uint32_t elapsed=nowMs-v.windowStartedMs;
++ // A sample processed after prefix closure cannot alter its historical evidence.
++ if(!v.windowClosed&&elapsed<=WindowMs){
++  v.configuredKnown=coherent;if(coherent){v.configured=configured;v.configuredSampleAtMs=nowMs;if(configured&&!v.firstConfiguredKnown){v.firstConfiguredKnown=true;v.firstConfiguredAtMs=nowMs;}}
++ }
++ gate(nowMs);
++ if(v.tail.active&&elapsed>=WindowMs&&elapsed<TotalMs&&coherent&&configured&&!v.tail.firstConfiguredKnown){v.tail.firstConfiguredKnown=true;v.tail.firstConfiguredAtMs=nowMs;}
+ }
+ Snapshot snapshot(){CaptureGuard guard(false);return captureState.view;}
+ const char* stateName(State state){switch(state){case State::Boot:return "BOOT";case State::Capturing:return "CAPTURING";case State::Complete:return "COMPLETE";case State::Overflow:return "OVERFLOW";case State::Unplugged:return "UNPLUGGED";case State::Exhausted:return "EXHAUSTED";case State::ClockError:return "CLOCK_ERROR";case State::Incomplete:return "INCOMPLETE";case State::Unsupported:return "UNSUPPORTED";}return "INCOMPLETE";}
+ #ifdef EVILDUCK_HOST_TEST
+-void resetForTest(){CaptureGuard guard(false);captureState=CaptureState{};}
++void resetForTest(){CaptureGuard guard(false);captureState=CaptureState{};testClock.store(0);}
++void setClockForTest(uint32_t value){testClock.store(value,std::memory_order_relaxed);}
+ void unsupportedForTest(uint32_t count,uint8_t reasons){CaptureGuard guard(false);captureState.view.unsupported=count;captureState.view.unsupportedReasons=reasons;}
+ void generationForTest(uint32_t value){CaptureGuard guard(false);captureState.view.generation=value;}
+ void countersForTest(uint32_t observed,uint32_t ignored,uint32_t resets,uint32_t unplugs){CaptureGuard guard(false);auto& v=captureState.view;v.observed=observed;v.ignored=ignored;v.resets=resets;v.unplugs=unplugs;}
+@@ -643,8 +702,9 @@
+ #ifdef EVILDUCK_PORTABLE_ROUTE_B
+   if(!backendAllowed()){return;}
+ #endif
++  const uint32_t observationGeneration=usb_observer::sampleGeneration();
+   const bool mounted = static_cast<bool>(USB); // ESPUSB: started && device mounted.
+-  usb_observer::service(millis(),mounted);
++  usb_observer::service(usb_observer::clockMs(),mounted,observationGeneration);
+   const bool notified = disconnectEvent.exchange(false);
+   if (notified || (wasMounted && !mounted)) {
+     if (!notified) invalidateLockState();
+--- hid_backend.h
++++ hid_backend.h
+@@ -66,25 +66,38 @@
+ #include "backend_lease.h"
+ #endif
+ 
+-// Capture-only USB request metadata. No OS classifier or report contents.
++// Capture-only USB request metadata v2. SDK samples are not transaction proofs.
+ #ifdef EVILDUCK_USB_ENUM_OBSERVER
+ namespace usb_observer {
+ constexpr uint8_t MaxRecords=64;
+-constexpr uint32_t WindowMs=5000;
++constexpr uint32_t WindowMs=5000,TailMs=5000,TotalMs=WindowMs+TailMs;
+ enum class State:uint8_t{Boot,Capturing,Complete,Overflow,Unplugged,Exhausted,ClockError,Incomplete,Unsupported};
+-struct Record{uint32_t order=0;uint16_t wValue=0,wIndex=0,wLength=0;uint8_t port=0,bmRequestType=0,bRequest=0;};
++struct Record{uint32_t order=0,atMs=0;uint16_t wValue=0,wIndex=0,wLength=0;uint8_t port=0,bmRequestType=0,bRequest=0;};
++enum class Phase:uint8_t{None,Prefix,Tail};
++struct Witness{Record record{};uint8_t reason=0;Phase phase=Phase::None;bool present=false;};
++struct LiveSample{uint32_t generation=0,expectedGeneration=0,atMs=0;bool present=false,known=false,configured=false,mismatch=false;};
++struct Tail{uint32_t observed=0,selected=0,ignored=0,unsupported=0,startedMs=0,finishedMs=0,firstConfiguredAtMs=0;bool started=false,active=false,closed=false,invalid=false,finishedKnown=false,firstConfiguredKnown=false;Witness firstSetup{},firstConfiguration{};};
+ struct Snapshot{
+  State state=State::Boot;
+  uint32_t generation=0,resets=0,unplugs=0,ignored=0,observed=0,windowStartedMs=0,windowFinishedMs=0,unsupported=0;
+  uint8_t count=0,port=0,speed=0,unsupportedReasons=0;
+  bool windowStarted=false,windowClosed=false,configured=false,overflow=false,exhausted=false,clockError=false,missingReset=false;
+  Record records[MaxRecords]{};
++ bool configuredKnown=false,generationTimeKnown=false,firstConfigurationKnown=false,firstConfiguredKnown=false,serviceTimeKnown=false,captureCloseTimeKnown=false,additionalUnsupportedDistinct=false;
++ uint32_t generationStartedMs=0,firstConfigurationAtMs=0,firstConfiguredAtMs=0,maxServiceGapMs=0,lastServiceMs=0,configuredSampleAtMs=0,captureClosedObservedAtMs=0;
++ Witness firstUnsupported{};
++ LiveSample live{};
++ Tail tail{};
+ };
+ Snapshot snapshot();
+ const char* stateName(State);
+-void service(uint32_t nowMs,bool configured);
++uint32_t clockMs();
++uint32_t sampleGeneration();
++void service(uint32_t nowMs,bool configured,uint32_t expectedGeneration);
+ #ifdef EVILDUCK_HOST_TEST
++inline void service(uint32_t nowMs,bool configured){service(nowMs,configured,sampleGeneration());}
+ void resetForTest();
++void setClockForTest(uint32_t);
+ void unsupportedForTest(uint32_t count,uint8_t reasons);
+ void generationForTest(uint32_t);
+ void countersForTest(uint32_t observed,uint32_t ignored,uint32_t resets,uint32_t unplugs);
