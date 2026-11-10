@@ -17,6 +17,14 @@ _V2_EDITS += [(
     "callback=[r for r in frames if not any(n in r['function'] for n in ['snapshot(', 'service(', 'stateName('])]",
     "callback,callback_reachability=_v2_callback_frames(frames,symbols,observe,wrapper,objdump,elf)",1),
     ("stack_frames=frames,callback_max_frame=", "stack_frames=frames,callback_reachability=callback_reachability,callback_max_frame=",1)]
+_V2_EDITS += [(
+    "handler=match('handleUsbObservations(');check=match('checkAuth(');snapshot=match('usb_observer::snapshot(')",
+    "handler=_v2_export_handler(symbols);check=match('checkAuth(');snapshot=match('usb_observer::snapshot(')",1)]
+_V2_EDITS += [(
+    "    def edges(row):\n        text=subprocess.check_output([objdump,'-C','-d','--start-address='+str(row['address']),'--stop-address='+str(row['address']+row['size']),str(elf)],text=True)\n        return call_edges(text,data)",
+    "    edge_evidence={}\n    def edges(row):\n        text,proof=_v2_reachable_disassembly(objdump,elf,row)\n        edge_evidence[row['name']]=dict(disassembly=text,proof=proof)\n        return call_edges(text,data)",1),
+    ("header_only_source_pinned=True,no_store_source_pinned=True,actual_elf_sha256=sha(elf))",
+     "header_only_source_pinned=True,no_store_source_pinned=True,reachable_disassembly=edge_evidence,actual_elf_sha256=sha(elf))",1)]
 
 def _v2_frozen_source():
     raw = _V2_FROZEN_PARENT.read_bytes()
@@ -34,6 +42,73 @@ try:
     exec(_v2_builtins.compile(_V2_SOURCE, str(_V2_FROZEN_PARENT), 'exec'), globals())
 finally:
     __name__ = _v2_original_name
+
+
+def _v2_export_handler(symbols):
+    # Serializer lambdas have names beginning with the handler's signature too.
+    # Only the exact top-level function can establish the auth/snapshot witness.
+    name='handleUsbObservations(AsyncWebServerRequest*)'
+    found=[r for r in symbols if r['name']==name and r['size']>0]
+    require(len(found)==1,'Observer top-level export handler absent/ambiguous')
+    return found[0]
+
+def _v2_reachable_instructions(start,size,decode):
+    """Approved setup-CFG technique generalized to one exact function bound.
+
+    Re-enter objdump at real branch targets rather than allowing linear decode
+    to invent instructions from alignment bytes after a terminal jump/return.
+    No literal-address failure or reachable opcode is ignored.
+    """
+    require(0<size<=16384,'Web proof function exceeds fixed decode bound')
+    end=start+size;pending=[start];instructions={};blocks=0
+    while pending:
+        at=pending.pop()
+        if at in instructions:continue
+        require(start<=at<end,'Web proof branch outside function')
+        blocks+=1;require(blocks<=1024,'Web proof CFG exceeds fixed block bound')
+        rows=[]
+        for line in decode(at,end).splitlines():
+            match=re.match(r'^\s*([0-9a-fA-F]+):\s+([0-9a-fA-F]{4,6})\s+([.\w]+)\s*(.*)$',line)
+            if match:rows.append((int(match[1],16),len(match[2])//2,match[3],match[4],line))
+        require(rows and rows[0][0]==at,'Web proof reachable block has no instruction')
+        for pc,width,op,args,line in rows:
+            if pc in instructions:break
+            require(pc==at and op not in ('.byte','ill'),'Unresolved reachable web opcode/alignment')
+            instructions[pc]=line;require(len(instructions)<=4096,'Web proof instruction bound exceeded')
+            at=pc+width
+            if op.startswith('ret'):break
+            require(op not in ('jx','jr'),'Unsupported indirect web branch')
+            conditional=op.startswith('b') and op not in ('break','break.n')
+            loop=op.startswith('loop')
+            if op=='j' or conditional or loop:
+                targets=re.findall(r'([0-9a-fA-F]+)\s*<[^>]+>',args)
+                require(len(targets)==1,'Web proof branch target absent/ambiguous')
+                target=int(targets[0],16)
+                if start<=target<end:pending.append(target)
+                else:require(op=='j','Conditional web branch escapes function')
+                if (conditional or loop) and at<end:pending.append(at)
+                break
+            if at==end:break
+            require(at<end,'Web proof instruction extends beyond function')
+    return '\n'.join(instructions[k] for k in sorted(instructions))+'\n',dict(
+        start=start,end=end,blocks=blocks,instructions=len(instructions),
+        exact_branch_target_reentry=True,unresolved_reachable_opcode_refused=True)
+
+def _v2_reachable_disassembly(objdump,elf,symbol):
+    prefix=str(objdump).rsplit('objdump',1)[0];before=sha(elf)
+    with tempfile.TemporaryDirectory(prefix='usb-web-cfg-inspection-') as folder:
+        copy=pathlib.Path(folder)/'inspection.elf'
+        subprocess.run([prefix+'objcopy','--remove-section=.xt.prop','--remove-section=.xt.lit',str(elf),str(copy)],capture_output=True,check=True)
+        symbols=lambda path:subprocess.check_output([prefix+'nm','-n',str(path)],text=True)
+        inspection_copy_equivalent(elf,copy,symbols(elf),symbols(copy))
+        def decode(start,end):
+            return subprocess.check_output([str(objdump),'-C','-d','--start-address='+hex(start),'--stop-address='+hex(end),str(copy)],text=True)
+        text,proof=_v2_reachable_instructions(symbol['address'],symbol['size'],decode)
+        proof.update(original_elf_sha256=before,inspection_elf_sha256=sha(copy),
+            removed_nonallocated_sections=['.xt.prop','.xt.lit'],allocated_sections_identical=True,
+            all_symbols_identical=True,approved_setup_decoder_sha256='48406180324f41371d0803547edc4d0844caf1a7c424f965372de045cbce3aba')
+    require(sha(elf)==before,'Actual ELF changed during web inspection')
+    return text,proof
 
 
 def _v2_callback_frames(frames,symbols,observe,wrapper,objdump,elf):

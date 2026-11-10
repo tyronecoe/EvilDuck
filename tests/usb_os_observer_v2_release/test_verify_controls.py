@@ -101,5 +101,133 @@ def _v2_test_callback_graph_counts_only_reachable_frames_and_refuses_unknown(sel
 
 Policy.test_v2_callback_graph_counts_only_reachable_frames_and_refuses_unknown=_v2_test_callback_graph_counts_only_reachable_frames_and_refuses_unknown
 
+def _v2_probe_nested_selection(generated):
+    """Run the real nested selector/import prefix, never the compiler driver.
+
+    Stop as soon as the historical nested driver has executed its actual source
+    import path and the generated wrapper has loaded its checked target verifier.
+    This catches the selector bug that static source-path assertions missed.
+    """
+    import sys
+    tree=ast.parse(generated)
+    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+    namespace=dict(__name__='v2_nested_selection_control',__file__=str(HERE/'build_candidate.py'))
+    native_compile=builtins.compile
+    exec(native_compile(generated,'v2-generated-wrapper','exec'),namespace)
+    before_import=[]
+    for node in main.body:
+        if isinstance(node,ast.Import) and any(a.name=='prepare_sources' for a in node.names):break
+        before_import.append(node)
+    else:raise AssertionError('Actual nested source import missing')
+    exec(native_compile(ast.fix_missing_locations(ast.Module(body=before_import,type_ignores=[])),
+        'v2-generated-selector','exec'),namespace)
+    target_nodes=[];collect=False
+    for node in main.body:
+        if isinstance(node,ast.Import) and any(a.name=='importlib.util' and a.asname=='selected_target_import' for a in node.names):collect=True
+        if collect:target_nodes.append(node)
+        if collect and isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='verify' for t in node.targets):break
+    else:raise AssertionError('Actual checked target import missing')
+    assert target_nodes
+    target_code=native_compile(ast.fix_missing_locations(ast.Module(body=target_nodes,type_ignores=[])),
+        'v2-generated-checked-import','exec')
+    h1=dict(__name__='v2_actual_nested_h1_control',__file__=str(namespace['PARENT']))
+    exec(native_compile(namespace['text'],str(namespace['PARENT']),'exec'),h1)
+    selected={};old_path=list(sys.path);old_prepare=sys.modules.pop('prepare_sources',None)
+    class SelectionReached(Exception):pass
+    def compile_probe(source,filename,mode,*args,**kwargs):
+        flags=kwargs.get('flags',args[0] if args else 0)
+        needle="args=['compile','--fqbn',s3_validation.FQBN"
+        if mode=='exec' and isinstance(source,str) and needle in source and not flags&ast.PyCF_ONLY_AST:
+            leaf_tree=ast.parse(source);prefix=[]
+            for node in leaf_tree.body:
+                prefix.append(node)
+                if isinstance(node,ast.ImportFrom) and node.module=='prepare_sources':break
+            else:raise AssertionError('Actual leaf source import missing')
+            leaf=dict(__name__='v2_actual_leaf_import_control',__file__=str(namespace['PARENT']))
+            exec(native_compile(ast.fix_missing_locations(ast.Module(body=prefix,type_ignores=[])),filename,'exec'),leaf)
+            selected['preparer']=pathlib.Path(sys.modules['prepare_sources'].__file__).resolve()
+            assert selected['preparer']==(HERE/'prepare_sources.py').resolve(),'Nested builder selected old preparer'
+            exec(target_code,leaf)
+            selected['verifier']=pathlib.Path(leaf['target_module'].__file__).resolve()
+            selected['verifier_globals']=pathlib.Path(leaf['verify'].__globals__['__file__']).resolve()
+            selected['build_id']=leaf['target_module'].BUILD_ID
+            raise SelectionReached()
+        return native_compile(source,filename,mode,*args,**kwargs)
+    try:
+        with patch.object(builtins,'compile',compile_probe):
+            try:h1['main']()
+            except SelectionReached:pass
+            else:raise AssertionError('Control failed to intercept compiler driver')
+    finally:
+        sys.path[:]=old_path
+        sys.modules.pop('prepare_sources',None)
+        if old_prepare is not None:sys.modules['prepare_sources']=old_prepare
+    return selected
+
+def _v2_test_actual_nested_builder_loads_v2_despite_cached_v1(self):
+    import sys
+    original=V.load(ROOT/'tests/usb_os_observer_release/verify_target.py','v2_cached_v1_target_negative')
+    generated,_=B.adapted_source('a'*40)
+    with patch.dict(sys.modules,{'verify_target':original}):selected=_v2_probe_nested_selection(generated)
+    self.assertEqual(selected['preparer'],(HERE/'prepare_sources.py').resolve())
+    self.assertEqual(selected['verifier'],(HERE/'verify_target.py').resolve())
+    self.assertEqual(selected['verifier_globals'],selected['verifier'])
+    self.assertEqual(selected['build_id'],'ROUTEB-USB-ENUM-OBSERVER-H1-v2')
+
+def _v2_test_old_nested_selector_is_refused(self):
+    generated,_=B.adapted_source('a'*40)
+    before="text=text.replace('lock_feedback','usb_os_observer_v2_release')"
+    self.assertEqual(generated.count(before),2)
+    wrong=generated.replace(before,"text=text.replace('lock_feedback','usb_os_observer_release')",1)
+    with self.assertRaisesRegex(AssertionError,'Nested builder selected old preparer'):_v2_probe_nested_selection(wrong)
+
+def _v2_test_old_verifier_path_is_refused(self):
+    generated,_=B.adapted_source('a'*40)
+    wrong=generated.replace("target_path = ROOT / 'tests/usb_os_observer_v2_release/verify_target.py'",
+        "target_path = ROOT / 'tests/usb_os_observer_release/verify_target.py'",1)
+    self.assertNotEqual(wrong,generated)
+    with self.assertRaises(AssertionError):_v2_probe_nested_selection(wrong)
+
+Policy.test_v2_actual_nested_builder_loads_v2_despite_cached_v1=_v2_test_actual_nested_builder_loads_v2_despite_cached_v1
+Policy.test_v2_old_nested_selector_is_refused=_v2_test_old_nested_selector_is_refused
+Policy.test_v2_old_verifier_path_is_refused=_v2_test_old_verifier_path_is_refused
+
+def _v2_test_export_handler_requires_exact_top_level_function(self):
+    name='handleUsbObservations(AsyncWebServerRequest*)'
+    top=dict(name=name,address=0x42001000,size=100,kind='t')
+    nested=dict(name=name+'::{lambda(usb_observer::Witness const&)#1}::operator()(usb_observer::Witness const&) const',
+        address=0x42002000,size=40,kind='t')
+    self.assertEqual(V._v2_export_handler([top,nested]),top)
+    for rows in [[nested],[top,dict(top)],[dict(top,size=0),nested]]:
+        with self.assertRaises(ValueError):V._v2_export_handler(rows)
+
+Policy.test_v2_export_handler_requires_exact_top_level_function=_v2_test_export_handler_requires_exact_top_level_function
+
+def _v2_test_web_cfg_reenters_real_target_and_skips_unreachable_padding(self):
+    start=0x42001000;target=start+0x10
+    bodies={start:'42001000: 000006 j 42001010 <handleUsbObservations+0x10>\n'
+        '42001003: fffff1 l32r a8, fffffff0 <unreachable-padding>\n',
+        target:'42001010: 000005 call8 42002000 <authorize>\n'
+        '42001013: 000005 call8 42003000 <snapshot>\n42001016: f01d retw.n\n'}
+    seen=[]
+    def decode(at,end):seen.append(at);return bodies[at]
+    text,proof=V._v2_reachable_instructions(start,0x20,decode)
+    self.assertEqual(seen,[start,target]);self.assertNotIn('unreachable-padding',text)
+    self.assertEqual([r['target'] for r in V.call_edges(text) if r['opcode'].startswith('call')],[0x42002000,0x42003000])
+    self.assertTrue(proof['exact_branch_target_reentry'])
+
+def _v2_test_web_cfg_rejects_unresolved_code_and_bad_reachable_literals(self):
+    for text in ['42001000: ffffff ill\n','42001000: 000006 jx a8\n',
+                 '42001000: 000006 beqz a2, 42002000 <outside>\n',
+                 '42001003: f01d retw.n\n']:
+        with self.assertRaises(ValueError):V._v2_reachable_instructions(0x42001000,0x20,lambda a,b,t=text:t)
+    text,_=V._v2_reachable_instructions(0x42001000,0x20,
+        lambda a,b:'42001000: fffff1 l32r a8, fffffff0 <bad-reachable-literal>\n42001003: f01d retw.n\n')
+    with patch.object(V,'elf_bytes',side_effect=ValueError('ELF address is not one unique file-backed load range')):
+        with self.assertRaises(ValueError):V.call_edges(text,b'ELF')
+
+Policy.test_v2_web_cfg_reenters_real_target_and_skips_unreachable_padding=_v2_test_web_cfg_reenters_real_target_and_skips_unreachable_padding
+Policy.test_v2_web_cfg_rejects_unresolved_code_and_bad_reachable_literals=_v2_test_web_cfg_rejects_unresolved_code_and_bad_reachable_literals
+
 if __name__ == '__main__':
     raise SystemExit(main())

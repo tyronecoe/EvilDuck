@@ -12,6 +12,7 @@ _v2_sys.dont_write_bytecode = True
 _V2_FROZEN_PARENT = _v2_pathlib.Path(__file__).resolve().parents[1] / 'usb_os_observer_release' / 'build_candidate.py'
 _V2_FROZEN_SHA = 'd07ab71ef92c9af5bb8cbe43b82ec9237156353e3ae004c9b5e0b924aafe72ca'
 _V2_EDITS = [('tests/usb_os_observer_release/', 'tests/usb_os_observer_v2_release/', 2), ("'tests/usb_os_observer_release'", "'tests/usb_os_observer_v2_release'", 1), ("'tests/usb_os_observer_web'", "'tests/usb_os_observer_v2_web'", 1), ("'tests/usb_os_observer'", "'tests/usb_os_observer_v2'", 1), ('ROUTEB-USB-ENUM-OBSERVER-H1-v1', 'ROUTEB-USB-ENUM-OBSERVER-H1-v2', 1), ('bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29', 'fe6ed1c291a2af234793cca86aa9b8c979ac6d8e', 1), ('docs/usb-os-observer-contract.md', 'docs/usb-os-observer-v2-contract.md', 1), ('docs/usb-os-evidence-gate.json', 'docs/usb-os-observer-v2-evidence.json', 1), ('USB ENUMERATION CAPTURE ONLY / DEFINE LABELS / DEL / REPEAT / PRIVACY / H1 EXPERIMENTAL / REVIEW ONLY', 'USB ENUMERATION EVIDENCE V2 / DEFINE LABELS / DEL / REPEAT / PRIVACY / H1 EXPERIMENTAL / REVIEW ONLY', 1)]
+_V2_EDITS += [("'usb_os_observer_release'", "'usb_os_observer_v2_release'", 1)]
 
 def _v2_frozen_source():
     raw = _V2_FROZEN_PARENT.read_bytes()
@@ -32,6 +33,35 @@ finally:
 
 
 DOC_INPUTS += ['docs/usb-os-observer-v1-owner-evidence/HANDOFF.txt'] + ['docs/usb-os-observer-v1-owner-evidence/export-%d.json'%i for i in range(5)]
+
+# The historical wrapper imports verify_target only after its nested compiler
+# driver has changed sys.path. Pin this import explicitly, so neither a stale
+# selector nor a pre-existing module cache can silently choose another stage.
+V2_TARGET_IMPORT = '''    import importlib.util as selected_target_import
+    target_path = ROOT / 'tests/usb_os_observer_v2_release/verify_target.py'
+    target_spec = selected_target_import.spec_from_file_location('observer_v2_exact_target', target_path)
+    assert target_spec is not None and target_spec.loader is not None
+    target_module = selected_target_import.module_from_spec(target_spec)
+    target_spec.loader.exec_module(target_module)
+    assert pathlib.Path(target_module.__file__).resolve() == target_path.resolve()
+    assert target_module.HERE.resolve() == (ROOT / 'tests/usb_os_observer_v2_release').resolve()
+    assert target_module.BUILD_ID == 'ROUTEB-USB-ENUM-OBSERVER-H1-v2'
+    assert target_module.SELF_PATH == 'tests/usb_os_observer_v2_release/verify_target.py'
+    verify = target_module.verify'''
+
+_V2_INNER_ADAPTED_SOURCE = adapted_source
+
+def adapted_source(source_commit):
+    text,changes = _V2_INNER_ADAPTED_SOURCE(source_commit)
+    selector = "text=text.replace('lock_feedback','usb_os_observer_v2_release')"
+    assert text.count(selector) == 2, 'Both nested v2 selector callsites must be retained'
+    assert "text=text.replace('lock_feedback','usb_os_observer_release')" not in text
+    old = '    from verify_target import verify'
+    assert text.count(old) == 1, 'Exact nested target-verifier import missing or ambiguous'
+    text = text.replace(old,V2_TARGET_IMPORT,1)
+    changes['v2_checked_verifier_selection'] = dict(before=old,after=V2_TARGET_IMPORT,occurrences=1,
+        nested_selector=selector,nested_selector_occurrences=2,old_predicates_removed=0)
+    return text,changes
 
 _V2_INNER_BUILD_INPUTS = build_inputs
 
