@@ -1,0 +1,59 @@
+{
+  "build_id": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+  "source_commit": "b075e551e07f7b15124bdad3caa564c614f78ba4",
+  "package_commit": "e4f0a5a5c9898ca1490d0ba6f9bfa3298e4f5e81",
+  "artifacts": [
+    {
+      "file": "EvilDuckS3.ino.bin",
+      "bytes": 1450624,
+      "sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e"
+    },
+    {
+      "file": "EvilDuckS3.ino.elf",
+      "bytes": 23706764,
+      "sha256": "5e473ffd5813e7cea7c30871123352ceeeb64ac657519ff93ad951b096c1622d"
+    },
+    {
+      "file": "report.json",
+      "bytes": 1709153,
+      "sha256": "4c8e6c1f208e15973a41e345acbaf54e2e4c01b9db0060692d99bddc91bdae28"
+    },
+    {
+      "file": "build-inputs.json",
+      "bytes": 28091,
+      "sha256": "ffbf4b972f07f43d779661dff236a63d9ca7e175d074e45d2bcb9f0fce156f9b"
+    },
+    {
+      "file": "usb-observer-release-verification.json",
+      "bytes": 3352924,
+      "sha256": "1cfb8de460617c9f8f5344aaab157f9ad6390e7facc4b1bc15ae921afc03d057"
+    }
+  ],
+  "package": {
+    "file": "downloads/evilduck-routeb-usb-enum-observer-h1-macos-review-v2.zip",
+    "bytes": 5564384,
+    "sha256": "851ccb1ebec84214d38e4469298a8b7270374fe6fa28aacb32a4c8e37fd5e8af"
+  },
+  "resource_deltas": {
+    "from_v1": {
+      "application_bytes": 5616,
+      "static_ram_bytes": 424
+    },
+    "from_working_define": {
+      "application_bytes": 12576,
+      "static_ram_bytes": 1496
+    }
+  },
+  "working_return_zip": {
+    "bytes": 2691374,
+    "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "role": "WORKING_DEFINE_RETURN",
+    "application_bytes": 1438048,
+    "application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30"
+  },
+  "older_rollback_application": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "role": "OLDER_SOURCE_TEXT_V2"
+  }
+}

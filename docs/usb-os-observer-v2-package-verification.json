@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "review_only": true,
+  "observed_utc": "2026-11-10T04:30:06.031603+00:00",
+  "package_checkpoint": "e4f0a5a5c9898ca1490d0ba6f9bfa3298e4f5e81",
+  "firmware_source_checkpoint": "b075e551e07f7b15124bdad3caa564c614f78ba4",
+  "build_id": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+  "zip": {
+    "file": "/workspace/scratch/usb-os-observer-v2-release/evilduck-routeb-usb-enum-observer-h1-macos-review-v2.zip",
+    "bytes": 5564384,
+    "sha256": "851ccb1ebec84214d38e4469298a8b7270374fe6fa28aacb32a4c8e37fd5e8af",
+    "members": 71
+  },
+  "application": {
+    "bytes": 1450624,
+    "sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e"
+  },
+  "working_return": {
+    "role": "WORKING_DEFINE_RETURN",
+    "file": "working-define-labels-macos-review-v1.zip",
+    "bytes": 2691374,
+    "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "build_id": "ROUTEB-DEFINE-LABELS-H1-v1",
+    "application_bytes": 1438048,
+    "application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30",
+    "older_rollback_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "method": "EXTRACT_SEPARATE_FOLDER_AND_USE_UNCHANGED_GUARDED_KIT"
+  },
+  "rollback": {
+    "bytes": 1413200,
+    "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "historical_standalone_application": true,
+    "lacks_newer_privacy_dashboard_fixes": true
+  },
+  "package_manifest": {
+    "file": "/workspace/scratch/usb-os-observer-v2-release/package-v1/manifest.json",
+    "sha256": "607919226163e5f1f6ef7abac17351f80a179d81657b656ccdb6109cc965c98f"
+  },
+  "owner_checklist": {
+    "file": "/workspace/scratch/usb-os-observer-v2-release/package-v1/OWNER-CHECK.md",
+    "sha256": "35dd08b250fac043a0afc2b5c7fa890be3ee0a92bc8ac360c3ef662c80c45c12"
+  },
+  "checks": {
+    "source_policy": {
+      "PASS": 8,
+      "FAIL": 0
+    },
+    "release_package_controls": {
+      "PASS": 135,
+      "FAIL": 0
+    },
+    "inherited_package_archive_controls": {
+      "PASS": 83,
+      "FAIL": 0
+    },
+    "actual_bound_installer_controls": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "fresh_extraction_preflight": {
+      "PASS": 1,
+      "FAIL": 0
+    }
+  },
+  "receipts": [
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/package-policy-v6-bound.json",
+      "sha256": "1f59bcf65c9718c22196f26002b2e155b465b9681aff6c2038dc71eaa2e5457e",
+      "counts": {
+        "PASS": 8,
+        "FAIL": 0
+      }
+    },
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/package-controls-v1.json",
+      "sha256": "4e13e02d12008d69ee1c63b358ee38f1d6e1d8c7bea4ce27190474e92c23a2dc",
+      "counts": {
+        "PASS": 135,
+        "FAIL": 0
+      }
+    },
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/inherited-package-v1.json",
+      "sha256": "e031517c550c77914d92f7a3f45b3c3f0c098a0c70854caa6c200e113f490591",
+      "counts": {
+        "PASS": 83,
+        "FAIL": 0
+      }
+    },
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/bound-installer-v1.json",
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "counts": {
+        "PASS": 38,
+        "FAIL": 0
+      }
+    },
+    {
+      "file": "/workspace/scratch/usb-os-observer-v2-release/fresh-extraction-v1.json",
+      "sha256": "5ac7b712f9e102c8eaa154c9a16ce12965701003e9ba3b9d191d1908a631148b",
+      "counts": {
+        "PASS": 1,
+        "FAIL": 0
+      }
+    }
+  ],
+  "software_evidence": {
+    "current_stage_native_cases": 691,
+    "current_stage_native_assertions": 28547,
+    "current_stage_web_groups": 86,
+    "current_stage_web_assertions": 1563,
+    "observer_source_cases": 34,
+    "observer_source_assertions": 10767,
+    "observer_web_cases": 57,
+    "observer_web_assertions": 839,
+    "historical_focused_receipts_retained_for_stage_provenance": [
+      "del-test-receipt.json",
+      "define-test-receipt.json"
+    ],
+    "current_stage_raw_regression_receipts_included": [
+      "native-test-receipt.json",
+      "web-test-receipt.json",
+      "current-del-regression-receipt.json",
+      "current-define-regression-receipt.json"
+    ],
+    "historical_owner_exports": {
+      "files": 5,
+      "distinct_boots": 3,
+      "heldout": 0
+    }
+  },
+  "offline_command": "python3 preflight.py --directory .",
+  "hardware_access": false,
+  "installed": false,
+  "flashed": false,
+  "ota": false,
+  "remote_publication_performed_by_preparer": false,
+  "limitations": [
+    "Capture-only revision; no OS classifier or validated positive rule.",
+    "No physical USB capture, High Sierra HTTP behavior or keyboard execution performed during preparation.",
+    "One later owner development capture after ten seconds; no repeated campaign or held-out designation of old files.",
+    "Timestamps and SDK samples are not wire/completion proof; tail cannot revalidate prefix.",
+    "H1 opt-in experimental; canonical Hak5 numeric encoding unresolved.",
+    "Working DEFINE return is distinct from older mandatory source/text-v2 rollback.",
+    "Installer may create private full-flash backup before final confirmation; original backups remain untouched."
+  ]
+}
