@@ -24,12 +24,20 @@ BUILD_ID='ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1'
 PROFILE='ADMISSION DIAGNOSTICS / USB OBSERVER V2 / DEFINE / REPEAT / PRIVACY / H1 EXPERIMENTAL / REVIEW ONLY'
 BASELINE='eb4c5d721e30893f7df908ac610d287d7541acf5'
 DOC_INPUTS=['docs/admission-diagnostics-design.md','docs/admission-diagnostics-owner-check.md','docs/routeb-current-compatibility.md']
+_PARENT_MODULE=None
 def sha(path):return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def load(path,name):
     spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
 def parent_module():
+    global _PARENT_MODULE
     assert sha(PARENT)==PARENT_SHA,'Historical v2 build driver changed'
-    return load(PARENT,'admission_complete_v2_builder')
+    # Prime once before installing the inherited compiler hook. Reloading this
+    # builder under that hook would feed its own flag-adapter implementation to
+    # the driver selector. Every call still rechecks the immutable source hash;
+    # build_inputs() still executes the complete unchanged guard on every call.
+    if _PARENT_MODULE is None:
+        _PARENT_MODULE=load(PARENT,'admission_complete_v2_builder')
+    return _PARENT_MODULE
 def build_inputs():
     inherited=parent_module().build_inputs();head=inherited['source_commit']
     subprocess.run(['git','merge-base','--is-ancestor',BASELINE,head],cwd=ROOT,check=True)

@@ -56,6 +56,23 @@ class Controls(unittest.TestCase):
             modified=pathlib.Path(folder)/'modified.py';modified.write_bytes(B.PARENT.read_bytes()+b'\n')
             with patch.object(B,'PARENT',modified):
                 with self.assertRaises(AssertionError):B.parent_module()
+    def test_pinned_parent_reused_under_active_hook_and_guard_still_runs(self):
+        parent=B.parent_module();calls=[];original=parent.build_inputs
+        def guard():
+            calls.append('unchanged-parent-guard')
+            return original()
+        with patch.object(parent,'build_inputs',guard),patch.object(builtins,'compile',parent.flag_adapter):
+            self.assertIs(B.parent_module(),parent)
+            try:
+                value=B.build_inputs()
+            except AssertionError as error:
+                # During development, the real inherited committed-source
+                # guard must reject our uncommitted control/builder changes.
+                self.assertEqual(str(error),'Commit the selected build checkpoint first')
+            else:
+                self.assertEqual(value['source_commit'],value['inherited_observer_v2_guard'] and
+                    B.subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip())
+        self.assertEqual(calls,['unchanged-parent-guard'])
     def test_full190_frozen_asserts_retained(self):
         ns,_=R.adapted_parent();value=M.pin();final={row['file']:row['sha256'] for row in value['cumulative_h1_after']}
         counts=[('h1_right_modifiers',23),('inject_var_experimental',21),('lock_wait_timeout',16),('source_text_v2',46),('lock_feedback',25),('caps_stop',59)]

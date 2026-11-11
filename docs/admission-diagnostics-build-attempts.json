@@ -1,0 +1,21 @@
+{
+  "format": "evilduck-admission-diagnostics-build-attempts-v1",
+  "attempts": [
+    {
+      "id": "build-v1",
+      "source_commit": "f24b0fd8dca6ca7b75a2153e5f02afc61c7b25b6",
+      "output_directory": "/workspace/scratch/admission-diagnostics/build-v1",
+      "exit_code": 1,
+      "stage": "PRECOMPILATION_DRIVER_LOADING",
+      "target_compiler_executed": false,
+      "firmware_artifacts_created": false,
+      "error_type": "AssertionError",
+      "assertion": "source.count(old)==1 and 'EVILDUCK_USB_ENUM_OBSERVER' not in source",
+      "source_location": "tests/usb_os_observer_release/build_candidate.py:91 flag_adapter",
+      "trigger": "New build_inputs reloaded pinned v2 builder while inherited builtins.compile hook active; hook saw builder text as a compile-driver input.",
+      "classification": "release integration error; no firmware-source failure",
+      "guard_bypassed": false,
+      "captured_at_utc": "2026-11-11T07:11:31.254360+00:00"
+    }
+  ]
+}
