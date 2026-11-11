@@ -1,0 +1,79 @@
+--- adapter.cpp
++++ adapter.cpp
+@@ -18,7 +18,8 @@
+ }
+ bool Adapter::prepare(ds_preview::Reader r){
+  if(inStep_||leased_||!(state_==State::Idle||state_==State::Completed||state_==State::Cancelled||state_==State::Error))return false;
+- fault_=Fault::None;pending_=false;waiting_=baseline_=false;used_=0;loadTurns_=0;admissions_=acks_=retries_=delayAcks_=0;
++ // Only eligible new requests reset diagnostics; refused prepares preserve the owner.
++ fault_=Fault::None;diagnostic_={};admissionLine_=1;cancelRequested_=false;pending_=false;waiting_=baseline_=false;used_=0;loadTurns_=0;admissions_=acks_=retries_=delayAcks_=0;
+  if(!r.read||!r.seek||r.bytes>ds_preview::MaxSource){fail(Fault::Reader);return false;}
+  inStep_=true;bool ok=r.seek(r.context,0);inStep_=false;
+  if(!ok){fail(Fault::Reader);return false;}
+@@ -30,7 +31,16 @@
+  if(!ok)return false;
+  leased_=true;now_=since_=now;turns_=0;state_=State::Syncing;return true;
+ }
+-void Adapter::fail(Fault f){if(fault_==Fault::None)fault_=f;finish(State::Error);}
++void Adapter::fail(Fault f,ds_preview::Error error){
++ if(fault_==Fault::None){
++  fault_=f;
++  if(error.code!=ds_preview::ErrorCode::None)diagnostic_=error;
++  else if(f==Fault::Compiler)diagnostic_=compiler_.error();
++  else if(f==Fault::Runtime)diagnostic_=runtime_.error();
++  else if(f==Fault::LockTimeout||f==Fault::LockEvidence)diagnostic_={f==Fault::LockTimeout?ds_preview::ErrorCode::Timeout:ds_preview::ErrorCode::FeedbackUnavailable,runtime_.line(),1};
++ }
++ finish(State::Error);
++}
+ void Adapter::finish(State terminal){
+  compiler_.cancel();runtime_.cancel();pending_=false;waiting_=baseline_=false;target_=terminal;
+  if(leased_){route_b::cancel(session_);state_=State::Clearing;since_=now_;turns_=0;}
+@@ -99,13 +109,15 @@
+   for(size_t i=0;i<rr.bytes;++i){
+    unsigned char c=static_cast<unsigned char>(chunk[i]);size_t at=used_+i;
+    bool bom=static_cast<unsigned char>(used_?source_[0]:chunk[0])==0xef;
+-   if(bom&&at<3){static constexpr unsigned char signature[]={0xef,0xbb,0xbf};if(c!=signature[at]){fail(Fault::Capability);return;}}
+-   else if(!(c==9||c==10||c==13||(c>=32&&c<=126))){fail(Fault::Capability);return;}
++   if(bom&&at<3){static constexpr unsigned char signature[]={0xef,0xbb,0xbf};if(c!=signature[at]){fail(Fault::Capability,{ds_preview::ErrorCode::InvalidSource,admissionLine_,1});return;}}
++   else if(!(c==9||c==10||c==13||(c>=32&&c<=126))){fail(Fault::Capability,{ds_preview::ErrorCode::InvalidSource,admissionLine_,1});return;}
++   // The compiler advances physical lines on LF (including CRLF), not bare CR.
++   if(c==10)++admissionLine_;
+   }
+   if(rr.bytes)memcpy(source_+used_,chunk,rr.bytes);used_+=rr.bytes;
+   if(rr.status==ds_preview::ReadStatus::Eof){
+    if(used_!=reader_.bytes){fail(Fault::Reader);return;}
+-   if(used_&&used_<3&&static_cast<unsigned char>(source_[0])==0xef){fail(Fault::Capability);return;}source_[used_]=0;
++   if(used_&&used_<3&&static_cast<unsigned char>(source_[0])==0xef){fail(Fault::Capability,{ds_preview::ErrorCode::InvalidSource,admissionLine_,1});return;}source_[used_]=0;
+    memory_={source_,used_,0};if(!compiler_.start(program_,memory_.reader(),"stage28u.duck")){fail(Fault::Compiler);return;}state_=State::Compiling;
+   }else if(!rr.bytes)fail(Fault::Reader);
+   return;
+--- adapter.h
++++ adapter.h
+@@ -8,6 +8,7 @@
+  ds_preview::Program program_;ds_preview::CompileSession compiler_;ds_preview::Runtime runtime_;
+  char source_[ds_preview::MaxSource+1]{};ds_preview::MemoryReader memory_{};ds_preview::Reader reader_{};
+  size_t used_=0;State state_=State::Idle,target_=State::Completed;Fault fault_=Fault::None;
++ ds_preview::Error diagnostic_{};uint16_t admissionLine_=1;
+  bool cancelRequested_=false,inStep_=false,pending_=false,leased_=false;uint64_t session_=0;
+  route_b::Id id_{};ds_preview::Event event_{ds_preview::EventType::Delay,0};
+  uint32_t now_=0,since_=0,turns_=0,loadTurns_=0;uint32_t admissions_=0,acks_=0,retries_=0,delayAcks_=0;
+@@ -17,16 +18,14 @@
+  ds_preview::Accept wait(const ds_preview::Event&);
+  static ds_preview::Accept sink(void*,const ds_preview::Event&);
+  ds_preview::Accept receive(const ds_preview::Event&);
+- void fail(Fault);void finish(State);
++ void fail(Fault,ds_preview::Error error={});void finish(State);
+  public:
+  static constexpr uint32_t PendingTurns=1000,PendingMs=1000,ClearingTurns=1000,ClearingMs=1000;
+  bool(*cancellationPoll)()=nullptr; // owner calls after scheduler work, before source tick
+  const char* capturedData()const{return source_;}
+  size_t capturedSize()const{return used_;}
+- ds_preview::Error diagnostic()const{
+-  if(fault_==Fault::LockTimeout||fault_==Fault::LockEvidence)return {fault_==Fault::LockTimeout?ds_preview::ErrorCode::Timeout:ds_preview::ErrorCode::FeedbackUnavailable,runtime_.line(),1};
+-  return fault_==Fault::Runtime?runtime_.error():compiler_.error();
+- }
++ // First causal error belongs to this request, never an earlier compiler run.
++ ds_preview::Error diagnostic()const{return diagnostic_;}
+  bool prepare(ds_preview::Reader);
+  bool prepare(const char*,size_t); // MemoryReader is owned, bytes copied cooperatively before compile
+  bool start(uint32_t now);

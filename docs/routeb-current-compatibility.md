@@ -177,10 +177,13 @@ unmeasured or outside the scoped observations.
 - Button/indicator commands, OS detection, dynamic USB modes/identities,
   consumer/media reports, imports, arbitrary Unicode and generalized AltGr are
   unsupported/outside this profile. Reserved names and linked code are not proof.
-- Invalid source admission currently has a diagnostic gap: the precompiler gate
-  can expose no error or a previous compiler error while still rejecting before
-  output. The [roadmap](routeb-compatibility-roadmap-20261107.md) isolates this
-  future fix; no silent acceptance/limit expansion or whole-source bypass.
+- The uninstalled [admission-diagnostics v1 candidate](admission-diagnostics-design.md)
+  corrects the precompiler gate's empty/stale diagnostic by retaining the current
+  request's first source error (InvalidSource/code2 and physical line). Source
+  acceptance, existing reasons/limits and zero-output rejection remain unchanged.
+  The owner-reported installed observer-v2 image is not assumed to contain this
+  fix; its [roadmap P2 defect](routeb-compatibility-roadmap-20261107.md) remains
+  historical source evidence. Fresh test/build/package receipts are separate.
 
 Explicit authenticated Route B paths and CLI `routeb <filename>` select this
 engine. Ordinary `run`/Legacy interfaces remain separate, with no automatic

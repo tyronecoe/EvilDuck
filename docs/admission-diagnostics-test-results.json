@@ -1,0 +1,171 @@
+{
+  "format": "evilduck-admission-diagnostics-software-results-v1",
+  "status": "PASS",
+  "build_id": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+  "target_build": false,
+  "hardware_access": false,
+  "groups": {
+    "native": {
+      "exit": 0,
+      "stderr": "",
+      "receipt": "/workspace/scratch/admission-diagnostics/focused-v4.json",
+      "receipt_sha256": "9c0d423c355f6c586c0b86c2e0b4095716089b743e0333d65cf61053b088a805",
+      "counts": {
+        "PASS": 738,
+        "FAIL": 0
+      },
+      "assertions": 38901,
+      "fresh_execution": true,
+      "scope": "All production bindings current;728 passing cases retained from first current-source epoch,10 dispatcher-corrected cases in second epoch; exact attribution in execution-epochs receipt"
+    },
+    "web": {
+      "exit": 0,
+      "stderr": "",
+      "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web.json",
+      "receipt_sha256": "24620e537e9a7c73ad236136a3d79be9439c7538dfa62065d643f6fe83851a9d",
+      "groups": {
+        "static-native": {
+          "exit": 0,
+          "stderr": "",
+          "counts": {
+            "PASS": 33,
+            "FAIL": 0
+          },
+          "assertions": 1012,
+          "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/static-native.json",
+          "receipt_sha256": "5b67a3f51a3e9f8ddf8cce4856cef454e631b182224ad2aef6e460af8b2a19aa",
+          "fresh_execution": false,
+          "reused_historical": true
+        },
+        "streamed-browser": {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+            "-B",
+            "/workspace/EvilDuck/tests/dashboard_response_safety/test_browser.py",
+            "--source",
+            "/workspace/scratch/usb-os-observer-v2-release/final-source-v2/EvilDuckS3",
+            "--native-output",
+            "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/static-native",
+            "--native-results",
+            "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/static-native.json",
+            "--output",
+            "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/streamed-browser",
+            "--results",
+            "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/streamed-browser.json"
+          ],
+          "exit": 0,
+          "stderr": "",
+          "fresh_execution": false,
+          "counts": {
+            "PASS": 3,
+            "FAIL": 0
+          },
+          "assertions": 26,
+          "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/streamed-browser.json",
+          "receipt_sha256": "c32962ae5e1a1972661602c10afeb4da30d89518dc9f5b59e333e1754ba7b500",
+          "reused_historical": true
+        },
+        "dashboard-browser": {
+          "exit": 0,
+          "stderr": "",
+          "counts": {
+            "PASS": 9,
+            "FAIL": 0
+          },
+          "assertions": 216,
+          "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/dashboard-browser/results.json",
+          "receipt_sha256": "f2a08a74310befda8fd177644007fab5c21a178a0f516805dcb38182ca9dc16c",
+          "fresh_execution": false,
+          "reused_historical": true
+        },
+        "editor-browser": {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+            "-B",
+            "/workspace/EvilDuck/tests/editor_load_safety/test_browser.py",
+            "--source",
+            "/workspace/scratch/usb-os-observer-v2-release/final-source-v2/EvilDuckS3/webfiles.h",
+            "--output-dir",
+            "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/editor-browser"
+          ],
+          "exit": 0,
+          "stderr": "",
+          "fresh_execution": false,
+          "counts": {
+            "PASS": 41,
+            "FAIL": 0
+          },
+          "assertions": 309,
+          "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/web-build/editor-browser/results.json",
+          "receipt_sha256": "0b95c3f3697d904e58d1a56eca2ea851488e0c125b83c9c6442dee7f3ef39532",
+          "reused_historical": true
+        }
+      },
+      "fresh_execution": false,
+      "reused_historical": true,
+      "reuse_reason": "Unchanged behavior/source contracts; source and manifest hashes retained. Current-source DEFINE and native paths separately rerun in native group."
+    },
+    "del": {
+      "exit": 0,
+      "stderr": "",
+      "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/del.json",
+      "receipt_sha256": "40e2660ae9056b288d71a9f070a99a397683a6859e1d95b0343c7a71fc04d8db",
+      "counts": {
+        "PASS": 27,
+        "FAIL": 0
+      },
+      "assertions": 797,
+      "fresh_execution": false,
+      "reused_historical": true,
+      "reuse_reason": "Unchanged behavior/source contracts; source and manifest hashes retained. Current-source DEFINE and native paths separately rerun in native group."
+    },
+    "define": {
+      "exit": 0,
+      "stderr": "",
+      "receipt": "/workspace/scratch/usb-os-observer-v2-release/regressions-v2/define.json",
+      "receipt_sha256": "b156398ed7b8283b44b5df2cea8581cc60b2e4af8a063cfe9828fee02f9a3b21",
+      "counts": {
+        "PASS": 28,
+        "FAIL": 0
+      },
+      "assertions": 374,
+      "fresh_execution": false,
+      "reused_historical": true,
+      "reuse_reason": "Unchanged behavior/source contracts; source and manifest hashes retained. Current-source DEFINE and native paths separately rerun in native group."
+    }
+  },
+  "admission": {
+    "receipt": "/workspace/scratch/admission-diagnostics/focused-v4.json",
+    "receipt_sha256": "9c0d423c355f6c586c0b86c2e0b4095716089b743e0333d65cf61053b088a805",
+    "counts": {
+      "PASS": 40,
+      "FAIL": 0,
+      "assertions": 384
+    },
+    "fresh_execution": true
+  },
+  "negative_control": {
+    "receipt": "/workspace/EvilDuck/docs/admission-diagnostics-negative-controls.json",
+    "receipt_sha256": "56ae3e9bdeddc090e11724ab1e2ef8f8ba30929fc04bd88719309a360a1a8360",
+    "status": "PASS",
+    "cases": 2,
+    "assertions": 12,
+    "scope": "Expected defects reproduced on exact prior composition; source rejection and zero report deltas held"
+  },
+  "execution_epochs": {
+    "receipt": "/workspace/scratch/admission-diagnostics/native-execution-epochs.json",
+    "receipt_sha256": "9b6ba7785737fbd6cb477d8f4c332a973cf08509235ecb12e4246cd268b55fb2"
+  },
+  "development": {
+    "receipt": "/workspace/scratch/admission-diagnostics/native-development-notes.json",
+    "receipt_sha256": "c0a0b716680ff2766b43d1165cb6e2a530509484c6bb5f74d84691fd1d0e6164",
+    "final_firmware_failures": 0
+  },
+  "sanitizers": "ASan/UBSan/detect_leaks=1; clean per-process final stderr",
+  "notes": [
+    "Native738/38901 are current-source software executions, not physical results.",
+    "Historical web/del/define receipts are explicitly reused, not freshly run.",
+    "Original negative-control receipt is immutable; details are a separate supplement.",
+    "No firmware target, package, installation or hardware execution is asserted by this software-only summary."
+  ]
+}

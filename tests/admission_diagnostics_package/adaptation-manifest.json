@@ -1,0 +1,155 @@
+{
+  "format": "evilduck-admission-package-adaptations-v1",
+  "parents": {
+    "package.py": "ce38c99b0d9873943cdeeb81e2ff1c3d93206ee79c540f9dfc6bae5a61044352",
+    "package_preflight.py": "232ef2673fcc9e29082c13c5d3c52412369f4f656c663e0a70ec9c209a994ee0",
+    "test_package.py": "61cd4aa9a92590f36a6b3edd076b714c42af1ba99e3cbeb5e6dff5914eaf7406"
+  },
+  "package_edits": [
+    {
+      "before": "evilduck-routeb-usb-enum-observer-h1-macos-review-v2",
+      "after": "evilduck-routeb-admission-diagnostics-h1-macos-review-v1",
+      "occurrences": 1
+    },
+    {
+      "before": "ROUTEB-USB-ENUM-OBSERVER-H1-v2",
+      "after": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+      "occurrences": 1
+    },
+    {
+      "before": "BASE = 'fe6ed1c291a2af234793cca86aa9b8c979ac6d8e'",
+      "after": "BASE = 'eb4c5d721e30893f7df908ac610d287d7541acf5'",
+      "occurrences": 1
+    },
+    {
+      "before": "tests/usb_os_observer_v2_package/",
+      "after": "tests/admission_diagnostics_package/",
+      "occurrences": 2
+    },
+    {
+      "before": "tests/usb_os_observer_v2_release/source-manifest.json",
+      "after": "PRESERVED_OBSERVER_V2_RELEASE_MANIFEST_PATH",
+      "occurrences": 2
+    },
+    {
+      "before": "tests/usb_os_observer_v2_release/",
+      "after": "tests/admission_diagnostics_release/",
+      "occurrences": 6
+    },
+    {
+      "before": "evilduck-usb-observer-release-binding-v2",
+      "after": "evilduck-admission-diagnostics-release-binding-v1",
+      "occurrences": 1
+    },
+    {
+      "before": "ROLLBACK_SHA)\n    assert value[",
+      "after": "'b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e', ROLLBACK_SHA)\n    assert value[",
+      "occurrences": 1
+    },
+    {
+      "before": "def sha(path):",
+      "after": "REQUIRED_SOURCE += ['tests/admission_diagnostics/source-manifest.json', 'tests/admission_diagnostics_release/source-manifest.json', 'tests/admission_diagnostics_package/adaptation-manifest.json']\n\n\ndef sha(path):",
+      "occurrences": 1
+    },
+    {
+      "before": "    return value\n\n\ndef documents(binding):",
+      "after": "    for key in ['admission_test_receipt_sha256','negative_control_receipt_sha256']:\n        assert re.fullmatch('[0-9a-f]{64}', value[key]), key\n    return value\n\n\ndef documents(binding):",
+      "occurrences": 1
+    },
+    {
+      "before": "            \"        'observer-test-receipt.json': OBSERVER_TEST_FILE,\\n\"",
+      "after": "            \"        'admission-source-manifest.json': ROOT/'tests/admission_diagnostics/source-manifest.json',\\n\"\n            \"        'admission-release-source-manifest.json': ROOT/'tests/admission_diagnostics_release/source-manifest.json',\\n\"\n            \"        'admission-test-receipt.json': ADMISSION_TEST_FILE,\\n\"\n            \"        'admission-negative-controls.json': NEGATIVE_CONTROL_FILE,\\n\"\n            \"        'observer-test-receipt.json': OBSERVER_TEST_FILE,\\n\"",
+      "occurrences": 1
+    },
+    {
+      "before": "    replace('    template = ', \"    for name, contents in GENERATED_DOCS.items():\\n        (out/name).write_text(contents)\\n    template = \")",
+      "after": "    replace('    template = ', \"    for name, contents in GENERATED_DOCS.items():\\n        (out/name).write_text(contents)\\n    for name, contents in GENERATED_FIXTURES.items():\\n        (out/name).write_bytes(contents)\\n    (out/'FIXTURE-SHA256.txt').write_text(FIXTURE_HASHES)\\n    template = \")",
+      "occurrences": 1
+    },
+    {
+      "before": "            \"        observer_v2_release_pin_sha256=sha(ROOT/'tests/usb_os_observer_v2_release/source-manifest.json'),\\n\"",
+      "after": "            \"        observer_v2_release_pin_sha256=sha(ROOT/'tests/usb_os_observer_v2_release/source-manifest.json'),\\n\"            \"        admission_source_pin_sha256=sha(ROOT/'tests/admission_diagnostics/source-manifest.json'),\\n\"\n            \"        admission_release_pin_sha256=sha(ROOT/'tests/admission_diagnostics_release/source-manifest.json'),\\n\"\n",
+      "occurrences": 1
+    },
+    {
+      "before": "            \"        observer_v2_release_pin_sha256=sha(out/'observer-v2-release-source-manifest.json'),\\n\"",
+      "after": "            \"        observer_v2_release_pin_sha256=sha(out/'observer-v2-release-source-manifest.json'),\\n\"            \"        admission_profile='ROUTEB_ADMISSION_DIAGNOSTICS_V1',\\n\"\n            \"        admission_source_pin_sha256=sha(out/'admission-source-manifest.json'),\\n\"\n            \"        admission_release_pin_sha256=sha(out/'admission-release-source-manifest.json'),\\n\"\n",
+      "occurrences": 1
+    },
+    {
+      "before": "GENERATED_DOCS=documents(binding), ATTESTATION_FILE",
+      "after": "GENERATED_DOCS=documents(binding), GENERATED_FIXTURES=fixture_bytes(), FIXTURE_HASHES=fixture_inventory(), ATTESTATION_FILE",
+      "occurrences": 1
+    },
+    {
+      "before": "WORKING_ZIP=WORKING_ZIP, WORKING_RETURN_IDENTITY=working_identity(),",
+      "after": "ADMISSION_TEST_FILE=pathlib.Path(binding.get('admission_test_receipt', '/public-admission-test-receipt.json')),\n                     NEGATIVE_CONTROL_FILE=pathlib.Path(binding.get('negative_control_receipt', '/public-negative-controls.json')),\n                     WORKING_ZIP=WORKING_ZIP, WORKING_RETURN_IDENTITY=working_identity(),",
+      "occurrences": 1
+    },
+    {
+      "before": "    verify_working_kit()\n    for ancestor",
+      "after": "    verify_working_kit()\n    for label, path_key, hash_key in [('admission', 'admission_test_receipt', 'admission_test_receipt_sha256'), ('negative-control', 'negative_control_receipt', 'negative_control_receipt_sha256')]:\n        selected = pathlib.Path(binding[path_key]); assert sha(selected) == binding[hash_key]\n        value = json.loads(selected.read_text()); assert value.get('status') == 'PASS', label\n    for ancestor",
+      "occurrences": 1
+    }
+  ],
+  "preflight_edits": [
+    {
+      "before": "evilduck-routeb-usb-enum-observer-h1-macos-review-v2",
+      "after": "evilduck-routeb-admission-diagnostics-h1-macos-review-v1",
+      "occurrences": 1
+    },
+    {
+      "before": "ACTUAL_BUILD_ID='ROUTEB-USB-ENUM-OBSERVER-H1-v2'",
+      "after": "ACTUAL_BUILD_ID='ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1'",
+      "occurrences": 1
+    },
+    {
+      "before": "observer_v2_release.get('build_id')==ACTUAL_BUILD_ID",
+      "after": "observer_v2_release.get('build_id')=='ROUTEB-USB-ENUM-OBSERVER-H1-v2'",
+      "occurrences": 1
+    },
+    {
+      "before": "verifier_path='tests/usb_os_observer_v2_release/verify_target.py'",
+      "after": "verifier_path='tests/admission_diagnostics_release/verify_target.py'",
+      "occurrences": 1
+    },
+    {
+      "before": "ACTUAL_BUILD_ID=",
+      "after": "SUPPORT |= {'admission-source-manifest.json','admission-release-source-manifest.json','admission-test-receipt.json','admission-negative-controls.json','FIXTURE-SHA256.txt','AD00_PRIOR_COMPILE_LINE5.txt','AD01_INVALID_BYTE_LINE3.duck','AD02_VALID_RECOVERY.txt'}\nACTUAL_BUILD_ID=",
+      "occurrences": 1
+    },
+    {
+      "before": " actual_sources={r['file']:r['sha256'] for r in receipt['source_inventory']}",
+      "after": " admission_data=read(d/'admission-source-manifest.json',1024*1024);admission_sha=digest(admission_data);admission=json.loads(admission_data)\n require(admission_sha==RELEASE['admission_source_pin_sha256']==m.get('admission_source_pin_sha256'),'WRONG_ADMISSION_SOURCE_PIN')\n require(admission.get('source_count')==201 and len(admission['before'])==len(admission['after'])==2 and len(admission['unchanged'])==199 and {r['file'] for r in admission['after']}=={'adapter.cpp','adapter.h'},'WRONG_ADMISSION_SOURCE_DELTA')\n require({r['file']:r['sha256'] for r in admission['before']+admission['unchanged']}==final_sources,'WRONG_ADMISSION_PARENT')\n admission_sources={r['file']:r['sha256'] for r in admission['after']+admission['unchanged']}\n require({n for n in admission_sources if admission_sources[n]!=final_sources[n]}=={'adapter.cpp','adapter.h'},'UNREVIEWED_ADMISSION_DELTA')\n admission_release_data=read(d/'admission-release-source-manifest.json',1024*1024);admission_release_sha=digest(admission_release_data);admission_release=json.loads(admission_release_data)\n require(admission_release_sha==RELEASE['admission_release_pin_sha256']==m.get('admission_release_pin_sha256'),'WRONG_ADMISSION_RELEASE_PIN')\n require(admission_release.get('parent_manifest_sha256')==admission_sha and admission_release.get('build_id')==ACTUAL_BUILD_ID,'WRONG_ADMISSION_RELEASE_PARENT')\n require(len(admission_release['before'])==len(admission_release['after'])==9 and len(admission_release['unchanged'])==192,'WRONG_ADMISSION_RELEASE_DELTA')\n require({r['file']:r['sha256'] for r in admission_release['before']+admission_release['unchanged']}==privacy_sources,'WRONG_ADMISSION_COMPARISON_BASE')\n final_sources={r['file']:r['sha256'] for r in admission_release['after']+admission_release['unchanged']}\n require(len(final_sources)==201 and {n for n in final_sources if final_sources[n]!=admission_sources[n]}=={'caps_trial.h'},'UNREVIEWED_ADMISSION_IDENTITY_DELTA')\n require(receipt.get('admission_diagnostics_source_pin')==admission and receipt.get('admission_diagnostics_build_source_pin')==admission_release,'WRONG_LINKED_ADMISSION_PINS')\n require(m.get('admission_profile')=='ROUTEB_ADMISSION_DIAGNOSTICS_V1','WRONG_ADMISSION_SCOPE')\n actual_sources={r['file']:r['sha256'] for r in receipt['source_inventory']}",
+      "occurrences": 1
+    },
+    {
+      "before": " rollback_receipt=json.loads",
+      "after": " admission_tests_data=read(d/'admission-test-receipt.json',4*1024*1024);admission_tests=json.loads(admission_tests_data)\n require(digest(admission_tests_data)==RELEASE['admission_test_receipt_sha256'] and admission_tests.get('status')=='PASS','WRONG_ADMISSION_SOFTWARE_RECEIPT')\n negative_data=read(d/'admission-negative-controls.json',4*1024*1024);negative=json.loads(negative_data)\n require(digest(negative_data)==RELEASE['negative_control_receipt_sha256'] and negative.get('status')=='PASS','WRONG_ADMISSION_NEGATIVE_CONTROLS')\n require(all(admission_tests.get(k,False) is False for k in ['hardware','hardware_access','real_hid','target_firmware_built']),'UNSUPPORTED_ADMISSION_PHYSICAL_CLAIM')\n proof=binding.get('admission_diagnostics',{})\n require(proof.get('status')=='PASS' and proof.get('invalid_source_code')==2 and proof.get('current_request_ownership') is True and proof.get('source_acceptance_unchanged') is True,'ADMISSION_LINK_NOT_PROVEN')\n expected_fixture_names={'AD00_PRIOR_COMPILE_LINE5.txt','AD01_INVALID_BYTE_LINE3.duck','AD02_VALID_RECOVERY.txt'}\n fixture_lines=read(d/'FIXTURE-SHA256.txt',2048).decode('ascii').splitlines()\n require(len(fixture_lines)==3 and {x.split('  ',1)[1] for x in fixture_lines}==expected_fixture_names,'WRONG_ADMISSION_FIXTURE_INVENTORY')\n for row in fixture_lines:\n  expected_hash,name=row.split('  ',1);require(digest(read(d/name,1024))==expected_hash,'WRONG_ADMISSION_FIXTURE_BYTES')\n require(read(d/'AD01_INVALID_BYTE_LINE3.duck',1024)==b'REM byte-exact admission diagnostic\\r\\nREM line two\\nSTRING \\xc3\\xa9\\n','WRONG_INVALID_BYTE_FIXTURE')\n rollback_receipt=json.loads",
+      "occurrences": 1
+    }
+  ],
+  "inherited_require_predicates_removed": 0,
+  "installer_construction_changed": false,
+  "owner_documents_replaced_for_new_review_scope": true,
+  "owner_contract_source": "docs/admission-diagnostics-owner-check.md",
+  "new_fixture_files": [
+    "AD00_PRIOR_COMPILE_LINE5.txt",
+    "AD01_INVALID_BYTE_LINE3.duck",
+    "AD02_VALID_RECOVERY.txt",
+    "FIXTURE-SHA256.txt"
+  ],
+  "new_support_documents": [
+    "BYTE-FIXTURES.md"
+  ],
+  "inherited_require_conditions_removed": 0,
+  "allowed_predicate_identity_adaptations": [
+    "New package_id literal",
+    "Preserve old observer-v2 build_id comparison as literal while current ACTUAL_BUILD_ID is new"
+  ],
+  "generated_sha256": {
+    "package.py": "016874bc773197115bb9348e521368332bc68d0a692dbd979dc53c660f0ca9eb",
+    "package_preflight.py": "e49807042b9a951ad2e1f29b0e86b14e8a3661fd92c04af7f48fb59da888505f",
+    "test_package.py": "f6630ad3c9f01495b9b570b79237e711087e11732fa4b64d88f5b64bcca24a64"
+  }
+}

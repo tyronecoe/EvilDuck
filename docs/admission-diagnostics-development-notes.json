@@ -1,0 +1,19 @@
+[
+  {
+    "stage": "fixture-preparation-v1",
+    "failure": "Expected one historical identity assertion; guard observed two.",
+    "resolution": "Keep both predicates, adapt only their stage identity literals to exact candidate BuildId in disposable fixture; assert exact two files."
+  },
+  {
+    "stage": "fixture-preparation-v2",
+    "failure": "New AD case IDs collided with existing AD01-AD36; uniqueness guard rejected before compile.",
+    "resolution": "New stage uses ADM01-ADM40; inherited IDs and case bodies remain unchanged except documented identity literals."
+  },
+  {
+    "stage": "focused-v3-execution",
+    "failure": "Ten historical V20-V29 cases were misrouted by the new harness V2-prefix dispatcher and returned unknownV2case; all40focused,34observer,28DEFINEand626otherregressionspassed.",
+    "resolution": "Require exact four-character V2 ID length. Recompile harness and rerun only these ten; preserve728prior passes from unchangedcasebodies andexactproductionbindings.",
+    "raw_receipt": "/workspace/scratch/admission-diagnostics/focused-v3.json",
+    "production_defect_demonstrated": false
+  }
+]
