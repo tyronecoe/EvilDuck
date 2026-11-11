@@ -1,0 +1,61 @@
+{
+  "format": "evilduck-admission-diagnostics-final-integrity-v1",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "All164 committed build-input bytes remain exact",
+      "status": "PASS"
+    },
+    {
+      "name": "Verified application identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Verified ELF identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Verified localZIP identity",
+      "status": "PASS"
+    },
+    {
+      "name": "All package groups pass",
+      "status": "PASS"
+    },
+    {
+      "name": "Original negativecontrols immutable",
+      "status": "PASS"
+    },
+    {
+      "name": "Preserved rawcapture hashes docs/usb-os-observer-v2-evidence.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Preserved rawcapture hashes docs/usb-os-observer-v2-owner-evidence.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Onlytwo authorized historicalfiles changed",
+      "status": "PASS"
+    },
+    {
+      "name": "No historical files removed",
+      "status": "PASS"
+    },
+    {
+      "name": "No hardware/remote/OS claims introduced",
+      "status": "PASS"
+    }
+  ],
+  "pass_count": 11,
+  "fail_count": 0,
+  "historical_tree_entries": 2675,
+  "historical_existing_paths_changed": [
+    "docs/routeb-current-compatibility.md",
+    "tools/build_routeb_candidate.py"
+  ],
+  "preexisting_local_refs_verified_unchanged": 48,
+  "remote_refs_not_queried": true,
+  "scope": "Final offline identity and preservation audit; native/runtime/build/package evidence has separate receipts",
+  "created_at_utc": "2026-11-11T07:25:14.782450+00:00"
+}

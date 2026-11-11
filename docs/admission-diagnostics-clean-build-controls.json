@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "cases": 16,
+  "failures": 0,
+  "errors": 0,
+  "output": "test_active_target_and_release_context_hash_new_wrappers (__main__.Controls.test_active_target_and_release_context_hash_new_wrappers) ... ok\ntest_actual_nested_import_selects_new_preparer_and_verifier (__main__.Controls.test_actual_nested_import_selects_new_preparer_and_verifier) ... ok\ntest_committed_source_guard_excludes_only_postcompile_binding (__main__.Controls.test_committed_source_guard_excludes_only_postcompile_binding) ... ok\ntest_exact201_scope_and_new_identity (__main__.Controls.test_exact201_scope_and_new_identity) ... ok\ntest_exact_root_delta_manifest (__main__.Controls.test_exact_root_delta_manifest) ... ok\ntest_full190_frozen_asserts_retained (__main__.Controls.test_full190_frozen_asserts_retained) ... ok\ntest_nested_guard_paths_and_unchanged_profile (__main__.Controls.test_nested_guard_paths_and_unchanged_profile) ... ok\ntest_no_compiler_usb_or_dashboard_drift (__main__.Controls.test_no_compiler_usb_or_dashboard_drift) ... ok\ntest_old_build_identity_refused (__main__.Controls.test_old_build_identity_refused) ... ok\ntest_old_nested_selector_refused (__main__.Controls.test_old_nested_selector_refused) ... ok\ntest_old_nested_verifier_refused (__main__.Controls.test_old_nested_verifier_refused) ... ok\ntest_old_or_modified_parent_pins_refused (__main__.Controls.test_old_or_modified_parent_pins_refused) ... ok\ntest_omitted_adapter_fix_refused (__main__.Controls.test_omitted_adapter_fix_refused) ... ok\ntest_pinned_parent_reused_under_active_hook_and_guard_still_runs (__main__.Controls.test_pinned_parent_reused_under_active_hook_and_guard_still_runs) ... ok\ntest_release_adaptations_preserve_assert_counts (__main__.Controls.test_release_adaptations_preserve_assert_counts) ... ok\ntest_target_adaptations_preserve_assert_and_require_counts (__main__.Controls.test_target_adaptations_preserve_assert_and_require_counts) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 3.258s\n\nOK\n",
+  "source": "/workspace/scratch/admission-diagnostics/composed-release-v1/EvilDuckS3",
+  "runner_sha256": "5cf8911d19688fda80f3981b62cf70316fd7be7afae2a0006c85bef21097c768",
+  "hardware": false,
+  "target_build": false
+}

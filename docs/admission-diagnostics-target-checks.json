@@ -1,0 +1,377 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-11-11T07:19:37.407829+00:00",
+  "source_commit": "c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44",
+  "build_root": "/workspace/scratch/admission-diagnostics/build-v2",
+  "checks_passed": 25,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "name": "Actual201 source inventory exactly matches selected release manifest",
+      "status": "PASS"
+    },
+    {
+      "name": "Only adapter pair and build identity differ from reviewedv2",
+      "status": "PASS"
+    },
+    {
+      "name": "All other198 source entries including compiler USB status and dashboard unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Build and release identify the distinct candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual compiler object and source provenance committed without exception",
+      "status": "PASS"
+    },
+    {
+      "name": "All164 committed inputs still match compilation-checkpoint blobs and present bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "Active builder metadata hashes the new committed wrapper",
+      "status": "PASS"
+    },
+    {
+      "name": "Active release metadata hashes the new committed wrapper",
+      "status": "PASS"
+    },
+    {
+      "name": "Active target proof hashes the new committed wrapper",
+      "status": "PASS"
+    },
+    {
+      "name": "Release receipt bound by report",
+      "status": "PASS"
+    },
+    {
+      "name": "All190 inherited assertions retained and executed",
+      "status": "PASS"
+    },
+    {
+      "name": "Native semantic receipt passed with recorded execution epochs",
+      "status": "PASS"
+    },
+    {
+      "name": "Native receipt full201 production inventory matches actual target",
+      "status": "PASS"
+    },
+    {
+      "name": "Behavior-tested native adapter.cpp matches actual target production source",
+      "status": "PASS"
+    },
+    {
+      "name": "Behavior-tested native adapter.h matches actual target production source",
+      "status": "PASS"
+    },
+    {
+      "name": "Behavior-tested native coordinator.cpp matches actual target production source",
+      "status": "PASS"
+    },
+    {
+      "name": "Typed current-request diagnostic implementation bound to compiled objects",
+      "status": "PASS"
+    },
+    {
+      "name": "New typed Error fail handler is present in actual linked ELF",
+      "status": "PASS"
+    },
+    {
+      "name": "Fixed Adapter storage grows exactly8 bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "Target staticRAM grows exactly8 bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "Compiler workspace and language budgets unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Exact FQBN and identity partition profile unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "All CPP selector and SDK guards unchanged except include-path",
+      "status": "PASS"
+    },
+    {
+      "name": "Pinned core and framework dependency receipts unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Application size and resource delta reflect actual artifact",
+      "status": "PASS"
+    }
+  ],
+  "source_delta": [
+    "adapter.cpp",
+    "adapter.h",
+    "caps_trial.h"
+  ],
+  "source_files": 201,
+  "unchanged_from_v2": 198,
+  "build_report_sha256": "20cf1cfd6ef09b89a230d0bdb04c753b9607a27e16c0450a1807aeac6163e928",
+  "release_receipt_sha256": "8475e4038b6411a9aa6e1f07b91f808701d4ba1941a64afefefeb3d4be84fde2",
+  "native_receipt": {
+    "file": "/workspace/scratch/admission-diagnostics/focused-v4.json",
+    "sha256": "9c0d423c355f6c586c0b86c2e0b4095716089b743e0333d65cf61053b088a805",
+    "counts": {
+      "PASS": 738,
+      "FAIL": 0
+    },
+    "assertions": 38901,
+    "executions": "Referenced existing native receipt with preserved epoch attribution; not newly rerun by this verification"
+  },
+  "semantic_target_source_bindings": [
+    {
+      "file": "adapter.cpp",
+      "native": "/workspace/scratch/admission-diagnostics/focused-native-v4/sources/adapter.cpp",
+      "sha256": "809414e288cb26ab61924ec88efd6e5ef457b93c8294d4fd46c5ccbec305380d"
+    },
+    {
+      "file": "adapter.h",
+      "native": "/workspace/scratch/admission-diagnostics/focused-native-v4/sources/adapter.h",
+      "sha256": "353646af66b7c343a2abae5203bc446aedd7d3c6141a2be6624e3e420b98e7f4"
+    },
+    {
+      "file": "coordinator.cpp",
+      "native": "/workspace/scratch/admission-diagnostics/focused-native-v4/sources/coordinator.cpp",
+      "sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4"
+    }
+  ],
+  "target_admission_proof": {
+    "status": "PASS",
+    "compiled_units": [
+      {
+        "file": "adapter.cpp",
+        "source_sha256": "809414e288cb26ab61924ec88efd6e5ef457b93c8294d4fd46c5ccbec305380d",
+        "compiled_source": "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/adapter.cpp",
+        "compiled_sha256": "165e9426cf4efb9f3198d87819aba2d9b7b0812361ebd8d2c492b3692505fea5",
+        "object": "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/adapter.cpp.o",
+        "object_sha256": "51aed502d827c3aee4979bb221b19393ef6a27bd344841f1c2ce00f1b1897bbb",
+        "header_dependency": true
+      },
+      {
+        "file": "coordinator.cpp",
+        "source_sha256": "09f4d6d8706970841b20500ed1d761dc4b2acb457b8f5c53e7ab3e566bc4e3a4",
+        "compiled_source": "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/coordinator.cpp",
+        "compiled_sha256": "3e367eb64fcbcb61c9d0934cf130182e898a8559123cb67b010ca77ec0f1af75",
+        "object": "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/coordinator.cpp.o",
+        "object_sha256": "52283158bafd7ac00471c17782d32136d1d862aa7b970b093aad4b00eb710bab",
+        "header_dependency": true
+      }
+    ],
+    "first_fault_handler": {
+      "address": 1107308632,
+      "size": 179,
+      "kind": "T",
+      "name": "native_b::Adapter::fail(native_b::Fault, ds_preview::Error)"
+    },
+    "actual_elf_sha256": "743773a913bf430e808fc746c5b40996f531e729c40693b1850fb4726c8d5847",
+    "adapter_header_sha256": "353646af66b7c343a2abae5203bc446aedd7d3c6141a2be6624e3e420b98e7f4",
+    "coordinator_source_unchanged": true,
+    "existing_error_code": 2,
+    "status_schema_unchanged": true,
+    "source_acceptance_unchanged": true,
+    "compiler_workspace_bytes": 4096,
+    "physical_line_contract": "LF increments; CRLF counts once; bare CR remains compiler validation",
+    "scope": "Exact composed source, actual compilation dependencies and linked object/symbol identity; behavioral claims require native tests, not token anchors"
+  },
+  "resources": {
+    "measured_at_utc": "2026-11-11T07:16:31.084373+00:00",
+    "method": "Read actual ELF nm symbols, existing s3-build-report and compiler-generated adapter.su; no new compilation/instrumentation",
+    "physical_stack_peak_measured": false,
+    "source_changed": false,
+    "builds": [
+      {
+        "root": "/workspace/scratch/usb-os-observer-v2-release/build-v2",
+        "adapter_nm_row": "3fc9c200 00005f18 b route_u::(anonymous namespace)::adapter",
+        "adapter_bytes": 24344,
+        "static_ram_bytes": 115392,
+        "application_bytes": 1450624,
+        "application_sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e",
+        "elf_sha256": "5e473ffd5813e7cea7c30871123352ceeeb64ac657519ff93ad951b096c1622d",
+        "stack_usage_files": [
+          "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/sketch/adapter.cpp.su"
+        ],
+        "adapter_frames": [
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:45:6:static bool native_b::Adapter::internalRead(void*, uint16_t, uint16_t&)",
+            "bytes": 96,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:13:13:bool native_b::deviceRandom(void*, uint32_t&)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:27:6:bool native_b::Adapter::start(uint32_t)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:34:6:void native_b::Adapter::finish(native_b::State)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:33:6:void native_b::Adapter::fail(native_b::Fault)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:19:6:bool native_b::Adapter::prepare(ds_preview::Reader)",
+            "bytes": 64,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:15:6:bool native_b::Adapter::prepare(const char*, size_t)",
+            "bytes": 48,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:39:6:void native_b::Adapter::cancel()",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:40:6:bool native_b::Adapter::inspect(route_b::Result)",
+            "bytes": 64,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:51:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+            "bytes": 96,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:67:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+            "bytes": 64,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:66:8:static ds_preview::Accept native_b::Adapter::sink(void*, const ds_preview::Event&)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:88:6:void native_b::Adapter::step(uint32_t)",
+            "bytes": 144,
+            "kind": "static"
+          }
+        ],
+        "nm_command": [
+          "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-nm",
+          "-C",
+          "-S",
+          "--defined-only",
+          "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/EvilDuckS3.ino.elf"
+        ]
+      },
+      {
+        "root": "/workspace/scratch/admission-diagnostics/build-v2",
+        "adapter_nm_row": "3fc9c200 00005f20 b route_u::(anonymous namespace)::adapter",
+        "adapter_bytes": 24352,
+        "static_ram_bytes": 115400,
+        "application_bytes": 1450944,
+        "application_sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1",
+        "elf_sha256": "743773a913bf430e808fc746c5b40996f531e729c40693b1850fb4726c8d5847",
+        "stack_usage_files": [
+          "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/adapter.cpp.su"
+        ],
+        "adapter_frames": [
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:55:6:static bool native_b::Adapter::internalRead(void*, uint16_t, uint16_t&)",
+            "bytes": 96,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:13:13:bool native_b::deviceRandom(void*, uint32_t&)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:28:6:bool native_b::Adapter::start(uint32_t)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:44:6:void native_b::Adapter::finish(native_b::State)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:34:6:void native_b::Adapter::fail(native_b::Fault, ds_preview::Error)",
+            "bytes": 48,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:19:6:bool native_b::Adapter::prepare(ds_preview::Reader)",
+            "bytes": 80,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:15:6:bool native_b::Adapter::prepare(const char*, size_t)",
+            "bytes": 48,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:49:6:void native_b::Adapter::cancel()",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:50:6:bool native_b::Adapter::inspect(route_b::Result)",
+            "bytes": 64,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:61:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+            "bytes": 96,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:77:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+            "bytes": 64,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:76:8:static ds_preview::Accept native_b::Adapter::sink(void*, const ds_preview::Event&)",
+            "bytes": 32,
+            "kind": "static"
+          },
+          {
+            "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:98:6:void native_b::Adapter::step(uint32_t)",
+            "bytes": 176,
+            "kind": "static"
+          }
+        ],
+        "nm_command": [
+          "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-nm",
+          "-C",
+          "-S",
+          "--defined-only",
+          "/workspace/scratch/admission-diagnostics/build-v2/build/EvilDuckS3.ino.elf"
+        ]
+      }
+    ],
+    "status": "PASS",
+    "adapter_delta_bytes": 8,
+    "static_ram_delta_bytes": 8,
+    "application_delta_bytes": 320
+  },
+  "interpretation": "Native composed tests establish code2/current-line behavior; exact source/object/dependency/link identities bind that implementation to the target. This check does not claim hardware or wire execution, nor derive semantic correctness from source token anchors alone.",
+  "hardware_access": false,
+  "new_compilation": false,
+  "firmware_changed": false,
+  "limits": [
+    "Compiler stack frames are not runtime peak task/IRQ latency measurements",
+    "No independent installed image readback",
+    "Physical owner acceptance remains pending"
+  ]
+}

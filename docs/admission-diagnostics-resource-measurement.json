@@ -1,0 +1,184 @@
+{
+  "measured_at_utc": "2026-11-11T07:16:31.084373+00:00",
+  "method": "Read actual ELF nm symbols, existing s3-build-report and compiler-generated adapter.su; no new compilation/instrumentation",
+  "physical_stack_peak_measured": false,
+  "source_changed": false,
+  "builds": [
+    {
+      "root": "/workspace/scratch/usb-os-observer-v2-release/build-v2",
+      "adapter_nm_row": "3fc9c200 00005f18 b route_u::(anonymous namespace)::adapter",
+      "adapter_bytes": 24344,
+      "static_ram_bytes": 115392,
+      "application_bytes": 1450624,
+      "application_sha256": "b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e",
+      "elf_sha256": "5e473ffd5813e7cea7c30871123352ceeeb64ac657519ff93ad951b096c1622d",
+      "stack_usage_files": [
+        "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/sketch/adapter.cpp.su"
+      ],
+      "adapter_frames": [
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:45:6:static bool native_b::Adapter::internalRead(void*, uint16_t, uint16_t&)",
+          "bytes": 96,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:13:13:bool native_b::deviceRandom(void*, uint32_t&)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:27:6:bool native_b::Adapter::start(uint32_t)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:34:6:void native_b::Adapter::finish(native_b::State)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:33:6:void native_b::Adapter::fail(native_b::Fault)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:19:6:bool native_b::Adapter::prepare(ds_preview::Reader)",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:15:6:bool native_b::Adapter::prepare(const char*, size_t)",
+          "bytes": 48,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:39:6:void native_b::Adapter::cancel()",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:40:6:bool native_b::Adapter::inspect(route_b::Result)",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:51:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+          "bytes": 96,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:67:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:66:8:static ds_preview::Accept native_b::Adapter::sink(void*, const ds_preview::Event&)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/usb-os-observer-v2-release/build-v2/candidate/EvilDuckS3/adapter.cpp:88:6:void native_b::Adapter::step(uint32_t)",
+          "bytes": 144,
+          "kind": "static"
+        }
+      ],
+      "nm_command": [
+        "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-nm",
+        "-C",
+        "-S",
+        "--defined-only",
+        "/workspace/scratch/usb-os-observer-v2-release/build-v2/build/EvilDuckS3.ino.elf"
+      ]
+    },
+    {
+      "root": "/workspace/scratch/admission-diagnostics/build-v2",
+      "adapter_nm_row": "3fc9c200 00005f20 b route_u::(anonymous namespace)::adapter",
+      "adapter_bytes": 24352,
+      "static_ram_bytes": 115400,
+      "application_bytes": 1450944,
+      "application_sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1",
+      "elf_sha256": "743773a913bf430e808fc746c5b40996f531e729c40693b1850fb4726c8d5847",
+      "stack_usage_files": [
+        "/workspace/scratch/admission-diagnostics/build-v2/build/sketch/adapter.cpp.su"
+      ],
+      "adapter_frames": [
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:55:6:static bool native_b::Adapter::internalRead(void*, uint16_t, uint16_t&)",
+          "bytes": 96,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:13:13:bool native_b::deviceRandom(void*, uint32_t&)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:28:6:bool native_b::Adapter::start(uint32_t)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:44:6:void native_b::Adapter::finish(native_b::State)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:34:6:void native_b::Adapter::fail(native_b::Fault, ds_preview::Error)",
+          "bytes": 48,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:19:6:bool native_b::Adapter::prepare(ds_preview::Reader)",
+          "bytes": 80,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:15:6:bool native_b::Adapter::prepare(const char*, size_t)",
+          "bytes": 48,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:49:6:void native_b::Adapter::cancel()",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:50:6:bool native_b::Adapter::inspect(route_b::Result)",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:61:8:ds_preview::Accept native_b::Adapter::wait(const ds_preview::Event&)",
+          "bytes": 96,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:77:8:ds_preview::Accept native_b::Adapter::receive(const ds_preview::Event&)",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:76:8:static ds_preview::Accept native_b::Adapter::sink(void*, const ds_preview::Event&)",
+          "bytes": 32,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/scratch/admission-diagnostics/build-v2/candidate/EvilDuckS3/adapter.cpp:98:6:void native_b::Adapter::step(uint32_t)",
+          "bytes": 176,
+          "kind": "static"
+        }
+      ],
+      "nm_command": [
+        "/workspace/scratch/led-feedback-isolated-core/data/packages/esp32/tools/esp-x32/2411/bin/xtensa-esp32s3-elf-nm",
+        "-C",
+        "-S",
+        "--defined-only",
+        "/workspace/scratch/admission-diagnostics/build-v2/build/EvilDuckS3.ino.elf"
+      ]
+    }
+  ],
+  "status": "PASS",
+  "adapter_delta_bytes": 8,
+  "static_ram_delta_bytes": 8,
+  "application_delta_bytes": 320
+}

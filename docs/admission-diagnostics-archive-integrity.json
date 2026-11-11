@@ -1,0 +1,497 @@
+{
+  "status": "PASS",
+  "zip": {
+    "file": "/workspace/scratch/admission-diagnostics-release/evilduck-routeb-admission-diagnostics-h1-macos-review-v1.zip",
+    "bytes": 5614647,
+    "sha256": "05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81",
+    "crc": "PASS",
+    "members": 80
+  },
+  "members": [
+    {
+      "file": "AD00_PRIOR_COMPILE_LINE5.txt",
+      "bytes": 92,
+      "sha256": "62070691c51e3f592adb4492bd8763b0a120ae10d135cd6c57ad6fd313ae23e2",
+      "mode": "0o100644"
+    },
+    {
+      "file": "AD01_INVALID_BYTE_LINE3.duck",
+      "bytes": 60,
+      "sha256": "aa16d25830bb6adc9223dd5c6f433c12444bd1c38d69f7aff6fa55ca14911a2f",
+      "mode": "0o100644"
+    },
+    {
+      "file": "AD02_VALID_RECOVERY.txt",
+      "bytes": 33,
+      "sha256": "e894c861d00e47c3422230cc2292e7b8a9850ffe5bedbc646e0439736fd703d5",
+      "mode": "0o100644"
+    },
+    {
+      "file": "APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "mode": "0o100644"
+    },
+    {
+      "file": "BYTE-FIXTURES.md",
+      "bytes": 2606,
+      "sha256": "3ed2e9835cc330c2391379496d2e807c9ee3f7ea59b24e626f47ff0872559622",
+      "mode": "0o100644"
+    },
+    {
+      "file": "CAPTURE-CONTRACT.md",
+      "bytes": 11442,
+      "sha256": "0732fa754e0c240363d478891892ece493851a2beeb647d0672509f95f00befd",
+      "mode": "0o100644"
+    },
+    {
+      "file": "D01_DEFINE_27.txt",
+      "bytes": 98,
+      "sha256": "3404aa3fbe6f826dc3d4221e9cd4c7a8fcf908a86d27fa3e9dafa00571d47fe9",
+      "mode": "0o100644"
+    },
+    {
+      "file": "D02_DEFINE_31.txt",
+      "bytes": 106,
+      "sha256": "606c48fce71dd869cfb219e0fc2ce79ba7e443a8996ea9d94084f14a49204314",
+      "mode": "0o100644"
+    },
+    {
+      "file": "D03_DEFINE_32_Rejected.txt",
+      "bytes": 91,
+      "sha256": "b1fcee09d47fa122dd7ef91bf6457b3cee6f4bddd40f59ed0517e513655de243",
+      "mode": "0o100644"
+    },
+    {
+      "file": "FIXTURE-SHA256.txt",
+      "bytes": 280,
+      "sha256": "65f584ee62db003e0e35e5cf17997dc72f6ff5b78ad11cda19f465f57a289c67",
+      "mode": "0o100644"
+    },
+    {
+      "file": "INSTALL-MAC.md",
+      "bytes": 3660,
+      "sha256": "821a377c4aa8bf7dea5699e277c88dcc41fb974a2ca582a1bc1226142500b4f5",
+      "mode": "0o100644"
+    },
+    {
+      "file": "OWNER-CHECK.md",
+      "bytes": 3848,
+      "sha256": "36ba439c3859d46564e9be8fa00a5fd3e36393ca3e1b58eb35079b50bb2d87cd",
+      "mode": "0o100644"
+    },
+    {
+      "file": "README.md",
+      "bytes": 2358,
+      "sha256": "bbd2b6e3a3f5d3bf928b955b95f6bc68c7d045c355ca6336916e8b2c68fcc8d1",
+      "mode": "0o100644"
+    },
+    {
+      "file": "RETURN-WORKING.md",
+      "bytes": 2308,
+      "sha256": "b450a937761bfd2913129baa989d2f6318ea4ef97ce558a54dd1f3cacee3bba7",
+      "mode": "0o100644"
+    },
+    {
+      "file": "ROLLBACK-MAC.md",
+      "bytes": 2897,
+      "sha256": "3e8a35065bd64c00dcaef34c812b27c5e6a043a880e952927496ff961dbab18c",
+      "mode": "0o100644"
+    },
+    {
+      "file": "admission-negative-controls.json",
+      "bytes": 9884,
+      "sha256": "56ae3e9bdeddc090e11724ab1e2ef8f8ba30929fc04bd88719309a360a1a8360",
+      "mode": "0o100644"
+    },
+    {
+      "file": "admission-release-source-manifest.json",
+      "bytes": 31814,
+      "sha256": "3eefbfdff35c637b6a7e913afbda2bb27ccdb88a003be55716f45cd5dd8d69d0",
+      "mode": "0o100644"
+    },
+    {
+      "file": "admission-source-manifest.json",
+      "bytes": 32374,
+      "sha256": "93bc3268c075cb3667332ae2662c4c2d3311df11ae354a07cd327687255c1ae6",
+      "mode": "0o100644"
+    },
+    {
+      "file": "admission-test-receipt.json",
+      "bytes": 267300,
+      "sha256": "9c0d423c355f6c586c0b86c2e0b4095716089b743e0333d65cf61053b088a805",
+      "mode": "0o100644"
+    },
+    {
+      "file": "application.bin",
+      "bytes": 1450944,
+      "sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1",
+      "mode": "0o100644"
+    },
+    {
+      "file": "build-inputs.json",
+      "bytes": 32454,
+      "sha256": "f967efe6a9a8f9afa88340a93ddc1f57ffd9f18231ca26da4bb1909727f4ebff",
+      "mode": "0o100644"
+    },
+    {
+      "file": "build-receipt.json",
+      "bytes": 3446026,
+      "sha256": "8475e4038b6411a9aa6e1f07b91f808701d4ba1941a64afefefeb3d4be84fde2",
+      "mode": "0o100644"
+    },
+    {
+      "file": "compatibility.md",
+      "bytes": 953,
+      "sha256": "2f192ca187df429766c0561b1d155f751801b4883733a7eb09cb5f30a2d79f34",
+      "mode": "0o100644"
+    },
+    {
+      "file": "current-define-regression-receipt.json",
+      "bytes": 78076,
+      "sha256": "b156398ed7b8283b44b5df2cea8581cc60b2e4af8a063cfe9828fee02f9a3b21",
+      "mode": "0o100644"
+    },
+    {
+      "file": "current-del-regression-receipt.json",
+      "bytes": 77314,
+      "sha256": "40e2660ae9056b288d71a9f070a99a397683a6859e1d95b0343c7a71fc04d8db",
+      "mode": "0o100644"
+    },
+    {
+      "file": "dashboard-source-manifest.json",
+      "bytes": 28806,
+      "sha256": "b000f87c3cafb5b2bf4c98ee9c740789324c020d7099c4ae67610d273dfa479e",
+      "mode": "0o100644"
+    },
+    {
+      "file": "define-owner-acceptance.md",
+      "bytes": 2051,
+      "sha256": "70ddcd395a3810bb222e585b7fbe978bac33ee766bae212ad30d203829e3a01a",
+      "mode": "0o100644"
+    },
+    {
+      "file": "define-release-source-manifest.json",
+      "bytes": 30339,
+      "sha256": "a08006a6c1a30519a3f80cb2cea2f69f271f3aa855f4e683b97c3e836d88e0ce",
+      "mode": "0o100644"
+    },
+    {
+      "file": "define-source-manifest.json",
+      "bytes": 28700,
+      "sha256": "ab5982572395c6f686c465b997f47c69bcb0c377e11155461c1a94462604ac49",
+      "mode": "0o100644"
+    },
+    {
+      "file": "define-test-receipt.json",
+      "bytes": 57786,
+      "sha256": "b391c771232948cd5e60c81f86f3db7e4f623d443ebd11e526bd431284fc0db3",
+      "mode": "0o100644"
+    },
+    {
+      "file": "del-owner-closeout.md",
+      "bytes": 3720,
+      "sha256": "52292ab581bcb49b98ee395ff584eb6b76fc6107b0f669000d7a312abc758a2b",
+      "mode": "0o100644"
+    },
+    {
+      "file": "del-release-source-manifest.json",
+      "bytes": 30288,
+      "sha256": "78fcc150bc4d259db1f1023f218ca5b221129a77f1f0d9fe4c312a057226d610",
+      "mode": "0o100644"
+    },
+    {
+      "file": "del-source-manifest.json",
+      "bytes": 28341,
+      "sha256": "7da4fb08194269a15ded87faa25f878a7170537a63b54153a9d6636d6f5a2af3",
+      "mode": "0o100644"
+    },
+    {
+      "file": "del-test-receipt.json",
+      "bytes": 52916,
+      "sha256": "bee4546913c336387d62143288020897b85784acdb57b58f6c79eb8713eecd02",
+      "mode": "0o100644"
+    },
+    {
+      "file": "dependency-pin.json",
+      "bytes": 2298,
+      "sha256": "c200f21cfebb5e2db6fb04b7eb32a1c0a193f1f706024c5cf304d6b9cbbfd475",
+      "mode": "0o100644"
+    },
+    {
+      "file": "editor-build-source-manifest.json",
+      "bytes": 30397,
+      "sha256": "0e0e12436952ea3e4e688259623bd76814d506ac59a9a0211617b14cc2d7a898",
+      "mode": "0o100644"
+    },
+    {
+      "file": "evidence-gate.json",
+      "bytes": 4107,
+      "sha256": "49c3c4078f1f8907389aa1ce2dcd89c9d64d251ce8767889b102e780d7475b8c",
+      "mode": "0o100644"
+    },
+    {
+      "file": "expected-partitions.bin",
+      "bytes": 3072,
+      "sha256": "b79bde9ef4a9544411d97a31a1d326b2028213269ad0dcc643ea921230ce3d5e",
+      "mode": "0o100644"
+    },
+    {
+      "file": "firmware-report.md",
+      "bytes": 2400,
+      "sha256": "d2c2d71f30f8f7b9a231d62d2d746397dbdc203c506f27ccf225ddafb61b1600",
+      "mode": "0o100644"
+    },
+    {
+      "file": "gen_esp32part.py",
+      "bytes": 29496,
+      "sha256": "b82195fe2ff6b0841a8c8927e07cc90efc31695168f4c6b776194fa9b4f2950c",
+      "mode": "0o100644"
+    },
+    {
+      "file": "install-macos.sh",
+      "bytes": 168,
+      "sha256": "290467849471980640fcf4bd6e44d69e22ec20f1cb7f5fd4436c0dc8a83f1cd8",
+      "mode": "0o100644"
+    },
+    {
+      "file": "installer.py",
+      "bytes": 8541,
+      "sha256": "fd0db1c37727e723a5106efbf8b3e2109046a9468ab6b49a375f384ca637f464",
+      "mode": "0o100644"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 18190,
+      "sha256": "821a65ee630b3062c5a06042cb302f19fa00dd7ceaf00480fb0d69f3472bf9b1",
+      "mode": "0o100644"
+    },
+    {
+      "file": "native-test-receipt.json",
+      "bytes": 267300,
+      "sha256": "9c0d423c355f6c586c0b86c2e0b4095716089b743e0333d65cf61053b088a805",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-release-source-manifest.json",
+      "bytes": 31088,
+      "sha256": "e397ac376bbb9e90d6b1ded056657a18dec4b5d5075bd2465a12f3e956db95f7",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-source-manifest.json",
+      "bytes": 28166,
+      "sha256": "a257f3988e791920fc566484048b010fc22ff2a4e838daa6cefd923057ffc186",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-test-receipt.json",
+      "bytes": 55358,
+      "sha256": "c409c52a31ca5c34b22fc7678f3ec61eff89589caa03a21ed66afbd67a0f0f37",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-export-0.json",
+      "bytes": 1796,
+      "sha256": "572ff4a459ff5efb3b404111141ed7f19855401ce3d30b0ff5fea7a297187c2b",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-export-1.json",
+      "bytes": 1797,
+      "sha256": "5636a9429fe89e05057227affca2ae8c489e026287ffecd2ef3dcb3533fc1b4a",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-export-2.json",
+      "bytes": 1797,
+      "sha256": "6f22b17bb6015ecc2e91ac430521b97eccd3c23d62f3341e3b43bf69a2c8105f",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-export-3.json",
+      "bytes": 2631,
+      "sha256": "1d20cfe38fd636dbab341924848a0d1e720ec1a2164e62425a1d9b6b123445be",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-export-4.json",
+      "bytes": 1517,
+      "sha256": "1035528e04c952140eec4ec9563212148b705fee523fbe88bcc7a42393b6f00b",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v1-owner-handoff.txt",
+      "bytes": 18191,
+      "sha256": "3114d145c6eb742969760b3032bace54d734649ed5d4c828cc80f26641b0844d",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v2-release-source-manifest.json",
+      "bytes": 31086,
+      "sha256": "51e829491ce660d98f64a1040c3077bf63798e89481086399715167b970cdabe",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v2-source-manifest.json",
+      "bytes": 28166,
+      "sha256": "a6d3195307c5537189c235038d5b836ac9d1de71cefdf021f2f44b64a49eeb6c",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-v2-web-source-manifest.json",
+      "bytes": 28158,
+      "sha256": "b6be8b4afd0763e71a578e000fc5aac2f62340eeb24ba29362dad7b2ae09ebab",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-web-source-manifest.json",
+      "bytes": 28158,
+      "sha256": "98253f06bc6a6f2d081abad2ce1d33074c66ab7dacb243b971b89d177f28dc05",
+      "mode": "0o100644"
+    },
+    {
+      "file": "observer-web-test-receipt.json",
+      "bytes": 49266,
+      "sha256": "e098fc3b97ada317d5ebfbb5e7cd79386757204650b772c9f0565a2ab791e121",
+      "mode": "0o100644"
+    },
+    {
+      "file": "owner-evidence.md",
+      "bytes": 2695,
+      "sha256": "78d1a229eed24f8065a583a881743d9883e4c1f94edc8919bf24b0b3b965ea51",
+      "mode": "0o100644"
+    },
+    {
+      "file": "preflight.py",
+      "bytes": 79246,
+      "sha256": "bb5646dcdffcfb15e4d3f6253ec21dc96394db4501574e51a309ed1f20d67079",
+      "mode": "0o100644"
+    },
+    {
+      "file": "previous-repeat-release-source-manifest.json",
+      "bytes": 29997,
+      "sha256": "8a65bdff292d6e8a288b795a846fbd57cf135bcb1e54af063f29bef38f9d6f5b",
+      "mode": "0o100644"
+    },
+    {
+      "file": "previous-repeat-source-manifest.json",
+      "bytes": 28272,
+      "sha256": "d443a622cf62ac87b18e15ecd017e69781dee597074d053effd86418bfeca120",
+      "mode": "0o100644"
+    },
+    {
+      "file": "privacy-source-manifest.json",
+      "bytes": 28309,
+      "sha256": "2c0cb3d91ad3d7e8ef1fea5830f6af6266dfce2f75ed5a4e67698c80639c6cf4",
+      "mode": "0o100644"
+    },
+    {
+      "file": "reproduction.md",
+      "bytes": 1452,
+      "sha256": "2eb0709b2328ba4069846327a323ff2e9f1db62b828c23c7e5c67c61e8aa51f4",
+      "mode": "0o100644"
+    },
+    {
+      "file": "response-source-manifest.json",
+      "bytes": 29741,
+      "sha256": "d2d4be0a8265a4a198bab2af8afa5d2148f412ce242c3168e0369876f3a447fa",
+      "mode": "0o100644"
+    },
+    {
+      "file": "reviewed-editor-source-manifest.json",
+      "bytes": 28077,
+      "sha256": "2654bb2aeb425a86d16b5969a9801d1045445e77d04bee1801e8f9d5ddc2c503",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rm-malformed.txt",
+      "bytes": 32,
+      "sha256": "e4e2ce0e92431624e86ec59405304549db7754572c5255d210273c52baef0d94",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rm-modifier-taps.txt",
+      "bytes": 77,
+      "sha256": "a9d5de681fb2ce892a97b3b9488fa6ee50faf0e4bec44b04f02b376768204e4f",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rm-shift.txt",
+      "bytes": 113,
+      "sha256": "ffe9c08379fb045b7f85f7e92f19ca0fdd9d4362ef82e01bed7c34d144dec823",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rm-stop.txt",
+      "bytes": 60,
+      "sha256": "3d47b5de664ead9037c887e3db513ce8a23c9e55935074ef808da06e9e9c9baa",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rollback-application.bin",
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rollback-build-receipt.json",
+      "bytes": 1969960,
+      "sha256": "fc179a97b8a1768ee85161f4c6a80e648a1b96652bfd698e91d26717edf59953",
+      "mode": "0o100644"
+    },
+    {
+      "file": "rollback-macos.sh",
+      "bytes": 306,
+      "sha256": "6ad97fa1d58d89689e2638ec1559c2b927e7251cb99047bdb003ff3cea97321b",
+      "mode": "0o100644"
+    },
+    {
+      "file": "source-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "b81f3e122b91e521ffe58c1a983d9551cc71b7f3f840c22499bda69bfd500ddb",
+      "mode": "0o100644"
+    },
+    {
+      "file": "source-attestation.json",
+      "bytes": 30386,
+      "sha256": "01ef40b0560cd81be1799d0f46ebc41e4e8b72c4e04c224b7b94fa01957ae2eb",
+      "mode": "0o100644"
+    },
+    {
+      "file": "source-manifest.json",
+      "bytes": 1994,
+      "sha256": "fde8516c19fcd01f0d9e516b7558791cac2219381b5fb857f2477afd2d763183",
+      "mode": "0o100644"
+    },
+    {
+      "file": "static-response-build-source-manifest.json",
+      "bytes": 29825,
+      "sha256": "fd5d434764f223fd3925d645ce203c09a4a887d2672ef9b8ae9c877eb90b3d9f",
+      "mode": "0o100644"
+    },
+    {
+      "file": "test-results.json",
+      "bytes": 7255,
+      "sha256": "7baf04b5ec18c8721a7cf5b83351d02a6bf99f931d86f904cc024f97be32fed3",
+      "mode": "0o100644"
+    },
+    {
+      "file": "web-test-receipt.json",
+      "bytes": 37716,
+      "sha256": "24620e537e9a7c73ad236136a3d79be9439c7538dfa62065d643f6fe83851a9d",
+      "mode": "0o100644"
+    },
+    {
+      "file": "working-define-labels-macos-review-v1.zip",
+      "bytes": 2691374,
+      "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+      "mode": "0o100644"
+    }
+  ],
+  "fresh_extraction": "/workspace/scratch/admission-diagnostics-release/fresh-extraction-v1",
+  "preflight_both_images": "PASS",
+  "hardware_access": false,
+  "installation_authorized": false,
+  "firmware_rebuilt": false
+}

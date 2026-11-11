@@ -1,0 +1,879 @@
+{
+  "format": "evilduck-committed-build-inputs-v1",
+  "source_commit": "c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44",
+  "source_commit_contains_changes": true,
+  "uncommitted_local_changes": false,
+  "reviewed_repair_checkpoint": "7c3ed81238b89b89b92924c366ecbb9afe391856",
+  "build_id": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+  "profile": "ADMISSION DIAGNOSTICS / USB OBSERVER V2 / DEFINE / REPEAT / PRIVACY / H1 EXPERIMENTAL / REVIEW ONLY",
+  "files": [
+    {
+      "file": "docs/admission-diagnostics-design.md",
+      "size": 5932,
+      "sha256": "3f725601073f778021e5da60761e99869312d4b1bb60419427b7850e984ec50f"
+    },
+    {
+      "file": "docs/admission-diagnostics-owner-check.md",
+      "size": 2955,
+      "sha256": "23ff000d74daa0a01b0d862bebbdff78225a0c58f3dafb58627c2e64dd45bc05"
+    },
+    {
+      "file": "docs/dashboard-static-response-safety-browser.json",
+      "size": 2318,
+      "sha256": "8aa2c69e2b3e6b00449424db9fb6e8c242016614634e7031732d346e37b22748"
+    },
+    {
+      "file": "docs/dashboard-static-response-safety-native.json",
+      "size": 17221,
+      "sha256": "5f2fb968ad1984e1555fd044dd2c9deaf25afc295863a0713ee6287bbd5f306a"
+    },
+    {
+      "file": "docs/dashboard-static-response-safety-report.md",
+      "size": 9988,
+      "sha256": "903b57e39b61d38e5e2a238d6796022cc9eb6c908020c0be66821b6db3a3888f"
+    },
+    {
+      "file": "docs/dashboard-static-response-safety-results.json",
+      "size": 5176,
+      "sha256": "25ca78d2936213b882ebfe928040b58a4d4916152330e5613e7c354ab1303814"
+    },
+    {
+      "file": "docs/dashboard-static-response-safety-scope.json",
+      "size": 1150,
+      "sha256": "a6227e376ec399d5d298f76606b2e7c0ed551bc310e0b5b365301257d91f1818"
+    },
+    {
+      "file": "docs/define-labels-design.md",
+      "size": 8937,
+      "sha256": "fb3e4bd305769b66d9552de6cc8d701763a9ace24bc2ecfe2dbd038fef833728"
+    },
+    {
+      "file": "docs/define-labels-owner-acceptance.md",
+      "size": 2051,
+      "sha256": "70ddcd395a3810bb222e585b7fbe978bac33ee766bae212ad30d203829e3a01a"
+    },
+    {
+      "file": "docs/define-labels-references.json",
+      "size": 2859,
+      "sha256": "8e31bcdee77b3554bf863f69e285192a40b3b218f159792709368b244a9fc3cd"
+    },
+    {
+      "file": "docs/del-alias-design.md",
+      "size": 7152,
+      "sha256": "dcdee98bee44380f3e456828ff510def4eed16c98cbdbc37eb81ba4325bf33df"
+    },
+    {
+      "file": "docs/del-alias-owner-closeout.md",
+      "size": 3720,
+      "sha256": "52292ab581bcb49b98ee395ff584eb6b76fc6107b0f669000d7a312abc758a2b"
+    },
+    {
+      "file": "docs/del-alias-references.json",
+      "size": 1818,
+      "sha256": "ba07829977f127b3852d2bf7c4023d9e95420090962ceb66356ae691b5b13bea"
+    },
+    {
+      "file": "docs/previous-command-repeat-design.md",
+      "size": 8956,
+      "sha256": "a15242c9a550e65362246458e63de5b42dc072aed8feeea588d1e952aba80921"
+    },
+    {
+      "file": "docs/previous-command-repeat-release-integration.md",
+      "size": 7399,
+      "sha256": "eefc6b729a13e2592017c791fc7170b5a28216c46ccc7c2eae71a9a2ad9e351b"
+    },
+    {
+      "file": "docs/previous-command-repeat-report.md",
+      "size": 9287,
+      "sha256": "964abbd7380e5180c6a060505e5cf020d75bfc720654d94b8b5df35cfeeee5c9"
+    },
+    {
+      "file": "docs/previous-command-repeat-results.json",
+      "size": 43484,
+      "sha256": "939dd0e13ff92c785f070f62c7d99376bec189415750cf306f01d5229ee14d81"
+    },
+    {
+      "file": "docs/routeb-compatibility-roadmap-20261107.md",
+      "size": 5110,
+      "sha256": "cb0e97d37837b3dbb59be15673e9e1d4874d217fa4e97ead49b2c297bdc716cb"
+    },
+    {
+      "file": "docs/routeb-current-compatibility.md",
+      "size": 22185,
+      "sha256": "84bf17bbb267a9ff595f826732bd42142c26434aceb19bf95162acc75f375d28"
+    },
+    {
+      "file": "docs/usb-os-evidence-gate.json",
+      "size": 5848,
+      "sha256": "7d75c6f62da99802815d3a4e13dca19aae1079d18168f822db38ed26984ad726"
+    },
+    {
+      "file": "docs/usb-os-observer-contract.md",
+      "size": 12163,
+      "sha256": "43e20aa83a1cb4744777dec922e55b30f06e2e9617cfb6b8132c3cc78925d773"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/HANDOFF.txt",
+      "size": 18191,
+      "sha256": "3114d145c6eb742969760b3032bace54d734649ed5d4c828cc80f26641b0844d"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-0.json",
+      "size": 1796,
+      "sha256": "572ff4a459ff5efb3b404111141ed7f19855401ce3d30b0ff5fea7a297187c2b"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-1.json",
+      "size": 1797,
+      "sha256": "5636a9429fe89e05057227affca2ae8c489e026287ffecd2ef3dcb3533fc1b4a"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-2.json",
+      "size": 1797,
+      "sha256": "6f22b17bb6015ecc2e91ac430521b97eccd3c23d62f3341e3b43bf69a2c8105f"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-3.json",
+      "size": 2631,
+      "sha256": "1d20cfe38fd636dbab341924848a0d1e720ec1a2164e62425a1d9b6b123445be"
+    },
+    {
+      "file": "docs/usb-os-observer-v1-owner-evidence/export-4.json",
+      "size": 1517,
+      "sha256": "1035528e04c952140eec4ec9563212148b705fee523fbe88bcc7a42393b6f00b"
+    },
+    {
+      "file": "docs/usb-os-observer-v2-contract.md",
+      "size": 11442,
+      "sha256": "0732fa754e0c240363d478891892ece493851a2beeb647d0672509f95f00befd"
+    },
+    {
+      "file": "docs/usb-os-observer-v2-evidence.json",
+      "size": 4107,
+      "sha256": "49c3c4078f1f8907389aa1ce2dcd89c9d64d251ce8767889b102e780d7475b8c"
+    },
+    {
+      "file": "tests/admission_diagnostics/application.patch",
+      "size": 5163,
+      "sha256": "ff3948a0d4d55d2fcba96a8a075196feafb95d466aa0330e8f94f1939d46b5b3"
+    },
+    {
+      "file": "tests/admission_diagnostics/negative_control.cpp",
+      "size": 1993,
+      "sha256": "d4f1ec620c0897effba6e56997bb8f8fa2d64f8978c8bdc4eb0ce7c6cd4223ea"
+    },
+    {
+      "file": "tests/admission_diagnostics/prepare_sources.py",
+      "size": 4662,
+      "sha256": "f4ef46941f1bdffcc5f33ce16517d511580211d1d8028cdf36b985b34cd32ea1"
+    },
+    {
+      "file": "tests/admission_diagnostics/run_tests.py",
+      "size": 10353,
+      "sha256": "fd95c7d6f1b4fed6e002816b24cfe84882e9de3d4f94a6bcb5738c14c997b583"
+    },
+    {
+      "file": "tests/admission_diagnostics/source-manifest.json",
+      "size": 32374,
+      "sha256": "93bc3268c075cb3667332ae2662c4c2d3311df11ae354a07cd327687255c1ae6"
+    },
+    {
+      "file": "tests/admission_diagnostics/test_main.cpp",
+      "size": 16664,
+      "sha256": "b76228f9b5d4dfe779147166f4ead053882efb3d8dfef2c28c69ee2f4cd77430"
+    },
+    {
+      "file": "tests/admission_diagnostics_package/adaptation-manifest.json",
+      "size": 12235,
+      "sha256": "ae47175624560d30c9c6c5e50699487a6b8135377bc1a34c66be2f7123857f48"
+    },
+    {
+      "file": "tests/admission_diagnostics_package/package.py",
+      "size": 41373,
+      "sha256": "016874bc773197115bb9348e521368332bc68d0a692dbd979dc53c660f0ca9eb"
+    },
+    {
+      "file": "tests/admission_diagnostics_package/package_preflight.py",
+      "size": 73251,
+      "sha256": "e49807042b9a951ad2e1f29b0e86b14e8a3661fd92c04af7f48fb59da888505f"
+    },
+    {
+      "file": "tests/admission_diagnostics_package/test_package.py",
+      "size": 31554,
+      "sha256": "f6630ad3c9f01495b9b570b79237e711087e11732fa4b64d88f5b64bcca24a64"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/build_candidate.py",
+      "size": 10610,
+      "sha256": "710645102fa4256d06296324ab9966fcf267cfc022a10a8f58e5d410dfc56768"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/identity.patch",
+      "size": 438,
+      "sha256": "9c19a3356468143000c6e3af6759713b93fe75a325ec5e3a426fb5c941808860"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/prepare_sources.py",
+      "size": 4748,
+      "sha256": "f9b4b6c00e9baf00ca61c53f678b9a816538da1c0c31258098f6e88713d6bc0b"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/source-manifest.json",
+      "size": 31814,
+      "sha256": "3eefbfdff35c637b6a7e913afbda2bb27ccdb88a003be55716f45cd5dd8d69d0"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/startup_decode.py",
+      "size": 670,
+      "sha256": "b75a27d97a81664c461cbb20aa8b2ca1b2e7d87ed36f8911b2bdcb535f83ff01"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/test_verify_controls.py",
+      "size": 9910,
+      "sha256": "5cf8911d19688fda80f3981b62cf70316fd7be7afae2a0006c85bef21097c768"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/verify_release.py",
+      "size": 5178,
+      "sha256": "66110ac344491ae29be9a7e6f53534e393a13135bf64198e5056df0d497ae3dd"
+    },
+    {
+      "file": "tests/admission_diagnostics_release/verify_target.py",
+      "size": 11768,
+      "sha256": "e0c5e46d44e30dfa772e8923b7857d4d22aaf5b5e28798a37f99924f7a09eb59"
+    },
+    {
+      "file": "tests/dashboard_response_safety/application.patch",
+      "size": 2679,
+      "sha256": "bc39a185b430b082bb76d8e57f95959665e225b5253af400e2b1b41b2c853307"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/Arduino.h",
+      "size": 165,
+      "sha256": "e24f88a6e5ae8a501f254357aac20317f9bdc83517fcafa0ef2be36500830120"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/esp32-hal-log.h",
+      "size": 71,
+      "sha256": "4f12dc194d3f84579dcf7bad21392b326b1f661f8ceef2517d0124b4296defb5"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/hooks.h",
+      "size": 193,
+      "sha256": "a7f3ce2c7941caaa1fdc12a6b4b298cd12ce18c5927f2b3f3b55435d20ddbee7"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/pgmspace.h",
+      "size": 120,
+      "sha256": "0ba12ce164aae5486612c3d3a1ed8ac218a2e3275749201f50e14712b38544a3"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/probe.cpp",
+      "size": 10863,
+      "sha256": "aa95ccae06550cd11c4f7b87bcd3fb5406be81e7f64ab1e40d7e15737c03d8a8"
+    },
+    {
+      "file": "tests/dashboard_response_safety/native/stdlib_noniso.h",
+      "size": 290,
+      "sha256": "bb19b6e1834796af22415b8f2f31d703644207c1ea856d0c2a85ceb98c3b5903"
+    },
+    {
+      "file": "tests/dashboard_response_safety/prepare_sources.py",
+      "size": 6306,
+      "sha256": "efe6979e6d63238fdb3eb5fa6836e47bf43c350d9bc5f17db3bcd82b1eca44a1"
+    },
+    {
+      "file": "tests/dashboard_response_safety/source-manifest.json",
+      "size": 29741,
+      "sha256": "d2d4be0a8265a4a198bab2af8afa5d2148f412ce242c3168e0369876f3a447fa"
+    },
+    {
+      "file": "tests/dashboard_response_safety/test_browser.py",
+      "size": 9948,
+      "sha256": "8d0bff34655580c40d8528b187a171b2b4401792c3f9478cfbfcfb8ef7c1d3ea"
+    },
+    {
+      "file": "tests/dashboard_response_safety/test_native.py",
+      "size": 11612,
+      "sha256": "0cfc05c580b430ccea6489a4ad7b4e38fc466331165dd5766e37229688d4b78e"
+    },
+    {
+      "file": "tests/dashboard_response_safety/test_scope.py",
+      "size": 7538,
+      "sha256": "e7ce03a153c605d98248dd47a2ed816e3da3e541a4aef5e6de5dd79f22979d93"
+    },
+    {
+      "file": "tests/define_labels/application.patch",
+      "size": 1918,
+      "sha256": "0f8a64a59b019f7b32c4bc08e6470a20f828045aea673fe79df1dcf836a21035"
+    },
+    {
+      "file": "tests/define_labels/prepare_sources.py",
+      "size": 4816,
+      "sha256": "825844b70dacf41a297e4bf699afdb8f7cfae6ea88e96e2faf3bfe2292fe1fdb"
+    },
+    {
+      "file": "tests/define_labels/run_tests.py",
+      "size": 11683,
+      "sha256": "20e54bf47c81d5fdaab86b40723ddc7714874c091af21704b48aae3f6a75215c"
+    },
+    {
+      "file": "tests/define_labels/source-manifest.json",
+      "size": 28700,
+      "sha256": "ab5982572395c6f686c465b997f47c69bcb0c377e11155461c1a94462604ac49"
+    },
+    {
+      "file": "tests/define_labels/test_main.cpp",
+      "size": 11883,
+      "sha256": "6498a01aed964a340aade174b66e4e9957dcedeb35203121611b0e608895c08c"
+    },
+    {
+      "file": "tests/define_labels/test_scope.py",
+      "size": 7337,
+      "sha256": "1ffaa247fdc3b902e6d78a3811ff55aff9b0b923ccf3bd0e47e707bbab0a5a4b"
+    },
+    {
+      "file": "tests/define_labels_release/build_candidate.py",
+      "size": 10027,
+      "sha256": "294569f8a1cf1cc7a43f12ba6740965a64abb46a65e9c178c2705afafd73225d"
+    },
+    {
+      "file": "tests/define_labels_release/identity.patch",
+      "size": 422,
+      "sha256": "7492ac9462e34adbbb1868fb716e5b3c7c23bfc310c49bd219f8c5a3244d76a3"
+    },
+    {
+      "file": "tests/define_labels_release/layout_measurement.py",
+      "size": 14706,
+      "sha256": "fd476b26554ed78b364616d93872bb0cf4709477deb538f05fcc8e744f286c67"
+    },
+    {
+      "file": "tests/define_labels_release/prepare_sources.py",
+      "size": 4871,
+      "sha256": "51fcde2560b7ec8035595f88c37e556858125db7dab105cdf794b22a25fefb85"
+    },
+    {
+      "file": "tests/define_labels_release/run_regressions.py",
+      "size": 13556,
+      "sha256": "ad487d10a3fa8246a506bb280012405688b40f0ec5d8152cc90cbb554cbda827"
+    },
+    {
+      "file": "tests/define_labels_release/source-manifest.json",
+      "size": 30339,
+      "sha256": "a08006a6c1a30519a3f80cb2cea2f69f271f3aa855f4e683b97c3e836d88e0ce"
+    },
+    {
+      "file": "tests/define_labels_release/startup_decode.py",
+      "size": 586,
+      "sha256": "c16a1f740f9671ce5581ec45c704ac15bce7efbd9bd9da700d79c1811d55bc05"
+    },
+    {
+      "file": "tests/define_labels_release/test_verify_controls.py",
+      "size": 22576,
+      "sha256": "f7e2ce2d8e57f3ce45356a5df9a4b5045ed817597f20ec0835f997a2bd94a8a9"
+    },
+    {
+      "file": "tests/define_labels_release/verify_release.py",
+      "size": 8480,
+      "sha256": "3cc4c4d3e82d4cec3e0d5ff701869a0d1028bd161b473d2cc430204f900334f2"
+    },
+    {
+      "file": "tests/define_labels_release/verify_target.py",
+      "size": 26840,
+      "sha256": "1c288f259b7ae646e3740d4e71db1f9aebdf8668ef4e7b6626bfda47cd7cd397"
+    },
+    {
+      "file": "tests/del_alias/application.patch",
+      "size": 1705,
+      "sha256": "7250167767806ca3c890a6de4a03d76ec560f24cd7de1074e06c205cf4f12b51"
+    },
+    {
+      "file": "tests/del_alias/prepare_sources.py",
+      "size": 4853,
+      "sha256": "b22f11518d099fb137b242642d116193158549ef6d3e729e71d82deb91c34906"
+    },
+    {
+      "file": "tests/del_alias/run_tests.py",
+      "size": 9217,
+      "sha256": "f15858ae0f397e2d521dc6eb0bc40d7f47c9333769893d2e8afe0f1be950d1ce"
+    },
+    {
+      "file": "tests/del_alias/source-manifest.json",
+      "size": 28341,
+      "sha256": "7da4fb08194269a15ded87faa25f878a7170537a63b54153a9d6636d6f5a2af3"
+    },
+    {
+      "file": "tests/del_alias/test_main.cpp",
+      "size": 11422,
+      "sha256": "2c61c75484ee958e3157ce3fb10c863e1c3df3548886419510b6735d21b3c203"
+    },
+    {
+      "file": "tests/del_alias/test_scope.py",
+      "size": 7359,
+      "sha256": "c9e6f892107eaca4ad7284ddd4713e6df17a5d9e072bbeecc64dcffc21fe2dd4"
+    },
+    {
+      "file": "tests/del_alias_release/build_candidate.py",
+      "size": 10786,
+      "sha256": "5f0496f5e40e9e8da4b4ca7276dfb1c05a52de2d251895c97febee242b83b15b"
+    },
+    {
+      "file": "tests/del_alias_release/identity.patch",
+      "size": 429,
+      "sha256": "cc08b7b4e42f1dc18ec2e5a24a56a67e7e863e7b859b4a209c8b1bdcf54798d5"
+    },
+    {
+      "file": "tests/del_alias_release/prepare_sources.py",
+      "size": 4852,
+      "sha256": "bab70668b8401d946b6ff87ecfb09c1df9026a2db76eb6d48c95e7e1d9af1c9d"
+    },
+    {
+      "file": "tests/del_alias_release/run_regressions.py",
+      "size": 13609,
+      "sha256": "8ae04a39b5e2d5ddae45e313b63190ebe101be1fb542dba548fb0a41c902f791"
+    },
+    {
+      "file": "tests/del_alias_release/source-manifest.json",
+      "size": 30288,
+      "sha256": "78fcc150bc4d259db1f1023f218ca5b221129a77f1f0d9fe4c312a057226d610"
+    },
+    {
+      "file": "tests/del_alias_release/startup_decode.py",
+      "size": 586,
+      "sha256": "c16a1f740f9671ce5581ec45c704ac15bce7efbd9bd9da700d79c1811d55bc05"
+    },
+    {
+      "file": "tests/del_alias_release/test_verify_controls.py",
+      "size": 19539,
+      "sha256": "72fbe416f07b80e610409a8ce75456f30ae3e428b4f7db51317bb7e4a9fa1c41"
+    },
+    {
+      "file": "tests/del_alias_release/verify_release.py",
+      "size": 8372,
+      "sha256": "5012e4b140259f54edb8ab1744ecfd88fd503af81282552b510f79d0dac532f7"
+    },
+    {
+      "file": "tests/del_alias_release/verify_target.py",
+      "size": 27852,
+      "sha256": "43b11978935c175d9e9f27c79e8e82483722b57b2f938cb2f2adf62ec4a03c81"
+    },
+    {
+      "file": "tests/previous_command_repeat/application.patch",
+      "size": 6326,
+      "sha256": "7af41bc1aa4883826e7f7ac5c092833280bfb28dccbcf497b5b8d0baa7a15b98"
+    },
+    {
+      "file": "tests/previous_command_repeat/build_candidate.py",
+      "size": 2877,
+      "sha256": "e2c718eb30b45d26c237ccd61e604d8a5fed2dc72168f6769b06dbf12340c489"
+    },
+    {
+      "file": "tests/previous_command_repeat/prepare_sources.py",
+      "size": 3707,
+      "sha256": "677c3c950afabd9a7a8ec014416b8fe3660d460b8aab014ef598e2d177053791"
+    },
+    {
+      "file": "tests/previous_command_repeat/run_tests.py",
+      "size": 14909,
+      "sha256": "31db6d039a4aa0fb8f70150e0227c5aa4996f0a3d339ca10d775de3250c3dd8d"
+    },
+    {
+      "file": "tests/previous_command_repeat/source-manifest.json",
+      "size": 28272,
+      "sha256": "d443a622cf62ac87b18e15ecd017e69781dee597074d053effd86418bfeca120"
+    },
+    {
+      "file": "tests/previous_command_repeat/test_main.cpp",
+      "size": 17717,
+      "sha256": "80cd858daf73af57612f6bc356a45a537cb5ddf4f0b0e3ca089c128a879e933d"
+    },
+    {
+      "file": "tests/previous_command_repeat/test_scope.py",
+      "size": 12655,
+      "sha256": "815997670ae3827498129bebd60497e22311a21c8dafbd17b985b0a0c39173ef"
+    },
+    {
+      "file": "tests/previous_command_repeat/test_web_regressions.py",
+      "size": 7620,
+      "sha256": "9b6ce0a7a30595c5d96484c832725a6d8fc74c67006223ee6c8c25ccc2676ea4"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/build_candidate.py",
+      "size": 11054,
+      "sha256": "2578d08e33046581b5bc790389f5c4ff81d489324655688e11d0cc1fe100a69e"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/identity.patch",
+      "size": 439,
+      "sha256": "1f2f431cc62918815ff21ff4ab541159f1bf572e0f33b8a7018c381a1b49f55f"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/prepare_sources.py",
+      "size": 3512,
+      "sha256": "8a65daede7912ec39e7b5976f8c8a93f5b9cdcf55e8e1bcdea44e169bffa7259"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/run_regressions.py",
+      "size": 9829,
+      "sha256": "5faad4602f98fed8bced74843587fe244e2e0b4d20bae3ec5f96066bd274f216"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/source-manifest.json",
+      "size": 29997,
+      "sha256": "8a65bdff292d6e8a288b795a846fbd57cf135bcb1e54af063f29bef38f9d6f5b"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/startup_decode.py",
+      "size": 592,
+      "sha256": "9080825d377fb3f5f1139ef0a0c767286de8ec217cbd12887f76b3bdda14ecbe"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/test_verify_controls.py",
+      "size": 15253,
+      "sha256": "7e7894d7b90d9cbd63f507370875bc6578c27c6a0685d994f978eb0b79edece8"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/verify_release.py",
+      "size": 8532,
+      "sha256": "e8332ae4ad431db2955000b82d49451b0121fda4e6049663d0f2d95a5a07571e"
+    },
+    {
+      "file": "tests/previous_command_repeat_release/verify_target.py",
+      "size": 20406,
+      "sha256": "31503e5f9c9b0b049d8df9fa2acb18ae4430c5407dd0cfb205791931b807ae90"
+    },
+    {
+      "file": "tests/static_response_build_integration/build_candidate.py",
+      "size": 8406,
+      "sha256": "2a67d96e6300f4daa1adef588b11a1dd2f3cbdf7c016f69aab8a2992adc8b0d6"
+    },
+    {
+      "file": "tests/static_response_build_integration/identity.patch",
+      "size": 441,
+      "sha256": "85806d93b71af9aa46bf2684f453d0138f8da51b6a8629a795bdb2fb6e3136f5"
+    },
+    {
+      "file": "tests/static_response_build_integration/prepare_sources.py",
+      "size": 3450,
+      "sha256": "0e9e4be1654770c688cd79161b47753b922992f657b9904ac381e5efa5268ef5"
+    },
+    {
+      "file": "tests/static_response_build_integration/source-manifest.json",
+      "size": 29825,
+      "sha256": "fd5d434764f223fd3925d645ce203c09a4a887d2672ef9b8ae9c877eb90b3d9f"
+    },
+    {
+      "file": "tests/static_response_build_integration/startup_decode.py",
+      "size": 584,
+      "sha256": "13ff8a60faa30a2eb1310d734a72737eabb06061fbee9fc54042d9210225156e"
+    },
+    {
+      "file": "tests/static_response_build_integration/test_verify_controls.py",
+      "size": 7041,
+      "sha256": "86cfdbf7e9be40aa059c029ef1e12636e963d5a77c5fed81638f39cac3d8af4f"
+    },
+    {
+      "file": "tests/static_response_build_integration/verify_release.py",
+      "size": 6037,
+      "sha256": "5806329fc180222990386b17edfd8410845d48608477ad40dcc5625002db09f9"
+    },
+    {
+      "file": "tests/static_response_build_integration/verify_target.py",
+      "size": 26507,
+      "sha256": "764a53bc8825aafb8bcf695afeef11f00ad4dd37b4ba30d6d031758932a122a1"
+    },
+    {
+      "file": "tests/usb_os_observer/application.patch",
+      "size": 8583,
+      "sha256": "a0b721962aaf8b9e7309a9a92665bc175318db6f7355277b6802d5d020142a7a"
+    },
+    {
+      "file": "tests/usb_os_observer/mocks/device/dcd.h",
+      "size": 1255,
+      "sha256": "359c3fcd049ac74ec5fe84a0c70ef5dd49e31f9f43e6697a2276b51fd21cff3d"
+    },
+    {
+      "file": "tests/usb_os_observer/mocks/mock_real.cpp",
+      "size": 616,
+      "sha256": "1c0b5bbe3fba8304b5f0c6671f6f30f35b2ce4b2b4f42fd4bc1a95f1d3172391"
+    },
+    {
+      "file": "tests/usb_os_observer/prepare_sources.py",
+      "size": 4946,
+      "sha256": "4c3fa2b00354507cdcc02a7e5ba0cc07e55cbb00e05c2263f6efb948230794f2"
+    },
+    {
+      "file": "tests/usb_os_observer/run_tests.py",
+      "size": 7717,
+      "sha256": "61f2279e5adac4c78b4a1b9e2b9fa4cbd13f4a4b13a239274eeb7ca812a895ef"
+    },
+    {
+      "file": "tests/usb_os_observer/source-manifest.json",
+      "size": 28166,
+      "sha256": "a257f3988e791920fc566484048b010fc22ff2a4e838daa6cefd923057ffc186"
+    },
+    {
+      "file": "tests/usb_os_observer/test_main.cpp",
+      "size": 16716,
+      "sha256": "91bd7ee50537dce65c692ebd022d4dafc9bf649ea3972342e1ba1e93d92fcc1b"
+    },
+    {
+      "file": "tests/usb_os_observer/test_scope.py",
+      "size": 6169,
+      "sha256": "1cc7cab91621aae312ec0a3c28dc91e38d875c5c48b860bfd4e390ad0709ca49"
+    },
+    {
+      "file": "tests/usb_os_observer_release/build_candidate.py",
+      "size": 10785,
+      "sha256": "d07ab71ef92c9af5bb8cbe43b82ec9237156353e3ae004c9b5e0b924aafe72ca"
+    },
+    {
+      "file": "tests/usb_os_observer_release/identity.patch",
+      "size": 430,
+      "sha256": "ccb105cd2ac03bc0c771b3276674d5219fc6e2e80dfa2b9bb82e520cfdb6a8fe"
+    },
+    {
+      "file": "tests/usb_os_observer_release/prepare_sources.py",
+      "size": 5161,
+      "sha256": "6a2c8e2519c5c2eb0e945ced40bf1e11cdea25b0ca92f63f01cacb19f36eb28b"
+    },
+    {
+      "file": "tests/usb_os_observer_release/run_regressions.py",
+      "size": 36616,
+      "sha256": "2d9443de64a036351c3edf47d28b4f1501ec5c92b483b228d24586dd12d02ce4"
+    },
+    {
+      "file": "tests/usb_os_observer_release/source-manifest.json",
+      "size": 31088,
+      "sha256": "e397ac376bbb9e90d6b1ded056657a18dec4b5d5075bd2465a12f3e956db95f7"
+    },
+    {
+      "file": "tests/usb_os_observer_release/startup_decode.py",
+      "size": 586,
+      "sha256": "c16a1f740f9671ce5581ec45c704ac15bce7efbd9bd9da700d79c1811d55bc05"
+    },
+    {
+      "file": "tests/usb_os_observer_release/test_verify_controls.py",
+      "size": 15257,
+      "sha256": "b2d32afc6de0d6bad07ce2a8881238e59ddf07f82e5b77ae5780daa61b8149db"
+    },
+    {
+      "file": "tests/usb_os_observer_release/verify_release.py",
+      "size": 6684,
+      "sha256": "5f20387df2f322e6744a9d75a78ed054dd88f7bd80764d3462d4e25ff9f29c32"
+    },
+    {
+      "file": "tests/usb_os_observer_release/verify_target.py",
+      "size": 28285,
+      "sha256": "6669ea800c29bb4a51c3b7b97cd1f97f0ef5c1bc8be6a297a98f7c29d1473d18"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/application.patch",
+      "size": 17401,
+      "sha256": "1b8ac7b7b9bd8d929db69ff8360e7e230306f84bef89aca198dc00834ab40f95"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/prepare_sources.py",
+      "size": 4972,
+      "sha256": "4bb883ac853c37e3901caebdfbde6996ccfef515330a89ea5639f79a973ebd09"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/run_tests.py",
+      "size": 6294,
+      "sha256": "aaf23385e475e7e2425efa23575314ed9b77a791310d067ec377fae21a57dd54"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/source-manifest.json",
+      "size": 28166,
+      "sha256": "a6d3195307c5537189c235038d5b836ac9d1de71cefdf021f2f44b64a49eeb6c"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/test_main.cpp",
+      "size": 14268,
+      "sha256": "71a226905d310957a421298631a5f8d8a1e4767b98781f7f63bd2f17c3709ae7"
+    },
+    {
+      "file": "tests/usb_os_observer_v2/test_scope.py",
+      "size": 6549,
+      "sha256": "51577c73ee4d09f0c6869e2bf9fd2d6bdff9e7d3dd80f0dd2994aa44300b2d8e"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/build_candidate.py",
+      "size": 6029,
+      "sha256": "65ea2be88dcf28642290754a9d92e52df269a7d23fa77804ecc99de33799869b"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/identity.patch",
+      "size": 434,
+      "sha256": "4aba84df881a7d7cfb4072cd40e0471a1b0a336ee4f4e112fb735107773d86a2"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/prepare_sources.py",
+      "size": 5174,
+      "sha256": "fe7a7cce3ff4e69fd7e561667cec9ffbc5ecf31fb70e4d8512d16bddc0f41409"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/run_regressions.py",
+      "size": 2144,
+      "sha256": "2abdced3608e5ebd22573029226a8cb9729b583d7c468cc4f349fdce2e5b41b3"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/source-manifest.json",
+      "size": 31086,
+      "sha256": "51e829491ce660d98f64a1040c3077bf63798e89481086399715167b970cdabe"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/startup_decode.py",
+      "size": 1294,
+      "sha256": "b24b11fce9bb97dcb1e48c92b68a0f5701d2b4a2bc2c2854bbcd14c84a7e1356"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/test_verify_controls.py",
+      "size": 14142,
+      "sha256": "53afabb8cf80f96b334fbcf5fdca5e162e9e0338d9a4ea6c7794bfc1f0a21f13"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/verify_release.py",
+      "size": 2934,
+      "sha256": "4c6b70f7641f11bbcf2898a7d36631b60e75659153d310196d5dd4bad0fc7aa2"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_release/verify_target.py",
+      "size": 14878,
+      "sha256": "f74d07d88531acd14882260da5d2d4e61ba4a6b2f636438d06f85c117975e3a6"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/application.patch",
+      "size": 14214,
+      "sha256": "833333ef78be9a855f7f372bd939501ff2eded3f3e7105b1f2ebfefac3545ac9"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/http_fixture.h",
+      "size": 3012,
+      "sha256": "81050d22604cee9f773c0ea8ae661b20e5bda6e886ae45ae5836d8f95f43876d"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/prepare_sources.py",
+      "size": 4962,
+      "sha256": "de87a4853f1ab533c10f39b2dc09df8c06750180832e21d8a6c5cde5e955de83"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/run_tests.py",
+      "size": 10878,
+      "sha256": "4ce01cdbc58787427eef8266aae64702314452663ddd087c8b691180d57d38d4"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/source-manifest.json",
+      "size": 28158,
+      "sha256": "b6be8b4afd0763e71a578e000fc5aac2f62340eeb24ba29362dad7b2ae09ebab"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/test_http.cpp",
+      "size": 15551,
+      "sha256": "4490a7697dfa722cb727e22c5d0f7fc33ea68af53253ebdad73b93eed918e9b3"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/test_integration.cpp",
+      "size": 11621,
+      "sha256": "e0802e84b4c90b2a90061febdb76615d769e94f9dff86084602deefcea401fca"
+    },
+    {
+      "file": "tests/usb_os_observer_v2_web/test_ui.cjs",
+      "size": 10649,
+      "sha256": "b71e91bfda469d4ce7e0a22beeef70ad0fc696a1d43844c182d1ead7f521c9fd"
+    },
+    {
+      "file": "tests/usb_os_observer_web/application.patch",
+      "size": 9149,
+      "sha256": "33e66ff08a238a5db1c6a0d3a87e837e1ef928fb5a7dd4940685b47cc6bce9d9"
+    },
+    {
+      "file": "tests/usb_os_observer_web/http_fixture.h",
+      "size": 3012,
+      "sha256": "5beeb5461a6b42a6ab90cfec218ebc32eddc16a6f81358a739aac72d31e1590e"
+    },
+    {
+      "file": "tests/usb_os_observer_web/prepare_sources.py",
+      "size": 4956,
+      "sha256": "48913d955990f0486f7ad5a995c7e26cc33543f81de7e0a6e0bd58769e7ed967"
+    },
+    {
+      "file": "tests/usb_os_observer_web/run_tests.py",
+      "size": 10785,
+      "sha256": "83dd30399c673cdfb8f0e02d12e4085037213d56ddf6a43df6545b2a365e57d3"
+    },
+    {
+      "file": "tests/usb_os_observer_web/source-manifest.json",
+      "size": 28158,
+      "sha256": "98253f06bc6a6f2d081abad2ce1d33074c66ab7dacb243b971b89d177f28dc05"
+    },
+    {
+      "file": "tests/usb_os_observer_web/test_http.cpp",
+      "size": 9093,
+      "sha256": "82d3f5d5fbc23d973a1e35379e6e26d6f25edc203bfbb41a67d512d2f757e81c"
+    },
+    {
+      "file": "tests/usb_os_observer_web/test_integration.cpp",
+      "size": 6530,
+      "sha256": "753e91ccda7918fdfc3f5df38cc3bedb8c23d0072c2237786e7ffdbcff03feb7"
+    },
+    {
+      "file": "tests/usb_os_observer_web/test_ui.cjs",
+      "size": 8159,
+      "sha256": "c0e6b3770ef6ea242a24eb87b2be7a947de62458bc74ec1862c93bb911fcb6b0"
+    },
+    {
+      "file": "tools/build_routeb_candidate.py",
+      "size": 678,
+      "sha256": "e0765a644f97844bca6136f656ca5980c059e4f4e3a4536ecdc80bfa471972bb"
+    }
+  ],
+  "files_sha256": "6d969c49592fa11759bb8dd79e76f4d74b8c5222057b27c0464edceecac573ff",
+  "repeat_source_baseline": "fcba0385ce21662c7a504e0c9b6fba0dfa2c4f8d",
+  "inherited_committed_guard": {
+    "file": "tests/static_response_build_integration/build_candidate.py",
+    "sha256": "2a67d96e6300f4daa1adef588b11a1dd2f3cbdf7c016f69aab8a2992adc8b0d6",
+    "function": "build_inputs",
+    "executed_unmodified": true,
+    "inherited_build_id": "ROUTEB-STATIC-RESPONSE-REPAIR-v1",
+    "inherited_files_sha256": "ae6b124d513c18065db44355d947b8c2e13de07002c54a550b3a817e35c7ef9d"
+  },
+  "del_alias_source_baseline": "557dc81f65b672d5b701b681664ef6ff0a7e5d44",
+  "inherited_previous_repeat_guard": {
+    "file": "tests/del_alias_release/build_candidate.py",
+    "sha256": "5f0496f5e40e9e8da4b4ca7276dfb1c05a52de2d251895c97febee242b83b15b",
+    "function": "build_inputs",
+    "executed_unmodified": true,
+    "inherited_build_id": "ROUTEB-DEL-ALIAS-H1-v1",
+    "inherited_files_sha256": "4d66bd8e67c10574322d387007e177efc1a0f7e6ea782aeaa3d8c71a81ae8aa8"
+  },
+  "define_labels_source_baseline": "6bcfb605c8249b63be2be9f79a00e4e81863fbf6",
+  "usb_observer_source_baseline": "fe6ed1c291a2af234793cca86aa9b8c979ac6d8e",
+  "inherited_define_guard": {
+    "file": "tests/define_labels_release/build_candidate.py",
+    "sha256": "294569f8a1cf1cc7a43f12ba6740965a64abb46a65e9c178c2705afafd73225d",
+    "function": "build_inputs",
+    "executed_unmodified": true,
+    "inherited_files_sha256": "b49ff1751f52e11d5a82c5b46112b17fbf054f46580702fd9a34a99f3a41bb9c"
+  },
+  "inherited_observer_v1_guard": {
+    "file": "tests/usb_os_observer_release/build_candidate.py",
+    "sha256": "d07ab71ef92c9af5bb8cbe43b82ec9237156353e3ae004c9b5e0b924aafe72ca",
+    "executed_unmodified": true,
+    "files_sha256": "83b192df12701af91324f0f22f9efa4ab0c5a409efe9d77d6eff41679b12b4ac"
+  },
+  "admission_diagnostics_source_baseline": "eb4c5d721e30893f7df908ac610d287d7541acf5",
+  "inherited_observer_v2_guard": {
+    "file": "tests/usb_os_observer_v2_release/build_candidate.py",
+    "sha256": "65ea2be88dcf28642290754a9d92e52df269a7d23fa77804ecc99de33799869b",
+    "function": "build_inputs",
+    "executed_unmodified": true,
+    "inherited_files_sha256": "00f367ee39234b75b9615d3a31315085b78f280bfd1c32c341f8160b58e35c21"
+  },
+  "postcompile_metadata_exclusions": [
+    {
+      "file": "tests/admission_diagnostics_package/release-binding.json",
+      "reason": "Exact artifact/package identity written after compilation; package-checkpoint guarded separately"
+    }
+  ]
+}

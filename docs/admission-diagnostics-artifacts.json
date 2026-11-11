@@ -1,0 +1,158 @@
+{
+  "format": "evilduck-admission-diagnostics-artifacts-v1",
+  "status": "VERIFIED_LOCAL_REVIEW_ONLY",
+  "created_at_utc": "2026-11-11T07:25:14.560775+00:00",
+  "branch": "routeb-admission-diagnostics-v1",
+  "baseline_commit": "eb4c5d721e30893f7df908ac610d287d7541acf5",
+  "firmware_source_commit": "c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44",
+  "package_source_commit": "0c799d9bb72447409c9f6c23b2f78edaaa849a9a",
+  "build_id": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+  "profile": "ADMISSION DIAGNOSTICS / USB OBSERVER V2 / DEFINE / REPEAT / PRIVACY / H1 EXPERIMENTAL / REVIEW ONLY",
+  "fqbn": "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PartitionScheme=custom,FlashMode=qio,PSRAM=disabled,CPUFreq=240,MSCOnBoot=default,DFUOnBoot=default",
+  "source_inventory": "docs/admission-diagnostics-source-inventory.json",
+  "source_count": 201,
+  "unchanged_from_reviewed_v2": 198,
+  "artifacts": [
+    {
+      "file": "/workspace/scratch/admission-diagnostics/build-v2/build/EvilDuckS3.ino.bin",
+      "bytes": 1450944,
+      "sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1"
+    },
+    {
+      "file": "/workspace/scratch/admission-diagnostics/build-v2/build/EvilDuckS3.ino.elf",
+      "bytes": 23706756,
+      "sha256": "743773a913bf430e808fc746c5b40996f531e729c40693b1850fb4726c8d5847"
+    },
+    {
+      "file": "/workspace/scratch/admission-diagnostics/build-v2/report.json",
+      "bytes": 1712538,
+      "sha256": "20cf1cfd6ef09b89a230d0bdb04c753b9607a27e16c0450a1807aeac6163e928"
+    },
+    {
+      "file": "/workspace/scratch/admission-diagnostics/build-v2/build-inputs.json",
+      "bytes": 32454,
+      "sha256": "f967efe6a9a8f9afa88340a93ddc1f57ffd9f18231ca26da4bb1909727f4ebff"
+    },
+    {
+      "file": "/workspace/scratch/admission-diagnostics/build-v2/admission-diagnostics-release-verification.json",
+      "bytes": 3446026,
+      "sha256": "8475e4038b6411a9aa6e1f07b91f808701d4ba1941a64afefefeb3d4be84fde2"
+    },
+    {
+      "file": "/workspace/scratch/admission-diagnostics-release/evilduck-routeb-admission-diagnostics-h1-macos-review-v1.zip",
+      "bytes": 5614647,
+      "sha256": "05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81"
+    }
+  ],
+  "resources": {
+    "application_bytes": 1450944,
+    "application_delta_from_v2": 320,
+    "static_ram_bytes": 115400,
+    "static_ram_delta_from_v2": 8,
+    "target_adapter_bytes": 24352,
+    "target_adapter_delta_from_v2": 8,
+    "largest_adapter_compiler_frame_bytes": 176,
+    "largest_adapter_frame_delta": 32,
+    "compiler_workspace_bound_bytes": 4096,
+    "physical_stack_peak_measured": false
+  },
+  "fresh_software": {
+    "focused_cases": 40,
+    "focused_assertions": 384,
+    "total_native_cases": 738,
+    "total_native_assertions": 38901,
+    "negative_controls": 2,
+    "negative_control_assertions": 12,
+    "composition_controls": 16,
+    "target_resource_checks": 25,
+    "inherited_release_assertions": 190,
+    "asan_ubsan_leaks": "PASS",
+    "native_execution_epochs": "docs/admission-diagnostics-native-execution-epochs.json"
+  },
+  "package_checks": {
+    "policy": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/package-policy-v1.json",
+      "sha256": "6e7c62734efff7e3a469de9abfc6b2eee19f7968df7eef24c1bf9b9623da657f",
+      "PASS": 11,
+      "FAIL": 0
+    },
+    "artifact_mutations": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/package-checks-v1.json",
+      "sha256": "82bfe0020930c270e46ff16917b57e45a65850231d56dd1989180541330d02de",
+      "PASS": 151,
+      "FAIL": 0
+    },
+    "bound_installer_mocks": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/mock-installer-v1.json",
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "PASS": 38,
+      "FAIL": 0
+    }
+  },
+  "archive_members": 80,
+  "recovery": {
+    "working_define_zip_sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+    "working_define_application_sha256": "167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30",
+    "older_source_text_v2_application_sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+    "working_define_application_bytes": 1438048,
+    "older_source_text_v2_application_bytes": 1413200,
+    "verified_in_archive": true
+  },
+  "owner_check": "docs/admission-diagnostics-owner-check.md",
+  "first_offline_command": "python3 preflight.py --directory .",
+  "no_installation_or_hardware_authorized_by_checks": true,
+  "hardware_access": false,
+  "hid_execution": false,
+  "installed": false,
+  "flashed": false,
+  "ota": false,
+  "remote_push": false,
+  "published": false,
+  "os_detection_added": false,
+  "changed_paths_from_baseline": [
+    "docs/admission-diagnostics-archive-integrity.json",
+    "docs/admission-diagnostics-artifacts.json",
+    "docs/admission-diagnostics-build-attempts.json",
+    "docs/admission-diagnostics-build-controls.json",
+    "docs/admission-diagnostics-build-inputs.json",
+    "docs/admission-diagnostics-build.json",
+    "docs/admission-diagnostics-clean-build-controls.json",
+    "docs/admission-diagnostics-composition-controls.json",
+    "docs/admission-diagnostics-design.md",
+    "docs/admission-diagnostics-development-notes.json",
+    "docs/admission-diagnostics-final-integrity.json",
+    "docs/admission-diagnostics-native-execution-epochs.json",
+    "docs/admission-diagnostics-native-results.json",
+    "docs/admission-diagnostics-negative-control-details.json",
+    "docs/admission-diagnostics-negative-controls.json",
+    "docs/admission-diagnostics-owner-check.md",
+    "docs/admission-diagnostics-package-verification.json",
+    "docs/admission-diagnostics-release-verification.json",
+    "docs/admission-diagnostics-report.md",
+    "docs/admission-diagnostics-resource-measurement.json",
+    "docs/admission-diagnostics-source-inventory.json",
+    "docs/admission-diagnostics-target-checks.json",
+    "docs/admission-diagnostics-test-results.json",
+    "docs/routeb-current-compatibility.md",
+    "tests/admission_diagnostics/application.patch",
+    "tests/admission_diagnostics/negative_control.cpp",
+    "tests/admission_diagnostics/prepare_sources.py",
+    "tests/admission_diagnostics/run_tests.py",
+    "tests/admission_diagnostics/source-manifest.json",
+    "tests/admission_diagnostics/test_main.cpp",
+    "tests/admission_diagnostics_package/adaptation-manifest.json",
+    "tests/admission_diagnostics_package/package.py",
+    "tests/admission_diagnostics_package/package_preflight.py",
+    "tests/admission_diagnostics_package/release-binding.json",
+    "tests/admission_diagnostics_package/test_package.py",
+    "tests/admission_diagnostics_release/build_candidate.py",
+    "tests/admission_diagnostics_release/identity.patch",
+    "tests/admission_diagnostics_release/prepare_sources.py",
+    "tests/admission_diagnostics_release/source-manifest.json",
+    "tests/admission_diagnostics_release/startup_decode.py",
+    "tests/admission_diagnostics_release/test_verify_controls.py",
+    "tests/admission_diagnostics_release/verify_release.py",
+    "tests/admission_diagnostics_release/verify_target.py",
+    "tools/build_routeb_candidate.py"
+  ]
+}

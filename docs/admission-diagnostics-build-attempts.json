@@ -16,6 +16,20 @@
       "classification": "release integration error; no firmware-source failure",
       "guard_bypassed": false,
       "captured_at_utc": "2026-11-11T07:11:31.254360+00:00"
+    },
+    {
+      "id": "build-v2",
+      "source_commit": "c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44",
+      "output_directory": "/workspace/scratch/admission-diagnostics/build-v2",
+      "exit_code": 0,
+      "stage": "COMPLETE_CLEAN_BUILD_AND_RELEASE_VERIFICATION",
+      "target_compiler_executed": true,
+      "firmware_artifacts_created": true,
+      "application_sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1",
+      "mandatory_release_verification": "PASS",
+      "inherited_assertions_preserved": 190,
+      "guard_bypassed": false,
+      "captured_at_utc": "2026-11-11T07:18:47.270142+00:00"
     }
   ]
 }

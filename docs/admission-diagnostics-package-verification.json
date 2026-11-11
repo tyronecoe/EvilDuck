@@ -1,0 +1,99 @@
+{
+  "format": "evilduck-admission-review-package-verification-v1",
+  "status": "PASS",
+  "build_id": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+  "firmware_source_commit": "c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44",
+  "package_source_commit": "0c799d9bb72447409c9f6c23b2f78edaaa849a9a",
+  "archive": {
+    "file": "/workspace/scratch/admission-diagnostics-release/evilduck-routeb-admission-diagnostics-h1-macos-review-v1.zip",
+    "bytes": 5614647,
+    "sha256": "05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81",
+    "crc": "PASS",
+    "members": 80
+  },
+  "package_directory": "/workspace/scratch/admission-diagnostics-release/package-v1",
+  "archive_members_receipt": "/workspace/scratch/admission-diagnostics-release/archive-integrity-v1.json",
+  "archive_members_receipt_sha256": "469e6fc3b354dc9e4d722659446675f46a499ddaf821c0bd2a8826c1b800767a",
+  "checks": {
+    "policy": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/package-policy-v1.json",
+      "sha256": "6e7c62734efff7e3a469de9abfc6b2eee19f7968df7eef24c1bf9b9623da657f",
+      "PASS": 11,
+      "FAIL": 0
+    },
+    "artifact_mutations": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/package-checks-v1.json",
+      "sha256": "82bfe0020930c270e46ff16917b57e45a65850231d56dd1989180541330d02de",
+      "PASS": 151,
+      "FAIL": 0
+    },
+    "bound_installer_mocks": {
+      "receipt": "/workspace/scratch/admission-diagnostics-release/mock-installer-v1.json",
+      "sha256": "2323fe5dd8c16e03bda1a47f7aad60f396084b1a57c087017f7fc78fc32233a1",
+      "PASS": 38,
+      "FAIL": 0
+    }
+  },
+  "artifacts": {
+    "application.bin": {
+      "file": "application.bin",
+      "bytes": 1450944,
+      "sha256": "fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1",
+      "mode": "0o100644"
+    },
+    "rollback-application.bin": {
+      "file": "rollback-application.bin",
+      "bytes": 1413200,
+      "sha256": "cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02",
+      "mode": "0o100644"
+    },
+    "working-define-labels-macos-review-v1.zip": {
+      "file": "working-define-labels-macos-review-v1.zip",
+      "bytes": 2691374,
+      "sha256": "b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed",
+      "mode": "0o100644"
+    },
+    "manifest.json": {
+      "file": "manifest.json",
+      "bytes": 18190,
+      "sha256": "821a65ee630b3062c5a06042cb302f19fa00dd7ceaf00480fb0d69f3472bf9b1",
+      "mode": "0o100644"
+    },
+    "preflight.py": {
+      "file": "preflight.py",
+      "bytes": 79246,
+      "sha256": "bb5646dcdffcfb15e4d3f6253ec21dc96394db4501574e51a309ed1f20d67079",
+      "mode": "0o100644"
+    },
+    "installer.py": {
+      "file": "installer.py",
+      "bytes": 8541,
+      "sha256": "fd0db1c37727e723a5106efbf8b3e2109046a9468ab6b49a375f384ca637f464",
+      "mode": "0o100644"
+    },
+    "AD01_INVALID_BYTE_LINE3.duck": {
+      "file": "AD01_INVALID_BYTE_LINE3.duck",
+      "bytes": 60,
+      "sha256": "aa16d25830bb6adc9223dd5c6f433c12444bd1c38d69f7aff6fa55ca14911a2f",
+      "mode": "0o100644"
+    }
+  },
+  "first_offline_command": "python3 preflight.py --directory .",
+  "offline_preflight": {
+    "application": "PASS",
+    "rollback": "PASS",
+    "fresh_extraction": "PASS",
+    "plan_ready": false,
+    "selected_write_ranges": [],
+    "installed_metadata": "NOT_SUPPLIED"
+  },
+  "physical_scope": {
+    "hardware_access": false,
+    "installation_authorized": false,
+    "installed": false,
+    "native_macos_tested": false,
+    "firmware_rebuilt_by_packaging": false,
+    "network_or_owner_data_access": false
+  },
+  "preservation": "All80 package member hashes rechecked after mutation/mocked-installer tests. Source templates unchanged; installer byte-identical to frozen reviewed parent except exact RELEASE_BINDING line."
+}
