@@ -7,6 +7,10 @@
 - [Script library guide](EvilDuckS3/scripts/README.txt): existing examples, upload procedures, and device paths; not a record of test outcomes.
 - [TEST_MATRIX.md](TEST_MATRIX.md): compatibility and testing evidence ledger.
 
+## Milestone 2 findings (preserved inspection scope)
+
+The following findings describe the earlier bounded inspection. Milestone 3 attachment evidence and the current objective are recorded below; prior absence findings do not describe the new package.
+
 ## VERIFIED
 
 - Repository documentation baseline inspected: `main` at `edadbdf422db19d4fbb305317913d8fb01973fc5` (repository identity only, not a firmware build or installed image).
@@ -34,7 +38,22 @@
 - USB observer captures, classification notes, and the original independent-evidence gate with independent host identification.
 - Build manifests/checksum receipts, exact branch/commit and rollback IDs, plus flash/install records tying an image to the physically tested device. No firmware identity is inferred here.
 
-## Current objective and next task
+## Previous objective and next task (Milestone 2 provenance)
 
 - Milestone 2: bounded historical evidence reconciliation, documentation only. The prior workflow objective is complete; its previous “next agreed task: none” is superseded by this milestone.
 - Next step: owner supplies the specific missing artifacts above so historical outcomes can be indexed without repeating investigations.
+
+## Milestone 3 owner evidence import
+
+- Started from updated `main` at `970b7ced46f94a90dcbf9dc811dbffc91d74b3db` after PR #2 merged. Scope is the supplied package only; no broader history or compatibility reconciliation was performed.
+- Both ZIP uploads are byte-identical (SHA-256 `8c92f205887e7a04eb330b6e749e5f0996266a8c905587ebf4540e1c52e482a3`). All 21 manifest entries match. Exact source filenames, SHA-256 references, build labels, OS limits and evidence types are indexed in [TEST_MATRIX.md](TEST_MATRIX.md#milestone-3-supplied-owner-evidence-bounded-reconciliation). Attachment persistence remains pending; raw logs are not committed.
+- The duplicate fixed-message receipts count as one evidence item: device feedback reports a verified 17-byte message, with owner-reported iPhone view PASS. This supports a bounded interface LED return finding, not an independently demonstrated iPhone result or general macOS compatibility. The receipt explicitly records `global_caps_restoration_proven=false`.
+- Device snapshots carry buildId `CAPS-STOP-TRACE-20261019-v1`; that label does not identify a binary or tested commit. Earlier LED captures show unknown or stale feedback; USB/HID completion counters do not establish host acceptance. Different boot markers and freshness limits are retained in the ledger.
+- Supplied host logs record system-wide Caps flags and separate service-filtered input events. High Sierra appears in diagnostic headers, but 10.13.6 is not established by those records. No matching build/boot identity links host logs to device traces. Interface LED feedback, macOS-wide Caps state and a Razer keyboard LED remain separate.
+- STOP remains inconclusive: captured terminal detail 1 is not decoded as cancellation, callback correlation is false, and the empty disabled trace cannot prove an outcome. No G01–G10, DEFINE, DEL, INJECT_VAR or OS classification PASS is established. No offline result is supplied.
+- Still missing: original group definitions/results; command scripts and physical/offline results; correlated STOP cancellation evidence; Razer LED and global restoration evidence; independent OS/version/classification evidence and original gate; firmware checksums, tested commit/branch, rollback and install receipts. The earlier pending categories remain open, partially supplemented by the supplied logs.
+
+## Current objective and next task
+
+- Milestone 3: bounded owner evidence import, documentation only. Deliver one PR targeting `main`, leave unmerged, with only PROJECT_STATE.md and TEST_MATRIX.md changed.
+- This import supersedes the Milestone 2 next step above. No further task is agreed; missing evidence and attachment persistence remain recorded gaps, not authorization for new investigations.
