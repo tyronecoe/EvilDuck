@@ -1,5 +1,7 @@
 # Project state
 
+Current firmware guidance is in [Recovered Route B lineage](#recovered-route-b-lineage-current-firmware-guidance). Earlier milestone findings retain their original inspection scope and do not override it.
+
 ## Baseline and references
 
 - Workflow baseline (before these documents): `bb20cbe8ebd2be3745bb028220f8c6f0d1c354bf`, branch `work`.
@@ -65,7 +67,29 @@ The following findings describe the earlier bounded inspection. Milestone 3 atta
 - On 2026-11-14, retrieved files verified against all 21 supplied SHA-256 entries; the manifest and ZIP matched their previously recorded hashes. E01–E21 and manifest links in TEST_MATRIX.md point to that private commit and require access permission. No originals or redacted derivatives are published here.
 - Integrity verification establishes byte preservation, not authenticity, firmware identity, installed image, host acceptance, compatibility or additional PASS outcomes. All earlier findings and missing evidence remain unchanged. No firmware operations or physical testing were performed.
 
-## Current objective and next task
+## Previous objective and next task (Milestone 4 provenance)
 
 - Milestone 4: private historical evidence storage verified; public changes are limited to PROJECT_STATE.md and TEST_MATRIX.md. Submit the documentation-only PR against `main` and leave unmerged for owner review.
 - Repository owners must maintain private visibility and access controls. Missing behavioral evidence remains pending; no further investigation is authorized.
+
+## Recovered Route B lineage (current firmware guidance)
+
+Recorded 2026-11-14, starting from `main` at `2894a512d4f53987df3f568e513b0645ab7caae0`. Latest main is not the latest recoverable firmware development. The June 6, 2026 S3 source change on main describes the older interpreter only; later Route B development remains on unmerged branches. This correction supersedes the main-only firmware assessment, not the preserved historical evidence.
+
+- **Current development baseline:** branch `routeb-admission-diagnostics-v1`, publication commit `2ad87593bfde79d854c03045a68fe70d2ac49f72`, firmware checkpoint `c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44`, build `ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1`. Use its hash-pinned composed source/preparer chain; root firmware files or standalone Legacy execution are not substitutes. [Development report](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/admission-diagnostics-report.md).
+- **Newest package:** `evilduck-routeb-admission-diagnostics-h1-macos-review-v1.zip`, 5,614,647 bytes, SHA-256 `05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81`; application 1,450,944 bytes, SHA-256 `fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1`. Package checkpoint `0c799d9bb72447409c9f6c23b2f78edaaa849a9a`. The preceding lineage investigation independently matched downloaded ZIP/application hashes and ZIP CRC; integrity is not installation or hardware acceptance. Physical installation/acceptance remains **unverified**. [Published artifact reference](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/admission-diagnostics-download.md).
+- **Latest owner-accepted working return:** DEFINE package, build `ROUTEB-DEFINE-LABELS-H1-v1`, branch `routeb-define-labels-h1-review-v1`, publication `bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29`, firmware checkpoint `5d9176dd15f722ffe20d219d33684da7461d1754`. Original ZIP 2,691,374 bytes, SHA-256 `b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed`; application 1,438,048 bytes, SHA-256 `167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30`. Three scoped DEFINE owner-reported passes are documented, not independent device readback or universal compatibility. [Owner evidence](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/define-labels-owner-acceptance.md).
+- **Last owner-reported installed image:** `ROUTEB-USB-ENUM-OBSERVER-H1-v2`, branch `routeb-usb-enum-observer-h1-review-v2`, report `10a0aa7685688d41ba474eae37bfa32f1647c86f`, firmware checkpoint `b075e551e07f7b15124bdad3caa564c614f78ba4`; application SHA-256 `b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e`. The later [inconclusive closeout](https://github.com/tyronecoe/EvilDuck/blob/eb4c5d721e30893f7df908ac610d287d7541acf5/docs/usb-os-observer-v2-inconclusive-closeout.md) records owner installation/export evidence. This is not independent confirmation of the current physical installation. Current typing acceptance, installed-byte readback and any subsequent DEFINE return remain unknown.
+- **STOP correction:** Route B already implements cooperative single-owner cancellation, prioritized HID cleanup, request-correlated status and quarantine/no replay after ambiguous failure. Withdraw the proposed STOP repair based on the obsolete main interpreter; it must not govern Route B development. Scoped owner STOP/recovery observations are recorded separately from source/software evidence. General host-wide release and precise physical latency remain unproven. The newest admission-diagnostics increment corrects request-owned error reporting; it does not introduce a new STOP implementation. [Composed compatibility and evidence boundaries](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/routeb-current-compatibility.md).
+- **Experimental and historical boundaries:** H1 INJECT_VAR is implemented and has scoped owner-reported observations; canonical Hak5 runtime encoding remains unresolved. USB observer v2 is capture-only and OS detection is closed as inconclusive, with no validated classifier. Do not restart it or repeat accepted historical tests. G01–G10 original definitions/results and build/host correlation gaps remain pending; later summaries do not retroactively establish PASS for the Milestone 3 attachments. Preserve all historical evidence and uncertainty in TEST_MATRIX.md.
+
+### Recovery identities and limitations
+
+- The nested original working DEFINE ZIP above is the working-return kit. Its own guarded install action is distinct from the outer package rollback action.
+- The separate mandatory older source/text-v2 rollback application remains 1,413,200 bytes, SHA-256 `cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02`. It lacks later privacy/dashboard/editor repairs. Neither application-only recovery restores deleted scripts, historical settings or the entire device; preserve private backups and original packages. Package integrity does not prove physical recovery.
+- Historical Caps STOP rollback remains `MAC-CAPS-TIMING-20261019-v1`, 1,397,968 bytes, SHA-256 `5e10009fd3e5a0a862b4f7bed1f7f28ba8464f7bb1066fd8091c6e01b2ed4a59`. Prior package commit `c18fff39e672164121783808e82420557bf9dc36`, ZIP SHA-256 `2f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f`. Historical owner confirmation is not a current board readback. [Preserved rollback record](https://github.com/tyronecoe/EvilDuck/blob/0803937b9b552fe4b6e6cb6d1dd60f80f098449c/docs/caps-stop-rollback.md).
+
+## Current objective and next task
+
+- Correct only PROJECT_STATE.md and relevant TEST_MATRIX.md entries; submit one documentation-only PR against main and leave unmerged for owner review. No firmware integration, builds, regression suites, packages or physical operations are part of this correction.
+- The Route B baseline above governs future firmware planning. No STOP implementation or further firmware task is authorized by this documentation correction. Maintain private evidence access controls and retain unresolved historical gaps.
