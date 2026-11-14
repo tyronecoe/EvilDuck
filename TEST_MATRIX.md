@@ -51,7 +51,7 @@ Baseline: updated `main` at `970b7ced46f94a90dcbf9dc811dbffc91d74b3db`, merge of
 
 Both uploaded `EvilDuck_M3_Evidence.zip` copies have SHA-256 `8c92f205887e7a04eb330b6e749e5f0996266a8c905587ebf4540e1c52e482a3`. All 21 file entries were checked against the supplied manifest. Hash matching establishes attachment integrity, not authenticity, firmware binary identity, or independent reproduction. No firmware tests, builds or physical checks were performed for this import; no offline test result is supplied.
 
-References below point to owner attachments only. **Attachment persistence is pending**: no durable repository URL is available, and raw records are not committed. Source `buildId` values are self-reported diagnostic labels, not image checksums or install receipts. No OS is inherited between separate records merely from filenames or nearby dates.
+Originals are preserved in the separate **private** [EvilDuck-Evidence repository](https://github.com/tyronecoe/EvilDuck-Evidence/tree/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13). Access requires repository permission; a 404 for unauthorized readers does not indicate missing evidence. On 2026-11-14, all 21 retrieved original files matched the supplied SHA-256 manifest; the stored manifest and original ZIP also matched their recorded checksums. This verifies evidence integrity only; all historical outcomes, classifications and caveats below remain unchanged. No original evidence or redacted derivatives are stored in this public repository. Source `buildId` values are self-reported diagnostic labels, not image checksums or install receipts. No OS is inherited between separate records merely from filenames or nearby dates.
 
 | Firmware / build identity | Target OS | Scenario | Bounded result | Evidence references | Evidence type | Caveat |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -65,28 +65,28 @@ References below point to owner attachments only. **Attachment persistence is pe
 
 ### Attachment reference index
 
-- **E01** — owner attachment: receipt.json; SHA-256 a06ed227c3e8aa2300df9ae66d1fd5f218ed7664a0c371ed6ee8fde5baf05ffd
-- **E02** — owner attachment: evilduck_s3_mac_led_return_success_2026-10-21.json; SHA-256 a06ed227c3e8aa2300df9ae66d1fd5f218ed7664a0c371ed6ee8fde5baf05ffd
-- **E03** — owner attachment: evilduck_caps_v4.log; SHA-256 dbd7695d5c597e0b13906a8b31b2e3e710403c60bd894fbb55529dcbff41d63e
-- **E04** — owner attachment: v4.log; SHA-256 809118c73e849db2a667973197344dcbc5e8af164cfc866472592f706129f539
-- **E05** — owner attachment: hid.log; SHA-256 7e7ddda5247ceb7bb4f620935aa8daa64684442283f92c21bdedbb86f1a62894
-- **E06** — owner attachment: v4_disconnect.log; SHA-256 362f5ab231a1c2851a6af45b9691926cd3d87d82e8ce06f2f2def2a151ed05b9
-- **E07** — owner attachment: evilduck_hid_diagnosis5.log; SHA-256 e4b4e5ef2d1ef4b994929d985ffa14b7045a9dd33cac04db3d68a060376ccd7d
-- **E08** — owner attachment: evilduck_v4_diagnosis5.log; SHA-256 c9975d8f511f1a3b17f387c0d9602b1536e935ca21fcc52b191c6c839268c14c
-- **E09** — owner attachment: evilduck_hid_observer.log; SHA-256 b2c5dccb80746092f93c8163ec593ad500061f96ccc34be583a80a7205402e23
-- **E10** — owner attachment: 10:21 LED Report Begins.txt; SHA-256 401eb3e9372064b3e911df069fcb92e16871a876e978c958d5b053e0ab3f50e2
-- **E11** — owner attachment: 10:21 LED Report Ends.txt; SHA-256 f08022498ad40804100e06d09d295735000355764b7e8e46ac721ecc34d878ab
-- **E12** — owner attachment: Bounded HID:STOP trace(1).txt; SHA-256 f5f2339d7c35b48fa7eb4b759ce25864930d4dea83926975d8c9ed076777677a
-- **E13** — owner attachment: A00_before_LED(1).txt; SHA-256 cab0874b925bfbbd136a4809b1805e490b0ea5198b26b27afa7bfcd6366a7896
-- **E14** — owner attachment: A01_end_LED(1).txt; SHA-256 8494556bde599254951064e065268d53fa1f6c8fa98244deb7bb5d155954fb96
-- **E15** — owner attachment: B00_before_LED(1).txt; SHA-256 6c98967062f51ac445ca449ccf0d7ccb48be1e9d256b496abc749652b0c619f4
-- **E16** — owner attachment: B03_end_LED(1).txt; SHA-256 aebcadceea7ece2cfa9239c2dda9944c5122a3437099919ba93c651b648d6111
-- **E17** — owner attachment: C_burst01_Led(1).txt; SHA-256 d499a04b3ff0a0f68d2635d5704676eb0f11b5323a3e135327e03a2ebb123527
-- **E18** — owner attachment: C_burst02_LED(1).txt; SHA-256 596f166fe0927a4424a7eda64645519cbb239f3a9a800e2e47b8117e8e35df1c
-- **E19** — owner attachment: Trace not observed(1).txt; SHA-256 0a6f6b40398e3453a4d38b225f3121dfe52c38139af5782c48f5fe690a29dc73
-- **E20** — owner attachment: RouteB_Keyboard_Test_A.txt; SHA-256 b1e9819b0ed28aab609af6cdbfde6cf99a44c26fb32c44b0c83981964925bbbd
-- **E21** — owner attachment: RouteB_Keyboard_Test_B.txt; SHA-256 3a393de6248f75c47d5cd7850a2140e3d94bd99ea74ae2490e9633fe10c48bde
-- Manifest — owner attachment: MANIFEST_SHA256.txt; SHA-256 1f9c7baeefab3ea0f09b07304eb75b628054342a98511877f61e35a361743f91
+- **E01** — private original: [receipt.json](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/receipt.json); SHA-256 a06ed227c3e8aa2300df9ae66d1fd5f218ed7664a0c371ed6ee8fde5baf05ffd
+- **E02** — private original: [evilduck_s3_mac_led_return_success_2026-10-21.json](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/evilduck_s3_mac_led_return_success_2026-10-21.json); SHA-256 a06ed227c3e8aa2300df9ae66d1fd5f218ed7664a0c371ed6ee8fde5baf05ffd
+- **E03** — private original: [evilduck_caps_v4.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/evilduck_caps_v4.log); SHA-256 dbd7695d5c597e0b13906a8b31b2e3e710403c60bd894fbb55529dcbff41d63e
+- **E04** — private original: [v4.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/v4.log); SHA-256 809118c73e849db2a667973197344dcbc5e8af164cfc866472592f706129f539
+- **E05** — private original: [hid.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/hid.log); SHA-256 7e7ddda5247ceb7bb4f620935aa8daa64684442283f92c21bdedbb86f1a62894
+- **E06** — private original: [v4_disconnect.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/v4_disconnect.log); SHA-256 362f5ab231a1c2851a6af45b9691926cd3d87d82e8ce06f2f2def2a151ed05b9
+- **E07** — private original: [evilduck_hid_diagnosis5.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/evilduck_hid_diagnosis5.log); SHA-256 e4b4e5ef2d1ef4b994929d985ffa14b7045a9dd33cac04db3d68a060376ccd7d
+- **E08** — private original: [evilduck_v4_diagnosis5.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/evilduck_v4_diagnosis5.log); SHA-256 c9975d8f511f1a3b17f387c0d9602b1536e935ca21fcc52b191c6c839268c14c
+- **E09** — private original: [evilduck_hid_observer.log](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/evilduck_hid_observer.log); SHA-256 b2c5dccb80746092f93c8163ec593ad500061f96ccc34be583a80a7205402e23
+- **E10** — private original: [10:21 LED Report Begins.txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/10%3A21%20LED%20Report%20Begins.txt); SHA-256 401eb3e9372064b3e911df069fcb92e16871a876e978c958d5b053e0ab3f50e2
+- **E11** — private original: [10:21 LED Report Ends.txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/10%3A21%20LED%20Report%20Ends.txt); SHA-256 f08022498ad40804100e06d09d295735000355764b7e8e46ac721ecc34d878ab
+- **E12** — private original: [Bounded HID:STOP trace(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/Bounded%20HID%3ASTOP%20trace(1).txt); SHA-256 f5f2339d7c35b48fa7eb4b759ce25864930d4dea83926975d8c9ed076777677a
+- **E13** — private original: [A00_before_LED(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/A00_before_LED(1).txt); SHA-256 cab0874b925bfbbd136a4809b1805e490b0ea5198b26b27afa7bfcd6366a7896
+- **E14** — private original: [A01_end_LED(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/A01_end_LED(1).txt); SHA-256 8494556bde599254951064e065268d53fa1f6c8fa98244deb7bb5d155954fb96
+- **E15** — private original: [B00_before_LED(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/B00_before_LED(1).txt); SHA-256 6c98967062f51ac445ca449ccf0d7ccb48be1e9d256b496abc749652b0c619f4
+- **E16** — private original: [B03_end_LED(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/B03_end_LED(1).txt); SHA-256 aebcadceea7ece2cfa9239c2dda9944c5122a3437099919ba93c651b648d6111
+- **E17** — private original: [C_burst01_Led(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/C_burst01_Led(1).txt); SHA-256 d499a04b3ff0a0f68d2635d5704676eb0f11b5323a3e135327e03a2ebb123527
+- **E18** — private original: [C_burst02_LED(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/C_burst02_LED(1).txt); SHA-256 596f166fe0927a4424a7eda64645519cbb239f3a9a800e2e47b8117e8e35df1c
+- **E19** — private original: [Trace not observed(1).txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/Trace%20not%20observed(1).txt); SHA-256 0a6f6b40398e3453a4d38b225f3121dfe52c38139af5782c48f5fe690a29dc73
+- **E20** — private original: [RouteB_Keyboard_Test_A.txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/RouteB_Keyboard_Test_A.txt); SHA-256 b1e9819b0ed28aab609af6cdbfde6cf99a44c26fb32c44b0c83981964925bbbd
+- **E21** — private original: [RouteB_Keyboard_Test_B.txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/RouteB_Keyboard_Test_B.txt); SHA-256 3a393de6248f75c47d5cd7850a2140e3d94bd99ea74ae2490e9633fe10c48bde
+- Manifest — private original: [MANIFEST_SHA256.txt](https://github.com/tyronecoe/EvilDuck-Evidence/blob/e3f81226ac5ce061bff5dcd52f8b0d6e619bdb8c/m3-owner-2026-11-13/MANIFEST_SHA256.txt); SHA-256 1f9c7baeefab3ea0f09b07304eb75b628054342a98511877f61e35a361743f91
 
 ### Remaining evidence gaps
 
