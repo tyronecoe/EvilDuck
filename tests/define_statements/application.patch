@@ -1,0 +1,52 @@
+--- core.cpp
++++ core.cpp
+@@ -342,7 +342,7 @@
+   previousRepeatLeaf_=eligible&&p_.count_==before+1?before:MaxCode;
+   return true;
+  }
+- bool statementImpl(char* text){
++ bool statementImpl(char* text,bool substituted=false){
+   char expanded[MaxLine+1]={};char name[24]={};
+   if(command(text,"REPEAT")){
+    char* count=left(argument(text));uint16_t n=0;if(!digit(*count))return fail(ErrorCode::Syntax);
+@@ -369,7 +369,8 @@
+     return emit(Op::InternalSet,expanded,0,i);
+    }
+    int id=findName(p_.names_,p_.symbols_,start);if(id<0)return fail(ErrorCode::UndefinedSymbol);
+-   if(!expand(left(end),expanded)||!expr(expanded))return false;
++   if(substituted){strcpy(expanded,left(end));}else if(!expand(left(end),expanded))return false;
++   if(!expr(expanded))return false;
+    // target differentiates declaration from assignment: only VAR may initialize.
+    return emit(Op::Set,expanded,declare?1:0,static_cast<uint8_t>(id));
+   }
+@@ -390,9 +391,9 @@
+      close[-1]=0;if(!*left(arg))return fail(ErrorCode::Syntax);
+     }
+    }
+-   if(!expand(arg,expanded))return false;right(expanded);return emit(enter?Op::TextLn:Op::Text,expanded);
+-  }
+-  if(command(text,"DELAY")){if(!expand(left(argument(text)),expanded)||!expr(expanded))return false;return emit(Op::Delay,expanded);}
++   if(substituted){strcpy(expanded,arg);}else if(!expand(arg,expanded))return false;right(expanded);return emit(enter?Op::TextLn:Op::Text,expanded);
++  }
++  if(command(text,"DELAY")){if(substituted){strcpy(expanded,left(argument(text)));}else if(!expand(left(argument(text)),expanded))return false;if(!expr(expanded))return false;return emit(Op::Delay,expanded);}
+   if(command(text,"IF")){if(!condition(left(argument(text)),expanded,true))return false;uint16_t pc=p_.count_;return emit(Op::If,expanded)&&push(Op::If,pc);}
+   if(command(text,"ELSE")){
+    if(!depth_||blocks_[depth_-1].kind!=Op::If||blocks_[depth_-1].otherwise)return fail(ErrorCode::Structure);
+@@ -481,6 +482,17 @@
+    }
+   }
+   if(functionName(text,name)){int id=fn(name);if(id<0)return fail(ErrorCode::UndefinedFunction);return emit(Op::Call,"",0,static_cast<uint8_t>(id));}
++  // Standalone labels only; raw commands/functions above keep their meaning.
++  // Replacement bytes are parsed once, never recursively expanded.
++  if(!substituted){
++   for(size_t i=0;i<constantsCount_;++i)if(exact(text,constants_[i].name)){
++    strcpy(expanded,constants_[i].value);char* leaf=left(expanded);right(leaf);
++    bool assignment=leaf[0]=='$'&&leaf[1]!='_';
++    bool inlineText=(command(leaf,"STRING")||command(leaf,"STRINGLN"))&&*left(argument(leaf));
++    if(!assignment&&!inlineText&&!command(leaf,"DELAY"))return fail(ErrorCode::Unsupported);
++    return statementImpl(leaf,true);
++   }
++  }
+   return fail(ErrorCode::UnknownStatement);
+  }
+  void enqueue(uint16_t pc){const Function& f=p_.functions_[function_];if(pc>=f.entry&&pc<=f.end&&!visited_[pc]){visited_[pc]=true;work_[workUsed_++]=pc;}}
