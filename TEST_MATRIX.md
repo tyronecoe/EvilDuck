@@ -2,6 +2,8 @@
 
 Record only actual checks with an identifiable firmware/build, target OS (including version when known), scenario, result, evidence reference, evidence type, and caveat. Reference existing records rather than copying them. Separate physical checks, offline tests, and logs.
 
+Current lineage/installation distinctions are recorded in [Recovered Route B lineage](#recovered-route-b-lineage-correction-2026-11-14). Earlier absence findings below describe their original bounded inspections, not all recovered branches.
+
 ## Executed checks with available evidence
 
 At the Milestone 2 inspection, no executed historical checks could be indexed from that bounded inspection. The supplied Milestone 3 records are indexed separately below. No firmware or physical hardware tests were performed for this documentation change.
@@ -10,6 +12,8 @@ At the Milestone 2 inspection, no executed historical checks could be indexed fr
 | --- | --- | --- | --- | --- | --- | --- |
 
 ## Pending historical reconciliation (not executed-test entries)
+
+Preserved Milestone 2 findings: later Route B source, packages and owner summaries supplement these leads in the correction below. Original G01–G10 and attachment-correlation gaps remain open; no historical row is promoted to a verified physical PASS.
 
 | Firmware / build identity | macOS / target OS | Candidate scenario | Reconciliation status | Evidence path/reference | Evidence type | Caveat / exact missing artifact |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -91,3 +95,20 @@ Originals are preserved in the separate **private** [EvilDuck-Evidence repositor
 ### Remaining evidence gaps
 
 G01–G10 definitions and original per-group results, DEFINE / DEL / INJECT_VAR scripts and results, decoded/correlated STOP cancellation evidence, separate offline commands/output/revision, Razer LED captures, global Caps restoration proof, independent OS/version evidence and the original classification gate remain pending. Host logs partially supply the requested observations but do not tie them to a firmware image. Binary checksums, exact tested commit/branch, rollback identities and flash/install receipts remain missing. No G01–G10, DEFINE, DEL, INJECT_VAR or OS classification PASS is added.
+
+## Recovered Route B lineage correction (2026-11-14)
+
+This records recovered source/artifact references and documented owner reports, not newly executed firmware tests. Latest main (`2894a512d4f53987df3f568e513b0645ab7caae0` at correction start) is not the latest recoverable development. The current baseline is branch `routeb-admission-diagnostics-v1`, publication `2ad87593bfde79d854c03045a68fe70d2ac49f72`, firmware checkpoint `c9fd36c3e03b2d7ffa318b289398ff7dc1c9fd44`. Its composed source selection, rather than main's older interpreter, governs firmware planning.
+
+| Identity / scenario | Evidence and bounded finding | Remaining boundary |
+| --- | --- | --- |
+| Newest admission-diagnostics package | [Published reference](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/admission-diagnostics-download.md): ZIP SHA-256 `05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81`; application SHA-256 `fce91bca0774181a1be6bc691a1303d47f61caba49e979e89bfa678ef41f60f1`. Prior lineage investigation independently matched downloaded ZIP/application hashes and CRC. [Development report](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/admission-diagnostics-report.md) records software tests/build evidence. | Integrity and recorded software results do not prove installation or host behavior. Physical installation/acceptance unverified; no suites rerun for this correction. |
+| DEFINE working-return reference | `ROUTEB-DEFINE-LABELS-H1-v1`, publication `bdc8cbeea024ebb63f952da7fc4f39ac9e32fe29`, firmware `5d9176dd15f722ffe20d219d33684da7461d1754`. [Owner summary](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/define-labels-owner-acceptance.md) records three scoped owner-reported passes. ZIP SHA-256 `b91946bec818616f35a469edd6c2efa525eea01276d238b42ed1b26dea3558ed`; application SHA-256 `167cf5013cd4aa7c0823e5c7391ca9f6d400b7b99df6fe0e46085048fde91a30`. | Latest owner-accepted working return, not independently confirmed current installed bytes or general compatibility. Full running ID and positive-trial request/status details remain unknown. |
+| Last owner-reported installed image | Observer v2, firmware `b075e551e07f7b15124bdad3caa564c614f78ba4`, application SHA-256 `b7ac50eebe6fb5e3d69d97f20004e1014c46fb116845e30864f56de5de6d384e`. [Closeout at eb4c5d7](https://github.com/tyronecoe/EvilDuck/blob/eb4c5d721e30893f7df908ac610d287d7541acf5/docs/usb-os-observer-v2-inconclusive-closeout.md) records owner-reported installation and supplied export. | Current physical installation, independent image readback, current typing acceptance and subsequent DEFINE return remain unknown. |
+| Route B STOP/HID cleanup | [Composed implementation inventory](https://github.com/tyronecoe/EvilDuck/blob/2ad87593bfde79d854c03045a68fe70d2ac49f72/docs/routeb-current-compatibility.md) records cooperative single-owner cancellation, prioritized cleanup and quarantine/no replay. [H1 owner closeout](https://github.com/tyronecoe/EvilDuck/blob/29cbfae7974abccf513c6d7ff1b7faa5a3fc58c6/docs/inject-var-h1-owner-test-closeout.md) records scoped held-Shift STOP/manual-lowercase recovery; successful request ID unknown, earlier Request 2 remains inconclusive. | Withdraw the obsolete main-based STOP repair recommendation. Source/software behavior and owner-reported observations are separate; no general host-wide release or precise physical latency guarantee. E12/E19 remain inconclusive. |
+| Experimental INJECT_VAR and legacy evidence gaps | Source-stage `a15b8e218935b2c6a69b71eeac3aaf378c3c0c03`, H1 package `6299e19a41925ff1048655bb52751899cc0ee6ea`; owner closeout above records four scoped checks. | H1 remains opt-in/experimental; canonical Hak5 encoding unresolved. Later summaries do not supply every original G01–G10 definition/result or retroactively identify E20/E21. No new verified physical PASS is entered. |
+| USB observer / OS classification | The v2 closeout retains INCOMPLETE / UNKNOWN / NO_VALIDATED_RULE and the original independent-evidence gate. | OS detection remains inconclusive; no validated classifier, new capture, repeated historical test or reopened investigation is authorized. |
+
+Recovery roles remain distinct: the nested original DEFINE kit is the working return; the outer rollback selects older source/text-v2, application SHA-256 `cf42dea0570dcf491c46677aa87dd28bd6347f1617b0eea73ac670b52ba81f02` (1,413,200 bytes), lacking later privacy/dashboard/editor repairs. Historical MAC-CAPS rollback application SHA-256 `5e10009fd3e5a0a862b4f7bed1f7f28ba8464f7bb1066fd8091c6e01b2ed4a59` and its prior ZIP SHA-256 `2f3b398e04f755c751b1ae4aa3602eec133a2e70c44c3fc1e72474d09f2ac77f` remain preserved; see [PROJECT_STATE.md](PROJECT_STATE.md#recovery-identities-and-limitations) for identities and source references. Application-only rollback is not a full-device/filesystem/settings restore; retain original packages and private backups. No physical recovery result is inferred.
+
+All Milestone 3 entries, E01–E21 hashes/private links, global Caps/Razer uncertainties, original G01–G10 reconciliation gaps and historical no-offline-result statements retain their original scope. Recovered branch receipts supplement that record without changing its outcomes. No firmware or physical checks were performed for this correction.
