@@ -1,0 +1,9 @@
+{
+  "format": "evilduck-define-statements-v1",
+  "parent_prepare_sha256": "f9b4b6c00e9baf00ca61c53f678b9a816538da1c0c31258098f6e88713d6bc0b",
+  "parent_manifest_sha256": "3eefbfdff35c637b6a7e913afbda2bb27ccdb88a003be55716f45cd5dd8d69d0",
+  "patch_sha256": "c82eb6313e746c3363a36ecd892eb0d6941d550a82c0d42976a1d0a6169bd2bc",
+  "before_core_sha256": "582c36e717108ccb9a620020272d3bafe6d52012c2c0680e3dda7946fe3eb419",
+  "after_core_sha256": "b9c53bd3632e049e674ea66bf6c110bf22bb51c35f0d46ae75e0f5825d069d99",
+  "source_count": 201
+}
