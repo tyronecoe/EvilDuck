@@ -1,5 +1,19 @@
 # Project state
 
+## DEFINE statements prebuild checkpoint (local source integration)
+
+Owner-authorized work on `feature/routeb-define-statements-h1-v1` starts at
+`bf339ad383e67c5ee3bb9df1a57bafe15acca8ed`. The canonical build entry selects
+the additive DEFINE release layer; root firmware and historical builders remain
+unchanged. See [source/checkpoint procedure](docs/define-statements-prebuild.md).
+The prior core34 and adapter13 fresh plus reused DS01 evidence is reused after
+hash verification, without new native executions. Offline source controls and
+the committed-input gate produce external receipts. Target compilation,
+linked/resource verification, firmware packaging and physical acceptance remain
+pending. Stop at the local prebuild checkpoint for owner review. This explicitly
+authorized source task supersedes the historical documentation-only next task
+below; it does not change any prior evidence or installation finding.
+
 Current firmware guidance is in [Recovered Route B lineage](#recovered-route-b-lineage-current-firmware-guidance). Earlier milestone findings retain their original inspection scope and do not override it.
 
 ## Baseline and references

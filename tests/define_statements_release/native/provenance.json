@@ -1,0 +1,23 @@
+{
+  "receipt": "/workspace/scratch/define-statements-ds02-helper-include-fix-v1/gate-receipt.json",
+  "receipt_sha256": "4215ad8a58638e7b29c61215fc72627ff401a3749eeab98b09d85aebbc3ff5ef",
+  "inputs": [
+    {
+      "file": "define_statements_integration.cpp",
+      "sha256": "cee42c233ab77a5a97784fa7d6162bcdbc8e8a4d6a0c1f461cbb4a21398e6b8c"
+    },
+    {
+      "file": "journal.cpp",
+      "sha256": "a3a73686f1bdf731c8a5fc30f0851bd1dfb878c5d199088bd097c30cbda479e5"
+    },
+    {
+      "file": "lower-instrumented.cpp",
+      "sha256": "a85d8173e3ce4b69741992cf9520cd02dc3accd0e2de2844ea9f2fe564db1e42"
+    },
+    {
+      "file": "network.h",
+      "sha256": "e0690fc105a7ff2010f1b40863b68c8591d85f4c4adfdd3ce4af283ce7636031"
+    }
+  ],
+  "semantics": "Exact byte copies of already executed isolated native test inputs; not target inputs or freshly executed tests. Commands and full input bindings remain in the evidence bundle."
+}
