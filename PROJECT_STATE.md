@@ -1,5 +1,23 @@
 # Project state
 
+## DEFINE statements review packaging
+
+The unchanged `ROUTEB-DEFINE-STATEMENTS-H1-v1` image was built from
+`de683669135fe5ccc5922f9883709194400672e5`. Its independent software/artifact gate
+passed completely; the original historical DEL gate remains **BLOCKED / EXACT
+HISTORICAL INPUT UNAVAILABLE**. Firmware attempts remain one and auxiliary-only
+compiler invocations two. The passing verifier bytes are preserved in local
+checkpoint `5a5894effe44bdacb79f1c17f594e156cff20456`, a later preservation commit,
+not a firmware build or a claim that the code executed from that Git revision.
+
+The additive `tests/define_statements_package` workflow consumes those exact
+receipts without rerunning verification. It preserves the admission installer's
+behavior and distinct DEFINE-return/older source-text-v2 recovery roles. Package
+construction and focused offline controls are pending at this source checkpoint.
+See [owner review guidance](docs/define-statements-review/README.md). Installation,
+physical acceptance, runtime peak stack and host delivery remain unverified.
+No push, publication, hardware operation or firmware rebuild is part of packaging.
+
 ## DEFINE statements prebuild checkpoint (local source integration)
 
 Owner-authorized work on `feature/routeb-define-statements-h1-v1` starts at

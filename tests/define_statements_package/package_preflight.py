@@ -1,0 +1,41 @@
+"""New receipt provider for frozen admission image/layout/OTA/installer guards.
+
+This body is combined with the exact pinned parent primitives and CLI. Python
+3.8 standard library only. No compilation, process, network or device interface.
+"""
+
+def validate_evidence(d,m):
+ require(m.get('firmware_build_id')=='ROUTEB-DEFINE-STATEMENTS-H1-v1' and m.get('firmware_source_commit')==RELEASE['firmware_source_commit'],'WRONG_FIRMWARE_IDENTITY')
+ require(m.get('status_label')=='REVIEW CANDIDATE / NOT INSTALLED' and m.get('historical_gate')=='BLOCKED / EXACT HISTORICAL INPUT UNAVAILABLE','WRONG_GATE_LABEL')
+ require(m.get('independent_gate')=='DEFINE-CANDIDATE-INDEPENDENT-v1' and m.get('verification_source_commit')==RELEASE['verification_source_commit'],'WRONG_VERIFICATION_IDENTITY')
+ require(m.get('physical_candidate_tested') is False and m.get('official_runtime_encoding_verified') is False,'UNSUPPORTED_PHYSICAL_OR_ENCODING_CLAIM')
+ for name,expected in RELEASE['pins'].items():require(digest(read(d/name,4*1024*1024))==expected,'FROZEN_SUPPORT_BINDING_FAILED:'+name)
+ summary=json.loads(read(d/'independent-gate-summary.json',4*1024*1024));gate=json.loads(read(d/'independent-gate-result.json',4*1024*1024))
+ require(summary.get('status')==gate.get('status')=='INDEPENDENT ARTIFACT GATE PASS / NOT INSTALLED','WRONG_INDEPENDENT_GATE_STATUS')
+ require(gate.get('policy')=='DEFINE-CANDIDATE-INDEPENDENT-v1' and all(gate.get('stages',{}).get(n)=='PASS' for n in ['layout','bounded_self_call','target','six_frozen_layers']),'INCOMPLETE_INDEPENDENT_GATE')
+ require(summary.get('original_historical_gate')==gate.get('original_result')=='BLOCKED / EXACT HISTORICAL INPUT UNAVAILABLE','WRONG_HISTORICAL_GATE_LABEL')
+ require(gate.get('firmware_compilation_attempts')==1 and gate.get('auxiliary_compiler_invocations')==2 and gate.get('artifacts_unchanged') is True,'WRONG_BUILD_COUNTS_OR_MUTATION')
+ require(summary.get('firmware_compilation_attempts')==1 and summary.get('auxiliary_compiler_invocations')==2,'WRONG_SUMMARY_COUNTS')
+ original=json.loads(read(d/'original-build-report.json',4*1024*1024));release=json.loads(read(d/'independent-release-receipt.json',4*1024*1024));target=json.loads(read(d/'independent-target-receipt.json',4*1024*1024));att=json.loads(read(d/'post-build-attestation.json',4*1024*1024))
+ inputs_data=read(d/'build-inputs.json',1024*1024);inputs=json.loads(inputs_data);outer=digest(inputs_data);inner=digest(json.dumps(inputs['files'],sort_keys=True,separators=(',',':')).encode())
+ require(inputs.get('source_commit')==RELEASE['firmware_source_commit'] and inputs.get('source_commit_contains_changes') is True and inputs.get('uncommitted_local_changes') is False,'WRONG_ORIGINAL_INPUT_PROVENANCE')
+ require(outer==RELEASE['build_inputs_sha256']==att.get('build_inputs_sha256') and inner==inputs.get('files_sha256')==att.get('files_sha256'),'MANIFEST_INVENTORY_ATTESTATION_MISMATCH')
+ require(att.get('kind')=='POST_BUILD_INDEPENDENT_ATTESTATION' and att.get('produced_by_original_builder') is False and att.get('source_commit')==RELEASE['firmware_source_commit'],'WRONG_ATTESTATION_PROVENANCE')
+ identity=summary['identities'];vp=att['verification_provenance'];require(vp.get('build_source_commit')==RELEASE['firmware_source_commit'],'CONFLATED_BUILD_VERIFIER_PROVENANCE')
+ require(digest(json.dumps(vp['verifier_files'],sort_keys=True,separators=(',',':')).encode())==vp.get('verifier_identity_sha256')==identity.get('independent_verifier_identity_sha256')==RELEASE['verifier_identity_sha256'],'WRONG_VERIFIER_IDENTITY')
+ att_sha=digest(read(d/'post-build-attestation.json',4*1024*1024));require(att_sha==identity.get('supplementary_attestation_file_sha256')==gate['supplementary_attestation']['sha256'],'WRONG_ATTESTATION_IDENTITY')
+ require(gate['supplementary_attestation'].get('produced_by_original_builder') is False,'FABRICATED_BUILDER_ATTESTATION')
+ require(original['report']['application_sha256']==release['report']['application_sha256']==target['application_sha256']==APP_SHA and original['provenance']['elf_sha256']==release['provenance']['elf_sha256']==target['elf_sha256']==RELEASE['elf_sha256'],'WRONG_ARTIFACT_RECEIPT_BINDING')
+ require(original['source_inventory']==release['source_inventory'],'ORIGINAL_SOURCE_RECORD_CHANGED')
+ require(release['actual_runtime_build_id']==target['build_id']==ACTUAL_BUILD_ID,'WRONG_RUNTIME_IDENTITY')
+ info=release['usb_observer_release_verification'];require(info.get('status')=='PASS' and info.get('full_frozen_h1_chain_executed') is True and info.get('assertions_preserved')==190 and info.get('assertions_removed')==0,'INCOMPLETE_FROZEN_RELEASE_CHAIN')
+ require(info['usb_observer_target_binding']==target==att['usb_observer_target_binding'],'WRONG_TARGET_ATTESTATION_BINDING')
+ require(release['admission_diagnostics_release_verification'].get('status')=='PASS' and info.get('recompiled') is False and info.get('target_source_or_images_modified') is False,'INCOMPLETE_OUTER_RELEASE')
+ require(target['committed_source_provenance']['source_commit']==RELEASE['firmware_source_commit'] and target['build_inputs_sha256']==outer,'WRONG_TARGET_BUILD_SOURCE')
+ require(target['define_labels']['workspace_bytes']==4096 and target['define_labels']['target_compiler_bytes']==3928 and target['define_labels']['constant_slots']==16 and target['define_labels']['max_label_bytes']==31,'WRONG_CAPACITY_PROOF')
+ require(target['usb_observer']['state_plus_callback_bytes']<=2048 and target['usb_observer']['classification']=='UNKNOWN','WRONG_OBSERVER_RESOURCE_OR_CLASSIFIER_CLAIM')
+ require(target['admission_diagnostics']['status']=='PASS' and target['admission_diagnostics']['compiler_workspace_bytes']==4096,'WRONG_ADMISSION_PROOF')
+ inventory=original['source_inventory'];require(len(inventory)==201 and len({r['file'] for r in inventory})==201,'WRONG_SOURCE_INVENTORY')
+ require(next(r['sha256'] for r in inventory if r['file']=='EvilDuckS3/core.cpp')==RELEASE['core_sha256'],'WRONG_DEFINE_OVERLAY')
+ require(m.get('runtime_peak_stack_measured') is False and m.get('hardware_acceptance')=='PENDING','UNSUPPORTED_STACK_OR_HARDWARE_CLAIM')
+ require(original['report']['ota_slot_bytes']==0x740000 and original['report']['static_ram_bytes']==115400,'WRONG_RESOURCE_IDENTITY')
