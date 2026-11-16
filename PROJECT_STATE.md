@@ -13,7 +13,20 @@ not a firmware build or a claim that the code executed from that Git revision.
 The additive `tests/define_statements_package` workflow consumes those exact
 receipts without rerunning verification. It preserves the admission installer's
 behavior and distinct DEFINE-return/older source-text-v2 recovery roles. Package
-construction and focused offline controls are pending at this source checkpoint.
+construction and focused offline controls passed from packaging-source checkpoint
+`4490d6c46dc2bd72bd464939f6c6d3af37c780b2`. The existing image was not rebuilt.
+The local review ZIP is `evilduck-routeb-define-statements-h1-v1-independent-owner-review-v1.zip`,
+5,531,756 bytes, SHA-256
+`385dc473abc5ada4360ea6ffa3746ef51b78b622db919a0480971ab7db079d4c`.
+All 19 focused package controls passed. From fresh extraction, only
+`python3 preflight.py --directory .` ran: integrity PASS, installation_authorized
+false, plan_ready false, empty selected_write_ranges and hardware_access false;
+all extracted files stayed unchanged. Python 3.8 and Bash syntax compatibility
+were inspected; no High Sierra or physical execution is claimed. Packaging and
+evidence-preservation receipts are delivered separately under temporary workspace
+artifacts; the owner must download them to persistent storage. No remote permanent
+storage or publication is claimed. The evidence archive retains original failures
+and the passing independent gate separately, alongside full existing build inputs.
 See [owner review guidance](docs/define-statements-review/README.md). Installation,
 physical acceptance, runtime peak stack and host delivery remain unverified.
 No push, publication, hardware operation or firmware rebuild is part of packaging.

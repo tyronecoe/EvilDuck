@@ -1,5 +1,26 @@
 # Compatibility and test evidence
 
+## DEFINE independent gate and local review packaging
+
+The firmware remains `ROUTEB-DEFINE-STATEMENTS-H1-v1` from
+`de683669135fe5ccc5922f9883709194400672e5`. Application SHA-256:
+`524805fbde1af49b908b156e0eb50de48393b8e2810efcf0eaddba931408012e`.
+ELF SHA-256: `cd82758717bf0e6e78aa8a582dff7b01de99ac14a62923b12cd104de8c56f490`.
+
+| Scenario | Actual result | Evidence and boundary |
+| --- | --- | --- |
+| Independent software/artifact gate | PASS; 17 provenance/cache control groups; complete target and six frozen release layers | Reused existing `/workspace/artifacts/DEFINE-CANDIDATE-INDEPENDENT-v1-PROVENANCE-v2/`; not rerun for packaging.190 retained Assert nodes are not an inferred runtime assertion total. Original historical DEL gate remains BLOCKED / EXACT HISTORICAL INPUT UNAVAILABLE. |
+| Focused owner-package controls |19 cases PASS | `/workspace/scratch/define-statements-packaging-v1/package-controls.json`; changed-image, receipt/attestation, gate-label, recovery and write-range refusals; installer/shell and inherited low-level guard comparisons. |
+| Fresh extraction: `python3 preflight.py --directory .` | Integrity PASS; plan_ready false; installation_authorized false; selected_write_ranges []; hardware_access false | `/workspace/scratch/define-statements-packaging-v1/fresh-preflight.json`; extracted bytes unchanged; no device or compilation. |
+| Python3.8 / Bash3.2 / High Sierra compatibility | Python3.8 syntax inspection and unchanged shell-byte comparison plus shell parsing PASS | Linux inspection only; actual Mac execution NOT TESTED. |
+| Owner TextEdit acceptance | NOT TESTED | New harmless fixtures and expected results in [owner sheet](docs/define-statements-review/OWNER-CHECK.md); installation/physical tests remain pending. |
+
+Firmware compilation attempts remain one; auxiliary layout-only invocations two.
+NEW probe stack measurements are distinct from firmware frames. Runtime peak
+stack, physical STOP timing, host delivery and current installed-image identity
+remain unknown. Local artifacts are temporary; owner-controlled persistent storage
+requires downloading them. No push, publication, flash or installation occurred.
+
 ## DEFINE statements native evidence reused for the prebuild checkpoint
 
 Identity: `ROUTEB-DEFINE-STATEMENTS-H1-v1`, reviewed core SHA-256
