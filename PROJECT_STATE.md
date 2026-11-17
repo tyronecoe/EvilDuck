@@ -1,5 +1,28 @@
 # Project state
 
+## DEFINE H1 owner physical evidence closeout
+
+**Current HOLD:** documentation/evidence review only. Do not change firmware,
+rebuild, recover historical inputs, alter artifacts, install, initiate physical
+testing or start another milestone without explicit new owner approval.
+Firmware source is `de683669135fe5ccc5922f9883709194400672e5`; packaging source is
+`4490d6c46dc2bd72bd464939f6c6d3af37c780b2`. These are distinct from the merged
+repository revision and the later evidence-documentation commits.
+
+Authoritative Route B HEAD inspected at PR #8 merge
+`8515c6d6a8f04becc9c8efd4779c9d5aef4b23c4`. Owner reports the installed
+ROUTEB-DEFINE-STATEMENTS-H1-v1 on Intel Mac / High Sierra 10.13.6 and DS01–DS04
+observations. See [acceptance closeout](docs/define-statements-review/OWNER-CHECK.md).
+DS01/DS03 are owner-reported PASS; DS02 remains conditional on post-STOP
+observation duration; DS04 rejection/no visible text PASS does not validate the
+reported line 4 against the three-visible-line script. Screenshots are unavailable;
+direct image verification is pending. Displayed build ID is not installed-byte
+readback. Owner also reported successful Mac evidence archive restoration/hash
+verification; the temporary private branch was deleted earlier by explicit request.
+This supplements, rather than rewrites, the historical package-stage records below.
+No new installation/testing was performed. Independent software PASS and historical
+DEL BLOCKED remain separate; overall firmware release acceptance is not granted.
+
 ## DEFINE review publication checkpoint
 
 The reviewed clean local checkpoint was `ec2be3d53d367fdddf6129155b98aef0855a444f`.
