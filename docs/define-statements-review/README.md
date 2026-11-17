@@ -1,5 +1,10 @@
 # ROUTEB-DEFINE-STATEMENTS-H1-v1
 
+Later owner-reported physical results are recorded in the
+[acceptance closeout](OWNER-CHECK.md). DS02 timing and DS04 diagnostic mapping
+remain open; screenshots have not been directly verified. The text below is the
+unchanged original package-stage record, not the current owner installation claim.
+
 REVIEW CANDIDATE / NOT INSTALLED. Installation and physical acceptance are pending.
 Firmware source: de683669135fe5ccc5922f9883709194400672e5.
 Application: 1,451,184 bytes; SHA-256

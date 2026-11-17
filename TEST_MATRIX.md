@@ -1,5 +1,22 @@
 # Compatibility and test evidence
 
+## DEFINE H1 owner-reported physical closeout
+
+Intel Mac / macOS High Sierra 10.13.6; owner-reported running ID
+ROUTEB-DEFINE-STATEMENTS-H1-v1. [Scripts, exact identities, provenance and change log](docs/define-statements-review/OWNER-CHECK.md).
+
+| Case | Owner-reported result | Evidence limit |
+| --- | --- | --- |
+| DS01 | PASS: ROUTEB_DEFINE_PASS once; Request 1 Completed; no active diagnostics; build ID confirmed | Narrative only; screenshot verification pending; no installed-byte readback |
+| DS02 | Conditional PASS: Request 2 Cancelled; blank TextEdit; no active diagnostics | Post-STOP observation period must be confirmed; no latency/report-byte/zero-cleanup inference |
+| DS03 | PASS: recovery_ok once; Request 1 Completed; no active diagnostics | Narrative only; request numbering preserved as observed |
+| DS04 | PASS for rejection/no visible text: Request 2 Compile failure; line 4/code 14; no active diagnostics afterward | Three visible script lines; line mapping unresolved, not validated |
+
+This does not establish full HID-level or DS3 compatibility, runtime peak stack,
+overall release acceptance or historical gate PASS. No hardware operation or new
+test was performed by Codex. Earlier NOT TESTED rows retain their package-stage
+scope; independent gate PASS was not rerun and historical DEL remains BLOCKED.
+
 ## DEFINE independent gate and local review packaging
 
 The firmware remains `ROUTEB-DEFINE-STATEMENTS-H1-v1` from
