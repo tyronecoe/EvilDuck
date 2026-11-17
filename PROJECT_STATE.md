@@ -2,6 +2,13 @@
 
 ## DEFINE H1 owner physical evidence closeout
 
+**Current HOLD:** documentation/evidence review only. Do not change firmware,
+rebuild, recover historical inputs, alter artifacts, install, initiate physical
+testing or start another milestone without explicit new owner approval.
+Firmware source is `de683669135fe5ccc5922f9883709194400672e5`; packaging source is
+`4490d6c46dc2bd72bd464939f6c6d3af37c780b2`. These are distinct from the merged
+repository revision and the later evidence-documentation commits.
+
 Authoritative Route B HEAD inspected at PR #8 merge
 `8515c6d6a8f04becc9c8efd4779c9d5aef4b23c4`. Owner reports the installed
 ROUTEB-DEFINE-STATEMENTS-H1-v1 on Intel Mac / High Sierra 10.13.6 and DS01–DS04
