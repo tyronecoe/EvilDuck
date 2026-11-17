@@ -1,5 +1,17 @@
 # Project state
 
+## DEFINE review publication checkpoint
+
+The reviewed clean local checkpoint was `ec2be3d53d367fdddf6129155b98aef0855a444f`.
+The publication commit adds only the byte-identical Mac ZIP/checksum and download
+guidance; it does not rebuild the firmware or repackage the ZIP. See
+[review download](docs/define-statements-review-download.md) for exact hashes and
+separate firmware/verifier/packaging identities. Remote publication, downloaded-byte
+preflight and private evidence preservation have separate publication receipts;
+this local checkpoint alone does not claim those external operations succeeded.
+Status remains REVIEW CANDIDATE / NOT INSTALLED. Historical BLOCKED and independent
+PASS remain separate. Firmware attempts ONE; auxiliary invocations TWO.
+
 ## DEFINE statements review packaging
 
 The unchanged `ROUTEB-DEFINE-STATEMENTS-H1-v1` image was built from
