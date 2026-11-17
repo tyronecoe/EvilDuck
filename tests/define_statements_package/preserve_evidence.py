@@ -9,6 +9,11 @@ def sha(p):
   for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
  return h.hexdigest()
 def dump(p,v):p.write_text(json.dumps(v,indent=2)+'\n')
+def package_records(directory):
+ # Progress/error streams are still open while this writer captures inputs.
+ # Preserve completed construction/control records here; archive-writer logs
+ # are delivered separately after the writer exits, never sampled live.
+ return [p for p in directory.iterdir() if p.is_file() and not p.name.startswith('evidence-preservation')]
 def main(output,meta):
  assert not output.exists() and not meta.exists();meta.mkdir(parents=True)
  head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
@@ -25,7 +30,9 @@ def main(output,meta):
  roots += [SCRATCH/n for n in ['define-statements-integration-v1','define-statements-adapter-mock-repair-v1','define-statements-ds02-journal-v1','define-statements-ds02-expectation-repair-v1','define-statements-ds02-helper-include-fix-v1','define-statements-prebuild-v1','define-statements-verifier-signature-v1','del-baseline-input-recovery-v1','define-statements-single-target-build-v1','define-statements-dependency-recovery-v1','define-statements-dependency-recovery-v2','define-statements-dependency-recovery-v3','define-statements-cli-init-recovery-v1']]
  roots += [p for p in recovery.iterdir() if p.is_file()]
  roots += [p for p in (firmware/'data').iterdir() if p.is_file() and 'index' in p.name] # no CLI inventory installation secret
- roots += [p for p in (SCRATCH/'define-statements-packaging-v1').iterdir() if p.is_file()]
+ roots += package_records(SCRATCH/'define-statements-packaging-v1')
+ prior_capture=SCRATCH/'define-statements-packaging-v1/evidence-initial-failure'
+ if prior_capture.exists():roots.append(prior_capture)
  candidates={}
  for root in roots:
   assert root.exists(),root
