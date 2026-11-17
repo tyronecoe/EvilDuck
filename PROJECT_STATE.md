@@ -1,5 +1,62 @@
 # Project state
 
+## DEFINE review publication checkpoint
+
+The reviewed clean local checkpoint was `ec2be3d53d367fdddf6129155b98aef0855a444f`.
+The publication commit adds only the byte-identical Mac ZIP/checksum and download
+guidance; it does not rebuild the firmware or repackage the ZIP. See
+[review download](docs/define-statements-review-download.md) for exact hashes and
+separate firmware/verifier/packaging identities. Remote publication, downloaded-byte
+preflight and private evidence preservation have separate publication receipts;
+this local checkpoint alone does not claim those external operations succeeded.
+Status remains REVIEW CANDIDATE / NOT INSTALLED. Historical BLOCKED and independent
+PASS remain separate. Firmware attempts ONE; auxiliary invocations TWO.
+
+## DEFINE statements review packaging
+
+The unchanged `ROUTEB-DEFINE-STATEMENTS-H1-v1` image was built from
+`de683669135fe5ccc5922f9883709194400672e5`. Its independent software/artifact gate
+passed completely; the original historical DEL gate remains **BLOCKED / EXACT
+HISTORICAL INPUT UNAVAILABLE**. Firmware attempts remain one and auxiliary-only
+compiler invocations two. The passing verifier bytes are preserved in local
+checkpoint `5a5894effe44bdacb79f1c17f594e156cff20456`, a later preservation commit,
+not a firmware build or a claim that the code executed from that Git revision.
+
+The additive `tests/define_statements_package` workflow consumes those exact
+receipts without rerunning verification. It preserves the admission installer's
+behavior and distinct DEFINE-return/older source-text-v2 recovery roles. Package
+construction and focused offline controls passed from packaging-source checkpoint
+`4490d6c46dc2bd72bd464939f6c6d3af37c780b2`. The existing image was not rebuilt.
+The local review ZIP is `evilduck-routeb-define-statements-h1-v1-independent-owner-review-v1.zip`,
+5,531,756 bytes, SHA-256
+`385dc473abc5ada4360ea6ffa3746ef51b78b622db919a0480971ab7db079d4c`.
+All 19 focused package controls passed. From fresh extraction, only
+`python3 preflight.py --directory .` ran: integrity PASS, installation_authorized
+false, plan_ready false, empty selected_write_ranges and hardware_access false;
+all extracted files stayed unchanged. Python 3.8 and Bash syntax compatibility
+were inspected; no High Sierra or physical execution is claimed. Packaging and
+evidence-preservation receipts are delivered separately under temporary workspace
+artifacts; the owner must download them to persistent storage. No remote permanent
+storage or publication is claimed. The evidence archive retains original failures
+and the passing independent gate separately, alongside full existing build inputs.
+See [owner review guidance](docs/define-statements-review/README.md). Installation,
+physical acceptance, runtime peak stack and host delivery remain unverified.
+No push, publication, hardware operation or firmware rebuild is part of packaging.
+
+## DEFINE statements prebuild checkpoint (local source integration)
+
+Owner-authorized work on `feature/routeb-define-statements-h1-v1` starts at
+`bf339ad383e67c5ee3bb9df1a57bafe15acca8ed`. The canonical build entry selects
+the additive DEFINE release layer; root firmware and historical builders remain
+unchanged. See [source/checkpoint procedure](docs/define-statements-prebuild.md).
+The prior core34 and adapter13 fresh plus reused DS01 evidence is reused after
+hash verification, without new native executions. Offline source controls and
+the committed-input gate produce external receipts. Target compilation,
+linked/resource verification, firmware packaging and physical acceptance remain
+pending. Stop at the local prebuild checkpoint for owner review. This explicitly
+authorized source task supersedes the historical documentation-only next task
+below; it does not change any prior evidence or installation finding.
+
 Current firmware guidance is in [Recovered Route B lineage](#recovered-route-b-lineage-current-firmware-guidance). Earlier milestone findings retain their original inspection scope and do not override it.
 
 ## Baseline and references

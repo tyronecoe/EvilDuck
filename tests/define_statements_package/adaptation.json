@@ -1,0 +1,22 @@
+{
+  "workflow": "additive receipt-bound admission packaging",
+  "parent_packager_sha256": "016874bc773197115bb9348e521368332bc68d0a692dbd979dc53c660f0ca9eb",
+  "parent_preflight_sha256": "e49807042b9a951ad2e1f29b0e86b14e8a3661fd92c04af7f48fb59da888505f",
+  "parent_zip_sha256": "05fdff0cdb7a0d4336f8dc219c3a501cc7349c9200f95c2f54a36bb9cccffd81",
+  "installer_changes": "RELEASE_BINDING.preflight_sha256 only; function bodies and shell bytes unchanged",
+  "retained_primitives": [
+    "read",
+    "rows",
+    "check_rows",
+    "image",
+    "table",
+    "ota",
+    "main"
+  ],
+  "retained_blocks": [
+    "initial inventory/image/layout validation",
+    "entire working DEFINE return validation",
+    "rollback receipt and installed-metadata/write-plan tail"
+  ],
+  "evidence_provider_changes": "Frozen original builder-only metadata replaced with byte-bound completed independent gate, original unchanged build/report/inputs and separately identified post-build attestation. No original historical PASS fabricated. Prior completed verification is consumed, not rerun."
+}

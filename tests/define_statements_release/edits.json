@@ -1,0 +1,130 @@
+{
+  "build_candidate": {
+    "parent": "tests/admission_diagnostics_release/build_candidate.py",
+    "sha256": "710645102fa4256d06296324ab9966fcf267cfc022a10a8f58e5d410dfc56768",
+    "edits": [
+      {
+        "before": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+        "after": "ROUTEB-DEFINE-STATEMENTS-H1-v1",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/admission_diagnostics_release/",
+        "after": "tests/define_statements_release/",
+        "occurrences": 3
+      },
+      {
+        "before": "BASELINE='eb4c5d721e30893f7df908ac610d287d7541acf5'",
+        "after": "BASELINE='bf339ad383e67c5ee3bb9df1a57bafe15acca8ed'",
+        "occurrences": 1
+      },
+      {
+        "before": "'tests/admission_diagnostics_package']",
+        "after": "'tests/admission_diagnostics_package','tests/define_statements','tests/define_statements_release']",
+        "occurrences": 1
+      },
+      {
+        "before": "'docs/routeb-current-compatibility.md']",
+        "after": "'docs/routeb-current-compatibility.md','docs/define-statements-prebuild.md']",
+        "occurrences": 1
+      },
+      {
+        "before": "PROFILE='ADMISSION DIAGNOSTICS /",
+        "after": "PROFILE='DEFINE STATEMENTS / ADMISSION DIAGNOSTICS /",
+        "occurrences": 1
+      },
+      {
+        "before": "ROOT / 'tests/admission_diagnostics_release'",
+        "after": "ROOT / 'tests/define_statements_release'",
+        "occurrences": 1
+      },
+      {
+        "before": "text=text.replace('lock_feedback','admission_diagnostics_release')",
+        "after": "text=text.replace('lock_feedback','define_statements_release')",
+        "occurrences": 1
+      },
+      {
+        "before": "one admission-diagnostics release overlay -> complete observer-v2 parent -> request-owned diagnostics and existing byte gate -> metadata identity last",
+        "after": "one DEFINE-statements release overlay -> complete admission parent -> bounded DEFINE overlay -> literal identity last",
+        "occurrences": 1
+      },
+      {
+        "before": "M.B.B.verify_final(args.from_composed)",
+        "after": "M.A.verify_final(args.from_composed)",
+        "occurrences": 1
+      },
+      {
+        "before": "admission-diagnostics-release-verification.json",
+        "after": "define-statements-release-verification.json",
+        "occurrences": 1
+      },
+      {
+        "before": "ADMISSION DIAGNOSTICS CANDIDATE BUILT",
+        "after": "DEFINE STATEMENTS CANDIDATE BUILT",
+        "occurrences": 1
+      },
+      {
+        "before": "PASS exact201 admission release composition; no compiler",
+        "after": "PASS exact201 DEFINE statements release composition; no compiler",
+        "occurrences": 1
+      }
+    ]
+  },
+  "verify_target": {
+    "parent": "tests/admission_diagnostics_release/verify_target.py",
+    "sha256": "e0c5e46d44e30dfa772e8923b7857d4d22aaf5b5e28798a37f99924f7a09eb59",
+    "edits": [
+      {
+        "before": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+        "after": "ROUTEB-DEFINE-STATEMENTS-H1-v1",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/admission_diagnostics_release/",
+        "after": "tests/define_statements_release/",
+        "occurrences": 2
+      },
+      {
+        "before": "evilduck-routeb-admission-diagnostics-release-v1",
+        "after": "evilduck-routeb-define-statements-release-v1",
+        "occurrences": 1
+      },
+      {
+        "before": "changed=={'adapter.cpp','adapter.h','caps_trial.h'}",
+        "after": "changed=={'adapter.cpp','adapter.h','core.cpp','caps_trial.h'}",
+        "occurrences": 1
+      },
+      {
+        "before": "final[name]==before[name]",
+        "after": "final[name]==('b9c53bd3632e049e674ea66bf6c110bf22bb51c35f0d46ae75e0f5825d069d99' if name=='core.cpp' else before[name])",
+        "occurrences": 1
+      },
+      {
+        "before": "compiler_and_runtime_unchanged=True",
+        "after": "compiler_and_runtime_unchanged=False, bounded_define_overlay_verified=True",
+        "occurrences": 1
+      },
+      {
+        "before": "['tests/admission_diagnostics','tests/admission_diagnostics_release']",
+        "after": "['tests/admission_diagnostics','tests/admission_diagnostics_release','tests/define_statements','tests/define_statements_release']",
+        "occurrences": 1
+      }
+    ]
+  },
+  "verify_release": {
+    "parent": "tests/admission_diagnostics_release/verify_release.py",
+    "sha256": "66110ac344491ae29be9a7e6f53534e393a13135bf64198e5056df0d497ae3dd",
+    "edits": [
+      {
+        "before": "ROUTEB-ADMISSION-DIAGNOSTICS-H1-v1",
+        "after": "ROUTEB-DEFINE-STATEMENTS-H1-v1",
+        "occurrences": 1
+      },
+      {
+        "before": "tests/admission_diagnostics_release/",
+        "after": "tests/define_statements_release/",
+        "occurrences": 1
+      }
+    ]
+  }
+}

@@ -1,5 +1,43 @@
 # Compatibility and test evidence
 
+## DEFINE independent gate and local review packaging
+
+The firmware remains `ROUTEB-DEFINE-STATEMENTS-H1-v1` from
+`de683669135fe5ccc5922f9883709194400672e5`. Application SHA-256:
+`524805fbde1af49b908b156e0eb50de48393b8e2810efcf0eaddba931408012e`.
+ELF SHA-256: `cd82758717bf0e6e78aa8a582dff7b01de99ac14a62923b12cd104de8c56f490`.
+
+| Scenario | Actual result | Evidence and boundary |
+| --- | --- | --- |
+| Independent software/artifact gate | PASS; 17 provenance/cache control groups; complete target and six frozen release layers | Reused existing `/workspace/artifacts/DEFINE-CANDIDATE-INDEPENDENT-v1-PROVENANCE-v2/`; not rerun for packaging.190 retained Assert nodes are not an inferred runtime assertion total. Original historical DEL gate remains BLOCKED / EXACT HISTORICAL INPUT UNAVAILABLE. |
+| Focused owner-package controls |19 cases PASS | `/workspace/scratch/define-statements-packaging-v1/package-controls.json`; changed-image, receipt/attestation, gate-label, recovery and write-range refusals; installer/shell and inherited low-level guard comparisons. |
+| Fresh extraction: `python3 preflight.py --directory .` | Integrity PASS; plan_ready false; installation_authorized false; selected_write_ranges []; hardware_access false | `/workspace/scratch/define-statements-packaging-v1/fresh-preflight.json`; extracted bytes unchanged; no device or compilation. |
+| Python3.8 / Bash3.2 / High Sierra compatibility | Python3.8 syntax inspection and unchanged shell-byte comparison plus shell parsing PASS | Linux inspection only; actual Mac execution NOT TESTED. |
+| Owner TextEdit acceptance | NOT TESTED | New harmless fixtures and expected results in [owner sheet](docs/define-statements-review/OWNER-CHECK.md); installation/physical tests remain pending. |
+
+Firmware compilation attempts remain one; auxiliary layout-only invocations two.
+NEW probe stack measurements are distinct from firmware frames. Runtime peak
+stack, physical STOP timing, host delivery and current installed-image identity
+remain unknown. Local artifacts are temporary; owner-controlled persistent storage
+requires downloading them. No push, publication, flash or installation occurred.
+
+## DEFINE statements native evidence reused for the prebuild checkpoint
+
+Identity: `ROUTEB-DEFINE-STATEMENTS-H1-v1`, reviewed core SHA-256
+`b9c53bd3632e049e674ea66bf6c110bf22bb51c35f0d46ae75e0f5825d069d99`.
+Evidence verification is read-only; no native suite is rerun for this checkpoint.
+
+| Scope | Recorded result and evidence | Boundary |
+| --- | --- | --- |
+| Focused DEFINE core |34 scenarios PASS, `/workspace/scratch/define-statements-integration-v1/focused-core/results.json` and `focused-core.log` | Reused ASan/UBSan/leak-enabled host evidence; no target or hardware claim. |
+| Adapter/coordinator |13 scenarios PASS in `/workspace/scratch/define-statements-ds02-helper-include-fix-v1/gate-receipt.json`; DS01 PASS reused from `define-statements-adapter-mock-repair-v1/repair-receipt.json` |14 original cases covered,13 fresh in that earlier run. DS02 ten invalid-journal controls rejected. All fresh stderr empty. ADM emitted121 assertions; DS02–DS04 totals are **not emitted by these drivers**. |
+| DS02 correction | Exact neutral synchronization/cleanup, cancellation, ownership release, no replay and later `STRING a` recovery; original count-only failure remains separate | Test-only predicate repair and HTTP mock; no production repair or hardware acceptance. Raw journals, commands and source bindings retained. |
+
+The [prebuild procedure](docs/define-statements-prebuild.md) defines the new
+offline source-selection controls and their external results. Frozen190 Assert
+nodes are syntax-retention evidence, not190 executed target assertions. Actual
+target compile/link/resource/package/physical acceptance gates remain pending.
+
 Record only actual checks with an identifiable firmware/build, target OS (including version when known), scenario, result, evidence reference, evidence type, and caveat. Reference existing records rather than copying them. Separate physical checks, offline tests, and logs.
 
 Current lineage/installation distinctions are recorded in [Recovered Route B lineage](#recovered-route-b-lineage-correction-2026-11-14). Earlier absence findings below describe their original bounded inspections, not all recovered branches.
